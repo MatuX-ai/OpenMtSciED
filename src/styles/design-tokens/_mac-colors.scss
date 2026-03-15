@@ -1,0 +1,69 @@
+// ============================================
+// 颜色系统 - Mac 风格 (Apple-inspired)
+// ============================================
+
+// 品牌色 - Apple Colors
+$color-primary: #007AFF !default;          // Apple Blue - 主品牌色，用于按钮和链接
+$color-primary-hover: #0056CC !default;    // 悬停状态
+$color-primary-active: #004499 !default;   // 激活状态
+
+$color-success: #34C759 !default;          // Green - 成功/确认
+$color-warning: #FF9500 !default;          // Orange - 警告/注意
+$color-error: #FF3B30 !default;            // Red - 错误/危险
+$color-info: #007AFF !default;             // Blue - 信息提示
+
+// 中性色 - Gray Scale
+$color-black: #1D1D1F !default;            // 最深色
+$color-gray-900: #2D2D2F !default;
+$color-gray-800: #3A3A3C !default;
+$color-gray-700: #48484A !default;
+$color-gray-600: #6E6E73 !default;
+$color-gray-500: #86868B !default;
+$color-gray-400: #A1A1A6 !default;
+$color-gray-300: #C7C7CC !default;
+$color-gray-200: #D2D2D7 !default;
+$color-gray-100: #E5E5EA !default;
+$color-gray-50: #F5F5F7 !default;
+$color-white: #FFFFFF !default;            // 纯白
+
+// 背景色层次
+$bg-primary: $color-white !default;
+$bg-secondary: $color-gray-50 !default;
+$bg-tertiary: $color-gray-100 !default;
+$bg-dark: $color-black !default;
+
+// 文字颜色层次
+$text-primary: $color-black !default;
+$text-secondary: $color-gray-600 !default;
+$text-tertiary: $color-gray-400 !default;
+$text-inverse: $color-white !default;
+$text-link: $color-primary !default;
+
+// 边框颜色
+$border-color: $color-gray-200 !default;
+$border-color-light: $color-gray-100 !default;
+$border-color-dark: $color-gray-300 !default;
+
+// 导出为 CSS 变量（用于动态主题）
+:root {
+  --color-primary: #{$color-primary};
+  --color-primary-hover: #{$color-primary-hover};
+  --color-primary-active: #{$color-primary-active};
+  --color-success: #{$color-success};
+  --color-warning: #{$color-warning};
+  --color-error: #{$color-error};
+  --color-info: #{$color-info};
+  
+  --color-black: #{$color-black};
+  --color-gray-50: #{$color-gray-50};
+  --color-gray-100: #{$color-gray-100};
+  --color-gray-200: #{$color-gray-200};
+  --color-gray-300: #{$color-gray-300};
+  --color-gray-400: #{$color-gray-400};
+  --color-gray-500: #{$color-gray-500};
+  --color-gray-600: #{$color-gray-600};
+  --color-gray-700: #{$color-gray-700};
+  --color-gray-800: #{$color-gray-800};
+  --color-gray-900: #{$color-gray-900};
+  --color-white: #{$color-white};
+}
