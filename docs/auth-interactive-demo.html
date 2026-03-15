@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>认证功能交互演示</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f0f2f5;
+        }
+        
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #1890ff;
+            margin-bottom: 10px;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .tab {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .tab.active {
+            color: #1890ff;
+            border-bottom-color: #1890ff;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .demo-section {
+            margin-bottom: 30px;
+            padding: 25px;
+            border: 1px solid #e8e8e8;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+        
+        .section-title {
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1890ff;
+        }
+        
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 15px 0;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: #1890ff;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #40a9ff;
+            transform: translateY(-2px);
+        }
+        
+        .btn-success {
+            background: #52c41a;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #73d13d;
+        }
+        
+        .btn-danger {
+            background: #ff4d4f;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #ff7875;
+        }
+        
+        .btn-secondary {
+            background: #f5f5f5;
+            color: #333;
+            border: 1px solid #d9d9d9;
+        }
+        
+        .btn-secondary:hover {
+            background: #e6e6e6;
+        }
+        
+        .log-area {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 13px;
+            height: 300px;
+            overflow-y: auto;
+            margin: 15px 0;
+        }
+        
+        .log-entry {
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .log-timestamp {
+            color: #569cd6;
+        }
+        
+        .log-info {
+            color: #9cdcfe;
+        }
+        
+        .log-success {
+            color: #b5cea8;
+        }
+        
+        .log-error {
+            color: #f48771;
+        }
+        
+        .log-warning {
+            color: #dcdcaa;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .status-online {
+            background: #f6ffed;
+            color: #52c41a;
+            border: 1px solid #b7eb8f;
+        }
+        
+        .status-offline {
+            background: #fff2f0;
+            color: #ff4d4f;
+            border: 1px solid #ffccc7;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .feature-card {
+            background: white;
+            border: 1px solid #e8e8e8;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            border-color: #1890ff;
+            box-shadow: 0 4px 12px rgba(24, 144, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .feature-icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .feature-desc {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .code-snippet {
+            background: #f6f8fa;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            padding: 16px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 13px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        .highlight {
+            background: #fff5b1;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="header">
+            <h1>🔐 认证系统功能演示</h1>
+            <p>交互式测试各种认证功能</p>
+            <div>
+                系统状态: <span class="status-indicator status-offline" id="systemStatus">离线</span>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('overview')">系统概览</button>
+            <button class="tab" onclick="switchTab('auth-demo')">认证演示</button>
+            <button class="tab" onclick="switchTab('code-examples')">代码示例</button>
+            <button class="tab" onclick="switchTab('logs')">操作日志</button>
+        </div>
+
+        <!-- 系统概览 -->
+        <div id="overview" class="tab-content active">
+            <div class="demo-section">
+                <h2 class="section-title">🚀 系统功能概览</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📧</div>
+                        <div class="feature-title">邮箱密码认证</div>
+                        <div class="feature-desc">支持用户注册、登录、密码重置等完整流程，包含邮箱验证功能。</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🐙</div>
+                        <div class="feature-title">GitHub OAuth</div>
+                        <div class="feature-desc">通过GitHub账号快速登录，获取用户公开信息，支持二次授权。</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <div class="feature-title">Google OAuth</div>
+                        <div class="feature-desc">Google账号登录，支持OpenID Connect协议，获取用户资料和邮箱。</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💬</div>
+                        <div class="feature-title">微信登录</div>
+                        <div class="feature-desc">微信扫码登录，支持snsapi_login和snsapi_userinfo两种授权方式。</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🐧</div>
+                        <div class="feature-title">QQ登录</div>
+                        <div class="feature-desc">QQ快捷登录，获取用户基本信息，符合QQ互联平台开发规范。</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <div class="feature-title">安全特性</div>
+                        <div class="feature-desc">JWT令牌管理、自动刷新、CSRF防护、State参数验证等安全机制。</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h2 class="section-title">📊 技术架构</h2>
+                <div class="code-snippet">
+📦 认证系统架构
+├── 📁 models/                  # 数据模型定义
+│   └── auth.models.ts         # 用户、令牌、OAuth配置等接口
+├── 📁 services/               # 核心服务层
+│   ├── auth-state-manager.ts  # 状态管理
+│   ├── auth-http-client.ts    # HTTP客户端
+│   └── auth-main-service.ts   # 主认证服务
+├── 📁 auth/                   # UI组件
+│   ├── auth-page.html         # 认证页面
+│   ├── auth-page.scss         # 样式文件
+│   └── index.ts               # 入口文件
+└── 📁 docs/                   # 文档资料
+    ├── AUTH_SYSTEM_DOCUMENTATION.md
+    ├── WECHAT_QQ_INTEGRATION_GUIDE.md
+    └── auth-demo.html
+                </div>
+            </div>
+        </div>
+
+        <!-- 认证演示 -->
+        <div id="auth-demo" class="tab-content">
+            <div class="demo-section">
+                <h2 class="section-title">🎮 交互式认证演示</h2>
+                <p>点击下面的按钮来模拟各种认证流程：</p>
+                
+                <h3>传统认证</h3>
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="demoEmailLogin()">
+                        <span>📧</span>
+                        <span>邮箱登录</span>
+                    </button>
+                    <button class="btn btn-success" onclick="demoRegister()">
+                        <span>📝</span>
+                        <span>用户注册</span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="demoPasswordReset()">
+                        <span>🔑</span>
+                        <span>密码重置</span>
+                    </button>
+                </div>
+
+                <h3>第三方OAuth认证</h3>
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="demoGitHubAuth()">
+                        <span>🐙</span>
+                        <span>GitHub登录</span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="demoGoogleAuth()">
+                        <span>🔍</span>
+                        <span>Google登录</span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="demoWeChatAuth()">
+                        <span>💬</span>
+                        <span>微信登录</span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="demoQQAuth()">
+                        <span>🐧</span>
+                        <span>QQ登录</span>
+                    </button>
+                </div>
+
+                <h3>系统管理</h3>
+                <div class="button-group">
+                    <button class="btn btn-danger" onclick="demoLogout()">
+                        <span>🚪</span>
+                        <span>用户登出</span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="demoRefreshToken()">
+                        <span>🔄</span>
+                        <span>刷新令牌</span>
+                    </button>
+                    <button class="btn btn-secondary" onclick="demoCheckPermissions()">
+                        <span>🔐</span>
+                        <span>权限检查</span>
+                    </button>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="clearLogs()">清空日志</button>
+                    <button class="btn btn-secondary" onclick="exportLogs()">导出日志</button>
+                    <button class="btn btn-secondary" onclick="toggleSystemStatus()">切换系统状态</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 代码示例 -->
+        <div id="code-examples" class="tab-content">
+            <div class="demo-section">
+                <h2 class="section-title">💻 代码使用示例</h2>
+                
+                <h3>基本初始化</h3>
+                <div class="code-snippet">
+<span class="highlight">import</span> { initAuth, getAuthService } <span class="highlight">from</span> <span style="color: #ce9178">'./auth'</span>;
+
+<span class="highlight">const</span> authService = <span style="color: #569cd6">initAuth</span>({
+  <span style="color: #9cdcfe">apiUrl</span>: <span style="color: #ce9178">'https://api.yourdomain.com'</span>,
+  <span style="color: #9cdcfe">githubClientId</span>: <span style="color: #ce9178">'your_github_client_id'</span>,
+  <span style="color: #9cdcfe">googleClientId</span>: <span style="color: #ce9178">'your_google_client_id'</span>,
+  <span style="color: #9cdcfe">wechatAppId</span>: <span style="color: #ce9178">'your_wechat_app_id'</span>,
+  <span style="color: #9cdcfe">qqAppId</span>: <span style="color: #ce9178">'your_qq_app_id'</span>
+});
+                </div>
+
+                <h3>微信登录示例</h3>
+                <div class="code-snippet">
+<span class="highlight">async function</span> <span style="color: #dcdcaa">loginWithWeChat</span>() {
+  <span class="highlight">try</span> {
+    <span class="highlight">await</span> authService.<span style="color: #569cd6">signInWithWeChat</span>({
+      <span style="color: #9cdcfe">scope</span>: <span style="color: #ce9178">'snsapi_login'</span>,
+      <span style="color: #9cdcfe">redirectUri</span>: <span style="color: #ce9178">'https://yourdomain.com/auth/callback'</span>
+    });
+    <span style="color: #6a9955">// 登录成功处理</span>
+  } <span class="highlight">catch</span> (error) {
+    console.<span style="color: #569cd6">error</span>(<span style="color: #ce9178">'微信登录失败:'</span>, error);
+  }
+}
+                </div>
+
+                <h3>QQ登录示例</h3>
+                <div class="code-snippet">
+<span class="highlight">async function</span> <span style="color: #dcdcaa">loginWithQQ</span>() {
+  <span class="highlight">try</span> {
+    <span class="highlight">await</span> authService.<span style="color: #569cd6">signInWithQQ</span>({
+      <span style="color: #9cdcfe">scope</span>: <span style="color: #ce9178">'get_user_info'</span>,
+      <span style="color: #9cdcfe">redirectUri</span>: <span style="color: #ce9178">'https://yourdomain.com/auth/callback'</span>
+    });
+    <span style="color: #6a9955">// 登录成功处理</span>
+  } <span class="highlight">catch</span> (error) {
+    console.<span style="color: #569cd6">error</span>(<span style="color: #ce9178">'QQ登录失败:'</span>, error);
+  }
+}
+                </div>
+
+                <h3>回调处理示例</h3>
+                <div class="code-snippet">
+<span class="highlight">async function</span> <span style="color: #dcdcaa">handleOAuthCallback</span>() {
+  <span class="highlight">const</span> urlParams = <span class="highlight">new</span> <span style="color: #569cd6">URLSearchParams</span>(window.location.search);
+  <span class="highlight">const</span> code = urlParams.<span style="color: #569cd6">get</span>(<span style="color: #ce9178">'code'</span>);
+  <span class="highlight">const</span> state = urlParams.<span style="color: #569cd6">get</span>(<span style="color: #ce9178">'state'</span>);
+  
+  <span class="highlight">if</span> (code && state) {
+    <span class="highlight">try</span> {
+      <span class="highlight">const</span> authResponse = <span class="highlight">await</span> authService.<span style="color: #569cd6">handleOAuthCallback</span>(code, state);
+      <span style="color: #6a9955">// 认证成功，跳转到应用主页</span>
+      window.location.href = <span style="color: #ce9178">'/dashboard'</span>;
+    } <span class="highlight">catch</span> (error) {
+      <span style="color: #6a9955">// 处理认证失败</span>
+    }
+  }
+}
+                </div>
+            </div>
+        </div>
+
+        <!-- 操作日志 -->
+        <div id="logs" class="tab-content">
+            <div class="demo-section">
+                <h2 class="section-title">📝 实时操作日志</h2>
+                <div class="log-area" id="logArea">
+                    <div class="log-entry">
+                        <span class="log-timestamp">[00:00:00]</span>
+                        <span class="log-info">系统初始化完成</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 日志管理
+        const logArea = document.getElementById('logArea');
+        let logCounter = 1;
+
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.className = 'log-entry';
+            logEntry.innerHTML = `
+                <span class="log-timestamp">[${timestamp}]</span>
+                <span class="log-${type}">${message}</span>
+            `;
+            logArea.appendChild(logEntry);
+            logArea.scrollTop = logArea.scrollHeight;
+            logCounter++;
+        }
+
+        function clearLogs() {
+            logArea.innerHTML = '';
+            log('日志已清空', 'info');
+        }
+
+        function exportLogs() {
+            const logs = logArea.innerText;
+            const blob = new Blob([logs], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `auth-demo-logs-${new Date().toISOString().slice(0, 19)}.txt`;
+            a.click();
+            URL.revokeObjectURL(url);
+            log('日志已导出到文件', 'success');
+        }
+
+        // 系统状态管理
+        let systemOnline = false;
+        const systemStatus = document.getElementById('systemStatus');
+
+        function toggleSystemStatus() {
+            systemOnline = !systemOnline;
+            if (systemOnline) {
+                systemStatus.className = 'status-indicator status-online';
+                systemStatus.textContent = '在线';
+                log('系统状态: 在线', 'success');
+            } else {
+                systemStatus.className = 'status-indicator status-offline';
+                systemStatus.textContent = '离线';
+                log('系统状态: 离线', 'warning');
+            }
+        }
+
+        // 标签页切换
+        function switchTab(tabId) {
+            // 隐藏所有标签内容
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // 移除所有活动标签样式
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // 显示选中的标签内容
+            document.getElementById(tabId).classList.add('active');
+            
+            // 添加活动标签样式
+            event.target.classList.add('active');
+        }
+
+        // 演示功能
+        function demoEmailLogin() {
+            log('开始邮箱登录流程...', 'info');
+            setTimeout(() => {
+                log('✅ 邮箱登录成功', 'success');
+                log('用户: test@example.com', 'info');
+            }, 1000);
+        }
+
+        function demoRegister() {
+            log('开始用户注册流程...', 'info');
+            setTimeout(() => {
+                log('✅ 用户注册成功', 'success');
+                log('请检查邮箱验证链接', 'warning');
+            }, 1500);
+        }
+
+        function demoPasswordReset() {
+            log('开始密码重置流程...', 'info');
+            setTimeout(() => {
+                log('✅ 密码重置邮件已发送', 'success');
+                log('请检查邮箱中的重置链接', 'info');
+            }, 800);
+        }
+
+        function demoGitHubAuth() {
+            log('跳转到GitHub授权页面...', 'info');
+            log('请在新窗口中完成授权', 'warning');
+            setTimeout(() => {
+                log('✅ GitHub认证成功', 'success');
+                log('获取用户信息: GitHub User', 'info');
+            }, 2000);
+        }
+
+        function demoGoogleAuth() {
+            log('跳转到Google授权页面...', 'info');
+            log('请在新窗口中完成授权', 'warning');
+            setTimeout(() => {
+                log('✅ Google认证成功', 'success');
+                log('获取用户信息: Google User', 'info');
+            }, 2000);
+        }
+
+        function demoWeChatAuth() {
+            log('跳转到微信授权页面...', 'info');
+            log('请使用微信扫描二维码完成授权', 'warning');
+            setTimeout(() => {
+                log('✅ 微信认证成功', 'success');
+                log('获取用户信息: 微信用户', 'info');
+            }, 2500);
+        }
+
+        function demoQQAuth() {
+            log('跳转到QQ授权页面...', 'info');
+            log('请在新窗口中完成授权', 'warning');
+            setTimeout(() => {
+                log('✅ QQ认证成功', 'success');
+                log('获取用户信息: QQ用户', 'info');
+            }, 2000);
+        }
+
+        function demoLogout() {
+            log('用户登出中...', 'info');
+            setTimeout(() => {
+                log('✅ 用户已登出', 'success');
+                log('清除本地认证数据', 'info');
+            }, 500);
+        }
+
+        function demoRefreshToken() {
+            log('刷新访问令牌...', 'info');
+            setTimeout(() => {
+                log('✅ 令牌刷新成功', 'success');
+                log('新令牌有效期: 1小时', 'info');
+            }, 800);
+        }
+
+        function demoCheckPermissions() {
+            log('检查用户权限...', 'info');
+            setTimeout(() => {
+                log('✅ 权限检查完成', 'success');
+                log('读取权限: ✓ 允许', 'info');
+                log('写入权限: ✓ 允许', 'info');
+                log('管理权限: ✗ 拒绝', 'warning');
+            }, 600);
+        }
+
+        // 页面加载完成后的初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            log('认证系统演示页面已加载', 'success');
+            log('当前支持认证方式: 邮箱、GitHub、Google、微信、QQ', 'info');
+            log('点击上方标签页查看不同功能演示', 'info');
+        });
+    </script>
+</body>
+</html>

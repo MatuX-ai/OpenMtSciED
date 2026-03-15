@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iMatuProject 样式调试器</title>
+    <style>
+        :root {
+            --primary: #2196F3;
+            --secondary: #9C27B0;
+            --success: #4CAF50;
+            --warning: #FF9800;
+            --error: #F44336;
+            --surface: #FFFFFF;
+            --background: #f5f5f5;
+            --text-primary: #212121;
+            --text-secondary: #757575;
+            --border: #E0E0E0;
+            --radius: 4px;
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .header h1 {
+            color: var(--primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .playground {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        @media (max-width: 768px) {
+            .playground {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .panel {
+            background: var(--surface);
+            border-radius: var(--radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .panel-header {
+            background: var(--primary);
+            color: white;
+            padding: var(--spacing-md);
+            font-weight: 600;
+        }
+
+        .panel-body {
+            padding: var(--spacing-lg);
+        }
+
+        textarea {
+            width: 100%;
+            height: 300px;
+            padding: var(--spacing-md);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 14px;
+            resize: vertical;
+            background: var(--surface);
+            color: var(--text-primary);
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+        }
+
+        .controls {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: none;
+            border-radius: var(--radius);
+            background: var(--primary);
+            color: white;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        button:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        button.secondary {
+            background: var(--secondary);
+        }
+
+        button.success {
+            background: var(--success);
+        }
+
+        .preview-area {
+            min-height: 300px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: var(--spacing-lg);
+            background: white;
+        }
+
+        .component-gallery {
+            margin-top: var(--spacing-xl);
+        }
+
+        .gallery-title {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-primary);
+        }
+
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .component-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: var(--spacing-lg);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .component-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-color: var(--primary);
+        }
+
+        .component-name {
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+            color: var(--text-primary);
+        }
+
+        .component-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .component-preview {
+            background: var(--background);
+            padding: var(--spacing-md);
+            border-radius: var(--radius);
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--radius);
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transform: translateX(120%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.success { background: var(--success); }
+        .notification.error { background: var(--error); }
+        .notification.info { background: var(--primary); }
+
+        /* 示例样式类 */
+        .demo-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .demo-button:hover {
+            background: #1976D2;
+            transform: translateY(-1px);
+        }
+
+        .demo-card {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .demo-input {
+            width: 100%;
+            padding: var(--spacing-sm);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 16px;
+        }
+
+        .demo-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .demo-col {
+            background: var(--background);
+            padding: var(--spacing-md);
+            text-align: center;
+            border-radius: var(--radius);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎨 iMatuProject 样式调试器</h1>
+            <p>实时编写和预览 SCSS 代码</p>
+        </div>
+
+        <div class="controls">
+            <button onclick="runCode()">▶️ 运行代码</button>
+            <button onclick="clearEditor()" class="secondary">🗑️ 清空</button>
+            <button onclick="loadExample('button')" class="success">🔘 按钮示例</button>
+            <button onclick="loadExample('card')" class="success">🃏 卡片示例</button>
+            <button onclick="loadExample('layout')" class="success">🍱 布局示例</button>
+        </div>
+
+        <div class="playground">
+            <div class="panel">
+                <div class="panel-header">SCSS 编辑器</div>
+                <div class="panel-body">
+                    <textarea id="scss-editor" placeholder="在这里编写你的 SCSS 代码...">// 示例代码
+.demo-container {
+  padding: 24px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  
+  .demo-title {
+    font-size: 24px;
+    color: #2196F3;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .demo-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+  
+  .demo-card {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    
+    .card-title {
+      font-size: 18px;
+      margin-bottom: 12px;
+      color: #333;
+    }
+    
+    .card-content {
+      color: #666;
+      line-height: 1.6;
+    }
+  }
+}</textarea>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">实时预览</div>
+                <div class="panel-body">
+                    <div id="preview-area" class="preview-area">
+                        <p style="color: #666; text-align: center;">
+                            点击 "运行代码" 按钮来预览你的样式效果
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="component-gallery">
+            <h2 class="gallery-title">🚀 快速组件示例</h2>
+            <div class="component-grid">
+                <div class="component-card" onclick="insertComponent('button')">
+                    <div class="component-name">按钮组件</div>
+                    <div class="component-desc">多种样式和尺寸的按钮</div>
+                    <div class="component-preview">
+                        <button class="demo-button">点击我</button>
+                    </div>
+                </div>
+
+                <div class="component-card" onclick="insertComponent('card')">
+                    <div class="component-name">卡片组件</div>
+                    <div class="component-desc">内容容器和卡片布局</div>
+                    <div class="component-preview">
+                        <div class="demo-card" style="margin: 0;">
+                            <div class="card-title">卡片标题</div>
+                            <div class="card-content">卡片内容区域</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-card" onclick="insertComponent('input')">
+                    <div class="component-name">输入框组件</div>
+                    <div class="component-desc">表单输入元素</div>
+                    <div class="component-preview">
+                        <input type="text" class="demo-input" placeholder="请输入内容">
+                    </div>
+                </div>
+
+                <div class="component-card" onclick="insertComponent('grid')">
+                    <div class="component-name">网格布局</div>
+                    <div class="component-desc">响应式网格系统</div>
+                    <div class="component-preview">
+                        <div class="demo-grid">
+                            <div class="demo-col">1</div>
+                            <div class="demo-col">2</div>
+                            <div class="demo-col">3</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-card" onclick="insertComponent('colors')">
+                    <div class="component-name">颜色系统</div>
+                    <div class="component-desc">品牌色和语义化颜色</div>
+                    <div class="component-preview">
+                        <div style="display: flex; gap: 8px;">
+                            <div style="width: 30px; height: 30px; background: #2196F3; border-radius: 4px;"></div>
+                            <div style="width: 30px; height: 30px; background: #4CAF50; border-radius: 4px;"></div>
+                            <div style="width: 30px; height: 30px; background: #FF9800; border-radius: 4px;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="component-card" onclick="insertComponent('typography')">
+                    <div class="component-name">排版系统</div>
+                    <div class="component-desc">字体和排版规范</div>
+                    <div class="component-preview">
+                        <div style="font-size: 18px; font-weight: 600;">标题文本</div>
+                        <div style="font-size: 14px; color: #666;">正文文本</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="notifications"></div>
+
+    <script>
+        // 简化的 SCSS 编译器（模拟）
+        function compileSCSS(scss) {
+            // 简单的变量替换
+            const variables = {
+                '$color-primary': '#2196F3',
+                '$color-secondary': '#9C27B0',
+                '$color-success': '#4CAF50',
+                '$color-warning': '#FF9800',
+                '$color-error': '#F44336',
+                '$color-surface': '#FFFFFF',
+                '$color-background': '#f5f5f5',
+                '$color-text-primary': '#212121',
+                '$color-text-secondary': '#757575',
+                '$color-border': '#E0E0E0',
+                '$spacing-xs': '4px',
+                '$spacing-sm': '8px',
+                '$spacing-md': '16px',
+                '$spacing-lg': '24px',
+                '$spacing-xl': '32px',
+                '$border-radius': '4px',
+                '$font-size-small': '12px',
+                '$font-size-base': '14px',
+                '$font-size-medium': '16px',
+                '$font-size-large': '18px',
+                '$font-size-xl': '24px',
+                '$font-weight-normal': '400',
+                '$font-weight-medium': '500',
+                '$font-weight-bold': '700'
+            };
+
+            let css = scss;
+            
+            // 替换变量
+            Object.entries(variables).forEach(([variable, value]) => {
+                css = css.replaceAll(variable, value);
+            });
+
+            // 简单的 mixin 模拟
+            css = css.replace(/@include\s+([^(]+)(?:\(([^)]*)\))?/g, '/* @include $1($2) */');
+            
+            return css;
+        }
+
+        function runCode() {
+            const editor = document.getElementById('scss-editor');
+            const previewArea = document.getElementById('preview-area');
+            
+            try {
+                const scssCode = editor.value;
+                const cssCode = compileSCSS(scssCode);
+                
+                previewArea.innerHTML = `
+                    <style>${cssCode}</style>
+                    <div class="demo-result">
+                        <h3 style="margin-bottom: 16px; color: #2196F3;">编译结果预览</h3>
+                        <div class="demo-container">
+                            <div class="demo-content">
+                                <p>这是你的样式预览区域</p>
+                                <p>修改左侧代码并点击运行查看效果</p>
+                            </div>
+                        </div>
+                    </div>
+                    <details style="margin-top: 20px;">
+                        <summary style="cursor: pointer; font-weight: bold;">查看生成的 CSS</summary>
+                        <pre style="background: #f5f5f5; padding: 16px; border-radius: 4px; margin-top: 8px; overflow-x: auto; font-size: 12px;">${escapeHtml(cssCode)}</pre>
+                    </details>
+                `;
+                
+                showNotification('编译成功！', 'success');
+            } catch (error) {
+                previewArea.innerHTML = `
+                    <div style="color: #f44336; padding: 16px; background: #ffebee; border-radius: 4px;">
+                        <strong>编译错误：</strong><br>
+                        ${error.message}
+                    </div>
+                `;
+                showNotification('编译失败', 'error');
+            }
+        }
+
+        function clearEditor() {
+            document.getElementById('scss-editor').value = '';
+            showNotification('编辑器已清空', 'info');
+        }
+
+        function loadExample(type) {
+            const examples = {
+                button: `// 按钮组件示例
+.my-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background: $color-primary;
+  color: white;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  font-weight: $font-weight-medium;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: #1976D2;
+    transform: translateY(-1px);
+  }
+  
+  &.secondary {
+    background: $color-secondary;
+    
+    &:hover {
+      background: #7B1FA2;
+    }
+  }
+  
+  &.success {
+    background: $color-success;
+    
+    &:hover {
+      background: #388E3C;
+    }
+  }
+}`,
+                card: `// 卡片组件示例
+.my-card {
+  background: $color-surface;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  
+  .card-header {
+    padding: $spacing-lg;
+    background: $color-background;
+    border-bottom: 1px solid $color-border;
+    
+    .card-title {
+      font-size: $font-size-xl;
+      font-weight: $font-weight-bold;
+      margin: 0;
+      color: $color-text-primary;
+    }
+  }
+  
+  .card-body {
+    padding: $spacing-lg;
+    
+    .card-text {
+      color: $color-text-secondary;
+      line-height: 1.6;
+      margin-bottom: $spacing-md;
+    }
+  }
+  
+  .card-footer {
+    padding: $spacing-md $spacing-lg;
+    background: $color-background;
+    border-top: 1px solid $color-border;
+    text-align: right;
+  }
+}`,
+                layout: `// 布局系统示例
+.layout-demo {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+    
+    .col {
+      background: $color-background;
+      padding: $spacing-lg;
+      border-radius: $border-radius;
+      text-align: center;
+      
+      &:nth-child(odd) {
+        background: #e3f2fd;
+      }
+    }
+  }
+  
+  .flex-container {
+    display: flex;
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+    flex-wrap: wrap;
+    
+    .flex-item {
+      flex: 1;
+      min-width: 150px;
+      padding: $spacing-md;
+      background: $color-background;
+      border-radius: $border-radius;
+      text-align: center;
+    }
+  }
+}`
+            };
+
+            if (examples[type]) {
+                document.getElementById('scss-editor').value = examples[type];
+                showNotification(`已加载 ${type} 示例`, 'success');
+            }
+        }
+
+        function insertComponent(component) {
+            const templates = {
+                button: `.my-button {
+  padding: 10px 20px;
+  background: $color-primary;
+  color: white;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+}`,
+                card: `.my-card {
+  background: white;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: $spacing-lg;
+}`,
+                input: `.my-input {
+  width: 100%;
+  padding: $spacing-sm;
+  border: 1px solid $color-border;
+  border-radius: $border-radius;
+  font-size: $font-size-medium;
+}`,
+                grid: `.my-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-md;
+  
+  .grid-item {
+    background: $color-background;
+    padding: $spacing-md;
+    text-align: center;
+  }
+}`,
+                colors: `.color-demo {
+  .primary { color: $color-primary; }
+  .secondary { color: $color-secondary; }
+  .success { color: $color-success; }
+  .warning { color: $color-warning; }
+}`,
+                typography: `.text-demo {
+  .heading { font-size: $font-size-xl; font-weight: $font-weight-bold; }
+  .body { font-size: $font-size-medium; color: $color-text-secondary; }
+  .small { font-size: $font-size-small; color: $color-text-secondary; }
+}`
+            };
+
+            const editor = document.getElementById('scss-editor');
+            const currentValue = editor.value;
+            const template = templates[component] || '';
+            
+            if (currentValue.trim()) {
+                editor.value = currentValue + '\n\n' + template;
+            } else {
+                editor.value = template;
+            }
+            
+            showNotification(`已插入 ${component} 组件代码`, 'success');
+        }
+
+        function showNotification(message, type = 'info') {
+            const notifications = document.getElementById('notifications');
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            
+            notifications.appendChild(notification);
+            
+            setTimeout(() => notification.classList.add('show'), 100);
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // 键盘快捷键
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'Enter') {
+                e.preventDefault();
+                runCode();
+            }
+        });
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            showNotification('欢迎使用 iMatuProject 样式调试器！', 'info');
+        });
+    </script>
+</body>
+</html>

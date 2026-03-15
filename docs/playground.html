@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iMatuProject 样式沙盒环境</title>
+    <link rel="stylesheet" href="../src/styles/main.scss">
+    <style>
+        /* Playground 专用样式 */
+        :root {
+            --playground-bg: #f8f9fa;
+            --playground-panel-bg: #ffffff;
+            --playground-border: #dee2e6;
+            --playground-text: #212529;
+            --playground-accent: #2196F3;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--playground-bg);
+            color: var(--playground-text);
+            line-height: 1.6;
+        }
+
+        .playground-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr;
+            height: 100vh;
+            gap: 1px;
+            background-color: var(--playground-border);
+        }
+
+        .playground-header {
+            grid-column: 1 / -1;
+            background-color: var(--playground-panel-bg);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--playground-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .playground-title {
+            margin: 0;
+            color: var(--playground-accent);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .playground-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .control-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        select, button {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--playground-border);
+            border-radius: 4px;
+            background-color: var(--playground-panel-bg);
+            color: var(--playground-text);
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        select:hover, button:hover {
+            border-color: var(--playground-accent);
+        }
+
+        button {
+            background-color: var(--playground-accent);
+            color: white;
+            border: none;
+        }
+
+        button:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .panel {
+            background-color: var(--playground-panel-bg);
+            padding: 1.5rem;
+            overflow: auto;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--playground-border);
+        }
+
+        .panel-title {
+            margin: 0;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--playground-text);
+        }
+
+        .panel-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .panel-action-btn {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            background: none;
+            border: 1px solid var(--playground-border);
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .panel-action-btn:hover {
+            background-color: var(--playground-bg);
+        }
+
+        /* 编辑器样式 */
+        .editor-container {
+            position: relative;
+            height: 100%;
+        }
+
+        .editor {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            padding: 1rem;
+            border: 1px solid var(--playground-border);
+            border-radius: 4px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            resize: none;
+            background-color: var(--playground-panel-bg);
+            color: var(--playground-text);
+        }
+
+        .editor:focus {
+            outline: none;
+            border-color: var(--playground-accent);
+            box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+        }
+
+        /* 预览区域样式 */
+        .preview-container {
+            position: relative;
+            height: 100%;
+            min-height: 300px;
+            border: 1px solid var(--playground-border);
+            border-radius: 4px;
+            background-color: white;
+            overflow: auto;
+        }
+
+        .preview-content {
+            padding: 2rem;
+        }
+
+        .preview-error {
+            padding: 1rem;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 4px;
+            color: #721c24;
+            margin: 1rem;
+        }
+
+        /* 组件库面板 */
+        .component-library {
+            grid-row: 2 / -1;
+            background-color: var(--playground-panel-bg);
+            border-right: 1px solid var(--playground-border);
+            padding: 1.5rem;
+            overflow-y: auto;
+        }
+
+        .library-section {
+            margin-bottom: 2rem;
+        }
+
+        .library-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--playground-text);
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--playground-border);
+        }
+
+        .component-list {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .component-item {
+            padding: 0.75rem;
+            border: 1px solid var(--playground-border);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background-color: var(--playground-panel-bg);
+        }
+
+        .component-item:hover {
+            border-color: var(--playground-accent);
+            background-color: rgba(33, 150, 243, 0.05);
+            transform: translateX(2px);
+        }
+
+        .component-name {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .component-desc {
+            font-size: 0.8125rem;
+            color: #6c757d;
+        }
+
+        /* 主题切换 */
+        [data-theme="dark"] {
+            --playground-bg: #1a1a1a;
+            --playground-panel-bg: #2d2d2d;
+            --playground-border: #444;
+            --playground-text: #e0e0e0;
+        }
+
+        [data-theme="dark"] .editor {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+        }
+
+        [data-theme="dark"] .preview-container {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1024px) {
+            .playground-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto 1fr 1fr;
+            }
+            
+            .component-library {
+                grid-row: 2;
+                border-right: none;
+                border-bottom: 1px solid var(--playground-border);
+            }
+            
+            .panel {
+                grid-row: 3;
+            }
+            
+            .preview-panel {
+                grid-row: 4;
+            }
+        }
+
+        /* 工具提示 */
+        .tooltip {
+            position: relative;
+        }
+
+        .tooltip:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            z-index: 1000;
+        }
+
+        /* 加载动画 */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* 通知样式 */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateX(120%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.success {
+            background-color: #28a745;
+        }
+
+        .notification.error {
+            background-color: #dc3545;
+        }
+
+        .notification.warning {
+            background-color: #ffc107;
+            color: #212529;
+        }
+    </style>
+</head>
+<body>
+    <div class="playground-container">
+        <!-- 顶部控制栏 -->
+        <header class="playground-header">
+            <h1 class="playground-title">🎨 iMatuProject 样式沙盒</h1>
+            <div class="playground-controls">
+                <div class="control-group">
+                    <label class="control-label">主题:</label>
+                    <select id="theme-selector">
+                        <option value="light">亮色主题</option>
+                        <option value="dark">暗色主题</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">预设:</label>
+                    <select id="preset-selector">
+                        <option value="">选择预设...</option>
+                        <option value="button">按钮组件</option>
+                        <option value="card">卡片组件</option>
+                        <option value="form">表单组件</option>
+                        <option value="layout">布局系统</option>
+                        <option value="typography">排版系统</option>
+                    </select>
+                </div>
+                <button id="run-btn" class="tooltip" data-tooltip="编译并预览 (Ctrl+Enter)">
+                    <span class="run-text">▶️ 运行</span>
+                </button>
+                <button id="save-btn" class="tooltip" data-tooltip="保存到本地">
+                    💾 保存
+                </button>
+                <button id="reset-btn" class="tooltip" data-tooltip="重置编辑器">
+                    🔄 重置
+                </button>
+            </div>
+        </header>
+
+        <!-- 组件库面板 -->
+        <aside class="component-library">
+            <div class="library-section">
+                <h3 class="library-title">🧩 基础组件</h3>
+                <div class="component-list">
+                    <div class="component-item" data-component="button">
+                        <div class="component-name">按钮 (Button)</div>
+                        <div class="component-desc">各种样式和尺寸的按钮</div>
+                    </div>
+                    <div class="component-item" data-component="card">
+                        <div class="component-name">卡片 (Card)</div>
+                        <div class="component-desc">内容容器和卡片布局</div>
+                    </div>
+                    <div class="component-item" data-component="input">
+                        <div class="component-name">输入框 (Input)</div>
+                        <div class="component-desc">表单输入元素</div>
+                    </div>
+                    <div class="component-item" data-component="icon">
+                        <div class="component-name">图标 (Icon)</div>
+                        <div class="component-desc">图标系统和大小规范</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="library-section">
+                <h3 class="library-title">🎨 Design Tokens</h3>
+                <div class="component-list">
+                    <div class="component-item" data-component="colors">
+                        <div class="component-name">颜色系统</div>
+                        <div class="component-desc">品牌色和语义化颜色</div>
+                    </div>
+                    <div class="component-item" data-component="typography">
+                        <div class="component-name">排版系统</div>
+                        <div class="component-desc">字体和排版规范</div>
+                    </div>
+                    <div class="component-item" data-component="spacing">
+                        <div class="component-name">间距系统</div>
+                        <div class="component-desc">统一的间距规范</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="library-section">
+                <h3 class="library-title">🔧 工具 Mixins</h3>
+                <div class="component-list">
+                    <div class="component-item" data-component="layout">
+                        <div class="component-name">布局工具</div>
+                        <div class="component-desc">Flexbox 和 Grid 工具</div>
+                    </div>
+                    <div class="component-item" data-component="responsive">
+                        <div class="component-name">响应式工具</div>
+                        <div class="component-desc">断点和媒体查询</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- SCSS 编辑器面板 -->
+        <main class="panel">
+            <div class="panel-header">
+                <h2 class="panel-title">📝 SCSS 编辑器</h2>
+                <div class="panel-actions">
+                    <button class="panel-action-btn tooltip" data-tooltip="格式化代码" id="format-btn"> beautify </button>
+                    <button class="panel-action-btn tooltip" data-tooltip="复制代码" id="copy-btn"> copy </button>
+                </div>
+            </div>
+            <div class="editor-container">
+                <textarea 
+                    id="scss-editor" 
+                    class="editor" 
+                    placeholder="在这里编写你的 SCSS 代码..."
+                    spellcheck="false"
+                ></textarea>
+            </div>
+        </main>
+
+        <!-- 预览面板 -->
+        <section class="panel preview-panel">
+            <div class="panel-header">
+                <h2 class="panel-title">👁️ 实时预览</h2>
+                <div class="panel-actions">
+                    <button class="panel-action-btn tooltip" data-tooltip="刷新预览" id="refresh-btn"> refresh </button>
+                    <button class="panel-action-btn tooltip" data-tooltip="在新窗口打开" id="open-btn"> open </button>
+                </div>
+            </div>
+            <div class="preview-container">
+                <div id="preview-content" class="preview-content">
+                    <div style="text-align: center; color: #6c757d; margin-top: 2rem;">
+                        <p>点击 "运行" 按钮或按下 Ctrl+Enter 来编译和预览你的 SCSS 代码</p>
+                        <p>或者从左侧组件库中选择一个组件开始</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 通知容器 -->
+    <div id="notifications"></div>
+
+    <script>
+        // Playground 主要逻辑
+        class StylePlayground {
+            constructor() {
+                this.editor = document.getElementById('scss-editor');
+                this.preview = document.getElementById('preview-content');
+                this.themeSelector = document.getElementById('theme-selector');
+                this.presetSelector = document.getElementById('preset-selector');
+                
+                this.init();
+                this.bindEvents();
+                this.loadSavedCode();
+            }
+
+            init() {
+                // 设置初始代码示例
+                this.editor.value = `// 欢迎使用 iMatuProject 样式沙盒！
+// 这里是一些示例代码，你可以自由修改
+
+.demo-container {
+  padding: $spacing-xl;
+  background-color: $color-surface;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-md;
+  
+  .demo-title {
+    @include typography-h2;
+    color: $color-primary;
+    margin-bottom: $spacing-lg;
+    text-align: center;
+  }
+  
+  .demo-buttons {
+    display: flex;
+    gap: $spacing-md;
+    justify-content: center;
+    margin-bottom: $spacing-xl;
+    
+    .c-button {
+      @include button-base($color-primary);
+      
+      &--secondary {
+        @include button-base($color-secondary);
+      }
+      
+      &--success {
+        @include button-base($color-success);
+      }
+    }
+  }
+  
+  .demo-card {
+    @include card-base;
+    max-width: 400px;
+    margin: 0 auto;
+    
+    .card-content {
+      padding: $spacing-lg;
+      
+      .card-title {
+        @include typography-h4;
+        margin-bottom: $spacing-md;
+        color: $color-text-primary;
+      }
+      
+      .card-text {
+        @include typography-body;
+        color: $color-text-secondary;
+        line-height: $line-height-relaxed;
+      }
+    }
+  }
+}`;
+
+                // 应用保存的主题
+                const savedTheme = localStorage.getItem('playground-theme') || 'light';
+                this.themeSelector.value = savedTheme;
+                this.applyTheme(savedTheme);
+            }
+
+            bindEvents() {
+                // 运行按钮
+                document.getElementById('run-btn').addEventListener('click', () => {
+                    this.compileAndPreview();
+                });
+
+                // 保存按钮
+                document.getElementById('save-btn').addEventListener('click', () => {
+                    this.saveCode();
+                });
+
+                // 重置按钮
+                document.getElementById('reset-btn').addEventListener('click', () => {
+                    this.resetEditor();
+                });
+
+                // 格式化按钮
+                document.getElementById('format-btn').addEventListener('click', () => {
+                    this.formatCode();
+                });
+
+                // 复制按钮
+                document.getElementById('copy-btn').addEventListener('click', () => {
+                    this.copyCode();
+                });
+
+                // 刷新预览按钮
+                document.getElementById('refresh-btn').addEventListener('click', () => {
+                    this.refreshPreview();
+                });
+
+                // 新窗口打开按钮
+                document.getElementById('open-btn').addEventListener('click', () => {
+                    this.openInNewWindow();
+                });
+
+                // 主题切换
+                this.themeSelector.addEventListener('change', (e) => {
+                    this.applyTheme(e.target.value);
+                });
+
+                // 预设选择
+                this.presetSelector.addEventListener('change', (e) => {
+                    this.loadPreset(e.target.value);
+                });
+
+                // 组件库点击
+                document.querySelectorAll('.component-item').forEach(item => {
+                    item.addEventListener('click', (e) => {
+                        const component = e.currentTarget.dataset.component;
+                        this.loadComponentTemplate(component);
+                    });
+                });
+
+                // 键盘快捷键
+                this.editor.addEventListener('keydown', (e) => {
+                    if (e.ctrlKey && e.key === 'Enter') {
+                        e.preventDefault();
+                        this.compileAndPreview();
+                    }
+                });
+
+                // 实时预览（可选）
+                let debounceTimer;
+                this.editor.addEventListener('input', () => {
+                    clearTimeout(debounceTimer);
+                    debounceTimer = setTimeout(() => {
+                        // 可以启用实时预览
+                        // this.compileAndPreview();
+                    }, 1000);
+                });
+            }
+
+            async compileAndPreview() {
+                const scssCode = this.editor.value;
+                const runBtn = document.getElementById('run-btn');
+                const runText = runBtn.querySelector('.run-text');
+                
+                // 显示加载状态
+                runText.innerHTML = '<span class="loading"></span> 编译中...';
+                runBtn.disabled = true;
+
+                try {
+                    // 这里应该调用实际的 SCSS 编译器
+                    // 暂时使用模拟编译
+                    await new Promise(resolve => setTimeout(resolve, 800));
+                    
+                    const cssCode = this.mockCompileSCSS(scssCode);
+                    this.renderPreview(cssCode, scssCode);
+                    this.showNotification('编译成功！', 'success');
+                } catch (error) {
+                    this.showError(error.message);
+                    this.showNotification('编译失败：' + error.message, 'error');
+                } finally {
+                    runText.textContent = '▶️ 运行';
+                    runBtn.disabled = false;
+                }
+            }
+
+            mockCompileSCSS(scssCode) {
+                // 简单的 SCSS 到 CSS 转换模拟
+                // 实际项目中应该使用真正的 SCSS 编译器
+                return scssCode
+                    .replace(/\$(\w+(?:-\w+)*)/g, (_, varName) => {
+                        // 模拟变量替换
+                        const tokenMap = {
+                            'color-primary': '#2196F3',
+                            'color-secondary': '#9C27B0',
+                            'color-success': '#4CAF50',
+                            'color-surface': '#FFFFFF',
+                            'color-text-primary': '#212121',
+                            'color-text-secondary': '#757575',
+                            'spacing-xs': '0.25rem',
+                            'spacing-sm': '0.5rem',
+                            'spacing-md': '1rem',
+                            'spacing-lg': '1.5rem',
+                            'spacing-xl': '2rem',
+                            'border-radius-sm': '0.125rem',
+                            'border-radius-md': '0.25rem',
+                            'border-radius-lg': '0.5rem',
+                            'shadow-sm': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+                            'shadow-md': '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                            'line-height-normal': '1.5',
+                            'line-height-relaxed': '1.625'
+                        };
+                        return tokenMap[varName] || `var(--${varName})`;
+                    })
+                    .replace(/@include\s+(\w+(?:-\w+)*)(?:\(([^)]*)\))?/g, (_, mixin, params) => {
+                        // 模拟 mixin 展开
+                        return `/* @include ${mixin}${params ? '(' + params + ')' : ''} */`;
+                    });
+            }
+
+            renderPreview(cssCode, scssCode) {
+                const htmlContent = `
+                    <style>
+                        ${cssCode}
+                    </style>
+                    <div class="demo-result">
+                        <h3>编译结果预览</h3>
+                        <div class="demo-container">
+                            <!-- 这里会显示你编写的样式的实际效果 -->
+                            <div class="demo-content">
+                                <p>这是预览区域，你的样式将在这里生效。</p>
+                                <p>尝试修改左侧的 SCSS 代码，然后点击运行查看效果。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <details style="margin-top: 2rem;">
+                        <summary style="cursor: pointer; font-weight: bold;">查看生成的 CSS</summary>
+                        <pre style="background: #f5f5f5; padding: 1rem; border-radius: 4px; margin-top: 0.5rem; overflow-x: auto;"><code>${this.escapeHtml(cssCode)}</code></pre>
+                    </details>
+                `;
+                
+                this.preview.innerHTML = htmlContent;
+            }
+
+            showError(errorMessage) {
+                this.preview.innerHTML = `
+                    <div class="preview-error">
+                        <strong>编译错误：</strong>
+                        <pre>${this.escapeHtml(errorMessage)}</pre>
+                    </div>
+                    <div style="padding: 1rem; color: #6c757d;">
+                        <p>请检查你的 SCSS 语法是否正确。</p>
+                        <p>确保使用了正确的 Design Tokens 变量。</p>
+                    </div>
+                `;
+            }
+
+            loadComponentTemplate(component) {
+                const templates = {
+                    button: `// 按钮组件示例
+.my-custom-button {
+  @include button-base($color-primary);
+  @include button-size(large);
+  
+  &:hover {
+    background-color: $color-primary-dark;
+  }
+  
+  &.is-loading {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+}`,
+                    card: `// 卡片组件示例
+.my-custom-card {
+  @include card-base;
+  
+  .card-header {
+    padding: $spacing-lg;
+    border-bottom: 1px solid $color-divider;
+    
+    .card-title {
+      @include typography-h3;
+      margin: 0;
+    }
+  }
+  
+  .card-body {
+    padding: $spacing-lg;
+  }
+  
+  .card-footer {
+    padding: $spacing-md $spacing-lg;
+    background-color: $color-surface;
+    border-top: 1px solid $color-divider;
+  }
+}`,
+                    input: `// 输入框组件示例
+.my-custom-form {
+  .form-group {
+    margin-bottom: $spacing-lg;
+    
+    label {
+      display: block;
+      margin-bottom: $spacing-xs;
+      @include typography-body;
+      font-weight: $font-weight-medium;
+    }
+    
+    .c-input {
+      @include input-base;
+      width: 100%;
+      
+      &:focus {
+        border-color: $color-primary;
+        box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+      }
+    }
+  }
+}`,
+                    colors: `// 颜色系统示例
+.color-demo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: $spacing-md;
+  
+  .color-item {
+    padding: $spacing-lg;
+    border-radius: $border-radius-md;
+    text-align: center;
+    
+    &.primary { background-color: $color-primary; color: white; }
+    &.secondary { background-color: $color-secondary; color: white; }
+    &.success { background-color: $color-success; color: white; }
+    &.surface { background-color: $color-surface; border: 1px solid $color-border; }
+  }
+}`,
+                    typography: `// 排版系统示例
+.typography-demo {
+  .demo-heading {
+    @include typography-h1;
+    margin-bottom: $spacing-md;
+  }
+  
+  .demo-subheading {
+    @include typography-h3;
+    color: $color-text-secondary;
+    margin-bottom: $spacing-lg;
+  }
+  
+  .demo-body {
+    @include typography-body;
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-md;
+  }
+  
+  .demo-caption {
+    @include typography-caption;
+    color: $color-text-secondary;
+  }
+}`
+                };
+
+                if (templates[component]) {
+                    this.editor.value = templates[component];
+                    this.showNotification(`已加载 ${component} 组件模板`, 'success');
+                }
+            }
+
+            loadPreset(preset) {
+                if (!preset) return;
+                
+                const presets = {
+                    button: `.btn-demo {
+  display: flex;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+  padding: $spacing-xl;
+  background-color: $color-surface;
+  border-radius: $border-radius-lg;
+  
+  .c-button {
+    @include button-base($color-primary);
+    
+    &--secondary { @include button-base($color-secondary); }
+    &--success { @include button-base($color-success); }
+    &--warning { @include button-base($color-warning); }
+    &--large { @include button-size(large); }
+    &--small { @include button-size(small); }
+  }
+}`,
+                    card: `.card-demo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-xl;
+  padding: $spacing-xl;
+  
+  .c-card {
+    @include card-base;
+    
+    .card-image {
+      height: 200px;
+      background-color: $color-gray-200;
+      border-radius: $border-radius-md $border-radius-md 0 0;
+    }
+    
+    .card-content {
+      padding: $spacing-lg;
+      
+      .card-title {
+        @include typography-h4;
+        margin-bottom: $spacing-sm;
+      }
+      
+      .card-description {
+        @include typography-body;
+        color: $color-text-secondary;
+      }
+    }
+  }
+}`,
+                    form: `.form-demo {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: $spacing-xl;
+  
+  .form-group {
+    margin-bottom: $spacing-lg;
+    
+    label {
+      display: block;
+      margin-bottom: $spacing-xs;
+      font-weight: $font-weight-medium;
+    }
+    
+    .c-input,
+    .c-textarea,
+    .c-select {
+      @include input-base;
+      width: 100%;
+    }
+    
+    .c-checkbox,
+    .c-radio {
+      margin-right: $spacing-sm;
+    }
+  }
+  
+  .form-actions {
+    display: flex;
+    gap: $spacing-md;
+    justify-content: flex-end;
+    margin-top: $spacing-xl;
+  }
+}`,
+                    layout: `.layout-demo {
+  .container {
+    @include container;
+    padding: $spacing-xl 0;
+  }
+  
+  .grid {
+    @include grid-container;
+    gap: $spacing-md;
+    margin-bottom: $spacing-xl;
+    
+    .col {
+      @include grid-item(4);
+      background-color: $color-gray-100;
+      padding: $spacing-lg;
+      text-align: center;
+      border-radius: $border-radius-md;
+    }
+  }
+  
+  .flex-demo {
+    @include flex-center;
+    height: 200px;
+    background-color: $color-gray-50;
+    border-radius: $border-radius-lg;
+    margin-bottom: $spacing-xl;
+  }
+}`,
+                    typography: `.typography-demo {
+  padding: $spacing-xl;
+  
+  .heading-section {
+    margin-bottom: $spacing-xl;
+    
+    h1 { @include typography-h1; }
+    h2 { @include typography-h2; }
+    h3 { @include typography-h3; }
+    h4 { @include typography-h4; }
+  }
+  
+  .body-section {
+    .lead { 
+      @include typography-lead;
+      margin-bottom: $spacing-md;
+    }
+    
+    p {
+      @include typography-body;
+      margin-bottom: $spacing-sm;
+    }
+    
+    .small {
+      @include typography-caption;
+      color: $color-text-secondary;
+    }
+  }
+}`
+                };
+
+                if (presets[preset]) {
+                    this.editor.value = presets[preset];
+                    this.showNotification(`已加载 ${preset} 预设`, 'success');
+                }
+            }
+
+            applyTheme(theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem('playground-theme', theme);
+                this.showNotification(`已切换到${theme === 'dark' ? '暗色' : '亮色'}主题`, 'success');
+            }
+
+            saveCode() {
+                localStorage.setItem('playground-code', this.editor.value);
+                this.showNotification('代码已保存到本地存储', 'success');
+            }
+
+            loadSavedCode() {
+                const savedCode = localStorage.getItem('playground-code');
+                if (savedCode) {
+                    this.editor.value = savedCode;
+                }
+            }
+
+            resetEditor() {
+                if (confirm('确定要重置编辑器吗？这将丢失当前的所有代码。')) {
+                    this.editor.value = '';
+                    localStorage.removeItem('playground-code');
+                    this.showNotification('编辑器已重置', 'success');
+                }
+            }
+
+            formatCode() {
+                // 简单的代码格式化
+                let code = this.editor.value;
+                // 这里可以集成更复杂的格式化工具
+                code = code.replace(/\t/g, '  '); // Tab 转空格
+                this.editor.value = code;
+                this.showNotification('代码已格式化', 'success');
+            }
+
+            async copyCode() {
+                try {
+                    await navigator.clipboard.writeText(this.editor.value);
+                    this.showNotification('代码已复制到剪贴板', 'success');
+                } catch (error) {
+                    this.showNotification('复制失败', 'error');
+                }
+            }
+
+            refreshPreview() {
+                this.compileAndPreview();
+            }
+
+            openInNewWindow() {
+                const newWindow = window.open('', '_blank');
+                newWindow.document.write(`
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <title>样式预览</title>
+                        <style>
+                            body { font-family: sans-serif; padding: 2rem; }
+                        </style>
+                    </head>
+                    <body>
+                        <div id="preview">${this.preview.innerHTML}</div>
+                    </body>
+                    </html>
+                `);
+            }
+
+            showNotification(message, type = 'success') {
+                const notification = document.createElement('div');
+                notification.className = `notification ${type}`;
+                notification.textContent = message;
+                
+                document.getElementById('notifications').appendChild(notification);
+                
+                // 显示动画
+                setTimeout(() => notification.classList.add('show'), 100);
+                
+                // 自动隐藏
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 300);
+                }, 3000);
+            }
+
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+        }
+
+        // 初始化应用
+        document.addEventListener('DOMContentLoaded', () => {
+            new StylePlayground();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>认证系统演示</title>
+    <link rel="stylesheet" href="../src/styles/main.scss">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .demo-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .demo-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .demo-title {
+            color: #2196f3;
+            margin-bottom: 10px;
+        }
+        
+        .demo-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+        
+        .section-title {
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #2196f3;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background: #2196f3;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #1976d2;
+        }
+        
+        .btn-secondary {
+            background: #f5f5f5;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+        
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+        
+        .btn-danger {
+            background: #f44336;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #d32f2f;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .status-authenticated {
+            background: #e8f5e8;
+            color: #4caf50;
+        }
+        
+        .status-unauthenticated {
+            background: #ffebee;
+            color: #f44336;
+        }
+        
+        .user-info {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+        
+        .log-area {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            height: 200px;
+            overflow-y: auto;
+            margin: 15px 0;
+        }
+        
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .feature-card {
+            background: #fafafa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .feature-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .feature-desc {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1 class="demo-title">🔐 用户认证系统演示</h1>
+            <p>完整功能展示和交互测试</p>
+        </div>
+
+        <!-- 系统状态 -->
+        <div class="demo-section">
+            <h2 class="section-title">系统状态</h2>
+            <div>
+                <strong>认证状态:</strong> 
+                <span id="authStatus" class="status-indicator status-unauthenticated">未认证</span>
+            </div>
+            <div class="user-info" id="userInfo" style="display: none;">
+                <strong>当前用户:</strong>
+                <div id="userDetails"></div>
+            </div>
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="checkAuthStatus()">刷新状态</button>
+                <button class="btn btn-secondary" onclick="clearLogs()">清空日志</button>
+            </div>
+        </div>
+
+        <!-- 核心功能演示 -->
+        <div class="demo-section">
+            <h2 class="section-title">核心功能演示</h2>
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="demoLogin()">模拟登录</button>
+                <button class="btn btn-primary" onclick="demoRegister()">模拟注册</button>
+                <button class="btn btn-danger" onclick="demoLogout()">登出</button>
+                <button class="btn btn-secondary" onclick="demoRefreshToken()">刷新令牌</button>
+            </div>
+            
+            <h3>OAuth认证</h3>
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="demoGitHubAuth()">GitHub登录</button>
+                <button class="btn btn-secondary" onclick="demoGoogleAuth()">Google登录</button>
+                <button class="btn btn-secondary" onclick="demoWeChatAuth()">微信登录</button>
+                <button class="btn btn-secondary" onclick="demoQQAuth()">QQ登录</button>
+            </div>
+        </div>
+
+        <!-- 用户管理 -->
+        <div class="demo-section">
+            <h2 class="section-title">用户管理</h2>
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="demoUpdateUser()">更新用户信息</button>
+                <button class="btn btn-secondary" onclick="demoChangePassword()">修改密码</button>
+                <button class="btn btn-secondary" onclick="demoCheckPermissions()">检查权限</button>
+            </div>
+        </div>
+
+        <!-- 系统功能 -->
+        <div class="demo-section">
+            <h2 class="section-title">系统功能</h2>
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="demoAuthGuard()">权限守卫测试</button>
+                <button class="btn btn-secondary" onclick="demoEventListeners()">事件监听测试</button>
+                <button class="btn btn-secondary" onclick="demoAutoRefresh()">自动刷新测试</button>
+            </div>
+        </div>
+
+        <!-- 功能特性 -->
+        <div class="demo-section">
+            <h2 class="section-title">系统特性</h2>
+            <div class="feature-list">
+                <div class="feature-card">
+                    <div class="feature-title">🔐 多种认证方式</div>
+                    <div class="feature-desc">支持邮箱密码和第三方OAuth认证</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">🔄 自动令牌刷新</div>
+                    <div class="feature-desc">智能检测令牌过期并自动刷新</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">🛡️ 安全防护</div>
+                    <div class="feature-desc">CSRF保护、输入验证、权限控制</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">📱 响应式设计</div>
+                    <div class="feature-desc">完美适配移动端和桌面端</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">🎨 主题支持</div>
+                    <div class="feature-desc">自动适配暗色和亮色主题</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">⚡ 高性能</div>
+                    <div class="feature-desc">本地状态管理，快速响应</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 操作日志 -->
+        <div class="demo-section">
+            <h2 class="section-title">操作日志</h2>
+            <div class="log-area" id="logArea"></div>
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="exportLogs()">导出日志</button>
+            </div>
+        </div>
+
+        <!-- 认证页面链接 -->
+        <div class="demo-section">
+            <h2 class="section-title">完整认证页面</h2>
+            <p>点击下方按钮查看完整的认证页面：</p>
+            <div class="button-group">
+                <button class="btn btn-primary" onclick="openAuthPage()">打开认证页面</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 日志管理
+        const logArea = document.getElementById('logArea');
+        
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = `[${timestamp}] ${type.toUpperCase()}: ${message}`;
+            logArea.innerHTML += logEntry + '\n';
+            logArea.scrollTop = logArea.scrollHeight;
+            console.log(logEntry);
+        }
+        
+        function clearLogs() {
+            logArea.innerHTML = '';
+            log('日志已清空');
+        }
+        
+        function exportLogs() {
+            const logs = logArea.innerText;
+            const blob = new Blob([logs], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `auth-demo-logs-${new Date().toISOString().slice(0, 19)}.txt`;
+            a.click();
+            URL.revokeObjectURL(url);
+            log('日志已导出');
+        }
+
+        // 状态管理
+        function updateAuthStatus() {
+            const isAuthenticated = Math.random() > 0.5; // 模拟随机状态
+            const statusEl = document.getElementById('authStatus');
+            const userInfoEl = document.getElementById('userInfo');
+            const userDetailsEl = document.getElementById('userDetails');
+            
+            if (isAuthenticated) {
+                statusEl.className = 'status-indicator status-authenticated';
+                statusEl.textContent = '已认证';
+                userInfoEl.style.display = 'block';
+                userDetailsEl.innerHTML = `
+                    <div>用户名: demo_user</div>
+                    <div>邮箱: demo@example.com</div>
+                    <div>用户ID: usr_${Math.random().toString(36).substr(2, 9)}</div>
+                `;
+            } else {
+                statusEl.className = 'status-indicator status-unauthenticated';
+                statusEl.textContent = '未认证';
+                userInfoEl.style.display = 'none';
+            }
+        }
+
+        // 演示功能
+        function checkAuthStatus() {
+            log('检查认证状态...');
+            updateAuthStatus();
+            log('状态检查完成');
+        }
+
+        function demoLogin() {
+            log('开始模拟登录流程...');
+            setTimeout(() => {
+                log('登录成功', 'success');
+                updateAuthStatus();
+            }, 1000);
+        }
+
+        function demoRegister() {
+            log('开始模拟注册流程...');
+            setTimeout(() => {
+                log('注册成功，请检查邮箱验证', 'success');
+                log('自动跳转到登录页面');
+            }, 1500);
+        }
+
+        function demoLogout() {
+            log('用户登出中...');
+            setTimeout(() => {
+                log('登出成功', 'success');
+                updateAuthStatus();
+            }, 500);
+        }
+
+        function demoRefreshToken() {
+            log('刷新访问令牌...');
+            setTimeout(() => {
+                log('令牌刷新成功', 'success');
+                log('新令牌有效期: 1小时');
+            }, 800);
+        }
+
+        function demoGitHubAuth() {
+            log('跳转到GitHub授权页面...');
+            log('请在新窗口中完成授权');
+            setTimeout(() => {
+                log('GitHub认证成功', 'success');
+                updateAuthStatus();
+            }, 2000);
+        }
+
+        function demoGoogleAuth() {
+            log('跳转到Google授权页面...');
+            log('请在新窗口中完成授权');
+            setTimeout(() => {
+                log('Google认证成功', 'success');
+                updateAuthStatus();
+            }, 2000);
+        }
+
+        function demoWeChatAuth() {
+            log('跳转到微信授权页面...');
+            log('请在新窗口中完成扫码授权');
+            setTimeout(() => {
+                log('微信认证成功', 'success');
+                updateAuthStatus();
+            }, 2000);
+        }
+
+        function demoQQAuth() {
+            log('跳转到QQ授权页面...');
+            log('请在新窗口中完成授权');
+            setTimeout(() => {
+                log('QQ认证成功', 'success');
+                updateAuthStatus();
+            }, 2000);
+        }
+
+        function demoUpdateUser() {
+            log('更新用户信息...');
+            setTimeout(() => {
+                log('用户信息更新成功', 'success');
+                log('用户名已更新为: updated_demo_user');
+            }, 600);
+        }
+
+        function demoChangePassword() {
+            log('修改密码流程启动...');
+            setTimeout(() => {
+                log('密码修改成功', 'success');
+                log('请使用新密码登录');
+            }, 1000);
+        }
+
+        function demoCheckPermissions() {
+            log('检查用户权限...');
+            setTimeout(() => {
+                log('权限检查结果:', 'info');
+                log('- 读取权限: ✓ 允许');
+                log('- 写入权限: ✓ 允许');
+                log('- 管理权限: ✗ 拒绝');
+            }, 500);
+        }
+
+        function demoAuthGuard() {
+            log('测试权限守卫...');
+            setTimeout(() => {
+                log('权限验证通过', 'success');
+                log('允许访问受保护资源');
+            }, 300);
+        }
+
+        function demoEventListeners() {
+            log('设置认证事件监听器...');
+            log('监听器已激活:');
+            log('- 登录事件');
+            log('- 登出事件');
+            log('- 错误事件');
+            log('- 状态变更事件');
+        }
+
+        function demoAutoRefresh() {
+            log('测试自动令牌刷新...');
+            log('模拟令牌即将过期...');
+            setTimeout(() => {
+                log('检测到令牌即将过期', 'warning');
+                log('自动刷新令牌中...');
+                setTimeout(() => {
+                    log('令牌刷新成功', 'success');
+                }, 1000);
+            }, 1500);
+        }
+
+        function openAuthPage() {
+            log('打开完整认证页面...');
+            window.open('./auth-page.html', '_blank');
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            log('认证系统演示页面已加载');
+            log('系统版本: 1.0.0');
+            log('初始化完成，可以开始测试各项功能');
+            updateAuthStatus();
+        });
+    </script>
+</body>
+</html>

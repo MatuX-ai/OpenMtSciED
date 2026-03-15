@@ -1,0 +1,176 @@
+<div class="digital-twin-lab">
+  <!-- 加载状态 -->
+  <div *ngIf="isLoading" class="loading-container">
+    <mat-spinner></mat-spinner>
+    <p>正在加载数字孪生实验室...</p>
+  </div>
+
+  <!-- 错误状态 -->
+  <div *ngIf="errorMessage && !isLoading" class="error-container">
+    <mat-icon>error</mat-icon>
+    <h2>加载失败</h2>
+    <p>{{ errorMessage }}</p>
+    <button mat-raised-button color="primary" (click)="loadSession()">重试</button>
+  </div>
+
+  <!-- 主要内容区域 -->
+  <div *ngIf="!isLoading && !errorMessage" class="lab-container">
+    <!-- 顶部工具栏 -->
+    <div class="toolbar">
+      <button mat-icon-button (click)="goBack()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+
+      <div class="session-info">
+        <h1>数字孪生实验室</h1>
+        <p>会话ID: {{ sessionId }}</p>
+        <p>参与者: {{ participantCount }} 人</p>
+      </div>
+
+      <div class="connection-status">
+        <mat-icon [ngClass]="{'connected': isConnected, 'disconnected': !isConnected}">
+          {{ isConnected ? 'link' : 'link_off' }}
+        </mat-icon>
+        <span>{{ isConnected ? '已连接' : '未连接' }}</span>
+      </div>
+
+      <div class="toolbar-controls">
+        <button mat-icon-button (click)="toggleFullscreen()">
+          <mat-icon>fullscreen</mat-icon>
+        </button>
+        <button mat-icon-button (click)="getSessionDetails()">
+          <mat-icon>info</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <!-- 主实验室区域 -->
+    <div class="main-content">
+      <!-- Unity WebGL容器 -->
+      <div class="unity-section">
+        <div #unityContainer class="unity-container"
+             [class.fullscreen]="isFullscreen">
+          <div *ngIf="!isUnityLoaded" class="unity-loading">
+            <mat-spinner></mat-spinner>
+            <p>正在加载Unity实验室...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 控制面板 -->
+      <div class="control-panel">
+        <!-- 仿真控制 -->
+        <mat-card class="control-section">
+          <mat-card-header>
+            <mat-card-title>仿真控制</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="control-group">
+              <button mat-raised-button
+                      [color]="isSimulationRunning ? 'warn' : 'primary'"
+                      (click)="toggleSimulation()">
+                <mat-icon>{{ isSimulationRunning ? 'stop' : 'play_arrow' }}</mat-icon>
+                {{ isSimulationRunning ? '停止仿真' : '开始仿真' }}
+              </button>
+
+              <button mat-raised-button color="accent" (click)="resetCircuit()">
+                <mat-icon>refresh</mat-icon>
+                重置电路
+              </button>
+            </div>
+
+            <div class="status-info" *ngIf="circuitState">
+              <p>总功率: {{ circuitState.total_power | number:'1.2-2' }} W</p>
+              <p>总电流: {{ circuitState.total_current | number:'1.2-2' }} A</p>
+              <p>仿真时间: {{ circuitState.simulation_time | number:'1.1-1' }} s</p>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <!-- 设备同步控制 -->
+        <mat-card class="control-section">
+          <mat-card-header>
+            <mat-card-title>设备同步</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="control-group">
+              <mat-slide-toggle [(ngModel)]="isDeviceSyncEnabled"
+                               (change)="toggleDeviceSync()">
+                AWS IoT同步
+              </mat-slide-toggle>
+            </div>
+
+            <div class="device-stats">
+              <p>连接设备: {{ deviceStates.size }}</p>
+              <p *ngIf="deviceStates.size > 0">
+                平均电压: {{ getAverageVoltage() | number:'1.2-2' }} V
+              </p>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <!-- 元件库 -->
+        <mat-card class="control-section">
+          <mat-card-header>
+            <mat-card-title>元件库</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="component-library">
+              <button mat-stroked-button (click)="addElement('Resistor')">
+                <mat-icon>show_chart</mat-icon>
+                电阻
+              </button>
+              <button mat-stroked-button (click)="addElement('Capacitor')">
+                <mat-icon>opacity</mat-icon>
+                电容
+              </button>
+              <button mat-stroked-button (click)="addElement('Inductor')">
+                <mat-icon>change_history</mat-icon>
+                电感
+              </button>
+              <button mat-stroked-button (click)="addElement('VoltageSource')">
+                <mat-icon>bolt</mat-icon>
+                电压源
+              </button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <!-- 实时数据监控 -->
+        <mat-card class="control-section">
+          <mat-card-header>
+            <mat-card-title>实时监控</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="monitoring-data">
+              <div *ngFor="let element of getTopElements(5)" class="element-monitor">
+                <div class="element-header">
+                  <span class="element-id">{{ element.element_id }}</span>
+                  <span class="element-type">{{ element.element_type }}</span>
+                </div>
+                <div class="element-values">
+                  <div class="value-item">
+                    <span class="label">电压:</span>
+                    <span class="value">{{ element.voltage | number:'1.2-2' }}V</span>
+                  </div>
+                  <div class="value-item">
+                    <span class="label">电流:</span>
+                    <span class="value">{{ element.current | number:'1.2-2' }}A</span>
+                  </div>
+                  <div class="value-item">
+                    <span class="label">功率:</span>
+                    <span class="value">{{ element.power | number:'1.2-2' }}W</span>
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="circuitState?.elements?.length === 0" class="no-data">
+                <p>暂无元件数据</p>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

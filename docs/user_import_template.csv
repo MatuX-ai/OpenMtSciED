@@ -1,0 +1,6 @@
+username,email,role
+张三,zhangsan@example.com,user
+李四,lisi@example.com,admin
+王五,wangwu@example.com,user
+赵六,zhaoliu@example.com,org_admin
+钱七,qianqi@example.com,premium

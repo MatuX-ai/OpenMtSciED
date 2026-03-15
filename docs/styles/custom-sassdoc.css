@@ -1,0 +1,259 @@
+/**
+ * 自定义 SassDoc 样式
+ * 为 iMatuProject 设计系统文档添加品牌化样式
+ */
+
+/* 全局样式重置 */
+.sassdoc {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* 头部品牌化 */
+.sassdoc .sd-header {
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+  border-bottom: none;
+  box-shadow: 0 2px 10px rgba(33, 150, 243, 0.3);
+}
+
+.sassdoc .sd-header__title {
+  color: white;
+  font-weight: 600;
+}
+
+.sassdoc .sd-header__subtitle {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* 导航栏样式 */
+.sassdoc .sd-sidebar {
+  background-color: #f8f9fa;
+  border-right: 1px solid #e9ecef;
+}
+
+.sassdoc .sd-nav__item a {
+  color: #495057;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.sassdoc .sd-nav__item a:hover {
+  background-color: #e9ecef;
+  color: #2196F3;
+}
+
+.sassdoc .sd-nav__item.sd-nav__item--active a {
+  background-color: #2196F3;
+  color: white;
+}
+
+/* 内容区域 */
+.sassdoc .sd-content {
+  max-width: 1200px;
+  padding: 2rem;
+}
+
+.sassdoc .sd-section {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.sassdoc .sd-section__title {
+  color: #2196F3;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* 代码块样式 */
+.sassdoc pre {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 1.5rem;
+  overflow-x: auto;
+}
+
+.sassdoc code {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.875em;
+  background-color: #f1f3f4;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+.sassdoc pre code {
+  background: none;
+  padding: 0;
+}
+
+/* 表格样式 */
+.sassdoc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.sassdoc th,
+.sassdoc td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.sassdoc th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+}
+
+.sassdoc tr:last-child td {
+  border-bottom: none;
+}
+
+/* 链接样式 */
+.sassdoc a {
+  color: #2196F3;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.sassdoc a:hover {
+  color: #1976D2;
+  text-decoration: underline;
+}
+
+/* 徽章样式 */
+.sassdoc .sd-tag {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  font-size: 0.75em;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+}
+
+.sassdoc .sd-tag--public {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.sassdoc .sd-tag--private {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.sassdoc .sd-tag--deprecated {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+/* 搜索框样式 */
+.sassdoc .sd-search {
+  margin-bottom: 2rem;
+}
+
+.sassdoc .sd-search__input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e9ecef;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.sassdoc .sd-search__input:focus {
+  outline: none;
+  border-color: #2196F3;
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .sassdoc .sd-content {
+    padding: 1rem;
+  }
+  
+  .sassdoc .sd-section {
+    padding: 1rem;
+  }
+  
+  .sassdoc table {
+    font-size: 0.875rem;
+  }
+  
+  .sassdoc th,
+  .sassdoc td {
+    padding: 0.75rem 0.5rem;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .sassdoc .sd-sidebar,
+  .sassdoc .sd-header,
+  .sassdoc .sd-search {
+    display: none;
+  }
+  
+  .sassdoc .sd-main {
+    margin-left: 0;
+  }
+  
+  .sassdoc .sd-section {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  .sassdoc pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+}
+
+/* 动画效果 */
+.sassdoc .sd-section {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 滚动条样式 */
+.sassdoc ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.sassdoc ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.sassdoc ::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.sassdoc ::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
