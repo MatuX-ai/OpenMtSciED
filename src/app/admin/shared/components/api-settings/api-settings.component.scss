@@ -1,0 +1,351 @@
+.api-settings-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #f5f5f5;
+}
+
+.settings-header {
+  justify-content: space-between;
+  padding: 16px 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+
+  .title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 16px;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  button {
+    margin-left: 8px;
+  }
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 10;
+  pointer-events: none; // 允许点击穿透
+
+  mat-card {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    padding: 24px;
+
+    mat-card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+
+      mat-progress-spinner {
+        margin-bottom: 0;
+      }
+
+      p {
+        color: #666;
+        font-size: 14px;
+        margin: 0;
+      }
+    }
+  }
+}
+
+// 原来的加载容器（保留用于其他场景）
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 16px;
+
+  mat-progress-spinner {
+    margin-bottom: 16px;
+  }
+
+  p {
+    color: #666;
+    font-size: 14px;
+  }
+}
+
+// 数据库连接列表样式
+.database-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .database-card {
+    mat-card {
+      transition: box-shadow 0.3s ease;
+
+      &:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      mat-card-header {
+        margin-bottom: 16px;
+
+        mat-card-title {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          font-size: 18px;
+
+          mat-icon {
+            color: #1976d2;
+          }
+
+          .db-type {
+            font-size: 12px;
+            color: #666;
+            background-color: #e0e0e0;
+            padding: 2px 8px;
+            border-radius: 4px;
+          }
+        }
+
+        mat-card-subtitle {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          margin-top: 8px;
+
+          mat-icon {
+            font-size: 16px;
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// AI 服务列表样式
+.ai-services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .service-card {
+    mat-card {
+      transition: box-shadow 0.3s ease;
+
+      &:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      mat-card-header {
+        margin-bottom: 16px;
+
+        mat-card-title {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          font-size: 18px;
+
+          mat-icon {
+            color: #9c27b0; // AI 服务使用紫色图标
+          }
+
+          .provider-badge {
+            font-size: 12px;
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-weight: 500;
+          }
+        }
+
+        mat-card-subtitle {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          margin-top: 8px;
+
+          mat-icon {
+            font-size: 16px;
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.settings-content {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  position: relative; // 为加载指示器提供定位上下文
+}
+
+.settings-tabs {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: calc(100vh - 200px);
+  height: 100%; // 确保 Tab 组有正确的高度
+
+  ::ng-deep {
+    .mat-mdc-tab-header {
+      background-color: white;
+      border-bottom: 1px solid #e0e0e0;
+
+      .mat-mdc-tab {
+        min-width: 120px;
+      }
+    }
+
+    .mat-mdc-tab-body-content {
+      padding: 24px;
+    }
+  }
+}
+
+.tab-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+mat-card {
+  margin-bottom: 24px;
+  border-radius: 8px;
+
+  mat-card-header {
+    margin-bottom: 16px;
+    padding: 16px 24px 0;
+
+    mat-card-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 18px;
+      color: #333;
+
+      mat-icon {
+        color: #1976d2;
+      }
+    }
+  }
+
+  mat-card-content {
+    padding: 24px;
+  }
+
+  mat-card-actions {
+    padding: 12px 24px;
+    border-top: 1px solid #e0e0e0;
+
+    button[mat-button] {
+      text-transform: none;
+      letter-spacing: 0.5px;
+
+      mat-icon {
+        margin-right: 8px;
+      }
+    }
+
+    // 帮助按钮样式
+    .help-btn {
+      color: #666;
+
+      &:hover {
+        background-color: rgba(76, 175, 80, 0.04);
+        color: #4CAF50;
+
+        mat-icon {
+          color: #4CAF50;
+        }
+      }
+    }
+  }
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  mat-checkbox {
+    grid-column: 1 / -1;
+    margin-top: 8px;
+  }
+}
+
+.hint {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+  color: #999;
+
+  mat-icon {
+    font-size: 64px;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 16px;
+    opacity: 0.3;
+  }
+
+  p {
+    font-size: 14px;
+    margin: 0;
+  }
+}
+
+// 响应式设计
+@media (max-width: 768px) {
+  .settings-header {
+    padding: 12px 16px;
+
+    .title {
+      font-size: 16px;
+    }
+  }
+
+  .settings-content {
+    padding: 16px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  ::ng-deep {
+    .mat-mdc-tab-header {
+      .mat-mdc-tab {
+        min-width: auto;
+        padding: 0 12px;
+      }
+    }
+  }
+}
