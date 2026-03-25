@@ -266,6 +266,24 @@ export class ApiSettingsComponent implements OnInit {
     if (settings.objectStorage) {
       this.settingsForm.patchValue({ objectStorage: settings.objectStorage });
     }
+    
+    // 处理数据库连接 FormArray
+    if (settings.databases && Array.isArray(settings.databases)) {
+      const databasesArray = this.settingsForm.get('databases') as FormArray;
+      databasesArray.clear();
+      settings.databases.forEach((db) => {
+        databasesArray.push(this.fb.group(db));
+      });
+    }
+    
+    // 处理 AI 服务 FormArray
+    if (settings.aiServices && Array.isArray(settings.aiServices)) {
+      const aiServicesArray = this.settingsForm.get('aiServices') as FormArray;
+      aiServicesArray.clear();
+      settings.aiServices.forEach((service) => {
+        aiServicesArray.push(this.fb.group(service));
+      });
+    }
   }
 
   /**
