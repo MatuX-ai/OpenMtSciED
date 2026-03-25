@@ -163,7 +163,20 @@ export class ApiSettingsComponent implements OnInit {
         enabled: [false],
         defaultRole: ['user'],
       }),
-      databases: this.fb.array([]),
+      databases: this.fb.array([
+        // 默认添加一个本地数据库连接示例
+        this.fb.group({
+          name: ['本地数据库'],
+          host: ['localhost'],
+          port: [5432],
+          database: ['imato_main'],
+          username: ['postgres'],
+          password: [''],
+          ssl: [false],
+          poolSize: [10],
+          enabled: [false],
+        }),
+      ]),
       mqtt: this.fb.group({
         brokerUrl: [''],
         port: [1883],
@@ -195,7 +208,18 @@ export class ApiSettingsComponent implements OnInit {
         endpoint: [''],
         enabled: [false],
       }),
-      aiServices: this.fb.array([]),
+      aiServices: this.fb.array([
+        // 默认添加一个 OpenAI 服务示例
+        this.fb.group({
+          serviceName: ['OpenAI GPT-4'],
+          endpoint: ['https://api.openai.com/v1'],
+          apiKey: [''],
+          model: ['gpt-4'],
+          maxTokens: [2048],
+          temperature: [0.7],
+          enabled: [false],
+        }),
+      ]),
     });
   }
 
