@@ -6,7 +6,14 @@
 
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormArray,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -98,7 +105,7 @@ export class ApiSettingsComponent implements OnInit {
   /**
    * 获取数据库连接列表控制器
    */
-  get databasesControls() {
+  get databasesControls(): FormControl[] {
     const databasesArray = this.settingsForm.get('databases') as FormArray;
     return databasesArray?.controls || [];
   }
@@ -106,15 +113,16 @@ export class ApiSettingsComponent implements OnInit {
   /**
    * 安全获取数据库表单控件
    */
-  getDatabaseControl(index: number, controlName: string) {
-    const control = this.databasesControls.at(index)?.get(controlName);
-    return control;
+  getDatabaseControl(index: number, controlName: string): FormControl | null {
+    const databasesArray = this.settingsForm.get('databases') as FormArray;
+    const control = databasesArray?.at(index)?.get(controlName);
+    return (control as FormControl) || null;
   }
 
   /**
    * 获取 AI 服务列表控制器
    */
-  get aiServicesControls() {
+  get aiServicesControls(): FormControl[] {
     const aiServicesArray = this.settingsForm.get('aiServices') as FormArray;
     return aiServicesArray?.controls || [];
   }
@@ -124,12 +132,12 @@ export class ApiSettingsComponent implements OnInit {
    */
   getAiProvider(endpoint: string | null | undefined): string {
     if (!endpoint) return '未配置';
-    
+
     // 国内 AI 服务
     if (endpoint.includes('deepseek.com')) return 'DeepSeek';
     if (endpoint.includes('moonshot.cn')) return '月之暗面 (Kimi)';
     if (endpoint.includes('aliyuncs.com')) return '通义千问';
-    
+
     // 国际 AI 服务
     if (endpoint.includes('openai.com')) return 'OpenAI';
     if (endpoint.includes('anthropic.com')) return 'Anthropic';
@@ -139,16 +147,17 @@ export class ApiSettingsComponent implements OnInit {
     if (endpoint.includes('together.ai')) return 'Together AI';
     if (endpoint.includes('replicate.com')) return 'Replicate';
     if (endpoint.includes('huggingface.co')) return 'Hugging Face';
-    
+
     return '自定义';
   }
 
   /**
    * 安全获取 AI 服务表单控件
    */
-  getAiServiceControl(index: number, controlName: string) {
-    const control = this.aiServicesControls.at(index)?.get(controlName);
-    return control;
+  getAiServiceControl(index: number, controlName: string): FormControl | null {
+    const aiServicesArray = this.settingsForm.get('aiServices') as FormArray;
+    const control = aiServicesArray?.at(index)?.get(controlName);
+    return (control as FormControl) || null;
   }
 
   /**
@@ -316,7 +325,7 @@ export class ApiSettingsComponent implements OnInit {
     if (settings.objectStorage) {
       this.settingsForm.patchValue({ objectStorage: settings.objectStorage });
     }
-    
+
     // 处理数据库连接 FormArray
     if (settings.databases && Array.isArray(settings.databases)) {
       const databasesArray = this.settingsForm.get('databases') as FormArray;
@@ -325,7 +334,7 @@ export class ApiSettingsComponent implements OnInit {
         databasesArray.push(this.fb.group(db));
       });
     }
-    
+
     // 处理 AI 服务 FormArray
     if (settings.aiServices && Array.isArray(settings.aiServices)) {
       const aiServicesArray = this.settingsForm.get('aiServices') as FormArray;
