@@ -124,7 +124,13 @@ export class ApiSettingsComponent implements OnInit {
    */
   getAiProvider(endpoint: string | null | undefined): string {
     if (!endpoint) return '未配置';
-
+    
+    // 国内 AI 服务
+    if (endpoint.includes('deepseek.com')) return 'DeepSeek';
+    if (endpoint.includes('moonshot.cn')) return '月之暗面 (Kimi)';
+    if (endpoint.includes('aliyuncs.com')) return '通义千问';
+    
+    // 国际 AI 服务
     if (endpoint.includes('openai.com')) return 'OpenAI';
     if (endpoint.includes('anthropic.com')) return 'Anthropic';
     if (endpoint.includes('azure.com')) return 'Azure OpenAI';
@@ -133,7 +139,7 @@ export class ApiSettingsComponent implements OnInit {
     if (endpoint.includes('together.ai')) return 'Together AI';
     if (endpoint.includes('replicate.com')) return 'Replicate';
     if (endpoint.includes('huggingface.co')) return 'Hugging Face';
-
+    
     return '自定义';
   }
 
@@ -209,13 +215,33 @@ export class ApiSettingsComponent implements OnInit {
         enabled: [false],
       }),
       aiServices: this.fb.array([
-        // 默认添加一个 OpenAI 服务示例
+        // 默认添加 DeepSeek
         this.fb.group({
-          serviceName: ['OpenAI GPT-4'],
-          endpoint: ['https://api.openai.com/v1'],
+          serviceName: ['DeepSeek'],
+          endpoint: ['https://api.deepseek.com/v1'],
           apiKey: [''],
-          model: ['gpt-4'],
-          maxTokens: [2048],
+          model: ['deepseek-chat'],
+          maxTokens: [4096],
+          temperature: [0.7],
+          enabled: [false],
+        }),
+        // 默认添加 Kimi 2.5
+        this.fb.group({
+          serviceName: ['Kimi 2.5'],
+          endpoint: ['https://api.moonshot.cn/v1'],
+          apiKey: [''],
+          model: ['moonshot-v1-8k'],
+          maxTokens: [8192],
+          temperature: [0.7],
+          enabled: [false],
+        }),
+        // 默认添加通义千问
+        this.fb.group({
+          serviceName: ['通义千问'],
+          endpoint: ['https://dashscope.aliyuncs.com/api/v1'],
+          apiKey: [''],
+          model: ['qwen-turbo'],
+          maxTokens: [8192],
           temperature: [0.7],
           enabled: [false],
         }),
