@@ -144,9 +144,7 @@ import { MarketingNavComponent } from '../shared/marketing-nav/marketing-nav.com
       <p><strong>OpenMTSciEd</strong> - Open MatuX Science Education</p>
       <p>用开源技术解决教育资源不均，全球共建"STEM 知识地图"</p>
       <p class="footer-links">
-        <a href="https://github.com/iMato/OpenMTSciEd" target="_blank">GitHub</a> ·
-        <a href="mailto:contact@imato.edu">联系我们</a> ·
-        MIT License
+        <a href="https://github.com/MatuX-ai/OpenMtSciED" target="_blank">GitHub</a> · <a href="mailto:3936318150@qq.com">联系我们</a> · MIT License
       </p>
     </footer>
   `,

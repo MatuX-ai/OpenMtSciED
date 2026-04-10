@@ -4,7 +4,7 @@
 
 ### 1. 主代码仓库（OpenMTSciEd）
 **用途**: 核心功能代码、后端 API、前端应用  
-**地址**: 待创建（建议 `https://github.com/iMato/OpenMTSciEd`）  
+**地址**: https://github.com/MatuX-ai/OpenMtSciED  
 **可见性**: Public（公开）  
 **许可证**: MIT License
 
@@ -23,7 +23,7 @@ OpenMTSciEd/
 
 ### 2. 营销展示站仓库（OpenMTSciEd-Website）
 **用途**: Vercel 自动部署的静态营销页面  
-**地址**: 待创建（建议 `https://github.com/iMato/OpenMTSciEd-Website`）  
+**地址**: https://github.com/MatuX-ai/OpenMtSciED  
 **可见性**: Public（公开）  
 **部署平台**: Vercel
 
@@ -54,7 +54,7 @@ cd g:\iMato\OpenMTSciEd
 git init
 
 # 添加远程仓库（替换为你的仓库地址）
-git remote add origin https://github.com/iMato/OpenMTSciEd.git
+git remote add origin https://github.com/MatuX-ai/OpenMtSciED.git
 
 # 添加所有文件
 git add .
@@ -77,7 +77,7 @@ cd g:\iMato\OpenMTSciEd\marketing-site-only
 git init
 
 # 添加远程仓库
-git remote add origin https://github.com/iMato/OpenMTSciEd-Website.git
+git remote add origin https://github.com/MatuX-ai/OpenMtSciED.git
 
 # 添加文件
 git add .
@@ -121,8 +121,8 @@ git push -u origin main
 ```markdown
 ## 🔗 相关链接
 
-- **主项目仓库**: https://github.com/iMato/OpenMTSciEd
-- **GitHub Issues**: https://github.com/iMato/OpenMTSciEd/issues
+- **主项目仓库**: https://github.com/MatuX-ai/OpenMtSciED
+- **GitHub Issues**: https://github.com/MatuX-ai/OpenMtSciED/issues
 ```
 
 ---
@@ -213,8 +213,8 @@ jobs:
 
 ## 📞 需要帮助？
 
-- 提交 Issue: https://github.com/iMato/OpenMTSciEd/issues
-- 邮件联系: contact@imato.edu
+- 提交 Issue: https://github.com/MatuX-ai/OpenMtSciED/issues
+- 邮件联系: 3936318150@qq.com
 
 ---
 

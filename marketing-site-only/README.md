@@ -39,9 +39,9 @@ npx serve .
 
 ## 🔗 相关链接
 
-- **主项目仓库**: https://github.com/iMato/OpenMTSciEd
-- **GitHub Issues**: https://github.com/iMato/OpenMTSciEd/issues
-- **文档**: https://github.com/iMato/OpenMTSciEd/blob/main/README.md
+- **主项目仓库**: https://github.com/MatuX-ai/OpenMtSciED
+- **GitHub Issues**: https://github.com/MatuX-ai/OpenMtSciED/issues
+- **文档**: https://github.com/MatuX-ai/OpenMtSciED/blob/main/README.md
 
 ## 📄 许可证
 
