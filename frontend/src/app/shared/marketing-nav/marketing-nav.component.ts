@@ -14,8 +14,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
         </a>
         <ul class="nav-links">
           <li>
-            <a 
-              [href]="'/' + (isHomePage ? '#features' : '')" 
+            <a
+              [href]="'/' + (isHomePage ? '#features' : '')"
               [class.active]="isHomePage && activeSection === 'features'"
               (click)="scrollToSection('features')"
             >
@@ -23,8 +23,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
             </a>
           </li>
           <li>
-            <a 
-              [href]="'/' + (isHomePage ? '#path' : '')" 
+            <a
+              [href]="'/' + (isHomePage ? '#path' : '')"
               [class.active]="isHomePage && activeSection === 'path'"
               (click)="scrollToSection('path')"
             >
@@ -32,8 +32,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
             </a>
           </li>
           <li>
-            <a 
-              [href]="'/' + (isHomePage ? '#hardware' : '')" 
+            <a
+              [href]="'/' + (isHomePage ? '#hardware' : '')"
               [class.active]="isHomePage && activeSection === 'hardware'"
               (click)="scrollToSection('hardware')"
             >

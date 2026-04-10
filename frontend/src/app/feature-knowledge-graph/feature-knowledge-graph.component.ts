@@ -22,7 +22,7 @@ import { MarketingNavComponent } from '../shared/marketing-nav/marketing-nav.com
       <div class="section">
         <h2>技术架构</h2>
         <p>OpenMTSciEd 使用 Neo4j 图数据库存储和管理 STEM 知识点之间的复杂关系，实现跨学科、跨学段的知识关联。</p>
-        
+
         <div class="feature-image">
           <div class="diagram">
             <pre>
@@ -105,7 +105,7 @@ import { MarketingNavComponent } from '../shared/marketing-nav/marketing-nav.com
 <span class="keyword">class</span> <span class="function">KnowledgeGraphService</span>:
     <span class="keyword">def</span> <span class="function">__init__</span>(self, uri, user, password):
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
-    
+
     <span class="keyword">def</span> <span class="function">get_related_resources</span>(self, unit_id):
         <span class="keyword">with</span> self.driver.session() <span class="keyword">as</span> session:
             result = session.run(<span class="string">"""
@@ -142,8 +142,8 @@ import { MarketingNavComponent } from '../shared/marketing-nav/marketing-nav.com
     <footer class="footer">
       <p><strong>OpenMTSciEd</strong> - Open MatuX Science Education</p>
       <p class="footer-links">
-        <a href="https://github.com/iMato/OpenMTSciEd" target="_blank">GitHub</a> · 
-        <a href="mailto:contact@imato.edu">联系我们</a> · 
+        <a href="https://github.com/iMato/OpenMTSciEd" target="_blank">GitHub</a> ·
+        <a href="mailto:contact@imato.edu">联系我们</a> ·
         MIT License
       </p>
     </footer>

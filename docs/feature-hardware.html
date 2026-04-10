@@ -422,10 +422,10 @@ Adafruit_BMP280 bmp;
   <span class="comment">// 读取温湿度</span>
   <span class="keyword">float</span> temp = dht.readTemperature();
   <span class="keyword">float</span> humi = dht.readHumidity();
-  
+
   <span class="comment">// 读取气压</span>
   <span class="keyword">float</span> pressure = bmp.readPressure() / 100.0F;
-  
+
   <span class="comment">// 发送数据到串口</span>
   Serial.print(<span class="string">"Temp:"</span>);
   Serial.print(temp);
@@ -433,7 +433,7 @@ Adafruit_BMP280 bmp;
   Serial.print(humi);
   Serial.print(<span class="string">",Pressure:"</span>);
   Serial.println(pressure);
-  
+
   delay(2000);
 }
                 </code>
@@ -483,8 +483,8 @@ hardware_projects/
     <footer>
         <p><strong>OpenMTSciEd</strong> - Open MatuX Science Education</p>
         <p>
-            <a href="https://github.com/iMato/OpenMTSciEd" target="_blank">GitHub</a> · 
-            <a href="mailto:contact@imato.edu">联系我们</a> · 
+            <a href="https://github.com/iMato/OpenMTSciEd" target="_blank">GitHub</a> ·
+            <a href="mailto:contact@imato.edu">联系我们</a> ·
             MIT License
         </p>
     </footer>

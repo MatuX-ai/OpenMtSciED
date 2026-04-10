@@ -324,19 +324,19 @@
 
 <span class="keyword">class</span> <span class="class">LearningPathEnv</span>(Env):
     <span class="string">"""STEM 学习路径强化学习环境"""</span>
-    
+
     <span class="keyword">def</span> <span class="function">__init__</span>(self, user_profile, knowledge_graph):
         self.user = user_profile
         self.graph = knowledge_graph
         self.current_node = <span class="keyword">None</span>
-        
+
     <span class="keyword">def</span> <span class="function">step</span>(self, action):
         <span class="comment"># 执行动作（选择下一个学习节点）</span>
         next_node = self.graph.get_node(action)
         reward = self._calculate_reward(next_node)
         self.current_node = next_node
         <span class="keyword">return</span> next_node, reward, <span class="keyword">False</span>, {}
-    
+
     <span class="keyword">def</span> <span class="function">_calculate_reward</span>(self, node):
         <span class="comment"># 奖励函数：基于用户完成度和知识匹配度</span>
         completion_rate = self.user.get_completion_rate(node)
@@ -359,18 +359,18 @@ model.learn(total_timesteps=10000)
     <span class="keyword">def</span> <span class="function">__init__</span>(self, model_path):
         self.tokenizer = AutoTokenizer.from_pretrained(model_path)
         self.model = AutoModelForCausalLM.from_pretrained(model_path)
-    
+
     <span class="keyword">def</span> <span class="function">explain_concept</span>(self, concept, user_level):
         <span class="string">"""解释知识点，适配用户水平"""</span>
         prompt = f<span class="string">"""
         请用{'简单' if user_level < 3 else '专业'}的语言解释：{concept}
-        
+
         要求：
         1. 使用类比帮助理解
         2. 提供实际例子
         3. 说明与已学知识的联系
         """</span>
-        
+
         inputs = self.tokenizer(prompt, return_tensors=<span class="string">"pt"</span>)
         outputs = self.model.generate(
             **inputs,
@@ -436,8 +436,8 @@ POST /api/v1/feedback
     <footer>
         <p><strong>OpenMTSciEd</strong> - Open MatuX Science Education</p>
         <p>
-            <a href="https://github.com/iMato/OpenMTSciEd" target="_blank">GitHub</a> · 
-            <a href="mailto:contact@imato.edu">联系我们</a> · 
+            <a href="https://github.com/iMato/OpenMTSciEd" target="_blank">GitHub</a> ·
+            <a href="mailto:contact@imato.edu">联系我们</a> ·
             MIT License
         </p>
     </footer>

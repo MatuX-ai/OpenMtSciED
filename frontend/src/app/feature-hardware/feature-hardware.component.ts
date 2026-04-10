@@ -106,8 +106,8 @@ import { MarketingNavComponent } from '../shared/marketing-nav/marketing-nav.com
     <footer class="footer">
       <p><strong>OpenMTSciEd</strong> - Open MatuX Science Education</p>
       <p class="footer-links">
-        <a href="https://github.com/iMato/OpenMTSciEd" target="_blank">GitHub</a> · 
-        <a href="mailto:contact@imato.edu">联系我们</a> · 
+        <a href="https://github.com/iMato/OpenMTSciEd" target="_blank">GitHub</a> ·
+        <a href="mailto:contact@imato.edu">联系我们</a> ·
         MIT License
       </p>
     </footer>

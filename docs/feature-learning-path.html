@@ -285,21 +285,21 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
             .nav-links { display: none; }
-            
+
             .path-timeline::before {
                 left: 20px;
             }
-            
+
             .timeline-item,
             .timeline-item:nth-child(even) {
                 flex-direction: row;
             }
-            
+
             .timeline-content {
                 width: calc(100% - 60px);
                 margin-left: 60px !important;
             }
-            
+
             .timeline-dot {
                 left: 20px;
             }
@@ -420,19 +420,19 @@
                 <code>
 <span class="keyword">class</span> <span class="class">PathGenerator</span>:
     <span class="string">"""学习路径生成器"""</span>
-    
+
     <span class="keyword">def</span> <span class="function">generate_path</span>(self, user_profile, max_nodes=10):
         <span class="comment"># 1. 基于用户画像选择起点</span>
         start_node = self._select_start_node(user_profile)
-        
+
         <span class="comment"># 2. 从知识图谱查询关联资源</span>
         path = [start_node]
         current = start_node
-        
+
         <span class="keyword">while</span> len(path) < max_nodes:
             <span class="comment"># 获取下一个推荐节点</span>
             next_node = self._get_next_node(current, user_profile)
-            
+
             <span class="comment"># 检查先修条件</span>
             <span class="keyword">if</span> self._check_prerequisites(next_node, user_profile):
                 path.append(next_node)
@@ -441,9 +441,9 @@
                 <span class="comment"># 插入过渡项目</span>
                 transition = self._create_transition_project(next_node)
                 path.append(transition)
-        
+
         <span class="keyword">return</span> path
-    
+
     <span class="keyword">def</span> <span class="function">_select_start_node</span>(self, user):
         <span class="comment"># 根据年龄和知识水平选择起点</span>
         <span class="keyword">if</span> user.grade_level == <span class="string">"初中"</span>:
@@ -473,20 +473,20 @@
                 <code>
 <span class="keyword">def</span> <span class="function">adjust_path_difficulty</span>(self, user_id, feedback):
     <span class="string">"""基于用户反馈动态调整路径难度"""</span>
-    
+
     <span class="comment"># 计算练习正确率</span>
     accuracy = feedback[<span class="string">'correct_rate'</span>]
-    
+
     <span class="keyword">if</span> accuracy > 0.9:
         <span class="comment"># 正确率高，提升难度</span>
         new_difficulty = user.current_difficulty + 1
         <span class="keyword">return</span> self._generate_harder_path(user, new_difficulty)
-        
+
     <span class="keyword">elif</span> accuracy < 0.6:
         <span class="comment"># 正确率低，降低难度或添加过渡项目</span>
         transition = self._create_reinforcement_project(user)
         <span class="keyword">return</span> [transition] + user.current_path
-        
+
     <span class="keyword">else</span>:
         <span class="comment"># 难度适中，保持当前路径</span>
         <span class="keyword">return</span> user.current_path
@@ -518,8 +518,8 @@
     <footer>
         <p><strong>OpenMTSciEd</strong> - Open MatuX Science Education</p>
         <p>
-            <a href="https://github.com/iMato/OpenMTSciEd" target="_blank">GitHub</a> · 
-            <a href="mailto:contact@imato.edu">联系我们</a> · 
+            <a href="https://github.com/iMato/OpenMTSciEd" target="_blank">GitHub</a> ·
+            <a href="mailto:contact@imato.edu">联系我们</a> ·
             MIT License
         </p>
     </footer>

@@ -140,8 +140,8 @@ import { MarketingNavComponent } from '../shared/marketing-nav/marketing-nav.com
     <footer class="footer">
       <p><strong>OpenMTSciEd</strong> - Open MatuX Science Education</p>
       <p class="footer-links">
-        <a href="https://github.com/iMato/OpenMTSciEd" target="_blank">GitHub</a> · 
-        <a href="mailto:contact@imato.edu">联系我们</a> · 
+        <a href="https://github.com/iMato/OpenMTSciEd" target="_blank">GitHub</a> ·
+        <a href="mailto:contact@imato.edu">联系我们</a> ·
         MIT License
       </p>
     </footer>
@@ -400,21 +400,21 @@ import { MarketingNavComponent } from '../shared/marketing-nav/marketing-nav.com
     @media (max-width: 768px) {
       .hero h1 { font-size: 2rem; }
       .nav-links { display: none; }
-      
+
       .path-timeline::before {
         left: 20px;
       }
-      
+
       .timeline-item,
       .timeline-item:nth-child(even) {
         flex-direction: row;
       }
-      
+
       .timeline-content {
         width: calc(100% - 60px);
         margin-left: 60px !important;
       }
-      
+
       .timeline-dot {
         left: 20px;
       }
