@@ -417,6 +417,80 @@
             font-size: 0.9rem;
         }
 
+        /* Community Section */
+        .community-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--dark-bg) 0%, rgba(15, 23, 42, 0.95) 100%);
+        }
+
+        .community-grid {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .community-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .community-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .community-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .community-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .community-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .subscribe-form {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 400px;
+            margin: 0 auto 1rem;
+        }
+
+        .subscribe-form input[type="email"] {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 8px;
+            background: rgba(15, 23, 42, 0.8);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .subscribe-form input[type="email"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .subscribe-note {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
         /* Footer */
         footer {
             background: var(--card-bg);
@@ -480,9 +554,10 @@
         <div class="nav-content">
             <div class="logo">OpenMTSciEd</div>
             <ul class="nav-links">
-                <li><a href="#features">核心特�?/a></li>
+                <li><a href="#features">核心特性</a></li>
                 <li><a href="#path">学习路径</a></li>
                 <li><a href="#hardware">硬件项目</a></li>
+                <li><a href="#community">社区</a></li>
                 <li><a href="https://github.com/MatuX-ai/OpenMtSciED" target="_blank">GitHub</a></li>
             </ul>
         </div>
@@ -498,16 +573,17 @@
                 <div class="stem-badge">M</div>
             </div>
             <h1>
-                用开�?AI 打�?br>
+                用开源 AI 打通<br>
                 <span class="gradient-text">STEM 学段壁垒</span>
             </h1>
             <p>
-                全球共建"STEM 知识地图"，让资源匮乏地区的学生也能享受前沿教�?br>
-                课程�?× 课件�?× 硬件项目 = 连贯学习路径
+                全球共建"STEM 知识地图"，让资源匮乏地区的学生也能享受前沿教育<br>
+                课程库 × 课件库 × 硬件项目 = 连贯学习路径
             </p>
             <div class="cta-buttons">
                 <a href="https://github.com/MatuX-ai/OpenMtSciED" target="_blank" class="btn btn-primary">
-                    🚀 快速开�?                </a>
+                    🚀 快速开始
+                </a>
                 <a href="#features" class="btn btn-secondary">
                     📚 了解项目
                 </a>
@@ -517,32 +593,32 @@
 
     <!-- Features Section -->
     <section id="features" class="features">
-        <h2 class="section-title">核心特�?/h2>
-        <p class="section-subtitle">基于知识图谱�?AI �?STEM 教育创新方案</p>
+        <h2 class="section-title">核心特性</h2>
+        <p class="section-subtitle">基于知识图谱与 AI 的 STEM 教育创新方案</p>
         <div class="features-grid">
             <a href="docs/feature-knowledge-graph.html" class="feature-card">
-                <div class="feature-icon">🕸�?/div>
+                <div class="feature-icon">🕸️</div>
                 <h3>知识图谱驱动</h3>
-                <p>基于 Neo4j 构建课程库与课件库的关联网络，打�?OpenSciEd 实践�?OpenStax 理论，跨学科关联准确�?�?0%�?/p>
-                <div class="learn-more">查看详情 �?/div>
+                <p>基于 Neo4j 构建课程库与课件库的关联网络，打通 OpenSciEd 实践与 OpenStax 理论，跨学科关联准确率 ≥90%。</p>
+                <div class="learn-more">查看详情 →</div>
             </a>
             <a href="docs/feature-ai-path.html" class="feature-card">
                 <div class="feature-icon">🤖</div>
                 <h3>AI 自适应路径</h3>
-                <p>使用 PPO 强化学习算法推荐个性化学习路径，MiniCPM 虚拟导师实时解答，千人千面的学习体验�?/p>
-                <div class="learn-more">查看详情 �?/div>
+                <p>使用 PPO 强化学习算法推荐个性化学习路径，MiniCPM 虚拟导师实时解答，千人千面的学习体验。</p>
+                <div class="learn-more">查看详情 →</div>
             </a>
             <a href="docs/feature-hardware.html" class="feature-card">
                 <div class="feature-icon">🔌</div>
-                <h3>低成本硬件联�?/h3>
-                <p>所有项目预�?�?0元，支持 WebUSB 手机直连烧录，Blockly 图形化编程降低入门门槛�?/p>
-                <div class="learn-more">查看详情 �?/div>
+                <h3>低成本硬件联动</h3>
+                <p>所有项目预算 ≤50元，支持 WebUSB 手机直连烧录，Blockly 图形化编程降低入门门槛。</p>
+                <div class="learn-more">查看详情 →</div>
             </a>
             <a href="docs/feature-learning-path.html" class="feature-card">
                 <div class="feature-icon">📚</div>
                 <h3>连贯学习路径</h3>
-                <p>小学兴趣启蒙 �?初中跨学科实�?�?高中深度探究 �?大学专业衔接，完整的 STEM 教育体系�?/p>
-                <div class="learn-more">查看详情 �?/div>
+                <p>小学兴趣启蒙 → 初中跨学科实践 → 高中深度探究 → 大学专业衔接，完整的 STEM 教育体系。</p>
+                <div class="learn-more">查看详情 →</div>
             </a>
         </div>
     </section>
@@ -550,34 +626,34 @@
     <!-- Learning Path Section -->
     <section id="path" class="learning-path">
         <h2 class="section-title">连贯学习路径</h2>
-        <p class="section-subtitle">从现象驱动到理论深度的完整学习链�?/p>
+        <p class="section-subtitle">从现象驱动到理论深度的完整学习链路</p>
         <div class="path-container">
             <div class="path-step">
                 <div class="step-number">1</div>
                 <div class="step-content">
-                    <h3>🔬 课程库单�?- 现象驱动实践</h3>
-                    <p>OpenSciEd 单元制学习，6周完成一个现象探究项目，�?生态系统能量流�?实验</p>
+                    <h3>🔬 课程库单元 - 现象驱动实践</h3>
+                    <p>OpenSciEd 单元制学习，6周完成一个现象探究项目，如"生态系统能量流动"实验</p>
                 </div>
             </div>
             <div class="path-step">
                 <div class="step-number">2</div>
                 <div class="step-content">
                     <h3>💻 过渡项目 - Blockly 编程模拟</h3>
-                    <p>用图形化编程模拟物理公式，如用变量模拟欧姆定律，可视化理解抽象概�?/p>
+                    <p>用图形化编程模拟物理公式，如用变量模拟欧姆定律，可视化理解抽象概念</p>
                 </div>
             </div>
             <div class="path-step">
                 <div class="step-number">3</div>
                 <div class="step-content">
-                    <h3>📖 课件库章�?- 理论深化</h3>
-                    <p>OpenStax 大学物理/化学教材预习，掌握微积分推导、化学方程式等核心理�?/p>
+                    <h3>📖 课件库章节 - 理论深化</h3>
+                    <p>OpenStax 大学物理/化学教材预习，掌握微积分推导、化学方程式等核心理论</p>
                 </div>
             </div>
             <div class="path-step">
                 <div class="step-number">4</div>
                 <div class="step-content">
-                    <h3>🔧 硬件综合项目 - 跨学科应�?/h3>
-                    <p>�?Arduino + ESP32 实现气象站，整合物理传感�?+ 编程数据处理 + 工程结构设计</p>
+                    <h3>🔧 硬件综合项目 - 跨学科应用</h3>
+                    <p>用 Arduino + ESP32 实现气象站，整合物理传感器 + 编程数据处理 + 工程结构设计</p>
                 </div>
             </div>
         </div>
@@ -585,18 +661,18 @@
 
     <!-- Hardware Showcase -->
     <section id="hardware" class="hardware-showcase">
-        <h2 class="section-title">低成本硬件项�?/h2>
-        <p class="section-subtitle">预算 �?0元，手机直连烧录，零基础也能玩转 STEM</p>
+        <h2 class="section-title">低成本硬件项目</h2>
+        <p class="section-subtitle">预算 ≤50元，手机直连烧录，零基础也能玩转 STEM</p>
         <div class="hardware-grid">
             <div class="hardware-card">
-                <div class="hardware-icon">🌡�?/div>
-                <h3>智能气象�?/h3>
+                <div class="hardware-icon">🌡️</div>
+                <h3>智能气象站</h3>
                 <div class="cost">¥35</div>
-                <p>ESP32 + 温湿度传感器，采集环境数据并�?Python 绘制曲线</p>
+                <p>ESP32 + 温湿度传感器，采集环境数据并用 Python 绘制曲线</p>
             </div>
             <div class="hardware-card">
                 <div class="hardware-icon">💡</div>
-                <h3>光合作用模拟�?/h3>
+                <h3>光合作用模拟器</h3>
                 <div class="cost">¥42</div>
                 <p>光敏电阻 + LED，用 Arduino 采集光照数据模拟氧气释放</p>
             </div>
@@ -604,13 +680,47 @@
                 <div class="hardware-icon">🤖</div>
                 <h3>智能避障小车</h3>
                 <div class="cost">¥48</div>
-                <p>Arduino Uno + 超声波传感器 + 舵机，实现自动避障功�?/p>
+                <p>Arduino Uno + 超声波传感器 + 舵机，实现自动避障功能</p>
             </div>
             <div class="hardware-card">
                 <div class="hardware-icon">🎮</div>
                 <h3>简易起重机</h3>
                 <div class="cost">¥45</div>
-                <p>齿轮�?+ 电机 + 控制器，学习机械传动与力的传递原�?/p>
+                <p>齿轮组 + 电机 + 控制器，学习机械传动与力的传递原理</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="community-section">
+        <h2 class="section-title">加入社区</h2>
+        <p class="section-subtitle">与全球开发者一起共建 STEM 教育未来</p>
+        <div class="community-grid">
+            <div class="community-card">
+                <div class="community-icon">💬</div>
+                <h3>GitHub Discussions</h3>
+                <p>参与技术讨论、提出功能建议、分享项目成果</p>
+                <a href="https://github.com/MatuX-ai/OpenMtSciED/discussions" target="_blank" class="btn btn-secondary">
+                    参与讨论 →
+                </a>
+            </div>
+            <div class="community-card">
+                <div class="community-icon">🐛</div>
+                <h3>Issue Tracker</h3>
+                <p>报告 Bug、提出改进建议、参与开源贡献</p>
+                <a href="https://github.com/MatuX-ai/OpenMtSciED/issues" target="_blank" class="btn btn-secondary">
+                    提交 Issue →
+                </a>
+            </div>
+            <div class="community-card">
+                <div class="community-icon">📧</div>
+                <h3>邮件订阅</h3>
+                <p>订阅项目更新，第一时间获取最新版本和功能动态</p>
+                <form class="subscribe-form" onsubmit="handleSubscribe(event)">
+                    <input type="email" placeholder="your@email.com" required />
+                    <button type="submit" class="btn btn-primary">订阅</button>
+                </form>
+                <p class="subscribe-note">🔒 我们不会分享您的邮箱地址</p>
             </div>
         </div>
     </section>
@@ -641,6 +751,22 @@
             });
         });
 
+        // Handle subscription form
+        function handleSubscribe(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+
+            // Show success message
+            const form = event.target;
+            const originalContent = form.innerHTML;
+            form.innerHTML = '<p style="color: var(--stem-science); font-weight: 600;">✅ 订阅成功！我们会将更新发送到 ' + email + '</p>';
+
+            // Reset form after 3 seconds
+            setTimeout(() => {
+                form.innerHTML = originalContent;
+            }, 3000);
+        }
+
         // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
@@ -657,7 +783,7 @@
         }, observerOptions);
 
         // Observe feature cards and path steps
-        document.querySelectorAll('.feature-card, .path-step, .hardware-card').forEach(el => {
+        document.querySelectorAll('.feature-card, .path-step, .hardware-card, .community-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease-out';

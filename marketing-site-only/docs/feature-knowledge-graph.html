@@ -189,7 +189,7 @@
         }
 
         .tech-list li::before {
-            content: "�?;
+            content: "✓";
             position: absolute;
             left: 0;
             color: var(--stem-science);
@@ -239,7 +239,7 @@
         <div class="nav-content">
             <a href="marketing-home.html" class="logo">OpenMTSciEd</a>
             <ul class="nav-links">
-                <li><a href="marketing-home.html#features">核心特�?/a></li>
+                <li><a href="marketing-home.html#features">核心特性</a></li>
                 <li><a href="marketing-home.html#path">学习路径</a></li>
                 <li><a href="marketing-home.html#hardware">硬件项目</a></li>
                 <li><a href="https://github.com/MatuX-ai/OpenMtSciED" target="_blank">GitHub</a></li>
@@ -248,30 +248,30 @@
     </nav>
 
     <section class="hero">
-        <h1>🕸�?知识图谱驱动</h1>
-        <p>基于 Neo4j 构建课程库与课件库的关联网络，打�?STEM 知识体系</p>
+        <h1>🕸️ 知识图谱驱动</h1>
+        <p>基于 Neo4j 构建课程库与课件库的关联网络，打通 STEM 知识体系</p>
     </section>
 
     <div class="content">
-        <a href="marketing-home.html" class="back-link">�?返回首页</a>
+        <a href="marketing-home.html" class="back-link">← 返回首页</a>
 
         <div class="section">
-            <h2>技术架�?/h2>
-            <p>OpenMTSciEd 使用 Neo4j 图数据库存储和管�?STEM 知识点之间的复杂关系，实现跨学科、跨学段的知识关联�?/p>
-            
+            <h2>技术架构</h2>
+            <p>OpenMTSciEd 使用 Neo4j 图数据库存储和管理 STEM 知识点之间的复杂关系，实现跨学科、跨学段的知识关联。</p>
+
             <div class="feature-image">
                 <div class="diagram">
                     <pre>
-                    ┌─────────────�?     ┌──────────────�?     ┌─────────────�?
-                    �?课程库单�?  │─────▶│  过渡项目     │─────▶│ 课件库章�?  �?
-                    �?OpenSciEd   �?     �?Blockly编程  �?     �?OpenStax    �?
-                    └─────────────�?     └──────────────�?     └─────────────�?
-                           �?                     �?                     �?
-                           �?                     �?                     �?
-                    ┌─────────────�?     ┌──────────────�?     ┌─────────────�?
-                    �?硬件项目     │◀─────�? 理论映射     │─────▶│ AI虚拟导师   �?
-                    �?Arduino     �?     �?MiniCPM      �?     �?解释逻辑     �?
-                    └─────────────�?     └──────────────�?     └─────────────�?
+                    ┌─────────────┐      ┌──────────────┐      ┌─────────────┐
+                    │ 课程库单元   │─────▶│  过渡项目     │─────▶│ 课件库章节   │
+                    │ OpenSciEd   │      │ Blockly编程  │      │ OpenStax    │
+                    └─────────────┘      └──────────────┘      └─────────────┘
+                           │                      │                      │
+                           ▼                      ▼                      ▼
+                    ┌─────────────┐      ┌──────────────┐      ┌─────────────┐
+                    │ 硬件项目     │◀─────│  理论映射     │─────▶│ AI虚拟导师   │
+                    │ Arduino     │      │ MiniCPM      │      │ 解释逻辑     │
+                    └─────────────┘      └──────────────┘      └─────────────┘
                     </pre>
                 </div>
             </div>
@@ -303,18 +303,18 @@
             <h2>图谱设计</h2>
             <h3>节点类型</h3>
             <ul class="tech-list">
-                <li><strong>CourseUnit</strong> - 课程库单元（�?OpenSciEd 生态系统能量流动）</li>
-                <li><strong>TextbookChapter</strong> - 课件库章节（�?OpenStax 大学物理力学�?/li>
+                <li><strong>CourseUnit</strong> - 课程库单元（如 OpenSciEd 生态系统能量流动）</li>
+                <li><strong>TextbookChapter</strong> - 课件库章节（如 OpenStax 大学物理力学）</li>
                 <li><strong>HardwareProject</strong> - 硬件实践项目（如 Arduino 气象站）</li>
                 <li><strong>KnowledgePoint</strong> - 知识点（如光合作用、欧姆定律）</li>
-                <li><strong>TransitionProject</strong> - 过渡项目（如 Blockly 编程模拟�?/li>
+                <li><strong>TransitionProject</strong> - 过渡项目（如 Blockly 编程模拟）</li>
             </ul>
 
             <h3>关系类型</h3>
             <ul class="tech-list">
-                <li><strong>LEADS_TO</strong> - 递进关系（课程库→课件库�?/li>
+                <li><strong>LEADS_TO</strong> - 递进关系（课程库→课件库）</li>
                 <li><strong>APPLIES_THEORY</strong> - 硬件项目应用理论</li>
-                <li><strong>CROSS_DISCIPLINARY</strong> - 跨学科关�?/li>
+                <li><strong>CROSS_DISCIPLINARY</strong> - 跨学科关联</li>
                 <li><strong>REQUIRES</strong> - 先修知识依赖</li>
                 <li><strong>EXPLAINED_BY</strong> - AI 导师解释</li>
             </ul>
@@ -325,8 +325,8 @@
             <h3>Cypher 查询 - 查找知识关联</h3>
             <div class="code-block">
                 <code>
-<span class="comment">// 查询"生态系统能量流�?关联的所有资�?/span>
-<span class="keyword">MATCH</span> (unit:<span class="function">CourseUnit</span> {title: <span class="string">"生态系统能量流�?</span>})
+<span class="comment">// 查询"生态系统能量流动"关联的所有资源</span>
+<span class="keyword">MATCH</span> (unit:<span class="function">CourseUnit</span> {title: <span class="string">"生态系统能量流动"</span>})
 <span class="keyword">OPTIONAL MATCH</span> (unit)-[:<span class="function">LEADS_TO</span>]->(chapter:<span class="function">TextbookChapter</span>)
 <span class="keyword">OPTIONAL MATCH</span> (unit)-[:<span class="function">HAS_PROJECT</span>]->(project:<span class="function">HardwareProject</span>)
 <span class="keyword">RETURN</span> unit, chapter, project
@@ -341,7 +341,7 @@
 <span class="keyword">class</span> <span class="function">KnowledgeGraphService</span>:
     <span class="keyword">def</span> <span class="function">__init__</span>(self, uri, user, password):
         self.driver = GraphDatabase.driver(uri, auth=(user, password))
-    
+
     <span class="keyword">def</span> <span class="function">get_related_resources</span>(self, unit_id):
         <span class="keyword">with</span> self.driver.session() <span class="keyword">as</span> session:
             result = session.run(<span class="string">"""
@@ -360,8 +360,8 @@
                 <li><strong>Neo4j 5.x</strong> - 图数据库存储</li>
                 <li><strong>Cypher</strong> - 图查询语言</li>
                 <li><strong>Python neo4j driver</strong> - 后端集成</li>
-                <li><strong>ECharts</strong> - 前端可视�?/li>
-                <li><strong>APOC Plugin</strong> - 高级图算�?/li>
+                <li><strong>ECharts</strong> - 前端可视化</li>
+                <li><strong>APOC Plugin</strong> - 高级图算法</li>
             </ul>
         </div>
 
@@ -378,8 +378,8 @@
     <footer>
         <p><strong>OpenMTSciEd</strong> - Open MatuX Science Education</p>
         <p>
-            <a href="https://github.com/MatuX-ai/OpenMtSciED" target="_blank">GitHub</a> · 
-            <a href="mailto:3936318150@qq.com">联系我们</a> · 
+            <a href="https://github.com/MatuX-ai/OpenMtSciED" target="_blank">GitHub</a> ·
+            <a href="mailto:3936318150@qq.com">联系我们</a> ·
             MIT License
         </p>
     </footer>
