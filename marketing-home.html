@@ -417,6 +417,80 @@
             font-size: 0.9rem;
         }
 
+        /* Community Section */
+        .community-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--dark-bg) 0%, rgba(15, 23, 42, 0.95) 100%);
+        }
+
+        .community-grid {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .community-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .community-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .community-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .community-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .community-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .subscribe-form {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 400px;
+            margin: 0 auto 1rem;
+        }
+
+        .subscribe-form input[type="email"] {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 8px;
+            background: rgba(15, 23, 42, 0.8);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .subscribe-form input[type="email"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .subscribe-note {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
         /* Footer */
         footer {
             background: var(--card-bg);
@@ -483,6 +557,7 @@
                 <li><a href="#features">核心特性</a></li>
                 <li><a href="#path">学习路径</a></li>
                 <li><a href="#hardware">硬件项目</a></li>
+                <li><a href="#community">社区</a></li>
                 <li><a href="https://github.com/MatuX-ai/OpenMtSciED" target="_blank">GitHub</a></li>
             </ul>
         </div>
@@ -616,6 +691,40 @@
         </div>
     </section>
 
+    <!-- Community Section -->
+    <section id="community" class="community-section">
+        <h2 class="section-title">加入社区</h2>
+        <p class="section-subtitle">与全球开发者一起共建 STEM 教育未来</p>
+        <div class="community-grid">
+            <div class="community-card">
+                <div class="community-icon">💬</div>
+                <h3>GitHub Discussions</h3>
+                <p>参与技术讨论、提出功能建议、分享项目成果</p>
+                <a href="https://github.com/MatuX-ai/OpenMtSciED/discussions" target="_blank" class="btn btn-secondary">
+                    参与讨论 →
+                </a>
+            </div>
+            <div class="community-card">
+                <div class="community-icon">🐛</div>
+                <h3>Issue Tracker</h3>
+                <p>报告 Bug、提出改进建议、参与开源贡献</p>
+                <a href="https://github.com/MatuX-ai/OpenMtSciED/issues" target="_blank" class="btn btn-secondary">
+                    提交 Issue →
+                </a>
+            </div>
+            <div class="community-card">
+                <div class="community-icon">📧</div>
+                <h3>邮件订阅</h3>
+                <p>订阅项目更新，第一时间获取最新版本和功能动态</p>
+                <form class="subscribe-form" onsubmit="handleSubscribe(event)">
+                    <input type="email" placeholder="your@email.com" required />
+                    <button type="submit" class="btn btn-primary">订阅</button>
+                </form>
+                <p class="subscribe-note">🔒 我们不会分享您的邮箱地址</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <p><strong>OpenMTSciEd</strong> - Open MatuX Science Education</p>
@@ -642,6 +751,22 @@
             });
         });
 
+        // Handle subscription form
+        function handleSubscribe(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            
+            // Show success message
+            const form = event.target;
+            const originalContent = form.innerHTML;
+            form.innerHTML = '<p style="color: var(--stem-science); font-weight: 600;">✅ 订阅成功！我们会将更新发送到 ' + email + '</p>';
+            
+            // Reset form after 3 seconds
+            setTimeout(() => {
+                form.innerHTML = originalContent;
+            }, 3000);
+        }
+
         // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
@@ -658,7 +783,7 @@
         }, observerOptions);
 
         // Observe feature cards and path steps
-        document.querySelectorAll('.feature-card, .path-step, .hardware-card').forEach(el => {
+        document.querySelectorAll('.feature-card, .path-step, .hardware-card, .community-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s ease-out';
