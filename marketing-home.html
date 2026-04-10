@@ -755,12 +755,12 @@
         function handleSubscribe(event) {
             event.preventDefault();
             const email = event.target.querySelector('input[type="email"]').value;
-            
+
             // Show success message
             const form = event.target;
             const originalContent = form.innerHTML;
             form.innerHTML = '<p style="color: var(--stem-science); font-weight: 600;">✅ 订阅成功！我们会将更新发送到 ' + email + '</p>';
-            
+
             // Reset form after 3 seconds
             setTimeout(() => {
                 form.innerHTML = originalContent;
