@@ -1,0 +1,1965 @@
+[
+  {
+    "user_id": "test_user_001",
+    "age": 6,
+    "age_group": "小学(6-12岁)",
+    "grade_level": "小学1年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 28,
+      "total_learning_hours": 10.9,
+      "completed_paths": 1,
+      "completed_hardware_projects": 3
+    },
+    "feature_ratings": {
+      "path_generation": 5,
+      "blockly_editor": 4,
+      "hardware_flash": 4,
+      "ai_tutor": 3,
+      "ui_usability": 5,
+      "average": 4.2
+    },
+    "overall_satisfaction": "一般",
+    "nps_score": 10,
+    "feedback": {
+      "liked": [
+        "硬件项目实用"
+      ],
+      "disliked": [
+        "AI响应延迟高",
+        "加载速度慢"
+      ],
+      "suggestions": [
+        "增加更多硬件项目"
+      ],
+      "bugs": [
+        "WebUSB偶尔断开"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.268799"
+  },
+  {
+    "user_id": "test_user_002",
+    "age": 7,
+    "age_group": "小学(6-12岁)",
+    "grade_level": "小学2年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 11,
+      "total_learning_hours": 4.1,
+      "completed_paths": 1,
+      "completed_hardware_projects": 2
+    },
+    "feature_ratings": {
+      "path_generation": 3,
+      "blockly_editor": 5,
+      "hardware_flash": 3,
+      "ai_tutor": 5,
+      "ui_usability": 4,
+      "average": 4.0
+    },
+    "overall_satisfaction": "非常不满意",
+    "nps_score": 8,
+    "feedback": {
+      "liked": [
+        "硬件项目实用",
+        "界面美观易用"
+      ],
+      "disliked": [
+        "部分功能复杂",
+        "硬件连接不稳定"
+      ],
+      "suggestions": [
+        "提供更多示例代码",
+        "优化移动端体验"
+      ],
+      "bugs": [
+        "图表渲染慢"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.268799"
+  },
+  {
+    "user_id": "test_user_003",
+    "age": 8,
+    "age_group": "小学(6-12岁)",
+    "grade_level": "小学3年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 5,
+      "total_learning_hours": 17.4,
+      "completed_paths": 3,
+      "completed_hardware_projects": 1
+    },
+    "feature_ratings": {
+      "path_generation": 4,
+      "blockly_editor": 5,
+      "hardware_flash": 4,
+      "ai_tutor": 5,
+      "ui_usability": 3,
+      "average": 4.2
+    },
+    "overall_satisfaction": "不满意",
+    "nps_score": 8,
+    "feedback": {
+      "liked": [
+        "学习进度可视化",
+        "路径推荐很准确"
+      ],
+      "disliked": [
+        "AI响应延迟高",
+        "部分功能复杂"
+      ],
+      "suggestions": [
+        "提供更多示例代码"
+      ],
+      "bugs": [
+        "代码编译失败",
+        "图表渲染慢"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.268799"
+  },
+  {
+    "user_id": "test_user_004",
+    "age": 9,
+    "age_group": "小学(6-12岁)",
+    "grade_level": "小学4年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 5,
+      "total_learning_hours": 11.4,
+      "completed_paths": 5,
+      "completed_hardware_projects": 0
+    },
+    "feature_ratings": {
+      "path_generation": 4,
+      "blockly_editor": 4,
+      "hardware_flash": 2,
+      "ai_tutor": 4,
+      "ui_usability": 5,
+      "average": 3.8
+    },
+    "overall_satisfaction": "非常满意",
+    "nps_score": 7,
+    "feedback": {
+      "liked": [
+        "硬件项目实用",
+        "路径推荐很准确",
+        "学习进度可视化"
+      ],
+      "disliked": [],
+      "suggestions": [
+        "优化移动端体验",
+        "添加离线模式"
+      ],
+      "bugs": [
+        "代码编译失败",
+        "图表渲染慢"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.268799"
+  },
+  {
+    "user_id": "test_user_005",
+    "age": 10,
+    "age_group": "小学(6-12岁)",
+    "grade_level": "小学5年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 30,
+      "total_learning_hours": 6.9,
+      "completed_paths": 3,
+      "completed_hardware_projects": 1
+    },
+    "feature_ratings": {
+      "path_generation": 5,
+      "blockly_editor": 5,
+      "hardware_flash": 4,
+      "ai_tutor": 4,
+      "ui_usability": 5,
+      "average": 4.6
+    },
+    "overall_satisfaction": "非常不满意",
+    "nps_score": 6,
+    "feedback": {
+      "liked": [
+        "界面美观易用"
+      ],
+      "disliked": [
+        "硬件连接不稳定"
+      ],
+      "suggestions": [
+        "增加更多硬件项目",
+        "提供更多示例代码"
+      ],
+      "bugs": []
+    },
+    "submitted_at": "2026-04-09T19:03:28.269795"
+  },
+  {
+    "user_id": "test_user_006",
+    "age": 11,
+    "age_group": "小学(6-12岁)",
+    "grade_level": "小学6年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 19,
+      "total_learning_hours": 16.2,
+      "completed_paths": 4,
+      "completed_hardware_projects": 0
+    },
+    "feature_ratings": {
+      "path_generation": 4,
+      "blockly_editor": 3,
+      "hardware_flash": 3,
+      "ai_tutor": 4,
+      "ui_usability": 4,
+      "average": 3.6
+    },
+    "overall_satisfaction": "非常不满意",
+    "nps_score": 8,
+    "feedback": {
+      "liked": [
+        "路径推荐很准确",
+        "AI导师解释清晰",
+        "学习进度可视化"
+      ],
+      "disliked": [
+        "加载速度慢"
+      ],
+      "suggestions": [
+        "提供更多示例代码"
+      ],
+      "bugs": []
+    },
+    "submitted_at": "2026-04-09T19:03:28.269795"
+  },
+  {
+    "user_id": "test_user_007",
+    "age": 12,
+    "age_group": "小学(6-12岁)",
+    "grade_level": "小学7年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 9,
+      "total_learning_hours": 10.6,
+      "completed_paths": 3,
+      "completed_hardware_projects": 1
+    },
+    "feature_ratings": {
+      "path_generation": 5,
+      "blockly_editor": 4,
+      "hardware_flash": 3,
+      "ai_tutor": 4,
+      "ui_usability": 4,
+      "average": 4.0
+    },
+    "overall_satisfaction": "非常满意",
+    "nps_score": 8,
+    "feedback": {
+      "liked": [
+        "路径推荐很准确",
+        "Blockly编程很有趣"
+      ],
+      "disliked": [
+        "部分功能复杂",
+        "加载速度慢"
+      ],
+      "suggestions": [
+        "优化移动端体验",
+        "添加离线模式"
+      ],
+      "bugs": [
+        "WebUSB偶尔断开",
+        "代码编译失败"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.269795"
+  },
+  {
+    "user_id": "test_user_008",
+    "age": 6,
+    "age_group": "小学(6-12岁)",
+    "grade_level": "小学1年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 11,
+      "total_learning_hours": 6.9,
+      "completed_paths": 2,
+      "completed_hardware_projects": 1
+    },
+    "feature_ratings": {
+      "path_generation": 3,
+      "blockly_editor": 3,
+      "hardware_flash": 3,
+      "ai_tutor": 4,
+      "ui_usability": 3,
+      "average": 3.2
+    },
+    "overall_satisfaction": "非常满意",
+    "nps_score": 9,
+    "feedback": {
+      "liked": [
+        "AI导师解释清晰"
+      ],
+      "disliked": [
+        "AI响应延迟高",
+        "硬件连接不稳定"
+      ],
+      "suggestions": [
+        "优化移动端体验"
+      ],
+      "bugs": [
+        "WebUSB偶尔断开"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.269795"
+  },
+  {
+    "user_id": "test_user_009",
+    "age": 7,
+    "age_group": "小学(6-12岁)",
+    "grade_level": "小学2年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 21,
+      "total_learning_hours": 6.1,
+      "completed_paths": 1,
+      "completed_hardware_projects": 1
+    },
+    "feature_ratings": {
+      "path_generation": 3,
+      "blockly_editor": 3,
+      "hardware_flash": 5,
+      "ai_tutor": 3,
+      "ui_usability": 3,
+      "average": 3.4
+    },
+    "overall_satisfaction": "满意",
+    "nps_score": 7,
+    "feedback": {
+      "liked": [
+        "界面美观易用",
+        "路径推荐很准确",
+        "Blockly编程很有趣"
+      ],
+      "disliked": [],
+      "suggestions": [
+        "优化移动端体验"
+      ],
+      "bugs": [
+        "代码编译失败",
+        "WebUSB偶尔断开"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.269795"
+  },
+  {
+    "user_id": "test_user_010",
+    "age": 8,
+    "age_group": "小学(6-12岁)",
+    "grade_level": "小学3年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 6,
+      "total_learning_hours": 14.1,
+      "completed_paths": 1,
+      "completed_hardware_projects": 3
+    },
+    "feature_ratings": {
+      "path_generation": 4,
+      "blockly_editor": 5,
+      "hardware_flash": 3,
+      "ai_tutor": 3,
+      "ui_usability": 3,
+      "average": 3.6
+    },
+    "overall_satisfaction": "不满意",
+    "nps_score": 8,
+    "feedback": {
+      "liked": [
+        "AI导师解释清晰"
+      ],
+      "disliked": [
+        "AI响应延迟高",
+        "硬件连接不稳定"
+      ],
+      "suggestions": [
+        "优化移动端体验",
+        "添加离线模式"
+      ],
+      "bugs": []
+    },
+    "submitted_at": "2026-04-09T19:03:28.269795"
+  },
+  {
+    "user_id": "test_user_011",
+    "age": 9,
+    "age_group": "小学(6-12岁)",
+    "grade_level": "小学4年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 25,
+      "total_learning_hours": 9.0,
+      "completed_paths": 1,
+      "completed_hardware_projects": 2
+    },
+    "feature_ratings": {
+      "path_generation": 3,
+      "blockly_editor": 4,
+      "hardware_flash": 4,
+      "ai_tutor": 3,
+      "ui_usability": 3,
+      "average": 3.4
+    },
+    "overall_satisfaction": "非常不满意",
+    "nps_score": 8,
+    "feedback": {
+      "liked": [
+        "界面美观易用"
+      ],
+      "disliked": [],
+      "suggestions": [
+        "添加离线模式",
+        "提供更多示例代码",
+        "优化移动端体验"
+      ],
+      "bugs": [
+        "图表渲染慢"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.269795"
+  },
+  {
+    "user_id": "test_user_012",
+    "age": 10,
+    "age_group": "小学(6-12岁)",
+    "grade_level": "小学5年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 29,
+      "total_learning_hours": 10.5,
+      "completed_paths": 2,
+      "completed_hardware_projects": 0
+    },
+    "feature_ratings": {
+      "path_generation": 3,
+      "blockly_editor": 4,
+      "hardware_flash": 5,
+      "ai_tutor": 3,
+      "ui_usability": 4,
+      "average": 3.8
+    },
+    "overall_satisfaction": "非常满意",
+    "nps_score": 8,
+    "feedback": {
+      "liked": [
+        "AI导师解释清晰",
+        "学习进度可视化"
+      ],
+      "disliked": [],
+      "suggestions": [
+        "增加更多硬件项目"
+      ],
+      "bugs": [
+        "图表渲染慢",
+        "代码编译失败"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.269795"
+  },
+  {
+    "user_id": "test_user_013",
+    "age": 11,
+    "age_group": "小学(6-12岁)",
+    "grade_level": "小学6年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 19,
+      "total_learning_hours": 12.1,
+      "completed_paths": 5,
+      "completed_hardware_projects": 2
+    },
+    "feature_ratings": {
+      "path_generation": 3,
+      "blockly_editor": 4,
+      "hardware_flash": 5,
+      "ai_tutor": 5,
+      "ui_usability": 5,
+      "average": 4.4
+    },
+    "overall_satisfaction": "非常满意",
+    "nps_score": 10,
+    "feedback": {
+      "liked": [
+        "AI导师解释清晰",
+        "硬件项目实用"
+      ],
+      "disliked": [
+        "硬件连接不稳定"
+      ],
+      "suggestions": [
+        "增加更多硬件项目",
+        "提供更多示例代码"
+      ],
+      "bugs": [
+        "WebUSB偶尔断开"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.269795"
+  },
+  {
+    "user_id": "test_user_014",
+    "age": 12,
+    "age_group": "小学(6-12岁)",
+    "grade_level": "小学7年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 26,
+      "total_learning_hours": 18.2,
+      "completed_paths": 4,
+      "completed_hardware_projects": 3
+    },
+    "feature_ratings": {
+      "path_generation": 3,
+      "blockly_editor": 5,
+      "hardware_flash": 3,
+      "ai_tutor": 3,
+      "ui_usability": 3,
+      "average": 3.4
+    },
+    "overall_satisfaction": "一般",
+    "nps_score": 10,
+    "feedback": {
+      "liked": [
+        "硬件项目实用",
+        "路径推荐很准确"
+      ],
+      "disliked": [
+        "AI响应延迟高",
+        "硬件连接不稳定"
+      ],
+      "suggestions": [
+        "添加离线模式",
+        "提供更多示例代码"
+      ],
+      "bugs": [
+        "代码编译失败"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.269795"
+  },
+  {
+    "user_id": "test_user_015",
+    "age": 6,
+    "age_group": "小学(6-12岁)",
+    "grade_level": "小学1年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 15,
+      "total_learning_hours": 3.6,
+      "completed_paths": 4,
+      "completed_hardware_projects": 0
+    },
+    "feature_ratings": {
+      "path_generation": 4,
+      "blockly_editor": 3,
+      "hardware_flash": 2,
+      "ai_tutor": 4,
+      "ui_usability": 4,
+      "average": 3.4
+    },
+    "overall_satisfaction": "非常不满意",
+    "nps_score": 10,
+    "feedback": {
+      "liked": [
+        "学习进度可视化"
+      ],
+      "disliked": [
+        "加载速度慢"
+      ],
+      "suggestions": [
+        "增加更多硬件项目"
+      ],
+      "bugs": [
+        "图表渲染慢",
+        "代码编译失败"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.269795"
+  },
+  {
+    "user_id": "test_user_016",
+    "age": 7,
+    "age_group": "小学(6-12岁)",
+    "grade_level": "小学2年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 17,
+      "total_learning_hours": 6.5,
+      "completed_paths": 3,
+      "completed_hardware_projects": 1
+    },
+    "feature_ratings": {
+      "path_generation": 3,
+      "blockly_editor": 3,
+      "hardware_flash": 2,
+      "ai_tutor": 4,
+      "ui_usability": 5,
+      "average": 3.4
+    },
+    "overall_satisfaction": "满意",
+    "nps_score": 6,
+    "feedback": {
+      "liked": [
+        "AI导师解释清晰",
+        "路径推荐很准确"
+      ],
+      "disliked": [],
+      "suggestions": [
+        "优化移动端体验",
+        "添加离线模式",
+        "提供更多示例代码"
+      ],
+      "bugs": [
+        "图表渲染慢",
+        "WebUSB偶尔断开"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.269795"
+  },
+  {
+    "user_id": "test_user_017",
+    "age": 8,
+    "age_group": "小学(6-12岁)",
+    "grade_level": "小学3年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 25,
+      "total_learning_hours": 3.7,
+      "completed_paths": 1,
+      "completed_hardware_projects": 2
+    },
+    "feature_ratings": {
+      "path_generation": 5,
+      "blockly_editor": 4,
+      "hardware_flash": 4,
+      "ai_tutor": 5,
+      "ui_usability": 4,
+      "average": 4.4
+    },
+    "overall_satisfaction": "一般",
+    "nps_score": 10,
+    "feedback": {
+      "liked": [
+        "Blockly编程很有趣"
+      ],
+      "disliked": [
+        "加载速度慢"
+      ],
+      "suggestions": [
+        "增加更多硬件项目"
+      ],
+      "bugs": [
+        "WebUSB偶尔断开"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.269795"
+  },
+  {
+    "user_id": "test_user_018",
+    "age": 9,
+    "age_group": "小学(6-12岁)",
+    "grade_level": "小学4年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 17,
+      "total_learning_hours": 19.3,
+      "completed_paths": 1,
+      "completed_hardware_projects": 1
+    },
+    "feature_ratings": {
+      "path_generation": 4,
+      "blockly_editor": 5,
+      "hardware_flash": 2,
+      "ai_tutor": 5,
+      "ui_usability": 4,
+      "average": 4.0
+    },
+    "overall_satisfaction": "一般",
+    "nps_score": 9,
+    "feedback": {
+      "liked": [
+        "硬件项目实用",
+        "路径推荐很准确",
+        "学习进度可视化"
+      ],
+      "disliked": [],
+      "suggestions": [
+        "提供更多示例代码",
+        "添加离线模式"
+      ],
+      "bugs": [
+        "图表渲染慢",
+        "WebUSB偶尔断开"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.269795"
+  },
+  {
+    "user_id": "test_user_019",
+    "age": 10,
+    "age_group": "小学(6-12岁)",
+    "grade_level": "小学5年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 18,
+      "total_learning_hours": 4.1,
+      "completed_paths": 5,
+      "completed_hardware_projects": 0
+    },
+    "feature_ratings": {
+      "path_generation": 5,
+      "blockly_editor": 4,
+      "hardware_flash": 4,
+      "ai_tutor": 3,
+      "ui_usability": 5,
+      "average": 4.2
+    },
+    "overall_satisfaction": "非常满意",
+    "nps_score": 6,
+    "feedback": {
+      "liked": [
+        "AI导师解释清晰"
+      ],
+      "disliked": [
+        "加载速度慢"
+      ],
+      "suggestions": [
+        "提供更多示例代码"
+      ],
+      "bugs": [
+        "图表渲染慢"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.270800"
+  },
+  {
+    "user_id": "test_user_020",
+    "age": 11,
+    "age_group": "小学(6-12岁)",
+    "grade_level": "小学6年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 12,
+      "total_learning_hours": 6.8,
+      "completed_paths": 4,
+      "completed_hardware_projects": 3
+    },
+    "feature_ratings": {
+      "path_generation": 5,
+      "blockly_editor": 4,
+      "hardware_flash": 5,
+      "ai_tutor": 4,
+      "ui_usability": 5,
+      "average": 4.6
+    },
+    "overall_satisfaction": "一般",
+    "nps_score": 6,
+    "feedback": {
+      "liked": [
+        "Blockly编程很有趣",
+        "路径推荐很准确"
+      ],
+      "disliked": [
+        "AI响应延迟高"
+      ],
+      "suggestions": [
+        "添加离线模式"
+      ],
+      "bugs": [
+        "图表渲染慢"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.270800"
+  },
+  {
+    "user_id": "test_user_021",
+    "age": 15,
+    "age_group": "初中(13-15岁)",
+    "grade_level": "初中3年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 23,
+      "total_learning_hours": 6.0,
+      "completed_paths": 1,
+      "completed_hardware_projects": 0
+    },
+    "feature_ratings": {
+      "path_generation": 5,
+      "blockly_editor": 3,
+      "hardware_flash": 2,
+      "ai_tutor": 3,
+      "ui_usability": 4,
+      "average": 3.4
+    },
+    "overall_satisfaction": "一般",
+    "nps_score": 8,
+    "feedback": {
+      "liked": [
+        "硬件项目实用",
+        "Blockly编程很有趣",
+        "学习进度可视化"
+      ],
+      "disliked": [],
+      "suggestions": [
+        "优化移动端体验",
+        "提供更多示例代码"
+      ],
+      "bugs": []
+    },
+    "submitted_at": "2026-04-09T19:03:28.270800"
+  },
+  {
+    "user_id": "test_user_022",
+    "age": 13,
+    "age_group": "初中(13-15岁)",
+    "grade_level": "初中1年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 9,
+      "total_learning_hours": 10.3,
+      "completed_paths": 5,
+      "completed_hardware_projects": 1
+    },
+    "feature_ratings": {
+      "path_generation": 4,
+      "blockly_editor": 3,
+      "hardware_flash": 3,
+      "ai_tutor": 4,
+      "ui_usability": 4,
+      "average": 3.6
+    },
+    "overall_satisfaction": "不满意",
+    "nps_score": 7,
+    "feedback": {
+      "liked": [
+        "界面美观易用",
+        "学习进度可视化"
+      ],
+      "disliked": [],
+      "suggestions": [
+        "添加离线模式",
+        "增加更多硬件项目"
+      ],
+      "bugs": []
+    },
+    "submitted_at": "2026-04-09T19:03:28.270800"
+  },
+  {
+    "user_id": "test_user_023",
+    "age": 14,
+    "age_group": "初中(13-15岁)",
+    "grade_level": "初中2年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 18,
+      "total_learning_hours": 5.6,
+      "completed_paths": 5,
+      "completed_hardware_projects": 3
+    },
+    "feature_ratings": {
+      "path_generation": 3,
+      "blockly_editor": 4,
+      "hardware_flash": 3,
+      "ai_tutor": 4,
+      "ui_usability": 3,
+      "average": 3.4
+    },
+    "overall_satisfaction": "非常不满意",
+    "nps_score": 5,
+    "feedback": {
+      "liked": [
+        "硬件项目实用"
+      ],
+      "disliked": [
+        "AI响应延迟高"
+      ],
+      "suggestions": [
+        "优化移动端体验"
+      ],
+      "bugs": [
+        "代码编译失败",
+        "WebUSB偶尔断开"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.270800"
+  },
+  {
+    "user_id": "test_user_024",
+    "age": 15,
+    "age_group": "初中(13-15岁)",
+    "grade_level": "初中3年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 26,
+      "total_learning_hours": 17.8,
+      "completed_paths": 2,
+      "completed_hardware_projects": 2
+    },
+    "feature_ratings": {
+      "path_generation": 5,
+      "blockly_editor": 4,
+      "hardware_flash": 2,
+      "ai_tutor": 5,
+      "ui_usability": 3,
+      "average": 3.8
+    },
+    "overall_satisfaction": "非常不满意",
+    "nps_score": 9,
+    "feedback": {
+      "liked": [
+        "硬件项目实用",
+        "学习进度可视化",
+        "Blockly编程很有趣"
+      ],
+      "disliked": [
+        "硬件连接不稳定"
+      ],
+      "suggestions": [
+        "提供更多示例代码"
+      ],
+      "bugs": [
+        "代码编译失败"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.270800"
+  },
+  {
+    "user_id": "test_user_025",
+    "age": 13,
+    "age_group": "初中(13-15岁)",
+    "grade_level": "初中1年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 15,
+      "total_learning_hours": 8.0,
+      "completed_paths": 5,
+      "completed_hardware_projects": 3
+    },
+    "feature_ratings": {
+      "path_generation": 5,
+      "blockly_editor": 4,
+      "hardware_flash": 3,
+      "ai_tutor": 4,
+      "ui_usability": 3,
+      "average": 3.8
+    },
+    "overall_satisfaction": "不满意",
+    "nps_score": 6,
+    "feedback": {
+      "liked": [
+        "学习进度可视化",
+        "界面美观易用",
+        "AI导师解释清晰"
+      ],
+      "disliked": [
+        "AI响应延迟高"
+      ],
+      "suggestions": [
+        "提供更多示例代码",
+        "优化移动端体验"
+      ],
+      "bugs": [
+        "WebUSB偶尔断开"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.270800"
+  },
+  {
+    "user_id": "test_user_026",
+    "age": 14,
+    "age_group": "初中(13-15岁)",
+    "grade_level": "初中2年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 10,
+      "total_learning_hours": 4.0,
+      "completed_paths": 5,
+      "completed_hardware_projects": 1
+    },
+    "feature_ratings": {
+      "path_generation": 5,
+      "blockly_editor": 3,
+      "hardware_flash": 3,
+      "ai_tutor": 5,
+      "ui_usability": 3,
+      "average": 3.8
+    },
+    "overall_satisfaction": "非常满意",
+    "nps_score": 8,
+    "feedback": {
+      "liked": [
+        "Blockly编程很有趣",
+        "学习进度可视化",
+        "界面美观易用"
+      ],
+      "disliked": [
+        "加载速度慢",
+        "AI响应延迟高"
+      ],
+      "suggestions": [
+        "优化移动端体验",
+        "添加离线模式",
+        "增加更多硬件项目"
+      ],
+      "bugs": [
+        "图表渲染慢",
+        "WebUSB偶尔断开"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.270800"
+  },
+  {
+    "user_id": "test_user_027",
+    "age": 15,
+    "age_group": "初中(13-15岁)",
+    "grade_level": "初中3年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 30,
+      "total_learning_hours": 5.2,
+      "completed_paths": 1,
+      "completed_hardware_projects": 0
+    },
+    "feature_ratings": {
+      "path_generation": 5,
+      "blockly_editor": 4,
+      "hardware_flash": 5,
+      "ai_tutor": 4,
+      "ui_usability": 5,
+      "average": 4.6
+    },
+    "overall_satisfaction": "非常不满意",
+    "nps_score": 10,
+    "feedback": {
+      "liked": [
+        "Blockly编程很有趣",
+        "路径推荐很准确",
+        "硬件项目实用"
+      ],
+      "disliked": [
+        "加载速度慢",
+        "AI响应延迟高"
+      ],
+      "suggestions": [
+        "提供更多示例代码"
+      ],
+      "bugs": [
+        "代码编译失败"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.270800"
+  },
+  {
+    "user_id": "test_user_028",
+    "age": 13,
+    "age_group": "初中(13-15岁)",
+    "grade_level": "初中1年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 15,
+      "total_learning_hours": 19.6,
+      "completed_paths": 5,
+      "completed_hardware_projects": 0
+    },
+    "feature_ratings": {
+      "path_generation": 4,
+      "blockly_editor": 5,
+      "hardware_flash": 4,
+      "ai_tutor": 5,
+      "ui_usability": 5,
+      "average": 4.6
+    },
+    "overall_satisfaction": "不满意",
+    "nps_score": 8,
+    "feedback": {
+      "liked": [
+        "硬件项目实用",
+        "界面美观易用",
+        "路径推荐很准确"
+      ],
+      "disliked": [
+        "AI响应延迟高"
+      ],
+      "suggestions": [
+        "优化移动端体验"
+      ],
+      "bugs": [
+        "代码编译失败"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.270800"
+  },
+  {
+    "user_id": "test_user_029",
+    "age": 14,
+    "age_group": "初中(13-15岁)",
+    "grade_level": "初中2年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 15,
+      "total_learning_hours": 13.6,
+      "completed_paths": 1,
+      "completed_hardware_projects": 2
+    },
+    "feature_ratings": {
+      "path_generation": 3,
+      "blockly_editor": 5,
+      "hardware_flash": 3,
+      "ai_tutor": 5,
+      "ui_usability": 5,
+      "average": 4.2
+    },
+    "overall_satisfaction": "一般",
+    "nps_score": 10,
+    "feedback": {
+      "liked": [
+        "界面美观易用"
+      ],
+      "disliked": [
+        "部分功能复杂",
+        "加载速度慢"
+      ],
+      "suggestions": [
+        "提供更多示例代码",
+        "添加离线模式",
+        "优化移动端体验"
+      ],
+      "bugs": [
+        "代码编译失败"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.270800"
+  },
+  {
+    "user_id": "test_user_030",
+    "age": 15,
+    "age_group": "初中(13-15岁)",
+    "grade_level": "初中3年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 21,
+      "total_learning_hours": 11.8,
+      "completed_paths": 2,
+      "completed_hardware_projects": 3
+    },
+    "feature_ratings": {
+      "path_generation": 5,
+      "blockly_editor": 5,
+      "hardware_flash": 3,
+      "ai_tutor": 3,
+      "ui_usability": 4,
+      "average": 4.0
+    },
+    "overall_satisfaction": "非常满意",
+    "nps_score": 7,
+    "feedback": {
+      "liked": [
+        "AI导师解释清晰"
+      ],
+      "disliked": [
+        "加载速度慢"
+      ],
+      "suggestions": [
+        "提供更多示例代码"
+      ],
+      "bugs": [
+        "图表渲染慢",
+        "WebUSB偶尔断开"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.270800"
+  },
+  {
+    "user_id": "test_user_031",
+    "age": 13,
+    "age_group": "初中(13-15岁)",
+    "grade_level": "初中1年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 5,
+      "total_learning_hours": 6.3,
+      "completed_paths": 3,
+      "completed_hardware_projects": 1
+    },
+    "feature_ratings": {
+      "path_generation": 3,
+      "blockly_editor": 5,
+      "hardware_flash": 3,
+      "ai_tutor": 3,
+      "ui_usability": 4,
+      "average": 3.6
+    },
+    "overall_satisfaction": "满意",
+    "nps_score": 6,
+    "feedback": {
+      "liked": [
+        "界面美观易用",
+        "Blockly编程很有趣"
+      ],
+      "disliked": [
+        "AI响应延迟高"
+      ],
+      "suggestions": [
+        "提供更多示例代码"
+      ],
+      "bugs": [
+        "图表渲染慢",
+        "WebUSB偶尔断开"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.270800"
+  },
+  {
+    "user_id": "test_user_032",
+    "age": 14,
+    "age_group": "初中(13-15岁)",
+    "grade_level": "初中2年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 15,
+      "total_learning_hours": 19.8,
+      "completed_paths": 1,
+      "completed_hardware_projects": 0
+    },
+    "feature_ratings": {
+      "path_generation": 5,
+      "blockly_editor": 4,
+      "hardware_flash": 3,
+      "ai_tutor": 3,
+      "ui_usability": 5,
+      "average": 4.0
+    },
+    "overall_satisfaction": "非常满意",
+    "nps_score": 7,
+    "feedback": {
+      "liked": [
+        "AI导师解释清晰",
+        "学习进度可视化",
+        "界面美观易用"
+      ],
+      "disliked": [],
+      "suggestions": [
+        "添加离线模式",
+        "提供更多示例代码"
+      ],
+      "bugs": [
+        "WebUSB偶尔断开"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.271799"
+  },
+  {
+    "user_id": "test_user_033",
+    "age": 15,
+    "age_group": "初中(13-15岁)",
+    "grade_level": "初中3年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 7,
+      "total_learning_hours": 14.8,
+      "completed_paths": 1,
+      "completed_hardware_projects": 2
+    },
+    "feature_ratings": {
+      "path_generation": 3,
+      "blockly_editor": 3,
+      "hardware_flash": 2,
+      "ai_tutor": 5,
+      "ui_usability": 4,
+      "average": 3.4
+    },
+    "overall_satisfaction": "一般",
+    "nps_score": 6,
+    "feedback": {
+      "liked": [
+        "路径推荐很准确",
+        "界面美观易用"
+      ],
+      "disliked": [
+        "硬件连接不稳定"
+      ],
+      "suggestions": [
+        "优化移动端体验"
+      ],
+      "bugs": []
+    },
+    "submitted_at": "2026-04-09T19:03:28.271799"
+  },
+  {
+    "user_id": "test_user_034",
+    "age": 13,
+    "age_group": "初中(13-15岁)",
+    "grade_level": "初中1年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 9,
+      "total_learning_hours": 2.8,
+      "completed_paths": 4,
+      "completed_hardware_projects": 0
+    },
+    "feature_ratings": {
+      "path_generation": 5,
+      "blockly_editor": 3,
+      "hardware_flash": 2,
+      "ai_tutor": 3,
+      "ui_usability": 3,
+      "average": 3.2
+    },
+    "overall_satisfaction": "非常满意",
+    "nps_score": 7,
+    "feedback": {
+      "liked": [
+        "AI导师解释清晰"
+      ],
+      "disliked": [],
+      "suggestions": [
+        "增加更多硬件项目",
+        "优化移动端体验"
+      ],
+      "bugs": []
+    },
+    "submitted_at": "2026-04-09T19:03:28.271799"
+  },
+  {
+    "user_id": "test_user_035",
+    "age": 14,
+    "age_group": "初中(13-15岁)",
+    "grade_level": "初中2年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 22,
+      "total_learning_hours": 2.8,
+      "completed_paths": 3,
+      "completed_hardware_projects": 3
+    },
+    "feature_ratings": {
+      "path_generation": 3,
+      "blockly_editor": 5,
+      "hardware_flash": 5,
+      "ai_tutor": 4,
+      "ui_usability": 5,
+      "average": 4.4
+    },
+    "overall_satisfaction": "非常满意",
+    "nps_score": 5,
+    "feedback": {
+      "liked": [
+        "Blockly编程很有趣",
+        "路径推荐很准确"
+      ],
+      "disliked": [
+        "AI响应延迟高"
+      ],
+      "suggestions": [
+        "优化移动端体验",
+        "增加更多硬件项目",
+        "添加离线模式"
+      ],
+      "bugs": [
+        "代码编译失败"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.271799"
+  },
+  {
+    "user_id": "test_user_036",
+    "age": 15,
+    "age_group": "初中(13-15岁)",
+    "grade_level": "初中3年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 14,
+      "total_learning_hours": 17.2,
+      "completed_paths": 3,
+      "completed_hardware_projects": 0
+    },
+    "feature_ratings": {
+      "path_generation": 4,
+      "blockly_editor": 3,
+      "hardware_flash": 2,
+      "ai_tutor": 3,
+      "ui_usability": 4,
+      "average": 3.2
+    },
+    "overall_satisfaction": "非常满意",
+    "nps_score": 8,
+    "feedback": {
+      "liked": [
+        "AI导师解释清晰"
+      ],
+      "disliked": [],
+      "suggestions": [
+        "提供更多示例代码",
+        "优化移动端体验"
+      ],
+      "bugs": []
+    },
+    "submitted_at": "2026-04-09T19:03:28.271799"
+  },
+  {
+    "user_id": "test_user_037",
+    "age": 13,
+    "age_group": "初中(13-15岁)",
+    "grade_level": "初中1年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 23,
+      "total_learning_hours": 15.9,
+      "completed_paths": 2,
+      "completed_hardware_projects": 0
+    },
+    "feature_ratings": {
+      "path_generation": 3,
+      "blockly_editor": 3,
+      "hardware_flash": 5,
+      "ai_tutor": 4,
+      "ui_usability": 5,
+      "average": 4.0
+    },
+    "overall_satisfaction": "非常满意",
+    "nps_score": 5,
+    "feedback": {
+      "liked": [
+        "Blockly编程很有趣"
+      ],
+      "disliked": [],
+      "suggestions": [
+        "增加更多硬件项目"
+      ],
+      "bugs": [
+        "图表渲染慢",
+        "代码编译失败"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.271799"
+  },
+  {
+    "user_id": "test_user_038",
+    "age": 14,
+    "age_group": "初中(13-15岁)",
+    "grade_level": "初中2年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 20,
+      "total_learning_hours": 12.2,
+      "completed_paths": 3,
+      "completed_hardware_projects": 2
+    },
+    "feature_ratings": {
+      "path_generation": 3,
+      "blockly_editor": 4,
+      "hardware_flash": 4,
+      "ai_tutor": 3,
+      "ui_usability": 3,
+      "average": 3.4
+    },
+    "overall_satisfaction": "一般",
+    "nps_score": 7,
+    "feedback": {
+      "liked": [
+        "Blockly编程很有趣",
+        "路径推荐很准确"
+      ],
+      "disliked": [
+        "加载速度慢"
+      ],
+      "suggestions": [
+        "增加更多硬件项目",
+        "添加离线模式",
+        "提供更多示例代码"
+      ],
+      "bugs": [
+        "代码编译失败"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.271799"
+  },
+  {
+    "user_id": "test_user_039",
+    "age": 18,
+    "age_group": "高中(16-18岁)",
+    "grade_level": "高中3年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 10,
+      "total_learning_hours": 2.5,
+      "completed_paths": 4,
+      "completed_hardware_projects": 2
+    },
+    "feature_ratings": {
+      "path_generation": 5,
+      "blockly_editor": 3,
+      "hardware_flash": 5,
+      "ai_tutor": 5,
+      "ui_usability": 5,
+      "average": 4.6
+    },
+    "overall_satisfaction": "满意",
+    "nps_score": 9,
+    "feedback": {
+      "liked": [
+        "Blockly编程很有趣",
+        "AI导师解释清晰"
+      ],
+      "disliked": [
+        "AI响应延迟高"
+      ],
+      "suggestions": [
+        "提供更多示例代码"
+      ],
+      "bugs": [
+        "图表渲染慢",
+        "WebUSB偶尔断开"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.271799"
+  },
+  {
+    "user_id": "test_user_040",
+    "age": 16,
+    "age_group": "高中(16-18岁)",
+    "grade_level": "高中1年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 26,
+      "total_learning_hours": 15.3,
+      "completed_paths": 2,
+      "completed_hardware_projects": 0
+    },
+    "feature_ratings": {
+      "path_generation": 5,
+      "blockly_editor": 5,
+      "hardware_flash": 2,
+      "ai_tutor": 4,
+      "ui_usability": 5,
+      "average": 4.2
+    },
+    "overall_satisfaction": "非常满意",
+    "nps_score": 5,
+    "feedback": {
+      "liked": [
+        "路径推荐很准确",
+        "硬件项目实用"
+      ],
+      "disliked": [
+        "加载速度慢"
+      ],
+      "suggestions": [
+        "添加离线模式"
+      ],
+      "bugs": [
+        "WebUSB偶尔断开",
+        "代码编译失败"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.271799"
+  },
+  {
+    "user_id": "test_user_041",
+    "age": 17,
+    "age_group": "高中(16-18岁)",
+    "grade_level": "高中2年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 12,
+      "total_learning_hours": 10.5,
+      "completed_paths": 1,
+      "completed_hardware_projects": 3
+    },
+    "feature_ratings": {
+      "path_generation": 4,
+      "blockly_editor": 5,
+      "hardware_flash": 2,
+      "ai_tutor": 4,
+      "ui_usability": 4,
+      "average": 3.8
+    },
+    "overall_satisfaction": "非常不满意",
+    "nps_score": 6,
+    "feedback": {
+      "liked": [
+        "学习进度可视化",
+        "硬件项目实用",
+        "Blockly编程很有趣"
+      ],
+      "disliked": [],
+      "suggestions": [
+        "增加更多硬件项目",
+        "添加离线模式"
+      ],
+      "bugs": []
+    },
+    "submitted_at": "2026-04-09T19:03:28.271799"
+  },
+  {
+    "user_id": "test_user_042",
+    "age": 18,
+    "age_group": "高中(16-18岁)",
+    "grade_level": "高中3年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 22,
+      "total_learning_hours": 16.7,
+      "completed_paths": 3,
+      "completed_hardware_projects": 3
+    },
+    "feature_ratings": {
+      "path_generation": 4,
+      "blockly_editor": 3,
+      "hardware_flash": 4,
+      "ai_tutor": 4,
+      "ui_usability": 3,
+      "average": 3.6
+    },
+    "overall_satisfaction": "一般",
+    "nps_score": 7,
+    "feedback": {
+      "liked": [
+        "AI导师解释清晰",
+        "路径推荐很准确",
+        "学习进度可视化"
+      ],
+      "disliked": [
+        "硬件连接不稳定",
+        "加载速度慢"
+      ],
+      "suggestions": [
+        "添加离线模式",
+        "增加更多硬件项目"
+      ],
+      "bugs": []
+    },
+    "submitted_at": "2026-04-09T19:03:28.271799"
+  },
+  {
+    "user_id": "test_user_043",
+    "age": 16,
+    "age_group": "高中(16-18岁)",
+    "grade_level": "高中1年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 17,
+      "total_learning_hours": 18.0,
+      "completed_paths": 5,
+      "completed_hardware_projects": 3
+    },
+    "feature_ratings": {
+      "path_generation": 3,
+      "blockly_editor": 5,
+      "hardware_flash": 5,
+      "ai_tutor": 4,
+      "ui_usability": 5,
+      "average": 4.4
+    },
+    "overall_satisfaction": "一般",
+    "nps_score": 9,
+    "feedback": {
+      "liked": [
+        "Blockly编程很有趣",
+        "硬件项目实用"
+      ],
+      "disliked": [
+        "AI响应延迟高",
+        "加载速度慢"
+      ],
+      "suggestions": [
+        "提供更多示例代码",
+        "优化移动端体验"
+      ],
+      "bugs": [
+        "代码编译失败"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.271799"
+  },
+  {
+    "user_id": "test_user_044",
+    "age": 17,
+    "age_group": "高中(16-18岁)",
+    "grade_level": "高中2年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 14,
+      "total_learning_hours": 4.5,
+      "completed_paths": 1,
+      "completed_hardware_projects": 2
+    },
+    "feature_ratings": {
+      "path_generation": 4,
+      "blockly_editor": 4,
+      "hardware_flash": 5,
+      "ai_tutor": 5,
+      "ui_usability": 4,
+      "average": 4.4
+    },
+    "overall_satisfaction": "满意",
+    "nps_score": 10,
+    "feedback": {
+      "liked": [
+        "界面美观易用",
+        "路径推荐很准确",
+        "学习进度可视化"
+      ],
+      "disliked": [],
+      "suggestions": [
+        "提供更多示例代码"
+      ],
+      "bugs": [
+        "WebUSB偶尔断开"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.271799"
+  },
+  {
+    "user_id": "test_user_045",
+    "age": 18,
+    "age_group": "高中(16-18岁)",
+    "grade_level": "高中3年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 15,
+      "total_learning_hours": 7.8,
+      "completed_paths": 3,
+      "completed_hardware_projects": 1
+    },
+    "feature_ratings": {
+      "path_generation": 5,
+      "blockly_editor": 4,
+      "hardware_flash": 3,
+      "ai_tutor": 4,
+      "ui_usability": 4,
+      "average": 4.0
+    },
+    "overall_satisfaction": "不满意",
+    "nps_score": 10,
+    "feedback": {
+      "liked": [
+        "Blockly编程很有趣"
+      ],
+      "disliked": [
+        "加载速度慢",
+        "部分功能复杂"
+      ],
+      "suggestions": [
+        "提供更多示例代码"
+      ],
+      "bugs": [
+        "代码编译失败",
+        "图表渲染慢"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.271799"
+  },
+  {
+    "user_id": "test_user_046",
+    "age": 16,
+    "age_group": "高中(16-18岁)",
+    "grade_level": "高中1年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 10,
+      "total_learning_hours": 9.5,
+      "completed_paths": 5,
+      "completed_hardware_projects": 0
+    },
+    "feature_ratings": {
+      "path_generation": 5,
+      "blockly_editor": 3,
+      "hardware_flash": 3,
+      "ai_tutor": 4,
+      "ui_usability": 3,
+      "average": 3.6
+    },
+    "overall_satisfaction": "非常满意",
+    "nps_score": 9,
+    "feedback": {
+      "liked": [
+        "学习进度可视化"
+      ],
+      "disliked": [
+        "硬件连接不稳定"
+      ],
+      "suggestions": [
+        "增加更多硬件项目"
+      ],
+      "bugs": [
+        "WebUSB偶尔断开",
+        "图表渲染慢"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.271799"
+  },
+  {
+    "user_id": "test_user_047",
+    "age": 17,
+    "age_group": "高中(16-18岁)",
+    "grade_level": "高中2年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 12,
+      "total_learning_hours": 14.7,
+      "completed_paths": 5,
+      "completed_hardware_projects": 0
+    },
+    "feature_ratings": {
+      "path_generation": 5,
+      "blockly_editor": 5,
+      "hardware_flash": 4,
+      "ai_tutor": 4,
+      "ui_usability": 4,
+      "average": 4.4
+    },
+    "overall_satisfaction": "不满意",
+    "nps_score": 8,
+    "feedback": {
+      "liked": [
+        "AI导师解释清晰",
+        "硬件项目实用"
+      ],
+      "disliked": [
+        "硬件连接不稳定"
+      ],
+      "suggestions": [
+        "添加离线模式"
+      ],
+      "bugs": []
+    },
+    "submitted_at": "2026-04-09T19:03:28.272802"
+  },
+  {
+    "user_id": "test_user_048",
+    "age": 18,
+    "age_group": "高中(16-18岁)",
+    "grade_level": "高中3年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 25,
+      "total_learning_hours": 9.1,
+      "completed_paths": 4,
+      "completed_hardware_projects": 1
+    },
+    "feature_ratings": {
+      "path_generation": 5,
+      "blockly_editor": 5,
+      "hardware_flash": 4,
+      "ai_tutor": 5,
+      "ui_usability": 4,
+      "average": 4.6
+    },
+    "overall_satisfaction": "非常不满意",
+    "nps_score": 10,
+    "feedback": {
+      "liked": [
+        "AI导师解释清晰"
+      ],
+      "disliked": [],
+      "suggestions": [
+        "优化移动端体验",
+        "添加离线模式"
+      ],
+      "bugs": [
+        "图表渲染慢",
+        "WebUSB偶尔断开"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.272802"
+  },
+  {
+    "user_id": "test_user_049",
+    "age": 16,
+    "age_group": "高中(16-18岁)",
+    "grade_level": "高中1年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 15,
+      "total_learning_hours": 12.7,
+      "completed_paths": 4,
+      "completed_hardware_projects": 3
+    },
+    "feature_ratings": {
+      "path_generation": 5,
+      "blockly_editor": 5,
+      "hardware_flash": 2,
+      "ai_tutor": 4,
+      "ui_usability": 3,
+      "average": 3.8
+    },
+    "overall_satisfaction": "满意",
+    "nps_score": 5,
+    "feedback": {
+      "liked": [
+        "硬件项目实用",
+        "AI导师解释清晰",
+        "路径推荐很准确"
+      ],
+      "disliked": [
+        "加载速度慢",
+        "AI响应延迟高"
+      ],
+      "suggestions": [
+        "添加离线模式",
+        "优化移动端体验"
+      ],
+      "bugs": [
+        "图表渲染慢",
+        "WebUSB偶尔断开"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.272802"
+  },
+  {
+    "user_id": "test_user_050",
+    "age": 17,
+    "age_group": "高中(16-18岁)",
+    "grade_level": "高中2年级",
+    "test_period_days": 14,
+    "usage_stats": {
+      "total_sessions": 12,
+      "total_learning_hours": 17.6,
+      "completed_paths": 5,
+      "completed_hardware_projects": 2
+    },
+    "feature_ratings": {
+      "path_generation": 5,
+      "blockly_editor": 5,
+      "hardware_flash": 3,
+      "ai_tutor": 3,
+      "ui_usability": 5,
+      "average": 4.2
+    },
+    "overall_satisfaction": "一般",
+    "nps_score": 6,
+    "feedback": {
+      "liked": [
+        "界面美观易用",
+        "AI导师解释清晰"
+      ],
+      "disliked": [
+        "部分功能复杂",
+        "硬件连接不稳定"
+      ],
+      "suggestions": [
+        "优化移动端体验",
+        "提供更多示例代码",
+        "添加离线模式"
+      ],
+      "bugs": [
+        "WebUSB偶尔断开"
+      ]
+    },
+    "submitted_at": "2026-04-09T19:03:28.272802"
+  }
+]

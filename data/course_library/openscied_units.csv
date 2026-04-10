@@ -1,0 +1,3 @@
+id,title,source,grade_level,subject,duration_weeks,knowledge_points,cross_discipline,experiment_materials,low_cost_alternatives,theme,application
+OS-Unit-001,生态系统能量流动,OpenSciEd,6-8,生物,6,光合作用化学方程式;食物链能量传递;生态系统物质循环,用编程模拟种群增长;数学建模能量金字塔,水生植物;光源;CO₂指示剂,用LED灯代替专业光源;用白菜叶代替水生植物,生态系统,设计小型生态瓶观察能量流动
+OS-Unit-002,电磁感应现象,OpenSciEd,6-8,物理,6,法拉第电磁感应定律;楞次定律;交流电产生原理,用Arduino测量磁场强度,线圈;磁铁;电流表,用漆包线自制线圈;用指南针检测磁场,电磁学,制作简易发电机

@@ -1,0 +1,138 @@
+{
+  "nodes": [
+    {
+      "id": "KP-Phys-001",
+      "name": "KP-Phys-001",
+      "category": 2,
+      "subject": "物理"
+    },
+    {
+      "id": "KP-Bio-001",
+      "name": "KP-Bio-001",
+      "category": 2,
+      "subject": "生物"
+    },
+    {
+      "id": "KP-Math-001",
+      "name": "KP-Math-001",
+      "category": 2,
+      "subject": "数学"
+    },
+    {
+      "id": "OS-Unit-001",
+      "name": "生态系统能量流动",
+      "category": 0,
+      "subject": "General"
+    },
+    {
+      "id": "OS-Unit-002",
+      "name": "电磁感应现象",
+      "category": 0,
+      "subject": "General"
+    },
+    {
+      "id": "OST-Phys-Ch1",
+      "name": "牛顿运动定律",
+      "category": 1,
+      "subject": "General"
+    },
+    {
+      "id": "OST-Bio-Ch5",
+      "name": "生态学基础",
+      "category": 1,
+      "subject": "General"
+    },
+    {
+      "id": "HP-001",
+      "name": "HP-001",
+      "category": 3,
+      "subject": "General"
+    },
+    {
+      "id": "HP-002",
+      "name": "HP-002",
+      "category": 3,
+      "subject": "General"
+    },
+    {
+      "id": "STEM-PBL-Step-1",
+      "name": "STEM-PBL-Step-1",
+      "category": 0,
+      "subject": "General"
+    },
+    {
+      "id": "STEM-PBL-Step-2",
+      "name": "STEM-PBL-Step-2",
+      "category": 0,
+      "subject": "General"
+    },
+    {
+      "id": "STEM-PBL-Step-3",
+      "name": "STEM-PBL-Step-3",
+      "category": 0,
+      "subject": "General"
+    },
+    {
+      "id": "STEM-PBL-Step-4",
+      "name": "STEM-PBL-Step-4",
+      "category": 0,
+      "subject": "General"
+    }
+  ],
+  "links": [
+    {
+      "source": "KP-Bio-001",
+      "target": "OST-Bio-Ch5",
+      "relation": "PREREQUISITE_OF"
+    },
+    {
+      "source": "KP-Bio-001",
+      "target": "KP-Phys-001",
+      "relation": "CROSS_DISCIPLINE"
+    },
+    {
+      "source": "KP-Math-001",
+      "target": "OST-Phys-Ch1",
+      "relation": "PREREQUISITE_OF"
+    },
+    {
+      "source": "OS-Unit-001",
+      "target": "HP-001",
+      "relation": "HARDWARE_MAPS_TO"
+    },
+    {
+      "source": "OS-Unit-001",
+      "target": "KP-Bio-001",
+      "relation": "CONTAINS"
+    },
+    {
+      "source": "OS-Unit-001",
+      "target": "OST-Bio-Ch5",
+      "relation": "PROGRESSES_TO"
+    },
+    {
+      "source": "OS-Unit-001",
+      "target": "STEM-PBL-Step-3",
+      "relation": "ALIGNS_WITH"
+    },
+    {
+      "source": "OS-Unit-002",
+      "target": "HP-002",
+      "relation": "HARDWARE_MAPS_TO"
+    }
+  ],
+  "categories": [
+    {
+      "name": "CourseUnit"
+    },
+    {
+      "name": "TextbookChapter"
+    },
+    {
+      "name": "KnowledgePoint"
+    },
+    {
+      "name": "HardwareProject"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+[
+  {
+    "id": "TED-STEM-001",
+    "title": "人工智能伦理",
+    "source": "TED-Ed",
+    "category": "工程与技术",
+    "subject": "计算机科学",
+    "related_ted_talk": "https://www.ted.com/talks/ai_ethics",
+    "knowledge_summary": [
+      "机器学习基本概念",
+      "算法偏见与社会公平",
+      "AI决策的透明度"
+    ],
+    "duration_minutes": 15,
+    "grade_level": "高中",
+    "discussion_questions": [
+      "AI是否应该拥有道德责任?",
+      "如何避免算法歧视?"
+    ]
+  }
+]

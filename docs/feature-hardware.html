@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>低成本硬件联动 - OpenMTSciEd</title>
+    <style>
+        :root {
+            --primary-color: #f59e0b;
+            --accent-color: #fbbf24;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --hardware-green: #10b981;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(16, 185, 129, 0.1));
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1rem;
+        }
+
+        .section h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: var(--text-primary);
+        }
+
+        .hardware-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .hardware-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(245, 158, 11, 0.1);
+            transition: all 0.3s;
+        }
+
+        .hardware-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+
+        .hardware-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hardware-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cost {
+            color: var(--hardware-green);
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .component-list {
+            list-style: none;
+            padding: 0;
+            color: var(--text-secondary);
+        }
+
+        .component-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .component-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        .code-block {
+            background: #0d1117;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .code-block code {
+            color: #c9d1d9;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+        }
+
+        .keyword { color: #ff7b72; }
+        .string { color: #a5d6ff; }
+        .comment { color: #8b949e; }
+        .function { color: #d2a8ff; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(245, 158, 11, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        .feature-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .diagram {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            font-family: monospace;
+            color: var(--hardware-green);
+            overflow-x: auto;
+        }
+
+        .tech-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tech-list li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .tech-list li::before {
+            content: "🔧";
+            position: absolute;
+            left: 0;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--card-bg);
+            border-radius: 8px;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+            border-color: var(--primary-color);
+        }
+
+        footer {
+            background: var(--card-bg);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(245, 158, 11, 0.2);
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <a href="../marketing-home.html" class="logo">OpenMTSciEd</a>
+            <ul class="nav-links">
+                <li><a href="../marketing-home.html#features">核心特性</a></li>
+                <li><a href="../marketing-home.html#path">学习路径</a></li>
+                <li><a href="../marketing-home.html#hardware">硬件项目</a></li>
+                <li><a href="https://github.com/iMato/OpenMTSciEd" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>🔌 低成本硬件联动</h1>
+        <p>预算 ≤50元，WebUSB 一键烧录，让 STEM 教育触手可及</p>
+    </section>
+
+    <div class="content">
+        <a href="../marketing-home.html" class="back-link">← 返回首页</a>
+
+        <div class="section">
+            <h2>核心优势</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">≤¥50</div>
+                    <div class="stat-label">项目预算上限</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">WebUSB</div>
+                    <div class="stat-label">手机直连烧录</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Blockly 代码正确率</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">70%</div>
+                    <div class="stat-label">硬件项目完成率</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>项目案例</h2>
+            <div class="hardware-grid">
+                <div class="hardware-card">
+                    <div class="hardware-icon">🌡️</div>
+                    <h3>智能气象站</h3>
+                    <div class="cost">¥35</div>
+                    <ul class="component-list">
+                        <li>ESP32 开发板 (¥15)</li>
+                        <li>DHT11 温湿度传感器 (¥5)</li>
+                        <li>BMP280 气压传感器 (¥8)</li>
+                        <li>面包板 + 杜邦线 (¥7)</li>
+                    </ul>
+                </div>
+                <div class="hardware-card">
+                    <div class="hardware-icon">💡</div>
+                    <h3>光合作用模拟器</h3>
+                    <div class="cost">¥42</div>
+                    <ul class="component-list">
+                        <li>Arduino Nano (¥12)</li>
+                        <li>光敏电阻模块 (¥3)</li>
+                        <li>RGB LED 灯 (¥5)</li>
+                        <li>OLED 显示屏 (¥15)</li>
+                        <li>其他配件 (¥7)</li>
+                    </ul>
+                </div>
+                <div class="hardware-card">
+                    <div class="hardware-icon">🤖</div>
+                    <h3>智能避障小车</h3>
+                    <div class="cost">¥48</div>
+                    <ul class="component-list">
+                        <li>Arduino Uno (¥18)</li>
+                        <li>HC-SR04 超声波传感器 (¥6)</li>
+                        <li>SG90 舵机 (¥5)</li>
+                        <li>小车底盘 + 电机 (¥12)</li>
+                        <li>电池盒 + 开关 (¥7)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>WebUSB 一键烧录</h2>
+            <div class="feature-image">
+                <div class="diagram">
+                    <pre>
+    ┌──────────┐         USB          ┌──────────────┐
+    │  手机     │ ─────────────────▶  │  Arduino      │
+    │  浏览器   │   WebUSB 通信       │  ESP32        │
+    └──────────         │           ──────────────┘
+         │               │
+         ▼               ▼
+    ┌──────────┐   ┌──────────────┐
+    │  Blockly  │   │  Python 后端  │
+    │  代码编辑  │   │  编译服务     │
+    └──────────┘   └──────────────┘
+                    </pre>
+                </div>
+            </div>
+            <p>无需安装任何软件，通过手机浏览器即可完成：</p>
+            <ul class="tech-list">
+                <li>Blockly 图形化编程编辑代码</li>
+                <li>后端 Python 服务编译为 hex 文件</li>
+                <li>WebUSB API 直接烧录到开发板</li>
+                <li>实时串口调试查看输出</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Blockly 代码示例</h2>
+            <h3>智能气象站数据采集</h3>
+            <div class="code-block">
+                <code>
+<span class="comment">// Blockly 生成的 Arduino 代码</span>
+<span class="keyword">#include</span> &lt;DHT.h&gt;
+<span class="keyword">#include</span> &lt;Adafruit_BMP280.h&gt;
+
+DHT dht(2, DHT11);
+Adafruit_BMP280 bmp;
+
+<span class="keyword">void</span> <span class="function">setup</span>() {
+  Serial.begin(9600);
+  dht.begin();
+  bmp.begin(0x76);
+}
+
+<span class="keyword">void</span> <span class="function">loop</span>() {
+  <span class="comment">// 读取温湿度</span>
+  <span class="keyword">float</span> temp = dht.readTemperature();
+  <span class="keyword">float</span> humi = dht.readHumidity();
+  
+  <span class="comment">// 读取气压</span>
+  <span class="keyword">float</span> pressure = bmp.readPressure() / 100.0F;
+  
+  <span class="comment">// 发送数据到串口</span>
+  Serial.print(<span class="string">"Temp:"</span>);
+  Serial.print(temp);
+  Serial.print(<span class="string">",Humi:"</span>);
+  Serial.print(humi);
+  Serial.print(<span class="string">",Pressure:"</span>);
+  Serial.println(pressure);
+  
+  delay(2000);
+}
+                </code>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>硬件项目库结构</h2>
+            <div class="code-block">
+                <code>
+hardware_projects/
+├── weather_station/
+│   ├── circuit_diagram.png      <span class="comment"># 电路图</span>
+│   ├── arduino_code.ino          <span class="comment"># Arduino 代码</span>
+│   ├── blockly_template.json     <span class="comment"># Blockly 模板</span>
+│   ├── components.json           <span class="comment"># 物料清单</span>
+│   └── README.md                 <span class="comment"># 项目说明</span>
+├── photosynthesis_simulator/
+│   └── ...
+└── obstacle_avoidance_car/
+    └── ...
+                </code>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>技术栈</h2>
+            <ul class="tech-list">
+                <li><strong>Arduino / ESP32</strong> - 主流开源硬件平台</li>
+                <li><strong>WebUSB API</strong> - 浏览器直连烧录</li>
+                <li><strong>Blockly</strong> - 图形化编程编辑器</li>
+                <li><strong>Python Serial</strong> - 串口通信后端</li>
+                <li><strong>Supabase</strong> - 项目数据存储</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>相关文档</h2>
+            <ul class="tech-list">
+                <li><a href="../docs/DATA_ACQUISITION_GUIDE.md" style="color: var(--primary-color);">硬件材料价格数据库</a></li>
+                <li><a href="../README.md" style="color: var(--primary-color);">项目 README</a></li>
+                <li><a href="ARCHITECTURE.md" style="color: var(--primary-color);">系统架构说明</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>OpenMTSciEd</strong> - Open MatuX Science Education</p>
+        <p>
+            <a href="https://github.com/iMato/OpenMTSciEd" target="_blank">GitHub</a> · 
+            <a href="mailto:contact@imato.edu">联系我们</a> · 
+            MIT License
+        </p>
+    </footer>
+</body>
+</html>

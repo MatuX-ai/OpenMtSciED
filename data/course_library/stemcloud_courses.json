@@ -1,0 +1,16 @@
+[
+  {
+    "id": "STEM-Cloud-001",
+    "title": "Arduino传感器应用",
+    "source": "stemcloud.cn",
+    "category": "物理-力学",
+    "subject": "物理",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "related_hardware": ["Arduino Uno", "超声波传感器HC-SR04", "舵机SG90"],
+    "project_hours": 4,
+    "knowledge_points": ["超声波测距原理", "PWM控制舵机角度"],
+    "theme": "传感器技术",
+    "application": "制作智能避障小车"
+  }
+]

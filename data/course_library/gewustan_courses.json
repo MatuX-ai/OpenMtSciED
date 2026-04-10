@@ -1,0 +1,19 @@
+[
+  {
+    "id": "GWS-Course-001",
+    "title": "机械传动基础",
+    "source": "格物斯坦",
+    "age_range": "10-15岁",
+    "subject": "工程",
+    "modules": ["齿轮组原理", "皮带传动", "链条传动"],
+    "hardware_list": [
+      {"component": "齿轮组", "quantity": 5, "unit_price": 3.0},
+      {"component": "直流电机", "quantity": 1, "unit_price": 8.0},
+      {"component": "电池盒", "quantity": 1, "unit_price": 2.0}
+    ],
+    "projects": ["搭建简易起重机", "设计变速齿轮箱"],
+    "theme": "机械结构",
+    "knowledge_point": "力的传递与转换",
+    "application": "用齿轮组实现不同转速输出"
+  }
+]

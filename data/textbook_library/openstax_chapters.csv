@@ -1,0 +1,3 @@
+id,title,source,subject,grade_level,chapter_number,prerequisites,key_concepts,typical_exercises,estimated_hours,difficulty
+OST-Phys-Ch1,牛顿运动定律,OpenStax,物理,高中/大学,1,矢量运算基础;微积分入门(导数),牛顿第一定律(惯性);牛顿第二定律(F=ma);牛顿第三定律(作用力与反作用力),计算斜面上物体的加速度;分析双体系统的受力情况,8,4
+OST-Bio-Ch5,生态学基础,OpenStax,生物,高中/大学,5,细胞生物学基础;光合作用与呼吸作用,生态系统能量流动;食物链与食物网;碳循环与氮循环,绘制能量金字塔并计算能量传递效率;分析人类活动对碳循环的影响,6,3

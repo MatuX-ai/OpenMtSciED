@@ -1,0 +1,415 @@
+[
+  {
+    "project_id": "HW-Sensor-001",
+    "title": "超声波测距仪",
+    "category": "传感器",
+    "difficulty": 2,
+    "knowledge_point_ids": [
+      "KP-Phys-001"
+    ],
+    "subject": "物理",
+    "description": "使用HC-SR04超声波传感器测量距离,并在串口监视器显示结果",
+    "learning_objectives": [
+      "理解超声波测距原理",
+      "掌握脉冲宽度测量方法",
+      "学会使用digitalWrite和pulseIn函数"
+    ],
+    "estimated_time_hours": 2.0,
+    "components": [
+      {
+        "name": "Arduino Nano",
+        "quantity": 1,
+        "unit_price": 15.0,
+        "total_price": 15.0,
+        "supplier_link": null
+      },
+      {
+        "name": "HC-SR04超声波模块",
+        "quantity": 1,
+        "unit_price": 5.0,
+        "total_price": 5.0,
+        "supplier_link": null
+      },
+      {
+        "name": "杜邦线",
+        "quantity": 4,
+        "unit_price": 0.5,
+        "total_price": 2.0,
+        "supplier_link": null
+      }
+    ],
+    "total_cost": 22.0,
+    "mcu_type": "Arduino Nano",
+    "wiring_instructions": "VCC→5V, GND→GND, Trig→D2, Echo→D3"
+  },
+  {
+    "project_id": "HW-Motor-001",
+    "title": "智能风扇控制系统",
+    "category": "电机控制",
+    "difficulty": 3,
+    "knowledge_point_ids": [
+      "KP-Phys-002",
+      "KP-Eng-001"
+    ],
+    "subject": "工程",
+    "description": "使用温度传感器和直流电机制作智能风扇,温度超过阈值自动启动",
+    "learning_objectives": [
+      "理解PWM调速原理",
+      "掌握温度传感器读取",
+      "学会条件控制逻辑"
+    ],
+    "estimated_time_hours": 3.0,
+    "components": [
+      {
+        "name": "Arduino Nano",
+        "quantity": 1,
+        "unit_price": 15.0,
+        "total_price": 15.0,
+        "supplier_link": null
+      },
+      {
+        "name": "DHT11温湿度传感器",
+        "quantity": 1,
+        "unit_price": 4.0,
+        "total_price": 4.0,
+        "supplier_link": null
+      },
+      {
+        "name": "直流电机",
+        "quantity": 1,
+        "unit_price": 8.0,
+        "total_price": 8.0,
+        "supplier_link": null
+      },
+      {
+        "name": "L298N电机驱动模块",
+        "quantity": 1,
+        "unit_price": 6.0,
+        "total_price": 6.0,
+        "supplier_link": null
+      },
+      {
+        "name": "杜邦线",
+        "quantity": 10,
+        "unit_price": 0.5,
+        "total_price": 5.0,
+        "supplier_link": null
+      }
+    ],
+    "total_cost": 38.0,
+    "mcu_type": "Arduino Nano",
+    "wiring_instructions": "DHT11 DATA→D2, 电机IN1→D3, IN2→D4, ENA→D5(PWM)"
+  },
+  {
+    "project_id": "HW-IoT-001",
+    "title": "WiFi环境监测站",
+    "category": "物联网",
+    "difficulty": 4,
+    "knowledge_point_ids": [
+      "KP-Phys-003",
+      "KP-Eng-002"
+    ],
+    "subject": "工程",
+    "description": "使用ESP32连接WiFi,实时上传温湿度数据到云平台",
+    "learning_objectives": [
+      "理解WiFi通信原理",
+      "掌握HTTP POST请求",
+      "学会使用JSON格式传输数据"
+    ],
+    "estimated_time_hours": 4.0,
+    "components": [
+      {
+        "name": "ESP32开发板",
+        "quantity": 1,
+        "unit_price": 20.0,
+        "total_price": 20.0,
+        "supplier_link": null
+      },
+      {
+        "name": "DHT22温湿度传感器",
+        "quantity": 1,
+        "unit_price": 8.0,
+        "total_price": 8.0,
+        "supplier_link": null
+      },
+      {
+        "name": "面包板",
+        "quantity": 1,
+        "unit_price": 5.0,
+        "total_price": 5.0,
+        "supplier_link": null
+      },
+      {
+        "name": "杜邦线",
+        "quantity": 6,
+        "unit_price": 0.5,
+        "total_price": 3.0,
+        "supplier_link": null
+      }
+    ],
+    "total_cost": 36.0,
+    "mcu_type": "ESP32",
+    "wiring_instructions": "DHT22 DATA→GPIO4, VCC→3.3V, GND→GND"
+  },
+  {
+    "project_id": "HW-SmartHome-001",
+    "title": "语音控制LED灯",
+    "category": "智能家居",
+    "difficulty": 3,
+    "knowledge_point_ids": [
+      "KP-Eng-003"
+    ],
+    "subject": "工程",
+    "description": "使用蓝牙模块实现手机APP语音控制LED灯开关和亮度",
+    "learning_objectives": [
+      "理解蓝牙串口通信",
+      "掌握语音识别基本原理",
+      "学会PWM调光技术"
+    ],
+    "estimated_time_hours": 3.0,
+    "components": [
+      {
+        "name": "Arduino Nano",
+        "quantity": 1,
+        "unit_price": 15.0,
+        "total_price": 15.0,
+        "supplier_link": null
+      },
+      {
+        "name": "HC-05蓝牙模块",
+        "quantity": 1,
+        "unit_price": 10.0,
+        "total_price": 10.0,
+        "supplier_link": null
+      },
+      {
+        "name": "LED灯珠",
+        "quantity": 3,
+        "unit_price": 1.0,
+        "total_price": 3.0,
+        "supplier_link": null
+      },
+      {
+        "name": "220Ω电阻",
+        "quantity": 3,
+        "unit_price": 0.2,
+        "total_price": 0.6,
+        "supplier_link": null
+      },
+      {
+        "name": "杜邦线",
+        "quantity": 8,
+        "unit_price": 0.5,
+        "total_price": 4.0,
+        "supplier_link": null
+      }
+    ],
+    "total_cost": 32.6,
+    "mcu_type": "Arduino Nano",
+    "wiring_instructions": "HC-05 TX→D2, RX→D3, LED→D9(PWM)"
+  },
+  {
+    "project_id": "HW-Chem-001",
+    "title": "智能土壤湿度监测仪",
+    "category": "化学/农业",
+    "difficulty": 2,
+    "knowledge_point_ids": ["KP-Chem-001"],
+    "subject": "化学",
+    "description": "使用土壤湿度传感器检测植物水分，并在LCD上显示状态",
+    "learning_objectives": ["理解电阻式传感器原理", "掌握模拟信号读取", "学会简单的阈值判断"],
+    "estimated_time_hours": 2.0,
+    "components": [
+      {"name": "Arduino Nano", "quantity": 1, "unit_price": 15.0, "total_price": 15.0},
+      {"name": "土壤湿度传感器", "quantity": 1, "unit_price": 3.0, "total_price": 3.0},
+      {"name": "LCD1602显示屏", "quantity": 1, "unit_price": 8.0, "total_price": 8.0},
+      {"name": "杜邦线", "quantity": 10, "unit_price": 0.5, "total_price": 5.0}
+    ],
+    "total_cost": 31.0,
+    "mcu_type": "Arduino Nano",
+    "wiring_instructions": "Sensor A0→A0, LCD SDA→A4, SCL→A5"
+  },
+  {
+    "project_id": "HW-Bio-001",
+    "title": "自动植物补光灯",
+    "category": "生物/工程",
+    "difficulty": 3,
+    "knowledge_point_ids": ["KP-Bio-001"],
+    "subject": "生物",
+    "description": "根据环境光强度自动控制LED补光灯的开关，模拟光合作用所需光照",
+    "learning_objectives": ["理解光合作用与光照关系", "掌握光敏电阻特性", "学会继电器控制"],
+    "estimated_time_hours": 2.5,
+    "components": [
+      {"name": "Arduino Nano", "quantity": 1, "unit_price": 15.0, "total_price": 15.0},
+      {"name": "光敏电阻模块", "quantity": 1, "unit_price": 2.0, "total_price": 2.0},
+      {"name": "单路继电器", "quantity": 1, "unit_price": 3.0, "total_price": 3.0},
+      {"name": "LED灯带(5V)", "quantity": 1, "unit_price": 10.0, "total_price": 10.0},
+      {"name": "杜邦线", "quantity": 6, "unit_price": 0.5, "total_price": 3.0}
+    ],
+    "total_cost": 33.0,
+    "mcu_type": "Arduino Nano",
+    "wiring_instructions": "光敏 A0→A0, 继电器 IN→D2, LED→继电器COM/NO"
+  },
+  {
+    "project_id": "HW-Phys-002",
+    "title": "简易数字电压表",
+    "category": "物理/电子",
+    "difficulty": 2,
+    "knowledge_point_ids": ["KP-Phys-004"],
+    "subject": "物理",
+    "description": "利用Arduino的ADC功能制作一个可以测量0-5V电压的数字电压表",
+    "learning_objectives": ["理解分压电路原理", "掌握ADC模数转换", "学会串口数据打印"],
+    "estimated_time_hours": 1.5,
+    "components": [
+      {"name": "Arduino Nano", "quantity": 1, "unit_price": 15.0, "total_price": 15.0},
+      {"name": "10kΩ电位器", "quantity": 1, "unit_price": 1.0, "total_price": 1.0},
+      {"name": "OLED显示屏(0.96寸)", "quantity": 1, "unit_price": 12.0, "total_price": 12.0},
+      {"name": "杜邦线", "quantity": 6, "unit_price": 0.5, "total_price": 3.0}
+    ],
+    "total_cost": 31.0,
+    "mcu_type": "Arduino Nano",
+    "wiring_instructions": "电位器中间脚→A0, OLED SDA→A4, SCL→A5"
+  },
+  {
+    "project_id": "HW-Eng-002",
+    "title": "红外避障小车底盘",
+    "category": "工程/机器人",
+    "difficulty": 4,
+    "knowledge_point_ids": ["KP-Eng-004"],
+    "subject": "工程",
+    "description": "搭建具备红外避障功能的移动机器人底盘，实现自动巡航",
+    "learning_objectives": ["理解红外反射原理", "掌握双电机差速转向", "学会多传感器融合逻辑"],
+    "estimated_time_hours": 4.0,
+    "components": [
+      {"name": "ESP32开发板", "quantity": 1, "unit_price": 20.0, "total_price": 20.0},
+      {"name": "L298N电机驱动", "quantity": 1, "unit_price": 6.0, "total_price": 6.0},
+      {"name": "红外避障模块", "quantity": 2, "unit_price": 2.5, "total_price": 5.0},
+      {"name": "直流减速电机+轮子", "quantity": 2, "unit_price": 5.0, "total_price": 10.0},
+      {"name": "小车底盘套件", "quantity": 1, "unit_price": 8.0, "total_price": 8.0}
+    ],
+    "total_cost": 49.0,
+    "mcu_type": "ESP32",
+    "wiring_instructions": "左避障→D4, 右避障→D5, 电机A→D12/D13, 电机B→D25/D26"
+  },
+  {
+    "project_id": "HW-SmartHome-002",
+    "title": "人体感应小夜灯",
+    "category": "智能家居",
+    "difficulty": 2,
+    "knowledge_point_ids": ["KP-Eng-005"],
+    "subject": "工程",
+    "description": "使用PIR人体感应模块，在检测到有人时自动点亮LED灯",
+    "learning_objectives": ["理解热释电红外传感器原理", "掌握延时控制逻辑", "学会低功耗设计"],
+    "estimated_time_hours": 1.5,
+    "components": [
+      {"name": "Arduino Nano", "quantity": 1, "unit_price": 15.0, "total_price": 15.0},
+      {"name": "HC-SR501人体感应模块", "quantity": 1, "unit_price": 4.0, "total_price": 4.0},
+      {"name": "高亮LED", "quantity": 1, "unit_price": 1.0, "total_price": 1.0},
+      {"name": "杜邦线", "quantity": 4, "unit_price": 0.5, "total_price": 2.0}
+    ],
+    "total_cost": 22.0,
+    "mcu_type": "Arduino Nano",
+    "wiring_instructions": "PIR OUT→D2, LED→D3"
+  },
+  {
+    "project_id": "HW-IoT-002",
+    "title": "远程温湿度报警器",
+    "category": "物联网",
+    "difficulty": 3,
+    "knowledge_point_ids": ["KP-Eng-006"],
+    "subject": "工程",
+    "description": "当室内温湿度超过设定值时，通过WiFi发送报警信息到手机",
+    "learning_objectives": ["理解MQTT协议基础", "掌握云端消息推送", "学会异常状态处理"],
+    "estimated_time_hours": 3.5,
+    "components": [
+      {"name": "ESP32开发板", "quantity": 1, "unit_price": 20.0, "total_price": 20.0},
+      {"name": "DHT11传感器", "quantity": 1, "unit_price": 4.0, "total_price": 4.0},
+      {"name": "有源蜂鸣器", "quantity": 1, "unit_price": 2.0, "total_price": 2.0},
+      {"name": "杜邦线", "quantity": 6, "unit_price": 0.5, "total_price": 3.0}
+    ],
+    "total_cost": 29.0,
+    "mcu_type": "ESP32",
+    "wiring_instructions": "DHT11→D4, 蜂鸣器→D5"
+  },
+  {
+    "project_id": "HW-Phys-003",
+    "title": "霍尔效应转速计",
+    "category": "物理/机械",
+    "difficulty": 3,
+    "knowledge_point_ids": ["KP-Phys-005"],
+    "subject": "物理",
+    "description": "利用霍尔传感器测量电机转速，并在屏幕显示RPM",
+    "learning_objectives": ["理解霍尔效应", "掌握中断计数法测频", "学会转速计算公式"],
+    "estimated_time_hours": 3.0,
+    "components": [
+      {"name": "Arduino Nano", "quantity": 1, "unit_price": 15.0, "total_price": 15.0},
+      {"name": "霍尔传感器模块", "quantity": 1, "unit_price": 3.0, "total_price": 3.0},
+      {"name": "小磁铁", "quantity": 1, "unit_price": 1.0, "total_price": 1.0},
+      {"name": "OLED显示屏", "quantity": 1, "unit_price": 12.0, "total_price": 12.0},
+      {"name": "杜邦线", "quantity": 8, "unit_price": 0.5, "total_price": 4.0}
+    ],
+    "total_cost": 35.0,
+    "mcu_type": "Arduino Nano",
+    "wiring_instructions": "霍尔 OUT→D2(中断), OLED→I2C"
+  },
+  {
+    "project_id": "HW-Chem-002",
+    "title": "水质TDS检测仪",
+    "category": "化学/环保",
+    "difficulty": 3,
+    "knowledge_point_ids": ["KP-Chem-002"],
+    "subject": "化学",
+    "description": "检测水体的总溶解固体(TDS)含量，评估水质纯净度",
+    "learning_objectives": ["理解电导率与TDS关系", "掌握模拟信号校准", "学会水质等级划分"],
+    "estimated_time_hours": 2.5,
+    "components": [
+      {"name": "Arduino Nano", "quantity": 1, "unit_price": 15.0, "total_price": 15.0},
+      {"name": "TDS传感器模块", "quantity": 1, "unit_price": 12.0, "total_price": 12.0},
+      {"name": "OLED显示屏", "quantity": 1, "unit_price": 12.0, "total_price": 12.0},
+      {"name": "杜邦线", "quantity": 6, "unit_price": 0.5, "total_price": 3.0}
+    ],
+    "total_cost": 42.0,
+    "mcu_type": "Arduino Nano",
+    "wiring_instructions": "TDS A0→A0, OLED→I2C"
+  },
+  {
+    "project_id": "HW-Bio-002",
+    "title": "心率监测手环原型",
+    "category": "生物/医疗",
+    "difficulty": 4,
+    "knowledge_point_ids": ["KP-Bio-002"],
+    "subject": "生物",
+    "description": "使用光电容积脉搏波描记法(PPG)传感器测量心率",
+    "learning_objectives": ["理解脉搏波形成原理", "掌握信号滤波算法", "学会生物特征数据采集"],
+    "estimated_time_hours": 4.0,
+    "components": [
+      {"name": "ESP32开发板", "quantity": 1, "unit_price": 20.0, "total_price": 20.0},
+      {"name": "MAX30102心率模块", "quantity": 1, "unit_price": 15.0, "total_price": 15.0},
+      {"name": "OLED显示屏", "quantity": 1, "unit_price": 12.0, "total_price": 12.0},
+      {"name": "杜邦线", "quantity": 8, "unit_price": 0.5, "total_price": 4.0}
+    ],
+    "total_cost": 51.0,
+    "mcu_type": "ESP32",
+    "wiring_instructions": "MAX30102 SDA→D21, SCL→D22, OLED→I2C"
+  },
+  {
+    "project_id": "HW-Eng-003",
+    "title": "太阳能自动追光系统",
+    "category": "工程/能源",
+    "difficulty": 4,
+    "knowledge_point_ids": ["KP-Eng-007"],
+    "subject": "工程",
+    "description": "使用四个光敏电阻检测光源方向，控制舵机调整太阳能板角度",
+    "learning_objectives": ["理解光伏效应", "掌握舵机PWM控制", "学会闭环反馈控制"],
+    "estimated_time_hours": 4.5,
+    "components": [
+      {"name": "Arduino Nano", "quantity": 1, "unit_price": 15.0, "total_price": 15.0},
+      {"name": "光敏电阻", "quantity": 4, "unit_price": 1.0, "total_price": 4.0},
+      {"name": "SG90舵机", "quantity": 2, "unit_price": 4.0, "total_price": 8.0},
+      {"name": "万向节支架", "quantity": 1, "unit_price": 10.0, "total_price": 10.0},
+      {"name": "杜邦线", "quantity": 15, "unit_price": 0.5, "total_price": 7.5}
+    ],
+    "total_cost": 44.5,
+    "mcu_type": "Arduino Nano",
+    "wiring_instructions": "4个光敏→A0-A3, 舵机1→D5, 舵机2→D6"
+  }
+]

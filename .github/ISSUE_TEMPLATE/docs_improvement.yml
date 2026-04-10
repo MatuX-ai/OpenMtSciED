@@ -1,0 +1,52 @@
+name: "📝 Documentation"
+description: "改进或添加文档内容"
+title: "[Docs]: "
+labels: ["documentation"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢您帮助改进文档！
+
+  - type: dropdown
+    id: doc-type
+    attributes:
+      label: 文档类型
+      options:
+        - 安装指南
+        - API 文档
+        - 教程/示例
+        - 常见问题 (FAQ)
+        - 贡献指南
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-state
+    attributes:
+      label: 当前状态
+      description: 当前文档存在什么问题或缺少什么内容？
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested-change
+    attributes:
+      label: 建议的改进
+      description: 您建议如何改进？可以提供示例内容
+    validations:
+      required: true
+
+  - type: input
+    id: file-path
+    attributes:
+      label: 相关文件路径
+      description: 需要修改的文件（如果知道）
+      placeholder: docs/INSTALLATION.md
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: 其他信息

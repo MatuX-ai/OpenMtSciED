@@ -1,0 +1,452 @@
+[
+  {
+    "user_id": "test_user_001",
+    "age": 6,
+    "age_group": "小学",
+    "grade_level": "小学1年级",
+    "recruitment_channel": "学校合作",
+    "test_start_date": "2026-04-09T19:03:28.260811",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_002",
+    "age": 7,
+    "age_group": "小学",
+    "grade_level": "小学2年级",
+    "recruitment_channel": "家长推荐",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_003",
+    "age": 8,
+    "age_group": "小学",
+    "grade_level": "小学3年级",
+    "recruitment_channel": "在线招募",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_004",
+    "age": 9,
+    "age_group": "小学",
+    "grade_level": "小学4年级",
+    "recruitment_channel": "学校合作",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_005",
+    "age": 10,
+    "age_group": "小学",
+    "grade_level": "小学5年级",
+    "recruitment_channel": "家长推荐",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_006",
+    "age": 11,
+    "age_group": "小学",
+    "grade_level": "小学6年级",
+    "recruitment_channel": "在线招募",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_007",
+    "age": 12,
+    "age_group": "小学",
+    "grade_level": "小学7年级",
+    "recruitment_channel": "学校合作",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_008",
+    "age": 6,
+    "age_group": "小学",
+    "grade_level": "小学1年级",
+    "recruitment_channel": "家长推荐",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_009",
+    "age": 7,
+    "age_group": "小学",
+    "grade_level": "小学2年级",
+    "recruitment_channel": "在线招募",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_010",
+    "age": 8,
+    "age_group": "小学",
+    "grade_level": "小学3年级",
+    "recruitment_channel": "学校合作",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_011",
+    "age": 9,
+    "age_group": "小学",
+    "grade_level": "小学4年级",
+    "recruitment_channel": "家长推荐",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_012",
+    "age": 10,
+    "age_group": "小学",
+    "grade_level": "小学5年级",
+    "recruitment_channel": "在线招募",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_013",
+    "age": 11,
+    "age_group": "小学",
+    "grade_level": "小学6年级",
+    "recruitment_channel": "学校合作",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_014",
+    "age": 12,
+    "age_group": "小学",
+    "grade_level": "小学7年级",
+    "recruitment_channel": "家长推荐",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_015",
+    "age": 6,
+    "age_group": "小学",
+    "grade_level": "小学1年级",
+    "recruitment_channel": "在线招募",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_016",
+    "age": 7,
+    "age_group": "小学",
+    "grade_level": "小学2年级",
+    "recruitment_channel": "学校合作",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_017",
+    "age": 8,
+    "age_group": "小学",
+    "grade_level": "小学3年级",
+    "recruitment_channel": "家长推荐",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_018",
+    "age": 9,
+    "age_group": "小学",
+    "grade_level": "小学4年级",
+    "recruitment_channel": "在线招募",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_019",
+    "age": 10,
+    "age_group": "小学",
+    "grade_level": "小学5年级",
+    "recruitment_channel": "学校合作",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_020",
+    "age": 11,
+    "age_group": "小学",
+    "grade_level": "小学6年级",
+    "recruitment_channel": "家长推荐",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_021",
+    "age": 15,
+    "age_group": "初中",
+    "grade_level": "初中3年级",
+    "recruitment_channel": "在线招募",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_022",
+    "age": 13,
+    "age_group": "初中",
+    "grade_level": "初中1年级",
+    "recruitment_channel": "学校合作",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_023",
+    "age": 14,
+    "age_group": "初中",
+    "grade_level": "初中2年级",
+    "recruitment_channel": "家长推荐",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_024",
+    "age": 15,
+    "age_group": "初中",
+    "grade_level": "初中3年级",
+    "recruitment_channel": "在线招募",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_025",
+    "age": 13,
+    "age_group": "初中",
+    "grade_level": "初中1年级",
+    "recruitment_channel": "学校合作",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_026",
+    "age": 14,
+    "age_group": "初中",
+    "grade_level": "初中2年级",
+    "recruitment_channel": "家长推荐",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_027",
+    "age": 15,
+    "age_group": "初中",
+    "grade_level": "初中3年级",
+    "recruitment_channel": "在线招募",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_028",
+    "age": 13,
+    "age_group": "初中",
+    "grade_level": "初中1年级",
+    "recruitment_channel": "学校合作",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_029",
+    "age": 14,
+    "age_group": "初中",
+    "grade_level": "初中2年级",
+    "recruitment_channel": "家长推荐",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_030",
+    "age": 15,
+    "age_group": "初中",
+    "grade_level": "初中3年级",
+    "recruitment_channel": "在线招募",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_031",
+    "age": 13,
+    "age_group": "初中",
+    "grade_level": "初中1年级",
+    "recruitment_channel": "学校合作",
+    "test_start_date": "2026-04-09T19:03:28.261793",
+    "test_end_date": "2026-04-23T19:03:28.261793"
+  },
+  {
+    "user_id": "test_user_032",
+    "age": 14,
+    "age_group": "初中",
+    "grade_level": "初中2年级",
+    "recruitment_channel": "家长推荐",
+    "test_start_date": "2026-04-09T19:03:28.262799",
+    "test_end_date": "2026-04-23T19:03:28.262799"
+  },
+  {
+    "user_id": "test_user_033",
+    "age": 15,
+    "age_group": "初中",
+    "grade_level": "初中3年级",
+    "recruitment_channel": "在线招募",
+    "test_start_date": "2026-04-09T19:03:28.262799",
+    "test_end_date": "2026-04-23T19:03:28.262799"
+  },
+  {
+    "user_id": "test_user_034",
+    "age": 13,
+    "age_group": "初中",
+    "grade_level": "初中1年级",
+    "recruitment_channel": "学校合作",
+    "test_start_date": "2026-04-09T19:03:28.262799",
+    "test_end_date": "2026-04-23T19:03:28.262799"
+  },
+  {
+    "user_id": "test_user_035",
+    "age": 14,
+    "age_group": "初中",
+    "grade_level": "初中2年级",
+    "recruitment_channel": "家长推荐",
+    "test_start_date": "2026-04-09T19:03:28.262799",
+    "test_end_date": "2026-04-23T19:03:28.262799"
+  },
+  {
+    "user_id": "test_user_036",
+    "age": 15,
+    "age_group": "初中",
+    "grade_level": "初中3年级",
+    "recruitment_channel": "在线招募",
+    "test_start_date": "2026-04-09T19:03:28.262799",
+    "test_end_date": "2026-04-23T19:03:28.262799"
+  },
+  {
+    "user_id": "test_user_037",
+    "age": 13,
+    "age_group": "初中",
+    "grade_level": "初中1年级",
+    "recruitment_channel": "学校合作",
+    "test_start_date": "2026-04-09T19:03:28.262799",
+    "test_end_date": "2026-04-23T19:03:28.262799"
+  },
+  {
+    "user_id": "test_user_038",
+    "age": 14,
+    "age_group": "初中",
+    "grade_level": "初中2年级",
+    "recruitment_channel": "家长推荐",
+    "test_start_date": "2026-04-09T19:03:28.262799",
+    "test_end_date": "2026-04-23T19:03:28.262799"
+  },
+  {
+    "user_id": "test_user_039",
+    "age": 18,
+    "age_group": "高中",
+    "grade_level": "高中3年级",
+    "recruitment_channel": "在线招募",
+    "test_start_date": "2026-04-09T19:03:28.262799",
+    "test_end_date": "2026-04-23T19:03:28.262799"
+  },
+  {
+    "user_id": "test_user_040",
+    "age": 16,
+    "age_group": "高中",
+    "grade_level": "高中1年级",
+    "recruitment_channel": "学校合作",
+    "test_start_date": "2026-04-09T19:03:28.262799",
+    "test_end_date": "2026-04-23T19:03:28.262799"
+  },
+  {
+    "user_id": "test_user_041",
+    "age": 17,
+    "age_group": "高中",
+    "grade_level": "高中2年级",
+    "recruitment_channel": "家长推荐",
+    "test_start_date": "2026-04-09T19:03:28.262799",
+    "test_end_date": "2026-04-23T19:03:28.262799"
+  },
+  {
+    "user_id": "test_user_042",
+    "age": 18,
+    "age_group": "高中",
+    "grade_level": "高中3年级",
+    "recruitment_channel": "在线招募",
+    "test_start_date": "2026-04-09T19:03:28.262799",
+    "test_end_date": "2026-04-23T19:03:28.262799"
+  },
+  {
+    "user_id": "test_user_043",
+    "age": 16,
+    "age_group": "高中",
+    "grade_level": "高中1年级",
+    "recruitment_channel": "学校合作",
+    "test_start_date": "2026-04-09T19:03:28.262799",
+    "test_end_date": "2026-04-23T19:03:28.262799"
+  },
+  {
+    "user_id": "test_user_044",
+    "age": 17,
+    "age_group": "高中",
+    "grade_level": "高中2年级",
+    "recruitment_channel": "家长推荐",
+    "test_start_date": "2026-04-09T19:03:28.262799",
+    "test_end_date": "2026-04-23T19:03:28.262799"
+  },
+  {
+    "user_id": "test_user_045",
+    "age": 18,
+    "age_group": "高中",
+    "grade_level": "高中3年级",
+    "recruitment_channel": "在线招募",
+    "test_start_date": "2026-04-09T19:03:28.262799",
+    "test_end_date": "2026-04-23T19:03:28.262799"
+  },
+  {
+    "user_id": "test_user_046",
+    "age": 16,
+    "age_group": "高中",
+    "grade_level": "高中1年级",
+    "recruitment_channel": "学校合作",
+    "test_start_date": "2026-04-09T19:03:28.262799",
+    "test_end_date": "2026-04-23T19:03:28.262799"
+  },
+  {
+    "user_id": "test_user_047",
+    "age": 17,
+    "age_group": "高中",
+    "grade_level": "高中2年级",
+    "recruitment_channel": "家长推荐",
+    "test_start_date": "2026-04-09T19:03:28.262799",
+    "test_end_date": "2026-04-23T19:03:28.262799"
+  },
+  {
+    "user_id": "test_user_048",
+    "age": 18,
+    "age_group": "高中",
+    "grade_level": "高中3年级",
+    "recruitment_channel": "在线招募",
+    "test_start_date": "2026-04-09T19:03:28.262799",
+    "test_end_date": "2026-04-23T19:03:28.262799"
+  },
+  {
+    "user_id": "test_user_049",
+    "age": 16,
+    "age_group": "高中",
+    "grade_level": "高中1年级",
+    "recruitment_channel": "学校合作",
+    "test_start_date": "2026-04-09T19:03:28.262799",
+    "test_end_date": "2026-04-23T19:03:28.262799"
+  },
+  {
+    "user_id": "test_user_050",
+    "age": 17,
+    "age_group": "高中",
+    "grade_level": "高中2年级",
+    "recruitment_channel": "家长推荐",
+    "test_start_date": "2026-04-09T19:03:28.262799",
+    "test_end_date": "2026-04-23T19:03:28.262799"
+  }
+]
