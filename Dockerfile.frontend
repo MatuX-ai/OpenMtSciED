@@ -2,12 +2,11 @@
 FROM node:20-alpine AS builder
 
 WORKDIR /app
-COPY frontend/package*.json ./
+COPY package*.json ./
 RUN npm ci
-COPY frontend/tsconfig*.json ./
-COPY frontend/vite.config.* ./
-COPY frontend/index.html ./
-COPY frontend/src/ ./src/
+COPY tsconfig*.json ./
+COPY angular.json ./
+COPY src/ ./src/
 RUN npm run build
 
 # Nginx 服务阶段
