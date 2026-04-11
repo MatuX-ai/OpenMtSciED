@@ -73,11 +73,22 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             font-size: 1.5rem;
             font-weight: 700;
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            -webkit-background-clip: initial;
+            -webkit-text-fill-color: initial;
         }
 
         .nav-links {
@@ -557,7 +568,10 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-content">
-            <div class="logo">OpenMTSciEd</div>
+            <div class="logo">
+                            <img src="logo.png" alt="OpenMTSciEd Logo" class="logo-icon">
+                            <span>OpenMTSciEd</span>
+                        </div>
             <ul class="nav-links">
                 <li><a href="#features">核心特性</a></li>
                 <li><a href="#path">学习路径</a></li>
