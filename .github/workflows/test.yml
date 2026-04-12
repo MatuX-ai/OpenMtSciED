@@ -21,7 +21,9 @@ jobs:
         pip install pytest
 
     - name: Run backend tests
-      run: pytest tests/
+      run: |
+        export PYTHONPATH=${{ github.workspace }}:$PYTHONPATH
+        pytest tests/ -v
 
     - name: Set up Node.js
       uses: actions/setup-node@v4
