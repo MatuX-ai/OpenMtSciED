@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技能认证区块链系统回测报告</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .header { text-align: center; margin-bottom: 30px; }
+        .header h1 { color: #2c3e50; }
+        .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .metric { background: #ecf0f1; padding: 15px; border-radius: 5px; text-align: center; }
+        .metric.pass { background: #d5f4e6; }
+        .metric.fail { background: #fadbd8; }
+        .test-suite { margin-bottom: 25px; padding: 15px; border-radius: 5px; border-left: 4px solid; }
+        .test-suite.pass { border-color: #27ae60; background: #d5f4e6; }
+        .test-suite.fail { border-color: #e74c3c; background: #fadbd8; }
+        .suite-stats { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: bold; }
+        .test-case { margin: 10px 0; padding: 10px; background: white; border-radius: 3px; }
+        .case-details { margin-top: 5px; font-size: 0.9em; color: #666; }
+        .footer { text-align: center; margin-top: 30px; color: #7f8c8d; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 技能认证区块链系统回测报告</h1>
+            <p>测试时间: 2026-02-27T19:47:59.178307</p>
+            <p>测试耗时: 0.00秒</p>
+        </div>
+
+        <div class="summary">
+            <div class="metric fail">
+                <h3>总体状态</h3>
+                <p style="font-size: 24px; font-weight: bold;">FAIL</p>
+            </div>
+            <div class="metric">
+                <h3>测试套件</h3>
+                <p style="font-size: 24px; font-weight: bold;">3/6</p>
+            </div>
+            <div class="metric">
+                <h3>测试用例</h3>
+                <p style="font-size: 24px; font-weight: bold;">8/12</p>
+            </div>
+            <div class="metric">
+                <h3>成功率</h3>
+                <p style="font-size: 24px; font-weight: bold;">66.67%</p>
+            </div>
+        </div>
+
+        <div class="test-results">
+            <h2>详细测试结果</h2>
+            
+            <div class="test-suite fail">
+                <h3>区块链服务测试</h3>
+                <div class="suite-stats">
+                    <span>通过: 2/3</span>
+                    <span>耗时: 0.00秒</span>
+                </div>
+                <div class="test-cases">
+            
+                    <div class="test-case">
+                        <strong>✅ 服务初始化</strong>
+                        <div class="case-details">
+                            <span>耗时: 0.000秒</span>
+                            <p>区块链服务初始化成功</p>
+                        </div>
+                    </div>
+                
+                    <div class="test-case">
+                        <strong>✅ 证书颁发</strong>
+                        <div class="case-details">
+                            <span>耗时: 0.000秒</span>
+                            <p>证书颁发成功，交易ID: tx_1772192879</p>
+                        </div>
+                    </div>
+                
+                    <div class="test-case">
+                        <strong>❌ 区块链服务测试</strong>
+                        <div class="case-details">
+                            <span>耗时: 0.000秒</span>
+                            <p>测试失败: 'skillName'</p>
+                        </div>
+                    </div>
+                </div></div>
+            <div class="test-suite pass">
+                <h3>可验证凭证测试</h3>
+                <div class="suite-stats">
+                    <span>通过: 3/3</span>
+                    <span>耗时: 0.00秒</span>
+                </div>
+                <div class="test-cases">
+            
+                    <div class="test-case">
+                        <strong>✅ VC服务初始化</strong>
+                        <div class="case-details">
+                            <span>耗时: 0.000秒</span>
+                            <p>密钥初始化成功，私钥长度: 51 字符</p>
+                        </div>
+                    </div>
+                
+                    <div class="test-case">
+                        <strong>✅ 凭证创建</strong>
+                        <div class="case-details">
+                            <span>耗时: 0.000秒</span>
+                            <p>凭证创建成功，ID: urn:uuid:1772192879</p>
+                        </div>
+                    </div>
+                
+                    <div class="test-case">
+                        <strong>✅ 凭证验证</strong>
+                        <div class="case-details">
+                            <span>耗时: 0.000秒</span>
+                            <p>验证结果: 通过</p>
+                        </div>
+                    </div>
+                </div></div>
+            <div class="test-suite fail">
+                <h3>API接口测试</h3>
+                <div class="suite-stats">
+                    <span>通过: 0/1</span>
+                    <span>耗时: 0.00秒</span>
+                </div>
+                <div class="test-cases">
+            
+                    <div class="test-case">
+                        <strong>❌ API测试执行</strong>
+                        <div class="case-details">
+                            <span>耗时: 0.001秒</span>
+                            <p>测试执行失败: [WinError 267] 目录名称无效。</p>
+                        </div>
+                    </div>
+                </div></div>
+            <div class="test-suite pass">
+                <h3>性能测试</h3>
+                <div class="suite-stats">
+                    <span>通过: 2/2</span>
+                    <span>耗时: 0.00秒</span>
+                </div>
+                <div class="test-cases">
+            
+                    <div class="test-case">
+                        <strong>✅ 并发证书颁发</strong>
+                        <div class="case-details">
+                            <span>耗时: 0.000秒</span>
+                            <p>成功颁发 10/10 个证书，耗时 0.00秒</p>
+                        </div>
+                    </div>
+                
+                    <div class="test-case">
+                        <strong>✅ 单次证书颁发</strong>
+                        <div class="case-details">
+                            <span>耗时: 0.000秒</span>
+                            <p>单次颁发耗时 0.02毫秒</p>
+                        </div>
+                    </div>
+                </div></div>
+            <div class="test-suite fail">
+                <h3>安全测试</h3>
+                <div class="suite-stats">
+                    <span>通过: 0/2</span>
+                    <span>耗时: 0.00秒</span>
+                </div>
+                <div class="test-cases">
+            
+                    <div class="test-case">
+                        <strong>❌ 空数据验证</strong>
+                        <div class="case-details">
+                            <span>耗时: 0.000秒</span>
+                            <p>应该拒绝空数据</p>
+                        </div>
+                    </div>
+                
+                    <div class="test-case">
+                        <strong>❌ 恶意输入检测</strong>
+                        <div class="case-details">
+                            <span>耗时: 0.000秒</span>
+                            <p>应该检测并拒绝恶意输入</p>
+                        </div>
+                    </div>
+                </div></div>
+            <div class="test-suite pass">
+                <h3>集成测试</h3>
+                <div class="suite-stats">
+                    <span>通过: 1/1</span>
+                    <span>耗时: 0.00秒</span>
+                </div>
+                <div class="test-cases">
+            
+                    <div class="test-case">
+                        <strong>✅ 完整证书生命周期</strong>
+                        <div class="case-details">
+                            <span>耗时: 0.000秒</span>
+                            <p>证书生命周期测试成功: 颁发(tx_1772192879) -> 验证 -> 撤销(tx_1772192879)</p>
+                        </div>
+                    </div>
+                </div></div>
+        </div>
+
+        <div class="footer">
+            <p>Generated by Skill Certification Blockchain Backtest System</p>
+        </div>
+    </div>
+</body>
+</html>
+        

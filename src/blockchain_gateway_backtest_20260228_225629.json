@@ -1,0 +1,89 @@
+{
+  "test_suite": "区块链网关服务回测验证",
+  "start_time": "2026-02-28T22:56:29.181694",
+  "end_time": "2026-02-28T22:56:29.606790",
+  "duration_seconds": 0.425096,
+  "total_tests": 11,
+  "passed_tests": 11,
+  "failed_tests": 0,
+  "pass_rate": 100.0,
+  "results": [
+    {
+      "test_name": "服务初始化",
+      "status": "PASS",
+      "message": "服务初始化成功",
+      "details": "",
+      "timestamp": "2026-02-28T22:56:29.183866"
+    },
+    {
+      "test_name": "健康检查",
+      "status": "PASS",
+      "message": "健康检查返回完整数据",
+      "details": "",
+      "timestamp": "2026-02-28T22:56:29.286692"
+    },
+    {
+      "test_name": "积分发行成功",
+      "status": "PASS",
+      "message": "积分发行成功，返回交易ID",
+      "details": "",
+      "timestamp": "2026-02-28T22:56:29.493527"
+    },
+    {
+      "test_name": "积分发行降级处理",
+      "status": "PASS",
+      "message": "降级处理返回成功响应",
+      "details": "",
+      "timestamp": "2026-02-28T22:56:29.495123"
+    },
+    {
+      "test_name": "查询学生余额",
+      "status": "PASS",
+      "message": "余额查询返回完整数据",
+      "details": "",
+      "timestamp": "2026-02-28T22:56:29.599984"
+    },
+    {
+      "test_name": "OAuth2令牌验证",
+      "status": "PASS",
+      "message": "客户端凭据验证逻辑正确",
+      "details": "",
+      "timestamp": "2026-02-28T22:56:29.600582"
+    },
+    {
+      "test_name": "访问令牌生成",
+      "status": "PASS",
+      "message": "令牌生成成功",
+      "details": "",
+      "timestamp": "2026-02-28T22:56:29.603984"
+    },
+    {
+      "test_name": "熔断器功能 - 初始状态",
+      "status": "PASS",
+      "message": "熔断器初始状态正确",
+      "details": "",
+      "timestamp": "2026-02-28T22:56:29.604948"
+    },
+    {
+      "test_name": "熔断器功能 - 熔断触发",
+      "status": "PASS",
+      "message": "熔断器正确触发",
+      "details": "",
+      "timestamp": "2026-02-28T22:56:29.605655"
+    },
+    {
+      "test_name": "熔断器功能",
+      "status": "PASS",
+      "message": "熔断器核心功能验证通过",
+      "details": "",
+      "timestamp": "2026-02-28T22:56:29.606115"
+    },
+    {
+      "test_name": "缓存管理",
+      "status": "PASS",
+      "message": "缓存存储和获取功能正常",
+      "details": "",
+      "timestamp": "2026-02-28T22:56:29.606428"
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+// Design Tokens - Spacing
+//
+// 闂磋窛璁捐鍙橀噺绯荤粺锛屽熀浜?8px 缃戞牸绯荤粺鐨勯棿璺濊鑼?
+// 纭繚鐣岄潰鍏冪礌闂翠繚鎸佷竴鑷寸殑绌洪棿鍏崇郴
+
+// 寰皬闂磋窛 - 鐢ㄤ簬绮剧粏璋冩暣
+/// 2px 闂磋窛
+$spacing-xxs: 0.125rem !default; // 2px
+/// 4px 闂磋窛
+$spacing-xs: 0.25rem !default;   // 4px
+
+// 鍩虹闂磋窛 - 鍩轰簬 8px 缃戞牸
+/// 8px 鍩虹鍗曚綅
+$spacing-sm: 0.5rem !default;    // 8px
+/// 12px
+$spacing-md: 0.75rem !default;   // 12px
+/// 16px
+$spacing-lg: 1rem !default;      // 16px
+/// 24px
+$spacing-xl: 1.5rem !default;    // 24px
+/// 32px
+$spacing-xxl: 2rem !default;     // 32px
+
+// 澶ч棿璺?- 鐢ㄤ簬缁勪欢闂磋窛绂?
+/// 40px
+$spacing-xxxl: 2.5rem !default;  // 40px
+/// 48px
+$spacing-xxxxl: 3rem !default;   // 48px
+/// 56px
+$spacing-xxxxxl: 3.5rem !default; // 56px
+/// 64px
+$spacing-xxxxxxl: 4rem !default;  // 64px
+
+// 鐗瑰ぇ闂磋窛 - 鐢ㄤ簬椤甸潰甯冨眬
+/// 80px
+$spacing-huge: 5rem !default;    // 80px
+/// 96px
+$spacing-giant: 6rem !default;   // 96px
+/// 128px
+$spacing-massive: 8rem !default; // 128px
+
+// 鏂瑰悜鎬ч棿璺?
+/// 鍐呰竟璺濆皬
+$padding-sm: $spacing-sm !default;
+
+/// 鍐呰竟璺濅腑
+$padding-md: $spacing-md !default;
+
+/// 鍐呰竟璺濆ぇ
+$padding-lg: $spacing-lg !default;
+
+/// 鍐呰竟璺濈壒澶?
+$padding-xl: $spacing-xl !default;
+
+/// 澶栬竟璺濆皬
+$margin-sm: $spacing-sm !default;
+
+/// 澶栬竟璺濅腑
+$margin-md: $spacing-md !default;
+
+/// 澶栬竟璺濆ぇ
+$margin-lg: $spacing-lg !default;
+
+/// 澶栬竟璺濈壒澶?
+$margin-xl: $spacing-xl !default;
+
+/// 闂撮殧灏?
+$gap-sm: $spacing-sm !default;
+
+/// 闂撮殧涓?
+$gap-md: $spacing-md !default;
+
+/// 闂撮殧澶?
+$gap-lg: $spacing-lg !default;
+
+/// 闂撮殧鐗瑰ぇ
+$gap-xl: $spacing-xl !default;
+
+// 鍝嶅簲寮忛棿璺?
+/// 绉诲姩绔揣鍑戦棿璺?- 灏?
+$spacing-mobile-sm: 0.25rem !default;   // 4px
+/// 绉诲姩绔揣鍑戦棿璺?- 涓?
+$spacing-mobile-md: 0.5rem !default;    // 8px
+/// 绉诲姩绔揣鍑戦棿璺?- 澶?
+$spacing-mobile-lg: 0.75rem !default;   // 12px
+/// 绉诲姩绔揣鍑戦棿璺?- 鐗瑰ぇ
+$spacing-mobile-xl: 1rem !default;      // 16px
+
+/// 骞虫澘绔€備腑闂磋窛 - 灏?
+$spacing-tablet-sm: 0.5rem !default;    // 8px
+/// 骞虫澘绔€備腑闂磋窛 - 涓?
+$spacing-tablet-md: 0.75rem !default;   // 12px
+/// 骞虫澘绔€備腑闂磋窛 - 澶?
+$spacing-tablet-lg: 1rem !default;      // 16px
+/// 骞虫澘绔€備腑闂磋窛 - 鐗瑰ぇ
+$spacing-tablet-xl: 1.5rem !default;    // 24px
+
+/// 妗岄潰绔鏉鹃棿璺?- 灏?
+$spacing-desktop-sm: 0.75rem !default;   // 12px
+/// 妗岄潰绔鏉鹃棿璺?- 涓?
+$spacing-desktop-md: 1rem !default;      // 16px
+/// 妗岄潰绔鏉鹃棿璺?- 澶?
+$spacing-desktop-lg: 1.5rem !default;    // 24px
+/// 妗岄潰绔鏉鹃棿璺?- 鐗瑰ぇ
+$spacing-desktop-xl: 2rem !default;      // 32px
+
+// 闂磋窛宸ュ叿 Mixins
+/// 璁剧疆鍐呰竟璺?
+/// @param {String} $size - 闂磋窛澶у皬 (sm|md|lg|xl|xxl)
+@mixin padding($size: md) {
+  @if $size == sm {
+    padding: $padding-sm;
+  } @else if $size == md {
+    padding: $padding-md;
+  } @else if $size == lg {
+    padding: $padding-lg;
+  } @else if $size == xl {
+    padding: $padding-xl;
+  } @else if $size == xxl {
+    padding: $spacing-xxl;
+  } @else {
+    padding: $padding-md;
+  }
+}
+
+/// 璁剧疆澶栬竟璺?
+/// @param {String} $size - 闂磋窛澶у皬 (sm|md|lg|xl|xxl)
+@mixin margin($size: md) {
+  @if $size == sm {
+    margin: $margin-sm;
+  } @else if $size == md {
+    margin: $margin-md;
+  } @else if $size == lg {
+    margin: $margin-lg;
+  } @else if $size == xl {
+    margin: $margin-xl;
+  } @else if $size == xxl {
+    margin: $spacing-xxl;
+  } @else {
+    margin: $margin-md;
+  }
+}
+
+/// 璁剧疆 Flex 闂撮殧
+/// @param {String} $size - 闂磋窛澶у皬 (sm|md|lg|xl)
+@mixin gap($size: md) {
+  @if $size == sm {
+    gap: $gap-sm;
+  } @else if $size == md {
+    gap: $gap-md;
+  } @else if $size == lg {
+    gap: $gap-lg;
+  } @else if $size == xl {
+    gap: $gap-xl;
+  } @else {
+    gap: $gap-md;
+  }
+}
+
+/// 鍝嶅簲寮忓唴杈硅窛
+/// @param {String} $breakpoint - 鏂偣 (mobile|tablet|desktop)
+/// @param {String} $size - 闂磋窛澶у皬 (sm|md|lg|xl)
+@mixin responsive-padding($breakpoint: mobile, $size: md) {
+  @if $breakpoint == mobile {
+    @if $size == sm {
+      padding: $spacing-mobile-sm;
+    } @else if $size == md {
+      padding: $spacing-mobile-md;
+    } @else if $size == lg {
+      padding: $spacing-mobile-lg;
+    } @else if $size == xl {
+      padding: $spacing-mobile-xl;
+    }
+  } @else if $breakpoint == tablet {
+    @if $size == sm {
+      padding: $spacing-tablet-sm;
+    } @else if $size == md {
+      padding: $spacing-tablet-md;
+    } @else if $size == lg {
+      padding: $spacing-tablet-lg;
+    } @else if $size == xl {
+      padding: $spacing-tablet-xl;
+    }
+  } @else if $breakpoint == desktop {
+    @if $size == sm {
+      padding: $spacing-desktop-sm;
+    } @else if $size == md {
+      padding: $spacing-desktop-md;
+    } @else if $size == lg {
+      padding: $spacing-desktop-lg;
+    } @else if $size == xl {
+      padding: $spacing-desktop-xl;
+    }
+  }
+}
+
+// 闂磋窛宸ュ叿鍑芥暟
+/// 灏嗗儚绱犲€艰浆鎹负 rem
+/// @param {Number} $pixels - 鍍忕礌鍊?
+/// @return {String} rem 鍊?
+@function px-to-rem($pixels) {
+  @return #{$pixels / 16}rem;
+}
+
+/// 鍩轰簬 8px 缃戞牸璁＄畻闂磋窛
+/// @param {Number} $multiplier - 鍊嶆暟 (1 = 8px, 2 = 16px, etc.)
+/// @return {String} 璁＄畻鍚庣殑闂磋窛鍊?
+@function spacing-scale($multiplier) {
+  @return #{$multiplier * 0.5}rem;
+}
+
+/// 鑾峰彇鍩虹闂磋窛鍊?
+/// @param {String} $size - 闂磋窛鏍囪瘑 (xxs|xs|sm|md|lg|xl|xxl)
+/// @return {String} 瀵瑰簲鐨勯棿璺濆€?
+@function get-spacing($size) {
+  @if $size == xxs {
+    @return $spacing-xxs;
+  } @else if $size == xs {
+    @return $spacing-xs;
+  } @else if $size == sm {
+    @return $spacing-sm;
+  } @else if $size == md {
+    @return $spacing-md;
+  } @else if $size == lg {
+    @return $spacing-lg;
+  } @else if $size == xl {
+    @return $spacing-xl;
+  } @else if $size == xxl {
+    @return $spacing-xxl;
+  } @else if $size == xxxl {
+    @return $spacing-xxxl;
+  } @else if $size == xxxxl {
+    @return $spacing-xxxxl;
+  } @else if $size == xxxxxl {
+    @return $spacing-xxxxxl;
+  } @else if $size == xxxxxxl {
+    @return $spacing-xxxxxxl;
+  } @else if $size == huge {
+    @return $spacing-huge;
+  } @else if $size == giant {
+    @return $spacing-giant;
+  } @else if $size == massive {
+    @return $spacing-massive;
+  } @else {
+    @return $spacing-md;
+  }
+}

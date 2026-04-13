@@ -1,0 +1,639 @@
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { FormsModule } from '@angular/forms';
+
+import {
+  HardwareProject,
+  HardwareCategory,
+  HardwareProjectFilter,
+  getDifficultyStars,
+  getCategoryName,
+  calculateTotalCost
+} from '../../../models/hardware-project.models';
+
+@Component({
+  selector: 'app-hardware-project-list',
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatChipsModule,
+    MatDialogModule,
+    MatIconModule,
+    MatInputModule,
+    MatSelectModule,
+    MatSnackBarModule
+  ],
+  template: `
+    <div class="hardware-project-list">
+      <!-- 页面标题 -->
+      <div class="page-header">
+        <h2>🔧 低成本硬件项目库</h2>
+        <p class="subtitle">所有项目预算 ≤50元，适合普惠STEM教育</p>
+      </div>
+
+      <!-- 筛选工具栏 -->
+      <div class="filter-toolbar">
+        <mat-form-field appearance="outline" class="filter-field">
+          <mat-label>搜索项目</mat-label>
+          <input matInput
+                 [(ngModel)]="filter.keyword"
+                 (input)="applyFilter()"
+                 placeholder="输入关键词...">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="filter-field">
+          <mat-label>分类</mat-label>
+          <mat-select [(ngModel)]="filter.category" (selectionChange)="applyFilter()">
+            <mat-option value="">全部分类</mat-option>
+            <mat-option *ngFor="let cat of categories" [value]="cat">
+              {{ getCategoryName(cat) }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="filter-field">
+          <mat-label>最大预算</mat-label>
+          <input matInput
+                 type="number"
+                 [(ngModel)]="filter.maxBudget"
+                 (input)="applyFilter()"
+                 placeholder="50">
+          <span matSuffix>元</span>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="resetFilter()">
+          <mat-icon>refresh</mat-icon>
+          重置筛选
+        </button>
+      </div>
+
+      <!-- 统计信息 -->
+      <div class="stats-bar" *ngIf="filteredProjects.length > 0">
+        <span>找到 {{ filteredProjects.length }} 个项目</span>
+        <span *ngIf="filter.maxBudget">| 预算 ≤{{ filter.maxBudget }}元</span>
+      </div>
+
+      <!-- 项目网格 -->
+      <div class="project-grid">
+        <mat-card *ngFor="let project of filteredProjects" class="project-card">
+          <!-- 预算徽章 -->
+          <div class="budget-badge"
+               [class.budget-low]="project.totalCost <= 30"
+               [class.budget-medium]="project.totalCost > 30 && project.totalCost <= 50">
+            ¥{{ project.totalCost }}
+          </div>
+
+          <mat-card-header>
+            <mat-card-title>{{ project.name }}</mat-card-title>
+            <mat-card-subtitle>
+              <span class="difficulty-stars">{{ getDifficultyStars(project.difficulty) }}</span>
+              <span class="time-label">⏱️ {{ project.estimatedTime }}</span>
+              <span class="category-tag">{{ getCategoryName(project.category) }}</span>
+            </mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content>
+            <p class="description">{{ project.description }}</p>
+
+            <!-- 材料清单预览 -->
+            <div class="materials-preview">
+              <h4>📦 材料清单 (共{{ project.materials.length }}项)</h4>
+              <ul class="material-list">
+                <li *ngFor="let material of project.materials.slice(0, 3)">
+                  {{ material.name }} ×{{ material.quantity }}{{ material.unit }}
+                  <span class="price">¥{{ material.unitPrice }}</span>
+                </li>
+                <li *ngIf="project.materials.length > 3" class="more-items">
+                  ...还有{{ project.materials.length - 3 }}项
+                </li>
+              </ul>
+              <div class="total-cost">
+                💰 总计: ¥{{ calculateTotalCost(project.materials) }}
+              </div>
+            </div>
+
+            <!-- 编程支持 -->
+            <div class="code-support" *ngIf="project.codeTemplate">
+              <mat-icon>code</mat-icon>
+              <span>支持 {{ getCodeLanguageName(project.codeTemplate.language) }}</span>
+              <span *ngIf="project.webUsbSupport" class="webusb-badge">
+                <mat-icon>usb</mat-icon> WebUSB烧录
+              </span>
+            </div>
+
+            <!-- 安全提示 -->
+            <div class="safety-notes" *ngIf="project.safetyNotes && project.safetyNotes.length > 0">
+              <mat-icon>warning</mat-icon>
+              <span>{{ project.safetyNotes.length }} 条安全注意事项</span>
+            </div>
+          </mat-card-content>
+
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="viewDetail(project)">
+              <mat-icon>visibility</mat-icon>
+              查看详情
+            </button>
+            <button mat-button (click)="viewMaterials(project)">
+              <mat-icon>list</mat-icon>
+              材料清单
+            </button>
+            <button mat-button
+                    color="accent"
+                    (click)="startCoding(project)"
+                    *ngIf="project.codeTemplate">
+              <mat-icon>edit</mat-icon>
+              开始编程
+            </button>
+          </mat-card-actions>
+        </mat-card>
+
+        <!-- 空状态 -->
+        <div *ngIf="filteredProjects.length === 0" class="empty-state">
+          <mat-icon>search_off</mat-icon>
+          <h3>未找到匹配的项目</h3>
+          <p>请尝试调整筛选条件或搜索关键词</p>
+          <button mat-raised-button color="primary" (click)="resetFilter()">
+            重置筛选
+          </button>
+        </div>
+      </div>
+    </div>
+  `,
+  styles: [`
+    .hardware-project-list {
+      padding: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .page-header {
+      margin-bottom: 24px;
+    }
+
+    .page-header h2 {
+      margin: 0 0 8px 0;
+      font-size: 28px;
+      color: #333;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .filter-toolbar {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .filter-field {
+      flex: 1;
+      min-width: 200px;
+      max-width: 300px;
+    }
+
+    .stats-bar {
+      padding: 12px 16px;
+      background: #f5f7fa;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    .budget-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 15px;
+      z-index: 1;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+      &.budget-low {
+        background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+        color: white;
+      }
+
+      &.budget-medium {
+        background: linear-gradient(135deg, #ff9800 0%, #ffa726 100%);
+        color: white;
+      }
+    }
+
+    .difficulty-stars {
+      color: #ffa502;
+      margin-right: 12px;
+    }
+
+    .time-label {
+      color: #666;
+      font-size: 13px;
+      margin-right: 12px;
+    }
+
+    .category-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      background: #e3f2fd;
+      color: #1565c0;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .description {
+      color: #555;
+      line-height: 1.6;
+      margin: 12px 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .materials-preview {
+      margin: 16px 0;
+      padding: 14px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      border-left: 3px solid #11998e;
+    }
+
+    .materials-preview h4 {
+      margin: 0 0 10px 0;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .material-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 13px;
+    }
+
+    .material-list li {
+      padding: 5px 0;
+      color: #666;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px dashed #e0e0e0;
+    }
+
+    .material-list li:last-child {
+      border-bottom: none;
+    }
+
+    .price {
+      color: #f5576c;
+      font-weight: 600;
+    }
+
+    .more-items {
+      color: #999;
+      font-style: italic;
+      padding-top: 8px !important;
+    }
+
+    .total-cost {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 2px solid #e0e0e0;
+      font-weight: 600;
+      color: #11998e;
+      font-size: 15px;
+    }
+
+    .code-support {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      padding: 10px 14px;
+      background: #e3f2fd;
+      border-radius: 8px;
+      color: #1565c0;
+      font-size: 13px;
+    }
+
+    .code-support mat-icon {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+    }
+
+    .webusb-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: auto;
+      padding: 4px 8px;
+      background: #4caf50;
+      color: white;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .webusb-badge mat-icon {
+      font-size: 14px;
+      width: 14px;
+      height: 14px;
+    }
+
+    .safety-notes {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: #fff3e0;
+      border-radius: 6px;
+      color: #e65100;
+      font-size: 13px;
+    }
+
+    .safety-notes mat-icon {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px;
+      color: #999;
+    }
+
+    .empty-state mat-icon {
+      font-size: 72px;
+      width: 72px;
+      height: 72px;
+      margin-bottom: 16px;
+      opacity: 0.5;
+    }
+
+    .empty-state h3 {
+      margin: 0 0 8px 0;
+      color: #666;
+    }
+
+    .empty-state p {
+      margin: 0 0 20px 0;
+    }
+
+    @media (max-width: 768px) {
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .filter-toolbar {
+        flex-direction: column;
+      }
+
+      .filter-field {
+        max-width: 100%;
+      }
+    }
+  `]
+})
+export class HardwareProjectListComponent implements OnInit {
+  projects: HardwareProject[] = [];
+  filteredProjects: HardwareProject[] = [];
+
+  filter: HardwareProjectFilter = {
+    maxBudget: 50
+  };
+
+  categories: HardwareCategory[] = [
+    'electronics',
+    'robotics',
+    'iot',
+    'mechanical',
+    'smart-home',
+    'sensor',
+    'communication'
+  ];
+
+  constructor(
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar
+  ) {}
+
+  ngOnInit(): void {
+    this.projects = this.getMockProjects();
+    this.applyFilter();
+  }
+
+  applyFilter(): void {
+    let result = [...this.projects];
+
+    // 关键词搜索
+    if (this.filter.keyword) {
+      const keyword = this.filter.keyword.toLowerCase();
+      result = result.filter(p =>
+        p.name.toLowerCase().includes(keyword) ||
+        p.description.toLowerCase().includes(keyword)
+      );
+    }
+
+    // 分类筛选
+    if (this.filter.category) {
+      result = result.filter(p => p.category === this.filter.category);
+    }
+
+    // 预算筛选
+    if (this.filter.maxBudget) {
+      result = result.filter(p => p.totalCost <= this.filter.maxBudget!);
+    }
+
+    this.filteredProjects = result;
+  }
+
+  resetFilter(): void {
+    this.filter = {
+      maxBudget: 50
+    };
+    this.applyFilter();
+    this.snackBar.open('筛选已重置', '关闭', { duration: 2000 });
+  }
+
+  viewDetail(project: HardwareProject): void {
+    console.log('查看项目详情:', project);
+    this.snackBar.open(`查看 "${project.name}" 详情`, '关闭', { duration: 3000 });
+    // TODO: 打开详情对话框，显示完整教程、代码编辑器、烧录界面
+  }
+
+  viewMaterials(project: HardwareProject): void {
+    console.log('查看材料清单:', project);
+
+    const materialList = project.materials.map(m =>
+      `${m.name} ×${m.quantity}${m.unit} (¥${m.unitPrice})`
+    ).join('\n');
+
+    const totalCost = calculateTotalCost(project.materials);
+
+    alert(`📦 ${project.name} - 材料清单
+
+${materialList}
+
+💰 总计: ¥${totalCost}`);
+  }
+
+  startCoding(project: HardwareProject): void {
+    console.log('开始编程:', project);
+    if (project.codeTemplate) {
+      this.snackBar.open(
+        `🔧 启动 ${this.getCodeLanguageName(project.codeTemplate.language)} 编辑器`,
+        '关闭',
+        { duration: 3000 }
+      );
+      // TODO: 打开Blockly编辑器或代码编辑器
+    }
+  }
+
+  getDifficultyStars(difficulty: number): string {
+    return getDifficultyStars(difficulty);
+  }
+
+  getCategoryName(category: HardwareCategory): string {
+    return getCategoryName(category);
+  }
+
+  getCodeLanguageName(language: string): string {
+    const names: Record<string, string> = {
+      arduino: 'Arduino C++',
+      python: 'MicroPython',
+      blockly: '可视化编程',
+      scratch: 'Scratch'
+    };
+    return names[language] || language;
+  }
+
+  calculateTotalCost(materials: any[]): number {
+    return calculateTotalCost(materials);
+  }
+
+  private getMockProjects(): HardwareProject[] {
+    return [
+      {
+        id: 'hw-001',
+        tutorialId: 'tutorial-001',
+        name: '智能温湿度监测器',
+        description: '使用DHT11传感器和OLED显示屏，实时监测环境温湿度，数据超标时蜂鸣器报警。适合学习传感器数据采集和显示。',
+        category: 'iot',
+        difficulty: 2,
+        estimatedTime: '2小时',
+        totalCost: 35,
+        materials: [
+          { name: 'Arduino Nano', quantity: 1, unit: '块', unitPrice: 15 },
+          { name: 'DHT11温湿度传感器', quantity: 1, unit: '个', unitPrice: 5 },
+          { name: 'OLED显示屏(0.96寸)', quantity: 1, unit: '个', unitPrice: 10 },
+          { name: '蜂鸣器', quantity: 1, unit: '个', unitPrice: 2 },
+          { name: '杜邦线', quantity: 10, unit: '根', unitPrice: 0.3 },
+        ],
+        codeTemplate: {
+          language: 'arduino',
+          code: '// Arduino 代码模板\nvoid setup() {\n  // 初始化代码\n}\n\nvoid loop() {\n  // 主循环代码\n}',
+          description: '基础温湿度监测代码',
+          dependencies: ['DHT sensor library', 'Adafruit GFX Library']
+        },
+        webUsbSupport: false,
+        safetyNotes: ['注意电源极性', '避免短路'],
+        knowledgePoints: ['传感器数据采集', 'OLED显示', '阈值判断']
+      },
+      {
+        id: 'hw-002',
+        tutorialId: 'tutorial-002',
+        name: '循迹智能小车',
+        description: '基于红外传感器的自动循迹小车，学习PID控制算法。包含电机驱动、传感器融合、路径规划等核心概念。',
+        category: 'robotics',
+        difficulty: 4,
+        estimatedTime: '4小时',
+        totalCost: 48,
+        materials: [
+          { name: 'Arduino Uno', quantity: 1, unit: '块', unitPrice: 18 },
+          { name: 'L298N电机驱动模块', quantity: 1, unit: '个', unitPrice: 8 },
+          { name: '直流减速电机', quantity: 2, unit: '个', unitPrice: 6 },
+          { name: '红外循迹传感器', quantity: 3, unit: '个', unitPrice: 3 },
+          { name: '小车底盘套件', quantity: 1, unit: '套', unitPrice: 7 },
+        ],
+        codeTemplate: {
+          language: 'blockly',
+          code: '<xml></xml>',
+          description: '可视化编程模板',
+        },
+        webUsbSupport: true,
+        safetyNotes: ['注意电机接线', '测试时远离边缘'],
+        knowledgePoints: ['PID控制', '电机驱动', '传感器融合']
+      },
+      {
+        id: 'hw-003',
+        tutorialId: 'tutorial-003',
+        name: 'WiFi远程控制开关',
+        description: '使用ESP8266模块实现手机APP远程控制家电开关，学习物联网通信协议和Web服务器搭建。',
+        category: 'smart-home',
+        difficulty: 3,
+        estimatedTime: '3小时',
+        totalCost: 30,
+        materials: [
+          { name: 'ESP8266 NodeMCU', quantity: 1, unit: '块', unitPrice: 15 },
+          { name: '继电器模块', quantity: 1, unit: '个', unitPrice: 5 },
+          { name: 'LED指示灯', quantity: 2, unit: '个', unitPrice: 1 },
+          { name: '电阻(220Ω)', quantity: 2, unit: '个', unitPrice: 0.5 },
+          { name: '面包板', quantity: 1, unit: '块', unitPrice: 7 },
+        ],
+        codeTemplate: {
+          language: 'arduino',
+          code: '// ESP8266 WiFi 控制代码\n#include <ESP8266WiFi.h>\n\nvoid setup() {\n  WiFi.begin("SSID", "PASSWORD");\n}',
+          description: 'WiFi控制示例代码',
+          dependencies: ['ESP8266WiFi']
+        },
+        webUsbSupport: false,
+        safetyNotes: ['高压危险，谨慎操作', '确保绝缘良好'],
+        knowledgePoints: ['WiFi通信', 'Web服务器', '继电器控制']
+      },
+    ];
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "report_metadata": {
+    "title": "安全渗透测试报告",
+    "generated_at": "2026-03-01T11:48:51.506916",
+    "duration_seconds": 1.773385,
+    "tester": "SecurityPenetrationTester"
+  },
+  "summary": {
+    "overall_status": "PASS",
+    "total_critical_vulnerabilities": 0,
+    "total_medium_vulnerabilities": 0,
+    "total_low_vulnerabilities": 0,
+    "compliance_score": 100.0
+  },
+  "test_results": [
+    {
+      "test_type": "smart_contract",
+      "status": "completed",
+      "findings": {
+        "total_vulnerabilities": 0,
+        "critical": 0,
+        "medium": 0,
+        "low": 0
+      },
+      "vulnerabilities": [],
+      "timestamp": "2026-03-01T11:48:51.491142"
+    },
+    {
+      "test_type": "api_security",
+      "status": "skipped",
+      "reason": "OWASP ZAP未安装",
+      "timestamp": "2026-03-01T11:48:51.503181"
+    },
+    {
+      "test_type": "database_encryption",
+      "status": "completed",
+      "findings": {
+        "encryption_algorithms": [],
+        "key_management": [],
+        "configuration_issues": [
+          {
+            "issue": "SSL/TLS未强制启用",
+            "severity": "Medium",
+            "recommendation": "在数据库连接URL中添加sslmode=require"
+          }
+        ]
+      },
+      "timestamp": "2026-03-01T11:48:51.504189"
+    },
+    {
+      "test_type": "owasp_compliance",
+      "status": "completed",
+      "compliance_score": "7/10",
+      "details": {
+        "injection": {
+          "compliant": true,
+          "details": "项目使用SQLAlchemy ORM，降低了SQL注入风险"
+        },
+        "broken_authentication": {
+          "compliant": true,
+          "details": "使用JWT令牌和OAuth2认证机制"
+        },
+        "sensitive_data_exposure": {
+          "compliant": false,
+          "issues": [
+            "缺少HTTPS配置"
+          ]
+        },
+        "xxe": {
+          "compliant": true,
+          "details": "项目主要使用JSON格式，XML使用较少"
+        },
+        "broken_access_control": {
+          "compliant": true,
+          "details": "实现了RBAC权限控制系统"
+        },
+        "security_misconfiguration": {
+          "compliant": false,
+          "issues": [
+            "生产环境中启用了调试模式",
+            "缺少自定义错误页面"
+          ]
+        },
+        "cross_site_scripting": {
+          "compliant": true,
+          "details": "前端使用Angular框架，具有内置XSS防护"
+        },
+        "insecure_deserialization": {
+          "compliant": true,
+          "details": "主要使用JSON序列化，避免了pickle等不安全格式"
+        },
+        "using_components_with_known_vulnerabilities": {
+          "compliant": true,
+          "issues": []
+        },
+        "insufficient_logging_monitoring": {
+          "compliant": false,
+          "issues": [
+            "缺少安全事件日志记录",
+            "缺少安全监控工具"
+          ]
+        }
+      },
+      "timestamp": "2026-03-01T11:48:51.506866"
+    }
+  ],
+  "recommendations": [
+    "定期更新所有依赖包到最新稳定版本",
+    "实施全面的日志记录和监控系统",
+    "配置Web应用防火墙(WAF)",
+    "启用多因素认证(MFA)",
+    "定期进行安全培训",
+    "建立安全事件响应流程",
+    "实施零信任安全架构",
+    "定期进行渗透测试和安全评估"
+  ],
+  "vulnerabilities_found": []
+}

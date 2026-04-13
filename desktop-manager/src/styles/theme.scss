@@ -1,0 +1,34 @@
+/**
+ * OpenMTSciEd 自定义 Angular Material 主题
+ * 基于 Mac 风格紫色系设计令牌
+ */
+
+@use '@angular/material' as mat;
+
+// 包含核心样式（只包含一次）
+@include mat.core();
+
+// 定义调色板 - 使用 Indigo（与我们设计令牌中的 #667eea 相近）
+$desktop-manager-primary: mat.define-palette(mat.$indigo-palette, 500, 300, 700);
+
+// 辅助色 - 紫色
+$desktop-manager-accent: mat.define-palette(mat.$purple-palette, 500, 300, 700);
+
+// 警告色 - 红色
+$desktop-manager-warn: mat.define-palette(mat.$red-palette);
+
+// 定义浅色主题
+$desktop-manager-theme: mat.define-light-theme((
+  color: (
+    primary: $desktop-manager-primary,
+    accent: $desktop-manager-accent,
+    warn: $desktop-manager-warn,
+  ),
+  typography: mat.define-typography-config(
+    $font-family: "'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+  ),
+  density: 0,
+));
+
+// 应用主题到所有组件
+@include mat.all-component-themes($desktop-manager-theme);

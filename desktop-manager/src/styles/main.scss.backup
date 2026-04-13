@@ -1,0 +1,359 @@
+// iMatuProject Design System Main Stylesheet
+//
+// 涓绘牱寮忓叆鍙ｆ枃浠讹紝鏁村悎鎵€鏈?Design Token 鍜岀粍浠舵牱寮?
+// 鎸夌収 CSS 鏈€浣冲疄璺甸『搴忕粍缁囨牱寮忓鍏?
+
+// =============================================================================
+// 0. Angular Material 瀵煎叆 (蹇呴』鏀惧湪鏈€鍓嶉潰)
+// =============================================================================
+
+@use '@angular/material' as mat;
+
+// =============================================================================
+// 1. Design Tokens 瀵煎叆
+// =============================================================================
+
+// 瀵煎叆鎵€鏈夎璁″彉閲忓拰宸ュ叿鍑芥暟
+@import 'design-tokens/index';
+
+// 瀵煎叆缁熶竴鐨則okens鍙橀噺
+@import 'design-tokens/tokens';
+
+// 瀵煎叆Angular Material鑷畾涔変富棰?
+@import 'themes/custom-theme';
+
+// 瀵煎叆鏆楅粦涓婚瀹氫箟
+@import 'themes/dark-theme';
+
+// =============================================================================
+// 2. 鍝嶅簲寮忔柇鐐圭郴缁?
+// =============================================================================
+
+// 鍝嶅簲寮忔柇鐐瑰拰宸ュ叿绫?
+@import 'breakpoints';
+
+// =============================================================================
+// 3. 鍩虹閲嶇疆鏍峰紡
+// =============================================================================
+
+// 娴忚鍣ㄩ粯璁ゆ牱寮忛噸缃?
+@import 'reset';
+
+// =============================================================================
+// 4. 鍏ㄥ眬甯冨眬绯荤粺
+// =============================================================================
+
+// 甯冨眬瀹瑰櫒鍜岀綉鏍肩郴缁?
+@import 'layout';
+
+// =============================================================================
+// 5. 鎺掔増绯荤粺
+// =============================================================================
+
+// 鏂囨湰鏍峰紡鍩哄骇
+@import 'typography';
+
+// =============================================================================
+// 6. 缁勪欢绯荤粺
+// =============================================================================
+
+// 鐜颁唬鍖栫粍浠舵牱寮?
+@import 'components/index';
+
+// =============================================================================
+// 7. 宸ュ叿绫诲拰杈呭姪鏍峰紡
+// =============================================================================
+
+// 瀹炵敤宸ュ叿绫?
+.utilities {
+  // 闅愯棌鍏冪礌浣嗕粛淇濇寔鍙闂€?
+  .sr-only {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    white-space: nowrap;
+  }
+  
+  // 娓呴櫎娴姩
+  .clearfix {
+    &::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+  }
+  
+  // 娴姩绫?
+  .float-left { float: left; }
+  .float-right { float: right; }
+  .float-none { float: none; }
+  
+  // 瀹氫綅绫?
+  .position-relative { position: relative; }
+  .position-absolute { position: absolute; }
+  .position-fixed { position: fixed; }
+  .position-static { position: static; }
+  
+  // 鏄剧ず绫?
+  .display-block { display: block; }
+  .display-inline { display: inline; }
+  .display-inline-block { display: inline-block; }
+  .display-flex { display: flex; }
+  .display-none { display: none; }
+  
+  // 婧㈠嚭澶勭悊
+  .overflow-hidden { overflow: hidden; }
+  .overflow-auto { overflow: auto; }
+  .overflow-scroll { overflow: scroll; }
+  
+  // 鏂囨湰宸ュ叿绫?
+  .text-left { text-align: left; }
+  .text-center { text-align: center; }
+  .text-right { text-align: right; }
+  .text-justify { text-align: justify; }
+  
+  .text-uppercase { text-transform: uppercase; }
+  .text-lowercase { text-transform: lowercase; }
+  .text-capitalize { text-transform: capitalize; }
+  
+  // 鐢ㄦ埛閫夋嫨
+  .user-select-none { user-select: none; }
+  .user-select-all { user-select: all; }
+  .user-select-auto { user-select: auto; }
+  
+  // 鎸囬拡浜嬩欢
+  .pointer-events-none { pointer-events: none; }
+  .pointer-events-auto { pointer-events: auto; }
+  
+  // 杩囨浮鏁堟灉
+  .transition-all {
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .transition-none {
+    transition: none;
+  }
+}
+
+// =============================================================================
+// 8. 鍝嶅簲寮忔柇鐐瑰伐鍏风被
+// =============================================================================
+
+// 鍝嶅簲寮忔樉绀烘帶鍒?
+@media (max-width: $breakpoint-mobile-max) {
+  .hidden\@mobile { display: none; }
+  .visible\@mobile { display: block; }
+}
+
+@media (min-width: $breakpoint-tablet-min) and (max-width: $breakpoint-tablet-max) {
+  .hidden\@tablet { display: none; }
+  .visible\@tablet { display: block; }
+}
+
+@media (min-width: $breakpoint-desktop-min) {
+  .hidden\@desktop { display: none; }
+  .visible\@desktop { display: block; }
+}
+
+// =============================================================================
+// 9. 涓婚鍒囨崲鍜岃繃娓″姩鐢?
+// =============================================================================
+
+// 涓婚鍒囨崲骞虫粦杩囨浮
+:root {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// 涓婚鐩稿叧绫?
+.theme-light {
+  color-scheme: light;
+}
+
+.theme-dark {
+  body {
+    background-color: var(--background-color);
+    color: var(--text-primary-color);
+  }
+}
+
+// 涓婚鍒囨崲鍔ㄧ敾浼樺寲
+[data-theme="dark"],
+.theme-dark {
+  // 纭繚鎵€鏈夊彲涓婚鍖栫殑鍏冪礌閮芥湁骞虫粦杩囨浮
+  *,
+  *::before,
+  *::after {
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
+    transition-property: background-color, border-color, color, fill, stroke;
+  }
+  
+  // 鍑忓皯鍔ㄧ敾鍋忓ソ鏀寔
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition: none;
+      animation-duration: 0.01ms;
+    }
+  }
+}
+
+// =============================================================================
+// 10. 鎵撳嵃鏍峰紡
+// =============================================================================
+
+@media print {
+  // 鎵撳嵃鍙嬪ソ鐨勬牱寮?
+  .no-print {
+    display: none;
+  }
+  
+  // 浼樺寲鎵撳嵃杈撳嚭
+  * {
+    background: transparent !important;
+    box-shadow: none !important;
+    color: black !important;
+    text-shadow: none !important;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+  
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    break-inside: avoid;
+  }
+  
+  thead {
+    display: table-header-group;
+  }
+  
+  tr,
+  img {
+    break-inside: avoid;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+}
+
+// =============================================================================
+// 11. 鎬ц兘浼樺寲鍜屾祻瑙堝櫒鍏煎鎬?
+// =============================================================================
+
+// 纭欢鍔犻€熶紭鍖?
+.accelerate {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+// 骞虫粦婊氬姩
+html {
+  scroll-behavior: smooth;
+}
+
+// 楂樺垎杈ㄧ巼灞忓箷浼樺寲
+@media (min-device-pixel-ratio: 2), (resolution >= 192dpi) {
+  // 閽堝楂樻竻灞忓箷鐨勪紭鍖?
+}
+
+// =============================================================================
+// 12. 璋冭瘯鍜屽紑鍙戣緟鍔?
+// =============================================================================
+
+// 寮€鍙戠幆澧冧笅鐨勮皟璇曟牱寮?
+// 寮€鍙戠幆澧冧笅鐨勮皟璇曟牱寮?
+// 鏆傛椂娉ㄩ噴鎺夋暣涓皟璇曞潡浠ラ伩鍏嶆湭瀹氫箟鍙橀噺閿欒
+// @if $environment == 'development' {
+//   // 缃戞牸璋冭瘯_overlay
+//   .debug-grid {
+//     background-image: 
+//       linear-gradient(rgba(0, 0, 255, 0.1) 1px, transparent 1px),
+//       linear-gradient(90deg, rgba(0, 0, 255, 0.1) 1px, transparent 1px);
+//     background-size: 20px 20px;
+//   }
+//   
+//   // 甯冨眬杈圭晫璋冭瘯
+//   .debug-boundary {
+//     outline: 1px solid red;
+//   }
+// }
+
+// =============================================================================
+// 13. 绗笁鏂圭粍浠舵牱寮忚鐩栵紙濡傛湁闇€瑕侊級
+// =============================================================================
+
+// 鍙互鍦ㄨ繖閲岃鐩栫涓夋柟缁勪欢搴撶殑鏍峰紡
+// 纭繚杩欎簺鏍峰紡鍏锋湁瓒冲鐨勭壒寮傛€?
+
+// =============================================================================
+// 14. Angular Material 闆嗘垚
+// =============================================================================
+
+// 搴旂敤浜壊涓婚
+@include mat.core;
+@include mat.all-component-themes($light-theme);
+
+// 鏆楄壊涓婚 (閫氳繃灞炴€ч€夋嫨鍣ㄦ縺娲?
+[data-theme="dark"] {
+  @include mat.all-component-themes($dark-theme);
+}
+
+// Material 缁勪欢鏍峰紡澧炲己
+.mat-mdc-button {
+  border-radius: $border-radius-button;
+  font-family: $font-family-system;
+  font-weight: $font-weight-medium;
+  transition: all $transition-normal;
+}
+
+.mat-mdc-card {
+  border-radius: $border-radius-card;
+  box-shadow: $shadow-card;
+  transition: box-shadow $transition-normal;
+  
+  &:hover {
+    box-shadow: $shadow-card-hover;
+  }
+}
+
+.mat-mdc-form-field {
+  font-family: $font-family-system;
+  
+  .mat-mdc-text-field-wrapper {
+    border-radius: $border-radius-input;
+  }
+}
+
+
+
+// 鍙闂€у寮?
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms;
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+  }
+}
+

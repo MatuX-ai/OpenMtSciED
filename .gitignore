@@ -1,0 +1,108 @@
+# OpenMTSciEd .gitignore
+
+# ============================================
+# 环境变量与敏感信息
+# ============================================
+.env
+.env.local
+.env.production
+.env.*.local
+
+# ============================================
+# Python
+# ============================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+venv/
+.venv/
+ENV/
+env/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+
+# ============================================
+# Node.js (前端)
+# ============================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+yarn.lock
+
+# ============================================
+# IDE & Editor
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# ============================================
+# Operating System
+# ============================================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ============================================
+# 测试报告与临时文件
+# ============================================
+backtest_reports/*.json
+reports/*.json
+*.log
+tmp/
+temp/
+
+# ============================================
+# 构建产物
+# ============================================
+frontend/dist/
+frontend/build/
+marketing-site/frontend/dist/
+marketing-site/frontend/build/
+
+# ============================================
+# 数据文件（大文件应使用 Git LFS）
+# ============================================
+data/raw/*.pdf
+data/raw/*.html
+data/raw/*.zip
+*.xlsx
+*.xls
+
+# ============================================
+# Docker
+# ============================================
+docker-compose.override.yml
+
+# ============================================
+# Jupyter Notebook
+# ============================================
+.ipynb_checkpoints/
+*.ipynb

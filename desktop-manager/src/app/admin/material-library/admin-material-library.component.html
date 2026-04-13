@@ -1,0 +1,130 @@
+<div class="admin-material-library">
+
+  <!-- 头部 -->
+  <div class="library-header">
+    <h2>
+      <mat-icon>library_books</mat-icon>
+      课件库管理
+    </h2>
+    <div class="header-actions">
+      <button mat-stroked-button color="primary" (click)="onRefresh()">
+        <mat-icon>refresh</mat-icon>
+        刷新
+      </button>
+      <button mat-flat-button color="primary" (click)="exportMaterials()">
+        <mat-icon>download</mat-icon>
+        导出数据
+      </button>
+    </div>
+  </div>
+
+  <!-- 加载状态 -->
+  <div class="loading-spinner" *ngIf="loading()">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    <p>加载中...</p>
+  </div>
+
+  <!-- 主要内容 -->
+  <div *ngIf="!loading()">
+
+    <!-- 统计卡片 -->
+    <div class="stats-grid" *ngIf="materialStats()">
+      <mat-card class="stat-card">
+        <div class="stat-icon">
+          <mat-icon>insert_drive_file</mat-icon>
+        </div>
+        <div class="stat-info">
+          <div class="stat-value">{{ materialStats()!.total_materials }}</div>
+          <div class="stat-label">课件总数</div>
+        </div>
+      </mat-card>
+
+      <mat-card class="stat-card">
+        <div class="stat-icon">
+          <mat-icon>storage</mat-icon>
+        </div>
+        <div class="stat-info">
+          <div class="stat-value">{{ formatFileSize(materialStats()!.total_size) }}</div>
+          <div class="stat-label">总存储</div>
+        </div>
+      </mat-card>
+
+      <mat-card class="stat-card">
+        <div class="stat-icon">
+          <mat-icon>download</mat-icon>
+        </div>
+        <div class="stat-info">
+          <div class="stat-value">{{ materialStats()!.total_downloads }}</div>
+          <div class="stat-label">总下载量</div>
+        </div>
+      </mat-card>
+
+      <mat-card class="stat-card">
+        <div class="stat-icon">
+          <mat-icon>favorite</mat-icon>
+        </div>
+        <div class="stat-info">
+          <div class="stat-value">{{ materialStats()!.like_count }}</div>
+          <div class="stat-label">总收藏数</div>
+        </div>
+      </mat-card>
+    </div>
+
+    <!-- 标签页 -->
+    <mat-tab-group class="tabs-container" [selectedIndex]="selectedTab()" (selectedIndexChange)="onTabChange($event)">
+
+      <!-- 全部课件 -->
+      <mat-tab label="全部课件">
+        <div class="tab-content">
+          <app-material-library
+            [config]="{
+              viewMode: 'all',
+              showUpload: false,
+              showStatistics: false
+            }"
+          ></app-material-library>
+        </div>
+      </mat-tab>
+
+      <!-- 按机构筛选 -->
+      <mat-tab label="机构课件">
+        <div class="tab-content">
+          <div class="filter-section">
+            <mat-form-field appearance="outline">
+              <mat-label>选择机构</mat-label>
+              <mat-select [value]="selectedOrganization()" (selectionChange)="selectedOrganization.set($event.value)">
+                <mat-option [value]="null">全部机构</mat-option>
+                <mat-option *ngFor="let org of organizations" [value]="org.id">
+                  {{ org.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <app-material-library
+            *ngIf="selectedOrganization()"
+            [config]="{
+              viewMode: 'all',
+              showUpload: false,
+              showStatistics: false
+            }"
+          ></app-material-library>
+        </div>
+      </mat-tab>
+
+      <!-- 课件审核 -->
+      <mat-tab label="待审核">
+        <div class="tab-content">
+          <div class="empty-state">
+            <mat-icon>fact_check</mat-icon>
+            <h3>待审核课件</h3>
+            <p>暂无待审核的课件</p>
+          </div>
+        </div>
+      </mat-tab>
+
+    </mat-tab-group>
+
+  </div>
+
+</div>

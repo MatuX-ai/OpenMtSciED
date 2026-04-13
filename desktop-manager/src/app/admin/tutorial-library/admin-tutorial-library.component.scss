@@ -1,0 +1,217 @@
+@use '../../../styles/design-tokens' as tokens;
+
+.admin-tutorial-library {
+  padding: tokens.$spacing-lg;
+  max-width: 1400px;
+  margin: 0 auto;
+  background: tokens.$color-background;
+  min-height: 100vh;
+}
+
+.library-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: tokens.$spacing-lg;
+  padding: tokens.$spacing-lg tokens.$spacing-xl;
+  background: tokens.$color-surface;
+  border-radius: tokens.$radius-lg;
+  box-shadow: tokens.$shadow-sm;
+  border: 1px solid tokens.$color-divider;
+
+  @media (max-width: tokens.$breakpoint-mobile) {
+    flex-direction: column;
+    gap: tokens.$spacing-md;
+    align-items: stretch;
+  }
+
+  h2 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: tokens.$spacing-sm;
+    color: tokens.$color-text-primary;
+    font-size: tokens.$font-size-xl;
+    font-weight: tokens.$font-weight-semibold;
+
+    mat-icon {
+      color: tokens.$color-primary;
+      font-size: 28px;
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  .header-actions {
+    display: flex;
+    gap: tokens.$spacing-sm;
+    align-items: center;
+
+    button {
+      text-transform: none;
+      font-weight: tokens.$font-weight-medium;
+    }
+  }
+
+  .search-field {
+    min-width: 280px;
+
+    @media (max-width: tokens.$breakpoint-mobile) {
+      min-width: 100%;
+    }
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: tokens.$spacing-lg;
+  margin-bottom: tokens.$spacing-xl;
+}
+
+.stat-card {
+  padding: tokens.$spacing-lg;
+  display: flex;
+  align-items: center;
+  gap: tokens.$spacing-md;
+  background: tokens.$color-surface;
+  border-radius: tokens.$radius-lg;
+  box-shadow: tokens.$shadow-sm;
+  border: 1px solid tokens.$color-divider;
+  transition: all tokens.$transition-normal;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: tokens.$gradient-primary;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: tokens.$shadow-md;
+  }
+
+  .stat-icon {
+    font-size: 36px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: tokens.$color-primary-50;
+    border-radius: tokens.$radius-md;
+    color: tokens.$color-primary;
+  }
+
+  .stat-info {
+    flex: 1;
+
+    .stat-value {
+      font-size: tokens.$font-size-2xl;
+      font-weight: tokens.$font-weight-bold;
+      color: tokens.$color-text-primary;
+      margin-bottom: tokens.$spacing-xs;
+      line-height: 1.2;
+    }
+
+    .stat-label {
+      color: tokens.$color-text-secondary;
+      font-size: tokens.$font-size-sm;
+      font-weight: tokens.$font-weight-medium;
+    }
+  }
+}
+
+.tabs-container {
+  background: tokens.$color-surface;
+  border-radius: tokens.$radius-lg;
+  overflow: hidden;
+  box-shadow: tokens.$shadow-sm;
+  border: 1px solid tokens.$color-divider;
+
+  ::ng-deep .mat-mdc-tab-header {
+    background: tokens.$color-surface;
+    border-bottom: 1px solid tokens.$color-divider;
+  }
+
+  ::ng-deep .mat-mdc-tab {
+    color: tokens.$color-text-secondary;
+    font-weight: tokens.$font-weight-medium;
+
+    &.mat-mdc-tab-active {
+      color: tokens.$color-primary;
+    }
+  }
+
+  ::ng-deep .mat-mdc-tab-body-wrapper {
+    background: tokens.$color-background;
+  }
+}
+
+.tab-content {
+  padding: tokens.$spacing-lg;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: tokens.$spacing-lg;
+}
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: tokens.$spacing-xxl;
+  gap: tokens.$spacing-md;
+
+  p {
+    margin: 0;
+    color: tokens.$color-text-secondary;
+    font-weight: tokens.$font-weight-medium;
+  }
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: tokens.$spacing-xxl;
+  color: tokens.$color-text-secondary;
+
+  mat-icon {
+    font-size: 64px;
+    height: 64px;
+    width: 64px;
+    margin-bottom: tokens.$spacing-lg;
+    opacity: 0.3;
+    color: tokens.$color-primary;
+  }
+
+  p {
+    margin: tokens.$spacing-xs 0;
+    font-size: tokens.$font-size-lg;
+  }
+}
+
+@media (max-width: tokens.$breakpoint-mobile) {
+  .admin-tutorial-library {
+    padding: tokens.$spacing-sm;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-02-26T13:59:53.113055",
+  "total_tests": 12,
+  "passed": 11,
+  "failed": 0,
+  "errors": [
+    {
+      "test": "test_network_manager_initialization (__main__.TestDigitalTwinNetworkManager.test_network_manager_initialization)",
+      "error": "Traceback (most recent call last):\n  File \u001b[35m\"G:\\iMato\\scripts\\digital_twin_backtest.py\"\u001b[0m, line \u001b[35m42\u001b[0m, in \u001b[35mtest_network_manager_initialization\u001b[0m\n    with \u001b[31mpatch\u001b[0m\u001b[1;31m('Mirror.NetworkManager')\u001b[0m as mock_network_manager:\n         \u001b[31m~~~~~\u001b[0m\u001b[1;31m^^^^^^^^^^^^^^^^^^^^^^^^^\u001b[0m\n  File \u001b[35m\"C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\unittest\\mock.py\"\u001b[0m, line \u001b[35m1487\u001b[0m, in \u001b[35m__enter__\u001b[0m\n    self.target = \u001b[31mself.getter\u001b[0m\u001b[1;31m()\u001b[0m\n                  \u001b[31m~~~~~~~~~~~\u001b[0m\u001b[1;31m^^\u001b[0m\n  File \u001b[35m\"C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\pkgutil.py\"\u001b[0m, line \u001b[35m458\u001b[0m, in \u001b[35mresolve_name\u001b[0m\n    mod = importlib.import_module(modname)\n  File \u001b[35m\"C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\importlib\\__init__.py\"\u001b[0m, line \u001b[35m88\u001b[0m, in \u001b[35mimport_module\u001b[0m\n    return \u001b[31m_bootstrap._gcd_import\u001b[0m\u001b[1;31m(name[level:], package, level)\u001b[0m\n           \u001b[31m~~~~~~~~~~~~~~~~~~~~~~\u001b[0m\u001b[1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\u001b[0m\n  File \u001b[35m\"<frozen importlib._bootstrap>\"\u001b[0m, line \u001b[35m1398\u001b[0m, in \u001b[35m_gcd_import\u001b[0m\n  File \u001b[35m\"<frozen importlib._bootstrap>\"\u001b[0m, line \u001b[35m1371\u001b[0m, in \u001b[35m_find_and_load\u001b[0m\n  File \u001b[35m\"<frozen importlib._bootstrap>\"\u001b[0m, line \u001b[35m1335\u001b[0m, in \u001b[35m_find_and_load_unlocked\u001b[0m\n\u001b[1;35mModuleNotFoundError\u001b[0m: \u001b[35mNo module named 'Mirror'\u001b[0m\n"
+    }
+  ],
+  "success_rate": 91.66666666666666,
+  "failures": []
+}

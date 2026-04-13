@@ -1,0 +1,507 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-04-12",
+  "total_count": 21,
+  "sources": {
+    "openscied": [
+      {
+        "id": "os-bio-001",
+        "title": "生态系统能量流动",
+        "description": "通过研究本地生态系统的能量流动，理解光合作用、食物链和能量金字塔的概念。学生将设计实验测量不同生物的能量转化效率。",
+        "source": "openscied",
+        "subject": "biology",
+        "level": "middle",
+        "difficulty": 3,
+        "has_hardware": true,
+        "hardware_budget": 45,
+        "download_url": "https://www.openscied.org/ecosystem-energy",
+        "detailed_description": "本单元引导学生探究生态系统中能量的来源、传递和转化。通过实地观察校园生态系统，学生将收集数据并构建能量模型，理解为什么食物链通常不超过4-5个营养级。",
+        "learning_objectives": [
+          "解释光合作用如何将太阳能转化为化学能",
+          "描述能量在食物链中的传递过程",
+          "计算不同营养级之间的能量转化效率",
+          "设计实验测量生态系统的生产力"
+        ],
+        "materials_list": [
+          "温度计",
+          "光照传感器",
+          "植物样本",
+          "数据采集器"
+        ],
+        "estimated_duration": "4周（16课时）"
+      },
+      {
+        "id": "os-bio-002",
+        "title": "遗传与变异",
+        "description": "通过豌豆杂交实验模拟，理解孟德尔遗传定律。探索基因如何决定生物性状，以及变异对物种进化的意义。",
+        "source": "openscied",
+        "subject": "biology",
+        "level": "high",
+        "difficulty": 5,
+        "has_hardware": false,
+        "download_url": "https://www.openscied.org/genetics-variation",
+        "detailed_description": "学生使用硬币和卡片模拟等位基因的随机组合，统计后代性状比例，验证分离定律和自由组合定律。",
+        "learning_objectives": [
+          "解释显性和隐性基因的表达规律",
+          "使用Punnett方格预测杂交结果",
+          "区分基因型与表现型",
+          "分析遗传变异对自然选择的意义"
+        ],
+        "estimated_duration": "4周（16课时）"
+      },
+      {
+        "id": "os-phy-001",
+        "title": "电磁感应现象",
+        "description": "探索电磁感应原理，制作简易发电机。通过改变磁场强度观察电流变化，理解法拉第定律的实际应用。",
+        "source": "openscied",
+        "subject": "physics",
+        "level": "middle",
+        "difficulty": 4,
+        "has_hardware": true,
+        "hardware_budget": 38,
+        "download_url": "https://www.openscied.org/electromagnetic-induction",
+        "learning_objectives": [
+          "描述电磁感应现象的产生条件",
+          "解释法拉第电磁感应定律",
+          "制作简易发电机并测量输出电压"
+        ],
+        "materials_list": [
+          "磁铁（强磁）",
+          "漆包线",
+          "LED灯",
+          "电流表",
+          "纸板筒"
+        ],
+        "estimated_duration": "3周（12课时）"
+      },
+      {
+        "id": "os-chem-001",
+        "title": "气候变化与碳循环",
+        "description": "研究全球气候变化的原因和影响，追踪碳在大气、海洋、生物圈中的循环路径。设计减少碳排放的方案。",
+        "source": "openscied",
+        "subject": "chemistry",
+        "level": "high",
+        "difficulty": 4,
+        "has_hardware": false,
+        "download_url": "https://www.openscied.org/climate-carbon-cycle",
+        "learning_objectives": [
+          "解释碳循环的主要过程和储库",
+          "分析工业革命以来大气CO2浓度变化的原因",
+          "评估不同能源的碳足迹"
+        ],
+        "estimated_duration": "5周（20课时）"
+      },
+      {
+        "id": "os-bio-003",
+        "title": "细胞结构与功能",
+        "description": "使用显微镜观察动植物细胞，比较原核细胞与真核细胞的差异。理解细胞器的分工合作。",
+        "source": "openscied",
+        "subject": "biology",
+        "level": "middle",
+        "difficulty": 2,
+        "has_hardware": true,
+        "hardware_budget": 120,
+        "download_url": "https://www.openscied.org/cell-structure",
+        "learning_objectives": [
+          "正确使用光学显微镜",
+          "识别动植物细胞的主要结构",
+          "解释各细胞器的功能"
+        ],
+        "materials_list": [
+          "光学显微镜",
+          "载玻片和盖玻片",
+          "碘液染色剂",
+          "洋葱"
+        ],
+        "estimated_duration": "2周（8课时）"
+      },
+      {
+        "id": "os-bio-004",
+        "title": "人体免疫系统",
+        "description": "探究身体如何抵御病原体入侵，理解疫苗的工作原理。通过模拟实验展示免疫反应过程。",
+        "source": "openscied",
+        "subject": "biology",
+        "level": "high",
+        "difficulty": 4,
+        "has_hardware": false,
+        "download_url": "https://www.openscied.org/immune-system",
+        "learning_objectives": [
+          "描述人体的三道防线",
+          "解释特异性免疫和非特异性免疫",
+          "说明疫苗诱导免疫记忆的机制"
+        ],
+        "estimated_duration": "3周（12课时）"
+      },
+      {
+        "id": "os-phy-002",
+        "title": "声音的传播与特性",
+        "description": "探究声音的产生、传播和接收机制，理解频率、振幅与音调、响度的关系。制作简易乐器验证声学原理。",
+        "source": "openscied",
+        "subject": "physics",
+        "level": "elementary",
+        "difficulty": 2,
+        "has_hardware": true,
+        "hardware_budget": 25,
+        "download_url": "https://www.openscied.org/sound-waves",
+        "learning_objectives": [
+          "说明声音是由物体振动产生的",
+          "区分音调和响度的概念",
+          "描述声音在不同介质中的传播速度差异"
+        ],
+        "materials_list": [
+          "橡皮筋",
+          "空盒子",
+          "玻璃瓶",
+          "水",
+          "节拍器"
+        ],
+        "estimated_duration": "2周（8课时）"
+      },
+      {
+        "id": "os-phy-003",
+        "title": "牛顿运动定律实验",
+        "description": "通过气垫导轨实验验证牛顿第二定律，测量力、质量和加速度的关系。理解惯性的概念。",
+        "source": "openscied",
+        "subject": "physics",
+        "level": "high",
+        "difficulty": 4,
+        "has_hardware": true,
+        "hardware_budget": 150,
+        "download_url": "https://www.openscied.org/newton-laws",
+        "learning_objectives": [
+          "陈述牛顿三大运动定律",
+          "设计实验验证牛顿第二定律",
+          "使用光电门精确测量加速度"
+        ],
+        "materials_list": [
+          "气垫导轨",
+          "滑块",
+          "光电门计时器",
+          "砝码和滑轮"
+        ],
+        "estimated_duration": "3周（12课时）"
+      },
+      {
+        "id": "os-chem-002",
+        "title": "酸碱中和反应",
+        "description": "通过滴定实验测定未知浓度溶液的pH值，理解酸碱指示剂的变色原理。",
+        "source": "openscied",
+        "subject": "chemistry",
+        "level": "high",
+        "difficulty": 3,
+        "has_hardware": true,
+        "hardware_budget": 50,
+        "download_url": "https://www.openscied.org/acid-base-titration",
+        "learning_objectives": [
+          "定义酸和碱的Arrhenius理论",
+          "正确使用滴定管进行滴定操作",
+          "选择合适的酸碱指示剂"
+        ],
+        "materials_list": [
+          "滴定管和滴定管夹",
+          "锥形瓶",
+          "标准盐酸溶液",
+          "酚酞指示剂"
+        ],
+        "estimated_duration": "2周（8课时）"
+      }
+    ],
+    "gewustan": [
+      {
+        "id": "gw-001",
+        "title": "机械传动系统",
+        "description": "学习齿轮、皮带、链条等传动方式，搭建简易起重机模型。理解力矩、机械优势等概念。",
+        "source": "gewustan",
+        "subject": "engineering",
+        "level": "middle",
+        "difficulty": 3,
+        "has_hardware": true,
+        "hardware_budget": 48,
+        "download_url": "https://gewustan.com/mechanical-transmission",
+        "learning_objectives": [
+          "识别并分类常见的机械传动方式",
+          "计算齿轮传动的速比",
+          "解释杠杆原理和力矩平衡"
+        ],
+        "materials_list": [
+          "金属十合一套件",
+          "螺丝刀套装",
+          "测力计",
+          "砝码组"
+        ],
+        "estimated_duration": "3周（12课时）"
+      },
+      {
+        "id": "gw-002",
+        "title": "智能循迹小车",
+        "description": "使用Arduino和红外传感器制作循迹小车，学习PID控制算法。包含电路设计和编程实践。",
+        "source": "gewustan",
+        "subject": "computer_science",
+        "level": "high",
+        "difficulty": 4,
+        "has_hardware": true,
+        "hardware_budget": 50,
+        "download_url": "https://gewustan.com/line-following-robot",
+        "learning_objectives": [
+          "掌握Arduino基础编程语法",
+          "理解红外传感器的工作原理",
+          "实现PWM电机速度控制",
+          "应用PID算法优化控制系统"
+        ],
+        "materials_list": [
+          "Arduino Uno开发板",
+          "L298N电机驱动模块",
+          "红外循迹传感器模块",
+          "直流减速电机x2",
+          "小车底盘套件"
+        ],
+        "estimated_duration": "4周（16课时）"
+      },
+      {
+        "id": "gw-003",
+        "title": "太阳能充电系统",
+        "description": "设计并搭建小型太阳能发电系统，学习光伏效应、能量存储和电源管理。为手机或其他设备充电。",
+        "source": "gewustan",
+        "subject": "engineering",
+        "level": "high",
+        "difficulty": 4,
+        "has_hardware": true,
+        "hardware_budget": 65,
+        "download_url": "https://gewustan.com/solar-charging-system",
+        "learning_objectives": [
+          "解释光伏效应的物理原理",
+          "计算太阳能电池板的输出功率",
+          "设计安全的充放电保护电路"
+        ],
+        "materials_list": [
+          "10W太阳能电池板",
+          "太阳能充电控制器",
+          "18650锂电池x4",
+          "USB升压模块"
+        ],
+        "estimated_duration": "3周（12课时）"
+      },
+      {
+        "id": "gw-004",
+        "title": "Arduino基础编程",
+        "description": "学习Arduino IDE使用，掌握数字/模拟IO、PWM、串口通信等基础知识。制作LED闪烁、按键控制等项目。",
+        "source": "gewustan",
+        "subject": "computer_science",
+        "level": "middle",
+        "difficulty": 2,
+        "has_hardware": true,
+        "hardware_budget": 55,
+        "download_url": "https://gewustan.com/arduino-basics",
+        "learning_objectives": [
+          "安装并配置Arduino开发环境",
+          "理解setup()和loop()函数结构",
+          "控制数字和模拟引脚"
+        ],
+        "materials_list": [
+          "Arduino Uno开发板",
+          "USB数据线",
+          "LED灯x3",
+          "电阻220Ωx3",
+          "按键开关"
+        ],
+        "estimated_duration": "4周（16课时）"
+      },
+      {
+        "id": "gw-005",
+        "title": "3D打印与建模",
+        "description": "学习Tinkercad 3D建模软件，设计个性化作品并使用3D打印机制作。理解增材制造原理。",
+        "source": "gewustan",
+        "subject": "engineering",
+        "level": "middle",
+        "difficulty": 3,
+        "has_hardware": true,
+        "hardware_budget": 200,
+        "download_url": "https://gewustan.com/3d-printing",
+        "learning_objectives": [
+          "使用Tinkercad进行基本3D建模",
+          "理解STL文件格式和切片软件",
+          "操作FDM 3D打印机"
+        ],
+        "materials_list": [
+          "电脑（安装Tinkercad）",
+          "FDM 3D打印机",
+          "PLA耗材",
+          "铲刀和剪钳"
+        ],
+        "estimated_duration": "4周（16课时）"
+      },
+      {
+        "id": "gw-006",
+        "title": "智能家居系统",
+        "description": "使用ESP8266 WiFi模块和传感器搭建智能家居原型，实现远程监控和控制。学习物联网基础。",
+        "source": "gewustan",
+        "subject": "computer_science",
+        "level": "high",
+        "difficulty": 5,
+        "has_hardware": true,
+        "hardware_budget": 80,
+        "download_url": "https://gewustan.com/smart-home",
+        "learning_objectives": [
+          "理解物联网架构和通信协议",
+          "使用ESP8266连接WiFi网络",
+          "读取传感器数据并上传云端"
+        ],
+        "materials_list": [
+          "ESP8266 NodeMCU开发板",
+          "DHT11温湿度传感器",
+          "光敏电阻模块",
+          "继电器模块"
+        ],
+        "estimated_duration": "5周（20课时）"
+      }
+    ],
+    "stemcloud": [
+      {
+        "id": "sc-001",
+        "title": "太阳能热水器设计",
+        "description": "结合物理热学和工程设计，优化太阳能热水器的集热效率。进行材料选择和结构优化实验。",
+        "source": "stemcloud",
+        "subject": "physics",
+        "level": "high",
+        "difficulty": 4,
+        "has_hardware": true,
+        "hardware_budget": 42,
+        "download_url": "https://stemcloud.cn/solar-water-heater",
+        "learning_objectives": [
+          "比较不同材料的吸热和保温性能",
+          "应用热力学原理解释热水器工作原理",
+          "使用控制变量法进行对比实验"
+        ],
+        "materials_list": [
+          "黑色卡纸",
+          "铝箔",
+          "透明塑料板",
+          "温度计x2",
+          "保温材料"
+        ],
+        "estimated_duration": "3周（12课时）"
+      },
+      {
+        "id": "sc-002",
+        "title": "水质检测与分析",
+        "description": "学习水的化学性质，使用传感器检测pH值、溶解氧等指标。分析当地水质量并提出改善建议。",
+        "source": "stemcloud",
+        "subject": "chemistry",
+        "level": "middle",
+        "difficulty": 3,
+        "has_hardware": true,
+        "hardware_budget": 35,
+        "download_url": "https://stemcloud.cn/water-quality-testing",
+        "learning_objectives": [
+          "正确使用水质检测仪器",
+          "解读各项水质指标的含义",
+          "对比分析不同水源的质量差异"
+        ],
+        "materials_list": [
+          "pH试纸或pH计",
+          "TDS检测笔",
+          "溶解氧传感器",
+          "采样瓶"
+        ],
+        "estimated_duration": "2周（8课时）"
+      },
+      {
+        "id": "sc-003",
+        "title": "桥梁结构工程",
+        "description": "研究梁桥、拱桥、悬索桥等不同桥梁结构的受力特点。使用意大利面或木棍搭建承重桥梁模型。",
+        "source": "stemcloud",
+        "subject": "engineering",
+        "level": "middle",
+        "difficulty": 3,
+        "has_hardware": true,
+        "hardware_budget": 30,
+        "download_url": "https://stemcloud.cn/bridge-engineering",
+        "learning_objectives": [
+          "识别桥梁的主要受力部件",
+          "解释张力、压力、剪力的作用",
+          "应用三角形稳定性原理增强结构"
+        ],
+        "materials_list": [
+          "意大利面或冰棒棍",
+          "白胶或热熔胶",
+          "细绳",
+          "砝码或重物"
+        ],
+        "estimated_duration": "2周（8课时）"
+      },
+      {
+        "id": "sc-004",
+        "title": "植物生长与环境因素",
+        "description": "探究光照、水分、温度、土壤等因素对植物生长的影响。设计对照实验，记录生长数据并分析。",
+        "source": "stemcloud",
+        "subject": "biology",
+        "level": "elementary",
+        "difficulty": 2,
+        "has_hardware": true,
+        "hardware_budget": 20,
+        "download_url": "https://stemcloud.cn/plant-growth-factors",
+        "learning_objectives": [
+          "列出植物生长的基本条件",
+          "设计公平的对照实验",
+          "准确记录和整理实验数据"
+        ],
+        "materials_list": [
+          "种子（豆芽或小麦草）",
+          "花盆或育苗盘",
+          "土壤",
+          "量杯",
+          "尺子"
+        ],
+        "estimated_duration": "3周（持续观察）"
+      },
+      {
+        "id": "sc-005",
+        "title": "风力发电模型",
+        "description": "设计并制作小型风力发电机，探究叶片形状、角度对发电效率的影响。理解可再生能源原理。",
+        "source": "stemcloud",
+        "subject": "physics",
+        "level": "middle",
+        "difficulty": 3,
+        "has_hardware": true,
+        "hardware_budget": 35,
+        "download_url": "https://stemcloud.cn/wind-power",
+        "learning_objectives": [
+          "解释风能转化为电能的原理",
+          "设计高效的风力涡轮叶片",
+          "测量不同条件下的发电功率"
+        ],
+        "materials_list": [
+          "小电机",
+          "LED灯",
+          "硬纸板",
+          "风扇",
+          "万用表"
+        ],
+        "estimated_duration": "3周（12课时）"
+      },
+      {
+        "id": "sc-006",
+        "title": "机器人编程入门",
+        "description": "使用图形化编程软件控制机器人完成巡线、避障、搬运等任务。培养计算思维。",
+        "source": "stemcloud",
+        "subject": "computer_science",
+        "level": "elementary",
+        "difficulty": 2,
+        "has_hardware": true,
+        "hardware_budget": 120,
+        "download_url": "https://stemcloud.cn/robot-programming",
+        "learning_objectives": [
+          "使用Scratch或类似工具编程",
+          "理解顺序、循环、条件分支",
+          "调试和优化程序"
+        ],
+        "materials_list": [
+          "教育机器人套装",
+          "平板电脑或电脑",
+          "任务场地"
+        ],
+        "estimated_duration": "4周（16课时）"
+      }
+    ]
+  }
+}
