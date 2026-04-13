@@ -1,0 +1,92 @@
+[
+  {
+    "block_type": "arduino_digital_write",
+    "category": "digital",
+    "xml_definition": "<block type=\"arduino_digital_write\">\n  <field name=\"PIN\">2</field>\n  <value name=\"VALUE\">\n    <shadow type=\"logic_boolean\">\n      <field name=\"BOOL\">TRUE</field>\n    </shadow>\n  </value>\n</block>",
+    "javascript_generator": "javascript:\nBlockly.JavaScript['arduino_digital_write'] = function(block) {\n  var pin = block.getFieldValue('PIN');\n  var value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC) || 'HIGH';\n  return `digitalWrite(${pin}, ${value});\\n`;\n};",
+    "arduino_generator": "cpp:\nBlockly.Arduino['arduino_digital_write'] = function(block) {\n  var pin = block.getFieldValue('PIN');\n  var value = Blockly.Arduino.valueToCode(block, 'VALUE', Blockly.Arduino.ORDER_ATOMIC) || 'HIGH';\n  \n  Blockly.Arduino.setups_['setup_output_' + pin] = 'pinMode(' + pin + ', OUTPUT);';\n  return 'digitalWrite(' + pin + ', ' + value + ');\\n';\n};",
+    "tooltip": "设置数字引脚输出(HIGH/LOW)",
+    "help_url": "https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/",
+    "required_library": ""
+  },
+  {
+    "block_type": "arduino_digital_read",
+    "category": "digital",
+    "xml_definition": "<block type=\"arduino_digital_read\">\n  <field name=\"PIN\">2</field>\n</block>",
+    "javascript_generator": "javascript:\nBlockly.JavaScript['arduino_digital_read'] = function(block) {\n  var pin = block.getFieldValue('PIN');\n  return [`digitalRead(${pin})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];\n};",
+    "arduino_generator": "cpp:\nBlockly.Arduino['arduino_digital_read'] = function(block) {\n  var pin = block.getFieldValue('PIN');\n  \n  Blockly.Arduino.setups_['setup_input_' + pin] = 'pinMode(' + pin + ', INPUT);';\n  return ['digitalRead(' + pin + ')', Blockly.Arduino.ORDER_FUNCTION_CALL];\n};",
+    "tooltip": "读取数字引脚输入(0或1)",
+    "help_url": "https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/",
+    "required_library": ""
+  },
+  {
+    "block_type": "arduino_analog_write",
+    "category": "analog",
+    "xml_definition": "<block type=\"arduino_analog_write\">\n  <field name=\"PIN\">9</field>\n  <value name=\"VALUE\">\n    <shadow type=\"math_number\">\n      <field name=\"NUM\">128</field>\n    </shadow>\n  </value>\n</block>",
+    "javascript_generator": "javascript:\nBlockly.JavaScript['arduino_analog_write'] = function(block) {\n  var pin = block.getFieldValue('PIN');\n  var value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC) || '0';\n  return `analogWrite(${pin}, ${value});\\n`;\n};",
+    "arduino_generator": "cpp:\nBlockly.Arduino['arduino_analog_write'] = function(block) {\n  var pin = block.getFieldValue('PIN');\n  var value = Blockly.Arduino.valueToCode(block, 'VALUE', Blockly.Arduino.ORDER_ATOMIC) || '0';\n  \n  Blockly.Arduino.setups_['setup_pwm_' + pin] = 'pinMode(' + pin + ', OUTPUT);';\n  return 'analogWrite(' + pin + ', ' + value + ');\\n';\n};",
+    "tooltip": "PWM模拟输出(0-255)",
+    "help_url": "https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/",
+    "required_library": ""
+  },
+  {
+    "block_type": "arduino_analog_read",
+    "category": "analog",
+    "xml_definition": "<block type=\"arduino_analog_read\">\n  <field name=\"PIN\">A0</field>\n</block>",
+    "javascript_generator": "javascript:\nBlockly.JavaScript['arduino_analog_read'] = function(block) {\n  var pin = block.getFieldValue('PIN');\n  return [`analogRead(${pin})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];\n};",
+    "arduino_generator": "cpp:\nBlockly.Arduino['arduino_analog_read'] = function(block) {\n  var pin = block.getFieldValue('PIN');\n  return ['analogRead(' + pin + ')', Blockly.Arduino.ORDER_FUNCTION_CALL];\n};",
+    "tooltip": "读取模拟引脚(0-1023)",
+    "help_url": "https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/",
+    "required_library": ""
+  },
+  {
+    "block_type": "sensor_ultrasonic_distance",
+    "category": "sensor",
+    "xml_definition": "<block type=\"sensor_ultrasonic_distance\">\n  <field name=\"TRIG_PIN\">2</field>\n  <field name=\"ECHO_PIN\">3</field>\n</block>",
+    "javascript_generator": "javascript:\nBlockly.JavaScript['sensor_ultrasonic_distance'] = function(block) {\n  var trigPin = block.getFieldValue('TRIG_PIN');\n  var echoPin = block.getFieldValue('ECHO_PIN');\n  var code = `\ndigitalWrite(${trigPin}, LOW);\ndelayMicroseconds(2);\ndigitalWrite(${trigPin}, HIGH);\ndelayMicroseconds(10);\ndigitalWrite(${trigPin}, LOW);\nvar duration = pulseIn(${echoPin}, HIGH);\nvar distance = duration * 0.034 / 2;\n`.trim();\n  return [code, Blockly.JavaScript.ORDER_NONE];\n};",
+    "arduino_generator": "cpp:\nBlockly.Arduino['sensor_ultrasonic_distance'] = function(block) {\n  var trigPin = block.getFieldValue('TRIG_PIN');\n  var echoPin = block.getFieldValue('ECHO_PIN');\n  \n  Blockly.Arduino.setups_['setup_trig'] = 'pinMode(' + trigPin + ', OUTPUT);';\n  Blockly.Arduino.setups_['setup_echo'] = 'pinMode(' + echoPin + ', INPUT);';\n  \n  var funcName = 'getDistance_' + trigPin + '_' + echoPin;\n  var code = `\nfloat ${funcName}() {\n  digitalWrite(${trigPin}, LOW);\n  delayMicroseconds(2);\n  digitalWrite(${trigPin}, HIGH);\n  delayMicroseconds(10);\n  digitalWrite(${trigPin}, LOW);\n  \n  long duration = pulseIn(${echoPin}, HIGH);\n  float distance = duration * 0.034 / 2;\n  return distance;\n}\n`;\n  \n  Blockly.Arduino.definitions_[funcName] = code;\n  return [funcName + '()', Blockly.Arduino.ORDER_FUNCTION_CALL];\n};",
+    "tooltip": "HC-SR04超声波测距(返回厘米)",
+    "help_url": "",
+    "required_library": ""
+  },
+  {
+    "block_type": "sensor_dht_temperature",
+    "category": "sensor",
+    "xml_definition": "<block type=\"sensor_dht_temperature\">\n  <field name=\"PIN\">2</field>\n  <field name=\"TYPE\">DHT11</field>\n</block>",
+    "javascript_generator": "javascript:\nBlockly.JavaScript['sensor_dht_temperature'] = function(block) {\n  var pin = block.getFieldValue('PIN');\n  return [`dht.readTemperature(${pin})`, Blockly.JavaScript.ORDER_FUNCTION_CALL];\n};",
+    "arduino_generator": "cpp:\nBlockly.Arduino['sensor_dht_temperature'] = function(block) {\n  var pin = block.getFieldValue('PIN');\n  var dhtType = block.getFieldValue('TYPE');\n  \n  Blockly.Arduino.includes_['include_dht'] = '#include <DHT.h>';\n  Blockly.Arduino.definitions_['define_dht'] = `DHT dht(${pin}, ${dhtType});`;\n  Blockly.Arduino.setups_['setup_dht'] = 'dht.begin();';\n  \n  return ['dht.readTemperature()', Blockly.Arduino.ORDER_FUNCTION_CALL];\n};",
+    "tooltip": "DHT11/DHT22温度传感器读数",
+    "help_url": "",
+    "required_library": "DHT sensor library"
+  },
+  {
+    "block_type": "motor_servo_write",
+    "category": "motor",
+    "xml_definition": "<block type=\"motor_servo_write\">\n  <field name=\"PIN\">9</field>\n  <value name=\"ANGLE\">\n    <shadow type=\"math_number\">\n      <field name=\"NUM\">90</field>\n    </shadow>\n  </value>\n</block>",
+    "javascript_generator": "javascript:\nBlockly.JavaScript['motor_servo_write'] = function(block) {\n  var pin = block.getFieldValue('PIN');\n  var angle = Blockly.JavaScript.valueToCode(block, 'ANGLE', Blockly.JavaScript.ORDER_ATOMIC) || '90';\n  return `myservo_${pin}.write(${angle});\\n`;\n};",
+    "arduino_generator": "cpp:\nBlockly.Arduino['motor_servo_write'] = function(block) {\n  var pin = block.getFieldValue('PIN');\n  var angle = Blockly.Arduino.valueToCode(block, 'ANGLE', Blockly.Arduino.ORDER_ATOMIC) || '90';\n  \n  Blockly.Arduino.includes_['include_servo'] = '#include <Servo.h>';\n  Blockly.Arduino.definitions_['define_servo_' + pin] = `Servo myservo_${pin};`;\n  Blockly.Arduino.setups_['setup_servo_' + pin] = `myservo_${pin}.attach(${pin});`;\n  \n  return `myservo_${pin}.write(${angle});\\n`;\n};",
+    "tooltip": "舵机角度控制(0-180度)",
+    "help_url": "",
+    "required_library": "Servo"
+  },
+  {
+    "block_type": "comm_serial_print",
+    "category": "communication",
+    "xml_definition": "<block type=\"comm_serial_print\">\n  <value name=\"MESSAGE\">\n    <shadow type=\"text\">\n      <field name=\"TEXT\">Hello</field>\n    </shadow>\n  </value>\n</block>",
+    "javascript_generator": "javascript:\nBlockly.JavaScript['comm_serial_print'] = function(block) {\n  var message = Blockly.JavaScript.valueToCode(block, 'MESSAGE', Blockly.JavaScript.ORDER_ATOMIC) || '\"\"';\n  return `console.log(${message});\\n`;\n};",
+    "arduino_generator": "cpp:\nBlockly.Arduino['comm_serial_print'] = function(block) {\n  var message = Blockly.Arduino.valueToCode(block, 'MESSAGE', Blockly.Arduino.ORDER_ATOMIC) || '\"\"';\n  \n  Blockly.Arduino.setups_['setup_serial'] = 'Serial.begin(9600);';\n  return 'Serial.println(' + message + ');\\n';\n};",
+    "tooltip": "串口打印消息",
+    "help_url": "https://www.arduino.cc/reference/en/language/functions/communication/serial/println/",
+    "required_library": ""
+  },
+  {
+    "block_type": "comm_wifi_connect",
+    "category": "communication",
+    "xml_definition": "<block type=\"comm_wifi_connect\">\n  <field name=\"SSID\">YourWiFi</field>\n  <field name=\"PASSWORD\">password</field>\n</block>",
+    "javascript_generator": "javascript:\nBlockly.JavaScript['comm_wifi_connect'] = function(block) {\n  var ssid = block.getFieldValue('SSID');\n  var password = block.getFieldValue('PASSWORD');\n  return `// WiFi.connect('${ssid}', '${password}')\\n`;\n};",
+    "arduino_generator": "cpp:\nBlockly.Arduino['comm_wifi_connect'] = function(block) {\n  var ssid = block.getFieldValue('SSID');\n  var password = block.getFieldValue('PASSWORD');\n  \n  Blockly.Arduino.includes_['include_wifi'] = '#include <WiFi.h>';\n  Blockly.Arduino.setups_['setup_wifi'] = `\n  WiFi.begin(\"${ssid}\", \"${password}\");\n  while (WiFi.status() != WL_CONNECTED) {\n    delay(500);\n  }\n`;\n  return '';\n};",
+    "tooltip": "ESP32连接WiFi网络",
+    "help_url": "",
+    "required_library": "WiFi (ESP32)"
+  }
+]

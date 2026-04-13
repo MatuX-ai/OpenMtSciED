@@ -1,0 +1,66 @@
+{
+  "summary": {
+    "total_users": 50,
+    "avg_rating": 3.91,
+    "avg_nps": 7.7,
+    "nps_score": 4.0,
+    "nps_breakdown": {
+      "promoters": 16,
+      "passives": 20,
+      "detractors": 14
+    }
+  },
+  "satisfaction_distribution": {
+    "一般": 12,
+    "非常不满意": 10,
+    "不满意": 7,
+    "非常满意": 15,
+    "满意": 6
+  },
+  "feature_ratings": {
+    "path_generation": 4.12,
+    "blockly_editor": 4.06,
+    "hardware_flash": 3.38,
+    "ai_tutor": 3.96,
+    "ui_usability": 4.04
+  },
+  "top_improvement_suggestions": [
+    [
+      "提供更多示例代码",
+      25
+    ],
+    [
+      "优化移动端体验",
+      22
+    ],
+    [
+      "添加离线模式",
+      21
+    ],
+    [
+      "增加更多硬件项目",
+      15
+    ]
+  ],
+  "top_bugs": [
+    [
+      "WebUSB偶尔断开",
+      21
+    ],
+    [
+      "图表渲染慢",
+      19
+    ],
+    [
+      "代码编译失败",
+      18
+    ]
+  ],
+  "recommendations": [
+    "⚠️ NPS较低,需重点关注用户满意度提升",
+    "🐛 优先修复Top Bug: WebUSB偶尔断开 (21次报告)",
+    "✅ 继续优化AI导师响应速度",
+    "✅ 增加硬件项目多样性",
+    "✅ 完善移动端适配"
+  ]
+}
