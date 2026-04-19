@@ -49,6 +49,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 yarn.lock
+.angular/                    # Angular缓存目录
 
 # ============================================
 # IDE & Editor
