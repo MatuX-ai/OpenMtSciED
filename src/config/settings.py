@@ -3,6 +3,7 @@
 使用Pydantic BaseSettings管理环境变量
 """
 
+import os
 from typing import Optional
 
 from pydantic import validator
@@ -18,7 +19,11 @@ class Settings(BaseSettings):
     PORT: int = 8000
 
     # 数据库配置
-    DATABASE_URL: str = "sqlite+aiosqlite:///./ai_service.db"
+    DATABASE_URL: str = "sqlite+aiosqlite:///./ai_service.db"  # 默认使用SQLite进行测试
+
+    # Neo4j图数据库配置（可选）
+    NEO4J_CONNECTION_URI: Optional[str] = None
+    NEO4J_QUERY_API_URL: Optional[str] = None
 
     # Supabase 配置（可选）
     SUPABASE_URL: Optional[str] = None
@@ -68,7 +73,7 @@ class Settings(BaseSettings):
     DYNAMIC_COURSE_RATE_LIMIT: int = 10  # 每小时请求限制
 
     # CORS配置
-    ALLOWED_ORIGINS: str = "http://localhost:3000,http://localhost:4200"
+    ALLOWED_ORIGINS: str = "http://localhost:3000,http://localhost:4200,http://localhost:5173,http://localhost:5174"
 
     # 日志配置
     LOG_LEVEL: str = "INFO"
@@ -134,10 +139,10 @@ class Settings(BaseSettings):
     CELERY_RESULT_EXPIRES: int = 86400  # 24 小时
 
     # Neo4j 图数据库配置
-    NEO4J_URI: str = "bolt://localhost:7687"
-    NEO4J_USERNAME: str = "neo4j"
-    NEO4J_PASSWORD: str = "password"
-    NEO4J_DATABASE: str = "neo4j"  # Neo4j Desktop 实例名称 (如 iMato-DB)
+    NEO4J_URI: str = "bolt://4abd5ef9.databases.neo4j.io"  # 不使用 +s，手动配置SSL
+    NEO4J_USERNAME: str = "4abd5ef9"
+    NEO4J_PASSWORD: str = "bXebDaB8hSalBxvvB5GhHmcvudO03ilZB7qItmI0Xbs"
+    NEO4J_DATABASE: str = "4abd5ef9"  # Neo4j Aura 实例数据库名称
     NEO4J_ENABLED: bool = True  # 设置为 False 可禁用 Neo4j
 
     # 可选路由配置 (通过环境变量控制功能模块的启用/禁用)
@@ -155,7 +160,8 @@ class Settings(BaseSettings):
     JUPYTERHUB_URL: str = "http://localhost:8000"  # JupyterHub 基础 URL
 
     class Config:
-        env_file = ".env"
+        # 使用项目根目录的.env文件
+        env_file = os.path.join(os.path.dirname(__file__), '..', '..', '.env')
         env_file_encoding = "utf-8"
         case_sensitive = False
 

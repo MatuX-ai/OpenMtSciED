@@ -1,0 +1,260 @@
+<div class="admin-user-management">
+  <!-- 头部区域 -->
+  <div class="header">
+    <h2>
+      <mat-icon>people</mat-icon>
+      用户管理
+    </h2>
+    <div class="header-actions">
+      <button mat-stroked-button (click)="onRefresh()">
+        <mat-icon>refresh</mat-icon>
+        刷新
+      </button>
+      <button mat-stroked-button (click)="importUsers()">
+        <mat-icon>upload</mat-icon>
+        批量导入
+      </button>
+      <button mat-stroked-button (click)="exportUsers()">
+        <mat-icon>download</mat-icon>
+        导出
+      </button>
+    </div>
+  </div>
+
+  <!-- 统计卡片 -->
+  @if (userStats()) {
+    <div class="stats-cards">
+      <mat-card class="stat-card total">
+        <mat-card-content>
+          <div class="stat-value">{{ userStats()?.totalUsers || 0 }}</div>
+          <div class="stat-label">总用户数</div>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="stat-card active">
+        <mat-card-content>
+          <div class="stat-value">{{ userStats()?.activeUsers || 0 }}</div>
+          <div class="stat-label">活跃用户</div>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="stat-card inactive">
+        <mat-card-content>
+          <div class="stat-value">{{ userStats()?.inactiveUsers || 0 }}</div>
+          <div class="stat-label">非活跃用户</div>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="stat-card admin">
+        <mat-card-content>
+          <div class="stat-value">{{ (userStats()?.adminUsers || 0) + (userStats()?.orgAdminUsers || 0) }}</div>
+          <div class="stat-label">管理员</div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  }
+
+  <!-- 搜索和筛选 -->
+  <div class="filter-section">
+    <div class="search-box">
+      <mat-form-field appearance="outline" class="search-field">
+        <mat-label>搜索用户</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="searchQuery"
+          (ngModelChange)="applyFilters()"
+          placeholder="输入用户名或邮箱"
+        />
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="filter-controls">
+      <button mat-button (click)="toggleFilterPanel()">
+        <mat-icon>filter_list</mat-icon>
+        筛选
+      </button>
+    </div>
+
+    <!-- 筛选面板 -->
+    @if (showFilterPanel()) {
+      <div class="filter-panel">
+        <mat-form-field appearance="outline">
+          <mat-label>角色</mat-label>
+          <mat-select [(ngModel)]="selectedRole" (ngModelChange)="applyFilters()">
+            <mat-option value="all">全部角色</mat-option>
+            <mat-option value="user">普通用户</mat-option>
+            <mat-option value="admin">系统管理员</mat-option>
+            <mat-option value="org_admin">机构管理员</mat-option>
+            <mat-option value="premium">高级用户</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>状态</mat-label>
+          <mat-select [(ngModel)]="selectedStatus" (ngModelChange)="applyFilters()">
+            <mat-option value="all">全部状态</mat-option>
+            <mat-option value="active">活跃</mat-option>
+            <mat-option value="inactive">非活跃</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" (click)="applyFilters()">
+          应用筛选
+        </button>
+        <button mat-button (click)="resetFilters()">
+          重置
+        </button>
+      </div>
+    }
+  </div>
+
+  <!-- 批量操作栏 -->
+  @if (selectedUsers().length > 0) {
+    <div class="batch-actions">
+      <span>已选择 {{ selectedUsers().length }} 个用户</span>
+      <button mat-button color="warn" (click)="batchAction('删除')">
+        <mat-icon>delete</mat-icon>
+        批量删除
+      </button>
+      <button mat-button (click)="batchAction('导出')">
+        <mat-icon>download</mat-icon>
+        批量导出
+      </button>
+    </div>
+  }
+
+  <!-- 用户列表表格 -->
+  <mat-card class="users-table-card">
+    @if (loading()) {
+      <div class="loading-container">
+        <mat-progress-spinner mode="indeterminate" diameter="50"></mat-progress-spinner>
+        <p>加载中...</p>
+      </div>
+    } @else {
+      <table mat-table [dataSource]="filteredUsers()" class="users-table">
+        <!-- 选择列 -->
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>
+            <mat-checkbox
+              [checked]="selectedUsers().length === filteredUsers().length && filteredUsers().length > 0"
+              [indeterminate]="selectedUsers().length > 0 && selectedUsers().length < filteredUsers().length"
+              (change)="toggleSelectAll()"
+            ></mat-checkbox>
+          </th>
+          <td mat-cell *matCellDef="let user">
+            <mat-checkbox
+              [checked]="selectedUsers().includes(user.id)"
+              (change)="$event ? toggleUserSelection(user.id) : null"
+              (click)="$event.stopPropagation()"
+            ></mat-checkbox>
+          </td>
+        </ng-container>
+
+        <!-- ID列 -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let user">{{ user.id }}</td>
+        </ng-container>
+
+        <!-- 用户名列 -->
+        <ng-container matColumnDef="username">
+          <th mat-header-cell *matHeaderCellDef>用户名</th>
+          <td mat-cell *matCellDef="let user">
+            <div class="username-cell">
+              <span>{{ user.username || '-' }}</span>
+            </div>
+          </td>
+        </ng-container>
+
+        <!-- 邮箱列 -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef>邮箱</th>
+          <td mat-cell *matCellDef="let user">{{ user.email }}</td>
+        </ng-container>
+
+        <!-- 角色列 -->
+        <ng-container matColumnDef="role">
+          <th mat-header-cell *matHeaderCellDef>角色</th>
+          <td mat-cell *matCellDef="let user">
+            <mat-chip-set>
+              <mat-chip [class]="getRoleClass(user.role || 'user')">
+                {{ getRoleDisplayName(user.role || 'user') }}
+              </mat-chip>
+            </mat-chip-set>
+          </td>
+        </ng-container>
+
+        <!-- 状态列 -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>状态</th>
+          <td mat-cell *matCellDef="let user">
+            <mat-chip-set>
+              <mat-chip [color]="user.is_active ? 'primary' : 'warn'" highlighted>
+                {{ user.is_active ? '活跃' : '非活跃' }}
+              </mat-chip>
+            </mat-chip-set>
+          </td>
+        </ng-container>
+
+        <!-- 组织列 -->
+        <ng-container matColumnDef="organization">
+          <th mat-header-cell *matHeaderCellDef>所属组织</th>
+          <td mat-cell *matCellDef="let user">
+            {{ getOrganizationName(user.organization_id) }}
+          </td>
+        </ng-container>
+
+        <!-- 创建时间列 -->
+        <ng-container matColumnDef="createdAt">
+          <th mat-header-cell *matHeaderCellDef>注册时间</th>
+          <td mat-cell *matCellDef="let user">
+            {{ formatDate(user.created_at) }}
+          </td>
+        </ng-container>
+
+        <!-- 操作列 -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>操作</th>
+          <td mat-cell *matCellDef="let user">
+            <div class="action-buttons">
+              <button
+                mat-icon-button
+                matTooltip="查看详情"
+                (click)="onViewUser(user)"
+              >
+                <mat-icon>visibility</mat-icon>
+              </button>
+              <button
+                mat-icon-button
+                matTooltip="编辑"
+                (click)="onEditUser(user)"
+              >
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button
+                mat-icon-button
+                matTooltip="删除"
+                color="warn"
+                (click)="onDeleteUser(user)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <!-- 空数据提示 -->
+        <tr class="empty-row" *matNoDataRow>
+          <td [attr.colspan]="displayedColumns.length">
+            <div class="empty-state">
+              <mat-icon>people_outline</mat-icon>
+              <p>暂无用户数据</p>
+            </div>
+          </td>
+        </tr>
+      </table>
+    }
+  </mat-card>
+</div>

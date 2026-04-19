@@ -1,7 +1,0 @@
-{
-  "buildCommand": null,
-  "outputDirectory": ".",
-  "devCommand": "npx serve .",
-  "installCommand": null,
-  "framework": null
-}

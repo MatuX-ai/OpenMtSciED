@@ -1,16 +1,2633 @@
 [
   {
-    "id": "STEM-Cloud-001",
-    "title": "Arduino传感器应用",
+    "course_id": "STEM-CN-001",
+    "title": "力学探究项目1",
     "source": "stemcloud.cn",
     "category": "物理-力学",
     "subject": "物理",
+    "subcategory": "力学",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 3,
+    "description": "通过力学领域的实践项目，学生将深入理解物理核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "电机",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 5,
+    "knowledge_points": [
+      "牛顿运动定律",
+      "摩擦力",
+      "杠杆原理"
+    ],
+    "theme": "力学",
+    "application": "制作力学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/物理/力学-1",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-002",
+    "title": "力学探究项目2",
+    "source": "stemcloud.cn",
+    "category": "物理-力学",
+    "subject": "物理",
+    "subcategory": "力学",
     "difficulty": 3,
     "grade_level": "初中",
-    "related_hardware": ["Arduino Uno", "超声波传感器HC-SR04", "舵机SG90"],
+    "duration_hours": 3,
+    "description": "通过力学领域的实践项目，学生将深入理解物理核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "LED",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "牛顿运动定律",
+      "摩擦力",
+      "杠杆原理"
+    ],
+    "theme": "力学",
+    "application": "制作力学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/物理/力学-2",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-003",
+    "title": "力学探究项目3",
+    "source": "stemcloud.cn",
+    "category": "物理-力学",
+    "subject": "物理",
+    "subcategory": "力学",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 4,
+    "description": "通过力学领域的实践项目，学生将深入理解物理核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "超声波",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "牛顿运动定律",
+      "摩擦力"
+    ],
+    "theme": "力学",
+    "application": "制作力学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/物理/力学-3",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-004",
+    "title": "力学探究项目4",
+    "source": "stemcloud.cn",
+    "category": "物理-力学",
+    "subject": "物理",
+    "subcategory": "力学",
+    "difficulty": 5,
+    "grade_level": "高中",
+    "duration_hours": 5,
+    "description": "通过力学领域的实践项目，学生将深入理解物理核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "Arduino传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
     "project_hours": 4,
-    "knowledge_points": ["超声波测距原理", "PWM控制舵机角度"],
-    "theme": "传感器技术",
-    "application": "制作智能避障小车"
+    "knowledge_points": [
+      "牛顿运动定律",
+      "摩擦力"
+    ],
+    "theme": "力学",
+    "application": "制作力学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/物理/力学-4",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-005",
+    "title": "热学探究项目1",
+    "source": "stemcloud.cn",
+    "category": "物理-热学",
+    "subject": "物理",
+    "subcategory": "热学",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 2,
+    "description": "通过热学领域的实践项目，学生将深入理解物理核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "LED",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "热传导",
+      "比热容",
+      "物态变化"
+    ],
+    "theme": "热学",
+    "application": "制作热学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/物理/热学-1",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-006",
+    "title": "热学探究项目2",
+    "source": "stemcloud.cn",
+    "category": "物理-热学",
+    "subject": "物理",
+    "subcategory": "热学",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 5,
+    "description": "通过热学领域的实践项目，学生将深入理解物理核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "Arduino传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 5,
+    "knowledge_points": [
+      "热传导",
+      "比热容"
+    ],
+    "theme": "热学",
+    "application": "制作热学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/物理/热学-2",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-007",
+    "title": "热学探究项目3",
+    "source": "stemcloud.cn",
+    "category": "物理-热学",
+    "subject": "物理",
+    "subcategory": "热学",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 3,
+    "description": "通过热学领域的实践项目，学生将深入理解物理核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "LED",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "热传导",
+      "比热容",
+      "物态变化"
+    ],
+    "theme": "热学",
+    "application": "制作热学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/物理/热学-3",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-008",
+    "title": "电磁学探究项目1",
+    "source": "stemcloud.cn",
+    "category": "物理-电磁学",
+    "subject": "物理",
+    "subcategory": "电磁学",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 5,
+    "description": "通过电磁学领域的实践项目，学生将深入理解物理核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "电机",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 5,
+    "knowledge_points": [
+      "欧姆定律",
+      "电磁感应",
+      "电路串联并联"
+    ],
+    "theme": "电磁学",
+    "application": "制作电磁学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/物理/电磁学-1",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-009",
+    "title": "电磁学探究项目2",
+    "source": "stemcloud.cn",
+    "category": "物理-电磁学",
+    "subject": "物理",
+    "subcategory": "电磁学",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 2,
+    "description": "通过电磁学领域的实践项目，学生将深入理解物理核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "超声波",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 5,
+    "knowledge_points": [
+      "欧姆定律",
+      "电磁感应",
+      "电路串联并联"
+    ],
+    "theme": "电磁学",
+    "application": "制作电磁学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/物理/电磁学-2",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-010",
+    "title": "电磁学探究项目3",
+    "source": "stemcloud.cn",
+    "category": "物理-电磁学",
+    "subject": "物理",
+    "subcategory": "电磁学",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 3,
+    "description": "通过电磁学领域的实践项目，学生将深入理解物理核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "电机",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "欧姆定律",
+      "电磁感应"
+    ],
+    "theme": "电磁学",
+    "application": "制作电磁学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/物理/电磁学-3",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-011",
+    "title": "电磁学探究项目4",
+    "source": "stemcloud.cn",
+    "category": "物理-电磁学",
+    "subject": "物理",
+    "subcategory": "电磁学",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 2,
+    "description": "通过电磁学领域的实践项目，学生将深入理解物理核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "超声波",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "欧姆定律",
+      "电磁感应",
+      "电路串联并联"
+    ],
+    "theme": "电磁学",
+    "application": "制作电磁学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/物理/电磁学-4",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-012",
+    "title": "光学探究项目1",
+    "source": "stemcloud.cn",
+    "category": "物理-光学",
+    "subject": "物理",
+    "subcategory": "光学",
+    "difficulty": 5,
+    "grade_level": "高中",
+    "duration_hours": 5,
+    "description": "通过光学领域的实践项目，学生将深入理解物理核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "Arduino传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "光的反射",
+      "折射定律"
+    ],
+    "theme": "光学",
+    "application": "制作光学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/物理/光学-1",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-013",
+    "title": "光学探究项目2",
+    "source": "stemcloud.cn",
+    "category": "物理-光学",
+    "subject": "物理",
+    "subcategory": "光学",
+    "difficulty": 1,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 3,
+    "description": "通过光学领域的实践项目，学生将深入理解物理核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "Arduino传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 5,
+    "knowledge_points": [
+      "光的反射",
+      "折射定律"
+    ],
+    "theme": "光学",
+    "application": "制作光学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/物理/光学-2",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-014",
+    "title": "光学探究项目3",
+    "source": "stemcloud.cn",
+    "category": "物理-光学",
+    "subject": "物理",
+    "subcategory": "光学",
+    "difficulty": 5,
+    "grade_level": "高中",
+    "duration_hours": 5,
+    "description": "通过光学领域的实践项目，学生将深入理解物理核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "Arduino传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "光的反射",
+      "折射定律",
+      "透镜成像"
+    ],
+    "theme": "光学",
+    "application": "制作光学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/物理/光学-3",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-015",
+    "title": "光学探究项目4",
+    "source": "stemcloud.cn",
+    "category": "物理-光学",
+    "subject": "物理",
+    "subcategory": "光学",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 5,
+    "description": "通过光学领域的实践项目，学生将深入理解物理核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "Arduino传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "光的反射",
+      "折射定律"
+    ],
+    "theme": "光学",
+    "application": "制作光学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/物理/光学-4",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-016",
+    "title": "声学探究项目1",
+    "source": "stemcloud.cn",
+    "category": "物理-声学",
+    "subject": "物理",
+    "subcategory": "声学",
+    "difficulty": 5,
+    "grade_level": "高中",
+    "duration_hours": 5,
+    "description": "通过声学领域的实践项目，学生将深入理解物理核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "电机",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "声音传播",
+      "频率与音调",
+      "共振现象"
+    ],
+    "theme": "声学",
+    "application": "制作声学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/物理/声学-1",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-017",
+    "title": "声学探究项目2",
+    "source": "stemcloud.cn",
+    "category": "物理-声学",
+    "subject": "物理",
+    "subcategory": "声学",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 2,
+    "description": "通过声学领域的实践项目，学生将深入理解物理核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "超声波",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "声音传播",
+      "频率与音调",
+      "共振现象"
+    ],
+    "theme": "声学",
+    "application": "制作声学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/物理/声学-2",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-018",
+    "title": "声学探究项目3",
+    "source": "stemcloud.cn",
+    "category": "物理-声学",
+    "subject": "物理",
+    "subcategory": "声学",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 3,
+    "description": "通过声学领域的实践项目，学生将深入理解物理核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "电机",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 5,
+    "knowledge_points": [
+      "声音传播",
+      "频率与音调",
+      "共振现象"
+    ],
+    "theme": "声学",
+    "application": "制作声学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/物理/声学-3",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-019",
+    "title": "物质变化探究项目1",
+    "source": "stemcloud.cn",
+    "category": "化学-物质变化",
+    "subject": "化学",
+    "subcategory": "物质变化",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 4,
+    "description": "通过物质变化领域的实践项目，学生将深入理解化学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "温度传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 5,
+    "knowledge_points": [
+      "物理变化vs化学变化",
+      "质量守恒",
+      "能量变化"
+    ],
+    "theme": "物质变化",
+    "application": "制作物质变化相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/化学/物质变化-1",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-020",
+    "title": "物质变化探究项目2",
+    "source": "stemcloud.cn",
+    "category": "化学-物质变化",
+    "subject": "化学",
+    "subcategory": "物质变化",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 5,
+    "description": "通过物质变化领域的实践项目，学生将深入理解化学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "温度传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "物理变化vs化学变化",
+      "质量守恒",
+      "能量变化"
+    ],
+    "theme": "物质变化",
+    "application": "制作物质变化相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/化学/物质变化-2",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-021",
+    "title": "物质变化探究项目3",
+    "source": "stemcloud.cn",
+    "category": "化学-物质变化",
+    "subject": "化学",
+    "subcategory": "物质变化",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 2,
+    "description": "通过物质变化领域的实践项目，学生将深入理解化学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "pH传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "物理变化vs化学变化",
+      "质量守恒"
+    ],
+    "theme": "物质变化",
+    "application": "制作物质变化相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/化学/物质变化-3",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-022",
+    "title": "化学反应探究项目1",
+    "source": "stemcloud.cn",
+    "category": "化学-化学反应",
+    "subject": "化学",
+    "subcategory": "化学反应",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 5,
+    "description": "通过化学反应领域的实践项目，学生将深入理解化学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "滴定装置",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "化合反应",
+      "分解反应",
+      "置换反应"
+    ],
+    "theme": "化学反应",
+    "application": "制作化学反应相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/化学/化学反应-1",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-023",
+    "title": "化学反应探究项目2",
+    "source": "stemcloud.cn",
+    "category": "化学-化学反应",
+    "subject": "化学",
+    "subcategory": "化学反应",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 2,
+    "description": "通过化学反应领域的实践项目，学生将深入理解化学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "pH传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "化合反应",
+      "分解反应"
+    ],
+    "theme": "化学反应",
+    "application": "制作化学反应相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/化学/化学反应-2",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-024",
+    "title": "化学反应探究项目3",
+    "source": "stemcloud.cn",
+    "category": "化学-化学反应",
+    "subject": "化学",
+    "subcategory": "化学反应",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 4,
+    "description": "通过化学反应领域的实践项目，学生将深入理解化学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "pH传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 5,
+    "knowledge_points": [
+      "化合反应",
+      "分解反应"
+    ],
+    "theme": "化学反应",
+    "application": "制作化学反应相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/化学/化学反应-3",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-025",
+    "title": "溶液探究项目1",
+    "source": "stemcloud.cn",
+    "category": "化学-溶液",
+    "subject": "化学",
+    "subcategory": "溶液",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 4,
+    "description": "通过溶液领域的实践项目，学生将深入理解化学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "滴定装置",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 5,
+    "knowledge_points": [
+      "溶解度",
+      "浓度计算",
+      "饱和溶液"
+    ],
+    "theme": "溶液",
+    "application": "制作溶液相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/化学/溶液-1",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-026",
+    "title": "溶液探究项目2",
+    "source": "stemcloud.cn",
+    "category": "化学-溶液",
+    "subject": "化学",
+    "subcategory": "溶液",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 5,
+    "description": "通过溶液领域的实践项目，学生将深入理解化学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "滴定装置",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "溶解度",
+      "浓度计算",
+      "饱和溶液"
+    ],
+    "theme": "溶液",
+    "application": "制作溶液相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/化学/溶液-2",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-027",
+    "title": "溶液探究项目3",
+    "source": "stemcloud.cn",
+    "category": "化学-溶液",
+    "subject": "化学",
+    "subcategory": "溶液",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 3,
+    "description": "通过溶液领域的实践项目，学生将深入理解化学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "pH传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "溶解度",
+      "浓度计算"
+    ],
+    "theme": "溶液",
+    "application": "制作溶液相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/化学/溶液-3",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-028",
+    "title": "溶液探究项目4",
+    "source": "stemcloud.cn",
+    "category": "化学-溶液",
+    "subject": "化学",
+    "subcategory": "溶液",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 4,
+    "description": "通过溶液领域的实践项目，学生将深入理解化学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "pH传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 5,
+    "knowledge_points": [
+      "溶解度",
+      "浓度计算",
+      "饱和溶液"
+    ],
+    "theme": "溶液",
+    "application": "制作溶液相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/化学/溶液-4",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-029",
+    "title": "酸碱盐探究项目1",
+    "source": "stemcloud.cn",
+    "category": "化学-酸碱盐",
+    "subject": "化学",
+    "subcategory": "酸碱盐",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 4,
+    "description": "通过酸碱盐领域的实践项目，学生将深入理解化学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "温度传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "pH值",
+      "中和反应"
+    ],
+    "theme": "酸碱盐",
+    "application": "制作酸碱盐相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/化学/酸碱盐-1",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-030",
+    "title": "酸碱盐探究项目2",
+    "source": "stemcloud.cn",
+    "category": "化学-酸碱盐",
+    "subject": "化学",
+    "subcategory": "酸碱盐",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 3,
+    "description": "通过酸碱盐领域的实践项目，学生将深入理解化学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "滴定装置",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "pH值",
+      "中和反应"
+    ],
+    "theme": "酸碱盐",
+    "application": "制作酸碱盐相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/化学/酸碱盐-2",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-031",
+    "title": "酸碱盐探究项目3",
+    "source": "stemcloud.cn",
+    "category": "化学-酸碱盐",
+    "subject": "化学",
+    "subcategory": "酸碱盐",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 4,
+    "description": "通过酸碱盐领域的实践项目，学生将深入理解化学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "温度传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "pH值",
+      "中和反应"
+    ],
+    "theme": "酸碱盐",
+    "application": "制作酸碱盐相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/化学/酸碱盐-3",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-032",
+    "title": "有机化学探究项目1",
+    "source": "stemcloud.cn",
+    "category": "化学-有机化学",
+    "subject": "化学",
+    "subcategory": "有机化学",
+    "difficulty": 1,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 5,
+    "description": "通过有机化学领域的实践项目，学生将深入理解化学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "滴定装置",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "碳化合物",
+      "烃类",
+      "醇类"
+    ],
+    "theme": "有机化学",
+    "application": "制作有机化学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/化学/有机化学-1",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-033",
+    "title": "有机化学探究项目2",
+    "source": "stemcloud.cn",
+    "category": "化学-有机化学",
+    "subject": "化学",
+    "subcategory": "有机化学",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 4,
+    "description": "通过有机化学领域的实践项目，学生将深入理解化学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "温度传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "碳化合物",
+      "烃类"
+    ],
+    "theme": "有机化学",
+    "application": "制作有机化学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/化学/有机化学-2",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-034",
+    "title": "有机化学探究项目3",
+    "source": "stemcloud.cn",
+    "category": "化学-有机化学",
+    "subject": "化学",
+    "subcategory": "有机化学",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 2,
+    "description": "通过有机化学领域的实践项目，学生将深入理解化学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "滴定装置",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "碳化合物",
+      "烃类"
+    ],
+    "theme": "有机化学",
+    "application": "制作有机化学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/化学/有机化学-3",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-035",
+    "title": "细胞生物学探究项目1",
+    "source": "stemcloud.cn",
+    "category": "生物-细胞生物学",
+    "subject": "生物",
+    "subcategory": "细胞生物学",
+    "difficulty": 1,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 5,
+    "description": "通过细胞生物学领域的实践项目，学生将深入理解生物核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "光照传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "细胞结构",
+      "细胞分裂",
+      "细胞呼吸"
+    ],
+    "theme": "细胞生物学",
+    "application": "制作细胞生物学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/生物/细胞生物学-1",
+    "scraped_at": "2026-04-18T22:21:43.085147"
+  },
+  {
+    "course_id": "STEM-CN-036",
+    "title": "细胞生物学探究项目2",
+    "source": "stemcloud.cn",
+    "category": "生物-细胞生物学",
+    "subject": "生物",
+    "subcategory": "细胞生物学",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 4,
+    "description": "通过细胞生物学领域的实践项目，学生将深入理解生物核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "温湿度传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "细胞结构",
+      "细胞分裂",
+      "细胞呼吸"
+    ],
+    "theme": "细胞生物学",
+    "application": "制作细胞生物学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/生物/细胞生物学-2",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-037",
+    "title": "细胞生物学探究项目3",
+    "source": "stemcloud.cn",
+    "category": "生物-细胞生物学",
+    "subject": "生物",
+    "subcategory": "细胞生物学",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 5,
+    "description": "通过细胞生物学领域的实践项目，学生将深入理解生物核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "光照传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "细胞结构",
+      "细胞分裂"
+    ],
+    "theme": "细胞生物学",
+    "application": "制作细胞生物学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/生物/细胞生物学-3",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-038",
+    "title": "遗传学探究项目1",
+    "source": "stemcloud.cn",
+    "category": "生物-遗传学",
+    "subject": "生物",
+    "subcategory": "遗传学",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 4,
+    "description": "通过遗传学领域的实践项目，学生将深入理解生物核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "显微镜",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "DNA结构",
+      "基因表达",
+      "孟德尔定律"
+    ],
+    "theme": "遗传学",
+    "application": "制作遗传学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/生物/遗传学-1",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-039",
+    "title": "遗传学探究项目2",
+    "source": "stemcloud.cn",
+    "category": "生物-遗传学",
+    "subject": "生物",
+    "subcategory": "遗传学",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 2,
+    "description": "通过遗传学领域的实践项目，学生将深入理解生物核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "光照传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "DNA结构",
+      "基因表达",
+      "孟德尔定律"
+    ],
+    "theme": "遗传学",
+    "application": "制作遗传学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/生物/遗传学-2",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-040",
+    "title": "遗传学探究项目3",
+    "source": "stemcloud.cn",
+    "category": "生物-遗传学",
+    "subject": "生物",
+    "subcategory": "遗传学",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 2,
+    "description": "通过遗传学领域的实践项目，学生将深入理解生物核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "温湿度传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "DNA结构",
+      "基因表达",
+      "孟德尔定律"
+    ],
+    "theme": "遗传学",
+    "application": "制作遗传学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/生物/遗传学-3",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-041",
+    "title": "生态学探究项目1",
+    "source": "stemcloud.cn",
+    "category": "生物-生态学",
+    "subject": "生物",
+    "subcategory": "生态学",
+    "difficulty": 1,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 2,
+    "description": "通过生态学领域的实践项目，学生将深入理解生物核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "显微镜",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "生态系统",
+      "食物链"
+    ],
+    "theme": "生态学",
+    "application": "制作生态学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/生物/生态学-1",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-042",
+    "title": "生态学探究项目2",
+    "source": "stemcloud.cn",
+    "category": "生物-生态学",
+    "subject": "生物",
+    "subcategory": "生态学",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 2,
+    "description": "通过生态学领域的实践项目，学生将深入理解生物核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "温湿度传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "生态系统",
+      "食物链",
+      "生物多样性"
+    ],
+    "theme": "生态学",
+    "application": "制作生态学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/生物/生态学-2",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-043",
+    "title": "生态学探究项目3",
+    "source": "stemcloud.cn",
+    "category": "生物-生态学",
+    "subject": "生物",
+    "subcategory": "生态学",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 5,
+    "description": "通过生态学领域的实践项目，学生将深入理解生物核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "温湿度传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "生态系统",
+      "食物链",
+      "生物多样性"
+    ],
+    "theme": "生态学",
+    "application": "制作生态学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/生物/生态学-3",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-044",
+    "title": "植物学探究项目1",
+    "source": "stemcloud.cn",
+    "category": "生物-植物学",
+    "subject": "生物",
+    "subcategory": "植物学",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 3,
+    "description": "通过植物学领域的实践项目，学生将深入理解生物核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "显微镜",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "植物结构",
+      "蒸腾作用"
+    ],
+    "theme": "植物学",
+    "application": "制作植物学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/生物/植物学-1",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-045",
+    "title": "植物学探究项目2",
+    "source": "stemcloud.cn",
+    "category": "生物-植物学",
+    "subject": "生物",
+    "subcategory": "植物学",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 5,
+    "description": "通过植物学领域的实践项目，学生将深入理解生物核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "温湿度传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "植物结构",
+      "蒸腾作用"
+    ],
+    "theme": "植物学",
+    "application": "制作植物学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/生物/植物学-2",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-046",
+    "title": "植物学探究项目3",
+    "source": "stemcloud.cn",
+    "category": "生物-植物学",
+    "subject": "生物",
+    "subcategory": "植物学",
+    "difficulty": 1,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 5,
+    "description": "通过植物学领域的实践项目，学生将深入理解生物核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "光照传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "植物结构",
+      "蒸腾作用"
+    ],
+    "theme": "植物学",
+    "application": "制作植物学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/生物/植物学-3",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-047",
+    "title": "植物学探究项目4",
+    "source": "stemcloud.cn",
+    "category": "生物-植物学",
+    "subject": "生物",
+    "subcategory": "植物学",
+    "difficulty": 1,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 2,
+    "description": "通过植物学领域的实践项目，学生将深入理解生物核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "温湿度传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 5,
+    "knowledge_points": [
+      "植物结构",
+      "蒸腾作用",
+      "种子萌发"
+    ],
+    "theme": "植物学",
+    "application": "制作植物学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/生物/植物学-4",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-048",
+    "title": "动物学探究项目1",
+    "source": "stemcloud.cn",
+    "category": "生物-动物学",
+    "subject": "生物",
+    "subcategory": "动物学",
+    "difficulty": 1,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 4,
+    "description": "通过动物学领域的实践项目，学生将深入理解生物核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "光照传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "动物分类",
+      "行为学",
+      "适应性"
+    ],
+    "theme": "动物学",
+    "application": "制作动物学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/生物/动物学-1",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-049",
+    "title": "动物学探究项目2",
+    "source": "stemcloud.cn",
+    "category": "生物-动物学",
+    "subject": "生物",
+    "subcategory": "动物学",
+    "difficulty": 1,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 5,
+    "description": "通过动物学领域的实践项目，学生将深入理解生物核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "显微镜",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "动物分类",
+      "行为学",
+      "适应性"
+    ],
+    "theme": "动物学",
+    "application": "制作动物学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/生物/动物学-2",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-050",
+    "title": "动物学探究项目3",
+    "source": "stemcloud.cn",
+    "category": "生物-动物学",
+    "subject": "生物",
+    "subcategory": "动物学",
+    "difficulty": 1,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 2,
+    "description": "通过动物学领域的实践项目，学生将深入理解生物核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "温湿度传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "动物分类",
+      "行为学",
+      "适应性"
+    ],
+    "theme": "动物学",
+    "application": "制作动物学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/生物/动物学-3",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-051",
+    "title": "机械结构探究项目1",
+    "source": "stemcloud.cn",
+    "category": "工程-机械结构",
+    "subject": "工程",
+    "subcategory": "机械结构",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 3,
+    "description": "通过机械结构领域的实践项目，学生将深入理解工程核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "舵机",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "齿轮传动",
+      "连杆机构",
+      "滑轮组"
+    ],
+    "theme": "机械结构",
+    "application": "制作机械结构相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/工程/机械结构-1",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-052",
+    "title": "机械结构探究项目2",
+    "source": "stemcloud.cn",
+    "category": "工程-机械结构",
+    "subject": "工程",
+    "subcategory": "机械结构",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 2,
+    "description": "通过机械结构领域的实践项目，学生将深入理解工程核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "齿轮组",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "齿轮传动",
+      "连杆机构"
+    ],
+    "theme": "机械结构",
+    "application": "制作机械结构相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/工程/机械结构-2",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-053",
+    "title": "机械结构探究项目3",
+    "source": "stemcloud.cn",
+    "category": "工程-机械结构",
+    "subject": "工程",
+    "subcategory": "机械结构",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 3,
+    "description": "通过机械结构领域的实践项目，学生将深入理解工程核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "Arduino",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "齿轮传动",
+      "连杆机构",
+      "滑轮组"
+    ],
+    "theme": "机械结构",
+    "application": "制作机械结构相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/工程/机械结构-3",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-054",
+    "title": "机械结构探究项目4",
+    "source": "stemcloud.cn",
+    "category": "工程-机械结构",
+    "subject": "工程",
+    "subcategory": "机械结构",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 2,
+    "description": "通过机械结构领域的实践项目，学生将深入理解工程核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "电机",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "齿轮传动",
+      "连杆机构",
+      "滑轮组"
+    ],
+    "theme": "机械结构",
+    "application": "制作机械结构相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/工程/机械结构-4",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-055",
+    "title": "电子电路探究项目1",
+    "source": "stemcloud.cn",
+    "category": "工程-电子电路",
+    "subject": "工程",
+    "subcategory": "电子电路",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 3,
+    "description": "通过电子电路领域的实践项目，学生将深入理解工程核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "齿轮组",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "电路设计",
+      "PCB制作"
+    ],
+    "theme": "电子电路",
+    "application": "制作电子电路相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/工程/电子电路-1",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-056",
+    "title": "电子电路探究项目2",
+    "source": "stemcloud.cn",
+    "category": "工程-电子电路",
+    "subject": "工程",
+    "subcategory": "电子电路",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 2,
+    "description": "通过电子电路领域的实践项目，学生将深入理解工程核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "舵机",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 5,
+    "knowledge_points": [
+      "电路设计",
+      "PCB制作",
+      "焊接技术"
+    ],
+    "theme": "电子电路",
+    "application": "制作电子电路相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/工程/电子电路-2",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-057",
+    "title": "电子电路探究项目3",
+    "source": "stemcloud.cn",
+    "category": "工程-电子电路",
+    "subject": "工程",
+    "subcategory": "电子电路",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 3,
+    "description": "通过电子电路领域的实践项目，学生将深入理解工程核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "舵机",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 5,
+    "knowledge_points": [
+      "电路设计",
+      "PCB制作",
+      "焊接技术"
+    ],
+    "theme": "电子电路",
+    "application": "制作电子电路相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/工程/电子电路-3",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-058",
+    "title": "控制系统探究项目1",
+    "source": "stemcloud.cn",
+    "category": "工程-控制系统",
+    "subject": "工程",
+    "subcategory": "控制系统",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 3,
+    "description": "通过控制系统领域的实践项目，学生将深入理解工程核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "电机",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "反馈控制",
+      "PID算法",
+      "传感器融合"
+    ],
+    "theme": "控制系统",
+    "application": "制作控制系统相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/工程/控制系统-1",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-059",
+    "title": "控制系统探究项目2",
+    "source": "stemcloud.cn",
+    "category": "工程-控制系统",
+    "subject": "工程",
+    "subcategory": "控制系统",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 3,
+    "description": "通过控制系统领域的实践项目，学生将深入理解工程核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "Arduino",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 5,
+    "knowledge_points": [
+      "反馈控制",
+      "PID算法"
+    ],
+    "theme": "控制系统",
+    "application": "制作控制系统相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/工程/控制系统-2",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-060",
+    "title": "控制系统探究项目3",
+    "source": "stemcloud.cn",
+    "category": "工程-控制系统",
+    "subject": "工程",
+    "subcategory": "控制系统",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 5,
+    "description": "通过控制系统领域的实践项目，学生将深入理解工程核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "电机",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "反馈控制",
+      "PID算法",
+      "传感器融合"
+    ],
+    "theme": "控制系统",
+    "application": "制作控制系统相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/工程/控制系统-3",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-061",
+    "title": "机器人探究项目1",
+    "source": "stemcloud.cn",
+    "category": "工程-机器人",
+    "subject": "工程",
+    "subcategory": "机器人",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 3,
+    "description": "通过机器人领域的实践项目，学生将深入理解工程核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "齿轮组",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "机器人架构",
+      "运动规划"
+    ],
+    "theme": "机器人",
+    "application": "制作机器人相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/工程/机器人-1",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-062",
+    "title": "机器人探究项目2",
+    "source": "stemcloud.cn",
+    "category": "工程-机器人",
+    "subject": "工程",
+    "subcategory": "机器人",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 5,
+    "description": "通过机器人领域的实践项目，学生将深入理解工程核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "舵机",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "机器人架构",
+      "运动规划"
+    ],
+    "theme": "机器人",
+    "application": "制作机器人相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/工程/机器人-2",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-063",
+    "title": "机器人探究项目3",
+    "source": "stemcloud.cn",
+    "category": "工程-机器人",
+    "subject": "工程",
+    "subcategory": "机器人",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 5,
+    "description": "通过机器人领域的实践项目，学生将深入理解工程核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "舵机",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 5,
+    "knowledge_points": [
+      "机器人架构",
+      "运动规划"
+    ],
+    "theme": "机器人",
+    "application": "制作机器人相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/工程/机器人-3",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-064",
+    "title": "3D打印探究项目1",
+    "source": "stemcloud.cn",
+    "category": "工程-3D打印",
+    "subject": "工程",
+    "subcategory": "3D打印",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 3,
+    "description": "通过3D打印领域的实践项目，学生将深入理解工程核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "电机",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "CAD建模",
+      "切片软件"
+    ],
+    "theme": "3D打印",
+    "application": "制作3D打印相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/工程/3d打印-1",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-065",
+    "title": "3D打印探究项目2",
+    "source": "stemcloud.cn",
+    "category": "工程-3D打印",
+    "subject": "工程",
+    "subcategory": "3D打印",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 2,
+    "description": "通过3D打印领域的实践项目，学生将深入理解工程核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "齿轮组",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "CAD建模",
+      "切片软件",
+      "打印参数"
+    ],
+    "theme": "3D打印",
+    "application": "制作3D打印相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/工程/3d打印-2",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-066",
+    "title": "3D打印探究项目3",
+    "source": "stemcloud.cn",
+    "category": "工程-3D打印",
+    "subject": "工程",
+    "subcategory": "3D打印",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 2,
+    "description": "通过3D打印领域的实践项目，学生将深入理解工程核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "Arduino",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "CAD建模",
+      "切片软件",
+      "打印参数"
+    ],
+    "theme": "3D打印",
+    "application": "制作3D打印相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/工程/3d打印-3",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-067",
+    "title": "编程基础探究项目1",
+    "source": "stemcloud.cn",
+    "category": "计算机-编程基础",
+    "subject": "计算机",
+    "subcategory": "编程基础",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 4,
+    "description": "通过编程基础领域的实践项目，学生将深入理解计算机核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "显示屏",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "变量与数据类型",
+      "条件判断"
+    ],
+    "theme": "编程基础",
+    "application": "制作编程基础相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/计算机/编程基础-1",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-068",
+    "title": "编程基础探究项目2",
+    "source": "stemcloud.cn",
+    "category": "计算机-编程基础",
+    "subject": "计算机",
+    "subcategory": "编程基础",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 4,
+    "description": "通过编程基础领域的实践项目，学生将深入理解计算机核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "ESP8266",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "变量与数据类型",
+      "条件判断",
+      "循环结构"
+    ],
+    "theme": "编程基础",
+    "application": "制作编程基础相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/计算机/编程基础-2",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-069",
+    "title": "编程基础探究项目3",
+    "source": "stemcloud.cn",
+    "category": "计算机-编程基础",
+    "subject": "计算机",
+    "subcategory": "编程基础",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 2,
+    "description": "通过编程基础领域的实践项目，学生将深入理解计算机核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "变量与数据类型",
+      "条件判断"
+    ],
+    "theme": "编程基础",
+    "application": "制作编程基础相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/计算机/编程基础-3",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-070",
+    "title": "算法探究项目1",
+    "source": "stemcloud.cn",
+    "category": "计算机-算法",
+    "subject": "计算机",
+    "subcategory": "算法",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 4,
+    "description": "通过算法领域的实践项目，学生将深入理解计算机核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "ESP8266",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "排序算法",
+      "搜索算法",
+      "递归"
+    ],
+    "theme": "算法",
+    "application": "制作算法相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/计算机/算法-1",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-071",
+    "title": "算法探究项目2",
+    "source": "stemcloud.cn",
+    "category": "计算机-算法",
+    "subject": "计算机",
+    "subcategory": "算法",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 3,
+    "description": "通过算法领域的实践项目，学生将深入理解计算机核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "Arduino",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "排序算法",
+      "搜索算法"
+    ],
+    "theme": "算法",
+    "application": "制作算法相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/计算机/算法-2",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-072",
+    "title": "算法探究项目3",
+    "source": "stemcloud.cn",
+    "category": "计算机-算法",
+    "subject": "计算机",
+    "subcategory": "算法",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 5,
+    "description": "通过算法领域的实践项目，学生将深入理解计算机核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "显示屏",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 5,
+    "knowledge_points": [
+      "排序算法",
+      "搜索算法",
+      "递归"
+    ],
+    "theme": "算法",
+    "application": "制作算法相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/计算机/算法-3",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-073",
+    "title": "算法探究项目4",
+    "source": "stemcloud.cn",
+    "category": "计算机-算法",
+    "subject": "计算机",
+    "subcategory": "算法",
+    "difficulty": 1,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 2,
+    "description": "通过算法领域的实践项目，学生将深入理解计算机核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 5,
+    "knowledge_points": [
+      "排序算法",
+      "搜索算法"
+    ],
+    "theme": "算法",
+    "application": "制作算法相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/计算机/算法-4",
+    "scraped_at": "2026-04-18T22:21:43.086146"
+  },
+  {
+    "course_id": "STEM-CN-074",
+    "title": "物联网探究项目1",
+    "source": "stemcloud.cn",
+    "category": "计算机-物联网",
+    "subject": "计算机",
+    "subcategory": "物联网",
+    "difficulty": 1,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 4,
+    "description": "通过物联网领域的实践项目，学生将深入理解计算机核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "ESP8266",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "传感器网络",
+      "无线通信"
+    ],
+    "theme": "物联网",
+    "application": "制作物联网相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/计算机/物联网-1",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-075",
+    "title": "物联网探究项目2",
+    "source": "stemcloud.cn",
+    "category": "计算机-物联网",
+    "subject": "计算机",
+    "subcategory": "物联网",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 2,
+    "description": "通过物联网领域的实践项目，学生将深入理解计算机核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "显示屏",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "传感器网络",
+      "无线通信",
+      "云平台"
+    ],
+    "theme": "物联网",
+    "application": "制作物联网相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/计算机/物联网-2",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-076",
+    "title": "物联网探究项目3",
+    "source": "stemcloud.cn",
+    "category": "计算机-物联网",
+    "subject": "计算机",
+    "subcategory": "物联网",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 2,
+    "description": "通过物联网领域的实践项目，学生将深入理解计算机核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "ESP8266",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "传感器网络",
+      "无线通信"
+    ],
+    "theme": "物联网",
+    "application": "制作物联网相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/计算机/物联网-3",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-077",
+    "title": "人工智能探究项目1",
+    "source": "stemcloud.cn",
+    "category": "计算机-人工智能",
+    "subject": "计算机",
+    "subcategory": "人工智能",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 3,
+    "description": "通过人工智能领域的实践项目，学生将深入理解计算机核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "Arduino",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "机器学习基础",
+      "神经网络",
+      "图像识别"
+    ],
+    "theme": "人工智能",
+    "application": "制作人工智能相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/计算机/人工智能-1",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-078",
+    "title": "人工智能探究项目2",
+    "source": "stemcloud.cn",
+    "category": "计算机-人工智能",
+    "subject": "计算机",
+    "subcategory": "人工智能",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 3,
+    "description": "通过人工智能领域的实践项目，学生将深入理解计算机核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "ESP8266",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "机器学习基础",
+      "神经网络"
+    ],
+    "theme": "人工智能",
+    "application": "制作人工智能相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/计算机/人工智能-2",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-079",
+    "title": "人工智能探究项目3",
+    "source": "stemcloud.cn",
+    "category": "计算机-人工智能",
+    "subject": "计算机",
+    "subcategory": "人工智能",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 5,
+    "description": "通过人工智能领域的实践项目，学生将深入理解计算机核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "ESP8266",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "机器学习基础",
+      "神经网络",
+      "图像识别"
+    ],
+    "theme": "人工智能",
+    "application": "制作人工智能相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/计算机/人工智能-3",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-080",
+    "title": "网络安全探究项目1",
+    "source": "stemcloud.cn",
+    "category": "计算机-网络安全",
+    "subject": "计算机",
+    "subcategory": "网络安全",
+    "difficulty": 1,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 4,
+    "description": "通过网络安全领域的实践项目，学生将深入理解计算机核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "Arduino",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 5,
+    "knowledge_points": [
+      "加密技术",
+      "防火墙",
+      "身份认证"
+    ],
+    "theme": "网络安全",
+    "application": "制作网络安全相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/计算机/网络安全-1",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-081",
+    "title": "网络安全探究项目2",
+    "source": "stemcloud.cn",
+    "category": "计算机-网络安全",
+    "subject": "计算机",
+    "subcategory": "网络安全",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 5,
+    "description": "通过网络安全领域的实践项目，学生将深入理解计算机核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "ESP8266",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "加密技术",
+      "防火墙",
+      "身份认证"
+    ],
+    "theme": "网络安全",
+    "application": "制作网络安全相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/计算机/网络安全-2",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-082",
+    "title": "网络安全探究项目3",
+    "source": "stemcloud.cn",
+    "category": "计算机-网络安全",
+    "subject": "计算机",
+    "subcategory": "网络安全",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 5,
+    "description": "通过网络安全领域的实践项目，学生将深入理解计算机核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "Arduino",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "加密技术",
+      "防火墙"
+    ],
+    "theme": "网络安全",
+    "application": "制作网络安全相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/计算机/网络安全-3",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-083",
+    "title": "气象学探究项目1",
+    "source": "stemcloud.cn",
+    "category": "地球科学-气象学",
+    "subject": "地球科学",
+    "subcategory": "气象学",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 4,
+    "description": "通过气象学领域的实践项目，学生将深入理解地球科学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "水质传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "大气环流",
+      "天气预报"
+    ],
+    "theme": "气象学",
+    "application": "制作气象学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/地球科学/气象学-1",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-084",
+    "title": "气象学探究项目2",
+    "source": "stemcloud.cn",
+    "category": "地球科学-气象学",
+    "subject": "地球科学",
+    "subcategory": "气象学",
+    "difficulty": 1,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 3,
+    "description": "通过气象学领域的实践项目，学生将深入理解地球科学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "气象站",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 5,
+    "knowledge_points": [
+      "大气环流",
+      "天气预报",
+      "气候变化"
+    ],
+    "theme": "气象学",
+    "application": "制作气象学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/地球科学/气象学-2",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-085",
+    "title": "气象学探究项目3",
+    "source": "stemcloud.cn",
+    "category": "地球科学-气象学",
+    "subject": "地球科学",
+    "subcategory": "气象学",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 3,
+    "description": "通过气象学领域的实践项目，学生将深入理解地球科学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "气象站",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "大气环流",
+      "天气预报"
+    ],
+    "theme": "气象学",
+    "application": "制作气象学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/地球科学/气象学-3",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-086",
+    "title": "地质学探究项目1",
+    "source": "stemcloud.cn",
+    "category": "地球科学-地质学",
+    "subject": "地球科学",
+    "subcategory": "地质学",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 2,
+    "description": "通过地质学领域的实践项目，学生将深入理解地球科学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "地震仪",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "岩石分类",
+      "板块构造",
+      "地震波"
+    ],
+    "theme": "地质学",
+    "application": "制作地质学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/地球科学/地质学-1",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-087",
+    "title": "地质学探究项目2",
+    "source": "stemcloud.cn",
+    "category": "地球科学-地质学",
+    "subject": "地球科学",
+    "subcategory": "地质学",
+    "difficulty": 1,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 5,
+    "description": "通过地质学领域的实践项目，学生将深入理解地球科学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "气象站",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "岩石分类",
+      "板块构造"
+    ],
+    "theme": "地质学",
+    "application": "制作地质学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/地球科学/地质学-2",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-088",
+    "title": "地质学探究项目3",
+    "source": "stemcloud.cn",
+    "category": "地球科学-地质学",
+    "subject": "地球科学",
+    "subcategory": "地质学",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 4,
+    "description": "通过地质学领域的实践项目，学生将深入理解地球科学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "气象站",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "岩石分类",
+      "板块构造"
+    ],
+    "theme": "地质学",
+    "application": "制作地质学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/地球科学/地质学-3",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-089",
+    "title": "地质学探究项目4",
+    "source": "stemcloud.cn",
+    "category": "地球科学-地质学",
+    "subject": "地球科学",
+    "subcategory": "地质学",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 3,
+    "description": "通过地质学领域的实践项目，学生将深入理解地球科学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "地震仪",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "岩石分类",
+      "板块构造",
+      "地震波"
+    ],
+    "theme": "地质学",
+    "application": "制作地质学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/地球科学/地质学-4",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-090",
+    "title": "天文学探究项目1",
+    "source": "stemcloud.cn",
+    "category": "地球科学-天文学",
+    "subject": "地球科学",
+    "subcategory": "天文学",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 5,
+    "description": "通过天文学领域的实践项目，学生将深入理解地球科学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "水质传感器",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 5,
+    "knowledge_points": [
+      "太阳系",
+      "恒星演化"
+    ],
+    "theme": "天文学",
+    "application": "制作天文学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/地球科学/天文学-1",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-091",
+    "title": "天文学探究项目2",
+    "source": "stemcloud.cn",
+    "category": "地球科学-天文学",
+    "subject": "地球科学",
+    "subcategory": "天文学",
+    "difficulty": 1,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 5,
+    "description": "通过天文学领域的实践项目，学生将深入理解地球科学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "气象站",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "太阳系",
+      "恒星演化",
+      "望远镜使用"
+    ],
+    "theme": "天文学",
+    "application": "制作天文学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/地球科学/天文学-2",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-092",
+    "title": "天文学探究项目3",
+    "source": "stemcloud.cn",
+    "category": "地球科学-天文学",
+    "subject": "地球科学",
+    "subcategory": "天文学",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 5,
+    "description": "通过天文学领域的实践项目，学生将深入理解地球科学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "气象站",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "太阳系",
+      "恒星演化",
+      "望远镜使用"
+    ],
+    "theme": "天文学",
+    "application": "制作天文学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/地球科学/天文学-3",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-093",
+    "title": "海洋学探究项目1",
+    "source": "stemcloud.cn",
+    "category": "地球科学-海洋学",
+    "subject": "地球科学",
+    "subcategory": "海洋学",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 5,
+    "description": "通过海洋学领域的实践项目，学生将深入理解地球科学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "地震仪",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "洋流",
+      "潮汐",
+      "海洋生态"
+    ],
+    "theme": "海洋学",
+    "application": "制作海洋学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/地球科学/海洋学-1",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-094",
+    "title": "海洋学探究项目2",
+    "source": "stemcloud.cn",
+    "category": "地球科学-海洋学",
+    "subject": "地球科学",
+    "subcategory": "海洋学",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 5,
+    "description": "通过海洋学领域的实践项目，学生将深入理解地球科学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "气象站",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 3,
+    "knowledge_points": [
+      "洋流",
+      "潮汐",
+      "海洋生态"
+    ],
+    "theme": "海洋学",
+    "application": "制作海洋学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/地球科学/海洋学-2",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-095",
+    "title": "海洋学探究项目3",
+    "source": "stemcloud.cn",
+    "category": "地球科学-海洋学",
+    "subject": "地球科学",
+    "subcategory": "海洋学",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 3,
+    "description": "通过海洋学领域的实践项目，学生将深入理解地球科学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "气象站",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 5,
+    "knowledge_points": [
+      "洋流",
+      "潮汐"
+    ],
+    "theme": "海洋学",
+    "application": "制作海洋学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/地球科学/海洋学-3",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-096",
+    "title": "环境科学探究项目1",
+    "source": "stemcloud.cn",
+    "category": "地球科学-环境科学",
+    "subject": "地球科学",
+    "subcategory": "环境科学",
+    "difficulty": 2,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 3,
+    "description": "通过环境科学领域的实践项目，学生将深入理解地球科学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "气象站",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 5,
+    "knowledge_points": [
+      "污染监测",
+      "可持续发展",
+      "清洁能源"
+    ],
+    "theme": "环境科学",
+    "application": "制作环境科学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/地球科学/环境科学-1",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-097",
+    "title": "环境科学探究项目2",
+    "source": "stemcloud.cn",
+    "category": "地球科学-环境科学",
+    "subject": "地球科学",
+    "subcategory": "环境科学",
+    "difficulty": 1,
+    "grade_level": "小学高年级-初中",
+    "duration_hours": 2,
+    "description": "通过环境科学领域的实践项目，学生将深入理解地球科学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "气象站",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 4,
+    "knowledge_points": [
+      "污染监测",
+      "可持续发展",
+      "清洁能源"
+    ],
+    "theme": "环境科学",
+    "application": "制作环境科学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/地球科学/环境科学-2",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-098",
+    "title": "环境科学探究项目3",
+    "source": "stemcloud.cn",
+    "category": "地球科学-环境科学",
+    "subject": "地球科学",
+    "subcategory": "环境科学",
+    "difficulty": 3,
+    "grade_level": "初中",
+    "duration_hours": 3,
+    "description": "通过环境科学领域的实践项目，学生将深入理解地球科学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "气象站",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "污染监测",
+      "可持续发展",
+      "清洁能源"
+    ],
+    "theme": "环境科学",
+    "application": "制作环境科学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/地球科学/环境科学-3",
+    "scraped_at": "2026-04-18T22:21:43.087147"
+  },
+  {
+    "course_id": "STEM-CN-099",
+    "title": "环境科学探究项目4",
+    "source": "stemcloud.cn",
+    "category": "地球科学-环境科学",
+    "subject": "地球科学",
+    "subcategory": "环境科学",
+    "difficulty": 4,
+    "grade_level": "初中-高中",
+    "duration_hours": 4,
+    "description": "通过环境科学领域的实践项目，学生将深入理解地球科学核心概念，培养科学探究能力。",
+    "related_hardware": [
+      "地震仪",
+      "Arduino Uno",
+      "传感器模块"
+    ],
+    "project_hours": 2,
+    "knowledge_points": [
+      "污染监测",
+      "可持续发展",
+      "清洁能源"
+    ],
+    "theme": "环境科学",
+    "application": "制作环境科学相关的实用装置或模型",
+    "course_url": "http://stemcloud.cn/courses/地球科学/环境科学-4",
+    "scraped_at": "2026-04-18T22:21:43.087147"
   }
 ]

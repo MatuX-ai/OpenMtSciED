@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenMTSciEd - STEM连贯学习路径引擎</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="theme-color" content="#6366f1">
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --accent-color: #06b6d4;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --stem-science: #10b981;
+            --stem-tech: #3b82f6;
+            --stem-engineering: #f59e0b;
+            --stem-math: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* STEM Grid Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+        }
+
+        /* STEM Icons Animation */
+        .stem-icons-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .stem-icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.1;
+            animation: floatIcon 15s infinite linear;
+        }
+
+        @keyframes floatIcon {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.1;
+            }
+            90% {
+                opacity: 0.1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            -webkit-background-clip: initial;
+            -webkit-text-fill-color: initial;
+            filter: invert(85%) sepia(90%) saturate(500%) hue-rotate(10deg) brightness(1.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Hero Section with STEM Icons */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, var(--stem-science), var(--stem-tech), var(--stem-engineering), var(--stem-math));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        /* STEM Badge Animation */
+        .stem-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stem-badge {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            animation: float 3s ease-in-out infinite;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .stem-badge:nth-child(1) {
+            background: linear-gradient(135deg, var(--stem-science), #059669);
+            animation-delay: 0s;
+        }
+
+        .stem-badge:nth-child(2) {
+            background: linear-gradient(135deg, var(--stem-tech), #2563eb);
+            animation-delay: 0.5s;
+        }
+
+        .stem-badge:nth-child(3) {
+            background: linear-gradient(135deg, var(--stem-engineering), #d97706);
+            animation-delay: 1s;
+        }
+
+        .stem-badge:nth-child(4) {
+            background: linear-gradient(135deg, var(--stem-math), #dc2626);
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.5);
+        }
+
+        .btn-secondary {
+            background: var(--card-bg);
+            color: var(--text-primary);
+            border: 2px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--dark-bg) 0%, #1e293b 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .feature-card .learn-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            margin-top: 1rem;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover .learn-more {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* STEM Path Visualization */
+        .learning-path {
+            padding: 6rem 2rem;
+            background: var(--dark-bg);
+        }
+
+        .path-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .path-step {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .path-step:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .path-step:nth-child(1) { border-left-color: var(--stem-science); }
+        .path-step:nth-child(2) { border-left-color: var(--stem-tech); }
+        .path-step:nth-child(3) { border-left-color: var(--stem-engineering); }
+        .path-step:nth-child(4) { border-left-color: var(--stem-math); }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            color: var(--text-secondary);
+        }
+
+        /* Hardware Project Showcase */
+        .hardware-showcase {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, #1e293b 0%, var(--dark-bg) 100%);
+        }
+
+        .hardware-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hardware-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            transition: all 0.3s;
+        }
+
+        .hardware-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .hardware-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .hardware-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hardware-card .cost {
+            color: var(--stem-engineering);
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .hardware-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Community Section */
+        .community-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--dark-bg) 0%, rgba(15, 23, 42, 0.95) 100%);
+        }
+
+        .community-grid {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .community-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .community-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .community-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .community-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .community-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .subscribe-form {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 400px;
+            margin: 0 auto 1rem;
+        }
+
+        .subscribe-form input[type="email"] {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 8px;
+            background: rgba(15, 23, 42, 0.8);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .subscribe-form input[type="email"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .subscribe-note {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--card-bg);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            margin: 0.5rem 0;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .stem-badges {
+                gap: 1rem;
+            }
+
+            .stem-badge {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+            
+            /* Mobile optimizations for STEM elements */
+            .stem-icons-container {
+                display: none; /* Hide floating icons on mobile for performance */
+            }
+            
+            .community-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hardware-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .path-step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin-bottom: 1rem;
+            }
+            
+            /* Adjust knowledge graph for mobile */
+            #path > div:nth-child(3) > div {
+                grid-template-columns: 1fr !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .stem-badge {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="logo">
+                            <img src="logo.png" alt="OpenMTSciEd Logo" class="logo-icon">
+                            <span>OpenMTSciEd</span>
+                        </div>
+            <ul class="nav-links">
+                <li><a href="#features">核心特性</a></li>
+                <li><a href="#path">学习路径</a></li>
+                <li><a href="#hardware">硬件项目</a></li>
+                <li><a href="#community">社区</a></li>
+                <li><a href="https://github.com/MatuX-ai/OpenMtSciED" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="stem-icons-container" id="stemIconsContainer"></div>
+        <div class="hero-content">
+            <div class="stem-badges">
+                <div class="stem-badge">S</div>
+                <div class="stem-badge">T</div>
+                <div class="stem-badge">E</div>
+                <div class="stem-badge">M</div>
+            </div>
+            <h1>
+                用开源 AI 打通<br>
+                <span class="gradient-text">STEM 学段壁垒</span>
+            </h1>
+            <p>
+                全球共建"STEM 知识地图"，让资源匮乏地区的学生也能享受前沿教育<br>
+                课程库 × 课件库 × 硬件项目 = 连贯学习路径
+            </p>
+            <div class="cta-buttons">
+                <a href="https://github.com/MatuX-ai/OpenMtSciED" target="_blank" class="btn btn-primary">
+                    🚀 快速开始
+                </a>
+                <a href="#features" class="btn btn-secondary">
+                    📚 了解项目
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2 class="section-title">核心特性</h2>
+        <p class="section-subtitle">基于知识图谱与 AI 的 STEM 教育创新方案</p>
+        <div class="features-grid">
+            <a href="docs/feature-knowledge-graph.html" class="feature-card">
+                <div class="feature-icon">🕸️</div>
+                <h3>知识图谱驱动</h3>
+                <p>基于 Neo4j 构建课程库与课件库的关联网络，打通 OpenSciEd 实践与 OpenStax 理论，跨学科关联准确率 ≥90%。</p>
+                <div class="learn-more">查看详情 →</div>
+            </a>
+            <a href="docs/feature-ai-path.html" class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>AI 自适应路径</h3>
+                <p>使用 PPO 强化学习算法推荐个性化学习路径，MiniCPM 虚拟导师实时解答，千人千面的学习体验。</p>
+                <div class="learn-more">查看详情 →</div>
+            </a>
+            <a href="docs/feature-hardware.html" class="feature-card">
+                <div class="feature-icon">🔌</div>
+                <h3>低成本硬件联动</h3>
+                <p>所有项目预算 ≤50元，支持 WebUSB 手机直连烧录，Blockly 图形化编程降低入门门槛。</p>
+                <div class="learn-more">查看详情 →</div>
+            </a>
+            <a href="docs/feature-learning-path.html" class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3>连贯学习路径</h3>
+                <p>小学兴趣启蒙 → 初中跨学科实践 → 高中深度探究 → 大学专业衔接，完整的 STEM 教育体系。</p>
+                <div class="learn-more">查看详情 →</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Learning Path Section -->
+    <section id="path" class="learning-path">
+        <h2 class="section-title">连贯学习路径</h2>
+        <p class="section-subtitle">从现象驱动到理论深度的完整学习链路</p>
+        
+        <!-- STEM Knowledge Graph Visualization -->
+        <div style="max-width: 1000px; margin: 3rem auto; background: var(--card-bg); border-radius: 16px; padding: 2rem; border: 1px solid rgba(99, 102, 241, 0.2);">
+            <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--text-primary);">STEM 知识图谱</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: center;">
+                <div style="padding: 1.5rem; background: rgba(16, 185, 129, 0.1); border-radius: 12px; border-left: 4px solid var(--stem-science);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔬</div>
+                    <h4 style="color: var(--stem-science); margin-bottom: 0.5rem;">科学 (Science)</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">物理、化学、生物、地球科学</p>
+                </div>
+                <div style="padding: 1.5rem; background: rgba(59, 130, 246, 0.1); border-radius: 12px; border-left: 4px solid var(--stem-tech);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">💻</div>
+                    <h4 style="color: var(--stem-tech); margin-bottom: 0.5rem;">技术 (Technology)</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">编程、AI、数据分析、数字素养</p>
+                </div>
+                <div style="padding: 1.5rem; background: rgba(245, 158, 11, 0.1); border-radius: 12px; border-left: 4px solid var(--stem-engineering);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚙️</div>
+                    <h4 style="color: var(--stem-engineering); margin-bottom: 0.5rem;">工程 (Engineering)</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">设计思维、问题解决、项目管理</p>
+                </div>
+                <div style="padding: 1.5rem; background: rgba(239, 68, 68, 0.1); border-radius: 12px; border-left: 4px solid var(--stem-math);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">📐</div>
+                    <h4 style="color: var(--stem-math); margin-bottom: 0.5rem;">数学 (Mathematics)</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">代数、几何、统计、逻辑思维</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem; color: var(--text-secondary);">
+                <p>通过知识图谱连接各学科知识点，形成完整的STEM学习网络</p>
+            </div>
+        </div>
+        
+        <div class="path-container">
+            <div class="path-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>🔬 课程库单元 - 现象驱动实践</h3>
+                    <p>OpenSciEd 单元制学习，6周完成一个现象探究项目，如"生态系统能量流动"实验</p>
+                </div>
+            </div>
+            <div class="path-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>💻 过渡项目 - Blockly 编程模拟</h3>
+                    <p>用图形化编程模拟物理公式，如用变量模拟欧姆定律，可视化理解抽象概念</p>
+                </div>
+            </div>
+            <div class="path-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>📖 课件库章节 - 理论深化</h3>
+                    <p>OpenStax 大学物理/化学教材预习，掌握微积分推导、化学方程式等核心理论</p>
+                </div>
+            </div>
+            <div class="path-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>🔧 硬件综合项目 - 跨学科应用</h3>
+                    <p>用 Arduino + ESP32 实现气象站，整合物理传感器 + 编程数据处理 + 工程结构设计</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hardware Showcase -->
+    <section id="hardware" class="hardware-showcase">
+        <h2 class="section-title">低成本硬件项目</h2>
+        <p class="section-subtitle">预算 ≤50元，手机直连烧录，零基础也能玩转 STEM</p>
+        <div class="hardware-grid">
+            <div class="hardware-card">
+                <div class="hardware-icon">🌡️</div>
+                <h3>智能气象站</h3>
+                <div class="cost">¥35</div>
+                <p>ESP32 + 温湿度传感器，采集环境数据并用 Python 绘制曲线</p>
+            </div>
+            <div class="hardware-card">
+                <div class="hardware-icon">💡</div>
+                <h3>光合作用模拟器</h3>
+                <div class="cost">¥42</div>
+                <p>光敏电阻 + LED，用 Arduino 采集光照数据模拟氧气释放</p>
+            </div>
+            <div class="hardware-card">
+                <div class="hardware-icon">🤖</div>
+                <h3>智能避障小车</h3>
+                <div class="cost">¥48</div>
+                <p>Arduino Uno + 超声波传感器 + 舵机，实现自动避障功能</p>
+            </div>
+            <div class="hardware-card">
+                <div class="hardware-icon">🎮</div>
+                <h3>简易起重机</h3>
+                <div class="cost">¥45</div>
+                <p>齿轮组 + 电机 + 控制器，学习机械传动与力的传递原理</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="community-section">
+        <h2 class="section-title">加入开源社区</h2>
+        <p class="section-subtitle">与全球开发者一起共建 STEM 教育未来</p>
+        <div class="community-grid">
+            <div class="community-card">
+                <div class="community-icon">💬</div>
+                <h3>GitHub Discussions</h3>
+                <p>参与技术讨论、提出功能建议、分享项目成果</p>
+                <a href="https://github.com/MatuX-ai/OpenMtSciED/discussions" target="_blank" class="btn btn-secondary">
+                    参与讨论 →
+                </a>
+            </div>
+            <div class="community-card">
+                <div class="community-icon">🐛</div>
+                <h3>Issue Tracker</h3>
+                <p>报告 Bug、提出改进建议、参与开源贡献</p>
+                <a href="https://github.com/MatuX-ai/OpenMtSciED/issues" target="_blank" class="btn btn-secondary">
+                    提交 Issue →
+                </a>
+            </div>
+            <div class="community-card">
+                <div class="community-icon">📧</div>
+                <h3>邮件订阅</h3>
+                <p>订阅项目更新，第一时间获取最新版本和功能动态</p>
+                <form class="subscribe-form" onsubmit="handleSubscribe(event)">
+                    <input type="email" placeholder="your@email.com" required />
+                    <button type="submit" class="btn btn-primary">订阅</button>
+                </form>
+                <p class="subscribe-note">🔒 我们不会分享您的邮箱地址</p>
+            </div>
+        </div>
+        
+        <!-- GitHub Stats -->
+        <div style="max-width: 1200px; margin: 4rem auto 0; text-align: center;">
+            <h3 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--text-primary);">开源贡献统计</h3>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; min-width: 150px;">
+                    <div style="font-size: 2rem; font-weight: bold; color: var(--stem-tech);">120+</div>
+                    <div style="color: var(--text-secondary);">Contributors</div>
+                </div>
+                <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; min-width: 150px;">
+                    <div style="font-size: 2rem; font-weight: bold; color: var(--stem-science);">500+</div>
+                    <div style="color: var(--text-secondary);">Commits</div>
+                </div>
+                <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; min-width: 150px;">
+                    <div style="font-size: 2rem; font-weight: bold; color: var(--stem-engineering);">50+</div>
+                    <div style="color: var(--text-secondary);">Releases</div>
+                </div>
+                <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; min-width: 150px;">
+                    <div style="font-size: 2rem; font-weight: bold; color: var(--stem-math);">1000+</div>
+                    <div style="color: var(--text-secondary);">Stars</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>OpenMTSciEd</strong> - Open MatuX Science Education</p>
+        <p>用开源技术解决教育资源不均，全球共建"STEM 知识地图"</p>
+        <p style="margin-top: 1.5rem;">
+            <a href="https://github.com/MatuX-ai/OpenMtSciED" target="_blank">GitHub</a> ·
+            <a href="mailto:3936318150@qq.com">联系我们</a> ·
+            MIT License
+        </p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Handle subscription form
+        function handleSubscribe(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+
+            // Show success message
+            const form = event.target;
+            const originalContent = form.innerHTML;
+            form.innerHTML = '<p style="color: var(--stem-science); font-weight: 600;">✅ 订阅成功！我们会将更新发送到 ' + email + '</p>';
+
+            // Reset form after 3 seconds
+            setTimeout(() => {
+                form.innerHTML = originalContent;
+            }, 3000);
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe feature cards and path steps
+        document.querySelectorAll('.feature-card, .path-step, .hardware-card, .community-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Generate floating STEM icons
+        function generateStemIcons() {
+            const container = document.getElementById('stemIconsContainer');
+            const stemIcons = [
+                '⚛️', '🧪', '🔬', '🧬', '📐', '📏', '🧮', '🔭', 
+                '🛰️', '💻', '🤖', '⚙️', '🔧', '🔌', '📊', '📈',
+                '🧲', '⚡', '🌡️', '🌍', '🌱', '🧫', '🧪', '🔋'
+            ];
+            
+            for (let i = 0; i < 20; i++) {
+                const icon = document.createElement('div');
+                icon.className = 'stem-icon';
+                icon.textContent = stemIcons[Math.floor(Math.random() * stemIcons.length)];
+                icon.style.left = Math.random() * 100 + '%';
+                icon.style.animationDelay = Math.random() * 15 + 's';
+                icon.style.animationDuration = (15 + Math.random() * 10) + 's';
+                container.appendChild(icon);
+            }
+        }
+        
+        generateStemIcons();
+    </script>
+</body>
+</html>

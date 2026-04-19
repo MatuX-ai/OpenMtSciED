@@ -1,0 +1,710 @@
+[
+  {
+    "unit_id": "OS-ES-Phys-006",
+    "title": "简单机械",
+    "source": "openscied",
+    "grade_level": "elementary",
+    "subject": "物理",
+    "duration_weeks": 5,
+    "phenomenon": "为什么用撬棍能轻松抬起重物？",
+    "description": "探索杠杆、滑轮、斜面等简单机械的工作原理，理解机械如何帮助我们省力。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ES-Phys-Machine-001",
+        "name": "杠杆原理",
+        "description": "支点、力臂、阻力臂",
+        "ngss_standard": "3-PS2-1"
+      },
+      {
+        "kp_id": "KP-ES-Phys-Machine-002",
+        "name": "滑轮系统",
+        "description": "定滑轮和动滑轮",
+        "ngss_standard": "3-PS2-1"
+      },
+      {
+        "kp_id": "KP-ES-Phys-Machine-003",
+        "name": "机械效率",
+        "description": "省力但不省功",
+        "ngss_standard": "5-PS2-1"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "杠杆平衡实验",
+        "materials": [
+          "尺子",
+          "橡皮",
+          "硬币"
+        ],
+        "low_cost_alternatives": [
+          "用铅笔作支点"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "工程·机械设计",
+      "数学·比例计算"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/3-machines/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/3-machines/student.pdf",
+    "ngss_standards": [
+      "3-PS2-1"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/3-machines/",
+    "scraped_at": "2026-04-18T22:27:45.189167"
+  },
+  {
+    "unit_id": "OS-ES-Chem-004",
+    "title": "酸与碱",
+    "source": "openscied",
+    "grade_level": "elementary",
+    "subject": "化学",
+    "duration_weeks": 5,
+    "phenomenon": "为什么柠檬汁是酸的而肥皂是滑的？",
+    "description": "通过指示剂颜色变化，认识酸性、中性和碱性物质，了解pH值的概念。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ES-Chem-Acid-001",
+        "name": "酸碱指示剂",
+        "description": "不同pH值显示不同颜色",
+        "ngss_standard": "5-PS1-3"
+      },
+      {
+        "kp_id": "KP-ES-Chem-Acid-002",
+        "name": "常见酸碱",
+        "description": "醋、柠檬汁是酸；肥皂、小苏打是碱",
+        "ngss_standard": "5-PS1-3"
+      },
+      {
+        "kp_id": "KP-ES-Chem-Acid-003",
+        "name": "中和反应",
+        "description": "酸和碱混合产生盐和水",
+        "ngss_standard": "5-PS1-4"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "紫甘蓝指示剂",
+        "materials": [
+          "紫甘蓝",
+          "热水",
+          "各种液体"
+        ],
+        "low_cost_alternatives": [
+          "用紫甘蓝汁测试家中物品"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "烹饪·食物酸碱",
+      "环境科学·酸雨"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/5-acids-bases/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/5-acids-bases/student.pdf",
+    "ngss_standards": [
+      "5-PS1-3"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/5-acids-bases/",
+    "scraped_at": "2026-04-18T22:27:45.189167"
+  },
+  {
+    "unit_id": "OS-ES-Bio-005",
+    "title": "遗传与变异",
+    "source": "openscied",
+    "grade_level": "elementary",
+    "subject": "生物",
+    "duration_weeks": 5,
+    "phenomenon": "为什么孩子像父母但又不完全一样？",
+    "description": "观察生物的遗传特征，理解性状从亲代传递给子代，以及个体间的差异。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ES-Bio-Heredity-001",
+        "name": "遗传特征",
+        "description": "眼睛颜色、身高等可遗传",
+        "ngss_standard": "3-LS3-1"
+      },
+      {
+        "kp_id": "KP-ES-Bio-Heredity-002",
+        "name": "环境影响",
+        "description": "环境也会影响生物特征",
+        "ngss_standard": "3-LS3-2"
+      },
+      {
+        "kp_id": "KP-ES-Bio-Heredity-003",
+        "name": "变异",
+        "description": "同种生物个体间的差异",
+        "ngss_standard": "3-LS3-1"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "家族特征调查",
+        "materials": [
+          "调查问卷",
+          "镜子",
+          "记录表"
+        ],
+        "low_cost_alternatives": [
+          "观察家庭成员特征"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "数学·统计图表",
+      "社会学·家庭研究"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/3-heredity/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/3-heredity/student.pdf",
+    "ngss_standards": [
+      "3-LS3-1",
+      "3-LS3-2"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/3-heredity/",
+    "scraped_at": "2026-04-18T22:27:45.189167"
+  },
+  {
+    "unit_id": "OS-MS-Phys-004",
+    "title": "电路与电流",
+    "source": "openscied",
+    "grade_level": "middle",
+    "subject": "物理",
+    "duration_weeks": 7,
+    "phenomenon": "为什么开关能控制灯的亮灭？",
+    "description": "探索电路的基本组成，学习串联和并联电路的特点，理解电流、电压和电阻的关系。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-MS-Phys-Circuit-001",
+        "name": "电路组成",
+        "description": "电源、导线、负载、开关",
+        "ngss_standard": "MS-PS2-3"
+      },
+      {
+        "kp_id": "KP-MS-Phys-Circuit-002",
+        "name": "串联与并联",
+        "description": "两种基本电路连接方式",
+        "ngss_standard": "MS-PS2-3"
+      },
+      {
+        "kp_id": "KP-MS-Phys-Circuit-003",
+        "name": "欧姆定律",
+        "description": "V=IR，电压电流电阻关系",
+        "ngss_standard": "MS-PS2-3"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "搭建简单电路",
+        "materials": [
+          "电池",
+          "导线",
+          "小灯泡",
+          "开关"
+        ],
+        "low_cost_alternatives": [
+          "用铝箔纸代替导线"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "工程·电子设计",
+      "计算机科学·逻辑电路"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/ms-circuits/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/ms-circuits/student.pdf",
+    "ngss_standards": [
+      "MS-PS2-3"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/ms-circuits/",
+    "scraped_at": "2026-04-18T22:27:45.189167"
+  },
+  {
+    "unit_id": "OS-MS-Chem-001",
+    "title": "元素周期表",
+    "source": "openscied",
+    "grade_level": "middle",
+    "subject": "化学",
+    "duration_weeks": 6,
+    "phenomenon": "为什么元素要按特定顺序排列？",
+    "description": "学习元素周期表的结构，理解元素的周期性规律和化学性质的关系。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-MS-Chem-Periodic-001",
+        "name": "元素分类",
+        "description": "金属、非金属、稀有气体",
+        "ngss_standard": "MS-PS1-1"
+      },
+      {
+        "kp_id": "KP-MS-Chem-Periodic-002",
+        "name": "原子序数",
+        "description": "质子数决定元素种类",
+        "ngss_standard": "MS-PS1-1"
+      },
+      {
+        "kp_id": "KP-MS-Chem-Periodic-003",
+        "name": "族与周期",
+        "description": "纵列和横行的规律",
+        "ngss_standard": "MS-PS1-1"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "元素卡片游戏",
+        "materials": [
+          "元素卡片",
+          "周期表海报"
+        ],
+        "low_cost_alternatives": [
+          "手绘元素卡片"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "历史·门捷列夫",
+      "数学·模式识别"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/ms-periodic/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/ms-periodic/student.pdf",
+    "ngss_standards": [
+      "MS-PS1-1"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/ms-periodic/",
+    "scraped_at": "2026-04-18T22:27:45.189167"
+  },
+  {
+    "unit_id": "OS-MS-Bio-001",
+    "title": "细胞结构与功能",
+    "source": "openscied",
+    "grade_level": "middle",
+    "subject": "生物",
+    "duration_weeks": 7,
+    "phenomenon": "为什么植物细胞有细胞壁而动物细胞没有？",
+    "description": "使用显微镜观察细胞，比较动植物细胞的异同，理解细胞器的功能。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-MS-Bio-Cell-001",
+        "name": "细胞膜",
+        "description": "控制物质进出",
+        "ngss_standard": "MS-LS1-2"
+      },
+      {
+        "kp_id": "KP-MS-Bio-Cell-002",
+        "name": "细胞核",
+        "description": "储存遗传信息",
+        "ngss_standard": "MS-LS1-2"
+      },
+      {
+        "kp_id": "KP-MS-Bio-Cell-003",
+        "name": "叶绿体与线粒体",
+        "description": "能量转换器官",
+        "ngss_standard": "MS-LS1-7"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "洋葱表皮细胞观察",
+        "materials": [
+          "显微镜",
+          "洋葱",
+          "碘液",
+          "载玻片"
+        ],
+        "low_cost_alternatives": [
+          "用手机显微镜附件"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "技术·显微镜使用",
+      "医学·细胞病理"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/ms-cells/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/ms-cells/student.pdf",
+    "ngss_standards": [
+      "MS-LS1-2"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/ms-cells/",
+    "scraped_at": "2026-04-18T22:27:45.189167"
+  },
+  {
+    "unit_id": "OS-MS-Earth-001",
+    "title": "水循环与水资源",
+    "source": "openscied",
+    "grade_level": "middle",
+    "subject": "地球科学",
+    "duration_weeks": 6,
+    "phenomenon": "为什么海水不能直接饮用？",
+    "description": "研究地球上水的分布、水循环过程，以及淡水资源的保护和利用。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-MS-Earth-Water-001",
+        "name": "水循环过程",
+        "description": "蒸发、凝结、降水、径流",
+        "ngss_standard": "MS-ESS2-4"
+      },
+      {
+        "kp_id": "KP-MS-Earth-Water-002",
+        "name": "淡水资源",
+        "description": "仅占地球总水量的2.5%",
+        "ngss_standard": "MS-ESS3-4"
+      },
+      {
+        "kp_id": "KP-MS-Earth-Water-003",
+        "name": "水净化",
+        "description": "过滤、蒸馏、消毒方法",
+        "ngss_standard": "MS-ESS3-3"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "简易净水器制作",
+        "materials": [
+          "塑料瓶",
+          "沙子",
+          "活性炭",
+          "棉花"
+        ],
+        "low_cost_alternatives": [
+          "用废旧材料制作"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "化学·溶液净化",
+      "社会学·水资源管理"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/ms-water/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/ms-water/student.pdf",
+    "ngss_standards": [
+      "MS-ESS2-4",
+      "MS-ESS3-4"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/ms-water/",
+    "scraped_at": "2026-04-18T22:27:45.189167"
+  },
+  {
+    "unit_id": "OS-MS-Earth-002",
+    "title": "地质时间与化石",
+    "source": "openscied",
+    "grade_level": "middle",
+    "subject": "地球科学",
+    "duration_weeks": 6,
+    "phenomenon": "恐龙是如何灭绝的？",
+    "description": "通过化石记录了解地球历史，学习地质年代的划分和生物演化历程。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-MS-Earth-Fossil-001",
+        "name": "化石形成",
+        "description": "生物遗体被矿物质替代",
+        "ngss_standard": "MS-LS4-1"
+      },
+      {
+        "kp_id": "KP-MS-Earth-Fossil-002",
+        "name": "相对年代",
+        "description": "地层越深年代越古老",
+        "ngss_standard": "MS-ESS1-4"
+      },
+      {
+        "kp_id": "KP-MS-Earth-Fossil-003",
+        "name": "大灭绝事件",
+        "description": "五次大规模物种灭绝",
+        "ngss_standard": "MS-LS4-5"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "化石模型制作",
+        "materials": [
+          "黏土",
+          "贝壳",
+          "石膏"
+        ],
+        "low_cost_alternatives": [
+          "用橡皮泥压印"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "生物学·进化论",
+      "历史·地质年代"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/ms-fossils/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/ms-fossils/student.pdf",
+    "ngss_standards": [
+      "MS-LS4-1",
+      "MS-ESS1-4"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/ms-fossils/",
+    "scraped_at": "2026-04-18T22:27:45.189167"
+  },
+  {
+    "unit_id": "OS-HS-Phys-007",
+    "title": "流体力学",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "物理",
+    "duration_weeks": 6,
+    "phenomenon": "为什么飞机能飞起来？",
+    "description": "研究液体和气体的性质，理解伯努利原理、浮力和流体动力学的应用。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Phys-Fluid-001",
+        "name": "伯努利原理",
+        "description": "流速越快压强越小",
+        "ngss_standard": "HS-PS2-1"
+      },
+      {
+        "kp_id": "KP-HS-Phys-Fluid-002",
+        "name": "阿基米德原理",
+        "description": "浮力等于排开液体的重量",
+        "ngss_standard": "HS-PS2-1"
+      },
+      {
+        "kp_id": "KP-HS-Phys-Fluid-003",
+        "name": "粘性",
+        "description": "流体内摩擦力",
+        "ngss_standard": "HS-PS2-1"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "伯努利演示实验",
+        "materials": [
+          "两张纸",
+          "吹风机"
+        ],
+        "low_cost_alternatives": [
+          "用嘴吹气"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "工程学·航空航天",
+      "生物学·血液循环"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-fluid/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-fluid/student.pdf",
+    "ngss_standards": [
+      "HS-PS2-1"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-fluid/",
+    "scraped_at": "2026-04-18T22:27:45.189167"
+  },
+  {
+    "unit_id": "OS-HS-Chem-007",
+    "title": "化学动力学",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "化学",
+    "duration_weeks": 6,
+    "phenomenon": "为什么食物在冰箱里保存更久？",
+    "description": "研究化学反应速率及其影响因素，理解催化剂的作用机制。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Chem-Kinetics-001",
+        "name": "反应速率",
+        "description": "浓度、温度、表面积的影响",
+        "ngss_standard": "HS-PS1-5"
+      },
+      {
+        "kp_id": "KP-HS-Chem-Kinetics-002",
+        "name": "活化能",
+        "description": "反应所需的最低能量",
+        "ngss_standard": "HS-PS1-5"
+      },
+      {
+        "kp_id": "KP-HS-Chem-Kinetics-003",
+        "name": "催化剂",
+        "description": "降低活化能加速反应",
+        "ngss_standard": "HS-PS1-5"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "过氧化氢分解实验",
+        "materials": [
+          "H₂O₂",
+          "酵母",
+          "洗洁精",
+          "量筒"
+        ],
+        "low_cost_alternatives": [
+          "大象牙膏实验"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "生物学·酶催化",
+      "工业化学·生产效率"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-kinetics/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-kinetics/student.pdf",
+    "ngss_standards": [
+      "HS-PS1-5"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-kinetics/",
+    "scraped_at": "2026-04-18T22:27:45.189167"
+  },
+  {
+    "unit_id": "OS-HS-Bio-007",
+    "title": "神经科学与行为",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "生物",
+    "duration_weeks": 7,
+    "phenomenon": "大脑如何控制我们的行为？",
+    "description": "探索神经系统结构、神经元信号传递和大脑功能区，理解行为的生物学基础。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Bio-Neuro-001",
+        "name": "神经元结构",
+        "description": "树突、轴突、突触",
+        "ngss_standard": "HS-LS1-2"
+      },
+      {
+        "kp_id": "KP-HS-Bio-Neuro-002",
+        "name": "动作电位",
+        "description": "神经冲动的产生与传导",
+        "ngss_standard": "HS-LS1-2"
+      },
+      {
+        "kp_id": "KP-HS-Bio-Neuro-003",
+        "name": "脑区功能",
+        "description": "大脑皮层各区域职责",
+        "ngss_standard": "HS-LS1-2"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "反应时间测试",
+        "materials": [
+          "尺子",
+          "计时器",
+          "记录表"
+        ],
+        "low_cost_alternatives": [
+          "用落尺法测量"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "心理学·认知科学",
+      "医学·神经疾病"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-neuroscience/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-neuroscience/student.pdf",
+    "ngss_standards": [
+      "HS-LS1-2"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-neuroscience/",
+    "scraped_at": "2026-04-18T22:27:45.189167"
+  },
+  {
+    "unit_id": "OS-HS-Earth-005",
+    "title": "海洋科学",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "地球科学",
+    "duration_weeks": 6,
+    "phenomenon": "洋流如何影响全球气候？",
+    "description": "研究海洋的物理、化学和生物特性，理解海洋对地球系统的重要性。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Earth-Ocean-001",
+        "name": "洋流系统",
+        "description": "表层流与深层流",
+        "ngss_standard": "HS-ESS2-5"
+      },
+      {
+        "kp_id": "KP-HS-Earth-Ocean-002",
+        "name": "海水化学",
+        "description": "盐度、pH值、溶解氧",
+        "ngss_standard": "HS-ESS2-5"
+      },
+      {
+        "kp_id": "KP-HS-Earth-Ocean-003",
+        "name": "海洋生态",
+        "description": "珊瑚礁、深海生态系统",
+        "ngss_standard": "HS-LS2-7"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "密度流实验",
+        "materials": [
+          "透明容器",
+          "盐水",
+          "淡水",
+          "食用色素"
+        ],
+        "low_cost_alternatives": [
+          "用糖水和清水"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "化学·溶液性质",
+      "环境科学·海洋污染"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-ocean/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-ocean/student.pdf",
+    "ngss_standards": [
+      "HS-ESS2-5"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-ocean/",
+    "scraped_at": "2026-04-18T22:27:45.189167"
+  },
+  {
+    "unit_id": "OS-HS-Earth-006",
+    "title": "天体物理学基础",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "地球科学",
+    "duration_weeks": 7,
+    "phenomenon": "黑洞真的存在吗？",
+    "description": "探索恒星演化晚期阶段、黑洞、引力波等现代天体物理学前沿话题。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Earth-Astro-004",
+        "name": "恒星死亡",
+        "description": "白矮星、中子星、黑洞",
+        "ngss_standard": "HS-ESS1-1"
+      },
+      {
+        "kp_id": "KP-HS-Earth-Astro-005",
+        "name": "广义相对论",
+        "description": "时空弯曲与引力",
+        "ngss_standard": "HS-ESS1-1"
+      },
+      {
+        "kp_id": "KP-HS-Earth-Astro-006",
+        "name": "引力波",
+        "description": "时空涟漪的探测",
+        "ngss_standard": "HS-ESS1-1"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "时空弯曲模拟",
+        "materials": [
+          "弹性布",
+          "重球",
+          "小球"
+        ],
+        "low_cost_alternatives": [
+          "用床单和保龄球"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "物理·相对论",
+      "哲学·宇宙观"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-astrophysics/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-astrophysics/student.pdf",
+    "ngss_standards": [
+      "HS-ESS1-1"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-astrophysics/",
+    "scraped_at": "2026-04-18T22:27:45.189167"
+  }
+]

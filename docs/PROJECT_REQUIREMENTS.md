@@ -4,10 +4,22 @@
 
 一、核心目标
 
-1. 构建连贯学习路径：打通教程库（OpenSciEd等K-12现象驱动教程、格物斯坦开源硬件教程、stemcloud.cn全学科教程）与课件库（OpenStax大学/高中教材、《STEM项目式学习(STEM-PBL)科创教育教学标准》、TED-Ed STEM教程）的STEM知识体系，形成“小学兴趣启蒙→初中跨学科实践→高中深度探究→大学专业衔接”的连贯路径。  
-2. 适配项目定位：结合MatuX“下沉市场普惠教育”特性，强化低成本硬件项目映射（预算≤50元）、AI辅助过渡（用LLM解释K-12到大学的知识点跳跃）、游戏化学习激励（闯关式路径+硬件作品认证）。  
-3. 技术复用：调用项目现有技术栈（Flutter/Angular前端、Go/Python后端、MiniCPM/CodeLlama AI模型、Blockly可视化编程、WebUSB硬件通信、PostgreSQL+MongoDB数据库、Neo4j知识图谱、Supabase存储），避免重复开发。  
-4. AI可操作：让AI编程机器人理解分离的教程库与课件库（解析元数据、构建关联），并能执行“推荐路径、生成联动项目、联动内容”等操作。  
+**核心技术定位：K12-大学完整教学路径知识图谱构建**
+
+1. **首要任务 - 教学资源结构化与知识图谱构建**：
+   - 从开源平台（OpenSciEd、格物斯坦、stemcloud.cn）爬取K12阶段教程资源
+   - 从开源平台（OpenStax、TED-Ed）爬取大学/高中阶段课件资源
+   - 解构元数据：提取主题、知识点、应用、先修关系、下载链接等关键信息
+   - 构建Neo4j知识图谱：建立"教程库→课件库"的递进、跨学科、硬件映射关系
+   - **确保覆盖完整学段**：小学兴趣启蒙→初中跨学科实践→高中深度探究→大学专业衔接
+
+2. **次要任务 - 学习路径生成与硬件映射**：
+   - 基于知识图谱和规则引擎生成个性化学习路径
+   - 低成本硬件项目映射（预算≤50元）
+   - AI辅助过渡（用LLM解释知识点跳跃）
+
+3. **技术复用**：调用现有技术栈（Angular前端、Python后端、Neo4j知识图谱、Tauri桌面端），避免重复开发。  
+4. **AI可操作**：让AI理解分离的教程库与课件库，执行"推荐路径、生成联动项目"等操作。
 
 二、输入资源分析（结构化数据）
 
@@ -52,90 +64,248 @@ TED-Ed STEM课程 63个可搜索课程，围绕TED讲座，分工程与技术、
 
 • 里程碑设计：每完成1个教程库单元，解锁1个课件库章节预习模块；每完成1个课件库章节，生成1个硬件综合项目（如“用ESP32实现简易气象站”，整合物理（传感器原理）+编程（数据处理）+工程（结构设计））；  
 
-• 动态调整：用强化学习模型（PPO算法）基于用户行为（练习正确率、项目完成度）调整路径难度，优先推荐“硬件项目完成度高”的分支。  
+• 动态调整：基于用户行为数据（练习正确率、项目完成度、学习速度）使用规则引擎调整路径难度，优先推荐“硬件项目完成度高”的分支。  
 
-四、技术实现路径（AI需调用的现有技术栈）
+四、技术实现路径（**分两阶段执行**）
 
-1. 资源解析模块（提取两库元数据）
+### 阶段A：资源获取与知识图谱构建（当前优先级最高）
 
-• 任务：爬取教程库（OpenSciEd官网PDF、格物斯坦教程页面）与课件库（OpenStax HTML教材、TED-Ed教程页面）的公开资源，提取结构化元数据；  
+#### A1. 教程库资源爬取与元数据解构
 
-• 技术选型：用PyPDF2解析PDF、BeautifulSoup解析HTML、Puppeteer爬取动态页面；存储至PostgreSQL（结构化元数据）+MongoDB（非结构化资源，如实验清单）；  
+**任务目标**：从K12开源平台获取完整教程资源，建立结构化数据库
 
-• 交付物：openscied_units.csv（教程库单元元数据）、openstax_chapters.csv（课件库章节元数据）、stemcloud_tutorials.json（stemcloud.cn教程元数据）。  
+• **OpenSciEd爬取模块**：
+  - 目标网站：https://www.openscied.org/
+  - 爬取范围：6-8年级核心单元（约30个单元）+ 高中扩展单元
+  - 提取字段：
+    ```json
+    {
+      "unit_id": "OS-MS-Phys-001",
+      "title": "电磁感应现象",
+      "grade_level": "middle", // elementary/middle/high/university
+      "subject": "物理",
+      "duration_weeks": 6,
+      "phenomenon": "为什么手机无线充电需要特定位置？",
+      "knowledge_points": [
+        {
+          "kp_id": "KP-Phys-EM-001",
+          "name": "法拉第电磁感应定律",
+          "description": "变化的磁场产生电场...",
+          "ngss_standard": "MS-PS2-3"
+        }
+      ],
+      "experiments": [
+        {
+          "name": "线圈感应电流实验",
+          "materials": ["磁铁", "铜线圈", "LED灯"],
+          "low_cost_alternatives": ["用耳机线代替铜线圈"]
+        }
+      ],
+      "cross_discipline": ["数学·函数图像", "工程·传感器设计"],
+      "teacher_guide_url": "https://www.openscied.org/.../teacher.pdf",
+      "student_handbook_url": "https://www.openscied.org/.../student.pdf"
+    }
+    ```
+  - 存储格式：JSON文件 → Neo4j节点（CourseUnit + KnowledgePoint）
 
-2. 知识图谱引擎（构建两库关联）
+• **格物斯坦爬取模块**：
+  - 目标网站：http://www.gewustan.com/
+  - 爬取范围：金属十合一教程（10-15岁）
+  - 提取字段：教程模块、硬件清单（含单价）、项目任务、电路图URL
+  - 重点：确保所有硬件项目总成本≤50元
 
-• 任务：用Neo4j存储节点/关系，开发API供AI查询（如“查询‘电磁感应’对应的教程库项目与课件库章节”）；  
+• **stemcloud.cn整合模块**：
+  - 目标：6大学科、15子学科、100+教程
+  - 提取字段：教程分类、难度等级（1-5星）、关联硬件、课时数
+  - 数据来源：官方API或页面爬取
 
-• 技术选型：Neo4j图数据库、Cypher查询语言；用Python的neo4j驱动开发API；  
+#### A2. 课件库资源爬取与元数据抽取
 
-• AI辅助：用MiniCPM模型自动补全隐性关联（如分析教程库“生态系统能量流动”的描述，关联课件库“生物·生态学”的“能量金字塔”章节）；用CodeLlama生成“教程库项目→课件库公式”的代码映射（如用Blockly模拟课件库“欧姆定律”的公式推导）。  
+**任务目标**：从大学/高中开源教材平台获取理论课件，保存下载链接
 
-3. 自适应学习路径推荐（AI需执行的核心操作）
+• **OpenStax爬取模块**：
+  - 目标网站：https://openstax.org/
+  - 爬取范围：大学物理/化学/生物/工程教材 + 高中AP课程
+  - 提取字段：
+    ```json
+    {
+      "chapter_id": "OSTX-UPhys-Ch03",
+      "title": "牛顿运动定律",
+      "textbook": "University Physics Volume 1",
+      "grade_level": "university",
+      "subject": "物理",
+      "chapter_url": "https://openstax.org/books/university-physics-volume-1/pages/3-introduction",
+      "pdf_download_url": "https://openstax.org/details/books/university-physics-volume-1",
+      "prerequisites": ["矢量运算", "微积分基础"],
+      "key_concepts": [
+        {
+          "concept": "牛顿第一定律",
+          "formula": "F=ma",
+          "examples": ["惯性演示实验"]
+        }
+      ],
+      "exercises": [
+        {
+          "problem": "计算物体加速度...",
+          "difficulty": 3,
+          "solution_url": "https://openstax.org/.../solution.pdf"
+        }
+      ],
+      "instructor_resources": {
+        "slides_url": "https://openstax.org/.../slides.pptx",
+        "test_bank_url": "https://openstax.org/.../testbank.zip"
+      }
+    }
+    ```
+  - **关键要求**：必须保存PDF下载链接或在线阅读URL
+  - 存储格式：JSON文件 → Neo4j节点（TextbookChapter）
 
-• 任务：基于用户水平推荐路径，串联教程库与课件库内容；  
+• **TED-Ed爬取模块**：
+  - 目标网站：https://ed.ted.com/
+  - 爬取范围：STEM类别课程（工程与技术、科学与技术、数学）
+  - 提取字段：课程主题、视频URL、知识点摘要、讨论问题
+  - 关联：与OpenStax章节建立CROSS_DISCIPLINE关系
 
-• 技术选型：用Python的Stable Baselines3实现PPO强化学习模型；集成项目现有“自适应学习引擎”（原用于硬件课程）；  
+• **STEM-PBL标准整合**：
+  - 来源：《STEM-PBL教学标准》文档
+  - 提取：课程类别（探究类/设计类）、教学流程、评价标准
+  - 用途：作为ALIGNS_WITH关系的 target 节点
 
-• 交付物：path_generation_api.py（路径生成接口）、transition_projects.json（过渡项目库）。  
+#### A3. Neo4j知识图谱构建
 
-4. 硬件项目与课件库联动（AI需生成的综合任务）
+**任务目标**：将教程库和课件库关联，形成完整K12-大学路径
 
-• 任务：为每个教程库项目设计课件库理论映射，生成硬件项目；  
+• **节点类型**（5种）：
+  1. CourseUnit（教程单元）- 来自OpenSciEd/格物斯坦/stemcloud
+  2. KnowledgePoint（知识点）- 从教程单元中提取
+  3. TextbookChapter（教材章节）- 来自OpenStax/TED-Ed
+  4. HardwareProject（硬件项目）- 预算≤50元的Arduino/ESP32项目
+  5. STEM_PBL_Standard（教学标准）- 流程规范节点
 
-• 技术选型：用Blockly生成图形化代码（教程库项目）、WebUSB实现手机直连Arduino烧录、Supabase存储项目数据；  
+• **关系类型**（7种）：
+  1. **CONTAINS**：CourseUnit → KnowledgePoint（单元包含知识点）
+  2. **PREREQUISITE_OF**：KnowledgePoint → KnowledgePoint（先修关系）
+  3. **PROGRESSES_TO**：CourseUnit/KnowledgePoint → TextbookChapter（K12→大学递进）
+     - 示例：OpenSciEd"电路基础" → OpenStax"大学物理·电路分析"
+  4. **CROSS_DISCIPLINE**：KnowledgePoint ↔ KnowledgePoint（跨学科关联）
+     - 示例："气候变化"关联生物"碳循环"+化学"温室效应"
+  5. **HARDWARE_MAPS_TO**：KnowledgePoint → HardwareProject（理论→实践）
+     - 示例："欧姆定律" → "语音控制LED灯项目"
+  6. **ALIGNS_WITH**：CourseUnit → STEM_PBL_Standard（标准对齐）
+  7. **AI_COMPLEMENTARY**：预留AI补全的隐性关联
 
-• 示例：教程库“用光敏电阻+LED模拟光合作用”→关联课件库“生物·光合作用化学方程式”→AI生成“用Arduino采集光照数据，用Python绘制氧气释放量曲线”的任务；  
+• **Cypher查询示例**：
+  ```cypher
+  // 查询某知识点的完整学习路径（K12→大学）
+  MATCH path = (kp:KnowledgePoint {id: 'KP-Phys-EM-001'})-
+               [:PROGRESSES_TO*]->(chapter:TextbookChapter)
+  RETURN path
+  
+  // 查询某教程单元关联的所有硬件项目
+  MATCH (unit:CourseUnit {id: 'OS-MS-Phys-001'})-
+        [:CONTAINS]->(kp:KnowledgePoint)-
+        [:HARDWARE_MAPS_TO]->(hw:HardwareProject)
+  WHERE hw.total_cost <= 50
+  RETURN unit, kp, hw
+  
+  // 查询跨学科关联（如"生态系统"涉及哪些学科）
+  MATCH (kp:KnowledgePoint {name: '生态系统能量流动'})-
+        [:CROSS_DISCIPLINE]-(related:KnowledgePoint)
+  RETURN DISTINCT related.subject
+  ```
 
-• 交付物：hardware_projects/（硬件项目库，含电路图/代码/材料清单）、blockly_templates/（Blockly项目模板）。  
+• **索引优化**：
+  - 唯一约束：节点ID（5个）
+  - 单属性索引：subject, grade_level, difficulty（8个）
+  - 全文索引：知识点名称、课程标题（2个）
+  - 复合索引：subject+grade_level, source+difficulty（2个）
 
-5. 前端交互界面（AI操作的入口）
+### 阶段B：学习路径生成与硬件联动（依赖阶段A完成）
 
-• 任务：开发“两库关联地图”界面，展示路径与关联；  
+#### B1. 路径生成算法开发
 
-• 技术选型：用Flutter/Angular开发前端，ECharts绘制知识图谱，集成MiniCPM AI虚拟导师（解释衔接逻辑），调用社区分享模块展示优秀项目；  
+五、阶段划分与原子任务（**按优先级重新调整**）
 
-• 交付物：PathMap.vue（路径地图组件）、AI_Tutor.py（AI解释接口）。  
+### 阶段A：资源获取与知识图谱构建（当前执行，预计15人天）
 
-五、阶段划分与原子任务（AI需拆解的开发计划）
+| 原子任务ID | 任务名称 | 技术细节 | 交付物 | 依赖关系 |
+|-----------|---------|---------|--------|----------|
+| **A1.1** | OpenSciEd教程爬取 | 爬取openscied.org官网，提取6-8年级+高中单元元数据，保存PDF下载链接 | openscied_units.json (30+单元) | 无 |
+| **A1.2** | 格物斯坦教程爬取 | 爬取gewustan.com，提取金属十合一教程，确保硬件成本≤50元 | gewustan_tutorials.json (10+教程) | 无 |
+| **A1.3** | stemcloud.cn课程整合 | 整理6大学科100+教程JSON数据，标注难度等级和关联硬件 | stemcloud_courses.json | 无 |
+| **A2.1** | OpenStax课件爬取 | 爬取openstax.org，提取大学/高中教材章节，**必须保存PDF下载链接** | openstax_chapters.json (50+章节) | 无 |
+| **A2.2** | TED-Ed课程爬取 | 爬取ed.ted.com STEM类别，提取视频URL和知识点摘要 | ted_ed_courses.json (63课程) | 无 |
+| **A2.3** | STEM-PBL标准整理 | 解析《STEM-PBL教学标准》文档，提取课程类别和评价流程 | stem_pbl_standard.json | 无 |
+| **A3.1** | Neo4j Schema设计 | 定义5种节点类型、7种关系类型、索引策略 | neo4j_schema_design.md | A1.1-A2.3完成 |
+| **A3.2** | 知识图谱数据导入 | 将JSON数据批量导入Neo4j，建立递进/跨学科/硬件映射关系 | Neo4j数据库(500+节点) | A3.1完成 |
+| **A3.3** | 图谱验证与优化 | Cypher查询验证关联正确率≥95%，添加全文索引优化查询速度 | validation_report.md | A3.2完成 |
 
-阶段1：资源解析与知识图谱构建
+### 阶段B：学习路径原型开发（依赖阶段A，预计12人天）
 
-原子任务ID 任务名称 技术细节 交付物 依赖关系
-T1.1 教程库元数据提取 解析OpenSciEd PDF、格物斯坦页面、stemcloud.cn教程，提取单元主题/知识点/实验清单 openscied_units.csv、gewustan_tutorials.json、stemcloud_tutorials.json 无
-T1.2 课件库元数据提取 解析OpenStax HTML、TED-Ed课程页面，提取章节结构/先修知识点/习题 openstax_chapters.csv、ted_ed_courses.json 无
-T1.3 知识图谱节点/关系建模 定义图谱Schema（节点属性：学段/学科/难度/硬件依赖；关系：递进/关联/硬件映射） Neo4j图谱模型文档 T1.1、T1.2完成
-T1.4 图谱数据导入与校验 将CSV/JSON数据导入Neo4j，用Cypher查询验证关联正确性（准确率≥95%） 图谱校验报告 T1.3完成
+| 原子任务ID | 任务名称 | 技术细节 | 交付物 | 依赖关系 |
+|-----------|---------|---------|--------|----------|
+| B1.1 | 路径生成算法开发 | 基于用户测试题得分推荐起点，用规则引擎串联教程库→课件库内容 | path_generation_api.py | A3.3完成 |
+| B1.2 | 自适应路径调整算法 | 基于用户行为数据使用规则引擎调整路径难度，实现个性化推荐 | path_adjustment_service.py | B1.1完成 |
+| B2.1 | 过渡项目设计 | 为每个知识递进点设计Blockly编程项目（如"用变量模拟物理公式"） | transition_projects.json (50+项目) | B1.1完成 |
+| B2.2 | 前端路径地图界面 | 用ECharts绘制知识图谱，支持点击节点查看详情（Angular） | PathMapComponent | B1.1完成 |
 
-阶段2：学习路径原型开发
+### 阶段C：硬件与课件库联动开发（依赖阶段A，预计14人天）
 
-原子任务ID 任务名称 技术细节 交付物 依赖关系
-T2.1 路径生成算法开发 基于用户测试题得分推荐起点，用规则引擎串联教程库→课件库内容 path_generation_api.py T1.4完成
-T2.2 过渡项目设计 为每个知识递进点设计Blockly编程项目（如“用变量模拟物理公式”） transition_projects.json T2.1完成
-T2.3 前端路径地图界面 用ECharts绘制知识图谱，支持点击节点查看详情（Flutter/Angular） PathMap.vue T2.1完成
+| 原子任务ID | 任务名称 | 技术细节 | 交付物 | 依赖关系 |
+|-----------|---------|---------|--------|----------|
+| C1.1 | 硬件项目库开发 | 为每个核心知识点设计Arduino项目（含电路图/代码/材料清单，预算≤50元） | hardware_projects/目录 (20+项目) | A3.3完成 |
+| C1.2 | Blockly代码生成集成 | 调用项目现有Blockly引擎，生成项目配套图形化代码 | blockly_templates/目录 | C1.1完成 |
+| C1.3 | 课件库理论映射集成 | 用MiniCPM补全教程库项目与课件库理论的关联，生成联动任务 | linked_tasks.json | C1.1、C1.2完成 |
 
-阶段3：硬件与课件库联动开发
+### 阶段D：测试与优化（依赖阶段B、C，预计9人天）
 
-原子任务ID 任务名称 技术细节 交付物 依赖关系
-T3.1 硬件项目库开发 为每个核心知识点设计Arduino项目（含电路图/代码/材料清单，预算≤50元） hardware_projects/目录 T1.4完成
-T3.2 Blockly代码生成集成 调用项目现有Blockly引擎，生成项目配套图形化代码 blockly_templates/目录 T3.1完成
-T3.3 课件库理论映射集成 用MiniCPM补全教程库项目与课件库理论的关联，生成联动任务 linked_tasks.json T3.1、T3.2完成
-
-阶段5：测试与优化
-
-原子任务ID 任务名称 技术细节 交付物 依赖关系
-T4.1 用户测试（50名K-12学生） 收集路径连贯性、硬件项目完成率反馈 测试报告（优化建议清单） T2.3、T3.3完成
-T4.2 性能优化 优化图谱查询速度（Neo4j索引）、AI响应延迟（模型量化）、硬件通信稳定性 性能监控仪表盘（Grafana） T4.1完成
+| 原子任务ID | 任务名称 | 技术细节 | 交付物 | 依赖关系 |
+|-----------|---------|---------|--------|----------|
+| D1.1 | 用户测试（50名K-12学生） | 收集路径连贯性、硬件项目完成率反馈 | 测试报告（优化建议清单） | B2.2、C1.3完成 |
+| D1.2 | 性能优化 | 优化图谱查询速度（Neo4j索引）、AI响应延迟（模型量化）、硬件通信稳定性 | 性能监控仪表盘（Grafana） | D1.1完成 |
   
 
-六、验收标准（AI需达成的量化指标）
+六、验收标准（**分阶段量化指标**）
 
-1. 知识图谱覆盖率：教程库核心单元（OpenSciEd 6-8年级、格物斯坦10-15岁）100%映射课件库对应先修章节，跨学科关联准确率≥90%；  
-2. 路径连贯性：每个教程库单元→课件库章节过渡节点有≥1个过渡项目+1个硬件综合项目；  
-3. 硬件适配性：所有项目材料成本≤50元，支持Type-C直连手机（WebUSB），代码生成正确率≥95%；  
-4. 用户体验：用户完成路径的平均时长较单一课程缩短30%，硬件项目完成率≥70%；  
-5. AI操作能力：AI能精准执行“推荐路径、生成联动项目、解释衔接逻辑”等操作，响应延迟≤500ms。  
+### 阶段A验收标准（知识图谱构建）
+
+1. **教程库覆盖率**：
+   - OpenSciEd 6-8年级核心单元≥30个，高中扩展单元≥10个
+   - 格物斯坦金属十合一教程≥10个，硬件成本全部≤50元
+   - stemcloud.cn课程≥100个，覆盖6大学科
+
+2. **课件库覆盖率**：
+   - OpenStax大学/高中教材章节≥50个，**100%包含PDF下载链接或在线阅读URL**
+   - TED-Ed STEM课程≥63个，视频URL有效
+   - STEM-PBL教学标准完整解析
+
+3. **知识图谱质量**：
+   - 节点总数≥500（CourseUnit 150+ + KnowledgePoint 200+ + TextbookChapter 100+ + HardwareProject 50+）
+   - 关系总数≥1000（PROGRESSES_TO 300+ + CROSS_DISCIPLINE 200+ + HARDWARE_MAPS_TO 100+）
+   - 跨学科关联准确率≥90%（人工抽检50条关系）
+   - K12→大学递进关系完整性：每个OpenSciEd单元至少关联1个OpenStax章节
+
+4. **查询性能**：
+   - 单节点查询响应时间 < 100ms
+   - 多跳路径查询（3跳以内）响应时间 < 500ms
+   - 全文搜索响应时间 < 200ms
+
+### 阶段B验收标准（学习路径生成）
+
+1. **路径连贯性**：每个教程库单元→课件库章节过渡节点有≥1个过渡项目+1个硬件综合项目
+2. **用户体验**：用户完成路径的平均时长较单一课程缩短30%
+3. **AI操作能力**：AI能精准执行“推荐路径、解释衔接逻辑”，响应延迟≤500ms
+4. **个性化推荐准确率**：基于规则引擎的路径调整准确率≥85%
+
+### 阶段C验收标准（硬件联动）
+
+1. **硬件适配性**：所有项目材料成本≤50元，支持Type-C直连手机（WebUSB），代码生成正确率≥95%
+2. **硬件项目完成率**：用户测试中硬件项目完成率≥70%
+
+### 阶段D验收标准（测试与优化）
+
+1. **用户满意度**：50名K-12学生试用后评分 > 4.5/5.0
+2. **系统稳定性**：崩溃率 < 0.1%，无严重级别Bug
 
 七、风险控制（AI需注意的潜在问题）
 

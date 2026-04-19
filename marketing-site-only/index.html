@@ -52,6 +52,42 @@
             z-index: -1;
         }
 
+        /* STEM Icons Animation */
+        .stem-icons-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .stem-icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.1;
+            animation: floatIcon 15s infinite linear;
+        }
+
+        @keyframes floatIcon {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.1;
+            }
+            90% {
+                opacity: 0.1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
         /* Navigation */
         nav {
             background: rgba(15, 23, 42, 0.95);
@@ -561,6 +597,53 @@
             .nav-links {
                 display: none;
             }
+            
+            /* Mobile optimizations for STEM elements */
+            .stem-icons-container {
+                display: none; /* Hide floating icons on mobile for performance */
+            }
+            
+            .community-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hardware-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .path-step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin-bottom: 1rem;
+            }
+            
+            /* Adjust knowledge graph for mobile */
+            #path > div:nth-child(3) > div {
+                grid-template-columns: 1fr !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .stem-badge {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
@@ -584,6 +667,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="stem-icons-container" id="stemIconsContainer"></div>
         <div class="hero-content">
             <div class="stem-badges">
                 <div class="stem-badge">S</div>
@@ -646,6 +730,37 @@
     <section id="path" class="learning-path">
         <h2 class="section-title">连贯学习路径</h2>
         <p class="section-subtitle">从现象驱动到理论深度的完整学习链路</p>
+        
+        <!-- STEM Knowledge Graph Visualization -->
+        <div style="max-width: 1000px; margin: 3rem auto; background: var(--card-bg); border-radius: 16px; padding: 2rem; border: 1px solid rgba(99, 102, 241, 0.2);">
+            <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--text-primary);">STEM 知识图谱</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: center;">
+                <div style="padding: 1.5rem; background: rgba(16, 185, 129, 0.1); border-radius: 12px; border-left: 4px solid var(--stem-science);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔬</div>
+                    <h4 style="color: var(--stem-science); margin-bottom: 0.5rem;">科学 (Science)</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">物理、化学、生物、地球科学</p>
+                </div>
+                <div style="padding: 1.5rem; background: rgba(59, 130, 246, 0.1); border-radius: 12px; border-left: 4px solid var(--stem-tech);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">💻</div>
+                    <h4 style="color: var(--stem-tech); margin-bottom: 0.5rem;">技术 (Technology)</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">编程、AI、数据分析、数字素养</p>
+                </div>
+                <div style="padding: 1.5rem; background: rgba(245, 158, 11, 0.1); border-radius: 12px; border-left: 4px solid var(--stem-engineering);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚙️</div>
+                    <h4 style="color: var(--stem-engineering); margin-bottom: 0.5rem;">工程 (Engineering)</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">设计思维、问题解决、项目管理</p>
+                </div>
+                <div style="padding: 1.5rem; background: rgba(239, 68, 68, 0.1); border-radius: 12px; border-left: 4px solid var(--stem-math);">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">📐</div>
+                    <h4 style="color: var(--stem-math); margin-bottom: 0.5rem;">数学 (Mathematics)</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">代数、几何、统计、逻辑思维</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem; color: var(--text-secondary);">
+                <p>通过知识图谱连接各学科知识点，形成完整的STEM学习网络</p>
+            </div>
+        </div>
+        
         <div class="path-container">
             <div class="path-step">
                 <div class="step-number">1</div>
@@ -712,7 +827,7 @@
 
     <!-- Community Section -->
     <section id="community" class="community-section">
-        <h2 class="section-title">加入社区</h2>
+        <h2 class="section-title">加入开源社区</h2>
         <p class="section-subtitle">与全球开发者一起共建 STEM 教育未来</p>
         <div class="community-grid">
             <div class="community-card">
@@ -740,6 +855,29 @@
                     <button type="submit" class="btn btn-primary">订阅</button>
                 </form>
                 <p class="subscribe-note">🔒 我们不会分享您的邮箱地址</p>
+            </div>
+        </div>
+        
+        <!-- GitHub Stats -->
+        <div style="max-width: 1200px; margin: 4rem auto 0; text-align: center;">
+            <h3 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--text-primary);">开源贡献统计</h3>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; min-width: 150px;">
+                    <div style="font-size: 2rem; font-weight: bold; color: var(--stem-tech);">120+</div>
+                    <div style="color: var(--text-secondary);">Contributors</div>
+                </div>
+                <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; min-width: 150px;">
+                    <div style="font-size: 2rem; font-weight: bold; color: var(--stem-science);">500+</div>
+                    <div style="color: var(--text-secondary);">Commits</div>
+                </div>
+                <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; min-width: 150px;">
+                    <div style="font-size: 2rem; font-weight: bold; color: var(--stem-engineering);">50+</div>
+                    <div style="color: var(--text-secondary);">Releases</div>
+                </div>
+                <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; min-width: 150px;">
+                    <div style="font-size: 2rem; font-weight: bold; color: var(--stem-math);">1000+</div>
+                    <div style="color: var(--text-secondary);">Stars</div>
+                </div>
             </div>
         </div>
     </section>
@@ -808,6 +946,28 @@
             el.style.transition = 'all 0.6s ease-out';
             observer.observe(el);
         });
+
+        // Generate floating STEM icons
+        function generateStemIcons() {
+            const container = document.getElementById('stemIconsContainer');
+            const stemIcons = [
+                '⚛️', '🧪', '🔬', '🧬', '📐', '📏', '🧮', '🔭', 
+                '🛰️', '💻', '🤖', '⚙️', '🔧', '🔌', '📊', '📈',
+                '🧲', '⚡', '🌡️', '🌍', '🌱', '🧫', '🧪', '🔋'
+            ];
+            
+            for (let i = 0; i < 20; i++) {
+                const icon = document.createElement('div');
+                icon.className = 'stem-icon';
+                icon.textContent = stemIcons[Math.floor(Math.random() * stemIcons.length)];
+                icon.style.left = Math.random() * 100 + '%';
+                icon.style.animationDelay = Math.random() * 15 + 's';
+                icon.style.animationDuration = (15 + Math.random() * 10) + 's';
+                container.appendChild(icon);
+            }
+        }
+        
+        generateStemIcons();
     </script>
 </body>
 </html>

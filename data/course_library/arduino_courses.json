@@ -1,0 +1,9074 @@
+[
+  {
+    "course_id": "ARDU-ARDU-ELE-14000",
+    "title": "认识Arduino（小学·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Arduino基础",
+    "lesson_number": 1,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Arduino基础课程：认识Arduino",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14000-01",
+        "name": "核心概念",
+        "description": "认识Arduino的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14000-02",
+        "name": "实践技能",
+        "description": "认识Arduino的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "认识Arduino实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握认识Arduino",
+      "应用认识Arduino"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/Arduino基础/14000",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-ELE-14001",
+    "title": "IDE安装（小学·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Arduino基础",
+    "lesson_number": 2,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Arduino基础课程：IDE安装",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14001-01",
+        "name": "核心概念",
+        "description": "IDE安装的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14001-02",
+        "name": "实践技能",
+        "description": "IDE安装的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "IDE安装实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握IDE安装",
+      "应用IDE安装"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/Arduino基础/14001",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-ELE-14002",
+    "title": "LED闪烁（小学·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Arduino基础",
+    "lesson_number": 3,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Arduino基础课程：LED闪烁",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14002-01",
+        "name": "核心概念",
+        "description": "LED闪烁的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14002-02",
+        "name": "实践技能",
+        "description": "LED闪烁的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "LED闪烁实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握LED闪烁",
+      "应用LED闪烁"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/Arduino基础/14002",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-ELE-14003",
+    "title": "按钮输入（小学·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Arduino基础",
+    "lesson_number": 4,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Arduino基础课程：按钮输入",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14003-01",
+        "name": "核心概念",
+        "description": "按钮输入的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14003-02",
+        "name": "实践技能",
+        "description": "按钮输入的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "按钮输入实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握按钮输入",
+      "应用按钮输入"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/Arduino基础/14003",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-ELE-14004",
+    "title": "电位器（小学·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Arduino基础",
+    "lesson_number": 5,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Arduino基础课程：电位器",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14004-01",
+        "name": "核心概念",
+        "description": "电位器的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14004-02",
+        "name": "实践技能",
+        "description": "电位器的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "电位器实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握电位器",
+      "应用电位器"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/Arduino基础/14004",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-ELE-14005",
+    "title": "蜂鸣器（小学·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Arduino基础",
+    "lesson_number": 6,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Arduino基础课程：蜂鸣器",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14005-01",
+        "name": "核心概念",
+        "description": "蜂鸣器的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14005-02",
+        "name": "实践技能",
+        "description": "蜂鸣器的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "蜂鸣器实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握蜂鸣器",
+      "应用蜂鸣器"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/Arduino基础/14005",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-ELE-14006",
+    "title": "RGB LED（小学·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Arduino基础",
+    "lesson_number": 7,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Arduino基础课程：RGB LED",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14006-01",
+        "name": "核心概念",
+        "description": "RGB LED的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14006-02",
+        "name": "实践技能",
+        "description": "RGB LED的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "RGB LED实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握RGB LED",
+      "应用RGB LED"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/Arduino基础/14006",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-ELE-14007",
+    "title": "光敏电阻（小学·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Arduino基础",
+    "lesson_number": 8,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Arduino基础课程：光敏电阻",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14007-01",
+        "name": "核心概念",
+        "description": "光敏电阻的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14007-02",
+        "name": "实践技能",
+        "description": "光敏电阻的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "光敏电阻实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握光敏电阻",
+      "应用光敏电阻"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/Arduino基础/14007",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-ELE-14008",
+    "title": "温度传感器（小学·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Arduino基础",
+    "lesson_number": 9,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Arduino基础课程：温度传感器",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14008-01",
+        "name": "核心概念",
+        "description": "温度传感器的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14008-02",
+        "name": "实践技能",
+        "description": "温度传感器的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "温度传感器实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握温度传感器",
+      "应用温度传感器"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/Arduino基础/14008",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-ELE-14009",
+    "title": "伺服电机（小学·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Arduino基础",
+    "lesson_number": 10,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Arduino基础课程：伺服电机",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14009-01",
+        "name": "核心概念",
+        "description": "伺服电机的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14009-02",
+        "name": "实践技能",
+        "description": "伺服电机的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "伺服电机实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握伺服电机",
+      "应用伺服电机"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/Arduino基础/14009",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-ELE-14010",
+    "title": "直流电机（小学·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Arduino基础",
+    "lesson_number": 11,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Arduino基础课程：直流电机",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14010-01",
+        "name": "核心概念",
+        "description": "直流电机的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14010-02",
+        "name": "实践技能",
+        "description": "直流电机的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "直流电机实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握直流电机",
+      "应用直流电机"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/Arduino基础/14010",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-ELE-14011",
+    "title": "项目实战（小学·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Arduino基础",
+    "lesson_number": 12,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Arduino基础课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14011-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14011-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/Arduino基础/14011",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-MID-14012",
+    "title": "C++基础（初中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Arduino基础",
+    "lesson_number": 1,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Arduino基础课程：C++基础",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14012-01",
+        "name": "核心概念",
+        "description": "C++基础的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14012-02",
+        "name": "实践技能",
+        "description": "C++基础的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "C++基础实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握C++基础",
+      "应用C++基础"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/Arduino基础/14012",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-MID-14013",
+    "title": "函数封装（初中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Arduino基础",
+    "lesson_number": 2,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Arduino基础课程：函数封装",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14013-01",
+        "name": "核心概念",
+        "description": "函数封装的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14013-02",
+        "name": "实践技能",
+        "description": "函数封装的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "函数封装实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握函数封装",
+      "应用函数封装"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/Arduino基础/14013",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-MID-14014",
+    "title": "串口通信（初中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Arduino基础",
+    "lesson_number": 3,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Arduino基础课程：串口通信",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14014-01",
+        "name": "核心概念",
+        "description": "串口通信的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14014-02",
+        "name": "实践技能",
+        "description": "串口通信的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "串口通信实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握串口通信",
+      "应用串口通信"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/Arduino基础/14014",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-MID-14015",
+    "title": "LCD显示（初中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Arduino基础",
+    "lesson_number": 4,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Arduino基础课程：LCD显示",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14015-01",
+        "name": "核心概念",
+        "description": "LCD显示的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14015-02",
+        "name": "实践技能",
+        "description": "LCD显示的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "LCD显示实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握LCD显示",
+      "应用LCD显示"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/Arduino基础/14015",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-MID-14016",
+    "title": "超声波（初中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Arduino基础",
+    "lesson_number": 5,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Arduino基础课程：超声波",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14016-01",
+        "name": "核心概念",
+        "description": "超声波的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14016-02",
+        "name": "实践技能",
+        "description": "超声波的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "超声波实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握超声波",
+      "应用超声波"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/Arduino基础/14016",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-MID-14017",
+    "title": "红外遥控（初中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Arduino基础",
+    "lesson_number": 6,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Arduino基础课程：红外遥控",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14017-01",
+        "name": "核心概念",
+        "description": "红外遥控的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14017-02",
+        "name": "实践技能",
+        "description": "红外遥控的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "红外遥控实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握红外遥控",
+      "应用红外遥控"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/Arduino基础/14017",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-MID-14018",
+    "title": "步进电机（初中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Arduino基础",
+    "lesson_number": 7,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Arduino基础课程：步进电机",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14018-01",
+        "name": "核心概念",
+        "description": "步进电机的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14018-02",
+        "name": "实践技能",
+        "description": "步进电机的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "步进电机实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握步进电机",
+      "应用步进电机"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/Arduino基础/14018",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-MID-14019",
+    "title": "继电器（初中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Arduino基础",
+    "lesson_number": 8,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Arduino基础课程：继电器",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14019-01",
+        "name": "核心概念",
+        "description": "继电器的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14019-02",
+        "name": "实践技能",
+        "description": "继电器的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "继电器实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握继电器",
+      "应用继电器"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/Arduino基础/14019",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-MID-14020",
+    "title": "DS18B20（初中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Arduino基础",
+    "lesson_number": 9,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Arduino基础课程：DS18B20",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14020-01",
+        "name": "核心概念",
+        "description": "DS18B20的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14020-02",
+        "name": "实践技能",
+        "description": "DS18B20的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "DS18B20实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握DS18B20",
+      "应用DS18B20"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/Arduino基础/14020",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-MID-14021",
+    "title": "DHT11（初中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Arduino基础",
+    "lesson_number": 10,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Arduino基础课程：DHT11",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14021-01",
+        "name": "核心概念",
+        "description": "DHT11的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14021-02",
+        "name": "实践技能",
+        "description": "DHT11的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "DHT11实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握DHT11",
+      "应用DHT11"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/Arduino基础/14021",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-MID-14022",
+    "title": "RTC时钟（初中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Arduino基础",
+    "lesson_number": 11,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Arduino基础课程：RTC时钟",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14022-01",
+        "name": "核心概念",
+        "description": "RTC时钟的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14022-02",
+        "name": "实践技能",
+        "description": "RTC时钟的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "RTC时钟实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握RTC时钟",
+      "应用RTC时钟"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/Arduino基础/14022",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-MID-14023",
+    "title": "项目实战（初中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Arduino基础",
+    "lesson_number": 12,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Arduino基础课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14023-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14023-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/Arduino基础/14023",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-HIG-14024",
+    "title": "高级C++（高中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Arduino基础",
+    "lesson_number": 1,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Arduino基础课程：高级C++",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14024-01",
+        "name": "核心概念",
+        "description": "高级C++的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14024-02",
+        "name": "实践技能",
+        "description": "高级C++的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "高级C++实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握高级C++",
+      "应用高级C++"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/Arduino基础/14024",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-HIG-14025",
+    "title": "I2C通信（高中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Arduino基础",
+    "lesson_number": 2,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Arduino基础课程：I2C通信",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14025-01",
+        "name": "核心概念",
+        "description": "I2C通信的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14025-02",
+        "name": "实践技能",
+        "description": "I2C通信的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "I2C通信实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握I2C通信",
+      "应用I2C通信"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/Arduino基础/14025",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-HIG-14026",
+    "title": "SPI通信（高中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Arduino基础",
+    "lesson_number": 3,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Arduino基础课程：SPI通信",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14026-01",
+        "name": "核心概念",
+        "description": "SPI通信的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14026-02",
+        "name": "实践技能",
+        "description": "SPI通信的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "SPI通信实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握SPI通信",
+      "应用SPI通信"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/Arduino基础/14026",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-HIG-14027",
+    "title": "UART（高中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Arduino基础",
+    "lesson_number": 4,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Arduino基础课程：UART",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14027-01",
+        "name": "核心概念",
+        "description": "UART的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14027-02",
+        "name": "实践技能",
+        "description": "UART的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "UART实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握UART",
+      "应用UART"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/Arduino基础/14027",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-HIG-14028",
+    "title": "OLED显示（高中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Arduino基础",
+    "lesson_number": 5,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Arduino基础课程：OLED显示",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14028-01",
+        "name": "核心概念",
+        "description": "OLED显示的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14028-02",
+        "name": "实践技能",
+        "description": "OLED显示的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "OLED显示实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握OLED显示",
+      "应用OLED显示"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/Arduino基础/14028",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-HIG-14029",
+    "title": "TFT屏幕（高中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Arduino基础",
+    "lesson_number": 6,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Arduino基础课程：TFT屏幕",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14029-01",
+        "name": "核心概念",
+        "description": "TFT屏幕的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14029-02",
+        "name": "实践技能",
+        "description": "TFT屏幕的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "TFT屏幕实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握TFT屏幕",
+      "应用TFT屏幕"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/Arduino基础/14029",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-HIG-14030",
+    "title": "SD卡（高中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Arduino基础",
+    "lesson_number": 7,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Arduino基础课程：SD卡",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14030-01",
+        "name": "核心概念",
+        "description": "SD卡的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14030-02",
+        "name": "实践技能",
+        "description": "SD卡的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "SD卡实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握SD卡",
+      "应用SD卡"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/Arduino基础/14030",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-HIG-14031",
+    "title": "CAN总线（高中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Arduino基础",
+    "lesson_number": 8,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Arduino基础课程：CAN总线",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14031-01",
+        "name": "核心概念",
+        "description": "CAN总线的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14031-02",
+        "name": "实践技能",
+        "description": "CAN总线的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "CAN总线实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握CAN总线",
+      "应用CAN总线"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/Arduino基础/14031",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-HIG-14032",
+    "title": "低功耗（高中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Arduino基础",
+    "lesson_number": 9,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Arduino基础课程：低功耗",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14032-01",
+        "name": "核心概念",
+        "description": "低功耗的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14032-02",
+        "name": "实践技能",
+        "description": "低功耗的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "低功耗实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握低功耗",
+      "应用低功耗"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/Arduino基础/14032",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-HIG-14033",
+    "title": "PCB设计（高中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Arduino基础",
+    "lesson_number": 10,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Arduino基础课程：PCB设计",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14033-01",
+        "name": "核心概念",
+        "description": "PCB设计的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14033-02",
+        "name": "实践技能",
+        "description": "PCB设计的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "PCB设计实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握PCB设计",
+      "应用PCB设计"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/Arduino基础/14033",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-HIG-14034",
+    "title": "3D打印（高中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Arduino基础",
+    "lesson_number": 11,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Arduino基础课程：3D打印",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14034-01",
+        "name": "核心概念",
+        "description": "3D打印的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14034-02",
+        "name": "实践技能",
+        "description": "3D打印的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "3D打印实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握3D打印",
+      "应用3D打印"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/Arduino基础/14034",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-ARDU-HIG-14035",
+    "title": "项目实战（高中·Arduino基础）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Arduino基础",
+    "lesson_number": 12,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Arduino基础课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14035-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14035-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/Arduino基础/14035",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-传感器应-ELE-14036",
+    "title": "传感器概述（小学·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "传感器应用",
+    "lesson_number": 1,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学传感器应用课程：传感器概述",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14036-01",
+        "name": "核心概念",
+        "description": "传感器概述的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14036-02",
+        "name": "实践技能",
+        "description": "传感器概述的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "传感器概述实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握传感器概述",
+      "应用传感器概述"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/传感器应用/14036",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-传感器应-ELE-14037",
+    "title": "声音传感器（小学·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "传感器应用",
+    "lesson_number": 2,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学传感器应用课程：声音传感器",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14037-01",
+        "name": "核心概念",
+        "description": "声音传感器的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14037-02",
+        "name": "实践技能",
+        "description": "声音传感器的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "声音传感器实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握声音传感器",
+      "应用声音传感器"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/传感器应用/14037",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-传感器应-ELE-14038",
+    "title": "火焰传感器（小学·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "传感器应用",
+    "lesson_number": 3,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学传感器应用课程：火焰传感器",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14038-01",
+        "name": "核心概念",
+        "description": "火焰传感器的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14038-02",
+        "name": "实践技能",
+        "description": "火焰传感器的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "火焰传感器实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握火焰传感器",
+      "应用火焰传感器"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/传感器应用/14038",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-传感器应-ELE-14039",
+    "title": "水浸传感器（小学·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "传感器应用",
+    "lesson_number": 4,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学传感器应用课程：水浸传感器",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14039-01",
+        "name": "核心概念",
+        "description": "水浸传感器的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14039-02",
+        "name": "实践技能",
+        "description": "水浸传感器的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "水浸传感器实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握水浸传感器",
+      "应用水浸传感器"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/传感器应用/14039",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-传感器应-ELE-14040",
+    "title": "土壤湿度（小学·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "传感器应用",
+    "lesson_number": 5,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学传感器应用课程：土壤湿度",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14040-01",
+        "name": "核心概念",
+        "description": "土壤湿度的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14040-02",
+        "name": "实践技能",
+        "description": "土壤湿度的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "土壤湿度实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握土壤湿度",
+      "应用土壤湿度"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/传感器应用/14040",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-传感器应-ELE-14041",
+    "title": "气体传感器（小学·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "传感器应用",
+    "lesson_number": 6,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学传感器应用课程：气体传感器",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14041-01",
+        "name": "核心概念",
+        "description": "气体传感器的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14041-02",
+        "name": "实践技能",
+        "description": "气体传感器的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "气体传感器实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握气体传感器",
+      "应用气体传感器"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/传感器应用/14041",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-传感器应-ELE-14042",
+    "title": "霍尔传感器（小学·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "传感器应用",
+    "lesson_number": 7,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学传感器应用课程：霍尔传感器",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14042-01",
+        "name": "核心概念",
+        "description": "霍尔传感器的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14042-02",
+        "name": "实践技能",
+        "description": "霍尔传感器的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "霍尔传感器实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握霍尔传感器",
+      "应用霍尔传感器"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/传感器应用/14042",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-传感器应-ELE-14043",
+    "title": "倾斜开关（小学·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "传感器应用",
+    "lesson_number": 8,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学传感器应用课程：倾斜开关",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14043-01",
+        "name": "核心概念",
+        "description": "倾斜开关的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14043-02",
+        "name": "实践技能",
+        "description": "倾斜开关的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "倾斜开关实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握倾斜开关",
+      "应用倾斜开关"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/传感器应用/14043",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-传感器应-ELE-14044",
+    "title": "压力传感器（小学·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "传感器应用",
+    "lesson_number": 9,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学传感器应用课程：压力传感器",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14044-01",
+        "name": "核心概念",
+        "description": "压力传感器的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14044-02",
+        "name": "实践技能",
+        "description": "压力传感器的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "压力传感器实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握压力传感器",
+      "应用压力传感器"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/传感器应用/14044",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-传感器应-ELE-14045",
+    "title": "颜色传感器（小学·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "传感器应用",
+    "lesson_number": 10,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学传感器应用课程：颜色传感器",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14045-01",
+        "name": "核心概念",
+        "description": "颜色传感器的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14045-02",
+        "name": "实践技能",
+        "description": "颜色传感器的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "颜色传感器实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握颜色传感器",
+      "应用颜色传感器"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/传感器应用/14045",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-传感器应-ELE-14046",
+    "title": "心率传感器（小学·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "传感器应用",
+    "lesson_number": 11,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学传感器应用课程：心率传感器",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14046-01",
+        "name": "核心概念",
+        "description": "心率传感器的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14046-02",
+        "name": "实践技能",
+        "description": "心率传感器的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "心率传感器实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握心率传感器",
+      "应用心率传感器"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/传感器应用/14046",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-传感器应-ELE-14047",
+    "title": "项目实战（小学·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "传感器应用",
+    "lesson_number": 12,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学传感器应用课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14047-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14047-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/传感器应用/14047",
+    "scraped_at": "2026-04-18T23:35:50.545146"
+  },
+  {
+    "course_id": "ARDU-传感器应-MID-14048",
+    "title": "MPU6050（初中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "传感器应用",
+    "lesson_number": 1,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中传感器应用课程：MPU6050",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14048-01",
+        "name": "核心概念",
+        "description": "MPU6050的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14048-02",
+        "name": "实践技能",
+        "description": "MPU6050的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "MPU6050实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握MPU6050",
+      "应用MPU6050"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/传感器应用/14048",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-MID-14049",
+    "title": "气压传感器（初中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "传感器应用",
+    "lesson_number": 2,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中传感器应用课程：气压传感器",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14049-01",
+        "name": "核心概念",
+        "description": "气压传感器的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14049-02",
+        "name": "实践技能",
+        "description": "气压传感器的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "气压传感器实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握气压传感器",
+      "应用气压传感器"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/传感器应用/14049",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-MID-14050",
+    "title": "紫外线（初中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "传感器应用",
+    "lesson_number": 3,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中传感器应用课程：紫外线",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14050-01",
+        "name": "核心概念",
+        "description": "紫外线的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14050-02",
+        "name": "实践技能",
+        "description": "紫外线的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "紫外线实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握紫外线",
+      "应用紫外线"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/传感器应用/14050",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-MID-14051",
+    "title": "PM2.5（初中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "传感器应用",
+    "lesson_number": 4,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中传感器应用课程：PM2.5",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14051-01",
+        "name": "核心概念",
+        "description": "PM2.5的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14051-02",
+        "name": "实践技能",
+        "description": "PM2.5的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "PM2.5实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握PM2.5",
+      "应用PM2.5"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/传感器应用/14051",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-MID-14052",
+    "title": "CO2检测（初中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "传感器应用",
+    "lesson_number": 5,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中传感器应用课程：CO2检测",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14052-01",
+        "name": "核心概念",
+        "description": "CO2检测的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14052-02",
+        "name": "实践技能",
+        "description": "CO2检测的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "CO2检测实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握CO2检测",
+      "应用CO2检测"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/传感器应用/14052",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-MID-14053",
+    "title": "甲醛检测（初中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "传感器应用",
+    "lesson_number": 6,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中传感器应用课程：甲醛检测",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14053-01",
+        "name": "核心概念",
+        "description": "甲醛检测的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14053-02",
+        "name": "实践技能",
+        "description": "甲醛检测的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "甲醛检测实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握甲醛检测",
+      "应用甲醛检测"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/传感器应用/14053",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-MID-14054",
+    "title": "电流传感（初中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "传感器应用",
+    "lesson_number": 7,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中传感器应用课程：电流传感",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14054-01",
+        "name": "核心概念",
+        "description": "电流传感的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14054-02",
+        "name": "实践技能",
+        "description": "电流传感的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "电流传感实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握电流传感",
+      "应用电流传感"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/传感器应用/14054",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-MID-14055",
+    "title": "电压检测（初中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "传感器应用",
+    "lesson_number": 8,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中传感器应用课程：电压检测",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14055-01",
+        "name": "核心概念",
+        "description": "电压检测的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14055-02",
+        "name": "实践技能",
+        "description": "电压检测的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "电压检测实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握电压检测",
+      "应用电压检测"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/传感器应用/14055",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-MID-14056",
+    "title": "液位传感（初中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "传感器应用",
+    "lesson_number": 9,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中传感器应用课程：液位传感",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14056-01",
+        "name": "核心概念",
+        "description": "液位传感的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14056-02",
+        "name": "实践技能",
+        "description": "液位传感的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "液位传感实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握液位传感",
+      "应用液位传感"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/传感器应用/14056",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-MID-14057",
+    "title": "风速风向（初中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "传感器应用",
+    "lesson_number": 10,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中传感器应用课程：风速风向",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14057-01",
+        "name": "核心概念",
+        "description": "风速风向的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14057-02",
+        "name": "实践技能",
+        "description": "风速风向的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "风速风向实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握风速风向",
+      "应用风速风向"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/传感器应用/14057",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-MID-14058",
+    "title": "人体红外（初中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "传感器应用",
+    "lesson_number": 11,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中传感器应用课程：人体红外",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14058-01",
+        "name": "核心概念",
+        "description": "人体红外的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14058-02",
+        "name": "实践技能",
+        "description": "人体红外的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "人体红外实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握人体红外",
+      "应用人体红外"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/传感器应用/14058",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-MID-14059",
+    "title": "项目实战（初中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "传感器应用",
+    "lesson_number": 12,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中传感器应用课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14059-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14059-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/传感器应用/14059",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-HIG-14060",
+    "title": "ToF传感器（高中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "传感器应用",
+    "lesson_number": 1,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中传感器应用课程：ToF传感器",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14060-01",
+        "name": "核心概念",
+        "description": "ToF传感器的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14060-02",
+        "name": "实践技能",
+        "description": "ToF传感器的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "ToF传感器实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握ToF传感器",
+      "应用ToF传感器"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/传感器应用/14060",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-HIG-14061",
+    "title": "光谱传感（高中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "传感器应用",
+    "lesson_number": 2,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中传感器应用课程：光谱传感",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14061-01",
+        "name": "核心概念",
+        "description": "光谱传感的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14061-02",
+        "name": "实践技能",
+        "description": "光谱传感的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "光谱传感实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握光谱传感",
+      "应用光谱传感"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/传感器应用/14061",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-HIG-14062",
+    "title": "生物传感（高中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "传感器应用",
+    "lesson_number": 3,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中传感器应用课程：生物传感",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14062-01",
+        "name": "核心概念",
+        "description": "生物传感的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14062-02",
+        "name": "实践技能",
+        "description": "生物传感的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "生物传感实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握生物传感",
+      "应用生物传感"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/传感器应用/14062",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-HIG-14063",
+    "title": "图像传感（高中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "传感器应用",
+    "lesson_number": 4,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中传感器应用课程：图像传感",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14063-01",
+        "name": "核心概念",
+        "description": "图像传感的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14063-02",
+        "name": "实践技能",
+        "description": "图像传感的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "图像传感实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握图像传感",
+      "应用图像传感"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/传感器应用/14063",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-HIG-14064",
+    "title": "雷达传感（高中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "传感器应用",
+    "lesson_number": 5,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中传感器应用课程：雷达传感",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14064-01",
+        "name": "核心概念",
+        "description": "雷达传感的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14064-02",
+        "name": "实践技能",
+        "description": "雷达传感的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "雷达传感实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握雷达传感",
+      "应用雷达传感"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/传感器应用/14064",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-HIG-14065",
+    "title": "应变片（高中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "传感器应用",
+    "lesson_number": 6,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中传感器应用课程：应变片",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14065-01",
+        "name": "核心概念",
+        "description": "应变片的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14065-02",
+        "name": "实践技能",
+        "description": "应变片的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "应变片实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握应变片",
+      "应用应变片"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/传感器应用/14065",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-HIG-14066",
+    "title": "光纤传感（高中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "传感器应用",
+    "lesson_number": 7,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中传感器应用课程：光纤传感",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14066-01",
+        "name": "核心概念",
+        "description": "光纤传感的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14066-02",
+        "name": "实践技能",
+        "description": "光纤传感的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "光纤传感实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握光纤传感",
+      "应用光纤传感"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/传感器应用/14066",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-HIG-14067",
+    "title": "MEMS麦克风（高中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "传感器应用",
+    "lesson_number": 8,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中传感器应用课程：MEMS麦克风",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14067-01",
+        "name": "核心概念",
+        "description": "MEMS麦克风的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14067-02",
+        "name": "实践技能",
+        "description": "MEMS麦克风的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "MEMS麦克风实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握MEMS麦克风",
+      "应用MEMS麦克风"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/传感器应用/14067",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-HIG-14068",
+    "title": "磁罗盘（高中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "传感器应用",
+    "lesson_number": 9,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中传感器应用课程：磁罗盘",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14068-01",
+        "name": "核心概念",
+        "description": "磁罗盘的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14068-02",
+        "name": "实践技能",
+        "description": "磁罗盘的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "磁罗盘实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握磁罗盘",
+      "应用磁罗盘"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/传感器应用/14068",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-HIG-14069",
+    "title": "振动传感（高中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "传感器应用",
+    "lesson_number": 10,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中传感器应用课程：振动传感",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14069-01",
+        "name": "核心概念",
+        "description": "振动传感的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14069-02",
+        "name": "实践技能",
+        "description": "振动传感的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "振动传感实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握振动传感",
+      "应用振动传感"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/传感器应用/14069",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-HIG-14070",
+    "title": "多传感器融合（高中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "传感器应用",
+    "lesson_number": 11,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中传感器应用课程：多传感器融合",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14070-01",
+        "name": "核心概念",
+        "description": "多传感器融合的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14070-02",
+        "name": "实践技能",
+        "description": "多传感器融合的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "多传感器融合实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握多传感器融合",
+      "应用多传感器融合"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/传感器应用/14070",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-传感器应-HIG-14071",
+    "title": "项目实战（高中·传感器应用）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "传感器应用",
+    "lesson_number": 12,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中传感器应用课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14071-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14071-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/传感器应用/14071",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-ELE-14072",
+    "title": "机器人概念（小学·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "机器人控制",
+    "lesson_number": 1,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学机器人控制课程：机器人概念",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14072-01",
+        "name": "核心概念",
+        "description": "机器人概念的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14072-02",
+        "name": "实践技能",
+        "description": "机器人概念的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "机器人概念实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握机器人概念",
+      "应用机器人概念"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/机器人控制/14072",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-ELE-14073",
+    "title": "小车底盘（小学·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "机器人控制",
+    "lesson_number": 2,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学机器人控制课程：小车底盘",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14073-01",
+        "name": "核心概念",
+        "description": "小车底盘的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14073-02",
+        "name": "实践技能",
+        "description": "小车底盘的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "小车底盘实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握小车底盘",
+      "应用小车底盘"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/机器人控制/14073",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-ELE-14074",
+    "title": "前进后退（小学·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "机器人控制",
+    "lesson_number": 3,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学机器人控制课程：前进后退",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14074-01",
+        "name": "核心概念",
+        "description": "前进后退的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14074-02",
+        "name": "实践技能",
+        "description": "前进后退的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "前进后退实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握前进后退",
+      "应用前进后退"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/机器人控制/14074",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-ELE-14075",
+    "title": "左右转弯（小学·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "机器人控制",
+    "lesson_number": 4,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学机器人控制课程：左右转弯",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14075-01",
+        "name": "核心概念",
+        "description": "左右转弯的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14075-02",
+        "name": "实践技能",
+        "description": "左右转弯的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "左右转弯实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握左右转弯",
+      "应用左右转弯"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/机器人控制/14075",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-ELE-14076",
+    "title": "巡线小车（小学·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "机器人控制",
+    "lesson_number": 5,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学机器人控制课程：巡线小车",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14076-01",
+        "name": "核心概念",
+        "description": "巡线小车的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14076-02",
+        "name": "实践技能",
+        "description": "巡线小车的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "巡线小车实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握巡线小车",
+      "应用巡线小车"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/机器人控制/14076",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-ELE-14077",
+    "title": "避障机器人（小学·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "机器人控制",
+    "lesson_number": 6,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学机器人控制课程：避障机器人",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14077-01",
+        "name": "核心概念",
+        "description": "避障机器人的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14077-02",
+        "name": "实践技能",
+        "description": "避障机器人的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "避障机器人实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握避障机器人",
+      "应用避障机器人"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/机器人控制/14077",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-ELE-14078",
+    "title": "遥控小车（小学·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "机器人控制",
+    "lesson_number": 7,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学机器人控制课程：遥控小车",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14078-01",
+        "name": "核心概念",
+        "description": "遥控小车的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14078-02",
+        "name": "实践技能",
+        "description": "遥控小车的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "遥控小车实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握遥控小车",
+      "应用遥控小车"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/机器人控制/14078",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-ELE-14079",
+    "title": "机械臂基础（小学·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "机器人控制",
+    "lesson_number": 8,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学机器人控制课程：机械臂基础",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14079-01",
+        "name": "核心概念",
+        "description": "机械臂基础的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14079-02",
+        "name": "实践技能",
+        "description": "机械臂基础的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "机械臂基础实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握机械臂基础",
+      "应用机械臂基础"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/机器人控制/14079",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-ELE-14080",
+    "title": "舞蹈机器人（小学·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "机器人控制",
+    "lesson_number": 9,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学机器人控制课程：舞蹈机器人",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14080-01",
+        "name": "核心概念",
+        "description": "舞蹈机器人的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14080-02",
+        "name": "实践技能",
+        "description": "舞蹈机器人的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "舞蹈机器人实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握舞蹈机器人",
+      "应用舞蹈机器人"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/机器人控制/14080",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-ELE-14081",
+    "title": "相扑机器人（小学·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "机器人控制",
+    "lesson_number": 10,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学机器人控制课程：相扑机器人",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14081-01",
+        "name": "核心概念",
+        "description": "相扑机器人的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14081-02",
+        "name": "实践技能",
+        "description": "相扑机器人的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "相扑机器人实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握相扑机器人",
+      "应用相扑机器人"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/机器人控制/14081",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-ELE-14082",
+    "title": "足球机器人（小学·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "机器人控制",
+    "lesson_number": 11,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学机器人控制课程：足球机器人",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14082-01",
+        "name": "核心概念",
+        "description": "足球机器人的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14082-02",
+        "name": "实践技能",
+        "description": "足球机器人的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "足球机器人实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握足球机器人",
+      "应用足球机器人"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/机器人控制/14082",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-ELE-14083",
+    "title": "项目实战（小学·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "机器人控制",
+    "lesson_number": 12,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学机器人控制课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14083-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14083-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/机器人控制/14083",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-MID-14084",
+    "title": "PID控制（初中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "机器人控制",
+    "lesson_number": 1,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中机器人控制课程：PID控制",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14084-01",
+        "name": "核心概念",
+        "description": "PID控制的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14084-02",
+        "name": "实践技能",
+        "description": "PID控制的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "PID控制实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握PID控制",
+      "应用PID控制"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/机器人控制/14084",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-MID-14085",
+    "title": "逆运动学（初中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "机器人控制",
+    "lesson_number": 2,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中机器人控制课程：逆运动学",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14085-01",
+        "name": "核心概念",
+        "description": "逆运动学的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14085-02",
+        "name": "实践技能",
+        "description": "逆运动学的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "逆运动学实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握逆运动学",
+      "应用逆运动学"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/机器人控制/14085",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-MID-14086",
+    "title": "SLAM基础（初中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "机器人控制",
+    "lesson_number": 3,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中机器人控制课程：SLAM基础",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14086-01",
+        "name": "核心概念",
+        "description": "SLAM基础的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14086-02",
+        "name": "实践技能",
+        "description": "SLAM基础的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "SLAM基础实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握SLAM基础",
+      "应用SLAM基础"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/机器人控制/14086",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-MID-14087",
+    "title": "视觉追踪（初中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "机器人控制",
+    "lesson_number": 4,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中机器人控制课程：视觉追踪",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14087-01",
+        "name": "核心概念",
+        "description": "视觉追踪的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14087-02",
+        "name": "实践技能",
+        "description": "视觉追踪的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "视觉追踪实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握视觉追踪",
+      "应用视觉追踪"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/机器人控制/14087",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-MID-14088",
+    "title": "语音控制（初中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "机器人控制",
+    "lesson_number": 5,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中机器人控制课程：语音控制",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14088-01",
+        "name": "核心概念",
+        "description": "语音控制的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14088-02",
+        "name": "实践技能",
+        "description": "语音控制的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "语音控制实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握语音控制",
+      "应用语音控制"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/机器人控制/14088",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-MID-14089",
+    "title": "自平衡车（初中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "机器人控制",
+    "lesson_number": 6,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中机器人控制课程：自平衡车",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14089-01",
+        "name": "核心概念",
+        "description": "自平衡车的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14089-02",
+        "name": "实践技能",
+        "description": "自平衡车的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "自平衡车实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握自平衡车",
+      "应用自平衡车"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/机器人控制/14089",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-MID-14090",
+    "title": "四足机器人（初中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "机器人控制",
+    "lesson_number": 7,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中机器人控制课程：四足机器人",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14090-01",
+        "name": "核心概念",
+        "description": "四足机器人的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14090-02",
+        "name": "实践技能",
+        "description": "四足机器人的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "四足机器人实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握四足机器人",
+      "应用四足机器人"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/机器人控制/14090",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-MID-14091",
+    "title": "无人机（初中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "机器人控制",
+    "lesson_number": 8,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中机器人控制课程：无人机",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14091-01",
+        "name": "核心概念",
+        "description": "无人机的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14091-02",
+        "name": "实践技能",
+        "description": "无人机的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "无人机实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握无人机",
+      "应用无人机"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/机器人控制/14091",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-MID-14092",
+    "title": "水下机器人（初中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "机器人控制",
+    "lesson_number": 9,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中机器人控制课程：水下机器人",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14092-01",
+        "name": "核心概念",
+        "description": "水下机器人的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14092-02",
+        "name": "实践技能",
+        "description": "水下机器人的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "水下机器人实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握水下机器人",
+      "应用水下机器人"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/机器人控制/14092",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-MID-14093",
+    "title": "群体机器人（初中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "机器人控制",
+    "lesson_number": 10,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中机器人控制课程：群体机器人",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14093-01",
+        "name": "核心概念",
+        "description": "群体机器人的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14093-02",
+        "name": "实践技能",
+        "description": "群体机器人的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "群体机器人实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握群体机器人",
+      "应用群体机器人"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/机器人控制/14093",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-MID-14094",
+    "title": "ROS入门（初中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "机器人控制",
+    "lesson_number": 11,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中机器人控制课程：ROS入门",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14094-01",
+        "name": "核心概念",
+        "description": "ROS入门的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14094-02",
+        "name": "实践技能",
+        "description": "ROS入门的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "ROS入门实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握ROS入门",
+      "应用ROS入门"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/机器人控制/14094",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-MID-14095",
+    "title": "项目实战（初中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "机器人控制",
+    "lesson_number": 12,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中机器人控制课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14095-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14095-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/机器人控制/14095",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-HIG-14096",
+    "title": "深度学习（高中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "机器人控制",
+    "lesson_number": 1,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中机器人控制课程：深度学习",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14096-01",
+        "name": "核心概念",
+        "description": "深度学习的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14096-02",
+        "name": "实践技能",
+        "description": "深度学习的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "深度学习实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握深度学习",
+      "应用深度学习"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/机器人控制/14096",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-HIG-14097",
+    "title": "计算机视觉（高中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "机器人控制",
+    "lesson_number": 2,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中机器人控制课程：计算机视觉",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14097-01",
+        "name": "核心概念",
+        "description": "计算机视觉的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14097-02",
+        "name": "实践技能",
+        "description": "计算机视觉的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "计算机视觉实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握计算机视觉",
+      "应用计算机视觉"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/机器人控制/14097",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-HIG-14098",
+    "title": "强化学习（高中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "机器人控制",
+    "lesson_number": 3,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中机器人控制课程：强化学习",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14098-01",
+        "name": "核心概念",
+        "description": "强化学习的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14098-02",
+        "name": "实践技能",
+        "description": "强化学习的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "强化学习实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握强化学习",
+      "应用强化学习"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/机器人控制/14098",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-HIG-14099",
+    "title": "人形机器人（高中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "机器人控制",
+    "lesson_number": 4,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中机器人控制课程：人形机器人",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14099-01",
+        "name": "核心概念",
+        "description": "人形机器人的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14099-02",
+        "name": "实践技能",
+        "description": "人形机器人的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "人形机器人实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握人形机器人",
+      "应用人形机器人"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/机器人控制/14099",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-HIG-14100",
+    "title": "软体机器人（高中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "机器人控制",
+    "lesson_number": 5,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中机器人控制课程：软体机器人",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14100-01",
+        "name": "核心概念",
+        "description": "软体机器人的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14100-02",
+        "name": "实践技能",
+        "description": "软体机器人的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "软体机器人实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握软体机器人",
+      "应用软体机器人"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/机器人控制/14100",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-HIG-14101",
+    "title": "脑机接口（高中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "机器人控制",
+    "lesson_number": 6,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中机器人控制课程：脑机接口",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14101-01",
+        "name": "核心概念",
+        "description": "脑机接口的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14101-02",
+        "name": "实践技能",
+        "description": "脑机接口的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "脑机接口实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握脑机接口",
+      "应用脑机接口"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/机器人控制/14101",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-HIG-14102",
+    "title": "swarm（高中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "机器人控制",
+    "lesson_number": 7,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中机器人控制课程：swarm",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14102-01",
+        "name": "核心概念",
+        "description": "swarm的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14102-02",
+        "name": "实践技能",
+        "description": "swarm的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "swarm实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握swarm",
+      "应用swarm"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/机器人控制/14102",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-HIG-14103",
+    "title": "太空机器人（高中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "机器人控制",
+    "lesson_number": 8,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中机器人控制课程：太空机器人",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14103-01",
+        "name": "核心概念",
+        "description": "太空机器人的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14103-02",
+        "name": "实践技能",
+        "description": "太空机器人的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "太空机器人实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握太空机器人",
+      "应用太空机器人"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/机器人控制/14103",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-HIG-14104",
+    "title": "医疗机器人（高中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "机器人控制",
+    "lesson_number": 9,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中机器人控制课程：医疗机器人",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14104-01",
+        "name": "核心概念",
+        "description": "医疗机器人的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14104-02",
+        "name": "实践技能",
+        "description": "医疗机器人的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "医疗机器人实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握医疗机器人",
+      "应用医疗机器人"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/机器人控制/14104",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-HIG-14105",
+    "title": "工业机器人（高中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "机器人控制",
+    "lesson_number": 10,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中机器人控制课程：工业机器人",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14105-01",
+        "name": "核心概念",
+        "description": "工业机器人的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14105-02",
+        "name": "实践技能",
+        "description": "工业机器人的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "工业机器人实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握工业机器人",
+      "应用工业机器人"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/机器人控制/14105",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-HIG-14106",
+    "title": "伦理安全（高中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "机器人控制",
+    "lesson_number": 11,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中机器人控制课程：伦理安全",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14106-01",
+        "name": "核心概念",
+        "description": "伦理安全的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14106-02",
+        "name": "实践技能",
+        "description": "伦理安全的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "伦理安全实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握伦理安全",
+      "应用伦理安全"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/机器人控制/14106",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-机器人控-HIG-14107",
+    "title": "项目实战（高中·机器人控制）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "机器人控制",
+    "lesson_number": 12,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中机器人控制课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14107-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14107-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/机器人控制/14107",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-物联网I-ELE-14108",
+    "title": "IoT概念（小学·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "物联网IoT",
+    "lesson_number": 1,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学物联网IoT课程：IoT概念",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14108-01",
+        "name": "核心概念",
+        "description": "IoT概念的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14108-02",
+        "name": "实践技能",
+        "description": "IoT概念的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "IoT概念实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握IoT概念",
+      "应用IoT概念"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/物联网IoT/14108",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-物联网I-ELE-14109",
+    "title": "WiFi模块（小学·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "物联网IoT",
+    "lesson_number": 2,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学物联网IoT课程：WiFi模块",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14109-01",
+        "name": "核心概念",
+        "description": "WiFi模块的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14109-02",
+        "name": "实践技能",
+        "description": "WiFi模块的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "WiFi模块实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握WiFi模块",
+      "应用WiFi模块"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/物联网IoT/14109",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-物联网I-ELE-14110",
+    "title": "MQTT协议（小学·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "物联网IoT",
+    "lesson_number": 3,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学物联网IoT课程：MQTT协议",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14110-01",
+        "name": "核心概念",
+        "description": "MQTT协议的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14110-02",
+        "name": "实践技能",
+        "description": "MQTT协议的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "MQTT协议实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握MQTT协议",
+      "应用MQTT协议"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/物联网IoT/14110",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-物联网I-ELE-14111",
+    "title": "云平台（小学·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "物联网IoT",
+    "lesson_number": 4,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学物联网IoT课程：云平台",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14111-01",
+        "name": "核心概念",
+        "description": "云平台的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14111-02",
+        "name": "实践技能",
+        "description": "云平台的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "云平台实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握云平台",
+      "应用云平台"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/物联网IoT/14111",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-物联网I-ELE-14112",
+    "title": "远程控制（小学·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "物联网IoT",
+    "lesson_number": 5,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学物联网IoT课程：远程控制",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14112-01",
+        "name": "核心概念",
+        "description": "远程控制的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14112-02",
+        "name": "实践技能",
+        "description": "远程控制的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "远程控制实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握远程控制",
+      "应用远程控制"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/物联网IoT/14112",
+    "scraped_at": "2026-04-18T23:35:50.546146"
+  },
+  {
+    "course_id": "ARDU-物联网I-ELE-14113",
+    "title": "智能家居（小学·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "物联网IoT",
+    "lesson_number": 6,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学物联网IoT课程：智能家居",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14113-01",
+        "name": "核心概念",
+        "description": "智能家居的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14113-02",
+        "name": "实践技能",
+        "description": "智能家居的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "智能家居实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握智能家居",
+      "应用智能家居"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/物联网IoT/14113",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-ELE-14114",
+    "title": "智能农业（小学·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "物联网IoT",
+    "lesson_number": 7,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学物联网IoT课程：智能农业",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14114-01",
+        "name": "核心概念",
+        "description": "智能农业的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14114-02",
+        "name": "实践技能",
+        "description": "智能农业的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "智能农业实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握智能农业",
+      "应用智能农业"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/物联网IoT/14114",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-ELE-14115",
+    "title": "天气同步（小学·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "物联网IoT",
+    "lesson_number": 8,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学物联网IoT课程：天气同步",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14115-01",
+        "name": "核心概念",
+        "description": "天气同步的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14115-02",
+        "name": "实践技能",
+        "description": "天气同步的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "天气同步实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握天气同步",
+      "应用天气同步"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/物联网IoT/14115",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-ELE-14116",
+    "title": "IFTTT（小学·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "物联网IoT",
+    "lesson_number": 9,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学物联网IoT课程：IFTTT",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14116-01",
+        "name": "核心概念",
+        "description": "IFTTT的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14116-02",
+        "name": "实践技能",
+        "description": "IFTTT的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "IFTTT实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握IFTTT",
+      "应用IFTTT"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/物联网IoT/14116",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-ELE-14117",
+    "title": "NTP时间（小学·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "物联网IoT",
+    "lesson_number": 10,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学物联网IoT课程：NTP时间",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14117-01",
+        "name": "核心概念",
+        "description": "NTP时间的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14117-02",
+        "name": "实践技能",
+        "description": "NTP时间的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "NTP时间实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握NTP时间",
+      "应用NTP时间"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/物联网IoT/14117",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-ELE-14118",
+    "title": "OTA升级（小学·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "物联网IoT",
+    "lesson_number": 11,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学物联网IoT课程：OTA升级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14118-01",
+        "name": "核心概念",
+        "description": "OTA升级的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14118-02",
+        "name": "实践技能",
+        "description": "OTA升级的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "OTA升级实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握OTA升级",
+      "应用OTA升级"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/物联网IoT/14118",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-ELE-14119",
+    "title": "项目实战（小学·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "物联网IoT",
+    "lesson_number": 12,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学物联网IoT课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14119-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14119-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/elementary/物联网IoT/14119",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-MID-14120",
+    "title": "ESP32（初中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "物联网IoT",
+    "lesson_number": 1,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中物联网IoT课程：ESP32",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14120-01",
+        "name": "核心概念",
+        "description": "ESP32的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14120-02",
+        "name": "实践技能",
+        "description": "ESP32的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "ESP32实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握ESP32",
+      "应用ESP32"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/物联网IoT/14120",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-MID-14121",
+    "title": "Bluetooth LE（初中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "物联网IoT",
+    "lesson_number": 2,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中物联网IoT课程：Bluetooth LE",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14121-01",
+        "name": "核心概念",
+        "description": "Bluetooth LE的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14121-02",
+        "name": "实践技能",
+        "description": "Bluetooth LE的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "Bluetooth LE实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握Bluetooth LE",
+      "应用Bluetooth LE"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/物联网IoT/14121",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-MID-14122",
+    "title": "LoRa（初中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "物联网IoT",
+    "lesson_number": 3,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中物联网IoT课程：LoRa",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14122-01",
+        "name": "核心概念",
+        "description": "LoRa的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14122-02",
+        "name": "实践技能",
+        "description": "LoRa的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "LoRa实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握LoRa",
+      "应用LoRa"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/物联网IoT/14122",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-MID-14123",
+    "title": "NB-IoT（初中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "物联网IoT",
+    "lesson_number": 4,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中物联网IoT课程：NB-IoT",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14123-01",
+        "name": "核心概念",
+        "description": "NB-IoT的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14123-02",
+        "name": "实践技能",
+        "description": "NB-IoT的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "NB-IoT实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握NB-IoT",
+      "应用NB-IoT"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/物联网IoT/14123",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-MID-14124",
+    "title": "Zigbee（初中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "物联网IoT",
+    "lesson_number": 5,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中物联网IoT课程：Zigbee",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14124-01",
+        "name": "核心概念",
+        "description": "Zigbee的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14124-02",
+        "name": "实践技能",
+        "description": "Zigbee的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "Zigbee实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握Zigbee",
+      "应用Zigbee"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/物联网IoT/14124",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-MID-14125",
+    "title": "HTTP请求（初中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "物联网IoT",
+    "lesson_number": 6,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中物联网IoT课程：HTTP请求",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14125-01",
+        "name": "核心概念",
+        "description": "HTTP请求的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14125-02",
+        "name": "实践技能",
+        "description": "HTTP请求的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "HTTP请求实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握HTTP请求",
+      "应用HTTP请求"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/物联网IoT/14125",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-MID-14126",
+    "title": "WebSocket（初中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "物联网IoT",
+    "lesson_number": 7,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中物联网IoT课程：WebSocket",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14126-01",
+        "name": "核心概念",
+        "description": "WebSocket的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14126-02",
+        "name": "实践技能",
+        "description": "WebSocket的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "WebSocket实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握WebSocket",
+      "应用WebSocket"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/物联网IoT/14126",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-MID-14127",
+    "title": "数据库（初中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "物联网IoT",
+    "lesson_number": 8,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中物联网IoT课程：数据库",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14127-01",
+        "name": "核心概念",
+        "description": "数据库的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14127-02",
+        "name": "实践技能",
+        "description": "数据库的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "数据库实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握数据库",
+      "应用数据库"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/物联网IoT/14127",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-MID-14128",
+    "title": "身份认证（初中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "物联网IoT",
+    "lesson_number": 9,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中物联网IoT课程：身份认证",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14128-01",
+        "name": "核心概念",
+        "description": "身份认证的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14128-02",
+        "name": "实践技能",
+        "description": "身份认证的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "身份认证实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握身份认证",
+      "应用身份认证"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/物联网IoT/14128",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-MID-14129",
+    "title": "数据加密（初中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "物联网IoT",
+    "lesson_number": 10,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中物联网IoT课程：数据加密",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14129-01",
+        "name": "核心概念",
+        "description": "数据加密的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14129-02",
+        "name": "实践技能",
+        "description": "数据加密的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "数据加密实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握数据加密",
+      "应用数据加密"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/物联网IoT/14129",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-MID-14130",
+    "title": "边缘计算（初中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "物联网IoT",
+    "lesson_number": 11,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中物联网IoT课程：边缘计算",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14130-01",
+        "name": "核心概念",
+        "description": "边缘计算的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14130-02",
+        "name": "实践技能",
+        "description": "边缘计算的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "边缘计算实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握边缘计算",
+      "应用边缘计算"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/物联网IoT/14130",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-MID-14131",
+    "title": "项目实战（初中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "物联网IoT",
+    "lesson_number": 12,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中物联网IoT课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14131-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14131-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/middle/物联网IoT/14131",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-HIG-14132",
+    "title": "5G IoT（高中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "物联网IoT",
+    "lesson_number": 1,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中物联网IoT课程：5G IoT",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14132-01",
+        "name": "核心概念",
+        "description": "5G IoT的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14132-02",
+        "name": "实践技能",
+        "description": "5G IoT的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "5G IoT实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握5G IoT",
+      "应用5G IoT"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/物联网IoT/14132",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-HIG-14133",
+    "title": "MQTT Broker（高中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "物联网IoT",
+    "lesson_number": 2,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中物联网IoT课程：MQTT Broker",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14133-01",
+        "name": "核心概念",
+        "description": "MQTT Broker的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14133-02",
+        "name": "实践技能",
+        "description": "MQTT Broker的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "MQTT Broker实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握MQTT Broker",
+      "应用MQTT Broker"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/物联网IoT/14133",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-HIG-14134",
+    "title": "CoAP（高中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "物联网IoT",
+    "lesson_number": 3,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中物联网IoT课程：CoAP",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14134-01",
+        "name": "核心概念",
+        "description": "CoAP的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14134-02",
+        "name": "实践技能",
+        "description": "CoAP的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "CoAP实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握CoAP",
+      "应用CoAP"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/物联网IoT/14134",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-HIG-14135",
+    "title": "GraphQL（高中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "物联网IoT",
+    "lesson_number": 4,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中物联网IoT课程：GraphQL",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14135-01",
+        "name": "核心概念",
+        "description": "GraphQL的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14135-02",
+        "name": "实践技能",
+        "description": "GraphQL的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "GraphQL实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握GraphQL",
+      "应用GraphQL"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/物联网IoT/14135",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-HIG-14136",
+    "title": "Kafka（高中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "物联网IoT",
+    "lesson_number": 5,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中物联网IoT课程：Kafka",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14136-01",
+        "name": "核心概念",
+        "description": "Kafka的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14136-02",
+        "name": "实践技能",
+        "description": "Kafka的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "Kafka实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握Kafka",
+      "应用Kafka"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/物联网IoT/14136",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-HIG-14137",
+    "title": "时序数据库（高中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "物联网IoT",
+    "lesson_number": 6,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中物联网IoT课程：时序数据库",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14137-01",
+        "name": "核心概念",
+        "description": "时序数据库的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14137-02",
+        "name": "实践技能",
+        "description": "时序数据库的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "时序数据库实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握时序数据库",
+      "应用时序数据库"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/物联网IoT/14137",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-HIG-14138",
+    "title": "容器化（高中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "物联网IoT",
+    "lesson_number": 7,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中物联网IoT课程：容器化",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14138-01",
+        "name": "核心概念",
+        "description": "容器化的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14138-02",
+        "name": "实践技能",
+        "description": "容器化的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "容器化实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握容器化",
+      "应用容器化"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/物联网IoT/14138",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-HIG-14139",
+    "title": "Kubernetes（高中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "物联网IoT",
+    "lesson_number": 8,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中物联网IoT课程：Kubernetes",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14139-01",
+        "name": "核心概念",
+        "description": "Kubernetes的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14139-02",
+        "name": "实践技能",
+        "description": "Kubernetes的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "Kubernetes实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握Kubernetes",
+      "应用Kubernetes"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/物联网IoT/14139",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-HIG-14140",
+    "title": "数字孪生（高中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "物联网IoT",
+    "lesson_number": 9,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中物联网IoT课程：数字孪生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14140-01",
+        "name": "核心概念",
+        "description": "数字孪生的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14140-02",
+        "name": "实践技能",
+        "description": "数字孪生的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "数字孪生实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握数字孪生",
+      "应用数字孪生"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/物联网IoT/14140",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-HIG-14141",
+    "title": "区块链（高中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "物联网IoT",
+    "lesson_number": 10,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中物联网IoT课程：区块链",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14141-01",
+        "name": "核心概念",
+        "description": "区块链的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14141-02",
+        "name": "实践技能",
+        "description": "区块链的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "区块链实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握区块链",
+      "应用区块链"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/物联网IoT/14141",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-HIG-14142",
+    "title": "AIoT（高中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "物联网IoT",
+    "lesson_number": 11,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中物联网IoT课程：AIoT",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14142-01",
+        "name": "核心概念",
+        "description": "AIoT的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14142-02",
+        "name": "实践技能",
+        "description": "AIoT的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "AIoT实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握AIoT",
+      "应用AIoT"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/物联网IoT/14142",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  },
+  {
+    "course_id": "ARDU-物联网I-HIG-14143",
+    "title": "项目实战（高中·物联网IoT）",
+    "source": "Arduino硬件编程专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "物联网IoT",
+    "lesson_number": 12,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中物联网IoT课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-ARDU-14143-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-ARDU-14143-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实验",
+        "materials": [
+          "Arduino",
+          "传感器"
+        ],
+        "low_cost_alternatives": [
+          "仿真软件",
+          "在线模拟器"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "电路评估",
+      "代码检查",
+      "功能测试"
+    ],
+    "hardware_components": [
+      "Arduino开发板",
+      "传感器模块"
+    ],
+    "programming_language": "Arduino C/C++",
+    "career_paths": [
+      "嵌入式工程师",
+      "硬件开发者"
+    ],
+    "stem_connections": [
+      "电子",
+      "物理",
+      "计算机",
+      "工程"
+    ],
+    "course_url": "https://arduino-stem.edu/high/物联网IoT/14143",
+    "scraped_at": "2026-04-18T23:35:50.547146"
+  }
+]

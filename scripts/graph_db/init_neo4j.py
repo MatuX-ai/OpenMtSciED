@@ -4,10 +4,12 @@ Neo4j连接测试和Schema初始化脚本
 """
 
 import sys
+import ssl
 from pathlib import Path
 
 try:
     from neo4j import GraphDatabase
+    import neo4j
 except ImportError:
     print("❌ 错误: neo4j驱动未安装")
     print("请运行: pip install neo4j")
@@ -23,6 +25,8 @@ def test_connection(uri="bolt://127.0.0.1:7687", username="neo4j", password="pas
     print(f"用户名: {username}")
 
     try:
+        # 对于 Neo4j Aura，使用 bolt+s:// URI scheme（直连加密协议）
+        # URI scheme 中的 +s 表示 TLS 加密，driver 会自动处理
         driver = GraphDatabase.driver(uri, auth=(username, password))
 
         with driver.session() as session:
@@ -48,10 +52,10 @@ def test_connection(uri="bolt://127.0.0.1:7687", username="neo4j", password="pas
     except Exception as e:
         print(f"❌ 连接失败: {e}")
         print("\n可能的原因:")
-        print("1. Neo4j Desktop未启动")
-        print("2. 数据库实例未运行")
-        print("3. 用户名或密码错误")
-        print("4. 端口7687被占用")
+        print("1. Neo4j实例未启动或不在RUNNING状态")
+        print("2. 用户名或密码错误")
+        print("3. 网络连接问题或防火墙阻止")
+        print("4. SSL证书配置问题")
         return False
 
 
@@ -184,9 +188,9 @@ def main():
     print("🚀" * 30 + "\n")
 
     # 配置
-    uri = "bolt://127.0.0.1:7687"
-    username = "neo4j"
-    password = "password"
+    uri = "bolt+s://4abd5ef9.databases.neo4j.io"  # Neo4j Aura 使用 bolt+s 直连协议
+    username = "4abd5ef9"
+    password = "bXebDaB8hSalBxvvB5GhHmcvudO03ilZB7qItmI0Xbs"
 
     # 步骤1: 测试连接
     if not test_connection(uri, username, password):

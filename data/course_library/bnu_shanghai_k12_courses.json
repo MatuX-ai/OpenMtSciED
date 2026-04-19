@@ -1,0 +1,4021 @@
+[
+  {
+    "course_id": "SHNU-STEM-4000",
+    "title": "STEM教育理念与价值（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：STEM教育理念与价值，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4000-01",
+        "name": "理论基础",
+        "description": "STEM教育理念与价值的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4000-02",
+        "name": "实践技能",
+        "description": "STEM教育理念与价值的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "STEM教育理念与价值实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4000",
+    "scraped_at": "2026-04-18T22:35:29.907715"
+  },
+  {
+    "course_id": "SHNU-STEM-4001",
+    "title": "STEM教育理念与价值（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：STEM教育理念与价值，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4001-01",
+        "name": "理论基础",
+        "description": "STEM教育理念与价值的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4001-02",
+        "name": "实践技能",
+        "description": "STEM教育理念与价值的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "STEM教育理念与价值实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4001",
+    "scraped_at": "2026-04-18T22:35:30.759905"
+  },
+  {
+    "course_id": "SHNU-STEM-4002",
+    "title": "STEM教育理念与价值（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：STEM教育理念与价值，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4002-01",
+        "name": "理论基础",
+        "description": "STEM教育理念与价值的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4002-02",
+        "name": "实践技能",
+        "description": "STEM教育理念与价值的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "STEM教育理念与价值实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4002",
+    "scraped_at": "2026-04-18T22:35:31.615840"
+  },
+  {
+    "course_id": "SHNU-STEM-4003",
+    "title": "美国STEM教育案例分析（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：美国STEM教育案例分析，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4003-01",
+        "name": "理论基础",
+        "description": "美国STEM教育案例分析的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4003-02",
+        "name": "实践技能",
+        "description": "美国STEM教育案例分析的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "美国STEM教育案例分析实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4003",
+    "scraped_at": "2026-04-18T22:35:32.165368"
+  },
+  {
+    "course_id": "SHNU-STEM-4004",
+    "title": "美国STEM教育案例分析（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：美国STEM教育案例分析，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4004-01",
+        "name": "理论基础",
+        "description": "美国STEM教育案例分析的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4004-02",
+        "name": "实践技能",
+        "description": "美国STEM教育案例分析的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "美国STEM教育案例分析实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4004",
+    "scraped_at": "2026-04-18T22:35:33.233065"
+  },
+  {
+    "course_id": "SHNU-STEM-4005",
+    "title": "美国STEM教育案例分析（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：美国STEM教育案例分析，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4005-01",
+        "name": "理论基础",
+        "description": "美国STEM教育案例分析的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4005-02",
+        "name": "实践技能",
+        "description": "美国STEM教育案例分析的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "美国STEM教育案例分析实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4005",
+    "scraped_at": "2026-04-18T22:35:34.442715"
+  },
+  {
+    "course_id": "SHNU-STEM-4006",
+    "title": "中国STEM教育政策解读（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：中国STEM教育政策解读，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4006-01",
+        "name": "理论基础",
+        "description": "中国STEM教育政策解读的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4006-02",
+        "name": "实践技能",
+        "description": "中国STEM教育政策解读的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "中国STEM教育政策解读实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4006",
+    "scraped_at": "2026-04-18T22:35:34.972754"
+  },
+  {
+    "course_id": "SHNU-STEM-4007",
+    "title": "中国STEM教育政策解读（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：中国STEM教育政策解读，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4007-01",
+        "name": "理论基础",
+        "description": "中国STEM教育政策解读的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4007-02",
+        "name": "实践技能",
+        "description": "中国STEM教育政策解读的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "中国STEM教育政策解读实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4007",
+    "scraped_at": "2026-04-18T22:35:36.429193"
+  },
+  {
+    "course_id": "SHNU-STEM-4008",
+    "title": "中国STEM教育政策解读（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：中国STEM教育政策解读，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4008-01",
+        "name": "理论基础",
+        "description": "中国STEM教育政策解读的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4008-02",
+        "name": "实践技能",
+        "description": "中国STEM教育政策解读的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "中国STEM教育政策解读实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4008",
+    "scraped_at": "2026-04-18T22:35:37.494517"
+  },
+  {
+    "course_id": "SHNU-STEM-4009",
+    "title": "STEM与核心素养（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：STEM与核心素养，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4009-01",
+        "name": "理论基础",
+        "description": "STEM与核心素养的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4009-02",
+        "name": "实践技能",
+        "description": "STEM与核心素养的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "STEM与核心素养实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4009",
+    "scraped_at": "2026-04-18T22:35:38.422709"
+  },
+  {
+    "course_id": "SHNU-STEM-4010",
+    "title": "STEM与核心素养（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：STEM与核心素养，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4010-01",
+        "name": "理论基础",
+        "description": "STEM与核心素养的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4010-02",
+        "name": "实践技能",
+        "description": "STEM与核心素养的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "STEM与核心素养实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4010",
+    "scraped_at": "2026-04-18T22:35:39.535271"
+  },
+  {
+    "course_id": "SHNU-STEM-4011",
+    "title": "STEM与核心素养（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：STEM与核心素养，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4011-01",
+        "name": "理论基础",
+        "description": "STEM与核心素养的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4011-02",
+        "name": "实践技能",
+        "description": "STEM与核心素养的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "STEM与核心素养实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4011",
+    "scraped_at": "2026-04-18T22:35:40.860846"
+  },
+  {
+    "course_id": "SHNU-STEM-4012",
+    "title": "苔藓绿化产品设计案例（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：苔藓绿化产品设计案例，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4012-01",
+        "name": "理论基础",
+        "description": "苔藓绿化产品设计案例的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4012-02",
+        "name": "实践技能",
+        "description": "苔藓绿化产品设计案例的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "苔藓绿化产品设计案例实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4012",
+    "scraped_at": "2026-04-18T22:35:41.491808"
+  },
+  {
+    "course_id": "SHNU-STEM-4013",
+    "title": "苔藓绿化产品设计案例（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：苔藓绿化产品设计案例，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4013-01",
+        "name": "理论基础",
+        "description": "苔藓绿化产品设计案例的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4013-02",
+        "name": "实践技能",
+        "description": "苔藓绿化产品设计案例的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "苔藓绿化产品设计案例实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4013",
+    "scraped_at": "2026-04-18T22:35:42.544872"
+  },
+  {
+    "course_id": "SHNU-STEM-4014",
+    "title": "苔藓绿化产品设计案例（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：苔藓绿化产品设计案例，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4014-01",
+        "name": "理论基础",
+        "description": "苔藓绿化产品设计案例的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4014-02",
+        "name": "实践技能",
+        "description": "苔藓绿化产品设计案例的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "苔藓绿化产品设计案例实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4014",
+    "scraped_at": "2026-04-18T22:35:43.135594"
+  },
+  {
+    "course_id": "SHNU-STEM-4015",
+    "title": "项目式学习方法论（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：项目式学习方法论，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4015-01",
+        "name": "理论基础",
+        "description": "项目式学习方法论的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4015-02",
+        "name": "实践技能",
+        "description": "项目式学习方法论的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目式学习方法论实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4015",
+    "scraped_at": "2026-04-18T22:35:44.076019"
+  },
+  {
+    "course_id": "SHNU-STEM-4016",
+    "title": "项目式学习方法论（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：项目式学习方法论，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4016-01",
+        "name": "理论基础",
+        "description": "项目式学习方法论的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4016-02",
+        "name": "实践技能",
+        "description": "项目式学习方法论的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目式学习方法论实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4016",
+    "scraped_at": "2026-04-18T22:35:45.444836"
+  },
+  {
+    "course_id": "SHNU-STEM-4017",
+    "title": "项目式学习方法论（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：项目式学习方法论，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4017-01",
+        "name": "理论基础",
+        "description": "项目式学习方法论的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4017-02",
+        "name": "实践技能",
+        "description": "项目式学习方法论的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目式学习方法论实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4017",
+    "scraped_at": "2026-04-18T22:35:46.387538"
+  },
+  {
+    "course_id": "SHNU-STEM-4018",
+    "title": "跨学科整合策略（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：跨学科整合策略，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4018-01",
+        "name": "理论基础",
+        "description": "跨学科整合策略的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4018-02",
+        "name": "实践技能",
+        "description": "跨学科整合策略的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "跨学科整合策略实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4018",
+    "scraped_at": "2026-04-18T22:35:47.863399"
+  },
+  {
+    "course_id": "SHNU-STEM-4019",
+    "title": "跨学科整合策略（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：跨学科整合策略，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4019-01",
+        "name": "理论基础",
+        "description": "跨学科整合策略的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4019-02",
+        "name": "实践技能",
+        "description": "跨学科整合策略的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "跨学科整合策略实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4019",
+    "scraped_at": "2026-04-18T22:35:48.658993"
+  },
+  {
+    "course_id": "SHNU-STEM-4020",
+    "title": "跨学科整合策略（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：跨学科整合策略，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4020-01",
+        "name": "理论基础",
+        "description": "跨学科整合策略的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4020-02",
+        "name": "实践技能",
+        "description": "跨学科整合策略的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "跨学科整合策略实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4020",
+    "scraped_at": "2026-04-18T22:35:49.695548"
+  },
+  {
+    "course_id": "SHNU-STEM-4021",
+    "title": "探究式教学设计（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：探究式教学设计，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4021-01",
+        "name": "理论基础",
+        "description": "探究式教学设计的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4021-02",
+        "name": "实践技能",
+        "description": "探究式教学设计的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "探究式教学设计实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4021",
+    "scraped_at": "2026-04-18T22:35:51.098671"
+  },
+  {
+    "course_id": "SHNU-STEM-4022",
+    "title": "探究式教学设计（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：探究式教学设计，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4022-01",
+        "name": "理论基础",
+        "description": "探究式教学设计的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4022-02",
+        "name": "实践技能",
+        "description": "探究式教学设计的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "探究式教学设计实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4022",
+    "scraped_at": "2026-04-18T22:35:52.177727"
+  },
+  {
+    "course_id": "SHNU-STEM-4023",
+    "title": "探究式教学设计（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：探究式教学设计，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4023-01",
+        "name": "理论基础",
+        "description": "探究式教学设计的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4023-02",
+        "name": "实践技能",
+        "description": "探究式教学设计的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "探究式教学设计实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4023",
+    "scraped_at": "2026-04-18T22:35:53.284689"
+  },
+  {
+    "course_id": "SHNU-STEM-4024",
+    "title": "科学思维培养（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：科学思维培养，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4024-01",
+        "name": "理论基础",
+        "description": "科学思维培养的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4024-02",
+        "name": "实践技能",
+        "description": "科学思维培养的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "科学思维培养实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4024",
+    "scraped_at": "2026-04-18T22:35:54.716390"
+  },
+  {
+    "course_id": "SHNU-STEM-4025",
+    "title": "科学思维培养（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：科学思维培养，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4025-01",
+        "name": "理论基础",
+        "description": "科学思维培养的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4025-02",
+        "name": "实践技能",
+        "description": "科学思维培养的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "科学思维培养实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4025",
+    "scraped_at": "2026-04-18T22:35:56.048994"
+  },
+  {
+    "course_id": "SHNU-STEM-4026",
+    "title": "科学思维培养（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：科学思维培养，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4026-01",
+        "name": "理论基础",
+        "description": "科学思维培养的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4026-02",
+        "name": "实践技能",
+        "description": "科学思维培养的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "科学思维培养实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4026",
+    "scraped_at": "2026-04-18T22:35:56.827805"
+  },
+  {
+    "course_id": "SHNU-STEM-4027",
+    "title": "工程问题解决（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：工程问题解决，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4027-01",
+        "name": "理论基础",
+        "description": "工程问题解决的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4027-02",
+        "name": "实践技能",
+        "description": "工程问题解决的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "工程问题解决实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4027",
+    "scraped_at": "2026-04-18T22:35:58.284304"
+  },
+  {
+    "course_id": "SHNU-STEM-4028",
+    "title": "工程问题解决（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：工程问题解决，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4028-01",
+        "name": "理论基础",
+        "description": "工程问题解决的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4028-02",
+        "name": "实践技能",
+        "description": "工程问题解决的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "工程问题解决实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4028",
+    "scraped_at": "2026-04-18T22:35:58.799528"
+  },
+  {
+    "course_id": "SHNU-STEM-4029",
+    "title": "工程问题解决（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：工程问题解决，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4029-01",
+        "name": "理论基础",
+        "description": "工程问题解决的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4029-02",
+        "name": "实践技能",
+        "description": "工程问题解决的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "工程问题解决实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4029",
+    "scraped_at": "2026-04-18T22:36:00.081752"
+  },
+  {
+    "course_id": "SHNU-STEM-4030",
+    "title": "数学建模应用（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：数学建模应用，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4030-01",
+        "name": "理论基础",
+        "description": "数学建模应用的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4030-02",
+        "name": "实践技能",
+        "description": "数学建模应用的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "数学建模应用实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4030",
+    "scraped_at": "2026-04-18T22:36:00.900476"
+  },
+  {
+    "course_id": "SHNU-STEM-4031",
+    "title": "数学建模应用（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：数学建模应用，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4031-01",
+        "name": "理论基础",
+        "description": "数学建模应用的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4031-02",
+        "name": "实践技能",
+        "description": "数学建模应用的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "数学建模应用实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4031",
+    "scraped_at": "2026-04-18T22:36:01.464269"
+  },
+  {
+    "course_id": "SHNU-STEM-4032",
+    "title": "数学建模应用（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：数学建模应用，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4032-01",
+        "name": "理论基础",
+        "description": "数学建模应用的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4032-02",
+        "name": "实践技能",
+        "description": "数学建模应用的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "数学建模应用实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4032",
+    "scraped_at": "2026-04-18T22:36:02.758680"
+  },
+  {
+    "course_id": "SHNU-STEM-4033",
+    "title": "技术创新实践（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：技术创新实践，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4033-01",
+        "name": "理论基础",
+        "description": "技术创新实践的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4033-02",
+        "name": "实践技能",
+        "description": "技术创新实践的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "技术创新实践实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4033",
+    "scraped_at": "2026-04-18T22:36:03.454198"
+  },
+  {
+    "course_id": "SHNU-STEM-4034",
+    "title": "技术创新实践（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：技术创新实践，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4034-01",
+        "name": "理论基础",
+        "description": "技术创新实践的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4034-02",
+        "name": "实践技能",
+        "description": "技术创新实践的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "技术创新实践实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4034",
+    "scraped_at": "2026-04-18T22:36:04.369546"
+  },
+  {
+    "course_id": "SHNU-STEM-4035",
+    "title": "技术创新实践（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：技术创新实践，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4035-01",
+        "name": "理论基础",
+        "description": "技术创新实践的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4035-02",
+        "name": "实践技能",
+        "description": "技术创新实践的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "技术创新实践实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4035",
+    "scraped_at": "2026-04-18T22:36:05.022994"
+  },
+  {
+    "course_id": "BNU-小学-5000",
+    "title": "数与代数基础（3年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "3年级",
+    "subject": "小学数学",
+    "duration_weeks": 4,
+    "description": "北师大版小学数学课程：数与代数基础，适用于3年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5000-01",
+        "name": "知识点讲解",
+        "description": "数与代数基础的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5000-02",
+        "name": "能力训练",
+        "description": "数与代数基础的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学数学/5000",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5001",
+    "title": "数与代数基础（4年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "4年级",
+    "subject": "小学数学",
+    "duration_weeks": 4,
+    "description": "北师大版小学数学课程：数与代数基础，适用于4年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5001-01",
+        "name": "知识点讲解",
+        "description": "数与代数基础的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5001-02",
+        "name": "能力训练",
+        "description": "数与代数基础的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学数学/5001",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5002",
+    "title": "数与代数基础（5年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "5年级",
+    "subject": "小学数学",
+    "duration_weeks": 4,
+    "description": "北师大版小学数学课程：数与代数基础，适用于5年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5002-01",
+        "name": "知识点讲解",
+        "description": "数与代数基础的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5002-02",
+        "name": "能力训练",
+        "description": "数与代数基础的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学数学/5002",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5003",
+    "title": "数与代数基础（6年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "6年级",
+    "subject": "小学数学",
+    "duration_weeks": 4,
+    "description": "北师大版小学数学课程：数与代数基础，适用于6年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5003-01",
+        "name": "知识点讲解",
+        "description": "数与代数基础的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5003-02",
+        "name": "能力训练",
+        "description": "数与代数基础的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学数学/5003",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5004",
+    "title": "图形与几何（3年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "3年级",
+    "subject": "小学数学",
+    "duration_weeks": 4,
+    "description": "北师大版小学数学课程：图形与几何，适用于3年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5004-01",
+        "name": "知识点讲解",
+        "description": "图形与几何的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5004-02",
+        "name": "能力训练",
+        "description": "图形与几何的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学数学/5004",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5005",
+    "title": "图形与几何（4年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "4年级",
+    "subject": "小学数学",
+    "duration_weeks": 4,
+    "description": "北师大版小学数学课程：图形与几何，适用于4年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5005-01",
+        "name": "知识点讲解",
+        "description": "图形与几何的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5005-02",
+        "name": "能力训练",
+        "description": "图形与几何的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学数学/5005",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5006",
+    "title": "图形与几何（5年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "5年级",
+    "subject": "小学数学",
+    "duration_weeks": 4,
+    "description": "北师大版小学数学课程：图形与几何，适用于5年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5006-01",
+        "name": "知识点讲解",
+        "description": "图形与几何的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5006-02",
+        "name": "能力训练",
+        "description": "图形与几何的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学数学/5006",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5007",
+    "title": "图形与几何（6年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "6年级",
+    "subject": "小学数学",
+    "duration_weeks": 4,
+    "description": "北师大版小学数学课程：图形与几何，适用于6年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5007-01",
+        "name": "知识点讲解",
+        "description": "图形与几何的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5007-02",
+        "name": "能力训练",
+        "description": "图形与几何的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学数学/5007",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5008",
+    "title": "统计与概率（3年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "3年级",
+    "subject": "小学数学",
+    "duration_weeks": 4,
+    "description": "北师大版小学数学课程：统计与概率，适用于3年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5008-01",
+        "name": "知识点讲解",
+        "description": "统计与概率的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5008-02",
+        "name": "能力训练",
+        "description": "统计与概率的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学数学/5008",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5009",
+    "title": "统计与概率（4年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "4年级",
+    "subject": "小学数学",
+    "duration_weeks": 4,
+    "description": "北师大版小学数学课程：统计与概率，适用于4年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5009-01",
+        "name": "知识点讲解",
+        "description": "统计与概率的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5009-02",
+        "name": "能力训练",
+        "description": "统计与概率的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学数学/5009",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5010",
+    "title": "统计与概率（5年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "5年级",
+    "subject": "小学数学",
+    "duration_weeks": 4,
+    "description": "北师大版小学数学课程：统计与概率，适用于5年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5010-01",
+        "name": "知识点讲解",
+        "description": "统计与概率的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5010-02",
+        "name": "能力训练",
+        "description": "统计与概率的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学数学/5010",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5011",
+    "title": "统计与概率（6年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "6年级",
+    "subject": "小学数学",
+    "duration_weeks": 4,
+    "description": "北师大版小学数学课程：统计与概率，适用于6年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5011-01",
+        "name": "知识点讲解",
+        "description": "统计与概率的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5011-02",
+        "name": "能力训练",
+        "description": "统计与概率的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学数学/5011",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5012",
+    "title": "综合与实践（3年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "3年级",
+    "subject": "小学数学",
+    "duration_weeks": 4,
+    "description": "北师大版小学数学课程：综合与实践，适用于3年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5012-01",
+        "name": "知识点讲解",
+        "description": "综合与实践的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5012-02",
+        "name": "能力训练",
+        "description": "综合与实践的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学数学/5012",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5013",
+    "title": "综合与实践（4年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "4年级",
+    "subject": "小学数学",
+    "duration_weeks": 4,
+    "description": "北师大版小学数学课程：综合与实践，适用于4年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5013-01",
+        "name": "知识点讲解",
+        "description": "综合与实践的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5013-02",
+        "name": "能力训练",
+        "description": "综合与实践的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学数学/5013",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5014",
+    "title": "综合与实践（5年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "5年级",
+    "subject": "小学数学",
+    "duration_weeks": 4,
+    "description": "北师大版小学数学课程：综合与实践，适用于5年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5014-01",
+        "name": "知识点讲解",
+        "description": "综合与实践的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5014-02",
+        "name": "能力训练",
+        "description": "综合与实践的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学数学/5014",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5015",
+    "title": "综合与实践（6年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "6年级",
+    "subject": "小学数学",
+    "duration_weeks": 4,
+    "description": "北师大版小学数学课程：综合与实践，适用于6年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5015-01",
+        "name": "知识点讲解",
+        "description": "综合与实践的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5015-02",
+        "name": "能力训练",
+        "description": "综合与实践的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学数学/5015",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5016",
+    "title": "有理数运算（7年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "7年级",
+    "subject": "初中数学",
+    "duration_weeks": 6,
+    "description": "北师大版初中数学课程：有理数运算，适用于7年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5016-01",
+        "name": "知识点讲解",
+        "description": "有理数运算的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5016-02",
+        "name": "能力训练",
+        "description": "有理数运算的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中数学/5016",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5017",
+    "title": "有理数运算（8年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "8年级",
+    "subject": "初中数学",
+    "duration_weeks": 6,
+    "description": "北师大版初中数学课程：有理数运算，适用于8年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5017-01",
+        "name": "知识点讲解",
+        "description": "有理数运算的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5017-02",
+        "name": "能力训练",
+        "description": "有理数运算的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中数学/5017",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5018",
+    "title": "有理数运算（9年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "9年级",
+    "subject": "初中数学",
+    "duration_weeks": 6,
+    "description": "北师大版初中数学课程：有理数运算，适用于9年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5018-01",
+        "name": "知识点讲解",
+        "description": "有理数运算的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5018-02",
+        "name": "能力训练",
+        "description": "有理数运算的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中数学/5018",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5019",
+    "title": "代数式（7年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "7年级",
+    "subject": "初中数学",
+    "duration_weeks": 6,
+    "description": "北师大版初中数学课程：代数式，适用于7年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5019-01",
+        "name": "知识点讲解",
+        "description": "代数式的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5019-02",
+        "name": "能力训练",
+        "description": "代数式的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中数学/5019",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5020",
+    "title": "代数式（8年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "8年级",
+    "subject": "初中数学",
+    "duration_weeks": 6,
+    "description": "北师大版初中数学课程：代数式，适用于8年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5020-01",
+        "name": "知识点讲解",
+        "description": "代数式的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5020-02",
+        "name": "能力训练",
+        "description": "代数式的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中数学/5020",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5021",
+    "title": "代数式（9年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "9年级",
+    "subject": "初中数学",
+    "duration_weeks": 6,
+    "description": "北师大版初中数学课程：代数式，适用于9年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5021-01",
+        "name": "知识点讲解",
+        "description": "代数式的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5021-02",
+        "name": "能力训练",
+        "description": "代数式的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中数学/5021",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5022",
+    "title": "方程与不等式（7年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "7年级",
+    "subject": "初中数学",
+    "duration_weeks": 6,
+    "description": "北师大版初中数学课程：方程与不等式，适用于7年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5022-01",
+        "name": "知识点讲解",
+        "description": "方程与不等式的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5022-02",
+        "name": "能力训练",
+        "description": "方程与不等式的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中数学/5022",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5023",
+    "title": "方程与不等式（8年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "8年级",
+    "subject": "初中数学",
+    "duration_weeks": 6,
+    "description": "北师大版初中数学课程：方程与不等式，适用于8年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5023-01",
+        "name": "知识点讲解",
+        "description": "方程与不等式的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5023-02",
+        "name": "能力训练",
+        "description": "方程与不等式的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中数学/5023",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5024",
+    "title": "方程与不等式（9年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "9年级",
+    "subject": "初中数学",
+    "duration_weeks": 6,
+    "description": "北师大版初中数学课程：方程与不等式，适用于9年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5024-01",
+        "name": "知识点讲解",
+        "description": "方程与不等式的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5024-02",
+        "name": "能力训练",
+        "description": "方程与不等式的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中数学/5024",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5025",
+    "title": "函数初步（7年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "7年级",
+    "subject": "初中数学",
+    "duration_weeks": 6,
+    "description": "北师大版初中数学课程：函数初步，适用于7年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5025-01",
+        "name": "知识点讲解",
+        "description": "函数初步的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5025-02",
+        "name": "能力训练",
+        "description": "函数初步的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中数学/5025",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5026",
+    "title": "函数初步（8年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "8年级",
+    "subject": "初中数学",
+    "duration_weeks": 6,
+    "description": "北师大版初中数学课程：函数初步，适用于8年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5026-01",
+        "name": "知识点讲解",
+        "description": "函数初步的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5026-02",
+        "name": "能力训练",
+        "description": "函数初步的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中数学/5026",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5027",
+    "title": "函数初步（9年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "9年级",
+    "subject": "初中数学",
+    "duration_weeks": 6,
+    "description": "北师大版初中数学课程：函数初步，适用于9年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5027-01",
+        "name": "知识点讲解",
+        "description": "函数初步的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5027-02",
+        "name": "能力训练",
+        "description": "函数初步的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中数学/5027",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5028",
+    "title": "几何证明（7年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "7年级",
+    "subject": "初中数学",
+    "duration_weeks": 6,
+    "description": "北师大版初中数学课程：几何证明，适用于7年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5028-01",
+        "name": "知识点讲解",
+        "description": "几何证明的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5028-02",
+        "name": "能力训练",
+        "description": "几何证明的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中数学/5028",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5029",
+    "title": "几何证明（8年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "8年级",
+    "subject": "初中数学",
+    "duration_weeks": 6,
+    "description": "北师大版初中数学课程：几何证明，适用于8年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5029-01",
+        "name": "知识点讲解",
+        "description": "几何证明的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5029-02",
+        "name": "能力训练",
+        "description": "几何证明的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中数学/5029",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5030",
+    "title": "几何证明（9年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "9年级",
+    "subject": "初中数学",
+    "duration_weeks": 6,
+    "description": "北师大版初中数学课程：几何证明，适用于9年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5030-01",
+        "name": "知识点讲解",
+        "description": "几何证明的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5030-02",
+        "name": "能力训练",
+        "description": "几何证明的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中数学/5030",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-高中-5031",
+    "title": "集合与逻辑（10年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "high",
+    "target_grade": "10年级",
+    "subject": "高中数学",
+    "duration_weeks": 8,
+    "description": "北师大版高中数学课程：集合与逻辑，适用于10年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5031-01",
+        "name": "知识点讲解",
+        "description": "集合与逻辑的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5031-02",
+        "name": "能力训练",
+        "description": "集合与逻辑的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/高中数学/5031",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-高中-5032",
+    "title": "集合与逻辑（11年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "high",
+    "target_grade": "11年级",
+    "subject": "高中数学",
+    "duration_weeks": 8,
+    "description": "北师大版高中数学课程：集合与逻辑，适用于11年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5032-01",
+        "name": "知识点讲解",
+        "description": "集合与逻辑的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5032-02",
+        "name": "能力训练",
+        "description": "集合与逻辑的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/高中数学/5032",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-高中-5033",
+    "title": "集合与逻辑（12年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "high",
+    "target_grade": "12年级",
+    "subject": "高中数学",
+    "duration_weeks": 8,
+    "description": "北师大版高中数学课程：集合与逻辑，适用于12年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5033-01",
+        "name": "知识点讲解",
+        "description": "集合与逻辑的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5033-02",
+        "name": "能力训练",
+        "description": "集合与逻辑的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/高中数学/5033",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-高中-5034",
+    "title": "函数概念（10年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "high",
+    "target_grade": "10年级",
+    "subject": "高中数学",
+    "duration_weeks": 8,
+    "description": "北师大版高中数学课程：函数概念，适用于10年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5034-01",
+        "name": "知识点讲解",
+        "description": "函数概念的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5034-02",
+        "name": "能力训练",
+        "description": "函数概念的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/高中数学/5034",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-高中-5035",
+    "title": "函数概念（11年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "high",
+    "target_grade": "11年级",
+    "subject": "高中数学",
+    "duration_weeks": 8,
+    "description": "北师大版高中数学课程：函数概念，适用于11年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5035-01",
+        "name": "知识点讲解",
+        "description": "函数概念的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5035-02",
+        "name": "能力训练",
+        "description": "函数概念的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/高中数学/5035",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-高中-5036",
+    "title": "函数概念（12年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "high",
+    "target_grade": "12年级",
+    "subject": "高中数学",
+    "duration_weeks": 8,
+    "description": "北师大版高中数学课程：函数概念，适用于12年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5036-01",
+        "name": "知识点讲解",
+        "description": "函数概念的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5036-02",
+        "name": "能力训练",
+        "description": "函数概念的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/高中数学/5036",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-高中-5037",
+    "title": "三角函数（10年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "high",
+    "target_grade": "10年级",
+    "subject": "高中数学",
+    "duration_weeks": 8,
+    "description": "北师大版高中数学课程：三角函数，适用于10年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5037-01",
+        "name": "知识点讲解",
+        "description": "三角函数的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5037-02",
+        "name": "能力训练",
+        "description": "三角函数的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/高中数学/5037",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-高中-5038",
+    "title": "三角函数（11年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "high",
+    "target_grade": "11年级",
+    "subject": "高中数学",
+    "duration_weeks": 8,
+    "description": "北师大版高中数学课程：三角函数，适用于11年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5038-01",
+        "name": "知识点讲解",
+        "description": "三角函数的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5038-02",
+        "name": "能力训练",
+        "description": "三角函数的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/高中数学/5038",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-高中-5039",
+    "title": "三角函数（12年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "high",
+    "target_grade": "12年级",
+    "subject": "高中数学",
+    "duration_weeks": 8,
+    "description": "北师大版高中数学课程：三角函数，适用于12年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5039-01",
+        "name": "知识点讲解",
+        "description": "三角函数的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5039-02",
+        "name": "能力训练",
+        "description": "三角函数的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/高中数学/5039",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-高中-5040",
+    "title": "数列（10年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "high",
+    "target_grade": "10年级",
+    "subject": "高中数学",
+    "duration_weeks": 8,
+    "description": "北师大版高中数学课程：数列，适用于10年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5040-01",
+        "name": "知识点讲解",
+        "description": "数列的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5040-02",
+        "name": "能力训练",
+        "description": "数列的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/高中数学/5040",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-高中-5041",
+    "title": "数列（11年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "high",
+    "target_grade": "11年级",
+    "subject": "高中数学",
+    "duration_weeks": 8,
+    "description": "北师大版高中数学课程：数列，适用于11年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5041-01",
+        "name": "知识点讲解",
+        "description": "数列的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5041-02",
+        "name": "能力训练",
+        "description": "数列的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/高中数学/5041",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-高中-5042",
+    "title": "数列（12年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "high",
+    "target_grade": "12年级",
+    "subject": "高中数学",
+    "duration_weeks": 8,
+    "description": "北师大版高中数学课程：数列，适用于12年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5042-01",
+        "name": "知识点讲解",
+        "description": "数列的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5042-02",
+        "name": "能力训练",
+        "description": "数列的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/高中数学/5042",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-高中-5043",
+    "title": "立体几何（10年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "high",
+    "target_grade": "10年级",
+    "subject": "高中数学",
+    "duration_weeks": 8,
+    "description": "北师大版高中数学课程：立体几何，适用于10年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5043-01",
+        "name": "知识点讲解",
+        "description": "立体几何的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5043-02",
+        "name": "能力训练",
+        "description": "立体几何的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/高中数学/5043",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-高中-5044",
+    "title": "立体几何（11年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "high",
+    "target_grade": "11年级",
+    "subject": "高中数学",
+    "duration_weeks": 8,
+    "description": "北师大版高中数学课程：立体几何，适用于11年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5044-01",
+        "name": "知识点讲解",
+        "description": "立体几何的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5044-02",
+        "name": "能力训练",
+        "description": "立体几何的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/高中数学/5044",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-高中-5045",
+    "title": "立体几何（12年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "high",
+    "target_grade": "12年级",
+    "subject": "高中数学",
+    "duration_weeks": 8,
+    "description": "北师大版高中数学课程：立体几何，适用于12年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5045-01",
+        "name": "知识点讲解",
+        "description": "立体几何的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5045-02",
+        "name": "能力训练",
+        "description": "立体几何的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/高中数学/5045",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-高中-5046",
+    "title": "概率统计（10年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "high",
+    "target_grade": "10年级",
+    "subject": "高中数学",
+    "duration_weeks": 8,
+    "description": "北师大版高中数学课程：概率统计，适用于10年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5046-01",
+        "name": "知识点讲解",
+        "description": "概率统计的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5046-02",
+        "name": "能力训练",
+        "description": "概率统计的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/高中数学/5046",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-高中-5047",
+    "title": "概率统计（11年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "high",
+    "target_grade": "11年级",
+    "subject": "高中数学",
+    "duration_weeks": 8,
+    "description": "北师大版高中数学课程：概率统计，适用于11年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5047-01",
+        "name": "知识点讲解",
+        "description": "概率统计的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5047-02",
+        "name": "能力训练",
+        "description": "概率统计的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/高中数学/5047",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-高中-5048",
+    "title": "概率统计（12年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "high",
+    "target_grade": "12年级",
+    "subject": "高中数学",
+    "duration_weeks": 8,
+    "description": "北师大版高中数学课程：概率统计，适用于12年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5048-01",
+        "name": "知识点讲解",
+        "description": "概率统计的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5048-02",
+        "name": "能力训练",
+        "description": "概率统计的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/高中数学/5048",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5049",
+    "title": "物质科学（3年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "3年级",
+    "subject": "小学科学",
+    "duration_weeks": 4,
+    "description": "北师大版小学科学课程：物质科学，适用于3年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5049-01",
+        "name": "知识点讲解",
+        "description": "物质科学的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5049-02",
+        "name": "能力训练",
+        "description": "物质科学的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学科学/5049",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5050",
+    "title": "物质科学（4年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "4年级",
+    "subject": "小学科学",
+    "duration_weeks": 4,
+    "description": "北师大版小学科学课程：物质科学，适用于4年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5050-01",
+        "name": "知识点讲解",
+        "description": "物质科学的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5050-02",
+        "name": "能力训练",
+        "description": "物质科学的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学科学/5050",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5051",
+    "title": "物质科学（5年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "5年级",
+    "subject": "小学科学",
+    "duration_weeks": 4,
+    "description": "北师大版小学科学课程：物质科学，适用于5年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5051-01",
+        "name": "知识点讲解",
+        "description": "物质科学的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5051-02",
+        "name": "能力训练",
+        "description": "物质科学的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学科学/5051",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5052",
+    "title": "物质科学（6年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "6年级",
+    "subject": "小学科学",
+    "duration_weeks": 4,
+    "description": "北师大版小学科学课程：物质科学，适用于6年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5052-01",
+        "name": "知识点讲解",
+        "description": "物质科学的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5052-02",
+        "name": "能力训练",
+        "description": "物质科学的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学科学/5052",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5053",
+    "title": "生命科学（3年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "3年级",
+    "subject": "小学科学",
+    "duration_weeks": 4,
+    "description": "北师大版小学科学课程：生命科学，适用于3年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5053-01",
+        "name": "知识点讲解",
+        "description": "生命科学的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5053-02",
+        "name": "能力训练",
+        "description": "生命科学的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学科学/5053",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5054",
+    "title": "生命科学（4年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "4年级",
+    "subject": "小学科学",
+    "duration_weeks": 4,
+    "description": "北师大版小学科学课程：生命科学，适用于4年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5054-01",
+        "name": "知识点讲解",
+        "description": "生命科学的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5054-02",
+        "name": "能力训练",
+        "description": "生命科学的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学科学/5054",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5055",
+    "title": "生命科学（5年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "5年级",
+    "subject": "小学科学",
+    "duration_weeks": 4,
+    "description": "北师大版小学科学课程：生命科学，适用于5年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5055-01",
+        "name": "知识点讲解",
+        "description": "生命科学的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5055-02",
+        "name": "能力训练",
+        "description": "生命科学的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学科学/5055",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5056",
+    "title": "生命科学（6年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "6年级",
+    "subject": "小学科学",
+    "duration_weeks": 4,
+    "description": "北师大版小学科学课程：生命科学，适用于6年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5056-01",
+        "name": "知识点讲解",
+        "description": "生命科学的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5056-02",
+        "name": "能力训练",
+        "description": "生命科学的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学科学/5056",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5057",
+    "title": "地球与宇宙（3年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "3年级",
+    "subject": "小学科学",
+    "duration_weeks": 4,
+    "description": "北师大版小学科学课程：地球与宇宙，适用于3年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5057-01",
+        "name": "知识点讲解",
+        "description": "地球与宇宙的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5057-02",
+        "name": "能力训练",
+        "description": "地球与宇宙的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学科学/5057",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5058",
+    "title": "地球与宇宙（4年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "4年级",
+    "subject": "小学科学",
+    "duration_weeks": 4,
+    "description": "北师大版小学科学课程：地球与宇宙，适用于4年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5058-01",
+        "name": "知识点讲解",
+        "description": "地球与宇宙的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5058-02",
+        "name": "能力训练",
+        "description": "地球与宇宙的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学科学/5058",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5059",
+    "title": "地球与宇宙（5年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "5年级",
+    "subject": "小学科学",
+    "duration_weeks": 4,
+    "description": "北师大版小学科学课程：地球与宇宙，适用于5年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5059-01",
+        "name": "知识点讲解",
+        "description": "地球与宇宙的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5059-02",
+        "name": "能力训练",
+        "description": "地球与宇宙的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学科学/5059",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5060",
+    "title": "地球与宇宙（6年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "6年级",
+    "subject": "小学科学",
+    "duration_weeks": 4,
+    "description": "北师大版小学科学课程：地球与宇宙，适用于6年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5060-01",
+        "name": "知识点讲解",
+        "description": "地球与宇宙的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5060-02",
+        "name": "能力训练",
+        "description": "地球与宇宙的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学科学/5060",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5061",
+    "title": "技术与工程（3年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "3年级",
+    "subject": "小学科学",
+    "duration_weeks": 4,
+    "description": "北师大版小学科学课程：技术与工程，适用于3年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5061-01",
+        "name": "知识点讲解",
+        "description": "技术与工程的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5061-02",
+        "name": "能力训练",
+        "description": "技术与工程的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学科学/5061",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5062",
+    "title": "技术与工程（4年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "4年级",
+    "subject": "小学科学",
+    "duration_weeks": 4,
+    "description": "北师大版小学科学课程：技术与工程，适用于4年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5062-01",
+        "name": "知识点讲解",
+        "description": "技术与工程的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5062-02",
+        "name": "能力训练",
+        "description": "技术与工程的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学科学/5062",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5063",
+    "title": "技术与工程（5年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "5年级",
+    "subject": "小学科学",
+    "duration_weeks": 4,
+    "description": "北师大版小学科学课程：技术与工程，适用于5年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5063-01",
+        "name": "知识点讲解",
+        "description": "技术与工程的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5063-02",
+        "name": "能力训练",
+        "description": "技术与工程的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学科学/5063",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-小学-5064",
+    "title": "技术与工程（6年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "6年级",
+    "subject": "小学科学",
+    "duration_weeks": 4,
+    "description": "北师大版小学科学课程：技术与工程，适用于6年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5064-01",
+        "name": "知识点讲解",
+        "description": "技术与工程的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5064-02",
+        "name": "能力训练",
+        "description": "技术与工程的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/小学科学/5064",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5065",
+    "title": "力学基础（8年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "8年级",
+    "subject": "初中物理",
+    "duration_weeks": 6,
+    "description": "北师大版初中物理课程：力学基础，适用于8年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5065-01",
+        "name": "知识点讲解",
+        "description": "力学基础的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5065-02",
+        "name": "能力训练",
+        "description": "力学基础的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中物理/5065",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5066",
+    "title": "力学基础（9年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "9年级",
+    "subject": "初中物理",
+    "duration_weeks": 6,
+    "description": "北师大版初中物理课程：力学基础，适用于9年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5066-01",
+        "name": "知识点讲解",
+        "description": "力学基础的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5066-02",
+        "name": "能力训练",
+        "description": "力学基础的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中物理/5066",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5067",
+    "title": "热学现象（8年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "8年级",
+    "subject": "初中物理",
+    "duration_weeks": 6,
+    "description": "北师大版初中物理课程：热学现象，适用于8年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5067-01",
+        "name": "知识点讲解",
+        "description": "热学现象的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5067-02",
+        "name": "能力训练",
+        "description": "热学现象的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中物理/5067",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5068",
+    "title": "热学现象（9年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "9年级",
+    "subject": "初中物理",
+    "duration_weeks": 6,
+    "description": "北师大版初中物理课程：热学现象，适用于9年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5068-01",
+        "name": "知识点讲解",
+        "description": "热学现象的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5068-02",
+        "name": "能力训练",
+        "description": "热学现象的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中物理/5068",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5069",
+    "title": "光学原理（8年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "8年级",
+    "subject": "初中物理",
+    "duration_weeks": 6,
+    "description": "北师大版初中物理课程：光学原理，适用于8年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5069-01",
+        "name": "知识点讲解",
+        "description": "光学原理的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5069-02",
+        "name": "能力训练",
+        "description": "光学原理的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中物理/5069",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5070",
+    "title": "光学原理（9年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "9年级",
+    "subject": "初中物理",
+    "duration_weeks": 6,
+    "description": "北师大版初中物理课程：光学原理，适用于9年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5070-01",
+        "name": "知识点讲解",
+        "description": "光学原理的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5070-02",
+        "name": "能力训练",
+        "description": "光学原理的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中物理/5070",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5071",
+    "title": "电学入门（8年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "8年级",
+    "subject": "初中物理",
+    "duration_weeks": 6,
+    "description": "北师大版初中物理课程：电学入门，适用于8年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5071-01",
+        "name": "知识点讲解",
+        "description": "电学入门的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5071-02",
+        "name": "能力训练",
+        "description": "电学入门的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中物理/5071",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5072",
+    "title": "电学入门（9年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "9年级",
+    "subject": "初中物理",
+    "duration_weeks": 6,
+    "description": "北师大版初中物理课程：电学入门，适用于9年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5072-01",
+        "name": "知识点讲解",
+        "description": "电学入门的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5072-02",
+        "name": "能力训练",
+        "description": "电学入门的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中物理/5072",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5073",
+    "title": "物质构成（9年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "9年级",
+    "subject": "初中化学",
+    "duration_weeks": 6,
+    "description": "北师大版初中化学课程：物质构成，适用于9年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5073-01",
+        "name": "知识点讲解",
+        "description": "物质构成的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5073-02",
+        "name": "能力训练",
+        "description": "物质构成的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中化学/5073",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5074",
+    "title": "化学变化（9年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "9年级",
+    "subject": "初中化学",
+    "duration_weeks": 6,
+    "description": "北师大版初中化学课程：化学变化，适用于9年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5074-01",
+        "name": "知识点讲解",
+        "description": "化学变化的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5074-02",
+        "name": "能力训练",
+        "description": "化学变化的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中化学/5074",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5075",
+    "title": "溶液配制（9年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "9年级",
+    "subject": "初中化学",
+    "duration_weeks": 6,
+    "description": "北师大版初中化学课程：溶液配制，适用于9年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5075-01",
+        "name": "知识点讲解",
+        "description": "溶液配制的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5075-02",
+        "name": "能力训练",
+        "description": "溶液配制的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中化学/5075",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "BNU-初中-5076",
+    "title": "酸碱盐（9年级）",
+    "source": "北京师范大学基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "9年级",
+    "subject": "初中化学",
+    "duration_weeks": 6,
+    "description": "北师大版初中化学课程：酸碱盐，适用于9年级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-5076-01",
+        "name": "知识点讲解",
+        "description": "酸碱盐的核心内容"
+      },
+      {
+        "kp_id": "KP-BNU-5076-02",
+        "name": "能力训练",
+        "description": "酸碱盐的实践应用"
+      }
+    ],
+    "course_url": "https://open-ct.com/courses/初中化学/5076",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6000",
+    "title": "仿生机械鱼（10年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "high",
+    "target_grade": "10年级",
+    "subject": "工程与设计",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：仿生机械鱼，10年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6000-01",
+        "name": "核心概念",
+        "description": "仿生机械鱼基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6000-02",
+        "name": "实践项目",
+        "description": "仿生机械鱼动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "仿生机械鱼实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6000",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6001",
+    "title": "仿生机械鱼（11年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "high",
+    "target_grade": "11年级",
+    "subject": "工程与设计",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：仿生机械鱼，11年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6001-01",
+        "name": "核心概念",
+        "description": "仿生机械鱼基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6001-02",
+        "name": "实践项目",
+        "description": "仿生机械鱼动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "仿生机械鱼实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6001",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6002",
+    "title": "仿生机械鱼（12年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "high",
+    "target_grade": "12年级",
+    "subject": "工程与设计",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：仿生机械鱼，12年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6002-01",
+        "name": "核心概念",
+        "description": "仿生机械鱼基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6002-02",
+        "name": "实践项目",
+        "description": "仿生机械鱼动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "仿生机械鱼实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6002",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6003",
+    "title": "芯片科学入门（10年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "high",
+    "target_grade": "10年级",
+    "subject": "信息技术",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：芯片科学入门，10年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6003-01",
+        "name": "核心概念",
+        "description": "芯片科学入门基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6003-02",
+        "name": "实践项目",
+        "description": "芯片科学入门动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "芯片科学入门实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6003",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6004",
+    "title": "芯片科学入门（11年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "high",
+    "target_grade": "11年级",
+    "subject": "信息技术",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：芯片科学入门，11年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6004-01",
+        "name": "核心概念",
+        "description": "芯片科学入门基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6004-02",
+        "name": "实践项目",
+        "description": "芯片科学入门动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "芯片科学入门实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6004",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6005",
+    "title": "芯片科学入门（12年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "high",
+    "target_grade": "12年级",
+    "subject": "信息技术",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：芯片科学入门，12年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6005-01",
+        "name": "核心概念",
+        "description": "芯片科学入门基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6005-02",
+        "name": "实践项目",
+        "description": "芯片科学入门动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "芯片科学入门实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6005",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6006",
+    "title": "AI与编程（7年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "middle",
+    "target_grade": "7年级",
+    "subject": "人工智能",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：AI与编程，7年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6006-01",
+        "name": "核心概念",
+        "description": "AI与编程基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6006-02",
+        "name": "实践项目",
+        "description": "AI与编程动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "AI与编程实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6006",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6007",
+    "title": "AI与编程（8年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "middle",
+    "target_grade": "8年级",
+    "subject": "人工智能",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：AI与编程，8年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6007-01",
+        "name": "核心概念",
+        "description": "AI与编程基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6007-02",
+        "name": "实践项目",
+        "description": "AI与编程动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "AI与编程实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6007",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6008",
+    "title": "AI与编程（9年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "middle",
+    "target_grade": "9年级",
+    "subject": "人工智能",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：AI与编程，9年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6008-01",
+        "name": "核心概念",
+        "description": "AI与编程基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6008-02",
+        "name": "实践项目",
+        "description": "AI与编程动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "AI与编程实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6008",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6009",
+    "title": "DIS实验探究（7年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "middle",
+    "target_grade": "7年级",
+    "subject": "物理实验",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：DIS实验探究，7年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6009-01",
+        "name": "核心概念",
+        "description": "DIS实验探究基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6009-02",
+        "name": "实践项目",
+        "description": "DIS实验探究动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "DIS实验探究实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6009",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6010",
+    "title": "DIS实验探究（8年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "middle",
+    "target_grade": "8年级",
+    "subject": "物理实验",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：DIS实验探究，8年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6010-01",
+        "name": "核心概念",
+        "description": "DIS实验探究基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6010-02",
+        "name": "实践项目",
+        "description": "DIS实验探究动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "DIS实验探究实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6010",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6011",
+    "title": "DIS实验探究（9年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "middle",
+    "target_grade": "9年级",
+    "subject": "物理实验",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：DIS实验探究，9年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6011-01",
+        "name": "核心概念",
+        "description": "DIS实验探究基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6011-02",
+        "name": "实践项目",
+        "description": "DIS实验探究动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "DIS实验探究实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6011",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6012",
+    "title": "TI-STEM课程（10年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "high",
+    "target_grade": "10年级",
+    "subject": "数学建模",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：TI-STEM课程，10年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6012-01",
+        "name": "核心概念",
+        "description": "TI-STEM课程基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6012-02",
+        "name": "实践项目",
+        "description": "TI-STEM课程动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "TI-STEM课程实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6012",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6013",
+    "title": "TI-STEM课程（11年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "high",
+    "target_grade": "11年级",
+    "subject": "数学建模",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：TI-STEM课程，11年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6013-01",
+        "name": "核心概念",
+        "description": "TI-STEM课程基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6013-02",
+        "name": "实践项目",
+        "description": "TI-STEM课程动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "TI-STEM课程实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6013",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6014",
+    "title": "TI-STEM课程（12年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "high",
+    "target_grade": "12年级",
+    "subject": "数学建模",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：TI-STEM课程，12年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6014-01",
+        "name": "核心概念",
+        "description": "TI-STEM课程基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6014-02",
+        "name": "实践项目",
+        "description": "TI-STEM课程动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "TI-STEM课程实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6014",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6015",
+    "title": "创客中心项目（3年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "3年级",
+    "subject": "创新设计",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：创客中心项目，3年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6015-01",
+        "name": "核心概念",
+        "description": "创客中心项目基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6015-02",
+        "name": "实践项目",
+        "description": "创客中心项目动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "创客中心项目实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6015",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6016",
+    "title": "创客中心项目（4年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "4年级",
+    "subject": "创新设计",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：创客中心项目，4年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6016-01",
+        "name": "核心概念",
+        "description": "创客中心项目基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6016-02",
+        "name": "实践项目",
+        "description": "创客中心项目动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "创客中心项目实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6016",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6017",
+    "title": "创客中心项目（5年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "5年级",
+    "subject": "创新设计",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：创客中心项目，5年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6017-01",
+        "name": "核心概念",
+        "description": "创客中心项目基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6017-02",
+        "name": "实践项目",
+        "description": "创客中心项目动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "创客中心项目实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6017",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6018",
+    "title": "创客中心项目（6年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "6年级",
+    "subject": "创新设计",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：创客中心项目，6年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6018-01",
+        "name": "核心概念",
+        "description": "创客中心项目基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6018-02",
+        "name": "实践项目",
+        "description": "创客中心项目动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "创客中心项目实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6018",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6019",
+    "title": "实验室STEM（7年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "middle",
+    "target_grade": "7年级",
+    "subject": "综合实践",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：实验室STEM，7年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6019-01",
+        "name": "核心概念",
+        "description": "实验室STEM基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6019-02",
+        "name": "实践项目",
+        "description": "实验室STEM动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "实验室STEM实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6019",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6020",
+    "title": "实验室STEM（8年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "middle",
+    "target_grade": "8年级",
+    "subject": "综合实践",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：实验室STEM，8年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6020-01",
+        "name": "核心概念",
+        "description": "实验室STEM基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6020-02",
+        "name": "实践项目",
+        "description": "实验室STEM动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "实验室STEM实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6020",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6021",
+    "title": "实验室STEM（9年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "middle",
+    "target_grade": "9年级",
+    "subject": "综合实践",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：实验室STEM，9年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6021-01",
+        "name": "核心概念",
+        "description": "实验室STEM基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6021-02",
+        "name": "实践项目",
+        "description": "实验室STEM动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "实验室STEM实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6021",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6022",
+    "title": "双前沿课程（10年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "high",
+    "target_grade": "10年级",
+    "subject": "科技创新",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：双前沿课程，10年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6022-01",
+        "name": "核心概念",
+        "description": "双前沿课程基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6022-02",
+        "name": "实践项目",
+        "description": "双前沿课程动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "双前沿课程实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6022",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6023",
+    "title": "双前沿课程（11年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "high",
+    "target_grade": "11年级",
+    "subject": "科技创新",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：双前沿课程，11年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6023-01",
+        "name": "核心概念",
+        "description": "双前沿课程基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6023-02",
+        "name": "实践项目",
+        "description": "双前沿课程动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "双前沿课程实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6023",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  },
+  {
+    "course_id": "SH-STEM-6024",
+    "title": "双前沿课程（12年级）",
+    "source": "上海市青少年STEM教育研究院",
+    "grade_level": "high",
+    "target_grade": "12年级",
+    "subject": "科技创新",
+    "duration_weeks": 8,
+    "description": "上海市STEM试点校课程：双前沿课程，12年级适用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SH-6024-01",
+        "name": "核心概念",
+        "description": "双前沿课程基础知识"
+      },
+      {
+        "kp_id": "KP-SH-6024-02",
+        "name": "实践项目",
+        "description": "双前沿课程动手实践"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "双前沿课程实验",
+        "materials": [
+          "STEM套件"
+        ],
+        "low_cost_alternatives": [
+          "简易材料"
+        ]
+      }
+    ],
+    "course_url": "https://stem.shanghai.edu.cn/courses/6024",
+    "scraped_at": "2026-04-18T22:36:06.208677"
+  }
+]

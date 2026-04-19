@@ -12,8 +12,8 @@ from .api import path_api, auth_api, resource_api
 # 创建FastAPI应用
 app = FastAPI(
     title="OpenMTSciEd - 学习路径生成服务",
-    description="STEM连贯学习路径引擎 API",
-    version="0.1.0",
+    description="STEM连贯学习路径引擎 API，基于762个节点的知识图谱提供个性化学习路径推荐",
+    version="0.2.0",
 )
 
 # 配置CORS (从环境变量读取允许的域名)
@@ -37,9 +37,10 @@ async def root():
     """根路径"""
     return {
         "service": "OpenMTSciEd Path Generator",
-        "version": "0.1.0",
+        "version": "0.2.0",
         "docs": "/docs",
-        "health": "/api/v1/path/health",
+        "health": "/api/v1/learning-path/health",
+        "knowledge_graph_nodes": 762,
     }
 
 

@@ -10,9 +10,9 @@ from fastapi import (
     WebSocket,
     WebSocketDisconnect,
 )
-from sqlalchemy.orm import Session
+from sqlalchemy.ext.asyncio import AsyncSession
 
-from utils.database import get_sync_db
+from utils.database import get_db
 from models.user import User
 from utils.dependencies import get_current_user_sync
 
@@ -48,7 +48,7 @@ async def connect_hardware(
     port_data: dict,
     org_id: int = Depends(lambda: 1),
     current_user: User = Depends(get_current_user_sync),
-    db: Session = Depends(get_sync_db),
+    db: AsyncSession = Depends(get_db),
 ):
     """
     连接硬件设备
@@ -81,7 +81,7 @@ async def connect_hardware(
 async def disconnect_hardware(
     org_id: int = Depends(lambda: 1),
     current_user: User = Depends(get_current_user_sync),
-    db: Session = Depends(get_sync_db),
+    db: AsyncSession = Depends(get_db),
 ):
     """
     断开硬件连接
@@ -168,7 +168,7 @@ async def start_experiment(
     experiment_data: dict = None,
     org_id: int = Depends(lambda: 1),
     current_user: User = Depends(get_current_user_sync),
-    db: Session = Depends(get_sync_db),
+    db: AsyncSession = Depends(get_db),
 ):
     """
     开始新的实验
@@ -198,7 +198,7 @@ async def start_experiment(
 async def stop_experiment(
     org_id: int = Depends(lambda: 1),
     current_user: User = Depends(get_current_user_sync),
-    db: Session = Depends(get_sync_db),
+    db: AsyncSession = Depends(get_db),
 ):
     """
     停止当前实验

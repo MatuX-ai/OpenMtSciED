@@ -28,14 +28,18 @@ class User(Base):
     __tablename__ = "users"
 
     id = Column(Integer, primary_key=True, index=True)
-    username = Column(String(50), unique=True, index=True, nullable=False)
+    username = Column(String(50), unique=True, index=True, nullable=True)
     email = Column(String(100), unique=True, index=True, nullable=False)
-    hashed_password = Column(String(100), nullable=False)
-    role = Column(Enum(UserRole), default=UserRole.USER)  # 用户角色
+    hashed_password = Column("password_hash", String(100), nullable=True)  # 映射到数据库的 password_hash 字段
+    role = Column(String(50), default="user")  # 用户角色（字符串类型）
     is_active = Column(Boolean, default=True)
-    is_superuser = Column(Boolean, default=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
+
+    @property
+    def is_superuser(self) -> bool:
+        """兼容属性：检查用户是否为超级用户（admin 或 superuser 角色）"""
+        return self.role in ["admin", "superuser"]
 
     # 关系
     created_materials = relationship(

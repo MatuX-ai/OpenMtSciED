@@ -6,20 +6,17 @@
  */
 
 /**
- * 硬件项目接口
+ * 硬件项目接口（与后端API响应格式匹配）
  */
 export interface HardwareProject {
-  /** 项目唯一标识 */
-  id: string;
+  /** 数据库主键ID */
+  id: number;
 
-  /** 关联的教程ID */
-  tutorialId?: string;
+  /** 项目唯一标识（如 HW-Sensor-001） */
+  project_id: string;
 
   /** 项目名称 */
-  name: string;
-
-  /** 项目描述 */
-  description: string;
+  title: string;
 
   /** 项目分类 */
   category: HardwareCategory;
@@ -27,38 +24,83 @@ export interface HardwareProject {
   /** 难度等级 (1-5) */
   difficulty: number;
 
-  /** 预计完成时间 (例如: "2小时") */
-  estimatedTime: string;
+  /** 学科（物理/化学/生物/工程） */
+  subject: string;
 
-  /** 总预算 (元, ≤50) */
-  totalCost: number;
+  /** 项目描述 */
+  description: string;
 
-  /** 材料清单 */
-  materials: MaterialItem[];
+  /** 学习目标列表 */
+  learning_objectives?: string[];
 
-  /** 电路图路径 */
-  circuitDiagram?: string;
+  /** 预计完成时间（小时） */
+  estimated_time_hours?: number;
 
-  /** 代码模板 */
-  codeTemplate?: CodeTemplate;
+  /** 总成本（元） */
+  total_cost: number;
+
+  /** 微控制器类型 */
+  mcu_type?: string;
+
+  /** 接线说明 */
+  wiring_instructions?: string;
+
+  /** 电路图文件路径 */
+  circuit_diagram_path?: string;
+
+  /** 安全注意事项列表 */
+  safety_notes?: string[];
+
+  /** 常见问题列表 */
+  common_issues?: string[];
+
+  /** 教学指南 */
+  teaching_guide?: string;
 
   /** 是否支持 WebUSB 烧录 */
-  webUsbSupport: boolean;
+  webusb_support?: boolean;
 
-  /** 项目缩略图 */
-  thumbnail?: string;
+  /** 支持的開發板列表 */
+  supported_boards?: string[];
 
-  /** 关联知识点 */
-  knowledgePoints?: string[];
+  /** 关联的知识点ID列表 */
+  knowledge_point_ids?: string[];
 
-  /** 安全注意事项 */
-  safetyNotes?: string[];
+  /** 缩略图路径 */
+  thumbnail_path?: string;
+
+  /** 演示视频URL */
+  demo_video_url?: string;
+
+  /** 是否启用 */
+  is_active?: boolean;
+
+  /** 是否推荐项目 */
+  is_featured?: boolean;
+
+  /** 使用次数 */
+  usage_count?: number;
+
+  /** 平均评分 */
+  average_rating?: number;
+
+  /** 评价数量 */
+  review_count?: number;
+
+  /** 材料清单 */
+  materials?: MaterialItem[];
+
+  /** 代码模板列表 */
+  code_templates?: CodeTemplate[];
 
   /** 创建时间 */
-  createdAt?: Date;
+  created_at?: string;
 
   /** 更新时间 */
-  updatedAt?: Date;
+  updated_at?: string;
+
+  /** 创建者ID */
+  created_by?: number;
 }
 
 /**
@@ -206,8 +248,11 @@ export function calculateTotalCost(materials: MaterialItem[]): number {
  * 辅助函数: 验证项目预算是否符合要求 (≤50元)
  */
 export function validateBudget(project: HardwareProject): boolean {
+  if (!project.materials) {
+    return project.total_cost <= 50;
+  }
   const calculatedCost = calculateTotalCost(project.materials);
-  return calculatedCost <= 50 && Math.abs(calculatedCost - project.totalCost) < 0.01;
+  return calculatedCost <= 50 && Math.abs(calculatedCost - project.total_cost) < 0.01;
 }
 
 /**

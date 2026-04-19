@@ -1,28 +1,50 @@
-﻿# OpenMTSciEd - 连贯学习路径引擎
+﻿# OpenMTSciEd - STEM 连贯学习路径引擎
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.12+-blue.svg)](https://www.python.org/)
+[![Angular](https://img.shields.io/badge/Angular-21+-red.svg)](https://angular.dev/)
 [![Tauri](https://img.shields.io/badge/Tauri-2.0-FFC131.svg)](https://tauri.app/)
-[![Angular](https://img.shields.io/badge/Angular-18+-dd0031.svg)](https://angular.io/)
 
-**OpenMTSciEd** 是一个基于知识图谱的 STEM 连贯学习路径引擎。它打通了教程库（如 OpenSciEd、格物斯坦）与课件库（如 OpenStax），为 K-12 到大学阶段的学生提供自适应、项目驱动的 STEM 学习体验。
+**OpenMTSciEd** 是一个开源的 STEM 教育辅助工具。**核心技术**是通过知识图谱打通 K12 到大学的完整教学路径，整合教程库（OpenSciEd、格物斯坦）与课件库（OpenStax），为学生生成"现象驱动 → 理论深化 → 硬件实践"的连贯学习路径。
 
 ## 🚀 核心特性
 
-*   **连贯路径生成**：基于 Neo4j 知识图谱，自动生成现象驱动  理论深化  硬件实践的学习闭环。
-*   **双库联动**：整合开源教程与经典教材，解决知识点跳跃问题。
-*   **硬件映射**：自动匹配低成本（50元）Arduino/ESP32 硬件项目，支持 WebUSB 一键烧录。
-*   **AI 辅助过渡**：利用 LLM 解释跨学段知识点关联，提供个性化 AI 导师服务。
-*   **多端支持**：提供 FastAPI 后端服务、Tauri 桌面客户端及响应式 Web 营销页。
+*   **K12-大学完整路径**：从小学兴趣启蒙到大学专业衔接，覆盖全学段STEM教育资源
+*   **双库联动**：自动关联 K-12 现象驱动教程与大学经典教材章节
+*   **低成本硬件映射**：为每个知识点匹配预算 ≤50 元的 Arduino/ESP32 实践项目
+*   **知识图谱驱动**：基于 Neo4j 构建包含 500+ 节点、1000+ 关系的 STEM 知识图谱
+*   **桌面端优先**：核心学习、编程与硬件烧录功能均在 Tauri 桌面应用中完成
+*   **离线可用**：支持本地 SQLite 存储资源，无网络环境下依然可以学习
+
+## 📊 当前进展（2026-04-19）
+
+### ✅ 已完成阶段
+
+| 阶段 | 任务 | 状态 |
+|------|------|------|
+| **阶段A** | 资源获取与知识图谱构建 | ✅ 100% 完成 |
+| **阶段B** | 学习路径原型开发 | ✅ 100% 完成 |
+| **阶段C** | 硬件与课件库联动开发 | ✅ 100% 完成 |
+| **阶段D** | 测试与优化 | ⏳ 进行中 |
+
+### 🎯 核心成果
+
+- **课程资源**: 4,740+ 个STEM课程（含编程、游戏开发、Arduino、ROS等专项课程）
+- **知识图谱**: 500+ 节点，1000+ 关系（Neo4j）
+- **硬件项目**: 30+ 个低成本项目（预算≤50元）
+- **Blockly积木**: 9 个硬件积木块（数字/模拟/传感器/电机/通信）
+- **AI任务**: 2 个理论-实践映射任务（可扩展）
+- **前端组件**: PathMap可视化、WebUSB烧录、AI导师等
 
 ## 🏗️ 技术架构
 
 | 模块 | 技术栈 | 说明 |
 | :--- | :--- | :--- |
-| **后端引擎** | Python, FastAPI, Neo4j | 路径算法、资源管理、知识图谱查询 |
-| **桌面客户端** | Tauri (Rust), Angular | 本地资源管理、离线支持、硬件通信 |
-| **Web 前端** | Angular, ECharts | 路径可视化地图、交互式学习界面 |
-| **数据存储** | PostgreSQL, MongoDB, Supabase | 结构化数据、非结构化资源存储 |
+| **知识图谱引擎** | Python, FastAPI, Neo4j | **核心技术**：爬取开源教育资源，构建K12-大学完整教学路径图谱 |
+| **路径生成** | Python, 规则引擎 | 基于用户水平推荐个性化学习路径（PPO强化学习规划中） |
+| **桌面客户端** | Tauri (Rust), Angular | 资源管理、Blockly 编程、WebUSB 烧录 |
+| **Web 门户** | Angular | 极简营销页，提供账号管理与下载入口 |
+| **AI服务** | MiniCPM-2B（规划中） | 理论-实践映射解释、AI虚拟导师 |
 
 ## 📦 快速开始
 
@@ -33,7 +55,7 @@
 *   Neo4j 数据库实例
 
 ### 2. 安装依赖
-`\"ash
+```bash
 # 克隆仓库
 git clone https://github.com/MatuX-ai/OpenMtSciED.git
 cd OpenMtSciED
@@ -44,32 +66,56 @@ pip install -r requirements.txt
 # 安装桌面端依赖
 cd desktop-manager
 npm install
-\\\
+```
 
 ### 3. 启动服务
-`\"ash
+```bash
 # 启动后端 API (默认端口 8000)
-python src/openmtscied/main.py
+cd backend
+python -m uvicorn openmtscied.main:app --host 0.0.0.0 --port 8000 --reload
 
 # 启动桌面客户端开发模式
 cd desktop-manager
 npm run tauri dev
-\\\
+
+# 启动Web前端（营销页）
+cd frontend
+npm run dev
+```
 
 ## 📂 项目结构
 
-`\"	ext
+```
 OpenMTSciEd/
- src/                  # Python 后端核心 (FastAPI)
-    openmtscied/      # 路径引擎与 API 逻辑
-    services/         # 业务服务 (Graph, Blockly, etc.)
- desktop-manager/      # Tauri + Angular 桌面客户端
- frontend/             # 独立功能前端组件
- web/marketing/        # 营销展示页面
- tools/                # 数据处理与迁移脚本
- datasets/             # 原始教程与课件数据
- docs/                 # 详细技术文档与设计规范
-\\\
+├── backend/openmtscied/      # Python 后端核心 (FastAPI)
+│   ├── api/                  # RESTful API路由
+│   ├── models/               # Pydantic数据模型
+│   ├── services/             # 业务逻辑服务
+│   │   ├── path_generator.py         # 路径生成服务
+│   │   ├── blockly_generator.py      # Blockly代码生成
+│   │   ├── hardware_blockly_blocks.py # 硬件积木块定义
+│   │   ├── theory_practice_mapper.py # AI理论-实践映射
+│   │   └── webusb_flash_service.py   # WebUSB烧录服务
+│   └── data/                 # 数据模型
+│       ├── hardware_projects.py      # 硬件项目库
+│       └── transition_projects.py    # 过渡项目库
+├── frontend/                 # Web前端应用（Angular）
+│   └── src/app/
+│       ├── auth/             # 认证模块
+│       ├── path-visualization/ # 路径可视化
+│       └── marketing-home/   # 营销首页
+├── desktop-manager/          # Tauri + Angular 桌面客户端
+├── data/                     # 数据文件
+│   ├── course_library/       # 教程库（OpenSciEd、格物斯坦等）
+│   ├── textbook_library/     # 课件库（OpenStax等）
+│   ├── hardware_projects.json # 硬件项目数据
+│   └── ai_learning_tasks.json # AI学习任务
+├── scripts/                  # 数据处理与爬虫脚本
+│   ├── scrapers/             # 资源爬取器
+│   └── graph_db/             # Neo4j导入脚本
+├── docs/                     # 技术文档
+└── backtest_reports/         # 开发完成报告
+```
 
 ## 🤝 贡献指南
 

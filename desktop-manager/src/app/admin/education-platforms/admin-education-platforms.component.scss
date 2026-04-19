@@ -1,0 +1,205 @@
+.admin-education-platforms {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+      color: #333;
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 10px;
+
+      button {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+    }
+  }
+
+  .loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    color: #666;
+
+    p {
+      margin-top: 15px;
+      font-size: 1rem;
+    }
+  }
+
+  .platforms-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .platforms-card {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+
+      mat-card-header {
+        margin-bottom: 15px;
+      }
+
+      .platforms-table {
+        width: 100%;
+
+        th.mat-header-cell {
+          font-weight: 600;
+          color: #333;
+          background-color: #f5f5f5;
+        }
+
+        td.mat-cell {
+          padding: 12px 8px;
+        }
+
+        .platform-name {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-weight: 500;
+        }
+
+        .schedule-info {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 5px;
+
+          mat-chip {
+            font-size: 0.85rem;
+          }
+        }
+
+        .file-status {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+
+          .file-size {
+            color: #999;
+            font-size: 0.85rem;
+            margin-left: 5px;
+          }
+        }
+
+        .update-time {
+          font-size: 0.9em;
+          color: #666;
+        }
+
+        .action-buttons {
+          display: flex;
+          gap: 5px;
+        }
+      }
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+
+      .stat-card {
+        text-align: center;
+        padding: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+
+        .stat-number {
+          font-size: 2em;
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+
+        .stat-label {
+          font-size: 0.9em;
+          opacity: 0.9;
+        }
+      }
+    }
+
+    .info-card {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      border-left: 4px solid #667eea;
+
+      mat-card-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #667eea;
+      }
+
+      .info-list {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0 0 0;
+
+        li {
+          padding: 8px 0;
+          border-bottom: 1px solid #f0f0f0;
+          line-height: 1.6;
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          strong {
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+
+  // 响应式设计
+  @media (max-width: 768px) {
+    padding: 15px;
+
+    .header {
+      flex-direction: column;
+      gap: 15px;
+      align-items: stretch;
+
+      .header-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .platforms-table {
+      font-size: 0.9rem;
+
+      .schedule-info {
+        flex-direction: column;
+        gap: 3px;
+      }
+    }
+  }
+}

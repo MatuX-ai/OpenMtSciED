@@ -38,13 +38,28 @@ class PathGenerator:
     def __init__(self, neo4j_uri=None, neo4j_user=None, neo4j_password=None):
         # 从环境变量读取配置，避免硬编码
         import os
-        self.driver = GraphDatabase.driver(
-            neo4j_uri or os.getenv("NEO4J_URI", "bolt://127.0.0.1:7687"),
-            auth=(
-                neo4j_user or os.getenv("NEO4J_USER", "neo4j"),
-                neo4j_password or os.getenv("NEO4J_PASSWORD", "change_me_in_production")
+        import ssl
+        
+        uri = neo4j_uri or os.getenv("NEO4J_URI", "bolt://127.0.0.1:7687")
+        user = neo4j_user or os.getenv("NEO4J_USER", "neo4j")
+        password = neo4j_password or os.getenv("NEO4J_PASSWORD", "change_me_in_production")
+        
+        # 对于 Neo4j Aura，配置 SSL 上下文
+        if uri.startswith("bolt://") and not uri.startswith("bolt+s://"):
+            ssl_context = ssl.create_default_context()
+            ssl_context.check_hostname = False
+            ssl_context.verify_mode = ssl.CERT_NONE
+            self.driver = GraphDatabase.driver(
+                uri,
+                auth=(user, password),
+                encrypted=True,
+                ssl_context=ssl_context
             )
-        )
+        else:
+            self.driver = GraphDatabase.driver(
+                uri,
+                auth=(user, password)
+            )
 
     def close(self):
         """关闭数据库连接"""
@@ -71,7 +86,7 @@ class PathGenerator:
         # action = self.ppo_model.predict(user_state)
 
         # 步骤3: 从Neo4j查询完整路径
-        path_nodes = self._query_path_from_neo4j(starting_unit_id, max_nodes)
+        path_nodes = self._query_path_from_neo4j(starting_unit_id, max_nodes, database=database)
 
         # 步骤4: 根据用户水平调整难度
         adjusted_path = self._adjust_difficulty(path_nodes, user.average_score)

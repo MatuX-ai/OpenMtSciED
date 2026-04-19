@@ -38,5 +38,19 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/settings/settings.component').then((m) => m.SettingsComponent),
   },
+  {
+    path: 'admin/education-platforms',
+    loadComponent: () =>
+      import('./admin/education-platforms/admin-education-platforms.component').then(
+        (m) => m.AdminEducationPlatformsComponent
+      ),
+  },
+  {
+    path: 'admin/user-management',
+    loadComponent: () =>
+      import('./admin/user-management/admin-user-management.component').then(
+        (m) => m.AdminUserManagementComponent
+      ),
+  },
   { path: '**', redirectTo: '/setup-wizard' },
 ];

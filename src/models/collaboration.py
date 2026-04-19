@@ -24,6 +24,7 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func as sql_func
 
 from database.db import Base
+from models.hardware_project import MCUType
 
 # ==================== 枚举类型 ====================
 
@@ -617,6 +618,13 @@ class StudyProject(Base):
         index=True,
         comment="关联课程 ID（可选）",
     )
+    hardware_template_id = Column(
+        Integer,
+        ForeignKey("hardware_project_templates.id"),
+        nullable=True,
+        index=True,
+        comment="关联的硬件项目模板ID",
+    )
 
     # 项目信息
     title = Column(String(200), nullable=False, comment="项目标题")
@@ -629,6 +637,20 @@ class StudyProject(Base):
         String(20), default="active", comment="状态：active/completed/archived"
     )
 
+    # 硬件项目特定字段
+    mcu_type_used = Column(
+        SQLEnum(MCUType),
+        nullable=True,
+        comment="实际使用的微控制器类型",
+    )
+    actual_cost = Column(Float, comment="实际花费（元）")
+    completion_photos = Column(JSON, default=list, comment="完成照片路径列表")
+    demonstration_video_url = Column(String(500), comment="演示视频URL")
+
+    # WebUSB 相关
+    webusb_flashed = Column(Boolean, default=False, comment="是否已通过 WebUSB 烧录")
+    flash_timestamp = Column(DateTime(timezone=True), comment="烧录时间戳")
+
     # 时间戳
     created_at = Column(
         DateTime(timezone=True), server_default=sql_func.now(), index=True
@@ -638,6 +660,7 @@ class StudyProject(Base):
     # 关系
     group = relationship("StudyGroup", back_populates="projects")
     creator = relationship("User", foreign_keys=[user_id], backref="projects")
+    hardware_template = relationship("HardwareProjectTemplate", back_populates="study_projects")
     tasks = relationship(
         "ProjectTask", back_populates="project", cascade="all, delete-orphan"
     )
@@ -656,10 +679,22 @@ class StudyProject(Base):
             "group_id": self.group_id,
             "user_id": self.user_id,
             "course_id": self.course_id,
+            "hardware_template_id": self.hardware_template_id,
+            "mcu_type_used": self.mcu_type_used.value if self.mcu_type_used else None,
+            "actual_cost": self.actual_cost,
+            "completion_photos": self.completion_photos,
+            "demonstration_video_url": self.demonstration_video_url,
+            "webusb_flashed": self.webusb_flashed,
+            "flash_timestamp": (
+                self.flash_timestamp.isoformat() if self.flash_timestamp else None
+            ),
             "creator": (
                 {"id": self.creator.id, "username": self.creator.username}
                 if self.creator
                 else None
+            ),
+            "hardware_template": (
+                self.hardware_template.to_dict() if self.hardware_template else None
             ),
             "created_at": self.created_at.isoformat() if self.created_at else None,
             "updated_at": self.updated_at.isoformat() if self.updated_at else None,
@@ -751,6 +786,21 @@ class PeerReview(Base):
     strengths = Column(JSON, default=list, comment="优点列表")
     suggestions = Column(JSON, default=list, comment="改进建议列表")
 
+    # 硬件项目特定审查字段
+    hardware_functionality_score = Column(Integer, comment="硬件功能评分（0-100）")
+    code_quality_score = Column(Integer, comment="代码质量评分（0-100）")
+    creativity_score = Column(Integer, comment="创意评分（0-100）")
+    documentation_score = Column(Integer, comment="文档完整性评分（0-100）")
+
+    # 审查详情
+    hardware_feedback = Column(Text, comment="硬件实现反馈")
+    code_feedback = Column(Text, comment="代码质量反馈")
+    improvement_suggestions = Column(JSON, default=list, comment="改进建议列表")
+
+    # 审查附件
+    review_photos = Column(JSON, default=list, comment="审查时拍摄的照片")
+    test_results = Column(JSON, default=dict, comment="测试结果数据")
+
     # 时间戳
     created_at = Column(
         DateTime(timezone=True), server_default=sql_func.now(), index=True
@@ -780,6 +830,15 @@ class PeerReview(Base):
             "score": self.score,
             "strengths": self.strengths,
             "suggestions": self.suggestions,
+            "hardware_functionality_score": self.hardware_functionality_score,
+            "code_quality_score": self.code_quality_score,
+            "creativity_score": self.creativity_score,
+            "documentation_score": self.documentation_score,
+            "hardware_feedback": self.hardware_feedback,
+            "code_feedback": self.code_feedback,
+            "improvement_suggestions": self.improvement_suggestions,
+            "review_photos": self.review_photos,
+            "test_results": self.test_results,
             "reviewer": (
                 {"id": self.reviewer.id, "username": self.reviewer.username}
                 if self.reviewer

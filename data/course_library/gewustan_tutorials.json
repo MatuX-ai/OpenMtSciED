@@ -1,0 +1,772 @@
+[
+  {
+    "tutorial_id": "GWS-Metal-001",
+    "title": "机械传动基础 - 齿轮组原理",
+    "source": "格物斯坦",
+    "age_range": "10-15岁",
+    "subject": "工程",
+    "category": "机械结构",
+    "difficulty": 2,
+    "duration_hours": 3,
+    "description": "学习齿轮传动的基本原理，通过搭建不同齿数比的齿轮组，理解速度转换和扭矩放大的物理机制。",
+    "modules": [
+      {
+        "name": "齿轮基础知识",
+        "content": "齿轮的定义、齿数比计算、传动方向"
+      },
+      {
+        "name": "单级齿轮传动",
+        "content": "主动轮与从动轮的转速关系"
+      },
+      {
+        "name": "多级齿轮传动",
+        "content": "复合齿轮组的传动比计算"
+      }
+    ],
+    "hardware_list": [
+      {
+        "component": "金属齿轮组（大中小）",
+        "quantity": 1,
+        "unit_price": 15.0
+      },
+      {
+        "component": "直流电机3V",
+        "quantity": 1,
+        "unit_price": 8.0
+      },
+      {
+        "component": "电池盒（2节AA）",
+        "quantity": 1,
+        "unit_price": 3.0
+      },
+      {
+        "component": "金属轴",
+        "quantity": 3,
+        "unit_price": 1.0
+      },
+      {
+        "component": "固定支架",
+        "quantity": 1,
+        "unit_price": 5.0
+      }
+    ],
+    "total_cost": 34.0,
+    "projects": [
+      {
+        "name": "搭建变速齿轮箱",
+        "description": "设计一个三级变速装置，实现低速高扭矩和高速低扭矩两种模式",
+        "circuit_diagram_url": "https://gewustan.com/projects/gearbox/diagram.png"
+      },
+      {
+        "name": "简易起重机模型",
+        "description": "利用齿轮组提升重物，测试不同齿数比的起重能力",
+        "circuit_diagram_url": "https://gewustan.com/projects/crane/diagram.png"
+      }
+    ],
+    "knowledge_points": [
+      "齿轮传动比计算",
+      "扭矩与转速的反比关系",
+      "机械效率"
+    ],
+    "theme": "机械传动",
+    "application": "用齿轮组实现不同转速输出，理解自行车变速器原理",
+    "tutorial_url": "http://www.gewustan.com/tutorials/metal-gears",
+    "scraped_at": "2026-04-18T22:21:37.113168"
+  },
+  {
+    "tutorial_id": "GWS-Metal-002",
+    "title": "电子电路入门 - LED控制",
+    "source": "格物斯坦",
+    "age_range": "10-15岁",
+    "subject": "电子",
+    "category": "电路基础",
+    "difficulty": 1,
+    "duration_hours": 2,
+    "description": "学习基本电路知识，掌握LED、电阻、开关的连接方法，理解欧姆定律在实际电路中的应用。",
+    "modules": [
+      {
+        "name": "电路基本概念",
+        "content": "电压、电流、电阻的定义和单位"
+      },
+      {
+        "name": "串联与并联",
+        "content": "不同连接方式对电流和电压的影响"
+      },
+      {
+        "name": "欧姆定律应用",
+        "content": "V=IR的计算与实践"
+      }
+    ],
+    "hardware_list": [
+      {
+        "component": "Arduino Nano",
+        "quantity": 1,
+        "unit_price": 15.0
+      },
+      {
+        "component": "LED灯（红绿蓝）",
+        "quantity": 6,
+        "unit_price": 0.5
+      },
+      {
+        "component": "电阻包（220Ω-10kΩ）",
+        "quantity": 1,
+        "unit_price": 5.0
+      },
+      {
+        "component": "面包板",
+        "quantity": 1,
+        "unit_price": 5.0
+      },
+      {
+        "component": "杜邦线",
+        "quantity": 20,
+        "unit_price": 0.2
+      },
+      {
+        "component": "按钮开关",
+        "quantity": 2,
+        "unit_price": 1.0
+      }
+    ],
+    "total_cost": 31.0,
+    "projects": [
+      {
+        "name": "交通信号灯模拟",
+        "description": "用红黄绿LED模拟交通灯，编写程序控制切换时序",
+        "circuit_diagram_url": "https://gewustan.com/projects/traffic-light/diagram.png"
+      },
+      {
+        "name": "呼吸灯效果",
+        "description": "使用PWM控制LED亮度渐变，实现呼吸灯效果",
+        "circuit_diagram_url": "https://gewustan.com/projects/breathing-led/diagram.png"
+      }
+    ],
+    "knowledge_points": [
+      "欧姆定律V=IR",
+      "串联分压原理",
+      "PWM脉宽调制"
+    ],
+    "theme": "电子电路",
+    "application": "理解家庭电路布线原理，学会安全用电",
+    "tutorial_url": "http://www.gewustan.com/tutorials/led-control",
+    "scraped_at": "2026-04-18T22:21:37.113168"
+  },
+  {
+    "tutorial_id": "GWS-Metal-003",
+    "title": "传感器应用 - 超声波测距",
+    "source": "格物斯坦",
+    "age_range": "10-15岁",
+    "subject": "物理",
+    "category": "传感器技术",
+    "difficulty": 3,
+    "duration_hours": 4,
+    "description": "学习超声波传感器的工作原理，掌握距离测量技术，并应用于避障小车等项目。",
+    "modules": [
+      {
+        "name": "超声波原理",
+        "content": "声波传播、反射、时间测量"
+      },
+      {
+        "name": "HC-SR04传感器",
+        "content": "引脚定义、触发信号、回声信号处理"
+      },
+      {
+        "name": "距离计算",
+        "content": "distance = (time × 340) / 2"
+      }
+    ],
+    "hardware_list": [
+      {
+        "component": "Arduino Uno",
+        "quantity": 1,
+        "unit_price": 18.0
+      },
+      {
+        "component": "HC-SR04超声波传感器",
+        "quantity": 1,
+        "unit_price": 5.0
+      },
+      {
+        "component": "舵机SG90",
+        "quantity": 1,
+        "unit_price": 6.0
+      },
+      {
+        "component": "小车底盘套件",
+        "quantity": 1,
+        "unit_price": 12.0
+      },
+      {
+        "component": "电池盒（4节AA）",
+        "quantity": 1,
+        "unit_price": 4.0
+      },
+      {
+        "component": "杜邦线",
+        "quantity": 15,
+        "unit_price": 0.2
+      }
+    ],
+    "total_cost": 48.0,
+    "projects": [
+      {
+        "name": "智能避障小车",
+        "description": "组装小车，安装超声波传感器，编写自动避障程序",
+        "circuit_diagram_url": "https://gewustan.com/projects/obstacle-car/diagram.png"
+      },
+      {
+        "name": "倒车雷达模拟器",
+        "description": "用LED和蜂鸣器显示距离，距离越近报警越急促",
+        "circuit_diagram_url": "https://gewustan.com/projects/parking-sensor/diagram.png"
+      }
+    ],
+    "knowledge_points": [
+      "超声波测距原理",
+      "声音在空气中的传播速度",
+      "时间与距离的换算"
+    ],
+    "theme": "传感器技术",
+    "application": "制作智能避障小车，理解自动驾驶基本原理",
+    "tutorial_url": "http://www.gewustan.com/tutorials/ultrasonic-sensor",
+    "scraped_at": "2026-04-18T22:21:37.113168"
+  },
+  {
+    "tutorial_id": "GWS-Metal-004",
+    "title": "编程逻辑 - 条件判断与循环",
+    "source": "格物斯坦",
+    "age_range": "10-15岁",
+    "subject": "计算机",
+    "category": "算法编程",
+    "difficulty": 2,
+    "duration_hours": 3,
+    "description": "通过图形化编程和Arduino代码，学习if-else条件判断和for/while循环结构，培养计算思维。",
+    "modules": [
+      {
+        "name": "条件判断",
+        "content": "if、else if、else语句的使用"
+      },
+      {
+        "name": "循环结构",
+        "content": "for循环、while循环的区别与应用"
+      },
+      {
+        "name": "逻辑运算",
+        "content": "AND、OR、NOT逻辑运算符"
+      }
+    ],
+    "hardware_list": [
+      {
+        "component": "Arduino Nano",
+        "quantity": 1,
+        "unit_price": 15.0
+      },
+      {
+        "component": "LED灯",
+        "quantity": 3,
+        "unit_price": 0.5
+      },
+      {
+        "component": "按钮开关",
+        "quantity": 2,
+        "unit_price": 1.0
+      },
+      {
+        "component": "光敏电阻",
+        "quantity": 1,
+        "unit_price": 2.0
+      },
+      {
+        "component": "电阻（10kΩ）",
+        "quantity": 1,
+        "unit_price": 0.5
+      },
+      {
+        "component": "面包板+杜邦线",
+        "quantity": 1,
+        "unit_price": 6.0
+      }
+    ],
+    "total_cost": 27.5,
+    "projects": [
+      {
+        "name": "智能路灯系统",
+        "description": "根据环境光线自动控制LED开关，天黑自动亮灯",
+        "circuit_diagram_url": "https://gewustan.com/projects/smart-streetlight/diagram.png"
+      },
+      {
+        "name": "密码锁模拟",
+        "description": "用按钮输入密码，正确则绿灯亮，错误则红灯闪烁",
+        "circuit_diagram_url": "https://gewustan.com/projects/password-lock/diagram.png"
+      }
+    ],
+    "knowledge_points": [
+      "条件判断逻辑",
+      "循环控制结构",
+      "传感器数据读取"
+    ],
+    "theme": "编程逻辑",
+    "application": "理解智能家居自动化控制原理",
+    "tutorial_url": "http://www.gewustan.com/tutorials/programming-logic",
+    "scraped_at": "2026-04-18T22:21:37.113168"
+  },
+  {
+    "tutorial_id": "GWS-Metal-005",
+    "title": "电磁铁应用 - 磁力控制",
+    "source": "格物斯坦",
+    "age_range": "10-15岁",
+    "subject": "物理",
+    "category": "电磁学",
+    "difficulty": 3,
+    "duration_hours": 4,
+    "description": "探索电流产生磁场的现象，制作电磁铁并研究其特性，理解电磁继电器的工作原理。",
+    "modules": [
+      {
+        "name": "电磁感应",
+        "content": "奥斯特实验、右手螺旋定则"
+      },
+      {
+        "name": "电磁铁制作",
+        "content": "线圈匝数、电流大小对磁力的影响"
+      },
+      {
+        "name": "继电器原理",
+        "content": "用小电流控制大电流的开关"
+      }
+    ],
+    "hardware_list": [
+      {
+        "component": "漆包线（0.5mm×10m）",
+        "quantity": 1,
+        "unit_price": 5.0
+      },
+      {
+        "component": "铁钉（大号）",
+        "quantity": 2,
+        "unit_price": 1.0
+      },
+      {
+        "component": "电池盒（4节AA）",
+        "quantity": 1,
+        "unit_price": 4.0
+      },
+      {
+        "component": "回形针",
+        "quantity": 20,
+        "unit_price": 0.1
+      },
+      {
+        "component": "开关",
+        "quantity": 1,
+        "unit_price": 2.0
+      },
+      {
+        "component": "导线",
+        "quantity": 5,
+        "unit_price": 0.5
+      }
+    ],
+    "total_cost": 17.5,
+    "projects": [
+      {
+        "name": "电磁起重机",
+        "description": "制作可控制的电磁铁，测试能吸起多少个回形针",
+        "circuit_diagram_url": "https://gewustan.com/projects/electromagnet-crane/diagram.png"
+      },
+      {
+        "name": "电磁继电器开关",
+        "description": "用小电流控制LED灯的开关，理解继电器原理",
+        "circuit_diagram_url": "https://gewustan.com/projects/relay-switch/diagram.png"
+      }
+    ],
+    "knowledge_points": [
+      "电流产生磁场",
+      "电磁铁磁力影响因素",
+      "电磁继电器工作原理"
+    ],
+    "theme": "电磁学",
+    "application": "理解电铃、电磁阀门等设备的工作原理",
+    "tutorial_url": "http://www.gewustan.com/tutorials/electromagnet",
+    "scraped_at": "2026-04-18T22:21:37.113168"
+  },
+  {
+    "tutorial_id": "GWS-Metal-006",
+    "title": "太阳能应用 - 光电转换",
+    "source": "格物斯坦",
+    "age_range": "10-15岁",
+    "subject": "物理",
+    "category": "新能源",
+    "difficulty": 2,
+    "duration_hours": 3,
+    "description": "学习太阳能电池板的工作原理，制作太阳能风扇和充电器，理解可再生能源的重要性。",
+    "modules": [
+      {
+        "name": "光电效应",
+        "content": "光能转换为电能的原理"
+      },
+      {
+        "name": "太阳能电池板",
+        "content": "电压、电流、功率的关系"
+      },
+      {
+        "name": "能量存储",
+        "content": "电容和电池的能量存储"
+      }
+    ],
+    "hardware_list": [
+      {
+        "component": "太阳能电池板（5V/1W）",
+        "quantity": 1,
+        "unit_price": 10.0
+      },
+      {
+        "component": "小电机",
+        "quantity": 1,
+        "unit_price": 5.0
+      },
+      {
+        "component": "风扇叶片",
+        "quantity": 1,
+        "unit_price": 3.0
+      },
+      {
+        "component": "电解电容（1000μF）",
+        "quantity": 1,
+        "unit_price": 2.0
+      },
+      {
+        "component": "LED灯",
+        "quantity": 2,
+        "unit_price": 0.5
+      },
+      {
+        "component": "导线+支架",
+        "quantity": 1,
+        "unit_price": 5.0
+      }
+    ],
+    "total_cost": 28.0,
+    "projects": [
+      {
+        "name": "太阳能风扇",
+        "description": "用太阳能电池板驱动小电机，制作便携式风扇",
+        "circuit_diagram_url": "https://gewustan.com/projects/solar-fan/diagram.png"
+      },
+      {
+        "name": "太阳能充电宝",
+        "description": "用太阳能给电容充电，再驱动LED发光",
+        "circuit_diagram_url": "https://gewustan.com/projects/solar-charger/diagram.png"
+      }
+    ],
+    "knowledge_points": [
+      "光电转换效率",
+      "太阳能功率计算",
+      "能量存储与释放"
+    ],
+    "theme": "新能源",
+    "application": "理解太阳能发电站的工作原理，培养环保意识",
+    "tutorial_url": "http://www.gewustan.com/tutorials/solar-energy",
+    "scraped_at": "2026-04-18T22:21:37.113168"
+  },
+  {
+    "tutorial_id": "GWS-Metal-007",
+    "title": "液压系统 - 帕斯卡原理",
+    "source": "格物斯坦",
+    "age_range": "10-15岁",
+    "subject": "物理",
+    "category": "流体力学",
+    "difficulty": 3,
+    "duration_hours": 4,
+    "description": "通过注射器和软管搭建液压系统，验证帕斯卡原理，制作液压机械臂。",
+    "modules": [
+      {
+        "name": "液体压强",
+        "content": "P = F/A，压强传递原理"
+      },
+      {
+        "name": "帕斯卡定律",
+        "content": "密闭液体中压强均匀传递"
+      },
+      {
+        "name": "液压放大",
+        "content": "小力产生大力的原理"
+      }
+    ],
+    "hardware_list": [
+      {
+        "component": "注射器（10ml）",
+        "quantity": 4,
+        "unit_price": 2.0
+      },
+      {
+        "component": "注射器（20ml）",
+        "quantity": 2,
+        "unit_price": 3.0
+      },
+      {
+        "component": "软管（1米）",
+        "quantity": 1,
+        "unit_price": 5.0
+      },
+      {
+        "component": "三通接头",
+        "quantity": 2,
+        "unit_price": 1.0
+      },
+      {
+        "component": "木板底座",
+        "quantity": 1,
+        "unit_price": 8.0
+      },
+      {
+        "component": "扎带+胶水",
+        "quantity": 1,
+        "unit_price": 3.0
+      }
+    ],
+    "total_cost": 34.0,
+    "projects": [
+      {
+        "name": "液压机械臂",
+        "description": "用4个注射器控制机械臂的升降和抓取动作",
+        "circuit_diagram_url": "https://gewustan.com/projects/hydraulic-arm/diagram.png"
+      },
+      {
+        "name": "液压升降机",
+        "description": "用小注射器推动大注射器，实现力的放大",
+        "circuit_diagram_url": "https://gewustan.com/projects/hydraulic-lift/diagram.png"
+      }
+    ],
+    "knowledge_points": [
+      "帕斯卡原理",
+      "液压传动",
+      "力的放大倍数计算"
+    ],
+    "theme": "流体力学",
+    "application": "理解挖掘机、千斤顶等液压设备的工作原理",
+    "tutorial_url": "http://www.gewustan.com/tutorials/hydraulic-system",
+    "scraped_at": "2026-04-18T22:21:37.113168"
+  },
+  {
+    "tutorial_id": "GWS-Metal-008",
+    "title": "蓝牙控制 - 无线通信",
+    "source": "格物斯坦",
+    "age_range": "10-15岁",
+    "subject": "计算机",
+    "category": "物联网",
+    "difficulty": 4,
+    "duration_hours": 5,
+    "description": "学习蓝牙通信技术，用手机APP控制Arduino设备，实现远程控制和数据传输。",
+    "modules": [
+      {
+        "name": "蓝牙模块HC-05",
+        "content": "引脚定义、AT命令配置"
+      },
+      {
+        "name": "串口通信",
+        "content": "TX/RX数据传输原理"
+      },
+      {
+        "name": "手机APP开发",
+        "content": "使用MIT App Inventor创建控制界面"
+      }
+    ],
+    "hardware_list": [
+      {
+        "component": "Arduino Uno",
+        "quantity": 1,
+        "unit_price": 18.0
+      },
+      {
+        "component": "HC-05蓝牙模块",
+        "quantity": 1,
+        "unit_price": 12.0
+      },
+      {
+        "component": "LED灯",
+        "quantity": 3,
+        "unit_price": 0.5
+      },
+      {
+        "component": "舵机SG90",
+        "quantity": 1,
+        "unit_price": 6.0
+      },
+      {
+        "component": "电阻（1kΩ+2kΩ）",
+        "quantity": 2,
+        "unit_price": 0.5
+      },
+      {
+        "component": "杜邦线",
+        "quantity": 15,
+        "unit_price": 0.2
+      }
+    ],
+    "total_cost": 40.0,
+    "projects": [
+      {
+        "name": "蓝牙遥控小车",
+        "description": "用手机APP控制小车前后左右移动",
+        "circuit_diagram_url": "https://gewustan.com/projects/bluetooth-car/diagram.png"
+      },
+      {
+        "name": "智能家居控制",
+        "description": "用手机控制LED开关和舵机角度，模拟智能家居",
+        "circuit_diagram_url": "https://gewustan.com/projects/smart-home/diagram.png"
+      }
+    ],
+    "knowledge_points": [
+      "蓝牙通信协议",
+      "串口数据传输",
+      "无线控制原理"
+    ],
+    "theme": "物联网",
+    "application": "理解智能家居、可穿戴设备的通信原理",
+    "tutorial_url": "http://www.gewustan.com/tutorials/bluetooth-control",
+    "scraped_at": "2026-04-18T22:21:37.113168"
+  },
+  {
+    "tutorial_id": "GWS-Metal-009",
+    "title": "温湿度监测 - IoT气象站",
+    "source": "格物斯坦",
+    "age_range": "10-15岁",
+    "subject": "计算机",
+    "category": "物联网",
+    "difficulty": 4,
+    "duration_hours": 5,
+    "description": "使用DHT11传感器采集温湿度数据，通过WiFi上传到云平台，制作智能气象站。",
+    "modules": [
+      {
+        "name": "DHT11传感器",
+        "content": "温湿度数据采集原理"
+      },
+      {
+        "name": "ESP8266 WiFi模块",
+        "content": "WiFi连接、HTTP请求"
+      },
+      {
+        "name": "云平台接入",
+        "content": "Thingspeak或Blynk平台使用"
+      }
+    ],
+    "hardware_list": [
+      {
+        "component": "NodeMCU ESP8266",
+        "quantity": 1,
+        "unit_price": 18.0
+      },
+      {
+        "component": "DHT11温湿度传感器",
+        "quantity": 1,
+        "unit_price": 5.0
+      },
+      {
+        "component": "OLED显示屏（0.96寸）",
+        "quantity": 1,
+        "unit_price": 10.0
+      },
+      {
+        "component": "面包板",
+        "quantity": 1,
+        "unit_price": 5.0
+      },
+      {
+        "component": "杜邦线",
+        "quantity": 15,
+        "unit_price": 0.2
+      }
+    ],
+    "total_cost": 41.0,
+    "projects": [
+      {
+        "name": "WiFi气象站",
+        "description": "实时采集温湿度，显示在OLED屏并上传到云端",
+        "circuit_diagram_url": "https://gewustan.com/projects/weather-station/diagram.png"
+      },
+      {
+        "name": "温室监控系统",
+        "description": "监测环境温度湿度，超标时发送警报",
+        "circuit_diagram_url": "https://gewustan.com/projects/greenhouse-monitor/diagram.png"
+      }
+    ],
+    "knowledge_points": [
+      "传感器数据采集",
+      "WiFi网络通信",
+      "物联网云平台"
+    ],
+    "theme": "物联网",
+    "application": "制作家庭环境监测系统，理解智慧农业概念",
+    "tutorial_url": "http://www.gewustan.com/tutorials/iot-weather",
+    "scraped_at": "2026-04-18T22:21:37.113168"
+  },
+  {
+    "tutorial_id": "GWS-Metal-010",
+    "title": "3D打印结构设计",
+    "source": "格物斯坦",
+    "age_range": "10-15岁",
+    "subject": "工程",
+    "category": "数字化制造",
+    "difficulty": 3,
+    "duration_hours": 4,
+    "description": "学习3D建模基础，设计并打印个性化零件，与电子项目结合制作完整作品。",
+    "modules": [
+      {
+        "name": "Tinkercad建模",
+        "content": "基本几何体组合、尺寸标注"
+      },
+      {
+        "name": "3D打印机操作",
+        "content": "切片软件使用、打印参数设置"
+      },
+      {
+        "name": "结构优化",
+        "content": "支撑结构、强度设计"
+      }
+    ],
+    "hardware_list": [
+      {
+        "component": "PLA耗材（100g）",
+        "quantity": 1,
+        "unit_price": 10.0
+      },
+      {
+        "component": "3D打印服务费",
+        "quantity": 1,
+        "unit_price": 20.0
+      },
+      {
+        "component": "砂纸",
+        "quantity": 1,
+        "unit_price": 2.0
+      },
+      {
+        "component": "胶水",
+        "quantity": 1,
+        "unit_price": 3.0
+      }
+    ],
+    "total_cost": 35.0,
+    "projects": [
+      {
+        "name": "定制外壳设计",
+        "description": "为Arduino项目设计并打印个性化外壳",
+        "circuit_diagram_url": "https://gewustan.com/projects/custom-case/design.png"
+      },
+      {
+        "name": "齿轮零件打印",
+        "description": "设计不同齿数的齿轮并打印，组装传动系统",
+        "circuit_diagram_url": "https://gewustan.com/projects/printed-gears/design.png"
+      }
+    ],
+    "knowledge_points": [
+      "3D建模基础",
+      "增材制造原理",
+      "结构设计优化"
+    ],
+    "theme": "数字化制造",
+    "application": "理解现代制造业的数字化转型，培养工程设计能力",
+    "tutorial_url": "http://www.gewustan.com/tutorials/3d-printing",
+    "scraped_at": "2026-04-18T22:21:37.113168"
+  }
+]

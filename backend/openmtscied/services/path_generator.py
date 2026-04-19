@@ -1,291 +1,239 @@
 """
-OpenMTSciEd 学习路径生成服务
-基于用户画像和知识图谱推荐个性化学习路径
+OpenMTSciEd 学习路径生成服务 (MVP 极简版)
+使用HTTP API连接Neo4j，避免Bolt协议SSL问题
 """
 
 import logging
-from typing import List, Dict, Any, Optional
-from datetime import datetime
-import numpy as np
-
+from typing import List, Dict, Any
 from pydantic import BaseModel
-from neo4j import GraphDatabase
-from ..models.user_profile import UserProfile, GradeLevel
+import requests
+import base64
+import os
+from pathlib import Path
+from dotenv import load_dotenv
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+# 加载环境变量
+# __file__ = backend/openmtscied/services/path_generator.py
+# parent = services, parent.parent = openmtscied, parent.parent.parent = backend, parent.parent.parent.parent = OpenMTSciEd
+env_path = Path(__file__).parent.parent.parent.parent / ".env"
+logger.info(f"Loading .env from: {env_path}")
+loaded = load_dotenv(env_path)
+logger.info(f"dotenv loaded: {loaded}")
+if loaded:
+    logger.info(f"NEO4J_USER from env: {os.getenv('NEO4J_USER')}")
+    logger.info(f"NEO4J_PASSWORD length from env: {len(os.getenv('NEO4J_PASSWORD', '')) if os.getenv('NEO4J_PASSWORD') else 0}")
+
 
 class LearningPathNode(BaseModel):
-    """学习路径节点"""
-
-    node_type: str  # course_unit, textbook_chapter, transition_project, hardware_project
+    node_type: str
     node_id: str
     title: str
     difficulty: int
     estimated_hours: float
-    prerequisites_met: bool = True
-    description: Optional[str] = None
+    description: str = ""
 
 
 class PathGenerator:
-    """
-    学习路径生成器
-
-    结合规则引擎和知识图谱,为用户生成个性化学习路径
-    """
-
-    def __init__(self, neo4j_uri=None, neo4j_user=None, neo4j_password=None):
-        # 从环境变量读取配置，避免硬编码
-        import os
-        self.driver = GraphDatabase.driver(
-            neo4j_uri or os.getenv("NEO4J_URI", "bolt://127.0.0.1:7687"),
-            auth=(
-                neo4j_user or os.getenv("NEO4J_USER", "neo4j"),
-                neo4j_password or os.getenv("NEO4J_PASSWORD", "change_me_in_production")
+    def __init__(self):
+        # 使用HTTP API连接Neo4j
+        self.base_url = os.getenv("NEO4J_QUERY_API_URL", 
+                                  "https://4abd5ef9.databases.neo4j.io/db/4abd5ef9/query/v2")
+        user = os.getenv("NEO4J_USER", "4abd5ef9")
+        password = os.getenv("NEO4J_PASSWORD", "password")
+        
+        # Debug: 打印实际使用的凭据（隐藏密码）
+        logger.info(f"Neo4j User: {user}")
+        logger.info(f"Neo4j Password length: {len(password)}")
+        logger.info(f"Neo4J_QUERY_API_URL: {self.base_url}")
+        
+        # Basic Auth
+        auth_string = f"{user}:{password}"
+        auth_base64 = base64.b64encode(auth_string.encode('ascii')).decode('ascii')
+        
+        self.headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Basic {auth_base64}"
+        }
+        
+        logger.info(f"Initialized PathGenerator with HTTP API: {self.base_url}")
+    
+    def _execute_cypher(self, query: str, params: dict = None) -> dict:
+        """执行Cypher查询"""
+        data = {
+            "statement": query,
+            "parameters": params or {}
+        }
+        
+        try:
+            response = requests.post(
+                self.base_url,
+                headers=self.headers,
+                json=data,
+                timeout=10
             )
-        )
+            
+            if response.status_code in [200, 202]:
+                return response.json()
+            else:
+                logger.error(f"Neo4j query failed: HTTP {response.status_code}")
+                logger.error(response.text)
+                return None
+        except Exception as e:
+            logger.error(f"Neo4j connection error: {str(e)}")
+            return None
 
-    def close(self):
-        """关闭数据库连接"""
-        self.driver.close()
-
-    def generate_path(self, user: UserProfile, max_nodes: int = 20) -> List[LearningPathNode]:
-        """
-        为用户生成学习路径 (集成 PPO 强化学习逻辑)
-
-        Args:
-            user: 用户画像
-            max_nodes: 最大路径节点数
-
-        Returns:
-            学习路径节点列表
-        """
-        logger.info(f"为用户 {user.user_id} 生成学习路径")
-
-        # 步骤1: 确定起点
-        starting_unit_id = user.get_recommended_starting_unit()
-        logger.info(f"推荐起始单元: {starting_unit_id}")
-
-        # 步骤2: 使用 PPO 模型评估最佳路径分支 (模拟)
-        # action = self.ppo_model.predict(user_state)
-
-        # 步骤3: 从Neo4j查询完整路径
-        path_nodes = self._query_path_from_neo4j(starting_unit_id, max_nodes)
-
-        # 步骤4: 根据用户水平调整难度
-        adjusted_path = self._adjust_difficulty(path_nodes, user.average_score)
-
-        logger.info(f"生成路径包含 {len(adjusted_path)} 个节点")
-        return adjusted_path
-
-    def _query_path_from_neo4j(self, start_unit_id: str, max_nodes: int) -> List[LearningPathNode]:
-        """
-        从Neo4j查询学习路径
-
-        路径模式: CourseUnit → TextbookChapter → HardwareProject
-        """
-
-        cypher_query = """
-        MATCH (cu:CourseUnit {id: $start_id})
-
-        // 找到课程单元关联的教材章节
-        OPTIONAL MATCH (cu)-[:PROGRESSES_TO]->(tc:TextbookChapter)
-
-        // 找到教材章节的先修知识点
-        OPTIONAL MATCH (tc)<-[:PREREQUISITE_OF]-(kp:KnowledgePoint)
-
-        // 找到课程单元对应的硬件项目
-        OPTIONAL MATCH (cu)-[:HARDWARE_MAPS_TO]->(hp:HardwareProject)
-
-        RETURN
-            cu.id AS unit_id,
-            cu.title AS unit_title,
-            cu.duration_weeks * 2 AS unit_hours,
-            tc.id AS chapter_id,
-            tc.title AS chapter_title,
-            tc.estimated_hours AS chapter_hours,
-            tc.difficulty AS chapter_difficulty,
-            hp.id AS project_id,
-            hp.name AS project_name,
-            hp.estimated_time AS project_hours,
-            hp.difficulty AS project_difficulty
-        LIMIT 1
-        """
-
-        with self.driver.session() as session:
-            result = session.run(cypher_query, start_id=start_unit_id)
-            record = result.single()
-
-            if not record:
-                logger.warning(f"未找到起始单元 {start_unit_id} 的路径")
+    def generate_path(self, user, max_nodes: int = 20) -> List[LearningPathNode]:
+        try:
+            start_id = user.get_recommended_starting_unit()
+            logger.info(f"Generating path for {user.user_id} starting from {start_id}")
+            
+            # 获取用户已完成的单元ID列表
+            completed_unit_ids = [cu.unit_id for cu in user.completed_units] if user.completed_units else []
+            logger.info(f"User has completed {len(completed_unit_ids)} units: {completed_unit_ids[:5]}")
+            
+            # 多跳查询：沿着PROGRESSES_TO关系查找后续课程单元，并包含跨学科关联
+            query = """
+            MATCH path = (start:CourseUnit {id: $start_id})-[:PROGRESSES_TO*0..4]->(cu:CourseUnit)
+            WITH cu, length(path) AS depth
+            WHERE NOT cu.id IN $completed_ids
+            ORDER BY depth
+            
+            // 获取每个CourseUnit相关的知识点
+            OPTIONAL MATCH (cu)-[:CONTAINS]->(kp:KnowledgePoint)
+            WITH cu, depth, collect(kp) AS knowledge_points
+            
+            // 获取跨学科关联的知识点（通过CROSS_DISCIPLINE关系）
+            OPTIONAL MATCH (kp:KnowledgePoint)-[:CROSS_DISCIPLINE]-(related_kp:KnowledgePoint)
+            WHERE kp IN knowledge_points AND related_kp <> kp
+            WITH cu, depth, knowledge_points, collect(DISTINCT related_kp) AS cross_discipline_kps
+            
+            // 获取相关的教材章节
+            OPTIONAL MATCH (cu)-[:PROGRESSES_TO]->(tc:TextbookChapter)
+            WITH cu, depth, knowledge_points, cross_discipline_kps, collect(DISTINCT tc) AS textbooks
+            
+            // 获取相关的硬件项目（通过学科匹配或HARDWARE_MAPS_TO关系）
+            OPTIONAL MATCH (hp:HardwareProject)
+            WHERE (hp.subject = cu.subject OR 
+                   EXISTS((cu)-[:HARDWARE_MAPS_TO]->(hp)))
+              AND hp.difficulty <= cu.difficulty + 1
+              AND hp.total_cost <= 50
+            WITH cu, depth, knowledge_points, cross_discipline_kps, textbooks, collect(DISTINCT hp) AS hardware_projects
+            
+            RETURN cu, depth, 
+                   [kp IN knowledge_points | {id: kp.id, name: kp.name, subject: kp.subject}] AS knowledge_points,
+                   [rkp IN cross_discipline_kps | {id: rkp.id, name: rkp.name, subject: rkp.subject}] AS cross_discipline_kps,
+                   [tc IN textbooks | {id: tc.id, title: tc.title, subject: tc.subject}] AS textbooks,
+                   [hp IN hardware_projects | {id: hp.id, title: hp.title, cost: hp.total_cost}] AS hardware_projects
+            ORDER BY depth
+            LIMIT $max_nodes
+            """
+            
+            logger.info(f"Executing Neo4j query with start_id={start_id}, max_nodes={max_nodes}, completed_ids={completed_unit_ids}")
+            result = self._execute_cypher(query, {
+                "start_id": start_id, 
+                "max_nodes": max_nodes,
+                "completed_ids": completed_unit_ids
+            })
+            
+            if not result:
+                logger.warning("No results from Neo4j query")
+                return []
+            
+            logger.info(f"Neo4j response structure: {list(result.keys())}")
+            records = result.get("data", {}).get("values", [])
+            logger.info(f"Found {len(records)} records")
+            
+            if not records:
                 return []
 
-            path_nodes = []
+            nodes = []
+            for i, record in enumerate(records):
+                logger.info(f"Processing record {i+1}/{len(records)}")
+                cu = record[0]  # cu对象
+                depth = record[1]
+                knowledge_points = record[2]
+                cross_discipline_kps = record[3]
+                textbooks = record[4]
+                hardware_projects = record[5]
+                
+                if cu:
+                    # HTTP API返回的节点结构: {elementId, labels, properties}
+                    props = cu.get("properties", cu)  # 兼容两种格式
+                    
+                    # 将grade_level字符串转换为整数难度
+                    grade_level = props.get("grade_level", "middle")
+                    difficulty_map = {"小学": 1, "初中": 2, "高中": 3, "大学": 4,
+                                     "elementary": 1, "middle": 2, "high": 3, "university": 4}
+                    difficulty = difficulty_map.get(grade_level, 2)
+                    
+                    # 添加课程单元节点
+                    nodes.append(LearningPathNode(
+                        node_type="course_unit",
+                        node_id=props.get("id", "unknown"),
+                        title=props.get("title", "Unknown"),
+                        difficulty=difficulty,
+                        estimated_hours=props.get("duration_weeks", 4) * 3,
+                        description=f"学科: {props.get('subject', '未知')}"
+                    ))
+                
+                # 添加相关的知识点
+                for kp_data in knowledge_points[:2]:  # 限制每个单元最多2个知识点
+                    nodes.append(LearningPathNode(
+                        node_type="knowledge_point",
+                        node_id=kp_data["id"],
+                        title=kp_data["name"],
+                        difficulty=depth + 1,
+                        estimated_hours=1.5,
+                        description=f"学科: {kp_data.get('subject', '未知')}"
+                    ))
+                
+                # 添加跨学科关联的知识点
+                for rkp_data in cross_discipline_kps[:2]:  # 最多2个跨学科知识点
+                    nodes.append(LearningPathNode(
+                        node_type="cross_discipline_kp",
+                        node_id=rkp_data["id"],
+                        title=f"[跨学科] {rkp_data['name']}",
+                        difficulty=depth + 1,
+                        estimated_hours=1.5,
+                        description=f"关联学科: {rkp_data.get('subject', '未知')}"
+                    ))
+                
+                # 添加相关的教材章节
+                for tc_data in textbooks[:1]:  # 每个单元最多1个教材章节
+                    nodes.append(LearningPathNode(
+                        node_type="textbook_chapter",
+                        node_id=tc_data["id"],
+                        title=tc_data["title"],
+                        difficulty=depth + 2,
+                        estimated_hours=6,
+                        description=f"学科: {tc_data.get('subject', '未知')}"
+                    ))
+                
+                # 添加相关的硬件项目
+                for hp_data in hardware_projects[:1]:  # 每个单元最多1个硬件项目
+                    nodes.append(LearningPathNode(
+                        node_type="hardware_project",
+                        node_id=hp_data["id"],
+                        title=hp_data["title"],
+                        difficulty=depth + 1,
+                        estimated_hours=4,
+                        description=f"成本: ¥{hp_data.get('cost', 0)}"
+                    ))
+            
+            logger.info(f"Generated {len(nodes)} path nodes")
+            return nodes[:max_nodes]
+        except Exception as e:
+            logger.error(f"Error in generate_path: {str(e)}", exc_info=True)
+            raise
 
-            # 添加课程单元节点
-            if record["unit_id"]:
-                path_nodes.append(LearningPathNode(
-                    node_type="course_unit",
-                    node_id=record["unit_id"],
-                    title=record["unit_title"],
-                    difficulty=3,  # 默认难度
-                    estimated_hours=record["unit_hours"] or 12,
-                    description=f"课程单元: {record['unit_title']}"
-                ))
-
-            # 添加过渡项目(如果有先修知识点)
-            if record["chapter_id"]:
-                path_nodes.append(LearningPathNode(
-                    node_type="transition_project",
-                    node_id=f"TP-{record['chapter_id']}",
-                    title=f"{record['chapter_title']} - 预习项目",
-                    difficulty=max(1, record["chapter_difficulty"] - 1),
-                    estimated_hours=2,
-                    description="通过Blockly编程预习理论知识"
-                ))
-
-            # 添加教材章节节点
-            if record["chapter_id"]:
-                path_nodes.append(LearningPathNode(
-                    node_type="textbook_chapter",
-                    node_id=record["chapter_id"],
-                    title=record["chapter_title"],
-                    difficulty=record["chapter_difficulty"] or 3,
-                    estimated_hours=record["chapter_hours"] or 6,
-                    description=f"教材章节: {record['chapter_title']}"
-                ))
-
-            # 添加硬件综合项目
-            if record["project_id"]:
-                path_nodes.append(LearningPathNode(
-                    node_type="hardware_project",
-                    node_id=record["project_id"],
-                    title=record["project_name"],
-                    difficulty=record["project_difficulty"] or 3,
-                    estimated_hours=record["project_hours"] or 4,
-                    description=f"硬件项目: {record['project_name']}"
-                ))
-
-            return path_nodes[:max_nodes]
-
-    def _adjust_difficulty(self, path_nodes: List[LearningPathNode],
-                          user_score: float) -> List[LearningPathNode]:
-        """
-        根据用户成绩调整路径难度
-
-        Args:
-            path_nodes: 原始路径节点
-            user_score: 用户平均成绩(0-100)
-
-        Returns:
-            调整后的路径节点
-        """
-
-        if user_score >= 85:
-            # 优秀学生:保持原难度或略微提升
-            adjustment_factor = 1.0
-        elif user_score >= 70:
-            # 中等学生:适当降低难度
-            adjustment_factor = 0.9
-        else:
-            # 基础薄弱:显著降低难度,增加过渡节点
-            adjustment_factor = 0.7
-
-        adjusted_nodes = []
-        for node in path_nodes:
-            adjusted_node = node.copy()
-            adjusted_node.difficulty = max(1, int(node.difficulty * adjustment_factor))
-            adjusted_nodes.append(adjusted_node)
-
-        # 如果成绩较低,插入额外的过渡项目
-        if user_score < 70:
-            enhanced_path = []
-            for i, node in enumerate(adjusted_nodes):
-                enhanced_path.append(node)
-
-                # 在课程单元和教材章节之间插入额外过渡
-                if node.node_type == "course_unit" and i + 1 < len(adjusted_nodes):
-                    next_node = adjusted_nodes[i + 1]
-                    if next_node.node_type == "textbook_chapter":
-                        extra_transition = LearningPathNode(
-                            node_type="transition_project",
-                            node_id=f"TP-Extra-{node.node_id}",
-                            title=f"{node.title} - 巩固练习",
-                            difficulty=max(1, node.difficulty - 1),
-                            estimated_hours=3,
-                            description="额外过渡项目,巩固基础知识"
-                        )
-                        enhanced_path.append(extra_transition)
-
-            return enhanced_path
-
-        return adjusted_nodes
-
-    def get_path_summary(self, path_nodes: List[LearningPathNode]) -> Dict[str, Any]:
-        """
-        生成路径摘要信息
-
-        Returns:
-            包含总时长、平均难度、节点类型分布等统计信息
-        """
-
-        if not path_nodes:
+    def get_path_summary(self, nodes: List[LearningPathNode]) -> Dict[str, Any]:
+        if not nodes:
             return {}
-
-        total_hours = sum(node.estimated_hours for node in path_nodes)
-        avg_difficulty = sum(node.difficulty for node in path_nodes) / len(path_nodes)
-
-        type_distribution = {}
-        for node in path_nodes:
-            node_type = node.node_type
-            type_distribution[node_type] = type_distribution.get(node_type, 0) + 1
-
         return {
-            "total_nodes": len(path_nodes),
-            "total_hours": total_hours,
-            "avg_difficulty": round(avg_difficulty, 2),
-            "type_distribution": type_distribution,
-            "estimated_completion_days": round(total_hours / 2),  # 假设每天学习2小时
+            "total_nodes": len(nodes),
+            "total_hours": sum(n.estimated_hours for n in nodes),
+            "avg_difficulty": round(sum(n.difficulty for n in nodes) / len(nodes), 2)
         }
-
-
-# 示例使用
-if __name__ == "__main__":
-    from ..models.user_profile import create_sample_user
-
-    # 创建路径生成器
-    generator = PathGenerator()
-
-    try:
-        # 创建示例用户
-        user = create_sample_user()
-
-        # 生成学习路径
-        path = generator.generate_path(user, max_nodes=10)
-
-        # 打印路径详情
-        print("\n" + "=" * 60)
-        print(f"用户 {user.user_id} 的学习路径")
-        print("=" * 60)
-
-        for i, node in enumerate(path, 1):
-            print(f"\n{i}. [{node.node_type}] {node.title}")
-            print(f"   难度: {'★' * node.difficulty}{'☆' * (5-node.difficulty)}")
-            print(f"   预计时长: {node.estimated_hours}小时")
-            if node.description:
-                print(f"   说明: {node.description}")
-
-        # 打印路径摘要
-        summary = generator.get_path_summary(path)
-        print("\n" + "=" * 60)
-        print("路径摘要")
-        print("=" * 60)
-        print(f"总节点数: {summary['total_nodes']}")
-        print(f"总学习时长: {summary['total_hours']}小时")
-        print(f"平均难度: {summary['avg_difficulty']}/5")
-        print(f"预计完成天数: {summary['estimated_completion_days']}天")
-        print(f"节点类型分布: {summary['type_distribution']}")
-
-    finally:
-        generator.close()

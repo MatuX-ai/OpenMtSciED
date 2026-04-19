@@ -7,7 +7,7 @@ from typing import List, Optional
 
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import and_
-from sqlalchemy.orm import Session
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from database.db import Base
 from models.user import User
@@ -18,7 +18,7 @@ from services.ai_edu_progress_service import (
     ProgressStatisticsResponse,
     ProgressUpdateRequest,
 )
-from utils.database import get_sync_db
+from utils.database import get_db
 
 logger = logging.getLogger(__name__)
 
@@ -30,7 +30,7 @@ router = APIRouter(prefix="/api/v1/org/{org_id}/ai-edu", tags=["AI 教育学习�
 async def update_learning_progress(
     org_id: int,
     request: ProgressUpdateRequest,
-    db: Session = Depends(get_sync_db),
+    db: AsyncSession = Depends(get_db),
     current_user: User = Depends(get_current_user_sync),
 ):
     """
@@ -84,7 +84,7 @@ async def get_user_progress(
     org_id: int,
     module_id: Optional[int] = Query(None, description="模块 ID"),
     status_filter: Optional[str] = Query(None, description="状态过滤"),
-    db: Session = Depends(get_sync_db),
+    db: AsyncSession = Depends(get_db),
     current_user: User = Depends(get_current_user_sync),
 ) -> dict:
     """
@@ -118,7 +118,7 @@ async def get_user_progress(
 async def complete_lesson(
     org_id: int,
     request: LessonCompletionRequest,
-    db: Session = Depends(get_sync_db),
+    db: AsyncSession = Depends(get_db),
     current_user: User = Depends(get_current_user_sync),
 ):
     """
@@ -167,7 +167,7 @@ async def complete_lesson(
 @router.get("/progress/statistics")
 async def get_progress_statistics(
     org_id: int,
-    db: Session = Depends(get_sync_db),
+    db: AsyncSession = Depends(get_db),
     current_user: User = Depends(get_current_user_sync),
 ) -> ProgressStatisticsResponse:
     """
@@ -197,7 +197,7 @@ async def get_progress_statistics(
 async def reset_progress(
     org_id: int,
     lesson_id: int,
-    db: Session = Depends(get_sync_db),
+    db: AsyncSession = Depends(get_db),
     current_user: User = Depends(get_current_user_sync),
 ):
     """
@@ -225,12 +225,12 @@ async def reset_progress(
             )
         )
 
-        db.execute(stmt)
-        db.commit()
+        await db.execute(stmt)
+        await db.commit()
 
         return {"success": True, "message": "进度已重置，可以重新开始学习"}
 
     except Exception as e:
         logger.error(f"重置学习进度失败：{e}")
-        db.rollback()
+        await db.rollback()
         raise HTTPException(status_code=500, detail=str(e))

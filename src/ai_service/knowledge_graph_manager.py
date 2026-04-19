@@ -5,6 +5,7 @@
 
 try:
     from neo4j import Driver, GraphDatabase, Session
+    import ssl
 
     NEO4J_AVAILABLE = True
 except ImportError:
@@ -13,6 +14,7 @@ except ImportError:
     Driver = None
     Session = None
     NEO4J_AVAILABLE = False
+    ssl = None
 
 from dataclasses import dataclass
 from datetime import datetime
@@ -108,7 +110,19 @@ class KnowledgeGraphManager:
             return
 
         try:
-            self.driver: Driver = GraphDatabase.driver(uri, auth=(username, password))
+            # 对于 Neo4j Aura，需要配置 SSL 上下文来信任证书
+            if ssl and uri.startswith("bolt://"):
+                ssl_context = ssl.create_default_context()
+                ssl_context.check_hostname = False
+                ssl_context.verify_mode = ssl.CERT_NONE
+                self.driver: Driver = GraphDatabase.driver(
+                    uri,
+                    auth=(username, password),
+                    encrypted=True,
+                    ssl_context=ssl_context
+                )
+            else:
+                self.driver: Driver = GraphDatabase.driver(uri, auth=(username, password))
             self.database = database
             self._mock_mode = False
             self._initialize_schema()

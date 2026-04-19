@@ -24,8 +24,19 @@ class UserLicenseService:
     """用户许可证服务类"""
 
     def __init__(self):
-        self.redis_store = RedisLicenseStore()
+        self._redis_store = None
         self.sentinel_config = load_sentinel_config()
+    
+    @property
+    def redis_store(self):
+        """延迟初始化 Redis 存储"""
+        if self._redis_store is None:
+            try:
+                self._redis_store = RedisLicenseStore()
+            except Exception as e:
+                logger.warning(f"Redis 初始化失败，将使用内存模式: {e}")
+                self._redis_store = None
+        return self._redis_store
 
     async def sync_user_with_sentinel(
         self, user: User, db: AsyncSession

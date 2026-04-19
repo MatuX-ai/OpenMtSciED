@@ -34,7 +34,8 @@ class UnifiedMaterial(Base):
     thumbnail_url = Column(String(500), comment="缩略图URL")
 
     # 关联信息
-    course_id = Column(Integer, ForeignKey("courses.id"), comment="关联课程ID")
+    course_id = Column(Integer, ForeignKey("courses.id"), comment="关联传统课程ID")
+    unified_course_id = Column(Integer, ForeignKey("unified_courses.id"), comment="关联统一教程ID")
     # chapter_id = Column(Integer, ForeignKey("course_chapters.id"), comment="关联章节ID")  # TODO: CourseChapter模型待实现
     lesson_id = Column(Integer, ForeignKey("course_lessons.id"), comment="关联课时ID")
     org_id = Column(Integer, ForeignKey("organizations.id"), nullable=False, comment="机构ID")
@@ -76,6 +77,7 @@ class UnifiedMaterial(Base):
 
     # 关系
     course = relationship("Course", back_populates="materials")
+    unified_course = relationship("UnifiedCourse", back_populates="materials")
     # chapter = relationship("CourseChapter", back_populates="materials")  # TODO: CourseChapter模型待实现
     lesson = relationship("CourseLesson", back_populates="materials")
     organization = relationship("Organization", back_populates="materials")
@@ -110,6 +112,7 @@ class UnifiedMaterial(Base):
             "file_hash": self.file_hash,
             "thumbnail_url": self.thumbnail_url,
             "course_id": self.course_id,
+            "unified_course_id": self.unified_course_id,
             "chapter_id": self.chapter_id,
             "lesson_id": self.lesson_id,
             "org_id": self.org_id,

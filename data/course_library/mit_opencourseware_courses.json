@@ -1,0 +1,48 @@
+[
+  {
+    "course_id": "MIT-PHYS-001",
+    "title": "Classical Mechanics",
+    "source": "mit_ocw",
+    "grade_level": "university",
+    "subject": "Physics",
+    "duration_weeks": 15,
+    "description": "Newtonian mechanics, fluid mechanics, and kinetic gas theory.",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-MIT-PHYS-001",
+        "name": "Newton's Laws",
+        "description": "Three laws of motion"
+      },
+      {
+        "kp_id": "KP-MIT-PHYS-002",
+        "name": "Conservation Laws",
+        "description": "Energy, momentum, angular momentum"
+      }
+    ],
+    "course_url": "https://ocw.mit.edu/courses/physics/8-01sc-classical-mechanics-fall-2016/",
+    "scraped_at": "2026-04-18T22:22:26.913351"
+  },
+  {
+    "course_id": "MIT-CS-001",
+    "title": "Introduction to Algorithms",
+    "source": "mit_ocw",
+    "grade_level": "university",
+    "subject": "Computer Science",
+    "duration_weeks": 14,
+    "description": "Mathematical modeling of computational problems.",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-MIT-CS-001",
+        "name": "Algorithm Analysis",
+        "description": "Time and space complexity"
+      },
+      {
+        "kp_id": "KP-MIT-CS-002",
+        "name": "Sorting Algorithms",
+        "description": "Merge sort, quicksort, heapsort"
+      }
+    ],
+    "course_url": "https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/",
+    "scraped_at": "2026-04-18T22:22:26.913351"
+  }
+]

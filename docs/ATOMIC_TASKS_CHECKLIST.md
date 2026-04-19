@@ -24,12 +24,6 @@
 - [x] T1.1.3 配置 TypeScript 和 Angular 编译
 - [x] T1.1.4 设置 Rust 后端基础框架
 
-**关联文件:**
-- `desktop-manager/package.json`
-- `desktop-manager/src-tauri/Cargo.toml`
-- `desktop-manager/src-tauri/tauri.conf.json`
-- `desktop-manager/angular.json`
-
 ---
 
 ### T1.2 首次使用引导
@@ -490,109 +484,12 @@ interface HardwareProject {
 
 ---
 
-### T2.4 文件预览增强
-**工作量:** 0.75人天 | **优先级:** P1 | **状态:** 部分完成
+### T2.4 离线模式强化
+**工作量:** 0.5人天 | **优先级:** P0 | **状态:** 未开始
 
-#### T2.4.1 集成 PDF.js
-**工作量:** 0.25人天
-- [ ] 安装 PDF.js 依赖
-- [ ] 实现 PDF 渲染组件
-- [ ] 支持翻页、缩放、搜索
-- [ ] 优化大 PDF 加载性能
-
-**关联文件:**
-- `src/app/shared/components/preview/pdf-preview/`
-  - `pdf-preview.component.ts`
-  - `pdf-preview.component.html`
-- `package.json` (添加 pdfjs-dist)
-
-#### T2.4.2 实现视频播放器
-**工作量:** 0.2人天
-- [ ] 使用 HTML5 video 标签
-- [ ] 支持播放/暂停/进度条
-- [ ] 支持全屏播放
-- [ ] 适配 MP4/WebM 格式
-
-**关联文件:**
-- `src/app/shared/components/preview/video-preview/`
-  - `video-preview.component.ts`
-  - `video-preview.component.html`
-
-#### T2.4.3 实现图片画廊
-**工作量:** 0.15人天
-- [ ] 支持图片放大/缩小
-- [ ] 支持左右切换
-- [ ] 支持旋转
-- [ ] 懒加载优化
-
-**关联文件:**
-- `src/app/shared/components/preview/image-gallery/`
-  - `image-gallery.component.ts`
-  - `image-gallery.component.html`
-
-#### T2.4.4 PPT 在线预览(可选)
-**工作量:** 0.15人天
-- [ ] 将 PPT 转换为图片序列
-- [ ] 使用图片画廊展示
-- [ ] 或使用第三方服务(如 Microsoft Office Online)
-
-**关联文件:**
-- `src/app/shared/components/preview/ppt-preview/`
-  - `ppt-preview.component.ts`
-  - `ppt-preview.component.html`
-
-**验收标准:**
-- 支持常见文件格式预览
-- 预览加载时间 < 2s
-- 视频播放流畅无卡顿
-
----
-
-### T2.5 数据导入导出
-**工作量:** 0.5人天 | **优先级:** P1 | **状态:** 未开始
-
-#### T2.5.1 实现教程数据导出
-**工作量:** 0.15人天
-- [ ] 导出教程元数据为 JSON
-- [ ] 打包课件文件为 ZIP
-- [ ] 生成分享链接或二维码
-- [ ] 显示导出进度
-
-**关联文件:**
-- `src/app/features/import-export/export.service.ts`
-- `src/app/features/import-export/export-dialog/`
-  - `export-dialog.component.ts`
-  - `export-dialog.component.html`
-
-#### T2.5.2 实现教程数据导入
-**工作量:** 0.15人天
-- [ ] 解析 JSON 元数据
-- [ ] 解压 ZIP 文件
-- [ ] 处理导入冲突(覆盖/跳过/重命名)
-- [ ] 验证数据完整性
-
-**关联文件:**
-- `src/app/features/import-export/import.service.ts`
-- `src/app/features/import-export/import-dialog/`
-  - `import-dialog.component.ts`
-  - `import-dialog.component.html`
-
-#### T2.5.3 实现分享功能
-**工作量:** 0.2人天
-- [ ] 生成分享链接(含教程+课件)
-- [ ] 生成二维码
-- [ ] 复制到剪贴板
-- [ ] 分享到社交媒体(可选)
-
-**关联文件:**
-- `src/app/shared/components/share-button/`
-  - `share-button.component.ts`
-  - `share-button.component.html`
-
-**验收标准:**
-- 能导出完整课程包(含课件)
-- 导入时能处理数据冲突
-- 大文件导入显示进度
+- [ ] T2.4.1 检测网络连接状态并显示指示器
+- [ ] T2.4.2 实现离线操作队列（联网后同步）
+- [ ] T2.4.3 预缓存常用教程与课件资源
 
 ---
 
@@ -601,78 +498,9 @@ interface HardwareProject {
 ### T3.1 本地数据库优化
 **工作量:** 0.5人天 | **优先级:** P0 | **状态:** 进行中
 
-#### T3.1.1 设计数据库表结构
-**工作量:** 0.15人天
-- [ ]  tutorials 表(教程元数据)
-- [ ]  materials 表(课件文件)
-- [ ]  learning_paths 表(学习路径)
-- [ ]  hardware_projects 表(硬件项目)
-- [ ]  knowledge_graph 表(图谱关系)
-
-**关联文件:**
-- `src-tauri/src/database/schema.rs`
-- `src-tauri/src/database/migrations/001_initial.sql`
-
-**SQL Schema:**
-```sql
-CREATE TABLE tutorials (
-    id TEXT PRIMARY KEY,
-    name TEXT NOT NULL,
-    description TEXT,
-    cover_image TEXT,
-    source TEXT,
-    created_at TIMESTAMP,
-    updated_at TIMESTAMP
-);
-
-CREATE TABLE materials (
-    id TEXT PRIMARY KEY,
-    tutorial_id TEXT,
-    name TEXT NOT NULL,
-    file_path TEXT,
-    file_size INTEGER,
-    file_type TEXT,
-    created_at TIMESTAMP,
-    FOREIGN KEY (tutorial_id) REFERENCES tutorials(id)
-);
-
-CREATE TABLE learning_paths (
-    id TEXT PRIMARY KEY,
-    name TEXT NOT NULL,
-    path_data JSONB,
-    created_at TIMESTAMP
-);
-```
-
-#### T3.1.2 实现数据库迁移
-**工作量:** 0.15人天
-- [ ] 编写迁移脚本
-- [ ] 实现版本控制
-- [ ] 支持回滚操作
-- [ ] 测试迁移流程
-
-**关联文件:**
-- `src-tauri/src/database/migrations/`
-- `src-tauri/src/database/connection.rs`
-
-#### T3.1.3 添加索引优化
-**工作量:** 0.1人天
-- [ ] 为常用查询字段添加索引
-- [ ] 优化 JOIN 查询性能
-- [ ] 测试查询速度
-
-**关联文件:**
-- `src-tauri/src/database/migrations/002_add_indexes.sql`
-
-#### T3.1.4 实现数据库备份
-**工作量:** 0.1人天
-- [ ] 导出 SQLite 数据库文件
-- [ ] 支持定时自动备份
-- [ ] 备份文件压缩
-- [ ] 恢复功能
-
-**关联文件:**
-- `src-tauri/src/commands/backup.rs`
+- [ ] T3.1.1 设计核心表结构 (tutorials, materials, hardware_projects)
+- [ ] T3.1.2 实现数据库迁移脚本
+- [ ] T3.1.3 为常用查询字段添加索引
 
 **验收标准:**
 - 数据库查询性能达标
@@ -680,210 +508,12 @@ CREATE TABLE learning_paths (
 
 ---
 
-### T3.2 离线模式强化
+### T3.2 安装包制作与测试
 **工作量:** 0.5人天 | **优先级:** P0 | **状态:** 未开始
 
-#### T3.2.1 检测网络连接状态
-**工作量:** 0.1人天
-- [ ] 监听网络状态变化
-- [ ] 显示在线/离线指示器
-- [ ] 离线时禁用云端功能
-
-**关联文件:**
-- `src/app/features/offline/offline.service.ts`
-- `src/app/features/offline/offline-indicator/`
-  - `offline-indicator.component.ts`
-  - `offline-indicator.component.html`
-
-#### T3.2.2 实现离线操作队列
-**工作量:** 0.2人天
-- [ ] 离线时将操作加入队列
-- [ ] 联网后自动同步
-- [ ] 显示队列状态
-- [ ] 手动触发同步
-
-**关联文件:**
-- `src/app/features/offline/offline-queue.service.ts`
-
-#### T3.2.3 预缓存常用资源
-**工作量:** 0.2人天
-- [ ] 首次使用时下载热门教程
-- [ ] 缓存知识图谱数据
-- [ ] 缓存硬件项目代码模板
-- [ ] 显示缓存状态
-
-**关联文件:**
-- `src/app/features/offline/cache.service.ts`
-
-**验收标准:**
-- 断网后应用不崩溃
-- 已下载资源完全可用
-- 离线操作在联网后自动同步(如启用)
-
----
-
-### T3.4 自动更新机制
-**工作量:** 0.5人天 | **优先级:** P1 | **状态:** 未开始
-
-#### T3.4.1 配置 Tauri 自动更新
-**工作量:** 0.2人天
-- [ ] 配置 tauri.conf.json updater 字段
-- [ ] 生成签名密钥对
-- [ ] 设置更新端点(GitHub Releases)
-- [ ] 配置更新检查频率
-
-**关联文件:**
-- `src-tauri/tauri.conf.json`
-
-**配置示例:**
-```json
-{
-  "tauri": {
-    "updater": {
-      "active": true,
-      "endpoints": [
-        "https://github.com/MatuX-ai/OpenMTSciEd/releases/latest/download/latest.json"
-      ],
-      "dialog": true,
-      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6..."
-    }
-  }
-}
-```
-
-#### T3.4.2 实现更新检查和安装
-**工作量:** 0.2人天
-- [ ] 定期检查新版本
-- [ ] 显示更新日志
-- [ ] 用户确认后下载
-- [ ] 自动重启应用
-
-**关联文件:**
-- `src/app/features/update/update.service.ts`
-- `src/app/features/update/update-dialog/`
-  - `update-dialog.component.ts`
-  - `update-dialog.component.html`
-
-#### T3.4.3 实现更新日志展示
-**工作量:** 0.1人天
-- [ ] 从 GitHub Releases 获取更新日志
-- [ ] 格式化显示(Markdown 渲染)
-- [ ] 支持"稍后提醒"选项
-
-**关联文件:**
-- `src/app/features/update/release-notes/`
-  - `release-notes.component.ts`
-  - `release-notes.component.html`
-
-**验收标准:**
-- 能检测新版本
-- 用户可选择立即更新或稍后提醒
-- 更新后应用正常启动
-
----
-
-### T3.5 安装包制作与签名
-**工作量:** 0.75人天 | **优先级:** P0 | **状态:** 未开始
-
-#### T3.5.1 配置 Windows 安装包
-**工作量:** 0.25人天
-- [ ] 配置 NSIS 安装包
-- [ ] 添加安装向导界面
-- [ ] 配置卸载程序
-- [ ] 测试全新安装和升级安装
-
-**关联文件:**
-- `src-tauri/tauri.conf.json`
-- `scripts/build-windows.ps1`
-
-#### T3.5.2 配置 macOS 安装包
-**工作量:** 0.2人天
-- [ ] 配置 DMG 安装包
-- [ ] 添加应用图标
-- [ ] 配置 notarization(可选)
-- [ ] 测试安装流程
-
-**关联文件:**
-- `src-tauri/tauri.conf.json`
-- `scripts/build-macos.sh`
-
-#### T3.5.3 配置 Linux 安装包
-**工作量:** 0.15人天
-- [ ] 配置 AppImage 打包
-- [ ] 配置 DEB 打包(Ubuntu/Debian)
-- [ ] 测试安装流程
-
-**关联文件:**
-- `src-tauri/tauri.conf.json`
-- `scripts/build-linux.sh`
-
-#### T3.5.4 代码签名(可选)
-**工作量:** 0.15人天
-- [ ] 申请 Windows 代码签名证书
-- [ ] 配置签名流程
-- [ ] 验证签名有效性
-
-**关联文件:**
-- `scripts/sign-windows.ps1`
-
-**验收标准:**
-- 三个平台安装包都能正常生成
-- 安装包大小 < 20MB
-- 安装过程无错误
-
----
-
-### T3.6 测试与文档
-**工作量:** 0.75人天 | **优先级:** P0 | **状态:** 进行中
-
-#### T3.6.1 编写教师使用手册
-**工作量:** 0.25人天
-- [ ] 图文并茂,零基础友好
-- [ ] 包含截图和标注
-- [ ] 常见问题解答
-- [ ] 视频教程链接
-
-**关联文件:**
-- `docs/TEACHER_GUIDE.md`
-- `docs/FAQ.md`
-
-#### T3.6.2 邀请教师试用
-**工作量:** 0.2人天
-- [ ] 招募 5-10 名 STEM 教师
-- [ ] 提供测试版安装包
-- [ ] 收集反馈意见
-- [ ] 整理优化建议清单
-
-**关联文件:**
-- `docs/USER_FEEDBACK_TEMPLATE.md`
-- `docs/OPTIMIZATION_SUGGESTIONS.md`
-
-#### T3.6.3 功能测试
-**工作量:** 0.15人天
-- [ ] 编写端到端测试用例
-- [ ] 测试核心功能流程
-- [ ] 边界条件测试
-- [ ] 性能测试
-
-**关联文件:**
-- `tests/e2e/`
-- `tests/unit/`
-
-#### T3.6.4 Bug 修复和性能优化
-**工作量:** 0.15人天
-- [ ] 修复测试发现的 Bug
-- [ ] 优化启动速度
-- [ ] 优化内存占用
-- [ ] 优化搜索性能
-
-**关联文件:**
-- 根据实际 Bug 定位
-
-**验收标准:**
-- 用户手册完整清晰,非技术人员能看懂
-- 测试用例覆盖率 > 80%
-- 无严重级别 Bug
-- 教师反馈满意度 > 80%
+- [ ] T3.2.1 配置 Windows/macOS/Linux 打包脚本
+- [ ] T3.2.2 编写教师使用手册 (图文并茂)
+- [ ] T3.2.3 邀请 5-10 名 STEM 教师试用并收集反馈
 
 ---
 
@@ -891,10 +521,10 @@ CREATE TABLE learning_paths (
 
 | 阶段 | 任务数 | 总工作量 | 日历时间 |
 |------|--------|----------|----------|
-| 阶段一 | 22 | 3.75人天 | 2周 |
-| 阶段二 | 17 | 3.0人天 | 2周 |
-| 阶段三 | 18 | 3.5人天 | 2周 |
-| **总计** | **57** | **10.25人天** | **6周** |
+| 阶段一 | 4 | 3.0人天 | 2周 |
+| 阶段二 | 4 | 3.0人天 | 2周 |
+| 阶段三 | 2 | 1.0人天 | 1周 |
+| **总计** | **10** | **7.0人天** | **5周** |
 
 **注:** T2.3 硬件项目管理已完成，阶段二剩余 3 个任务（T2.4、T2.5）
 

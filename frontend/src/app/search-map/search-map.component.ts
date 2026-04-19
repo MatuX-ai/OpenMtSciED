@@ -180,7 +180,7 @@ export class SearchMapComponent implements OnInit, OnDestroy {
   myChart: echarts.ECharts | undefined;
   graphData: any = null;
 
-  constructor(private http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
   ngOnInit() {
     this.initChart();

@@ -5,7 +5,7 @@
 """
 
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, status
-from sqlalchemy.orm import Session
+from sqlalchemy.ext.asyncio import AsyncSession
 from typing import List, Optional
 from datetime import datetime, timedelta
 import os
@@ -16,7 +16,7 @@ import enum
 from pydantic import BaseModel, Field, validator
 
 # 导入数据库依赖
-from utils.database import get_sync_db
+from utils.database import get_db
 
 # 导入服务
 from services.material_service import (
@@ -315,7 +315,7 @@ async def create_material(
     material_data: str = Form(..., description="课件数据JSON"),
     current_user: dict = Depends(get_current_user),
     material_service: MaterialService = Depends(get_material_service),
-    db: Session = Depends(get_sync_db)
+    db: AsyncSession = Depends(get_db)
 ):
     """
     创建新的课件
@@ -413,8 +413,8 @@ async def create_material(
         )
 
 
-@router.get("", response_model=dict, summary="获取课件列表")
-def get_materials(
+@router.get("/", response_model=dict, summary="获取课件列表")
+async def get_materials(
     type: Optional[str] = None,
     category: Optional[str] = None,
     course_id: Optional[str] = None,
@@ -433,7 +433,7 @@ def get_materials(
     page_size: int = 20,
     current_user: dict = Depends(get_current_user),
     material_service: MaterialService = Depends(get_material_service),
-    db: Session = Depends(get_sync_db)
+    db: AsyncSession = Depends(get_db)
 ):
     """
     获取课件列表，支持筛选、排序、分页
@@ -511,11 +511,11 @@ def get_materials(
 
 
 @router.get("/{material_id}", response_model=dict, summary="获取课件详情")
-def get_material(
+async def get_material(
     material_id: int,
     current_user: dict = Depends(get_current_user),
     material_service: MaterialService = Depends(get_material_service),
-    db: Session = Depends(get_sync_db)
+    db: AsyncSession = Depends(get_db)
 ):
     """
     获取课件详情
@@ -553,12 +553,12 @@ def get_material(
 
 
 @router.put("/{material_id}", response_model=dict, summary="更新课件")
-def update_material(
+async def update_material(
     material_id: int,
     material_data: MaterialUpdate,
     current_user: dict = Depends(get_current_user),
     material_service: MaterialService = Depends(get_material_service),
-    db: Session = Depends(get_sync_db)
+    db: AsyncSession = Depends(get_db)
 ):
     """
     更新课件
@@ -601,11 +601,11 @@ def update_material(
 
 
 @router.delete("/{material_id}", response_model=dict, summary="删除课件")
-def delete_material(
+async def delete_material(
     material_id: int,
     current_user: dict = Depends(get_current_user),
     material_service: MaterialService = Depends(get_material_service),
-    db: Session = Depends(get_sync_db)
+    db: AsyncSession = Depends(get_db)
 ):
     """
     删除课件
@@ -642,11 +642,11 @@ def delete_material(
 
 
 @router.post("/batch-delete", response_model=dict, summary="批量删除课件")
-def batch_delete_materials(
+async def batch_delete_materials(
     material_ids: List[int],
     current_user: dict = Depends(get_current_user),
     material_service: MaterialService = Depends(get_material_service),
-    db: Session = Depends(get_sync_db)
+    db: AsyncSession = Depends(get_db)
 ):
     """
     批量删除课件
@@ -689,7 +689,7 @@ async def upload_material_file(
     material_id: Optional[int] = None,
     current_user: dict = Depends(get_current_user),
     material_service: MaterialService = Depends(get_material_service),
-    db: Session = Depends(get_sync_db)
+    db: AsyncSession = Depends(get_db)
 ):
     """
     上传课件文件（用于已存在课件的文件更新）
@@ -750,7 +750,7 @@ async def download_material(
     material_id: int,
     current_user: dict = Depends(get_current_user),
     material_service: MaterialService = Depends(get_material_service),
-    db: Session = Depends(get_sync_db)
+    db: AsyncSession = Depends(get_db)
 ):
     """
     下载课件文件
@@ -799,12 +799,12 @@ async def download_material(
 # ==================== 分享和统计接口 ====================
 
 @router.post("/{material_id}/share-link", response_model=dict, summary="获取分享链接")
-def get_share_link(
+async def get_share_link(
     material_id: int,
     request: ShareLinkRequest,
     current_user: dict = Depends(get_current_user),
     material_service: MaterialService = Depends(get_material_service),
-    db: Session = Depends(get_sync_db)
+    db: AsyncSession = Depends(get_db)
 ):
     """
     生成课件分享链接
@@ -870,11 +870,11 @@ def get_share_link(
 
 
 @router.post("/{material_id}/track-download", response_model=dict, summary="跟踪下载")
-def track_material_download(
+async def track_material_download(
     material_id: int,
     current_user: dict = Depends(get_current_user),
     material_service: MaterialService = Depends(get_material_service),
-    db: Session = Depends(get_sync_db)
+    db: AsyncSession = Depends(get_db)
 ):
     """
     跟踪课件下载
@@ -897,11 +897,11 @@ def track_material_download(
 
 
 @router.post("/{material_id}/track-view", response_model=dict, summary="跟踪查看")
-def track_material_view(
+async def track_material_view(
     material_id: int,
     current_user: dict = Depends(get_current_user),
     material_service: MaterialService = Depends(get_material_service),
-    db: Session = Depends(get_sync_db)
+    db: AsyncSession = Depends(get_db)
 ):
     """
     跟踪课件查看
@@ -920,11 +920,11 @@ def track_material_view(
 
 
 @router.post("/{material_id}/like", response_model=dict, summary="点赞课件")
-def like_material(
+async def like_material(
     material_id: int,
     current_user: dict = Depends(get_current_user),
     material_service: MaterialService = Depends(get_material_service),
-    db: Session = Depends(get_sync_db)
+    db: AsyncSession = Depends(get_db)
 ):
     """
     点赞课件
@@ -943,11 +943,11 @@ def like_material(
 
 
 @router.delete("/{material_id}/like", response_model=dict, summary="取消点赞")
-def unlike_material(
+async def unlike_material(
     material_id: int,
     current_user: dict = Depends(get_current_user),
     material_service: MaterialService = Depends(get_material_service),
-    db: Session = Depends(get_sync_db)
+    db: AsyncSession = Depends(get_db)
 ):
     """
     取消点赞课件
@@ -966,11 +966,11 @@ def unlike_material(
 
 
 @router.post("/{material_id}/favorite", response_model=dict, summary="收藏课件")
-def favorite_material(
+async def favorite_material(
     material_id: int,
     current_user: dict = Depends(get_current_user),
     material_service: MaterialService = Depends(get_material_service),
-    db: Session = Depends(get_sync_db)
+    db: AsyncSession = Depends(get_db)
 ):
     """
     收藏课件
@@ -989,11 +989,11 @@ def favorite_material(
 
 
 @router.delete("/{material_id}/favorite", response_model=dict, summary="取消收藏")
-def unfavorite_material(
+async def unfavorite_material(
     material_id: int,
     current_user: dict = Depends(get_current_user),
     material_service: MaterialService = Depends(get_material_service),
-    db: Session = Depends(get_sync_db)
+    db: AsyncSession = Depends(get_db)
 ):
     """
     取消收藏课件
@@ -1012,11 +1012,11 @@ def unfavorite_material(
 
 
 @router.get("/{material_id}/statistics", response_model=dict, summary="获取课件统计")
-def get_material_statistics(
+async def get_material_statistics(
     material_id: int,
     current_user: dict = Depends(get_current_user),
     material_service: MaterialService = Depends(get_material_service),
-    db: Session = Depends(get_sync_db)
+    db: AsyncSession = Depends(get_db)
 ):
     """
     获取课件统计数据
@@ -1037,12 +1037,12 @@ def get_material_statistics(
 
 
 @router.get("/users/{user_id}/recommended", response_model=dict, summary="获取推荐课件")
-def get_user_recommended_materials(
+async def get_user_recommended_materials(
     user_id: int,
     limit: int = 10,
     current_user: dict = Depends(get_current_user),
     material_service: MaterialService = Depends(get_material_service),
-    db: Session = Depends(get_sync_db)
+    db: AsyncSession = Depends(get_db)
 ):
     """
     获取用户推荐课件

@@ -12,6 +12,7 @@ from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.responses import JSONResponse
 
+from config.settings import settings
 from services.license_service import LicenseService
 from utils.database import get_db
 
@@ -35,6 +36,10 @@ class LicenseMiddleware(BaseHTTPMiddleware):
         ]
 
     async def dispatch(self, request: Request, call_next):
+        # ✅ 开发环境跳过许可证检查
+        if settings.DEBUG:
+            return await call_next(request)
+
         # ✅ 跳过 OPTIONS 预检请求 (CORS)
         if request.method == "OPTIONS":
             return await call_next(request)

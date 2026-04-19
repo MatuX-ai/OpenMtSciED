@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, inject, Input, OnDestroy, OnInit } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { Subscription } from 'rxjs';
+
+import { AuthService, UserInfo } from '../auth.service';
 
 @Component({
   selector: 'app-marketing-nav',
@@ -46,6 +49,24 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
             </a>
           </li>
           <li><a href="https://github.com/iMato/OpenMTSciEd" target="_blank">GitHub</a></li>
+          <li>
+            <a routerLink="/download" class="btn-download">下载桌面端</a>
+          </li>
+          
+          <!-- 未登录状态 -->
+          <li *ngIf="!currentUser">
+            <a routerLink="/auth/login" class="btn-login">登录</a>
+          </li>
+          <li *ngIf="!currentUser">
+            <a routerLink="/auth/register" class="btn-register">注册</a>
+          </li>
+          
+          <!-- 已登录状态 -->
+          <li *ngIf="currentUser" class="user-menu">
+            <span class="username">{{ currentUser.username }}</span>
+            <a routerLink="/auth/profile">个人资料</a>
+            <a (click)="onLogout()" class="btn-logout">退出</a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -90,6 +111,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
         list-style: none;
         margin: 0;
         padding: 0;
+        align-items: center;
       }
 
       .nav-links a {
@@ -127,6 +149,75 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
         width: 100%;
       }
 
+      /* 登录/注册按钮 */
+      .btn-login {
+        color: #6366f1 !important;
+        font-weight: 600;
+      }
+
+      .btn-login:hover {
+        color: #8b5cf6 !important;
+      }
+
+      .btn-register {
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        color: white !important;
+        padding: 0.5rem 1.5rem !important;
+        border-radius: 8px;
+        font-weight: 600;
+      }
+
+      .btn-register:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+      }
+
+      .btn-register::after {
+        display: none !important;
+      }
+
+      /* 下载按钮 */
+      .btn-download {
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: white !important;
+        padding: 0.5rem 1.5rem !important;
+        border-radius: 8px;
+        font-weight: 600;
+      }
+
+      .btn-download:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+      }
+
+      .btn-download::after {
+        display: none !important;
+      }
+
+      /* 用户菜单 */
+      .user-menu {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .username {
+        color: #f8fafc;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        background: rgba(99, 102, 241, 0.1);
+        border-radius: 8px;
+      }
+
+      .btn-logout {
+        color: #ef4444 !important;
+        cursor: pointer;
+      }
+
+      .btn-logout:hover {
+        color: #dc2626 !important;
+      }
+
       @media (max-width: 768px) {
         .nav-links {
           display: none;
@@ -135,10 +226,30 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
     `,
   ],
 })
-export class MarketingNavComponent {
+export class MarketingNavComponent implements OnInit, OnDestroy {
   @Input() theme: 'default' | 'dark' = 'default';
   @Input() isHomePage: boolean = false;
   @Input() activeSection: string = '';
+
+  private authService = inject(AuthService);
+  private router = inject(Router);
+  
+  currentUser: UserInfo | null = null;
+  private subscription: Subscription = new Subscription();
+
+  constructor() {}
+
+  ngOnInit(): void {
+    this.subscription.add(
+      this.authService.currentUser$.subscribe((user: UserInfo | null) => {
+        this.currentUser = user;
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 
   scrollToSection(sectionId: string): void {
     if (this.isHomePage) {
@@ -153,5 +264,10 @@ export class MarketingNavComponent {
       // 如果在子页面，先跳转到首页再滚动
       window.location.href = '/#' + sectionId;
     }
+  }
+
+  onLogout(): void {
+    this.authService.logout();
+    this.router.navigate(['/']);
   }
 }

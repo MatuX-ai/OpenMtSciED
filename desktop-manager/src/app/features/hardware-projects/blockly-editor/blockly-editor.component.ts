@@ -76,7 +76,7 @@ class HighlightCodePipe implements PipeTransform {
       <mat-toolbar color="primary" class="editor-toolbar">
         <span class="toolbar-title">
           <mat-icon>code</mat-icon>
-          {{ project?.name || '可视化编程编辑器' }}
+          {{ project?.title || '可视化编程编辑器' }}
         </span>
         <span class="toolbar-spacer"></span>
 
@@ -143,7 +143,7 @@ class HighlightCodePipe implements PipeTransform {
               mat-raised-button
               color="primary"
               (click)="flashToDevice()"
-              *ngIf="project?.webUsbSupport"
+              *ngIf="project?.webusb_support"
             >
               <mat-icon>usb</mat-icon>
               烧录到设备
@@ -356,8 +356,8 @@ export class BlocklyEditorComponent implements OnInit, AfterViewInit, OnDestroy 
       });
 
       // 加载项目代码模板
-      if (this.project?.codeTemplate) {
-        this.loadCodeTemplate(this.project.codeTemplate);
+      if (this.project?.code_templates && this.project.code_templates.length > 0) {
+        this.loadCodeTemplate(this.project.code_templates[0]);
       }
 
       console.log('Blockly 编辑器初始化成功');
@@ -371,20 +371,22 @@ export class BlocklyEditorComponent implements OnInit, AfterViewInit, OnDestroy 
     // TODO: 从服务或路由获取项目
     // 示例数据
     this.project = {
-      id: 'hw-001',
-      name: '智能温湿度监测器',
+      id: 1,
+      project_id: 'hw-001',
+      title: '智能温湿度监测器',
+      subject: '物理',
       description: '使用DHT11传感器和OLED显示屏',
       category: 'iot',
       difficulty: 2,
-      estimatedTime: '2小时',
-      totalCost: 35,
+      estimated_time_hours: 2,
+      total_cost: 35,
       materials: [],
-      webUsbSupport: false,
-      codeTemplate: {
+      webusb_support: false,
+      code_templates: [{
         language: 'arduino',
         code: '// 示例代码',
         description: '基础模板'
-      }
+      }]
     };
   }
 
@@ -479,7 +481,7 @@ export class BlocklyEditorComponent implements OnInit, AfterViewInit, OnDestroy 
       const xmlText = Blockly.Xml.domToText(xml);
 
       // TODO: 保存到本地存储或后端
-      localStorage.setItem(`blockly_${this.project?.id}`, xmlText);
+      localStorage.setItem(`blockly_${this.project?.project_id}`, xmlText);
 
       this.lastSaved = new Date();
       this.snackBar.open('项目已保存', '关闭', { duration: 2000 });
@@ -520,17 +522,17 @@ export class BlocklyEditorComponent implements OnInit, AfterViewInit, OnDestroy 
     switch (this.selectedTabIndex) {
       case 0:
         code = this.arduinoCode;
-        filename = this.project?.name || 'sketch';
+        filename = this.project?.title || 'sketch';
         extension = '.ino';
         break;
       case 1:
         code = this.pythonCode;
-        filename = this.project?.name || 'main';
+        filename = this.project?.title || 'main';
         extension = '.py';
         break;
       case 2:
         code = this.blocklyXml;
-        filename = this.project?.name || 'project';
+        filename = this.project?.title || 'project';
         extension = '.xml';
         break;
     }
@@ -547,7 +549,7 @@ export class BlocklyEditorComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   flashToDevice(): void {
-    if (!this.project?.webUsbSupport) {
+    if (!this.project?.webusb_support) {
       this.snackBar.open('该项目不支持 WebUSB 烧录', '关闭', { duration: 3000 });
       return;
     }

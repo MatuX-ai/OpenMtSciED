@@ -11,7 +11,7 @@ from fastapi.responses import JSONResponse
 from starlette.middleware.base import BaseHTTPMiddleware
 
 from models.user import User, UserRole
-from utils.database import get_sync_db
+from utils.database import AsyncSessionLocal, get_db
 from utils.tenant_context import TenantContext
 
 logger = logging.getLogger(__name__)
@@ -186,33 +186,25 @@ class EnhancedPermissionMiddleware(BaseHTTPMiddleware):
 
                 from models.license import Organization
 
-                # 使用同步数据库会话
-                db_gen = get_sync_db()
-                db = next(db_gen)
+                # 使用异步数据库会话
+                async with AsyncSessionLocal() as db:
+                    # 查询用户关联的组织
+                    stmt = (
+                        select(Organization)
+                        .join(Organization.users)
+                        .filter(Organization.id == org_id, Organization.is_active == True)
+                    )
 
-                # 查询用户关联的组织
-                stmt = (
-                    select(Organization)
-                    .join(Organization.users)
-                    .filter(Organization.id == org_id, Organization.is_active == True)
-                )
+                    result = await db.execute(stmt)
+                    organization = result.scalar_one_or_none()
 
-                result = db.execute(stmt)
-                organization = result.scalar_one_or_none()
-
-                if organization:
-                    return {"allowed": True, "reason": "企业管理员权限"}
-                else:
-                    return {"allowed": False, "reason": "无权访问此租户"}
+                    if organization:
+                        return {"allowed": True, "reason": "企业管理员权限"}
+                    else:
+                        return {"allowed": False, "reason": "无权访问此租户"}
             except Exception as e:
                 logger.error(f"验证企业管理员租户访问权限失败: {e}")
                 return {"allowed": False, "reason": "权限验证异常"}
-            finally:
-                # 确保数据库连接关闭
-                try:
-                    next(db_gen, None)  # 触发生成器的清理
-                except StopIteration:
-                    pass
 
         # 普通用户需要有相应的许可证关联
         try:
@@ -348,23 +340,21 @@ class EnhancedPermissionMiddleware(BaseHTTPMiddleware):
                 return None
 
             # 查询用户信息
-            db_gen = get_sync_db()
-            db = next(db_gen)
+            async with AsyncSessionLocal() as db:
+                try:
+                    from sqlalchemy import select
 
-            try:
-                from sqlalchemy import select
+                    from models.user import User
 
-                from models.user import User
+                    stmt = select(User).filter(
+                        User.username == username, User.is_active == True
+                    )
+                    result = await db.execute(stmt)
+                    user = result.scalar_one_or_none()
 
-                stmt = select(User).filter(
-                    User.username == username, User.is_active == True
-                )
-                result = db.execute(stmt)
-                user = result.scalar_one_or_none()
-
-                return user
-            finally:
-                next(db_gen, None)
+                    return user
+                finally:
+                    await db.close()
 
         except Exception as e:
             logger.error(f"JWT解析失败: {e}")

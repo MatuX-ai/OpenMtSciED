@@ -59,7 +59,7 @@ class Payment(Base):
     id = Column(Integer, primary_key=True, index=True)
     payment_id = Column(String, unique=True, nullable=False, index=True)  # 支付ID
     order_id = Column(String, ForeignKey("orders.order_id"), nullable=False)  # 订单ID
-    user_id = Column(String, ForeignKey("users.id"), nullable=False)  # 用户ID
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)  # 用户ID
     amount = Column(Float, nullable=False)  # 支付金额
     payment_method = Column(SQLEnum(PaymentMethod), nullable=False)  # 支付方式
     status = Column(SQLEnum(PaymentStatus), default=PaymentStatus.PENDING)  # 支付状态
@@ -90,7 +90,7 @@ class Order(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     order_id = Column(String, unique=True, nullable=False, index=True)  # 订单ID
-    user_id = Column(String, ForeignKey("users.id"), nullable=False)  # 用户ID
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)  # 用户ID
     items = Column(
         JSON, nullable=False
     )  # 订单项目 [{product_id, quantity, price, ...}]

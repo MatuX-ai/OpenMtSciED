@@ -90,16 +90,16 @@ import {
         <mat-card *ngFor="let project of filteredProjects" class="project-card">
           <!-- 预算徽章 -->
           <div class="budget-badge"
-               [class.budget-low]="project.totalCost <= 30"
-               [class.budget-medium]="project.totalCost > 30 && project.totalCost <= 50">
-            ¥{{ project.totalCost }}
+               [class.budget-low]="project.total_cost <= 30"
+               [class.budget-medium]="project.total_cost > 30 && project.total_cost <= 50">
+            ¥{{ project.total_cost }}
           </div>
 
           <mat-card-header>
-            <mat-card-title>{{ project.name }}</mat-card-title>
+            <mat-card-title>{{ project.title }}</mat-card-title>
             <mat-card-subtitle>
               <span class="difficulty-stars">{{ getDifficultyStars(project.difficulty) }}</span>
-              <span class="time-label">⏱️ {{ project.estimatedTime }}</span>
+              <span class="time-label">⏱️ {{ project.estimated_time_hours }}小时</span>
               <span class="category-tag">{{ getCategoryName(project.category) }}</span>
             </mat-card-subtitle>
           </mat-card-header>
@@ -109,34 +109,34 @@ import {
 
             <!-- 材料清单预览 -->
             <div class="materials-preview">
-              <h4>📦 材料清单 (共{{ project.materials.length }}项)</h4>
+              <h4>📦 材料清单 (共{{ project.materials?.length || 0 }}项)</h4>
               <ul class="material-list">
-                <li *ngFor="let material of project.materials.slice(0, 3)">
+                <li *ngFor="let material of project.materials?.slice(0, 3) || []">
                   {{ material.name }} ×{{ material.quantity }}{{ material.unit }}
                   <span class="price">¥{{ material.unitPrice }}</span>
                 </li>
-                <li *ngIf="project.materials.length > 3" class="more-items">
+                <li *ngIf="project.materials && project.materials.length > 3" class="more-items">
                   ...还有{{ project.materials.length - 3 }}项
                 </li>
               </ul>
               <div class="total-cost">
-                💰 总计: ¥{{ calculateTotalCost(project.materials) }}
+                💰 总计: ¥{{ calculateTotalCost(project.materials || []) }}
               </div>
             </div>
 
             <!-- 编程支持 -->
-            <div class="code-support" *ngIf="project.codeTemplate">
+            <div class="code-support" *ngIf="project.code_templates && project.code_templates.length > 0">
               <mat-icon>code</mat-icon>
-              <span>支持 {{ getCodeLanguageName(project.codeTemplate.language) }}</span>
-              <span *ngIf="project.webUsbSupport" class="webusb-badge">
+              <span>支持 {{ getCodeLanguageName(project.code_templates[0].language) }}</span>
+              <span *ngIf="project.webusb_support" class="webusb-badge">
                 <mat-icon>usb</mat-icon> WebUSB烧录
               </span>
             </div>
 
             <!-- 安全提示 -->
-            <div class="safety-notes" *ngIf="project.safetyNotes && project.safetyNotes.length > 0">
+            <div class="safety-notes" *ngIf="project.safety_notes && project.safety_notes.length > 0">
               <mat-icon>warning</mat-icon>
-              <span>{{ project.safetyNotes.length }} 条安全注意事项</span>
+              <span>{{ project.safety_notes.length }} 条安全注意事项</span>
             </div>
           </mat-card-content>
 
@@ -152,7 +152,7 @@ import {
             <button mat-button
                     color="accent"
                     (click)="startCoding(project)"
-                    *ngIf="project.codeTemplate">
+                    *ngIf="project.code_templates && project.code_templates.length > 0">
               <mat-icon>edit</mat-icon>
               开始编程
             </button>
@@ -473,7 +473,7 @@ export class HardwareProjectListComponent implements OnInit {
     if (this.filter.keyword) {
       const keyword = this.filter.keyword.toLowerCase();
       result = result.filter(p =>
-        p.name.toLowerCase().includes(keyword) ||
+        p.title.toLowerCase().includes(keyword) ||
         p.description.toLowerCase().includes(keyword)
       );
     }
@@ -485,7 +485,7 @@ export class HardwareProjectListComponent implements OnInit {
 
     // 预算筛选
     if (this.filter.maxBudget) {
-      result = result.filter(p => p.totalCost <= this.filter.maxBudget!);
+      result = result.filter(p => p.total_cost <= this.filter.maxBudget!);
     }
 
     this.filteredProjects = result;
@@ -501,20 +501,20 @@ export class HardwareProjectListComponent implements OnInit {
 
   viewDetail(project: HardwareProject): void {
     console.log('查看项目详情:', project);
-    this.snackBar.open(`查看 "${project.name}" 详情`, '关闭', { duration: 3000 });
+    this.snackBar.open(`查看 "${project.title}" 详情`, '关闭', { duration: 3000 });
     // TODO: 打开详情对话框，显示完整教程、代码编辑器、烧录界面
   }
 
   viewMaterials(project: HardwareProject): void {
     console.log('查看材料清单:', project);
 
-    const materialList = project.materials.map(m =>
+    const materialList = (project.materials || []).map(m =>
       `${m.name} ×${m.quantity}${m.unit} (¥${m.unitPrice})`
     ).join('\n');
 
-    const totalCost = calculateTotalCost(project.materials);
+    const totalCost = calculateTotalCost(project.materials || []);
 
-    alert(`📦 ${project.name} - 材料清单
+    alert(`📦 ${project.title} - 材料清单
 
 ${materialList}
 
@@ -523,9 +523,9 @@ ${materialList}
 
   startCoding(project: HardwareProject): void {
     console.log('开始编程:', project);
-    if (project.codeTemplate) {
+    if (project.code_templates && project.code_templates.length > 0) {
       this.snackBar.open(
-        `🔧 启动 ${this.getCodeLanguageName(project.codeTemplate.language)} 编辑器`,
+        `🔧 启动 ${this.getCodeLanguageName(project.code_templates[0].language)} 编辑器`,
         '关闭',
         { duration: 3000 }
       );
@@ -558,14 +558,15 @@ ${materialList}
   private getMockProjects(): HardwareProject[] {
     return [
       {
-        id: 'hw-001',
-        tutorialId: 'tutorial-001',
-        name: '智能温湿度监测器',
+        id: 1,
+        project_id: 'hw-001',
+        title: '智能温湿度监测器',
+        subject: '物理',
         description: '使用DHT11传感器和OLED显示屏，实时监测环境温湿度，数据超标时蜂鸣器报警。适合学习传感器数据采集和显示。',
         category: 'iot',
         difficulty: 2,
-        estimatedTime: '2小时',
-        totalCost: 35,
+        estimated_time_hours: 2,
+        total_cost: 35,
         materials: [
           { name: 'Arduino Nano', quantity: 1, unit: '块', unitPrice: 15 },
           { name: 'DHT11温湿度传感器', quantity: 1, unit: '个', unitPrice: 5 },
@@ -573,25 +574,26 @@ ${materialList}
           { name: '蜂鸣器', quantity: 1, unit: '个', unitPrice: 2 },
           { name: '杜邦线', quantity: 10, unit: '根', unitPrice: 0.3 },
         ],
-        codeTemplate: {
+        code_templates: [{
           language: 'arduino',
           code: '// Arduino 代码模板\nvoid setup() {\n  // 初始化代码\n}\n\nvoid loop() {\n  // 主循环代码\n}',
           description: '基础温湿度监测代码',
           dependencies: ['DHT sensor library', 'Adafruit GFX Library']
-        },
-        webUsbSupport: false,
-        safetyNotes: ['注意电源极性', '避免短路'],
-        knowledgePoints: ['传感器数据采集', 'OLED显示', '阈值判断']
+        }],
+        webusb_support: false,
+        safety_notes: ['注意电源极性', '避免短路'],
+        knowledge_point_ids: ['kp-001', 'kp-002', 'kp-003']
       },
       {
-        id: 'hw-002',
-        tutorialId: 'tutorial-002',
-        name: '循迹智能小车',
+        id: 2,
+        project_id: 'hw-002',
+        title: '循迹智能小车',
+        subject: '工程',
         description: '基于红外传感器的自动循迹小车，学习PID控制算法。包含电机驱动、传感器融合、路径规划等核心概念。',
         category: 'robotics',
         difficulty: 4,
-        estimatedTime: '4小时',
-        totalCost: 48,
+        estimated_time_hours: 4,
+        total_cost: 48,
         materials: [
           { name: 'Arduino Uno', quantity: 1, unit: '块', unitPrice: 18 },
           { name: 'L298N电机驱动模块', quantity: 1, unit: '个', unitPrice: 8 },
@@ -599,24 +601,25 @@ ${materialList}
           { name: '红外循迹传感器', quantity: 3, unit: '个', unitPrice: 3 },
           { name: '小车底盘套件', quantity: 1, unit: '套', unitPrice: 7 },
         ],
-        codeTemplate: {
+        code_templates: [{
           language: 'blockly',
           code: '<xml></xml>',
           description: '可视化编程模板',
-        },
-        webUsbSupport: true,
-        safetyNotes: ['注意电机接线', '测试时远离边缘'],
-        knowledgePoints: ['PID控制', '电机驱动', '传感器融合']
+        }],
+        webusb_support: true,
+        safety_notes: ['注意电机接线', '测试时远离边缘'],
+        knowledge_point_ids: ['kp-004', 'kp-005', 'kp-006']
       },
       {
-        id: 'hw-003',
-        tutorialId: 'tutorial-003',
-        name: 'WiFi远程控制开关',
+        id: 3,
+        project_id: 'hw-003',
+        title: 'WiFi远程控制开关',
+        subject: '工程',
         description: '使用ESP8266模块实现手机APP远程控制家电开关，学习物联网通信协议和Web服务器搭建。',
         category: 'smart-home',
         difficulty: 3,
-        estimatedTime: '3小时',
-        totalCost: 30,
+        estimated_time_hours: 3,
+        total_cost: 30,
         materials: [
           { name: 'ESP8266 NodeMCU', quantity: 1, unit: '块', unitPrice: 15 },
           { name: '继电器模块', quantity: 1, unit: '个', unitPrice: 5 },
@@ -624,15 +627,15 @@ ${materialList}
           { name: '电阻(220Ω)', quantity: 2, unit: '个', unitPrice: 0.5 },
           { name: '面包板', quantity: 1, unit: '块', unitPrice: 7 },
         ],
-        codeTemplate: {
+        code_templates: [{
           language: 'arduino',
           code: '// ESP8266 WiFi 控制代码\n#include <ESP8266WiFi.h>\n\nvoid setup() {\n  WiFi.begin("SSID", "PASSWORD");\n}',
           description: 'WiFi控制示例代码',
           dependencies: ['ESP8266WiFi']
-        },
-        webUsbSupport: false,
-        safetyNotes: ['高压危险，谨慎操作', '确保绝缘良好'],
-        knowledgePoints: ['WiFi通信', 'Web服务器', '继电器控制']
+        }],
+        webusb_support: false,
+        safety_notes: ['高压危险，谨慎操作', '确保绝缘良好'],
+        knowledge_point_ids: ['kp-007', 'kp-008', 'kp-009']
       },
     ];
   }

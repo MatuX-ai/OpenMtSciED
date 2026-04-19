@@ -85,6 +85,9 @@ class Organization(Base):
     courses = relationship(
         "Course", back_populates="organization", cascade="all, delete-orphan"
     )
+    unified_courses = relationship(
+        "UnifiedCourse", back_populates="organization", cascade="all, delete-orphan"
+    )
     ar_vr_contents = relationship(
         "ARVRContent", back_populates="organization", cascade="all, delete-orphan"
     )

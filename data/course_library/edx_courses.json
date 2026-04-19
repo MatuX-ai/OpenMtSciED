@@ -1,0 +1,48 @@
+[
+  {
+    "course_id": "EDX-CS-001",
+    "title": "Introduction to Computer Science",
+    "source": "edx",
+    "grade_level": "university",
+    "subject": "Computer Science",
+    "duration_weeks": 12,
+    "description": "Learn the basics of computer science and programming.",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-EDX-CS-001",
+        "name": "Programming Basics",
+        "description": "Variables, loops, functions"
+      },
+      {
+        "kp_id": "KP-EDX-CS-002",
+        "name": "Data Structures",
+        "description": "Arrays, lists, dictionaries"
+      }
+    ],
+    "course_url": "https://www.edx.org/course/introduction-to-computer-science",
+    "scraped_at": "2026-04-18T22:22:26.910346"
+  },
+  {
+    "course_id": "EDX-MATH-001",
+    "title": "Calculus 1A: Differentiation",
+    "source": "edx",
+    "grade_level": "university",
+    "subject": "Mathematics",
+    "duration_weeks": 10,
+    "description": "Learn the fundamentals of differential calculus.",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-EDX-MATH-001",
+        "name": "Limits",
+        "description": "Understanding limits and continuity"
+      },
+      {
+        "kp_id": "KP-EDX-MATH-002",
+        "name": "Derivatives",
+        "description": "Rules of differentiation"
+      }
+    ],
+    "course_url": "https://www.edx.org/course/calculus-1a-differentiation",
+    "scraped_at": "2026-04-18T22:22:26.910346"
+  }
+]

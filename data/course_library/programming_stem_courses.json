@@ -1,0 +1,8966 @@
+[
+  {
+    "course_id": "PROG-图形化编-ELE-12000",
+    "title": "Scratch基础（小学·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "图形化编程",
+    "lesson_number": 1,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学图形化编程课程：Scratch基础",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12000-01",
+        "name": "核心概念",
+        "description": "Scratch基础的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12000-02",
+        "name": "实践技能",
+        "description": "Scratch基础的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "Scratch基础实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握Scratch基础",
+      "应用Scratch基础"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Scratch IDE"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/图形化编程/12000",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-ELE-12001",
+    "title": "角色控制（小学·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "图形化编程",
+    "lesson_number": 2,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学图形化编程课程：角色控制",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12001-01",
+        "name": "核心概念",
+        "description": "角色控制的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12001-02",
+        "name": "实践技能",
+        "description": "角色控制的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "角色控制实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握角色控制",
+      "应用角色控制"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Scratch IDE"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/图形化编程/12001",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-ELE-12002",
+    "title": "循环结构（小学·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "图形化编程",
+    "lesson_number": 3,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学图形化编程课程：循环结构",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12002-01",
+        "name": "核心概念",
+        "description": "循环结构的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12002-02",
+        "name": "实践技能",
+        "description": "循环结构的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "循环结构实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握循环结构",
+      "应用循环结构"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Scratch IDE"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/图形化编程/12002",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-ELE-12003",
+    "title": "条件判断（小学·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "图形化编程",
+    "lesson_number": 4,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学图形化编程课程：条件判断",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12003-01",
+        "name": "核心概念",
+        "description": "条件判断的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12003-02",
+        "name": "实践技能",
+        "description": "条件判断的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "条件判断实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握条件判断",
+      "应用条件判断"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Scratch IDE"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/图形化编程/12003",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-ELE-12004",
+    "title": "变量使用（小学·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "图形化编程",
+    "lesson_number": 5,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学图形化编程课程：变量使用",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12004-01",
+        "name": "核心概念",
+        "description": "变量使用的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12004-02",
+        "name": "实践技能",
+        "description": "变量使用的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "变量使用实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握变量使用",
+      "应用变量使用"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Scratch IDE"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/图形化编程/12004",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-ELE-12005",
+    "title": "消息传递（小学·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "图形化编程",
+    "lesson_number": 6,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学图形化编程课程：消息传递",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12005-01",
+        "name": "核心概念",
+        "description": "消息传递的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12005-02",
+        "name": "实践技能",
+        "description": "消息传递的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "消息传递实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握消息传递",
+      "应用消息传递"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Scratch IDE"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/图形化编程/12005",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-ELE-12006",
+    "title": "克隆技术（小学·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "图形化编程",
+    "lesson_number": 7,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学图形化编程课程：克隆技术",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12006-01",
+        "name": "核心概念",
+        "description": "克隆技术的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12006-02",
+        "name": "实践技能",
+        "description": "克隆技术的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "克隆技术实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握克隆技术",
+      "应用克隆技术"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Scratch IDE"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/图形化编程/12006",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-ELE-12007",
+    "title": "画笔绘图（小学·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "图形化编程",
+    "lesson_number": 8,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学图形化编程课程：画笔绘图",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12007-01",
+        "name": "核心概念",
+        "description": "画笔绘图的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12007-02",
+        "name": "实践技能",
+        "description": "画笔绘图的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "画笔绘图实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握画笔绘图",
+      "应用画笔绘图"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Scratch IDE"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/图形化编程/12007",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-ELE-12008",
+    "title": "游戏设计（小学·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "图形化编程",
+    "lesson_number": 9,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学图形化编程课程：游戏设计",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12008-01",
+        "name": "核心概念",
+        "description": "游戏设计的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12008-02",
+        "name": "实践技能",
+        "description": "游戏设计的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "游戏设计实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握游戏设计",
+      "应用游戏设计"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Scratch IDE"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/图形化编程/12008",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-ELE-12009",
+    "title": "动画制作（小学·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "图形化编程",
+    "lesson_number": 10,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学图形化编程课程：动画制作",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12009-01",
+        "name": "核心概念",
+        "description": "动画制作的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12009-02",
+        "name": "实践技能",
+        "description": "动画制作的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "动画制作实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握动画制作",
+      "应用动画制作"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Scratch IDE"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/图形化编程/12009",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-ELE-12010",
+    "title": "互动故事（小学·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "图形化编程",
+    "lesson_number": 11,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学图形化编程课程：互动故事",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12010-01",
+        "name": "核心概念",
+        "description": "互动故事的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12010-02",
+        "name": "实践技能",
+        "description": "互动故事的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "互动故事实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握互动故事",
+      "应用互动故事"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Scratch IDE"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/图形化编程/12010",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-ELE-12011",
+    "title": "项目实战（小学·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "图形化编程",
+    "lesson_number": 12,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学图形化编程课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12011-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12011-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Scratch IDE"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/图形化编程/12011",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-MID-12012",
+    "title": "Scratch进阶（初中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "图形化编程",
+    "lesson_number": 1,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中图形化编程课程：Scratch进阶",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12012-01",
+        "name": "核心概念",
+        "description": "Scratch进阶的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12012-02",
+        "name": "实践技能",
+        "description": "Scratch进阶的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "Scratch进阶实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握Scratch进阶",
+      "应用Scratch进阶"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "App Inventor"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/图形化编程/12012",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-MID-12013",
+    "title": "App Inventor（初中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "图形化编程",
+    "lesson_number": 2,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中图形化编程课程：App Inventor",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12013-01",
+        "name": "核心概念",
+        "description": "App Inventor的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12013-02",
+        "name": "实践技能",
+        "description": "App Inventor的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "App Inventor实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握App Inventor",
+      "应用App Inventor"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "App Inventor"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/图形化编程/12013",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-MID-12014",
+    "title": "Blockly编程（初中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "图形化编程",
+    "lesson_number": 3,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中图形化编程课程：Blockly编程",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12014-01",
+        "name": "核心概念",
+        "description": "Blockly编程的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12014-02",
+        "name": "实践技能",
+        "description": "Blockly编程的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "Blockly编程实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握Blockly编程",
+      "应用Blockly编程"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "App Inventor"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/图形化编程/12014",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-MID-12015",
+    "title": "micro:bit（初中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "图形化编程",
+    "lesson_number": 4,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中图形化编程课程：micro:bit",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12015-01",
+        "name": "核心概念",
+        "description": "micro:bit的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12015-02",
+        "name": "实践技能",
+        "description": "micro:bit的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "micro:bit实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握micro:bit",
+      "应用micro:bit"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "App Inventor"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/图形化编程/12015",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-MID-12016",
+    "title": "Turtle绘图（初中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "图形化编程",
+    "lesson_number": 5,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中图形化编程课程：Turtle绘图",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12016-01",
+        "name": "核心概念",
+        "description": "Turtle绘图的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12016-02",
+        "name": "实践技能",
+        "description": "Turtle绘图的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "Turtle绘图实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握Turtle绘图",
+      "应用Turtle绘图"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "App Inventor"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/图形化编程/12016",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-MID-12017",
+    "title": "3D建模（初中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "图形化编程",
+    "lesson_number": 6,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中图形化编程课程：3D建模",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12017-01",
+        "name": "核心概念",
+        "description": "3D建模的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12017-02",
+        "name": "实践技能",
+        "description": "3D建模的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "3D建模实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握3D建模",
+      "应用3D建模"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "App Inventor"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/图形化编程/12017",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-MID-12018",
+    "title": "数据可视化（初中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "图形化编程",
+    "lesson_number": 7,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中图形化编程课程：数据可视化",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12018-01",
+        "name": "核心概念",
+        "description": "数据可视化的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12018-02",
+        "name": "实践技能",
+        "description": "数据可视化的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "数据可视化实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握数据可视化",
+      "应用数据可视化"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "App Inventor"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/图形化编程/12018",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-MID-12019",
+    "title": "机器学习（初中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "图形化编程",
+    "lesson_number": 8,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中图形化编程课程：机器学习",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12019-01",
+        "name": "核心概念",
+        "description": "机器学习的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12019-02",
+        "name": "实践技能",
+        "description": "机器学习的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "机器学习实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握机器学习",
+      "应用机器学习"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "App Inventor"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/图形化编程/12019",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-MID-12020",
+    "title": "机器人编程（初中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "图形化编程",
+    "lesson_number": 9,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中图形化编程课程：机器人编程",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12020-01",
+        "name": "核心概念",
+        "description": "机器人编程的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12020-02",
+        "name": "实践技能",
+        "description": "机器人编程的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "机器人编程实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握机器人编程",
+      "应用机器人编程"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "App Inventor"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/图形化编程/12020",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-MID-12021",
+    "title": "网页交互（初中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "图形化编程",
+    "lesson_number": 10,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中图形化编程课程：网页交互",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12021-01",
+        "name": "核心概念",
+        "description": "网页交互的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12021-02",
+        "name": "实践技能",
+        "description": "网页交互的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "网页交互实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握网页交互",
+      "应用网页交互"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "App Inventor"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/图形化编程/12021",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-MID-12022",
+    "title": "物联网（初中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "图形化编程",
+    "lesson_number": 11,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中图形化编程课程：物联网",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12022-01",
+        "name": "核心概念",
+        "description": "物联网的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12022-02",
+        "name": "实践技能",
+        "description": "物联网的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "物联网实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握物联网",
+      "应用物联网"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "App Inventor"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/图形化编程/12022",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-MID-12023",
+    "title": "项目实战（初中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "图形化编程",
+    "lesson_number": 12,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中图形化编程课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12023-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12023-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "App Inventor"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/图形化编程/12023",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-HIG-12024",
+    "title": "高级图形（高中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "图形化编程",
+    "lesson_number": 1,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中图形化编程课程：高级图形",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12024-01",
+        "name": "核心概念",
+        "description": "高级图形的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12024-02",
+        "name": "实践技能",
+        "description": "高级图形的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "高级图形实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握高级图形",
+      "应用高级图形"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Electron"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/图形化编程/12024",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-HIG-12025",
+    "title": "自定义引擎（高中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "图形化编程",
+    "lesson_number": 2,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中图形化编程课程：自定义引擎",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12025-01",
+        "name": "核心概念",
+        "description": "自定义引擎的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12025-02",
+        "name": "实践技能",
+        "description": "自定义引擎的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "自定义引擎实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握自定义引擎",
+      "应用自定义引擎"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Electron"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/图形化编程/12025",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-HIG-12026",
+    "title": "跨平台开发（高中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "图形化编程",
+    "lesson_number": 3,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中图形化编程课程：跨平台开发",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12026-01",
+        "name": "核心概念",
+        "description": "跨平台开发的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12026-02",
+        "name": "实践技能",
+        "description": "跨平台开发的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "跨平台开发实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握跨平台开发",
+      "应用跨平台开发"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Electron"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/图形化编程/12026",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-HIG-12027",
+    "title": "可视化分析（高中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "图形化编程",
+    "lesson_number": 4,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中图形化编程课程：可视化分析",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12027-01",
+        "name": "核心概念",
+        "description": "可视化分析的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12027-02",
+        "name": "实践技能",
+        "description": "可视化分析的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "可视化分析实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握可视化分析",
+      "应用可视化分析"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Electron"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/图形化编程/12027",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-HIG-12028",
+    "title": "VR/AR开发（高中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "图形化编程",
+    "lesson_number": 5,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中图形化编程课程：VR/AR开发",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12028-01",
+        "name": "核心概念",
+        "description": "VR/AR开发的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12028-02",
+        "name": "实践技能",
+        "description": "VR/AR开发的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "VR/AR开发实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握VR/AR开发",
+      "应用VR/AR开发"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Electron"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/图形化编程/12028",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-HIG-12029",
+    "title": "AI可视化（高中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "图形化编程",
+    "lesson_number": 6,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中图形化编程课程：AI可视化",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12029-01",
+        "name": "核心概念",
+        "description": "AI可视化的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12029-02",
+        "name": "实践技能",
+        "description": "AI可视化的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "AI可视化实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握AI可视化",
+      "应用AI可视化"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Electron"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/图形化编程/12029",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-HIG-12030",
+    "title": "科学计算（高中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "图形化编程",
+    "lesson_number": 7,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中图形化编程课程：科学计算",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12030-01",
+        "name": "核心概念",
+        "description": "科学计算的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12030-02",
+        "name": "实践技能",
+        "description": "科学计算的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "科学计算实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握科学计算",
+      "应用科学计算"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Electron"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/图形化编程/12030",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-HIG-12031",
+    "title": "教育科技（高中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "图形化编程",
+    "lesson_number": 8,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中图形化编程课程：教育科技",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12031-01",
+        "name": "核心概念",
+        "description": "教育科技的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12031-02",
+        "name": "实践技能",
+        "description": "教育科技的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "教育科技实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握教育科技",
+      "应用教育科技"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Electron"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/图形化编程/12031",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-HIG-12032",
+    "title": "开源贡献（高中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "图形化编程",
+    "lesson_number": 9,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中图形化编程课程：开源贡献",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12032-01",
+        "name": "核心概念",
+        "description": "开源贡献的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12032-02",
+        "name": "实践技能",
+        "description": "开源贡献的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "开源贡献实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握开源贡献",
+      "应用开源贡献"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Electron"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/图形化编程/12032",
+    "scraped_at": "2026-04-18T23:34:31.162476"
+  },
+  {
+    "course_id": "PROG-图形化编-HIG-12033",
+    "title": "性能优化（高中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "图形化编程",
+    "lesson_number": 10,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中图形化编程课程：性能优化",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12033-01",
+        "name": "核心概念",
+        "description": "性能优化的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12033-02",
+        "name": "实践技能",
+        "description": "性能优化的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "性能优化实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握性能优化",
+      "应用性能优化"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Electron"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/图形化编程/12033",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-图形化编-HIG-12034",
+    "title": "系统集成（高中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "图形化编程",
+    "lesson_number": 11,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中图形化编程课程：系统集成",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12034-01",
+        "name": "核心概念",
+        "description": "系统集成的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12034-02",
+        "name": "实践技能",
+        "description": "系统集成的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "系统集成实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握系统集成",
+      "应用系统集成"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Electron"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/图形化编程/12034",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-图形化编-HIG-12035",
+    "title": "项目实战（高中·图形化编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "图形化编程",
+    "lesson_number": 12,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中图形化编程课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12035-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12035-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Scratch",
+      "Blockly"
+    ],
+    "tools": [
+      "Electron"
+    ],
+    "career_paths": [
+      "创意编程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/图形化编程/12035",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-ELE-12036",
+    "title": "Python初探（小学·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Python编程",
+    "lesson_number": 1,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Python编程课程：Python初探",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12036-01",
+        "name": "核心概念",
+        "description": "Python初探的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12036-02",
+        "name": "实践技能",
+        "description": "Python初探的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "Python初探实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握Python初探",
+      "应用Python初探"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "Thonny"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Python编程/12036",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-ELE-12037",
+    "title": "print输出（小学·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Python编程",
+    "lesson_number": 2,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Python编程课程：print输出",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12037-01",
+        "name": "核心概念",
+        "description": "print输出的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12037-02",
+        "name": "实践技能",
+        "description": "print输出的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "print输出实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握print输出",
+      "应用print输出"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "Thonny"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Python编程/12037",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-ELE-12038",
+    "title": "变量概念（小学·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Python编程",
+    "lesson_number": 3,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Python编程课程：变量概念",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12038-01",
+        "name": "核心概念",
+        "description": "变量概念的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12038-02",
+        "name": "实践技能",
+        "description": "变量概念的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "变量概念实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握变量概念",
+      "应用变量概念"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "Thonny"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Python编程/12038",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-ELE-12039",
+    "title": "数据类型（小学·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Python编程",
+    "lesson_number": 4,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Python编程课程：数据类型",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12039-01",
+        "name": "核心概念",
+        "description": "数据类型的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12039-02",
+        "name": "实践技能",
+        "description": "数据类型的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "数据类型实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握数据类型",
+      "应用数据类型"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "Thonny"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Python编程/12039",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-ELE-12040",
+    "title": "输入input（小学·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Python编程",
+    "lesson_number": 5,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Python编程课程：输入input",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12040-01",
+        "name": "核心概念",
+        "description": "输入input的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12040-02",
+        "name": "实践技能",
+        "description": "输入input的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "输入input实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握输入input",
+      "应用输入input"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "Thonny"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Python编程/12040",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-ELE-12041",
+    "title": "算术运算（小学·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Python编程",
+    "lesson_number": 6,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Python编程课程：算术运算",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12041-01",
+        "name": "核心概念",
+        "description": "算术运算的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12041-02",
+        "name": "实践技能",
+        "description": "算术运算的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "算术运算实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握算术运算",
+      "应用算术运算"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "Thonny"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Python编程/12041",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-ELE-12042",
+    "title": "条件语句（小学·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Python编程",
+    "lesson_number": 7,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Python编程课程：条件语句",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12042-01",
+        "name": "核心概念",
+        "description": "条件语句的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12042-02",
+        "name": "实践技能",
+        "description": "条件语句的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "条件语句实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握条件语句",
+      "应用条件语句"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "Thonny"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Python编程/12042",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-ELE-12043",
+    "title": "循环结构（小学·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Python编程",
+    "lesson_number": 8,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Python编程课程：循环结构",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12043-01",
+        "name": "核心概念",
+        "description": "循环结构的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12043-02",
+        "name": "实践技能",
+        "description": "循环结构的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "循环结构实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握循环结构",
+      "应用循环结构"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "Thonny"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Python编程/12043",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-ELE-12044",
+    "title": "列表基础（小学·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Python编程",
+    "lesson_number": 9,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Python编程课程：列表基础",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12044-01",
+        "name": "核心概念",
+        "description": "列表基础的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12044-02",
+        "name": "实践技能",
+        "description": "列表基础的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "列表基础实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握列表基础",
+      "应用列表基础"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "Thonny"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Python编程/12044",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-ELE-12045",
+    "title": "函数定义（小学·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Python编程",
+    "lesson_number": 10,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Python编程课程：函数定义",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12045-01",
+        "name": "核心概念",
+        "description": "函数定义的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12045-02",
+        "name": "实践技能",
+        "description": "函数定义的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "函数定义实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握函数定义",
+      "应用函数定义"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "Thonny"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Python编程/12045",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-ELE-12046",
+    "title": "turtle绘图（小学·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Python编程",
+    "lesson_number": 11,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Python编程课程：turtle绘图",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12046-01",
+        "name": "核心概念",
+        "description": "turtle绘图的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12046-02",
+        "name": "实践技能",
+        "description": "turtle绘图的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "turtle绘图实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握turtle绘图",
+      "应用turtle绘图"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "Thonny"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Python编程/12046",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-ELE-12047",
+    "title": "项目实战（小学·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Python编程",
+    "lesson_number": 12,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Python编程课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12047-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12047-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "Thonny"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Python编程/12047",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-MID-12048",
+    "title": "进阶语法（初中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Python编程",
+    "lesson_number": 1,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Python编程课程：进阶语法",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12048-01",
+        "name": "核心概念",
+        "description": "进阶语法的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12048-02",
+        "name": "实践技能",
+        "description": "进阶语法的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "进阶语法实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握进阶语法",
+      "应用进阶语法"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Python编程/12048",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-MID-12049",
+    "title": "面向对象（初中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Python编程",
+    "lesson_number": 2,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Python编程课程：面向对象",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12049-01",
+        "name": "核心概念",
+        "description": "面向对象的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12049-02",
+        "name": "实践技能",
+        "description": "面向对象的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "面向对象实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握面向对象",
+      "应用面向对象"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Python编程/12049",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-MID-12050",
+    "title": "异常处理（初中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Python编程",
+    "lesson_number": 3,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Python编程课程：异常处理",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12050-01",
+        "name": "核心概念",
+        "description": "异常处理的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12050-02",
+        "name": "实践技能",
+        "description": "异常处理的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "异常处理实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握异常处理",
+      "应用异常处理"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Python编程/12050",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-MID-12051",
+    "title": "文件操作（初中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Python编程",
+    "lesson_number": 4,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Python编程课程：文件操作",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12051-01",
+        "name": "核心概念",
+        "description": "文件操作的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12051-02",
+        "name": "实践技能",
+        "description": "文件操作的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "文件操作实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握文件操作",
+      "应用文件操作"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Python编程/12051",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-MID-12052",
+    "title": "网络编程（初中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Python编程",
+    "lesson_number": 5,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Python编程课程：网络编程",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12052-01",
+        "name": "核心概念",
+        "description": "网络编程的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12052-02",
+        "name": "实践技能",
+        "description": "网络编程的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "网络编程实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握网络编程",
+      "应用网络编程"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Python编程/12052",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-MID-12053",
+    "title": "数据库（初中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Python编程",
+    "lesson_number": 6,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Python编程课程：数据库",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12053-01",
+        "name": "核心概念",
+        "description": "数据库的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12053-02",
+        "name": "实践技能",
+        "description": "数据库的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "数据库实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握数据库",
+      "应用数据库"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Python编程/12053",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-MID-12054",
+    "title": "Flask框架（初中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Python编程",
+    "lesson_number": 7,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Python编程课程：Flask框架",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12054-01",
+        "name": "核心概念",
+        "description": "Flask框架的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12054-02",
+        "name": "实践技能",
+        "description": "Flask框架的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "Flask框架实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握Flask框架",
+      "应用Flask框架"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Python编程/12054",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-MID-12055",
+    "title": "数据分析（初中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Python编程",
+    "lesson_number": 8,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Python编程课程：数据分析",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12055-01",
+        "name": "核心概念",
+        "description": "数据分析的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12055-02",
+        "name": "实践技能",
+        "description": "数据分析的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "数据分析实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握数据分析",
+      "应用数据分析"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Python编程/12055",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-MID-12056",
+    "title": "数据可视化（初中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Python编程",
+    "lesson_number": 9,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Python编程课程：数据可视化",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12056-01",
+        "name": "核心概念",
+        "description": "数据可视化的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12056-02",
+        "name": "实践技能",
+        "description": "数据可视化的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "数据可视化实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握数据可视化",
+      "应用数据可视化"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Python编程/12056",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-MID-12057",
+    "title": "爬虫技术（初中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Python编程",
+    "lesson_number": 10,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Python编程课程：爬虫技术",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12057-01",
+        "name": "核心概念",
+        "description": "爬虫技术的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12057-02",
+        "name": "实践技能",
+        "description": "爬虫技术的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "爬虫技术实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握爬虫技术",
+      "应用爬虫技术"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Python编程/12057",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-MID-12058",
+    "title": "机器学习（初中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Python编程",
+    "lesson_number": 11,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Python编程课程：机器学习",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12058-01",
+        "name": "核心概念",
+        "description": "机器学习的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12058-02",
+        "name": "实践技能",
+        "description": "机器学习的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "机器学习实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握机器学习",
+      "应用机器学习"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Python编程/12058",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-MID-12059",
+    "title": "项目实战（初中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Python编程",
+    "lesson_number": 12,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Python编程课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12059-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12059-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Python编程/12059",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-HIG-12060",
+    "title": "高级特性（高中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Python编程",
+    "lesson_number": 1,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Python编程课程：高级特性",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12060-01",
+        "name": "核心概念",
+        "description": "高级特性的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12060-02",
+        "name": "实践技能",
+        "description": "高级特性的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "高级特性实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握高级特性",
+      "应用高级特性"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "PyCharm"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Python编程/12060",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-HIG-12061",
+    "title": "并发编程（高中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Python编程",
+    "lesson_number": 2,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Python编程课程：并发编程",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12061-01",
+        "name": "核心概念",
+        "description": "并发编程的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12061-02",
+        "name": "实践技能",
+        "description": "并发编程的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "并发编程实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握并发编程",
+      "应用并发编程"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "PyCharm"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Python编程/12061",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-HIG-12062",
+    "title": "设计模式（高中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Python编程",
+    "lesson_number": 3,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Python编程课程：设计模式",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12062-01",
+        "name": "核心概念",
+        "description": "设计模式的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12062-02",
+        "name": "实践技能",
+        "description": "设计模式的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "设计模式实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握设计模式",
+      "应用设计模式"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "PyCharm"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Python编程/12062",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-HIG-12063",
+    "title": "Django（高中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Python编程",
+    "lesson_number": 4,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Python编程课程：Django",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12063-01",
+        "name": "核心概念",
+        "description": "Django的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12063-02",
+        "name": "实践技能",
+        "description": "Django的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "Django实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握Django",
+      "应用Django"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "PyCharm"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Python编程/12063",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-HIG-12064",
+    "title": "微服务（高中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Python编程",
+    "lesson_number": 5,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Python编程课程：微服务",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12064-01",
+        "name": "核心概念",
+        "description": "微服务的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12064-02",
+        "name": "实践技能",
+        "description": "微服务的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "微服务实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握微服务",
+      "应用微服务"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "PyCharm"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Python编程/12064",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-HIG-12065",
+    "title": "大数据（高中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Python编程",
+    "lesson_number": 6,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Python编程课程：大数据",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12065-01",
+        "name": "核心概念",
+        "description": "大数据的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12065-02",
+        "name": "实践技能",
+        "description": "大数据的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "大数据实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握大数据",
+      "应用大数据"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "PyCharm"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Python编程/12065",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-HIG-12066",
+    "title": "深度学习（高中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Python编程",
+    "lesson_number": 7,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Python编程课程：深度学习",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12066-01",
+        "name": "核心概念",
+        "description": "深度学习的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12066-02",
+        "name": "实践技能",
+        "description": "深度学习的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "深度学习实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握深度学习",
+      "应用深度学习"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "PyCharm"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Python编程/12066",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-HIG-12067",
+    "title": "NLP（高中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Python编程",
+    "lesson_number": 8,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Python编程课程：NLP",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12067-01",
+        "name": "核心概念",
+        "description": "NLP的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12067-02",
+        "name": "实践技能",
+        "description": "NLP的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "NLP实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握NLP",
+      "应用NLP"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "PyCharm"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Python编程/12067",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-HIG-12068",
+    "title": "计算机视觉（高中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Python编程",
+    "lesson_number": 9,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Python编程课程：计算机视觉",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12068-01",
+        "name": "核心概念",
+        "description": "计算机视觉的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12068-02",
+        "name": "实践技能",
+        "description": "计算机视觉的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "计算机视觉实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握计算机视觉",
+      "应用计算机视觉"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "PyCharm"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Python编程/12068",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-HIG-12069",
+    "title": "DevOps（高中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Python编程",
+    "lesson_number": 10,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Python编程课程：DevOps",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12069-01",
+        "name": "核心概念",
+        "description": "DevOps的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12069-02",
+        "name": "实践技能",
+        "description": "DevOps的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "DevOps实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握DevOps",
+      "应用DevOps"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "PyCharm"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Python编程/12069",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-HIG-12070",
+    "title": "云计算（高中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Python编程",
+    "lesson_number": 11,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Python编程课程：云计算",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12070-01",
+        "name": "核心概念",
+        "description": "云计算的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12070-02",
+        "name": "实践技能",
+        "description": "云计算的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "云计算实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握云计算",
+      "应用云计算"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "PyCharm"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Python编程/12070",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-PYTH-HIG-12071",
+    "title": "项目实战（高中·Python编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Python编程",
+    "lesson_number": 12,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Python编程课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12071-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12071-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "Python"
+    ],
+    "tools": [
+      "PyCharm"
+    ],
+    "career_paths": [
+      "后端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Python编程/12071",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-C/C+-ELE-12072",
+    "title": "C语言初探（小学·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "C/C++编程",
+    "lesson_number": 1,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学C/C++编程课程：C语言初探",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12072-01",
+        "name": "核心概念",
+        "description": "C语言初探的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12072-02",
+        "name": "实践技能",
+        "description": "C语言初探的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "C语言初探实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握C语言初探",
+      "应用C语言初探"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Dev-C++"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/C/C++编程/12072",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-C/C+-ELE-12073",
+    "title": "Hello World（小学·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "C/C++编程",
+    "lesson_number": 2,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学C/C++编程课程：Hello World",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12073-01",
+        "name": "核心概念",
+        "description": "Hello World的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12073-02",
+        "name": "实践技能",
+        "description": "Hello World的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "Hello World实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握Hello World",
+      "应用Hello World"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Dev-C++"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/C/C++编程/12073",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-C/C+-ELE-12074",
+    "title": "变量声明（小学·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "C/C++编程",
+    "lesson_number": 3,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学C/C++编程课程：变量声明",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12074-01",
+        "name": "核心概念",
+        "description": "变量声明的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12074-02",
+        "name": "实践技能",
+        "description": "变量声明的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "变量声明实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握变量声明",
+      "应用变量声明"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Dev-C++"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/C/C++编程/12074",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-C/C+-ELE-12075",
+    "title": "数据类型（小学·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "C/C++编程",
+    "lesson_number": 4,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学C/C++编程课程：数据类型",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12075-01",
+        "name": "核心概念",
+        "description": "数据类型的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12075-02",
+        "name": "实践技能",
+        "description": "数据类型的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "数据类型实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握数据类型",
+      "应用数据类型"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Dev-C++"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/C/C++编程/12075",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-C/C+-ELE-12076",
+    "title": "输入输出（小学·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "C/C++编程",
+    "lesson_number": 5,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学C/C++编程课程：输入输出",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12076-01",
+        "name": "核心概念",
+        "description": "输入输出的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12076-02",
+        "name": "实践技能",
+        "description": "输入输出的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "输入输出实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握输入输出",
+      "应用输入输出"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Dev-C++"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/C/C++编程/12076",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-C/C+-ELE-12077",
+    "title": "运算符（小学·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "C/C++编程",
+    "lesson_number": 6,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学C/C++编程课程：运算符",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12077-01",
+        "name": "核心概念",
+        "description": "运算符的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12077-02",
+        "name": "实践技能",
+        "description": "运算符的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "运算符实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握运算符",
+      "应用运算符"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Dev-C++"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/C/C++编程/12077",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-C/C+-ELE-12078",
+    "title": "条件语句（小学·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "C/C++编程",
+    "lesson_number": 7,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学C/C++编程课程：条件语句",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12078-01",
+        "name": "核心概念",
+        "description": "条件语句的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12078-02",
+        "name": "实践技能",
+        "description": "条件语句的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "条件语句实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握条件语句",
+      "应用条件语句"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Dev-C++"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/C/C++编程/12078",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-C/C+-ELE-12079",
+    "title": "循环结构（小学·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "C/C++编程",
+    "lesson_number": 8,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学C/C++编程课程：循环结构",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12079-01",
+        "name": "核心概念",
+        "description": "循环结构的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12079-02",
+        "name": "实践技能",
+        "description": "循环结构的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "循环结构实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握循环结构",
+      "应用循环结构"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Dev-C++"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/C/C++编程/12079",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-C/C+-ELE-12080",
+    "title": "数组基础（小学·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "C/C++编程",
+    "lesson_number": 9,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学C/C++编程课程：数组基础",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12080-01",
+        "name": "核心概念",
+        "description": "数组基础的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12080-02",
+        "name": "实践技能",
+        "description": "数组基础的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "数组基础实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握数组基础",
+      "应用数组基础"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Dev-C++"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/C/C++编程/12080",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-C/C+-ELE-12081",
+    "title": "函数入门（小学·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "C/C++编程",
+    "lesson_number": 10,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学C/C++编程课程：函数入门",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12081-01",
+        "name": "核心概念",
+        "description": "函数入门的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12081-02",
+        "name": "实践技能",
+        "description": "函数入门的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "函数入门实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握函数入门",
+      "应用函数入门"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Dev-C++"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/C/C++编程/12081",
+    "scraped_at": "2026-04-18T23:34:31.163476"
+  },
+  {
+    "course_id": "PROG-C/C+-ELE-12082",
+    "title": "指针概念（小学·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "C/C++编程",
+    "lesson_number": 11,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学C/C++编程课程：指针概念",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12082-01",
+        "name": "核心概念",
+        "description": "指针概念的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12082-02",
+        "name": "实践技能",
+        "description": "指针概念的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "指针概念实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握指针概念",
+      "应用指针概念"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Dev-C++"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/C/C++编程/12082",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-ELE-12083",
+    "title": "项目实战（小学·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "C/C++编程",
+    "lesson_number": 12,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学C/C++编程课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12083-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12083-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Dev-C++"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/C/C++编程/12083",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-MID-12084",
+    "title": "C进阶（初中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "C/C++编程",
+    "lesson_number": 1,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中C/C++编程课程：C进阶",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12084-01",
+        "name": "核心概念",
+        "description": "C进阶的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12084-02",
+        "name": "实践技能",
+        "description": "C进阶的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "C进阶实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握C进阶",
+      "应用C进阶"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Visual Studio"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/C/C++编程/12084",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-MID-12085",
+    "title": "动态内存（初中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "C/C++编程",
+    "lesson_number": 2,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中C/C++编程课程：动态内存",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12085-01",
+        "name": "核心概念",
+        "description": "动态内存的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12085-02",
+        "name": "实践技能",
+        "description": "动态内存的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "动态内存实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握动态内存",
+      "应用动态内存"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Visual Studio"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/C/C++编程/12085",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-MID-12086",
+    "title": "链表（初中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "C/C++编程",
+    "lesson_number": 3,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中C/C++编程课程：链表",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12086-01",
+        "name": "核心概念",
+        "description": "链表的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12086-02",
+        "name": "实践技能",
+        "description": "链表的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "链表实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握链表",
+      "应用链表"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Visual Studio"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/C/C++编程/12086",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-MID-12087",
+    "title": "栈和队列（初中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "C/C++编程",
+    "lesson_number": 4,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中C/C++编程课程：栈和队列",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12087-01",
+        "name": "核心概念",
+        "description": "栈和队列的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12087-02",
+        "name": "实践技能",
+        "description": "栈和队列的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "栈和队列实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握栈和队列",
+      "应用栈和队列"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Visual Studio"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/C/C++编程/12087",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-MID-12088",
+    "title": "树结构（初中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "C/C++编程",
+    "lesson_number": 5,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中C/C++编程课程：树结构",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12088-01",
+        "name": "核心概念",
+        "description": "树结构的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12088-02",
+        "name": "实践技能",
+        "description": "树结构的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "树结构实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握树结构",
+      "应用树结构"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Visual Studio"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/C/C++编程/12088",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-MID-12089",
+    "title": "图论（初中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "C/C++编程",
+    "lesson_number": 6,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中C/C++编程课程：图论",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12089-01",
+        "name": "核心概念",
+        "description": "图论的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12089-02",
+        "name": "实践技能",
+        "description": "图论的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "图论实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握图论",
+      "应用图论"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Visual Studio"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/C/C++编程/12089",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-MID-12090",
+    "title": "排序算法（初中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "C/C++编程",
+    "lesson_number": 7,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中C/C++编程课程：排序算法",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12090-01",
+        "name": "核心概念",
+        "description": "排序算法的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12090-02",
+        "name": "实践技能",
+        "description": "排序算法的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "排序算法实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握排序算法",
+      "应用排序算法"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Visual Studio"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/C/C++编程/12090",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-MID-12091",
+    "title": "C++入门（初中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "C/C++编程",
+    "lesson_number": 8,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中C/C++编程课程：C++入门",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12091-01",
+        "name": "核心概念",
+        "description": "C++入门的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12091-02",
+        "name": "实践技能",
+        "description": "C++入门的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "C++入门实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握C++入门",
+      "应用C++入门"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Visual Studio"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/C/C++编程/12091",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-MID-12092",
+    "title": "面向对象（初中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "C/C++编程",
+    "lesson_number": 9,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中C/C++编程课程：面向对象",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12092-01",
+        "name": "核心概念",
+        "description": "面向对象的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12092-02",
+        "name": "实践技能",
+        "description": "面向对象的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "面向对象实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握面向对象",
+      "应用面向对象"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Visual Studio"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/C/C++编程/12092",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-MID-12093",
+    "title": "继承多态（初中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "C/C++编程",
+    "lesson_number": 10,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中C/C++编程课程：继承多态",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12093-01",
+        "name": "核心概念",
+        "description": "继承多态的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12093-02",
+        "name": "实践技能",
+        "description": "继承多态的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "继承多态实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握继承多态",
+      "应用继承多态"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Visual Studio"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/C/C++编程/12093",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-MID-12094",
+    "title": "模板编程（初中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "C/C++编程",
+    "lesson_number": 11,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中C/C++编程课程：模板编程",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12094-01",
+        "name": "核心概念",
+        "description": "模板编程的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12094-02",
+        "name": "实践技能",
+        "description": "模板编程的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "模板编程实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握模板编程",
+      "应用模板编程"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Visual Studio"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/C/C++编程/12094",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-MID-12095",
+    "title": "项目实战（初中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "C/C++编程",
+    "lesson_number": 12,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中C/C++编程课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12095-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12095-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "Visual Studio"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/C/C++编程/12095",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-HIG-12096",
+    "title": "C++高级（高中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "C/C++编程",
+    "lesson_number": 1,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中C/C++编程课程：C++高级",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12096-01",
+        "name": "核心概念",
+        "description": "C++高级的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12096-02",
+        "name": "实践技能",
+        "description": "C++高级的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "C++高级实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握C++高级",
+      "应用C++高级"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "CLion"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/C/C++编程/12096",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-HIG-12097",
+    "title": "智能指针（高中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "C/C++编程",
+    "lesson_number": 2,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中C/C++编程课程：智能指针",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12097-01",
+        "name": "核心概念",
+        "description": "智能指针的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12097-02",
+        "name": "实践技能",
+        "description": "智能指针的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "智能指针实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握智能指针",
+      "应用智能指针"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "CLion"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/C/C++编程/12097",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-HIG-12098",
+    "title": "lambda（高中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "C/C++编程",
+    "lesson_number": 3,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中C/C++编程课程：lambda",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12098-01",
+        "name": "核心概念",
+        "description": "lambda的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12098-02",
+        "name": "实践技能",
+        "description": "lambda的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "lambda实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握lambda",
+      "应用lambda"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "CLion"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/C/C++编程/12098",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-HIG-12099",
+    "title": "并发编程（高中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "C/C++编程",
+    "lesson_number": 4,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中C/C++编程课程：并发编程",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12099-01",
+        "name": "核心概念",
+        "description": "并发编程的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12099-02",
+        "name": "实践技能",
+        "description": "并发编程的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "并发编程实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握并发编程",
+      "应用并发编程"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "CLion"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/C/C++编程/12099",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-HIG-12100",
+    "title": "设计模式（高中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "C/C++编程",
+    "lesson_number": 5,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中C/C++编程课程：设计模式",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12100-01",
+        "name": "核心概念",
+        "description": "设计模式的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12100-02",
+        "name": "实践技能",
+        "description": "设计模式的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "设计模式实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握设计模式",
+      "应用设计模式"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "CLion"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/C/C++编程/12100",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-HIG-12101",
+    "title": "STL深入（高中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "C/C++编程",
+    "lesson_number": 6,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中C/C++编程课程：STL深入",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12101-01",
+        "name": "核心概念",
+        "description": "STL深入的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12101-02",
+        "name": "实践技能",
+        "description": "STL深入的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "STL深入实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握STL深入",
+      "应用STL深入"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "CLion"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/C/C++编程/12101",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-HIG-12102",
+    "title": "Qt框架（高中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "C/C++编程",
+    "lesson_number": 7,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中C/C++编程课程：Qt框架",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12102-01",
+        "name": "核心概念",
+        "description": "Qt框架的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12102-02",
+        "name": "实践技能",
+        "description": "Qt框架的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "Qt框架实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握Qt框架",
+      "应用Qt框架"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "CLion"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/C/C++编程/12102",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-HIG-12103",
+    "title": "游戏引擎（高中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "C/C++编程",
+    "lesson_number": 8,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中C/C++编程课程：游戏引擎",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12103-01",
+        "name": "核心概念",
+        "description": "游戏引擎的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12103-02",
+        "name": "实践技能",
+        "description": "游戏引擎的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "游戏引擎实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握游戏引擎",
+      "应用游戏引擎"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "CLion"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/C/C++编程/12103",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-HIG-12104",
+    "title": "图形编程（高中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "C/C++编程",
+    "lesson_number": 9,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中C/C++编程课程：图形编程",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12104-01",
+        "name": "核心概念",
+        "description": "图形编程的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12104-02",
+        "name": "实践技能",
+        "description": "图形编程的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "图形编程实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握图形编程",
+      "应用图形编程"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "CLion"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/C/C++编程/12104",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-HIG-12105",
+    "title": "嵌入式（高中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "C/C++编程",
+    "lesson_number": 10,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中C/C++编程课程：嵌入式",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12105-01",
+        "name": "核心概念",
+        "description": "嵌入式的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12105-02",
+        "name": "实践技能",
+        "description": "嵌入式的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "嵌入式实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握嵌入式",
+      "应用嵌入式"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "CLion"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/C/C++编程/12105",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-HIG-12106",
+    "title": "高性能（高中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "C/C++编程",
+    "lesson_number": 11,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中C/C++编程课程：高性能",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12106-01",
+        "name": "核心概念",
+        "description": "高性能的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12106-02",
+        "name": "实践技能",
+        "description": "高性能的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "高性能实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握高性能",
+      "应用高性能"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "CLion"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/C/C++编程/12106",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-C/C+-HIG-12107",
+    "title": "项目实战（高中·C/C++编程）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "C/C++编程",
+    "lesson_number": 12,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中C/C++编程课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12107-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12107-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "C/C++"
+    ],
+    "tools": [
+      "CLion"
+    ],
+    "career_paths": [
+      "系统工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/C/C++编程/12107",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-WEB前-ELE-12108",
+    "title": "HTML基础（小学·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Web前端",
+    "lesson_number": 1,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Web前端课程：HTML基础",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12108-01",
+        "name": "核心概念",
+        "description": "HTML基础的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12108-02",
+        "name": "实践技能",
+        "description": "HTML基础的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "HTML基础实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握HTML基础",
+      "应用HTML基础"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "浏览器"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Web前端/12108",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-WEB前-ELE-12109",
+    "title": "标签结构（小学·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Web前端",
+    "lesson_number": 2,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Web前端课程：标签结构",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12109-01",
+        "name": "核心概念",
+        "description": "标签结构的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12109-02",
+        "name": "实践技能",
+        "description": "标签结构的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "标签结构实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握标签结构",
+      "应用标签结构"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "浏览器"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Web前端/12109",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-WEB前-ELE-12110",
+    "title": "CSS入门（小学·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Web前端",
+    "lesson_number": 3,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Web前端课程：CSS入门",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12110-01",
+        "name": "核心概念",
+        "description": "CSS入门的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12110-02",
+        "name": "实践技能",
+        "description": "CSS入门的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "CSS入门实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握CSS入门",
+      "应用CSS入门"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "浏览器"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Web前端/12110",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-WEB前-ELE-12111",
+    "title": "选择器（小学·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Web前端",
+    "lesson_number": 4,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Web前端课程：选择器",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12111-01",
+        "name": "核心概念",
+        "description": "选择器的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12111-02",
+        "name": "实践技能",
+        "description": "选择器的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "选择器实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握选择器",
+      "应用选择器"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "浏览器"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Web前端/12111",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-WEB前-ELE-12112",
+    "title": "JavaScript（小学·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Web前端",
+    "lesson_number": 5,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Web前端课程：JavaScript",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12112-01",
+        "name": "核心概念",
+        "description": "JavaScript的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12112-02",
+        "name": "实践技能",
+        "description": "JavaScript的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "JavaScript实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握JavaScript",
+      "应用JavaScript"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "浏览器"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Web前端/12112",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-WEB前-ELE-12113",
+    "title": "DOM操作（小学·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Web前端",
+    "lesson_number": 6,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Web前端课程：DOM操作",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12113-01",
+        "name": "核心概念",
+        "description": "DOM操作的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12113-02",
+        "name": "实践技能",
+        "description": "DOM操作的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "DOM操作实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握DOM操作",
+      "应用DOM操作"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "浏览器"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Web前端/12113",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-WEB前-ELE-12114",
+    "title": "简单网页（小学·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Web前端",
+    "lesson_number": 7,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Web前端课程：简单网页",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12114-01",
+        "name": "核心概念",
+        "description": "简单网页的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12114-02",
+        "name": "实践技能",
+        "description": "简单网页的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "简单网页实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握简单网页",
+      "应用简单网页"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "浏览器"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Web前端/12114",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-WEB前-ELE-12115",
+    "title": "表单基础（小学·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Web前端",
+    "lesson_number": 8,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Web前端课程：表单基础",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12115-01",
+        "name": "核心概念",
+        "description": "表单基础的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12115-02",
+        "name": "实践技能",
+        "description": "表单基础的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "表单基础实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握表单基础",
+      "应用表单基础"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "浏览器"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Web前端/12115",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-WEB前-ELE-12116",
+    "title": "响应式（小学·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Web前端",
+    "lesson_number": 9,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Web前端课程：响应式",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12116-01",
+        "name": "核心概念",
+        "description": "响应式的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12116-02",
+        "name": "实践技能",
+        "description": "响应式的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "响应式实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握响应式",
+      "应用响应式"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "浏览器"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Web前端/12116",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-WEB前-ELE-12117",
+    "title": "动画效果（小学·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Web前端",
+    "lesson_number": 10,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Web前端课程：动画效果",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12117-01",
+        "name": "核心概念",
+        "description": "动画效果的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12117-02",
+        "name": "实践技能",
+        "description": "动画效果的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "动画效果实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握动画效果",
+      "应用动画效果"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "浏览器"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Web前端/12117",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-WEB前-ELE-12118",
+    "title": "Canvas（小学·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Web前端",
+    "lesson_number": 11,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Web前端课程：Canvas",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12118-01",
+        "name": "核心概念",
+        "description": "Canvas的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12118-02",
+        "name": "实践技能",
+        "description": "Canvas的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "Canvas实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握Canvas",
+      "应用Canvas"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "浏览器"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Web前端/12118",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-WEB前-ELE-12119",
+    "title": "项目实战（小学·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "Web前端",
+    "lesson_number": 12,
+    "duration_minutes": 40,
+    "complexity": "入门",
+    "description": "小学Web前端课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12119-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12119-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "浏览器"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/elementary/Web前端/12119",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-WEB前-MID-12120",
+    "title": "HTML5（初中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Web前端",
+    "lesson_number": 1,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Web前端课程：HTML5",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12120-01",
+        "name": "核心概念",
+        "description": "HTML5的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12120-02",
+        "name": "实践技能",
+        "description": "HTML5的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "HTML5实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握HTML5",
+      "应用HTML5"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Web前端/12120",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-WEB前-MID-12121",
+    "title": "CSS3（初中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Web前端",
+    "lesson_number": 2,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Web前端课程：CSS3",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12121-01",
+        "name": "核心概念",
+        "description": "CSS3的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12121-02",
+        "name": "实践技能",
+        "description": "CSS3的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "CSS3实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握CSS3",
+      "应用CSS3"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Web前端/12121",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-WEB前-MID-12122",
+    "title": "ES6+（初中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Web前端",
+    "lesson_number": 3,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Web前端课程：ES6+",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12122-01",
+        "name": "核心概念",
+        "description": "ES6+的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12122-02",
+        "name": "实践技能",
+        "description": "ES6+的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "ES6+实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握ES6+",
+      "应用ES6+"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Web前端/12122",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-WEB前-MID-12123",
+    "title": "异步编程（初中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Web前端",
+    "lesson_number": 4,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Web前端课程：异步编程",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12123-01",
+        "name": "核心概念",
+        "description": "异步编程的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12123-02",
+        "name": "实践技能",
+        "description": "异步编程的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "异步编程实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握异步编程",
+      "应用异步编程"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Web前端/12123",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-WEB前-MID-12124",
+    "title": "模块化（初中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Web前端",
+    "lesson_number": 5,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Web前端课程：模块化",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12124-01",
+        "name": "核心概念",
+        "description": "模块化的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12124-02",
+        "name": "实践技能",
+        "description": "模块化的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "模块化实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握模块化",
+      "应用模块化"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Web前端/12124",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-WEB前-MID-12125",
+    "title": "Vue.js（初中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Web前端",
+    "lesson_number": 6,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Web前端课程：Vue.js",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12125-01",
+        "name": "核心概念",
+        "description": "Vue.js的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12125-02",
+        "name": "实践技能",
+        "description": "Vue.js的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "Vue.js实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握Vue.js",
+      "应用Vue.js"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Web前端/12125",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-WEB前-MID-12126",
+    "title": "React（初中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Web前端",
+    "lesson_number": 7,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Web前端课程：React",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12126-01",
+        "name": "核心概念",
+        "description": "React的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12126-02",
+        "name": "实践技能",
+        "description": "React的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "React实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握React",
+      "应用React"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Web前端/12126",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-WEB前-MID-12127",
+    "title": "状态管理（初中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Web前端",
+    "lesson_number": 8,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Web前端课程：状态管理",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12127-01",
+        "name": "核心概念",
+        "description": "状态管理的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12127-02",
+        "name": "实践技能",
+        "description": "状态管理的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "状态管理实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握状态管理",
+      "应用状态管理"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Web前端/12127",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-WEB前-MID-12128",
+    "title": "路由（初中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Web前端",
+    "lesson_number": 9,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Web前端课程：路由",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12128-01",
+        "name": "核心概念",
+        "description": "路由的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12128-02",
+        "name": "实践技能",
+        "description": "路由的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "路由实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握路由",
+      "应用路由"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Web前端/12128",
+    "scraped_at": "2026-04-18T23:34:31.164476"
+  },
+  {
+    "course_id": "PROG-WEB前-MID-12129",
+    "title": "HTTP协议（初中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Web前端",
+    "lesson_number": 10,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Web前端课程：HTTP协议",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12129-01",
+        "name": "核心概念",
+        "description": "HTTP协议的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12129-02",
+        "name": "实践技能",
+        "description": "HTTP协议的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "HTTP协议实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握HTTP协议",
+      "应用HTTP协议"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Web前端/12129",
+    "scraped_at": "2026-04-18T23:34:31.165475"
+  },
+  {
+    "course_id": "PROG-WEB前-MID-12130",
+    "title": "TypeScript（初中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Web前端",
+    "lesson_number": 11,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Web前端课程：TypeScript",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12130-01",
+        "name": "核心概念",
+        "description": "TypeScript的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12130-02",
+        "name": "实践技能",
+        "description": "TypeScript的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "TypeScript实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握TypeScript",
+      "应用TypeScript"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Web前端/12130",
+    "scraped_at": "2026-04-18T23:34:31.165475"
+  },
+  {
+    "course_id": "PROG-WEB前-MID-12131",
+    "title": "项目实战（初中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "Web前端",
+    "lesson_number": 12,
+    "duration_minutes": 45,
+    "complexity": "进阶",
+    "description": "初中Web前端课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12131-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12131-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "VS Code"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/middle/Web前端/12131",
+    "scraped_at": "2026-04-18T23:34:31.165475"
+  },
+  {
+    "course_id": "PROG-WEB前-HIG-12132",
+    "title": "现代架构（高中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Web前端",
+    "lesson_number": 1,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Web前端课程：现代架构",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12132-01",
+        "name": "核心概念",
+        "description": "现代架构的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12132-02",
+        "name": "实践技能",
+        "description": "现代架构的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "现代架构实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握现代架构",
+      "应用现代架构"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "Webpack"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Web前端/12132",
+    "scraped_at": "2026-04-18T23:34:31.165475"
+  },
+  {
+    "course_id": "PROG-WEB前-HIG-12133",
+    "title": "Next.js（高中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Web前端",
+    "lesson_number": 2,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Web前端课程：Next.js",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12133-01",
+        "name": "核心概念",
+        "description": "Next.js的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12133-02",
+        "name": "实践技能",
+        "description": "Next.js的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "Next.js实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握Next.js",
+      "应用Next.js"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "Webpack"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Web前端/12133",
+    "scraped_at": "2026-04-18T23:34:31.165475"
+  },
+  {
+    "course_id": "PROG-WEB前-HIG-12134",
+    "title": "GraphQL（高中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Web前端",
+    "lesson_number": 3,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Web前端课程：GraphQL",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12134-01",
+        "name": "核心概念",
+        "description": "GraphQL的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12134-02",
+        "name": "实践技能",
+        "description": "GraphQL的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "GraphQL实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握GraphQL",
+      "应用GraphQL"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "Webpack"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Web前端/12134",
+    "scraped_at": "2026-04-18T23:34:31.165475"
+  },
+  {
+    "course_id": "PROG-WEB前-HIG-12135",
+    "title": "WebAssembly（高中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Web前端",
+    "lesson_number": 4,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Web前端课程：WebAssembly",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12135-01",
+        "name": "核心概念",
+        "description": "WebAssembly的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12135-02",
+        "name": "实践技能",
+        "description": "WebAssembly的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "WebAssembly实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握WebAssembly",
+      "应用WebAssembly"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "Webpack"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Web前端/12135",
+    "scraped_at": "2026-04-18T23:34:31.165475"
+  },
+  {
+    "course_id": "PROG-WEB前-HIG-12136",
+    "title": "PWA（高中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Web前端",
+    "lesson_number": 5,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Web前端课程：PWA",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12136-01",
+        "name": "核心概念",
+        "description": "PWA的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12136-02",
+        "name": "实践技能",
+        "description": "PWA的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "PWA实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握PWA",
+      "应用PWA"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "Webpack"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Web前端/12136",
+    "scraped_at": "2026-04-18T23:34:31.165475"
+  },
+  {
+    "course_id": "PROG-WEB前-HIG-12137",
+    "title": "WebGL（高中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Web前端",
+    "lesson_number": 6,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Web前端课程：WebGL",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12137-01",
+        "name": "核心概念",
+        "description": "WebGL的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12137-02",
+        "name": "实践技能",
+        "description": "WebGL的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "WebGL实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握WebGL",
+      "应用WebGL"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "Webpack"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Web前端/12137",
+    "scraped_at": "2026-04-18T23:34:31.165475"
+  },
+  {
+    "course_id": "PROG-WEB前-HIG-12138",
+    "title": "WebRTC（高中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Web前端",
+    "lesson_number": 7,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Web前端课程：WebRTC",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12138-01",
+        "name": "核心概念",
+        "description": "WebRTC的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12138-02",
+        "name": "实践技能",
+        "description": "WebRTC的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "WebRTC实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握WebRTC",
+      "应用WebRTC"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "Webpack"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Web前端/12138",
+    "scraped_at": "2026-04-18T23:34:31.165475"
+  },
+  {
+    "course_id": "PROG-WEB前-HIG-12139",
+    "title": "前端安全（高中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Web前端",
+    "lesson_number": 8,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Web前端课程：前端安全",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12139-01",
+        "name": "核心概念",
+        "description": "前端安全的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12139-02",
+        "name": "实践技能",
+        "description": "前端安全的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "前端安全实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握前端安全",
+      "应用前端安全"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "Webpack"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Web前端/12139",
+    "scraped_at": "2026-04-18T23:34:31.165475"
+  },
+  {
+    "course_id": "PROG-WEB前-HIG-12140",
+    "title": "CI/CD（高中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Web前端",
+    "lesson_number": 9,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Web前端课程：CI/CD",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12140-01",
+        "name": "核心概念",
+        "description": "CI/CD的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12140-02",
+        "name": "实践技能",
+        "description": "CI/CD的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "CI/CD实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握CI/CD",
+      "应用CI/CD"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "Webpack"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Web前端/12140",
+    "scraped_at": "2026-04-18T23:34:31.165475"
+  },
+  {
+    "course_id": "PROG-WEB前-HIG-12141",
+    "title": "设计系统（高中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Web前端",
+    "lesson_number": 10,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Web前端课程：设计系统",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12141-01",
+        "name": "核心概念",
+        "description": "设计系统的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12141-02",
+        "name": "实践技能",
+        "description": "设计系统的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "设计系统实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握设计系统",
+      "应用设计系统"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "Webpack"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Web前端/12141",
+    "scraped_at": "2026-04-18T23:34:31.165475"
+  },
+  {
+    "course_id": "PROG-WEB前-HIG-12142",
+    "title": "工程化（高中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Web前端",
+    "lesson_number": 11,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Web前端课程：工程化",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12142-01",
+        "name": "核心概念",
+        "description": "工程化的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12142-02",
+        "name": "实践技能",
+        "description": "工程化的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "工程化实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握工程化",
+      "应用工程化"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "Webpack"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Web前端/12142",
+    "scraped_at": "2026-04-18T23:34:31.165475"
+  },
+  {
+    "course_id": "PROG-WEB前-HIG-12143",
+    "title": "项目实战（高中·Web前端）",
+    "source": "编程教育专项课程",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "Web前端",
+    "lesson_number": 12,
+    "duration_minutes": 50,
+    "complexity": "高级",
+    "description": "高中Web前端课程：项目实战",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-PROG-12143-01",
+        "name": "核心概念",
+        "description": "项目实战的基础知识"
+      },
+      {
+        "kp_id": "KP-PROG-12143-02",
+        "name": "实践技能",
+        "description": "项目实战的实践能力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目实战实践",
+        "materials": [
+          "计算机",
+          "编程环境"
+        ],
+        "low_cost_alternatives": [
+          "在线IDE",
+          "开源工具"
+        ]
+      }
+    ],
+    "learning_objectives": [
+      "掌握项目实战",
+      "应用项目实战"
+    ],
+    "assessment_methods": [
+      "代码评估",
+      "功能测试",
+      "项目演示"
+    ],
+    "programming_language": [
+      "HTML/CSS/JS"
+    ],
+    "tools": [
+      "Webpack"
+    ],
+    "career_paths": [
+      "前端工程师"
+    ],
+    "stem_connections": [
+      "计算机科学",
+      "数学",
+      "工程"
+    ],
+    "course_url": "https://programming-stem.edu/high/Web前端/12143",
+    "scraped_at": "2026-04-18T23:34:31.165475"
+  }
+]

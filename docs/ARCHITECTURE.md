@@ -2,19 +2,18 @@
 
 ```mermaid
 graph TD
-    A[Frontend: React + ECharts] -->|API Requests| B[Backend: FastAPI]
+    A[Web Frontend: Angular] -->|Auth & Download| B[Backend: FastAPI]
     B -->|Query Path| C[Neo4j Graph DB]
     B -->|Store Metadata| D[PostgreSQL]
-    B -->|Cache Data| E[Redis]
-    B -->|AI Inference| F[MiniCPM / CodeLlama]
-    G[User] -->|WebUSB| H[Hardware: Arduino/ESP32]
-    B -->|Generate Blockly| I[Blockly Engine]
+    E[Desktop App: Tauri + Angular] -->|Local Storage| F[SQLite]
+    E -->|Hardware Control| G[Arduino/ESP32 via WebUSB]
+    E -->|Visual Programming| H[Blockly Engine]
 ```
 
 ## Components
 
-1. **Frontend**: Built with Vite, React, and TypeScript. Visualizes the STEM knowledge graph.
-2. **Backend**: Python FastAPI service handling path generation and user profiles.
-3. **Knowledge Graph**: Neo4j database storing relationships between course units, textbook chapters, and hardware projects.
-4. **AI Engine**: Integrates LLMs for concept explanation and code generation.
-5. **Hardware Layer**: Supports WebUSB for direct browser-to-device communication.
+1. **Web Portal**: Minimalist marketing site for user registration and app download.
+2. **Desktop Client**: Core learning environment built with Tauri (Rust) and Angular.
+3. **Path Engine**: Python FastAPI service that generates STEM learning paths from Neo4j.
+4. **Knowledge Graph**: Neo4j database linking tutorials, textbooks, and hardware projects.
+5. **Hardware Layer**: Local communication with microcontrollers via WebUSB.

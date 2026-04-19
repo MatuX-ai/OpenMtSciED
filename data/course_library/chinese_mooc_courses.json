@@ -1,0 +1,48 @@
+[
+  {
+    "course_id": "CMOOC-MATH-001",
+    "title": "高等数学",
+    "source": "chinese_mooc",
+    "grade_level": "university",
+    "subject": "数学",
+    "duration_weeks": 16,
+    "description": "微积分、线性代数、概率论等高等数学基础知识。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-CMOOC-MATH-001",
+        "name": "极限与连续",
+        "description": "函数极限、连续性概念"
+      },
+      {
+        "kp_id": "KP-CMOOC-MATH-002",
+        "name": "导数与微分",
+        "description": "求导法则、微分应用"
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/TSINGHUA-1003397001",
+    "scraped_at": "2026-04-18T22:22:26.916004"
+  },
+  {
+    "course_id": "CMOOC-PHYS-001",
+    "title": "大学物理",
+    "source": "chinese_mooc",
+    "grade_level": "university",
+    "subject": "物理",
+    "duration_weeks": 15,
+    "description": "力学、热学、电磁学、光学和近代物理基础。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-CMOOC-PHYS-001",
+        "name": "牛顿运动定律",
+        "description": "三大运动定律及应用"
+      },
+      {
+        "kp_id": "KP-CMOOC-PHYS-002",
+        "name": "电磁感应",
+        "description": "法拉第电磁感应定律"
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/PKU-1003397002",
+    "scraped_at": "2026-04-18T22:22:26.916004"
+  }
+]

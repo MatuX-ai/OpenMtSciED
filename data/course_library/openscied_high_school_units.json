@@ -1,0 +1,1213 @@
+[
+  {
+    "unit_id": "OS-HS-Phys-001",
+    "title": "力学与运动学",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "物理",
+    "duration_weeks": 8,
+    "phenomenon": "为什么行星轨道是椭圆形的？",
+    "description": "本单元通过研究物体运动，学生将探索力、加速度和能量之间的关系，建立运动学模型并应用到天体运动中。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Phys-Motion-001",
+        "name": "牛顿运动定律",
+        "description": "三大运动定律及其应用",
+        "ngss_standard": "HS-PS2-1"
+      },
+      {
+        "kp_id": "KP-HS-Phys-Motion-002",
+        "name": "抛体运动",
+        "description": "二维运动分解与分析",
+        "ngss_standard": "HS-PS2-1"
+      },
+      {
+        "kp_id": "KP-HS-Phys-Motion-003",
+        "name": "万有引力",
+        "description": "万有引力定律与开普勒定律",
+        "ngss_standard": "HS-PS2-4"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "抛体运动实验",
+        "materials": [
+          "发射器",
+          "球",
+          "测量尺",
+          "高速摄像机"
+        ],
+        "low_cost_alternatives": [
+          "用斜面和球模拟抛体"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "数学·矢量运算",
+      "天文学·行星轨道"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-1-mechanics/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-1-mechanics/student.pdf",
+    "ngss_standards": [
+      "HS-PS2-1",
+      "HS-PS2-4"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-1-mechanics/",
+    "scraped_at": "2026-04-18T22:21:54.869815"
+  },
+  {
+    "unit_id": "OS-HS-Phys-002",
+    "title": "能量守恒与转化",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "物理",
+    "duration_weeks": 7,
+    "phenomenon": "永动机为什么不可能实现？",
+    "description": "探索能量守恒定律，理解不同形式能量的转化，分析能源利用效率。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Phys-Energy-001",
+        "name": "动能与势能",
+        "description": "机械能守恒",
+        "ngss_standard": "HS-PS3-2"
+      },
+      {
+        "kp_id": "KP-HS-Phys-Energy-002",
+        "name": "热力学第一定律",
+        "description": "能量守恒在热学中的应用",
+        "ngss_standard": "HS-PS3-1"
+      },
+      {
+        "kp_id": "KP-HS-Phys-Energy-003",
+        "name": "能量转化效率",
+        "description": "实际系统的能量损失分析",
+        "ngss_standard": "HS-PS3-3"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "滚摆实验",
+        "materials": [
+          "滚摆装置",
+          "计时器",
+          "测量尺"
+        ],
+        "low_cost_alternatives": [
+          "用绳子和重物自制滚摆"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "工程·能源技术",
+      "环境科学·可持续发展"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-2-energy/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-2-energy/student.pdf",
+    "ngss_standards": [
+      "HS-PS3-1",
+      "HS-PS3-2"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-2-energy/",
+    "scraped_at": "2026-04-18T22:21:54.869815"
+  },
+  {
+    "unit_id": "OS-HS-Phys-003",
+    "title": "电磁学基础",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "物理",
+    "duration_weeks": 9,
+    "phenomenon": "为什么手机能无线充电？",
+    "description": "探索电场、磁场及其相互作用，理解电磁感应原理和现代电磁技术的应用。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Phys-EM-001",
+        "name": "库仑定律",
+        "description": "电荷间相互作用力",
+        "ngss_standard": "HS-PS2-4"
+      },
+      {
+        "kp_id": "KP-HS-Phys-EM-002",
+        "name": "欧姆定律",
+        "description": "电流、电压、电阻关系",
+        "ngss_standard": "HS-PS2-5"
+      },
+      {
+        "kp_id": "KP-HS-Phys-EM-003",
+        "name": "电磁感应",
+        "description": "法拉第定律与楞次定律",
+        "ngss_standard": "HS-PS2-5"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "电路搭建实验",
+        "materials": [
+          "电源",
+          "电阻",
+          "导线",
+          "万用表"
+        ],
+        "low_cost_alternatives": [
+          "用LED和电池测试电路"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "工程·电子技术",
+      "计算机科学·传感器应用"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-3-electromagnetism/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-3-electromagnetism/student.pdf",
+    "ngss_standards": [
+      "HS-PS2-4",
+      "HS-PS2-5"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-3-electromagnetism/",
+    "scraped_at": "2026-04-18T22:21:54.869815"
+  },
+  {
+    "unit_id": "OS-HS-Phys-004",
+    "title": "波动与光学",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "物理",
+    "duration_weeks": 7,
+    "phenomenon": "为什么天空是蓝色的？",
+    "description": "研究波动现象，理解光的干涉、衍射和偏振，探索光学的现代应用。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Phys-Wave-001",
+        "name": "波动方程",
+        "description": "波的传播与叠加",
+        "ngss_standard": "HS-PS4-1"
+      },
+      {
+        "kp_id": "KP-HS-Phys-Wave-002",
+        "name": "干涉与衍射",
+        "description": "波的特性表现",
+        "ngss_standard": "HS-PS4-3"
+      },
+      {
+        "kp_id": "KP-HS-Phys-Wave-003",
+        "name": "光的量子性",
+        "description": "光电效应与光子概念",
+        "ngss_standard": "HS-PS4-5"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "双缝干涉实验",
+        "materials": [
+          "激光笔",
+          "双缝片",
+          "屏幕"
+        ],
+        "low_cost_alternatives": [
+          "用头发丝代替双缝"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "数学·三角函数",
+      "天文学·光谱分析"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-4-waves/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-4-waves/student.pdf",
+    "ngss_standards": [
+      "HS-PS4-1",
+      "HS-PS4-3"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-4-waves/",
+    "scraped_at": "2026-04-18T22:21:54.869815"
+  },
+  {
+    "unit_id": "OS-HS-Phys-005",
+    "title": "现代物理与量子力学",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "物理",
+    "duration_weeks": 8,
+    "phenomenon": "量子计算机如何工作？",
+    "description": "介绍相对论和量子力学基本概念，探索现代物理对科技的深远影响。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Phys-Quantum-001",
+        "name": "波粒二象性",
+        "description": "微观粒子的双重性质",
+        "ngss_standard": "HS-PS4-5"
+      },
+      {
+        "kp_id": "KP-HS-Phys-Quantum-002",
+        "name": "不确定性原理",
+        "description": "海森堡测不准关系",
+        "ngss_standard": "HS-PS4-5"
+      },
+      {
+        "kp_id": "KP-HS-Phys-Quantum-003",
+        "name": "质能方程",
+        "description": "E=mc²与核能",
+        "ngss_standard": "HS-PS1-8"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "光电效应实验",
+        "materials": [
+          "光电管",
+          "光源",
+          "电压表"
+        ],
+        "low_cost_alternatives": [
+          "用太阳能电池板演示"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "计算机科学·量子计算",
+      "哲学·科学方法论"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-5-quantum/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-5-quantum/student.pdf",
+    "ngss_standards": [
+      "HS-PS4-5"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-5-quantum/",
+    "scraped_at": "2026-04-18T22:21:54.869815"
+  },
+  {
+    "unit_id": "OS-HS-Phys-006",
+    "title": "核物理与粒子物理",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "物理",
+    "duration_weeks": 6,
+    "phenomenon": "核能是清洁能源吗？",
+    "description": "探索原子核结构、放射性衰变和核反应，理解核能的原理和应用。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Phys-Nuclear-001",
+        "name": "放射性衰变",
+        "description": "α、β、γ衰变",
+        "ngss_standard": "HS-PS1-8"
+      },
+      {
+        "kp_id": "KP-HS-Phys-Nuclear-002",
+        "name": "核裂变与核聚变",
+        "description": "核能释放原理",
+        "ngss_standard": "HS-PS1-8"
+      },
+      {
+        "kp_id": "KP-HS-Phys-Nuclear-003",
+        "name": "半衰期",
+        "description": "放射性同位素应用",
+        "ngss_standard": "HS-PS1-8"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "盖革计数器实验",
+        "materials": [
+          "盖革计数器",
+          "放射性源",
+          "屏蔽材料"
+        ],
+        "low_cost_alternatives": [
+          "模拟实验软件"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "医学·放射治疗",
+      "环境科学·辐射安全"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-6-nuclear/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-6-nuclear/student.pdf",
+    "ngss_standards": [
+      "HS-PS1-8"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-6-nuclear/",
+    "scraped_at": "2026-04-18T22:21:54.869815"
+  },
+  {
+    "unit_id": "OS-HS-Chem-001",
+    "title": "原子结构与化学键",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "化学",
+    "duration_weeks": 7,
+    "phenomenon": "为什么食盐易溶于水而油不溶？",
+    "description": "深入理解原子结构、电子排布和化学键类型，解释物质的溶解性和反应性。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Chem-Atom-001",
+        "name": "电子构型",
+        "description": "轨道填充原理",
+        "ngss_standard": "HS-PS1-1"
+      },
+      {
+        "kp_id": "KP-HS-Chem-Atom-002",
+        "name": "离子键与共价键",
+        "description": "化学键类型与性质",
+        "ngss_standard": "HS-PS1-2"
+      },
+      {
+        "kp_id": "KP-HS-Chem-Atom-003",
+        "name": "分子几何",
+        "description": "VSEPR理论",
+        "ngss_standard": "HS-PS1-2"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "分子模型构建",
+        "materials": [
+          "球棍模型",
+          "原子球",
+          "连接棍"
+        ],
+        "low_cost_alternatives": [
+          "用橡皮泥和牙签自制模型"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "数学·几何学",
+      "材料科学·晶体结构"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-7-atomic-structure/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-7-atomic-structure/student.pdf",
+    "ngss_standards": [
+      "HS-PS1-1",
+      "HS-PS1-2"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-7-atomic-structure/",
+    "scraped_at": "2026-04-18T22:21:54.869815"
+  },
+  {
+    "unit_id": "OS-HS-Chem-002",
+    "title": "化学反应与化学计量",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "化学",
+    "duration_weeks": 8,
+    "phenomenon": "如何精确配制药物剂量？",
+    "description": "掌握化学方程式配平、摩尔计算和反应产率，应用到实际化学工程中。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Chem-Reaction-001",
+        "name": "摩尔概念",
+        "description": "物质的量计算",
+        "ngss_standard": "HS-PS1-7"
+      },
+      {
+        "kp_id": "KP-HS-Chem-Reaction-002",
+        "name": "化学计量",
+        "description": "反应物与产物比例",
+        "ngss_standard": "HS-PS1-7"
+      },
+      {
+        "kp_id": "KP-HS-Chem-Reaction-003",
+        "name": "氧化还原反应",
+        "description": "电子转移与氧化数",
+        "ngss_standard": "HS-PS1-2"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "滴定实验",
+        "materials": [
+          "滴定管",
+          "指示剂",
+          "标准溶液"
+        ],
+        "low_cost_alternatives": [
+          "用注射器和pH试纸简化"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "数学·比例计算",
+      "医学·药物配制"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-8-reactions/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-8-reactions/student.pdf",
+    "ngss_standards": [
+      "HS-PS1-7"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-8-reactions/",
+    "scraped_at": "2026-04-18T22:21:54.869815"
+  },
+  {
+    "unit_id": "OS-HS-Chem-003",
+    "title": "化学平衡与热力学",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "化学",
+    "duration_weeks": 7,
+    "phenomenon": "为什么高压锅能更快煮熟食物？",
+    "description": "研究化学反应速率、平衡移动和能量变化，理解工业化学过程优化。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Chem-Equil-001",
+        "name": "化学平衡",
+        "description": "可逆反应与平衡常数",
+        "ngss_standard": "HS-PS1-6"
+      },
+      {
+        "kp_id": "KP-HS-Chem-Equil-002",
+        "name": "Le Chatelier原理",
+        "description": "平衡移动规律",
+        "ngss_standard": "HS-PS1-6"
+      },
+      {
+        "kp_id": "KP-HS-Chem-Equil-003",
+        "name": "反应焓变",
+        "description": "吸热与放热反应",
+        "ngss_standard": "HS-PS1-4"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "平衡移动实验",
+        "materials": [
+          "CoCl₂溶液",
+          "盐酸",
+          "热水浴"
+        ],
+        "low_cost_alternatives": [
+          "用酚酞和酸碱溶液"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "工程·化工过程",
+      "环境科学·大气化学"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-9-equilibrium/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-9-equilibrium/student.pdf",
+    "ngss_standards": [
+      "HS-PS1-6"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-9-equilibrium/",
+    "scraped_at": "2026-04-18T22:21:54.869815"
+  },
+  {
+    "unit_id": "OS-HS-Chem-004",
+    "title": "酸碱化学与溶液",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "化学",
+    "duration_weeks": 6,
+    "phenomenon": "为什么酸雨会腐蚀建筑物？",
+    "description": "探索酸碱理论、pH计算和缓冲溶液，应用到环境化学和生物化学中。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Chem-Acid-001",
+        "name": "pH值",
+        "description": "氢离子浓度表示",
+        "ngss_standard": "HS-PS1-2"
+      },
+      {
+        "kp_id": "KP-HS-Chem-Acid-002",
+        "name": "酸碱中和",
+        "description": "中和反应与盐的生成",
+        "ngss_standard": "HS-PS1-2"
+      },
+      {
+        "kp_id": "KP-HS-Chem-Acid-003",
+        "name": "缓冲溶液",
+        "description": "抵抗pH变化的能力",
+        "ngss_standard": "HS-PS1-2"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "pH测定实验",
+        "materials": [
+          "pH计",
+          "各种溶液",
+          "缓冲试剂"
+        ],
+        "low_cost_alternatives": [
+          "用紫甘蓝汁作指示剂"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "环境科学·酸雨",
+      "生物学·血液缓冲"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-10-acids/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-10-acids/student.pdf",
+    "ngss_standards": [
+      "HS-PS1-2"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-10-acids/",
+    "scraped_at": "2026-04-18T22:21:54.869815"
+  },
+  {
+    "unit_id": "OS-HS-Chem-005",
+    "title": "有机化学基础",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "化学",
+    "duration_weeks": 9,
+    "phenomenon": "为什么塑料会污染环境？",
+    "description": "介绍有机化合物结构、官能团和反应类型，理解高分子材料的应用与环境影响。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Chem-Organic-001",
+        "name": "烃类",
+        "description": "烷烃、烯烃、炔烃",
+        "ngss_standard": "HS-PS1-3"
+      },
+      {
+        "kp_id": "KP-HS-Chem-Organic-002",
+        "name": "官能团",
+        "description": "醇、醛、酸、酯",
+        "ngss_standard": "HS-PS1-3"
+      },
+      {
+        "kp_id": "KP-HS-Chem-Organic-003",
+        "name": "聚合反应",
+        "description": "高分子化合物合成",
+        "ngss_standard": "HS-PS1-3"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "酯化反应实验",
+        "materials": [
+          "乙醇",
+          "乙酸",
+          "浓硫酸",
+          "水浴"
+        ],
+        "low_cost_alternatives": [
+          "用食醋和小苏打替代"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "生物学·生物分子",
+      "环境科学·塑料污染"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-11-organic/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-11-organic/student.pdf",
+    "ngss_standards": [
+      "HS-PS1-3"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-11-organic/",
+    "scraped_at": "2026-04-18T22:21:54.869815"
+  },
+  {
+    "unit_id": "OS-HS-Chem-006",
+    "title": "电化学与能源",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "化学",
+    "duration_weeks": 6,
+    "phenomenon": "电动车电池如何工作？",
+    "description": "探索氧化还原反应在电池中的应用，理解燃料电池和可充电电池原理。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Chem-Electro-001",
+        "name": "原电池",
+        "description": "化学能转化为电能",
+        "ngss_standard": "HS-PS1-2"
+      },
+      {
+        "kp_id": "KP-HS-Chem-Electro-002",
+        "name": "电解",
+        "description": "电能转化为化学能",
+        "ngss_standard": "HS-PS1-2"
+      },
+      {
+        "kp_id": "KP-HS-Chem-Electro-003",
+        "name": "标准电极电位",
+        "description": "电池电动势计算",
+        "ngss_standard": "HS-PS1-2"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "水果电池实验",
+        "materials": [
+          "柠檬",
+          "铜片",
+          "锌片",
+          "导线",
+          "LED"
+        ],
+        "low_cost_alternatives": [
+          "用土豆代替柠檬"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "工程·新能源技术",
+      "环境科学·清洁能源"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-12-electrochemistry/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-12-electrochemistry/student.pdf",
+    "ngss_standards": [
+      "HS-PS1-2"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-12-electrochemistry/",
+    "scraped_at": "2026-04-18T22:21:54.869815"
+  },
+  {
+    "unit_id": "OS-HS-Bio-001",
+    "title": "细胞生物学与分子生物学",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "生物",
+    "duration_weeks": 9,
+    "phenomenon": "癌症是如何发生的？",
+    "description": "深入探索细胞结构、DNA复制、转录和翻译，理解基因表达调控与疾病的关系。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Bio-Cell-001",
+        "name": "细胞信号传导",
+        "description": "细胞间信息传递",
+        "ngss_standard": "HS-LS1-1"
+      },
+      {
+        "kp_id": "KP-HS-Bio-Cell-002",
+        "name": "基因表达调控",
+        "description": "转录因子与表观遗传",
+        "ngss_standard": "HS-LS1-1"
+      },
+      {
+        "kp_id": "KP-HS-Bio-Cell-003",
+        "name": "细胞周期",
+        "description": "有丝分裂与减数分裂",
+        "ngss_standard": "HS-LS1-4"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "DNA提取实验",
+        "materials": [
+          "草莓",
+          "洗涤剂",
+          "盐",
+          "酒精"
+        ],
+        "low_cost_alternatives": [
+          "用香蕉代替草莓"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "化学·生物分子",
+      "医学·疾病机制"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-13-cell-biology/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-13-cell-biology/student.pdf",
+    "ngss_standards": [
+      "HS-LS1-1",
+      "HS-LS1-4"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-13-cell-biology/",
+    "scraped_at": "2026-04-18T22:21:54.869815"
+  },
+  {
+    "unit_id": "OS-HS-Bio-002",
+    "title": "遗传学与基因组学",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "生物",
+    "duration_weeks": 8,
+    "phenomenon": "为什么同卵双胞胎也有差异？",
+    "description": "研究孟德尔遗传定律、基因连锁和基因组编辑技术，理解遗传多样性。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Bio-Genetics-001",
+        "name": "孟德尔定律",
+        "description": "分离与自由组合",
+        "ngss_standard": "HS-LS3-1"
+      },
+      {
+        "kp_id": "KP-HS-Bio-Genetics-002",
+        "name": "基因连锁与重组",
+        "description": "染色体互换",
+        "ngss_standard": "HS-LS3-2"
+      },
+      {
+        "kp_id": "KP-HS-Bio-Genetics-003",
+        "name": "CRISPR技术",
+        "description": "基因编辑原理",
+        "ngss_standard": "HS-LS3-1"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "果蝇遗传实验",
+        "materials": [
+          "果蝇",
+          "培养瓶",
+          "培养基",
+          "显微镜"
+        ],
+        "low_cost_alternatives": [
+          "模拟实验软件"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "数学·概率计算",
+      "伦理学·基因编辑"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-14-genetics/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-14-genetics/student.pdf",
+    "ngss_standards": [
+      "HS-LS3-1",
+      "HS-LS3-2"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-14-genetics/",
+    "scraped_at": "2026-04-18T22:21:54.869815"
+  },
+  {
+    "unit_id": "OS-HS-Bio-003",
+    "title": "进化与生物多样性",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "生物",
+    "duration_weeks": 7,
+    "phenomenon": "物种是如何适应环境变化的？",
+    "description": "探索自然选择、物种形成和系统发育，理解生物多样性的起源与保护。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Bio-Evolution-001",
+        "name": "自然选择",
+        "description": "适者生存机制",
+        "ngss_standard": "HS-LS4-2"
+      },
+      {
+        "kp_id": "KP-HS-Bio-Evolution-002",
+        "name": "物种形成",
+        "description": "生殖隔离与地理隔离",
+        "ngss_standard": "HS-LS4-3"
+      },
+      {
+        "kp_id": "KP-HS-Bio-Evolution-003",
+        "name": "系统发育树",
+        "description": "进化关系重建",
+        "ngss_standard": "HS-LS4-1"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "化石记录分析",
+        "materials": [
+          "化石图片",
+          "地质年代表",
+          "测量工具"
+        ],
+        "low_cost_alternatives": [
+          "在线数据库分析"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "地球科学·地质年代",
+      "数学·统计分析"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-15-evolution/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-15-evolution/student.pdf",
+    "ngss_standards": [
+      "HS-LS4-1",
+      "HS-LS4-2"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-15-evolution/",
+    "scraped_at": "2026-04-18T22:21:54.869815"
+  },
+  {
+    "unit_id": "OS-HS-Bio-004",
+    "title": "生态系统与环境保护",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "生物",
+    "duration_weeks": 7,
+    "phenomenon": "为什么蜜蜂数量在减少？",
+    "description": "研究生态系统结构、能量流动和物质循环，分析人类活动对环境的影响。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Bio-Eco-001",
+        "name": "食物网",
+        "description": "营养级与能量金字塔",
+        "ngss_standard": "HS-LS2-4"
+      },
+      {
+        "kp_id": "KP-HS-Bio-Eco-002",
+        "name": "生物地球化学循环",
+        "description": "碳、氮、水循环",
+        "ngss_standard": "HS-LS2-5"
+      },
+      {
+        "kp_id": "KP-HS-Bio-Eco-003",
+        "name": "生物多样性保护",
+        "description": "濒危物种保护策略",
+        "ngss_standard": "HS-LS2-7"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "微生态系统观察",
+        "materials": [
+          "透明容器",
+          "土壤",
+          "植物",
+          "小型动物"
+        ],
+        "low_cost_alternatives": [
+          "用塑料瓶制作生态瓶"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "化学·环境污染",
+      "政治学·环境政策"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-16-ecology/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-16-ecology/student.pdf",
+    "ngss_standards": [
+      "HS-LS2-4",
+      "HS-LS2-5"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-16-ecology/",
+    "scraped_at": "2026-04-18T22:21:54.869815"
+  },
+  {
+    "unit_id": "OS-HS-Bio-005",
+    "title": "人体生理与健康",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "生物",
+    "duration_weeks": 8,
+    "phenomenon": "疫苗如何保护我们免受疾病？",
+    "description": "探索人体各系统功能、免疫系统和疾病机制，理解健康生活方式的重要性。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Bio-Physio-001",
+        "name": "免疫系统",
+        "description": "先天免疫与适应性免疫",
+        "ngss_standard": "HS-LS1-2"
+      },
+      {
+        "kp_id": "KP-HS-Bio-Physio-002",
+        "name": "神经系统",
+        "description": "神经元与信号传导",
+        "ngss_standard": "HS-LS1-2"
+      },
+      {
+        "kp_id": "KP-HS-Bio-Physio-003",
+        "name": "内分泌系统",
+        "description": "激素调节",
+        "ngss_standard": "HS-LS1-2"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "心率测量实验",
+        "materials": [
+          "秒表",
+          "运动器材",
+          "记录表"
+        ],
+        "low_cost_alternatives": [
+          "用手摸脉搏计时"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "医学·疾病防治",
+      "体育科学·运动生理"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-17-physiology/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-17-physiology/student.pdf",
+    "ngss_standards": [
+      "HS-LS1-2"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-17-physiology/",
+    "scraped_at": "2026-04-18T22:21:54.869815"
+  },
+  {
+    "unit_id": "OS-HS-Bio-006",
+    "title": "生物技术与基因工程",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "生物",
+    "duration_weeks": 7,
+    "phenomenon": "转基因食品安全吗？",
+    "description": "介绍DNA重组技术、克隆和干细胞研究，探讨生物技术的伦理与社会影响。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Bio-Biotech-001",
+        "name": "DNA重组技术",
+        "description": "基因克隆与表达",
+        "ngss_standard": "HS-LS1-1"
+      },
+      {
+        "kp_id": "KP-HS-Bio-Biotech-002",
+        "name": "PCR技术",
+        "description": "DNA体外扩增",
+        "ngss_standard": "HS-LS1-1"
+      },
+      {
+        "kp_id": "KP-HS-Bio-Biotech-003",
+        "name": "转基因生物",
+        "description": "基因改造与应用",
+        "ngss_standard": "HS-LS1-1"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "细菌转化实验",
+        "materials": [
+          "大肠杆菌",
+          "质粒DNA",
+          "培养基",
+          "培养箱"
+        ],
+        "low_cost_alternatives": [
+          "模拟实验"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "伦理学·基因工程",
+      "农业科学·转基因作物"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-18-biotechnology/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-18-biotechnology/student.pdf",
+    "ngss_standards": [
+      "HS-LS1-1"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-18-biotechnology/",
+    "scraped_at": "2026-04-18T22:21:54.869815"
+  },
+  {
+    "unit_id": "OS-HS-Earth-001",
+    "title": "地球系统与板块构造",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "地球科学",
+    "duration_weeks": 8,
+    "phenomenon": "为什么会发生地震和火山爆发？",
+    "description": "研究地球内部结构、板块运动和地质灾害，理解地球动态演化过程。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Earth-Plate-001",
+        "name": "板块构造理论",
+        "description": "板块边界类型",
+        "ngss_standard": "HS-ESS2-3"
+      },
+      {
+        "kp_id": "KP-HS-Earth-Plate-002",
+        "name": "地震波",
+        "description": "P波与S波",
+        "ngss_standard": "HS-ESS2-3"
+      },
+      {
+        "kp_id": "KP-HS-Earth-Plate-003",
+        "name": "火山活动",
+        "description": "岩浆形成与喷发",
+        "ngss_standard": "HS-ESS2-2"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "地震波模拟实验",
+        "materials": [
+          "弹簧",
+          "绳子",
+          "地震仪模型"
+        ],
+        "low_cost_alternatives": [
+          "用Slinky弹簧演示"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "物理·波动",
+      "工程学·抗震设计"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-19-plate-tectonics/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-19-plate-tectonics/student.pdf",
+    "ngss_standards": [
+      "HS-ESS2-3"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-19-plate-tectonics/",
+    "scraped_at": "2026-04-18T22:21:54.869815"
+  },
+  {
+    "unit_id": "OS-HS-Earth-002",
+    "title": "气候变化与大气科学",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "地球科学",
+    "duration_weeks": 7,
+    "phenomenon": "全球变暖是自然现象还是人为造成的？",
+    "description": "分析气候系统、温室气体和气候模型，理解气候变化的原因与影响。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Earth-Climate-001",
+        "name": "温室效应",
+        "description": "大气保温机制",
+        "ngss_standard": "HS-ESS2-4"
+      },
+      {
+        "kp_id": "KP-HS-Earth-Climate-002",
+        "name": "碳循环",
+        "description": "碳源与碳汇",
+        "ngss_standard": "HS-ESS2-6"
+      },
+      {
+        "kp_id": "KP-HS-Earth-Climate-003",
+        "name": "气候模型",
+        "description": "气候预测方法",
+        "ngss_standard": "HS-ESS2-4"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "温室效应模拟实验",
+        "materials": [
+          "透明容器",
+          "温度计",
+          "光源",
+          "CO₂源"
+        ],
+        "low_cost_alternatives": [
+          "用塑料瓶和蜡烛"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "化学·温室气体",
+      "政治学·气候政策"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-20-climate/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-20-climate/student.pdf",
+    "ngss_standards": [
+      "HS-ESS2-4",
+      "HS-ESS2-6"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-20-climate/",
+    "scraped_at": "2026-04-18T22:21:54.869815"
+  },
+  {
+    "unit_id": "OS-HS-Earth-003",
+    "title": "天文学与宇宙学",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "地球科学",
+    "duration_weeks": 6,
+    "phenomenon": "宇宙是如何起源的？",
+    "description": "探索太阳系、恒星演化和宇宙大爆炸理论，理解宇宙的起源与演化。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Earth-Astro-001",
+        "name": "恒星演化",
+        "description": "恒星生命周期",
+        "ngss_standard": "HS-ESS1-1"
+      },
+      {
+        "kp_id": "KP-HS-Earth-Astro-002",
+        "name": "宇宙膨胀",
+        "description": "哈勃定律与红移",
+        "ngss_standard": "HS-ESS1-2"
+      },
+      {
+        "kp_id": "KP-HS-Earth-Astro-003",
+        "name": "宇宙微波背景辐射",
+        "description": "大爆炸证据",
+        "ngss_standard": "HS-ESS1-2"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "光谱分析实验",
+        "materials": [
+          "分光镜",
+          "各种光源",
+          "光谱图"
+        ],
+        "low_cost_alternatives": [
+          "用CD片自制分光镜"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "物理·相对论",
+      "哲学·宇宙观"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-21-astronomy/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-21-astronomy/student.pdf",
+    "ngss_standards": [
+      "HS-ESS1-1",
+      "HS-ESS1-2"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-21-astronomy/",
+    "scraped_at": "2026-04-18T22:21:54.869815"
+  },
+  {
+    "unit_id": "OS-HS-Earth-004",
+    "title": "资源利用与可持续发展",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "地球科学",
+    "duration_weeks": 6,
+    "phenomenon": "地球资源会枯竭吗？",
+    "description": "研究自然资源分布、可再生能源和可持续发展策略，培养资源保护意识。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-HS-Earth-Resource-001",
+        "name": "矿产资源",
+        "description": "金属与非金属矿",
+        "ngss_standard": "HS-ESS3-1"
+      },
+      {
+        "kp_id": "KP-HS-Earth-Resource-002",
+        "name": "可再生能源",
+        "description": "太阳能、风能、水能",
+        "ngss_standard": "HS-ESS3-2"
+      },
+      {
+        "kp_id": "KP-HS-Earth-Resource-003",
+        "name": "可持续发展",
+        "description": "资源循环利用",
+        "ngss_standard": "HS-ESS3-4"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "太阳能热水器制作",
+        "materials": [
+          "黑色容器",
+          "透明盖子",
+          "水",
+          "温度计"
+        ],
+        "low_cost_alternatives": [
+          "用纸箱和铝箔制作"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "工程·新能源技术",
+      "经济学·资源管理"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-22-resources/",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-22-resources/student.pdf",
+    "ngss_standards": [
+      "HS-ESS3-1",
+      "HS-ESS3-2"
+    ],
+    "unit_url": "https://www.openscied.org/resources/units/hs-22-resources/",
+    "scraped_at": "2026-04-18T22:21:54.869815"
+  }
+]

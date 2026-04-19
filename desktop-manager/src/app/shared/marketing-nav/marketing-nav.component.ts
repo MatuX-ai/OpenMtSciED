@@ -73,6 +73,7 @@ import { TauriService } from '../../core/services/tauri.service';
         height: 36px;
         width: auto;
         object-fit: contain;
+        filter: invert(85%) sepia(90%) saturate(500%) hue-rotate(10deg) brightness(1.1);
       }
 
       .nav-links {

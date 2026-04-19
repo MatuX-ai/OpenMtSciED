@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Subscription } from 'rxjs';
 
+import { AuthService, UserInfo } from '../shared/auth.service';
 import { MarketingNavComponent } from '../shared/marketing-nav/marketing-nav.component';
 
 @Component({
@@ -30,8 +32,19 @@ import { MarketingNavComponent } from '../shared/marketing-nav/marketing-nav.com
           课程库 × 课件库 × 硬件项目 = 连贯学习路径
         </p>
         <div class="cta-buttons">
-          <a href="https://github.com/iMato/OpenMTSciEd" target="_blank" class="btn btn-primary">
+          <a
+            *ngIf="!currentUser"
+            routerLink="/auth/register"
+            class="btn btn-primary"
+          >
             🚀 快速开始
+          </a>
+          <a
+            *ngIf="currentUser"
+            routerLink="/download"
+            class="btn btn-primary"
+          >
+            🚀 下载桌面端
           </a>
           <a href="#features" class="btn btn-secondary"> 📚 了解项目 </a>
         </div>
@@ -581,4 +594,23 @@ import { MarketingNavComponent } from '../shared/marketing-nav/marketing-nav.com
     `,
   ],
 })
-export class MarketingHomeComponent {}
+export class MarketingHomeComponent implements OnInit, OnDestroy {
+  private authService = inject(AuthService);
+  
+  currentUser: UserInfo | null = null;
+  private subscription: Subscription = new Subscription();
+
+  constructor() {}
+
+  ngOnInit(): void {
+    this.subscription.add(
+      this.authService.currentUser$.subscribe((user: UserInfo | null) => {
+        this.currentUser = user;
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+}

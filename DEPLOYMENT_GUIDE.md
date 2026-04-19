@@ -29,7 +29,7 @@ OpenMTSciEd/
 
 **包含内容**:
 ```
-marketing-site-only/
+website/
 ├── index.html                          # 营销主页
 ├── docs/
 │   ├── feature-knowledge-graph.html    # 知识图谱
@@ -71,7 +71,7 @@ git push -u origin main
 #### 2.1 推送营销页面仓库
 
 ```bash
-cd g:\iMato\OpenMTSciEd\marketing-site-only
+cd g:\iMato\OpenMTSciEd\website
 
 # 初始化 Git
 git init
@@ -199,7 +199,7 @@ jobs:
 ### Q: 可以合并成一个仓库吗？
 **A**: 可以，但需要：
 - 使用 monorepo 结构
-- Vercel 配置指向 `marketing-site-only/` 目录
+- Vercel 配置指向 `website/` 目录
 - 增加构建复杂度
 
 ### Q: Vercel 免费额度够吗？

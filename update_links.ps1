@@ -1,10 +1,10 @@
 # 批量更新联系信息和仓库地址
 $files = @(
-    "marketing-site-only/index.html",
-    "marketing-site-only/docs/feature-knowledge-graph.html",
-    "marketing-site-only/docs/feature-ai-path.html",
-    "marketing-site-only/docs/feature-hardware.html",
-    "marketing-site-only/docs/feature-learning-path.html"
+    "website/index.html",
+    "website/docs/feature-knowledge-graph.html",
+    "website/docs/feature-ai-path.html",
+    "website/docs/feature-hardware.html",
+    "website/docs/feature-learning-path.html"
 )
 
 foreach ($file in $files) {
