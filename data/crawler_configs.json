@@ -1,0 +1,73 @@
+[
+  {
+    "id": "openscied_units",
+    "name": "OpenSciEd Units",
+    "description": "爬取 OpenSciEd 教学单元",
+    "target_url": "https://www.openscied.org/resources/units/",
+    "type": "course",
+    "grade_level": "middle",
+    "output_file": "data/course_library/openscied_all_units.json",
+    "status": "idle",
+    "progress": 0,
+    "total_items": 0,
+    "scraped_items": 0,
+    "last_run": null,
+    "error_message": null
+  },
+  {
+    "id": "openstax_textbooks",
+    "name": "OpenStax Textbooks",
+    "description": "爬取 OpenStax 教材章节",
+    "target_url": "https://openstax.org/",
+    "type": "textbook",
+    "output_file": "data/textbook_library/openstax_chapters.json",
+    "status": "idle",
+    "progress": 0,
+    "total_items": 0,
+    "scraped_items": 0,
+    "last_run": null,
+    "error_message": null
+  },
+  {
+    "id": "khan_academy",
+    "name": "Khan Academy Courses",
+    "description": "生成可汗学院 K-12 STEM 课程",
+    "target_url": "https://www.khanacademy.org/science",
+    "type": "course",
+    "output_file": "data/course_library/khan_academy_courses.json",
+    "status": "idle",
+    "progress": 0,
+    "total_items": 0,
+    "scraped_items": 0,
+    "last_run": null,
+    "error_message": null
+  },
+  {
+    "id": "coursera_stem",
+    "name": "Coursera STEM Courses",
+    "description": "生成 Coursera 理工科课程",
+    "target_url": "https://www.coursera.org/browse/science-and-engineering",
+    "type": "course",
+    "output_file": "data/course_library/edx_courses.json",
+    "status": "idle",
+    "progress": 0,
+    "total_items": 0,
+    "scraped_items": 0,
+    "last_run": null,
+    "error_message": null
+  },
+  {
+    "id": "bnu_shanghai_k12",
+    "name": "BNU Shanghai K12",
+    "description": "爬取北师大上海K12课程",
+    "target_url": "https://www.bnu.edu.cn/",
+    "type": "course",
+    "output_file": "data/course_library/bnu_shanghai_k12_courses.json",
+    "status": "idle",
+    "progress": 0,
+    "total_items": 0,
+    "scraped_items": 0,
+    "last_run": null,
+    "error_message": null
+  }
+]

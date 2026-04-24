@@ -8,6 +8,7 @@ pub struct Course {
     pub id: Option<i64>,
     pub name: String,
     pub description: String,
+    pub category_id: Option<i64>,
     pub category: String,
     pub created_at: String,
 }
@@ -19,7 +20,7 @@ pub fn get_courses(db_state: tauri::State<DbState>) -> Result<Vec<Course>, Strin
     let conn = db_state.lock().map_err(|e| e.to_string())?;
 
     let mut stmt = conn
-        .prepare("SELECT id, name, description, category, created_at FROM courses ORDER BY created_at DESC")
+        .prepare("SELECT id, name, description, category_id, category, created_at FROM courses ORDER BY created_at DESC")
         .map_err(|e| e.to_string())?;
 
     let courses = stmt
@@ -28,8 +29,9 @@ pub fn get_courses(db_state: tauri::State<DbState>) -> Result<Vec<Course>, Strin
                 id: row.get(0)?,
                 name: row.get(1)?,
                 description: row.get(2)?,
-                category: row.get(3)?,
-                created_at: row.get(4)?,
+                category_id: row.get(3)?,
+                category: row.get(4)?,
+                created_at: row.get(5)?,
             })
         })
         .map_err(|e| e.to_string())?
@@ -45,12 +47,13 @@ pub fn create_course(
     name: String,
     description: String,
     category: String,
+    category_id: Option<i64>,
 ) -> Result<Course, String> {
     let conn = db_state.lock().map_err(|e| e.to_string())?;
 
     conn.execute(
-        "INSERT INTO courses (name, description, category) VALUES (?1, ?2, ?3)",
-        [&name, &description, &category],
+        "INSERT INTO courses (name, description, category, category_id) VALUES (?1, ?2, ?3, ?4)",
+        rusqlite::params![&name, &description, &category, &category_id],
     )
     .map_err(|e| e.to_string())?;
 
@@ -60,6 +63,7 @@ pub fn create_course(
         id: Some(id),
         name,
         description,
+        category_id,
         category,
         created_at: chrono::Utc::now().to_rfc3339(),
     })
@@ -72,12 +76,13 @@ pub fn update_course(
     name: String,
     description: String,
     category: String,
+    category_id: Option<i64>,
 ) -> Result<Course, String> {
     let conn = db_state.lock().map_err(|e| e.to_string())?;
 
     conn.execute(
-        "UPDATE courses SET name = ?1, description = ?2, category = ?3 WHERE id = ?4",
-        [&name, &description, &category, &id.to_string()],
+        "UPDATE courses SET name = ?1, description = ?2, category = ?3, category_id = ?4 WHERE id = ?5",
+        rusqlite::params![&name, &description, &category, &category_id, &id.to_string()],
     )
     .map_err(|e| e.to_string())?;
 
@@ -85,6 +90,7 @@ pub fn update_course(
         id: Some(id),
         name,
         description,
+        category_id,
         category,
         created_at: chrono::Utc::now().to_rfc3339(),
     })

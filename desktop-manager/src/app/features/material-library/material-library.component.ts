@@ -3,6 +3,7 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,6 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 
 import { TauriService } from '../../core/services';
+import { ShortcutService } from '../../core/services/shortcut.service';
 import { SearchBarComponent } from '../../shared/components/search-bar/search-bar.component';
 
 import { OpenMaterialBrowserComponent } from './open-material-browser/open-material-browser.component';
@@ -33,6 +35,7 @@ interface Material {
     FormsModule,
     MatButtonModule,
     MatCardModule,
+    MatCheckboxModule,
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
@@ -78,8 +81,23 @@ interface Material {
             </div>
 
             <!-- 课件列表 -->
+            <div class="batch-actions" *ngIf="selectedMaterials.length > 0">
+              <span class="selected-count">已选择 {{ selectedMaterials.length }} 个课件</span>
+              <button mat-button color="warn" (click)="batchDelete()">
+                <mat-icon>delete</mat-icon>
+                批量删除
+              </button>
+            </div>
+            
             <div class="material-grid">
-              <mat-card *ngFor="let material of materials" class="material-card">
+              <mat-card *ngFor="let material of materials" class="material-card" [class.selected]="isSelected(material.id!)">
+                <div class="card-checkbox">
+                  <mat-checkbox 
+                    [checked]="isSelected(material.id!)" 
+                    (change)="toggleSelection(material.id!)"
+                    (click)="$event.stopPropagation()">
+                  </mat-checkbox>
+                </div>
                 <mat-card-header>
                   <div mat-card-avatar class="file-icon">
                     <i class="{{ getFileIcon(material.filePath) }}"></i>
@@ -96,7 +114,10 @@ interface Material {
                   </div>
                 </mat-card-content>
                 <mat-card-actions>
-                  <button mat-button color="primary"><i class="ri-download-line"></i> 下载</button>
+                  <button mat-button color="primary" (click)="previewMaterial(material)">
+                    <i class="ri-eye-line"></i> 预览
+                  </button>
+                  <button mat-button color="accent"><i class="ri-download-line"></i> 下载</button>
                   <button mat-button color="warn" (click)="deleteMaterial(material.id!)">
                     <i class="ri-delete-bin-line"></i> 删除
                   </button>
@@ -167,6 +188,38 @@ interface Material {
         </form>
       </div>
     </ng-template>
+
+    <!-- 预览对话框模板 -->
+    <ng-template #previewDialogTemplate>
+      <div class="preview-dialog">
+        <div class="preview-header">
+          <h3>{{ previewMaterialName }}</h3>
+          <button mat-icon-button (click)="closePreview()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+        <div class="preview-content">
+          <!-- PDF预览 -->
+          <iframe *ngIf="previewType === 'pdf'" [src]="previewUrl" class="preview-frame"></iframe>
+          
+          <!-- 图片预览 -->
+          <img *ngIf="previewType === 'image'" [src]="previewUrl" class="preview-image" />
+          
+          <!-- 视频预览 -->
+          <video *ngIf="previewType === 'video'" [src]="previewUrl" controls class="preview-video"></video>
+          
+          <!-- 不支持的文件类型 -->
+          <div *ngIf="previewType === 'unsupported'" class="unsupported-preview">
+            <mat-icon class="large-icon">insert_drive_file</mat-icon>
+            <p>此文件类型暂不支持预览</p>
+            <button mat-raised-button color="primary" (click)="downloadCurrentMaterial()">
+              <mat-icon>download</mat-icon>
+              下载文件
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-template>
   `,
   styles: [
     `
@@ -213,6 +266,19 @@ interface Material {
         transition: all 0.3s ease;
         border-radius: 12px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        position: relative;
+      }
+
+      .material-card.selected {
+        border: 2px solid #667eea;
+        background: #f5f7ff;
+      }
+
+      .card-checkbox {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        z-index: 10;
       }
 
       .material-card:hover {
@@ -340,11 +406,102 @@ interface Material {
         gap: 12px;
         margin-top: 24px;
       }
+
+      .preview-dialog {
+        width: 90vw;
+        max-width: 1200px;
+        height: 85vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .preview-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 24px;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .preview-header h3 {
+        margin: 0;
+        font-size: 18px;
+        color: #333;
+      }
+
+      .preview-content {
+        flex: 1;
+        overflow: auto;
+        padding: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f5f5f5;
+      }
+
+      .preview-frame {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .preview-image {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .preview-video {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .unsupported-preview {
+        text-align: center;
+        padding: 40px;
+      }
+
+      .large-icon {
+        font-size: 64px;
+        width: 64px;
+        height: 64px;
+        color: #999;
+        margin-bottom: 16px;
+      }
+
+      .unsupported-preview p {
+        color: #666;
+        margin: 16px 0;
+      }
+
+      .batch-actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 12px 16px;
+        background: #fff3e0;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        border-left: 4px solid #ff9800;
+      }
+
+      .selected-count {
+        flex: 1;
+        font-weight: 500;
+        color: #e65100;
+      }
     `,
   ],
 })
 export class MaterialLibraryComponent implements OnInit {
   @ViewChild('uploadDialogTemplate') uploadDialogTemplate!: TemplateRef<unknown>;
+  @ViewChild('previewDialogTemplate') previewDialogTemplate!: TemplateRef<unknown>;
 
   materials: Material[] = [];
   courses: Array<{ id: number; name: string }> = [];
@@ -353,16 +510,64 @@ export class MaterialLibraryComponent implements OnInit {
   selectedFile: File | null = null;
   selectedFileName = '';
   selectedTabIndex = 0; // 标签页索引: 0=我的课件, 1=开源课件
+  
+  // 预览相关
+  previewMaterialName = '';
+  previewUrl = '';
+  previewType: 'pdf' | 'image' | 'video' | 'unsupported' = 'unsupported';
+  private previewDialogRef: any;
+  
+  // 批量操作
+  selectedMaterials: number[] = [];
 
   constructor(
     private dialog: MatDialog,
     private tauriService: TauriService,
+    private shortcutService: ShortcutService,
     private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
     void this.loadCourses();
     void this.loadMaterials();
+    this.registerShortcuts();
+  }
+
+  /**
+   * 注册快捷键
+   */
+  private registerShortcuts(): void {
+    // Ctrl+U - 上传课件
+    this.shortcutService.register({
+      key: 'u',
+      ctrl: true,
+      description: '上传课件',
+      action: () => this.openUploadDialog()
+    });
+
+    // Delete - 批量删除选中
+    this.shortcutService.register({
+      key: 'Delete',
+      description: '批量删除选中课件',
+      action: () => {
+        if (this.selectedMaterials.length > 0) {
+          void this.batchDelete();
+        }
+      }
+    });
+
+    // Ctrl+A - 全选（待实现）
+    this.shortcutService.register({
+      key: 'a',
+      ctrl: true,
+      description: '全选课件',
+      action: () => this.selectAll()
+    });
+  }
+
+  selectAll(): void {
+    // TODO: 全选所有课件
+    this.selectedMaterials = this.materials.map(m => m.id!).filter(id => id !== undefined);
   }
 
   async loadCourses(): Promise<void> {
@@ -479,5 +684,88 @@ export class MaterialLibraryComponent implements OnInit {
   formatDate(dateString: string): string {
     const date = new Date(dateString);
     return date.toLocaleDateString('zh-CN');
+  }
+
+  previewMaterial(material: Material): void {
+    this.previewMaterialName = material.name;
+    const ext = material.filePath.split('.').pop()?.toLowerCase();
+    
+    // 判断文件类型
+    if (ext === 'pdf') {
+      this.previewType = 'pdf';
+      this.previewUrl = this.getFilePath(material.filePath);
+    } else if (['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'].includes(ext || '')) {
+      this.previewType = 'image';
+      this.previewUrl = this.getFilePath(material.filePath);
+    } else if (['mp4', 'webm', 'avi', 'mov'].includes(ext || '')) {
+      this.previewType = 'video';
+      this.previewUrl = this.getFilePath(material.filePath);
+    } else {
+      this.previewType = 'unsupported';
+      this.previewUrl = '';
+    }
+    
+    this.previewDialogRef = this.dialog.open(this.previewDialogTemplate, {
+      width: '95vw',
+      maxWidth: '1400px',
+      height: '90vh',
+      panelClass: 'preview-dialog-panel'
+    });
+  }
+
+  closePreview(): void {
+    if (this.previewDialogRef) {
+      this.previewDialogRef.close();
+      this.previewUrl = '';
+    }
+  }
+
+  downloadCurrentMaterial(): void {
+    // TODO: 实现下载功能
+    alert('下载功能开发中...');
+  }
+
+  private getFilePath(filePath: string): string {
+    // 如果是相对路径，转换为绝对路径
+    if (!filePath.startsWith('http') && !filePath.startsWith('file://')) {
+      // 在Tauri环境中，使用本地文件协议
+      return `file://${filePath}`;
+    }
+    return filePath;
+  }
+
+  // 批量操作相关方法
+  isSelected(materialId: number): boolean {
+    return this.selectedMaterials.includes(materialId);
+  }
+
+  toggleSelection(materialId: number): void {
+    const index = this.selectedMaterials.indexOf(materialId);
+    if (index > -1) {
+      this.selectedMaterials.splice(index, 1);
+    } else {
+      this.selectedMaterials.push(materialId);
+    }
+  }
+
+  async batchDelete(): Promise<void> {
+    if (this.selectedMaterials.length === 0) return;
+    
+    if (!confirm(`确定要删除选中的 ${this.selectedMaterials.length} 个课件吗？`)) {
+      return;
+    }
+
+    try {
+      for (const id of this.selectedMaterials) {
+        await this.tauriService.deleteMaterial(id);
+      }
+      
+      this.snackBar.open(`成功删除 ${this.selectedMaterials.length} 个课件`, '关闭', { duration: 3000 });
+      this.selectedMaterials = [];
+      await this.loadMaterials();
+    } catch (error) {
+      console.error('批量删除失败:', error);
+      this.snackBar.open('批量删除失败', '关闭', { duration: 3000 });
+    }
   }
 }

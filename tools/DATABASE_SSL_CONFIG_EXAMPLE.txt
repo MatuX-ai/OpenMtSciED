@@ -1,7 +1,0 @@
-
-# 数据库SSL配置示例
-# PostgreSQL with SSL
-DATABASE_URL=postgresql://user:password@host:port/database?sslmode=require
-
-# MySQL with SSL  
-DATABASE_URL=mysql://user:password@host:port/database?ssl-mode=REQUIRED

@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>低成本硬件联动 - OpenMTSciEd</title>
+    
+    <!-- 统一导航组件样式 -->
+    <link rel="stylesheet" href="../css/navbar.css">
     <style>
         :root {
             --primary-color: #f59e0b;
@@ -290,13 +293,28 @@
     </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-content">
-            <a href="../index.html" class="logo">OpenMTSciEd</a>
-            <ul class="nav-links">
+    <!-- Navigation - 统一导航组件 -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <!-- Logo -->
+            <a href="../index.html" class="navbar-logo">
+                <img src="../logo.png" alt="OpenMTSciEd Logo" class="navbar-logo-icon">
+                <span>OpenMTSciEd</span>
+            </a>
+
+            <!-- 移动端菜单按钮 -->
+            <button class="navbar-toggle" id="navbarToggle" aria-label="切换菜单">
+                <span class="navbar-toggle-icon"></span>
+                <span class="navbar-toggle-icon"></span>
+                <span class="navbar-toggle-icon"></span>
+            </button>
+
+            <!-- 导航链接 -->
+            <ul class="navbar-links" id="navbarLinks">
                 <li><a href="../index.html#features">核心特性</a></li>
                 <li><a href="../index.html#path">学习路径</a></li>
                 <li><a href="../index.html#hardware">硬件项目</a></li>
+                <li><a href="../index.html#community">社区</a></li>
                 <li><a href="https://github.com/MatuX-ai/OpenMtSciED" target="_blank">GitHub</a></li>
             </ul>
         </div>
@@ -488,5 +506,8 @@ hardware_projects/
             MIT License
         </p>
     </footer>
+    
+    <!-- 统一导航组件脚本 -->
+    <script src="../js/navbar.js"></script>
 </body>
 </html>

@@ -1,0 +1,377 @@
+[
+  {
+    "course_id": "CIEE-ROBO-001",
+    "title": "机器人技术等级考试 - 一级",
+    "source": "chinese_electronics_society",
+    "grade_level": "elementary",
+    "subject": "机器人技术",
+    "duration_weeks": 8,
+    "description": "学习机器人基本结构认识和搭建，掌握简单机械原理（杠杆、轮轴、滑轮、斜面、楔、螺旋），了解齿轮和齿轮比概念。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-CIEE-ROBO-L1-001",
+        "name": "基本结构认知",
+        "description": "了解重心和重力的概念"
+      },
+      {
+        "kp_id": "KP-CIEE-ROBO-L1-002",
+        "name": "简单机械原理",
+        "description": "掌握六种简单机械：杠杆、轮轴、滑轮、斜面、楔、螺旋"
+      },
+      {
+        "kp_id": "KP-CIEE-ROBO-L1-003",
+        "name": "传动系统",
+        "description": "了解齿轮、齿轮比、链传动和带传动"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "简单机械搭建",
+        "materials": [
+          "结构件套装",
+          "齿轮组",
+          "轮轴"
+        ],
+        "low_cost_alternatives": [
+          "使用硬纸板制作简单机械"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "物理·力学基础",
+      "数学·几何图形"
+    ],
+    "course_url": "https://www.qceit.org.cn/robotics/level1",
+    "video_url": "https://www.qceit.org.cn/robotics/level1/videos",
+    "scraped_at": "2026-04-22T12:00:00.000000"
+  },
+  {
+    "course_id": "CIEE-ROBO-002",
+    "title": "机器人技术等级考试 - 二级",
+    "source": "chinese_electronics_society",
+    "grade_level": "elementary",
+    "subject": "机器人技术",
+    "duration_weeks": 10,
+    "description": "学习机器人驱动和传动系统认知和搭建，掌握基础电路知识，了解简单的电机控制。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-CIEE-ROBO-L2-001",
+        "name": "驱动系统",
+        "description": "了解电机类型和工作原理"
+      },
+      {
+        "kp_id": "KP-CIEE-ROBO-L2-002",
+        "name": "基础电路",
+        "description": "简单电路连接、开关控制"
+      },
+      {
+        "kp_id": "KP-CIEE-ROBO-L2-003",
+        "name": "传动系统进阶",
+        "description": "复杂齿轮组、差速器原理"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "电机驱动小车",
+        "materials": [
+          "直流电机",
+          "电池盒",
+          "开关",
+          "车轮"
+        ],
+        "low_cost_alternatives": [
+          "使用废旧玩具车改造"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "物理·电路基础",
+      "工程·传动设计"
+    ],
+    "course_url": "https://www.qceit.org.cn/robotics/level2",
+    "video_url": "https://www.qceit.org.cn/robotics/level2/videos",
+    "scraped_at": "2026-04-22T12:00:00.000000"
+  },
+  {
+    "course_id": "CIEE-ROBO-003",
+    "title": "机器人技术等级考试 - 三级",
+    "source": "chinese_electronics_society",
+    "grade_level": "middle",
+    "subject": "机器人技术",
+    "duration_weeks": 12,
+    "description": "基于开源硬件和图形化编程软件应用，学习使用Scratch等图形化工具控制机器人，实现基础功能。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-CIEE-ROBO-L3-001",
+        "name": "开源硬件基础",
+        "description": "Arduino/ micro:bit等开源硬件认知"
+      },
+      {
+        "kp_id": "KP-CIEE-ROBO-L3-002",
+        "name": "图形化编程",
+        "description": "Scratch图形化编程基础、顺序结构、循环结构"
+      },
+      {
+        "kp_id": "KP-CIEE-ROBO-L3-003",
+        "name": "传感器入门",
+        "description": "触摸传感器、红外传感器应用"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "图形化编程控制",
+        "materials": [
+          "Arduino/micro:bit",
+          "LED灯",
+          "按钮传感器"
+        ],
+        "low_cost_alternatives": [
+          "使用在线仿真平台"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "数学·逻辑思维",
+      "计算机·编程基础"
+    ],
+    "course_url": "https://www.qceit.org.cn/robotics/level3",
+    "video_url": "https://www.qceit.org.cn/robotics/level3/videos",
+    "scraped_at": "2026-04-22T12:00:00.000000"
+  },
+  {
+    "course_id": "CIEE-ROBO-004",
+    "title": "机器人技术等级考试 - 四级",
+    "source": "chinese_electronics_society",
+    "grade_level": "middle",
+    "subject": "机器人技术",
+    "duration_weeks": 14,
+    "description": "基于C/C++的基础控制和编程，学习C语言基础语法，掌握机器人高级传感器应用。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-CIEE-ROBO-L4-001",
+        "name": "C/C++编程基础",
+        "description": "变量、数据类型、条件判断、循环"
+      },
+      {
+        "kp_id": "KP-CIEE-ROBO-L4-002",
+        "name": "高级传感器",
+        "description": "超声波传感器、光线传感器、温度传感器"
+      },
+      {
+        "kp_id": "KP-CIEE-ROBO-L4-003",
+        "name": "电机控制进阶",
+        "description": "PWM调速、舵机控制"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "避障机器人",
+        "materials": [
+          "Arduino开发板",
+          "超声波传感器",
+          "直流电机",
+          "L298N驱动模块"
+        ],
+        "low_cost_alternatives": [
+          "使用仿真软件"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "物理·传感器原理",
+      "计算机·C语言编程"
+    ],
+    "course_url": "https://www.qceit.org.cn/robotics/level4",
+    "video_url": "https://www.qceit.org.cn/robotics/level4/videos",
+    "scraped_at": "2026-04-22T12:00:00.000000"
+  },
+  {
+    "course_id": "CIEE-ROBO-005",
+    "title": "机器人技术等级考试 - 五级",
+    "source": "chinese_electronics_society",
+    "grade_level": "middle",
+    "subject": "机器人技术",
+    "duration_weeks": 16,
+    "description": "基于C/C++的通信交互和编程，学习串口通信、I2C、SPI等通信协议，实现多设备协同。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-CIEE-ROBO-L5-001",
+        "name": "串口通信",
+        "description": "UART串口通信协议与应用"
+      },
+      {
+        "kp_id": "KP-CIEE-ROBO-L5-002",
+        "name": "I2C/SPI总线",
+        "description": "I2C和SPI通信协议原理与应用"
+      },
+      {
+        "kp_id": "KP-CIEE-ROBO-L5-003",
+        "name": "多设备协同",
+        "description": "多传感器数据融合、多电机协调控制"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "多传感器数据采集",
+        "materials": [
+          "Arduino开发板",
+          "温湿度传感器",
+          "OLED显示屏",
+          "SD卡模块"
+        ],
+        "low_cost_alternatives": [
+          "使用Proteus仿真"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "计算机·通信协议",
+      "物理·信号处理"
+    ],
+    "course_url": "https://www.qceit.org.cn/robotics/level5",
+    "video_url": "https://www.qceit.org.cn/robotics/level5/videos",
+    "scraped_at": "2026-04-22T12:00:00.000000"
+  },
+  {
+    "course_id": "CIEE-ROBO-006",
+    "title": "机器人技术等级考试 - 六级",
+    "source": "chinese_electronics_society",
+    "grade_level": "high",
+    "subject": "机器人技术",
+    "duration_weeks": 18,
+    "description": "基于C/C++的物联网控制和编程，学习WiFi/蓝牙通信、MQTT协议，实现物联网应用。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-CIEE-ROBO-L6-001",
+        "name": "WiFi/蓝牙通信",
+        "description": "ESP8266/ESP32无线通信模块应用"
+      },
+      {
+        "kp_id": "KP-CIEE-ROBO-L6-002",
+        "name": "物联网协议",
+        "description": "MQTT、CoAP等物联网通信协议"
+      },
+      {
+        "kp_id": "KP-CIEE-ROBO-L6-003",
+        "name": "云平台应用",
+        "description": "物联网云平台接入与数据交互"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "智能家居控制系统",
+        "materials": [
+          "ESP32开发板",
+          "继电器模块",
+          "温湿度传感器",
+          "手机APP"
+        ],
+        "low_cost_alternatives": [
+          "使用在线IoT平台仿真"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "计算机·网络技术",
+      "工程·系统集成"
+    ],
+    "course_url": "https://www.qceit.org.cn/robotics/level6",
+    "video_url": "https://www.qceit.org.cn/robotics/level6/videos",
+    "scraped_at": "2026-04-22T12:00:00.000000"
+  },
+  {
+    "course_id": "CIEE-ROBO-007",
+    "title": "机器人技术等级考试 - 七级",
+    "source": "chinese_electronics_society",
+    "grade_level": "high",
+    "subject": "机器人技术",
+    "duration_weeks": 20,
+    "description": "基于Python的智能基础和编程，学习Python编程、人工智能基础、机器视觉应用。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-CIEE-ROBO-L7-001",
+        "name": "Python编程",
+        "description": "Python语法基础、数据结构、函数"
+      },
+      {
+        "kp_id": "KP-CIEE-ROBO-L7-002",
+        "name": "人工智能基础",
+        "description": "机器学习概念、神经网络基础"
+      },
+      {
+        "kp_id": "KP-CIEE-ROBO-L7-003",
+        "name": "机器视觉",
+        "description": "OpenCV图像处理、目标识别"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "视觉识别机器人",
+        "materials": [
+          "Raspberry Pi",
+          "摄像头模块",
+          "Python环境",
+          "OpenCV库"
+        ],
+        "low_cost_alternatives": [
+          "使用Google Colab在线环境"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "数学·线性代数",
+      "计算机·人工智能"
+    ],
+    "course_url": "https://www.qceit.org.cn/robotics/level7",
+    "video_url": "https://www.qceit.org.cn/robotics/level7/videos",
+    "scraped_at": "2026-04-22T12:00:00.000000"
+  },
+  {
+    "course_id": "CIEE-ROBO-008",
+    "title": "机器人技术等级考试 - 八级",
+    "source": "chinese_electronics_society",
+    "grade_level": "high",
+    "subject": "机器人技术",
+    "duration_weeks": 24,
+    "description": "基于Python+ROS的机器人智能信息处理和编程，学习ROS系统、SLAM导航、自主决策。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-CIEE-ROBO-L8-001",
+        "name": "ROS系统基础",
+        "description": "ROS架构、节点、话题、服务"
+      },
+      {
+        "kp_id": "KP-CIEE-ROBO-L8-002",
+        "name": "SLAM导航",
+        "description": "同步定位与建图、路径规划"
+      },
+      {
+        "kp_id": "KP-CIEE-ROBO-L8-003",
+        "name": "自主决策",
+        "description": "行为树、状态机、智能决策算法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "自主导航机器人",
+        "materials": [
+          "Raspberry Pi/ Jetson Nano",
+          "激光雷达",
+          "ROS系统",
+          "移动底盘"
+        ],
+        "low_cost_alternatives": [
+          "使用Gazebo仿真环境"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "数学·概率统计",
+      "计算机·操作系统",
+      "工程·自动化"
+    ],
+    "course_url": "https://www.qceit.org.cn/robotics/level8",
+    "video_url": "https://www.qceit.org.cn/robotics/level8/videos",
+    "scraped_at": "2026-04-22T12:00:00.000000"
+  }
+]

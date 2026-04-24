@@ -14,6 +14,7 @@ export type ApiProvider =
   | 'mgl'
   | 'minicpm' // 新增:MiniCPM 开源模型
   | 'codelama' // 新增:CodeLlama 开源模型
+  | 'matux-cloud' // MatuX 云服务
   | 'custom';
 
 /**
@@ -188,6 +189,15 @@ export const API_CONFIG_TEMPLATES: ApiConfigTemplate[] = [
     recommendedModel: 'llama2',
     description: '本地运行的开源模型,无需 API Key',
     docUrl: 'https://ollama.ai/',
+  },
+  {
+    id: 'matux-cloud',
+    name: 'MatuX 云服务',
+    provider: 'matux-cloud',
+    defaultUrl: 'http://localhost:8000/api/v1/ai/chat',
+    recommendedModel: 'matux-v1',
+    description: 'MatuX 提供的云端大模型服务，支持多种模型选择',
+    docUrl: '',
   },
   {
     id: 'custom',

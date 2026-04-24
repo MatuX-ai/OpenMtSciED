@@ -67,3 +67,53 @@ button[mat-button] {
 ::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
 }
+
+/* ==================== */
+/* 深色主题样式 */
+/* ==================== */
+body.dark-theme {
+  background-color: #1a1a2e;
+  color: #e0e0e0;
+
+  /* 滚动条 */
+  ::-webkit-scrollbar-track {
+    background: #2d2d44;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #4a4a6a;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #5a5a7a;
+  }
+}
+
+/* 深色主题 - 卡片 */
+body.dark-theme mat-card,
+body.dark-theme .mat-mdc-card {
+  background-color: #16213e !important;
+  color: #e0e0e0 !important;
+}
+
+/* 深色主题 - 工具栏 */
+body.dark-theme .toolbar h1,
+body.dark-theme .header h1 {
+  color: #ffffff !important;
+}
+
+/* 深色主题 - 输入框 */
+body.dark-theme .mat-mdc-form-field {
+  --mdc-filled-text-field-container-color: #16213e;
+  --mdc-filled-text-field-input-text-color: #e0e0e0;
+}
+
+/* 深色主题 - 对话框 */
+body.dark-theme .dialog-content {
+  background-color: #16213e;
+  color: #e0e0e0;
+}
+
+body.dark-theme .dialog-content h2 {
+  color: #ffffff;
+}

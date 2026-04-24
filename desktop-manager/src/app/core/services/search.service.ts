@@ -9,6 +9,7 @@ export interface SearchFilters {
   source?: string;
   hasHardware?: boolean;
   maxBudget?: number;
+  categoryId?: number | null; // 分类ID筛选
 }
 
 export interface SearchResult {
@@ -141,6 +142,15 @@ export class SearchService {
     // 预算筛选
     if (filters.maxBudget) {
       if (!item.hardwareBudget || item.hardwareBudget > filters.maxBudget) {
+        return false;
+      }
+    }
+
+    // 分类筛选
+    if (filters.categoryId !== undefined && filters.categoryId !== null) {
+      // TODO: 需要课程与分类的关联关系
+      // 暂时通过分类名称匹配
+      if (item.category_id !== filters.categoryId) {
         return false;
       }
     }

@@ -1,0 +1,227 @@
+[
+  {
+    "course_id": "CIEE-CS-001",
+    "title": "Python编程基础",
+    "source": "chinese_computer_society",
+    "grade_level": "middle",
+    "subject": "计算机科学",
+    "duration_weeks": 12,
+    "description": "学习Python编程语言基础，包括变量、数据类型、控制流、函数和模块等核心概念。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-CIEE-CS-Python-001",
+        "name": "Python基础语法",
+        "description": "变量、数据类型、运算符"
+      },
+      {
+        "kp_id": "KP-CIEE-CS-Python-002",
+        "name": "控制流",
+        "description": "条件判断、循环结构"
+      },
+      {
+        "kp_id": "KP-CIEE-CS-Python-003",
+        "name": "函数与模块",
+        "description": "函数定义、参数传递、模块导入"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "简易计算器",
+        "materials": [
+          "Python环境",
+          "代码编辑器"
+        ],
+        "low_cost_alternatives": [
+          "使用在线Python环境"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "数学·逻辑运算",
+      "工程·系统设计"
+    ],
+    "course_url": "https://www.ccf.org.cn/education/python",
+    "video_url": "https://www.ccf.org.cn/education/python/videos",
+    "scraped_at": "2026-04-22T12:00:00.000000"
+  },
+  {
+    "course_id": "CIEE-CS-002",
+    "title": "算法与数据结构",
+    "source": "chinese_computer_society",
+    "grade_level": "high",
+    "subject": "计算机科学",
+    "duration_weeks": 16,
+    "description": "学习常见算法和数据结构，包括数组、链表、栈、队列、树、图以及排序和搜索算法。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-CIEE-CS-Algo-001",
+        "name": "线性数据结构",
+        "description": "数组、链表、栈、队列"
+      },
+      {
+        "kp_id": "KP-CIEE-CS-Algo-002",
+        "name": "树与图",
+        "description": "二叉树、搜索树、图的基本概念"
+      },
+      {
+        "kp_id": "KP-CIEE-CS-Algo-003",
+        "name": "排序与搜索",
+        "description": "快速排序、归并排序、二分搜索"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "排序算法可视化",
+        "materials": [
+          "Python环境",
+          "Matplotlib库"
+        ],
+        "low_cost_alternatives": [
+          "使用在线可视化工具"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "数学·算法分析",
+      "工程·性能优化"
+    ],
+    "course_url": "https://www.ccf.org.cn/education/algorithms",
+    "video_url": "https://www.ccf.org.cn/education/algorithms/videos",
+    "scraped_at": "2026-04-22T12:00:00.000000"
+  },
+  {
+    "course_id": "CIEE-CS-003",
+    "title": "人工智能导论",
+    "source": "chinese_computer_society",
+    "grade_level": "high",
+    "subject": "人工智能",
+    "duration_weeks": 14,
+    "description": "介绍人工智能的基本概念、机器学习算法和深度学习原理。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-CIEE-AI-001",
+        "name": "机器学习基础",
+        "description": "监督学习、无监督学习、强化学习"
+      },
+      {
+        "kp_id": "KP-CIEE-AI-002",
+        "name": "神经网络",
+        "description": "感知机、多层神经网络、反向传播"
+      },
+      {
+        "kp_id": "KP-CIEE-AI-003",
+        "name": "深度学习应用",
+        "description": "卷积神经网络、循环神经网络"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "手写数字识别",
+        "materials": [
+          "Python环境",
+          "TensorFlow/PyTorch"
+        ],
+        "low_cost_alternatives": [
+          "使用Google Colab"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "数学·线性代数",
+      "生物·神经网络模拟"
+    ],
+    "course_url": "https://www.ccf.org.cn/education/ai",
+    "video_url": "https://www.ccf.org.cn/education/ai/videos",
+    "scraped_at": "2026-04-22T12:00:00.000000"
+  },
+  {
+    "course_id": "CIEE-CS-004",
+    "title": "Web前端开发",
+    "source": "chinese_computer_society",
+    "grade_level": "middle",
+    "subject": "Web开发",
+    "duration_weeks": 10,
+    "description": "学习HTML、CSS和JavaScript基础，构建交互式网页应用。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-CIEE-Web-001",
+        "name": "HTML基础",
+        "description": "网页结构、语义化标签"
+      },
+      {
+        "kp_id": "KP-CIEE-Web-002",
+        "name": "CSS样式",
+        "description": "选择器、盒模型、Flexbox布局"
+      },
+      {
+        "kp_id": "KP-CIEE-Web-003",
+        "name": "JavaScript基础",
+        "description": "DOM操作、事件处理、异步编程"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "个人主页制作",
+        "materials": [
+          "代码编辑器",
+          "浏览器"
+        ],
+        "low_cost_alternatives": [
+          "使用在线编辑器"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "艺术·视觉设计",
+      "工程·用户体验"
+    ],
+    "course_url": "https://www.ccf.org.cn/education/web",
+    "video_url": "https://www.ccf.org.cn/education/web/videos",
+    "scraped_at": "2026-04-22T12:00:00.000000"
+  },
+  {
+    "course_id": "CIEE-CS-005",
+    "title": "数据库原理与应用",
+    "source": "chinese_computer_society",
+    "grade_level": "high",
+    "subject": "数据库",
+    "duration_weeks": 12,
+    "description": "学习关系型数据库原理、SQL语言和数据库设计方法。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-CIEE-DB-001",
+        "name": "关系模型",
+        "description": "表、字段、主键、外键"
+      },
+      {
+        "kp_id": "KP-CIEE-DB-002",
+        "name": "SQL语言",
+        "description": "查询、插入、更新、删除操作"
+      },
+      {
+        "kp_id": "KP-CIEE-DB-003",
+        "name": "数据库设计",
+        "description": "ER模型、范式理论"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "学生信息管理系统",
+        "materials": [
+          "MySQL/PostgreSQL",
+          "数据库管理工具"
+        ],
+        "low_cost_alternatives": [
+          "使用SQLite"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "数学·集合论",
+      "工程·数据管理"
+    ],
+    "course_url": "https://www.ccf.org.cn/education/database",
+    "video_url": "https://www.ccf.org.cn/education/database/videos",
+    "scraped_at": "2026-04-22T12:00:00.000000"
+  }
+]

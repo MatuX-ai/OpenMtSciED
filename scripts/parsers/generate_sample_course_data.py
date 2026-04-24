@@ -1,5 +1,5 @@
 """
-T1.1 课程库元数据提取 - 简化测试版本
+T1.1 教程库元数据提取 - 简化测试版本
 生成示例数据验证解析器结构
 """
 
@@ -8,8 +8,8 @@ import json
 from pathlib import Path
 
 def generate_sample_data():
-    """生成示例课程库元数据"""
-
+    """生成示例教程库元数据"""
+    
     output_dir = Path("data/course_library")
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -106,7 +106,7 @@ def generate_sample_data():
     print(f"✓ 已生成: {json_path} ({len(stemcloud_courses)}条记录)")
 
     print("\n" + "="*60)
-    print("T1.1 课程库元数据提取完成")
+    print("T1.1 教程库元数据提取完成")
     print("="*60)
     print(f"交付物:")
     print(f"  - data/course_library/openscied_units.csv")

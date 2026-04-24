@@ -139,15 +139,7 @@ class HighlightCodePipe implements PipeTransform {
               <mat-icon>download</mat-icon>
               下载代码
             </button>
-            <button
-              mat-raised-button
-              color="primary"
-              (click)="flashToDevice()"
-              *ngIf="project?.webusb_support"
-            >
-              <mat-icon>usb</mat-icon>
-              烧录到设备
-            </button>
+
           </div>
         </div>
       </div>
@@ -381,7 +373,6 @@ export class BlocklyEditorComponent implements OnInit, AfterViewInit, OnDestroy 
       estimated_time_hours: 2,
       total_cost: 35,
       materials: [],
-      webusb_support: false,
       code_templates: [{
         language: 'arduino',
         code: '// 示例代码',
@@ -548,14 +539,5 @@ export class BlocklyEditorComponent implements OnInit, AfterViewInit, OnDestroy 
     this.snackBar.open('代码已下载', '关闭', { duration: 2000 });
   }
 
-  flashToDevice(): void {
-    if (!this.project?.webusb_support) {
-      this.snackBar.open('该项目不支持 WebUSB 烧录', '关闭', { duration: 3000 });
-      return;
-    }
 
-    // TODO: 实现 WebUSB 烧录功能
-    this.snackBar.open('正在连接设备...', '关闭', { duration: 3000 });
-    console.log('WebUSB 烧录功能待实现');
-  }
 }

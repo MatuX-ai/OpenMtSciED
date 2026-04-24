@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>连贯学习路径 - OpenMTSciEd</title>
+    
+    <!-- 统一导航组件样式 -->
+    <link rel="stylesheet" href="../css/navbar.css">
     <style>
         :root {
             --primary-color: #06b6d4;
@@ -307,13 +310,28 @@
     </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-content">
-            <a href="../index.html" class="logo">OpenMTSciEd</a>
-            <ul class="nav-links">
+    <!-- Navigation - 统一导航组件 -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <!-- Logo -->
+            <a href="../index.html" class="navbar-logo">
+                <img src="../logo.png" alt="OpenMTSciEd Logo" class="navbar-logo-icon">
+                <span>OpenMTSciEd</span>
+            </a>
+
+            <!-- 移动端菜单按钮 -->
+            <button class="navbar-toggle" id="navbarToggle" aria-label="切换菜单">
+                <span class="navbar-toggle-icon"></span>
+                <span class="navbar-toggle-icon"></span>
+                <span class="navbar-toggle-icon"></span>
+            </button>
+
+            <!-- 导航链接 -->
+            <ul class="navbar-links" id="navbarLinks">
                 <li><a href="../index.html#features">核心特性</a></li>
                 <li><a href="../index.html#path">学习路径</a></li>
                 <li><a href="../index.html#hardware">硬件项目</a></li>
+                <li><a href="../index.html#community">社区</a></li>
                 <li><a href="https://github.com/MatuX-ai/OpenMtSciED" target="_blank">GitHub</a></li>
             </ul>
         </div>
@@ -336,7 +354,7 @@
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">100%</div>
-                    <div class="stat-label">课程库映射率</div>
+                    <div class="stat-label">教程库映射率</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">30%</div>
@@ -356,7 +374,7 @@
                     <div class="timeline-content">
                         <span class="phase">小学 · 兴趣启蒙</span>
                         <h3>🔬 现象驱动单元</h3>
-                        <p><strong>OpenSciEd 课程库</strong></p>
+                        <p><strong>OpenSciEd 教程库</strong></p>
                         <ul class="tech-list">
                             <li>6周完成一个现象探究项目</li>
                             <li>如"生态系统能量流动"实验</li>
@@ -460,7 +478,7 @@
         <div class="section">
             <h2>里程碑设计</h2>
             <ul class="tech-list">
-                <li><strong>完成1个课程库单元</strong> → 解锁1个课件库章节预习模块</li>
+                <li><strong>完成1个教程库单元</strong> → 解锁1个课件库章节预习模块</li>
                 <li><strong>完成1个课件库章节</strong> → 生成1个硬件综合项目</li>
                 <li><strong>完成硬件项目</strong> → 获得作品认证 + 解锁下一路径</li>
                 <li><strong>闯关式激励</strong> → 积分系统 + 成就徽章</li>
@@ -523,5 +541,8 @@
             MIT License
         </p>
     </footer>
+    
+    <!-- 统一导航组件脚本 -->
+    <script src="../js/navbar.js"></script>
 </body>
 </html>

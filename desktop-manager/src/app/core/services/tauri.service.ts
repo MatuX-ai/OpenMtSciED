@@ -7,6 +7,7 @@ interface CourseData {
   name: string;
   description: string;
   category: string;
+  category_id?: number | null;
 }
 
 interface UpdateCourseData extends CourseData {
@@ -99,8 +100,8 @@ export class TauriService {
     return this.invokeCommand<unknown[]>('get_courses');
   }
 
-  async createCourse(name: string, description: string, category: string): Promise<unknown> {
-    const data: CourseData = { name, description, category };
+  async createCourse(name: string, description: string, category: string, categoryId?: number | null): Promise<unknown> {
+    const data: CourseData = { name, description, category, category_id: categoryId };
     return this.invokeCommand<unknown>('create_course', data);
   }
 
@@ -108,9 +109,10 @@ export class TauriService {
     id: number,
     name: string,
     description: string,
-    category: string
+    category: string,
+    categoryId?: number | null
   ): Promise<unknown> {
-    const data: UpdateCourseData = { id, name, description, category };
+    const data: UpdateCourseData = { id, name, description, category, category_id: categoryId };
     return this.invokeCommand<unknown>('update_course', data);
   }
 

@@ -11,7 +11,7 @@
 
 ### 已添加
 - 初始化向导功能（Setup Wizard）
-- 课程库管理（Course Library）
+- 教程库管理（Course Library）
 - 课件库管理（Material Library）
 - Tauri 桌面应用框架集成
 - SQLite 本地数据库支持

@@ -66,7 +66,7 @@
 #### Dashboard 组件 (`src/app/features/dashboard/dashboard.component.ts`)
 ✅ 仪表盘页面
 - 用户信息显示
-- 功能卡片（课程库、课件库、设置等）
+- 功能卡片（教程库、课件库、设置等）
 - 快速统计
 
 ### 3. 编译状态

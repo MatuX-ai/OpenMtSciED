@@ -5,7 +5,7 @@
  */
 
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, Optional } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, map, retry, timeout } from 'rxjs/operators';
 
@@ -25,6 +25,7 @@ import {
   UnifiedCourseCreate,
   UnifiedCourseUpdate,
 } from '../../models/unified-course.models';
+import { MockDataProvider, DefaultMockDataProvider } from './mock-data.provider';
 
 interface GraphNodeData {
   id: string;
@@ -41,7 +42,14 @@ export class UnifiedCourseService {
   private readonly API_TIMEOUT = 10000; // 10秒超时
   private readonly MAX_RETRIES = 3;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    @Optional() @Inject('MockDataProvider') private mockProvider?: MockDataProvider
+  ) {
+    if (!this.mockProvider) {
+      this.mockProvider = new DefaultMockDataProvider();
+    }
+  }
 
   // ==================== 课程CRUD操作 ====================
 

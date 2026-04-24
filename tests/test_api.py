@@ -8,7 +8,7 @@ sys.path.insert(0, str(project_root))
 
 import pytest
 from fastapi.testclient import TestClient
-from src.openmtscied.main import app
+from openmtscied.main import app
 
 client = TestClient(app)
 

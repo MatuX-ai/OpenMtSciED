@@ -40,11 +40,11 @@
 
 | 模块 | 技术栈 | 说明 |
 | :--- | :--- | :--- |
-| **知识图谱引擎** | Python, FastAPI, Neo4j | **核心技术**：爬取开源教育资源，构建K12-大学完整教学路径图谱 |
-| **路径生成** | Python, 规则引擎 | 基于用户水平推荐个性化学习路径（PPO强化学习规划中） |
-| **桌面客户端** | Tauri (Rust), Angular | 资源管理、Blockly 编程、WebUSB 烧录 |
-| **Web 门户** | Angular | 极简营销页，提供账号管理与下载入口 |
-| **AI服务** | MiniCPM-2B（规划中） | 理论-实践映射解释、AI虚拟导师 |
+| **路径引擎** | FastAPI, SQLite | **核心服务**：基于标签匹配生成 STEM 学习路径，支持离线运行。 |
+| **AI 辅助** | Python, LLM API | 统一 AI 服务：生成课程大纲、理论-实践联动解释。 |
+| **桌面客户端** | Tauri (Rust), Angular | 资源管理、Blockly 编程、WebUSB 硬件烧录。 |
+| **知识图谱** | Neo4j | 维护复杂的知识点先修关系与跨学科关联。 |
+| **全局存储** | Neon (PostgreSQL) | 存储用户画像与长期学习进度。 |
 
 ## 📦 快速开始
 
@@ -78,9 +78,13 @@ python -m uvicorn openmtscied.main:app --host 0.0.0.0 --port 8000 --reload
 cd desktop-manager
 npm run tauri dev
 
-# 启动Web前端（营销页）
+# 启动Web前端（用户端 - http://localhost:3000）
 cd frontend
 npm run dev
+
+# 启动Admin后台（管理端 - http://localhost:4200）
+cd admin-web
+npm start
 ```
 
 ## 📂 项目结构
@@ -104,17 +108,26 @@ OpenMTSciEd/
 │       ├── auth/             # 认证模块
 │       ├── path-visualization/ # 路径可视化
 │       └── marketing-home/   # 营销首页
+├── admin-web/                # 管理后台（Angular）
 ├── desktop-manager/          # Tauri + Angular 桌面客户端
+├── ai-service/               # AI服务（独立服务）
+├── website/                  # 营销网站
 ├── data/                     # 数据文件
+│   ├── databases/            # 数据库文件
 │   ├── course_library/       # 教程库（OpenSciEd、格物斯坦等）
 │   ├── textbook_library/     # 课件库（OpenStax等）
 │   ├── hardware_projects.json # 硬件项目数据
 │   └── ai_learning_tasks.json # AI学习任务
+├── datasets/                 # 数据集和缓存
 ├── scripts/                  # 数据处理与爬虫脚本
+│   ├── db_management/        # 数据库管理脚本
+│   ├── data_processing/      # 数据处理脚本
 │   ├── scrapers/             # 资源爬取器
 │   └── graph_db/             # Neo4j导入脚本
 ├── docs/                     # 技术文档
-└── backtest_reports/         # 开发完成报告
+├── models/                   # AI模型文件
+├── logs/                     # 日志文件
+├── tests/                    # 测试文件
 ```
 
 ## 🤝 贡献指南

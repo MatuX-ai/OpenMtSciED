@@ -85,7 +85,7 @@ npm run start
 
 在以下页面检查导航栏 logo：
 - `/setup-wizard` - 初始化向导
-- `/course-library` - 课程库
+- `/course-library` - 教程库
 - `/material-library` - 课件库
 
 ### 3. 浏览器兼容性

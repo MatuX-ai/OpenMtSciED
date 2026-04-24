@@ -70,7 +70,7 @@ cd G:\iMato\desktop-manager\src-tauri\target\release
 
 ### 前端（Angular）
 - ✅ 初始化向导（Setup Wizard）
-- ✅ 课程库管理（Course Library）
+- ✅ 教程库管理（Course Library）
 - ✅ 课件库管理（Material Library）
 - ✅ 响应式 UI 设计
 - ✅ Material Design 主题
@@ -97,7 +97,7 @@ cd G:\iMato\desktop-manager\src-tauri\target\release
 2. **导航栏**: 左侧显示 matu-logo.png
 3. **页面路由**:
    - `/setup-wizard` - 初始化向导
-   - `/course-library` - 课程库
+   - `/course-library` - 教程库
    - `/material-library` - 课件库
 4. **功能测试**:
    - 创建课程

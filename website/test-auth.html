@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录功能测试 - OpenMTSciEd</title>
+    <link rel="stylesheet" href="css/navbar.css">
+    <style>
+        body {
+            padding-top: 80px;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+        }
+
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .test-container h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #6366f1, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .test-section {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid #6366f1;
+        }
+
+        .test-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #6366f1;
+        }
+
+        .test-section p {
+            color: #94a3b8;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #10b981;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .user-info-display {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .user-info-display pre {
+            background: #0f172a;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            color: #06b6d4;
+            font-family: 'Consolas', monospace;
+            font-size: 0.9rem;
+        }
+
+        .test-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+
+        .test-btn {
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, #6366f1, #06b6d4);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .test-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+        }
+
+        .test-btn.secondary {
+            background: #1e293b;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .test-btn.danger {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+
+        code {
+            background: #0f172a;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            color: #06b6d4;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <img src="logo.png" alt="OpenMTSciEd Logo" class="navbar-logo-icon">
+                <span>OpenMTSciEd</span>
+            </a>
+            <button class="navbar-toggle" id="navbarToggle" aria-label="切换菜单">
+                <span class="navbar-toggle-icon"></span>
+                <span class="navbar-toggle-icon"></span>
+                <span class="navbar-toggle-icon"></span>
+            </button>
+            <ul class="navbar-links" id="navbarLinks">
+                <li><a href="#features">功能测试</a></li>
+                <li><a href="#api">API 测试</a></li>
+                <li><a href="index.html">返回首页</a></li>
+                
+                <!-- 用户登录控件 -->
+                <li class="navbar-auth" id="navbarAuth">
+                    <button class="btn-login" id="btnLogin" onclick="handleLogin()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                            <polyline points="10 17 15 12 10 7"/>
+                            <line x1="15" y1="12" x2="3" y2="12"/>
+                        </svg>
+                        <span>登录</span>
+                    </button>
+                    
+                    <div class="user-menu" id="userMenu" style="display: none;">
+                        <div class="user-info">
+                            <div class="user-avatar" id="userAvatar">U</div>
+                            <span class="user-name" id="userName">用户</span>
+                        </div>
+                        <div class="user-dropdown">
+                            <a href="#" class="dropdown-item" onclick="showProfile()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                个人中心
+                            </a>
+                            <a href="#" class="dropdown-item" onclick="showDashboard()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="7" height="7"/>
+                                    <rect x="14" y="3" width="7" height="7"/>
+                                    <rect x="14" y="14" width="7" height="7"/>
+                                    <rect x="3" y="14" width="7" height="7"/>
+                                </svg>
+                                学习仪表盘
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item logout" onclick="handleLogout()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                                    <polyline points="16 17 21 12 16 7"/>
+                                    <line x1="21" y1="12" x2="9" y2="12"/>
+                                </svg>
+                                退出登录
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="test-container">
+        <h1>🔐 登录功能测试</h1>
+        
+        <div class="status-indicator">
+            <div class="status-dot"></div>
+            <span id="loginStatus">检查登录状态...</span>
+        </div>
+
+        <div class="test-section" id="features">
+            <h2>✨ 功能测试</h2>
+            <p>测试导航栏中的登录控件各项功能：</p>
+            
+            <div class="test-buttons">
+                <button class="test-btn" onclick="handleLogin()">模拟登录</button>
+                <button class="test-btn danger" onclick="handleLogout()">退出登录</button>
+                <button class="test-btn secondary" onclick="checkLoginStatus()">检查状态</button>
+                <button class="test-btn secondary" onclick="clearAllData()">清除所有数据</button>
+            </div>
+
+            <div class="user-info-display">
+                <h3 style="margin-bottom: 1rem; color: #6366f1;">当前用户信息</h3>
+                <pre id="userInfoDisplay">未登录</pre>
+            </div>
+        </div>
+
+        <div class="test-section" id="api">
+            <h2>🔧 API 测试</h2>
+            <p>使用 JavaScript API 进行登录状态管理：</p>
+            
+            <div class="test-buttons">
+                <button class="test-btn" onclick="testCheckLogin()">NavbarComponent.checkLoginStatus()</button>
+                <button class="test-btn" onclick="testUpdateUI()">NavbarComponent.updateAuthUI(true)</button>
+                <button class="test-btn danger" onclick="testUpdateUI(false)">NavbarComponent.updateAuthUI(false)</button>
+            </div>
+
+            <div class="user-info-display">
+                <h3 style="margin-bottom: 1rem; color: #6366f1;">API 调用结果</h3>
+                <pre id="apiResult">等待测试...</pre>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>📋 测试清单</h2>
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 0.8rem; margin: 0.5rem 0; background: rgba(99, 102, 241, 0.1); border-radius: 6px;">
+                    □ 点击"登录"按钮显示登录提示
+                </li>
+                <li style="padding: 0.8rem; margin: 0.5rem 0; background: rgba(99, 102, 241, 0.1); border-radius: 6px;">
+                    □ 登录后导航栏显示用户头像和名称
+                </li>
+                <li style="padding: 0.8rem; margin: 0.5rem 0; background: rgba(99, 102, 241, 0.1); border-radius: 6px;">
+                    □ 悬停用户信息显示下拉菜单
+                </li>
+                <li style="padding: 0.8rem; margin: 0.5rem 0; background: rgba(99, 102, 241, 0.1); border-radius: 6px;">
+                    □ 点击"个人中心"显示提示
+                </li>
+                <li style="padding: 0.8rem; margin: 0.5rem 0; background: rgba(99, 102, 241, 0.1); border-radius: 6px;">
+                    □ 点击"学习仪表盘"显示提示
+                </li>
+                <li style="padding: 0.8rem; margin: 0.5rem 0; background: rgba(99, 102, 241, 0.1); border-radius: 6px;">
+                    □ 点击"退出登录"清除用户信息
+                </li>
+                <li style="padding: 0.8rem; margin: 0.5rem 0; background: rgba(99, 102, 241, 0.1); border-radius: 6px;">
+                    □ 刷新页面后保持登录状态
+                </li>
+                <li style="padding: 0.8rem; margin: 0.5rem 0; background: rgba(99, 102, 241, 0.1); border-radius: 6px;">
+                    □ localStorage 中正确存储用户信息
+                </li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h2>📖 使用说明</h2>
+            <p>1. 点击"模拟登录"按钮，输入任意邮箱和密码</p>
+            <p>2. 观察导航栏变化：登录按钮 → 用户信息</p>
+            <p>3. 悬停用户信息，查看下拉菜单</p>
+            <p>4. 点击"退出登录"清除状态</p>
+            <p>5. 刷新页面验证状态持久化</p>
+            
+            <p style="margin-top: 2rem;">
+                <strong>详细文档：</strong>
+                <a href="docs/AUTH_USAGE.md" style="color: #06b6d4;">用户登录控件使用指南</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="js/navbar.js"></script>
+    <script>
+        // 更新登录状态显示
+        function updateStatusDisplay() {
+            const statusEl = document.getElementById('loginStatus');
+            const userInfoEl = document.getElementById('userInfoDisplay');
+            const isLoggedIn = NavbarComponent.checkLoginStatus();
+
+            if (isLoggedIn) {
+                statusEl.textContent = '已登录';
+                const user = JSON.parse(localStorage.getItem('user'));
+                userInfoEl.textContent = JSON.stringify(user, null, 2);
+            } else {
+                statusEl.textContent = '未登录';
+                userInfoEl.textContent = '未登录';
+            }
+        }
+
+        // 测试检查登录状态
+        function testCheckLogin() {
+            const result = NavbarComponent.checkLoginStatus();
+            document.getElementById('apiResult').textContent = 
+                `NavbarComponent.checkLoginStatus()\n返回: ${result}\n类型: ${typeof result}`;
+            updateStatusDisplay();
+        }
+
+        // 测试更新 UI
+        function testUpdateUI(isLoggedIn) {
+            NavbarComponent.updateAuthUI(isLoggedIn);
+            document.getElementById('apiResult').textContent = 
+                `NavbarComponent.updateAuthUI(${isLoggedIn})\nUI 已更新`;
+            updateStatusDisplay();
+        }
+
+        // 清除所有数据
+        function clearAllData() {
+            localStorage.clear();
+            sessionStorage.clear();
+            NavbarComponent.updateAuthUI(false);
+            updateStatusDisplay();
+            document.getElementById('apiResult').textContent = '所有数据已清除';
+        }
+
+        // 页面加载时更新状态
+        window.addEventListener('DOMContentLoaded', () => {
+            updateStatusDisplay();
+        });
+
+        // 监听 storage 变化
+        window.addEventListener('storage', () => {
+            updateStatusDisplay();
+        });
+    </script>
+</body>
+</html>

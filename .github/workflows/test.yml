@@ -30,12 +30,12 @@ jobs:
       with:
         node-version: '20'
 
-    - name: Install frontend dependencies
+    - name: Install admin-web dependencies
       run: |
-        cd frontend
+        cd admin-web
         npm ci
 
-    - name: Run frontend tests
+    - name: Run admin-web tests
       run: |
-        cd frontend
+        cd admin-web
         npm test

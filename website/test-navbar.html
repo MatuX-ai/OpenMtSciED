@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航组件测试 - OpenMTSciEd</title>
+    <link rel="stylesheet" href="css/navbar.css">
+    <style>
+        body {
+            padding-top: 80px;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+        }
+
+        .test-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .test-section h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #6366f1, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .test-section h2 {
+            font-size: 2rem;
+            margin: 3rem 0 1rem;
+            color: #6366f1;
+        }
+
+        .test-section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: #1e293b;
+            border-radius: 8px;
+            border-left: 4px solid #6366f1;
+        }
+
+        .scroll-test {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, #1e293b, #0f172a);
+            margin: 2rem 0;
+            border-radius: 12px;
+        }
+
+        code {
+            background: #1e293b;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            color: #06b6d4;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation - 统一导航组件 -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <!-- Logo -->
+            <a href="index.html" class="navbar-logo">
+                <img src="logo.png" alt="OpenMTSciEd Logo" class="navbar-logo-icon">
+                <span>OpenMTSciEd</span>
+            </a>
+
+            <!-- 移动端菜单按钮 -->
+            <button class="navbar-toggle" id="navbarToggle" aria-label="切换菜单">
+                <span class="navbar-toggle-icon"></span>
+                <span class="navbar-toggle-icon"></span>
+                <span class="navbar-toggle-icon"></span>
+            </button>
+
+            <!-- 导航链接 -->
+            <ul class="navbar-links" id="navbarLinks">
+                <li><a href="#features">功能特性</a></li>
+                <li><a href="#testing">测试说明</a></li>
+                <li><a href="#usage">使用方法</a></li>
+                <li><a href="index.html">返回首页</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="test-section">
+        <h1>🎨 统一导航组件测试</h1>
+        <p>此页面用于测试统一导航组件的各项功能。请尝试以下操作：</p>
+
+        <h2 id="features">✨ 功能特性</h2>
+        <ul class="feature-list">
+            <li>✅ <strong>响应式设计</strong> - 调整浏览器窗口大小，查看桌面端和移动端的不同表现</li>
+            <li>✅ <strong>滚动效果</strong> - 向下滚动页面，观察导航栏背景变化和阴影效果</li>
+            <li>✅ <strong>活动链接高亮</strong> - 滚动到不同 section，查看对应导航链接的高亮状态</li>
+            <li>✅ <strong>平滑滚动</strong> - 点击导航链接，体验平滑滚动到目标位置</li>
+            <li>✅ <strong>移动端菜单</strong> - 在移动设备上点击汉堡菜单，查看侧滑效果</li>
+            <li>✅ <strong>悬停动画</strong> - 将鼠标悬停在导航链接上，查看下划线动画</li>
+        </ul>
+
+        <div class="scroll-test">
+            <p>⬇️ 向下滚动以测试导航栏滚动效果 ⬇️</p>
+        </div>
+
+        <h2 id="testing">🧪 测试清单</h2>
+        <ul class="feature-list">
+            <li>□ 导航栏固定在页面顶部</li>
+            <li>□ Logo 显示正常且可点击</li>
+            <li>□ 所有导航链接可点击</li>
+            <li>□ 悬停时链接下方出现渐变色下划线</li>
+            <li>□ 滚动超过 50px 后导航栏背景变深</li>
+            <li>□ 当前 section 对应的链接高亮显示</li>
+            <li>□ 点击锚点链接平滑滚动到目标位置</li>
+            <li>□ 移动端（≤768px）显示汉堡菜单</li>
+            <li>□ 点击汉堡菜单展开/收起导航</li>
+            <li>□ 移动端菜单从右侧滑入</li>
+        </ul>
+
+        <div class="scroll-test">
+            <p>⬇️ 继续滚动测试 ⬇️</p>
+        </div>
+
+        <h2 id="usage">📖 使用方法</h2>
+        <p>在新页面中使用统一导航组件非常简单：</p>
+        
+        <ul class="feature-list">
+            <li>
+                <strong>1. 引入 CSS</strong><br>
+                <code>&lt;link rel="stylesheet" href="css/navbar.css"&gt;</code>
+            </li>
+            <li>
+                <strong>2. 添加导航 HTML</strong><br>
+                参考 <code>components/navbar.html</code> 文件
+            </li>
+            <li>
+                <strong>3. 引入 JavaScript</strong><br>
+                <code>&lt;script src="js/navbar.js"&gt;&lt;/script&gt;</code>
+            </li>
+            <li>
+                <strong>4. 调整页面边距</strong><br>
+                <code>body { padding-top: 80px; }</code>
+            </li>
+        </ul>
+
+        <div class="scroll-test">
+            <p>⬆️ 向上滚动查看导航栏变化 ⬆️</p>
+        </div>
+
+        <h2>📚 相关文档</h2>
+        <ul class="feature-list">
+            <li>
+                <a href="docs/NAVBAR_USAGE.md" style="color: #06b6d4; text-decoration: none;">
+                    📖 使用指南 (NAVBAR_USAGE.md)
+                </a>
+            </li>
+            <li>
+                <a href="docs/NAVBAR_IMPLEMENTATION_REPORT.md" style="color: #06b6d4; text-decoration: none;">
+                    📊 实施报告 (NAVBAR_IMPLEMENTATION_REPORT.md)
+                </a>
+            </li>
+            <li>
+                <a href="components/navbar.html" style="color: #06b6d4; text-decoration: none;">
+                    🔧 HTML 模板 (components/navbar.html)
+                </a>
+            </li>
+        </ul>
+
+        <div style="margin-top: 4rem; padding: 2rem; background: #1e293b; border-radius: 12px; text-align: center;">
+            <p style="font-size: 1.5rem; margin-bottom: 1rem;">🎉 测试完成！</p>
+            <p>导航组件运行正常，可以应用到所有页面。</p>
+            <a href="index.html" style="display: inline-block; margin-top: 1rem; padding: 1rem 2rem; background: linear-gradient(135deg, #6366f1, #06b6d4); color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">
+                返回主页 →
+            </a>
+        </div>
+    </section>
+
+    <script src="js/navbar.js"></script>
+</body>
+</html>

@@ -128,9 +128,6 @@ import {
             <div class="code-support" *ngIf="project.code_templates && project.code_templates.length > 0">
               <mat-icon>code</mat-icon>
               <span>支持 {{ getCodeLanguageName(project.code_templates[0].language) }}</span>
-              <span *ngIf="project.webusb_support" class="webusb-badge">
-                <mat-icon>usb</mat-icon> WebUSB烧录
-              </span>
             </div>
 
             <!-- 安全提示 -->
@@ -359,24 +356,6 @@ import {
       height: 18px;
     }
 
-    .webusb-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      margin-left: auto;
-      padding: 4px 8px;
-      background: #4caf50;
-      color: white;
-      border-radius: 12px;
-      font-size: 11px;
-      font-weight: 600;
-    }
-
-    .webusb-badge mat-icon {
-      font-size: 14px;
-      width: 14px;
-      height: 14px;
-    }
 
     .safety-notes {
       display: flex;
@@ -580,7 +559,6 @@ ${materialList}
           description: '基础温湿度监测代码',
           dependencies: ['DHT sensor library', 'Adafruit GFX Library']
         }],
-        webusb_support: false,
         safety_notes: ['注意电源极性', '避免短路'],
         knowledge_point_ids: ['kp-001', 'kp-002', 'kp-003']
       },
@@ -606,7 +584,7 @@ ${materialList}
           code: '<xml></xml>',
           description: '可视化编程模板',
         }],
-        webusb_support: true,
+
         safety_notes: ['注意电机接线', '测试时远离边缘'],
         knowledge_point_ids: ['kp-004', 'kp-005', 'kp-006']
       },
@@ -633,7 +611,6 @@ ${materialList}
           description: 'WiFi控制示例代码',
           dependencies: ['ESP8266WiFi']
         }],
-        webusb_support: false,
         safety_notes: ['高压危险，谨慎操作', '确保绝缘良好'],
         knowledge_point_ids: ['kp-007', 'kp-008', 'kp-009']
       },

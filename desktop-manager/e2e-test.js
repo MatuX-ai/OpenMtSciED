@@ -107,17 +107,17 @@ async function testSetupWizardForm(browser) {
   }
 }
 
-// 测试 3: 课程库页面
+// 测试 3: 教程库页面
 async function testCourseLibrary(browser) {
   const page = await browser.newPage();
 
   try {
-    console.log('\n📋 测试 3: 课程库页面测试');
+    console.log('\n📋 测试 3: 教程库页面测试');
     await page.goto(`${BASE_URL}/course-library`, { waitUntil: 'networkidle0' });
 
     // 检查页面标题
-    const hasTitle = await waitForElement(page, 'h1:has-text("📚 课程库")');
-    logTest('课程库页面标题', hasTitle);
+    const hasTitle = await waitForElement(page, 'h1:has-text("📚 教程库")');
+    logTest('教程库页面标题', hasTitle);
 
     // 检查新建课程按钮
     const hasCreateButton = await waitForElement(page, 'button:has-text("新建课程")');
@@ -133,7 +133,7 @@ async function testCourseLibrary(browser) {
     logTest('显示课程或空状态', hasCourses || hasEmptyState);
 
   } catch (error) {
-    logTest('课程库页面测试', false, error.message);
+    logTest('教程库页面测试', false, error.message);
   } finally {
     await page.close();
   }

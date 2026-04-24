@@ -10,7 +10,23 @@ pub fn init_db(db_path: &Path) -> Result<Connection> {
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL,
             description TEXT NOT NULL,
+            category_id INTEGER,
             category TEXT NOT NULL,
+            created_at TEXT NOT NULL DEFAULT (datetime('now')),
+            FOREIGN KEY (category_id) REFERENCES categories(id)
+        )",
+        [],
+    )?;
+
+    // 创建分类表
+    conn.execute(
+        "CREATE TABLE IF NOT EXISTS categories (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL UNIQUE,
+            description TEXT,
+            color TEXT DEFAULT '#6366f1',
+            icon TEXT DEFAULT 'folder',
+            sort_order INTEGER DEFAULT 0,
             created_at TEXT NOT NULL DEFAULT (datetime('now'))
         )",
         [],

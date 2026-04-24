@@ -5,7 +5,7 @@
 ### ✅ 已完成功能
 - [x] Setup Wizard（首次使用向导）
 - [x] Dashboard（仪表盘）
-- [x] Course Library（课程库）
+- [x] Course Library（教程库）
 - [x] Material Library（课件库）
 - [x] Settings（设置页面）
 - [x] 本地数据存储管理

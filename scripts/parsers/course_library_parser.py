@@ -1,5 +1,5 @@
 """
-OpenMTSciEd 课程库元数据解析器
+OpenMTSciEd 教程库元数据解析器
 解析OpenSciEd PDF、格物斯坦HTML、stemcloud.cn课程数据
 统一为三级结构: 主题 → 知识点 → 应用
 """
@@ -24,8 +24,8 @@ logger = logging.getLogger(__name__)
 
 
 class CourseLibraryParser:
-    """课程库元数据解析器基类"""
-
+    """教程库元数据解析器基类"""
+    
     def __init__(self, output_dir: str = "data/course_library"):
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(parents=True, exist_ok=True)
@@ -290,11 +290,11 @@ class CourseLibraryParser:
 
 
 def main():
-    """主函数 - 执行课程库元数据提取"""
+    """主函数 - 执行教程库元数据提取"""
     parser = CourseLibraryParser()
 
     logger.info("=" * 60)
-    logger.info("OpenMTSciEd 课程库元数据提取开始")
+    logger.info("OpenMTSciEd 教程库元数据提取开始")
     logger.info("=" * 60)
 
     # 1. 解析OpenSciEd PDF (示例路径,需替换为实际文件)
@@ -324,7 +324,7 @@ def main():
     parser.save_to_json(stemcloud_courses, "stemcloud_courses.json")
 
     logger.info("=" * 60)
-    logger.info("课程库元数据提取完成")
+    logger.info("教程库元数据提取完成")
     logger.info(f"交付物:")
     logger.info(f"  - data/course_library/openscied_units.csv")
     logger.info(f"  - data/course_library/gewustan_courses.json")

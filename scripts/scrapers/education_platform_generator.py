@@ -14,16 +14,14 @@ import schedule
 import time
 import threading
 
-# 配置日志
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('education_platform_generator.log', encoding='utf-8'),
-        logging.StreamHandler()
-    ]
-)
+# 配置日志（仅在直接运行时配置，避免导入时重复配置）
 logger = logging.getLogger(__name__)
+if not logger.handlers:
+    # 只在没有处理器时才添加，避免重复
+    handler = logging.StreamHandler()
+    handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
+    logger.addHandler(handler)
+    logger.setLevel(logging.INFO)
 
 
 class EducationPlatformGenerator(ABC):

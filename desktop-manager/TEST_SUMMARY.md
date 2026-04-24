@@ -6,7 +6,7 @@
 
 ### 测试范围
 - ✅ 初始化向导 (Setup Wizard)
-- ✅ 课程库管理 (Course Library)
+- ✅ 教程库管理 (Course Library)
 - ✅ 课件库管理 (Material Library)
 - ✅ Tauri 后端集成
 - ✅ 用户界面交互

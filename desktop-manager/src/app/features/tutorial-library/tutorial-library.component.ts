@@ -8,8 +8,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
 
 import { TauriService } from '../../core/services';
+import { CategoryService, Category } from '../../core/services/category.service';
+import { SearchService } from '../../core/services/search.service';
+import { ShortcutService } from '../../core/services/shortcut.service';
 import { SearchBarComponent } from '../../shared/components/search-bar/search-bar.component';
 
 import { ResourceBrowserComponent } from './resource-browser/resource-browser.component';
@@ -35,6 +40,8 @@ interface Tutorial {
     MatInputModule,
     MatSelectModule,
     MatTabsModule,
+    MatChipsModule,
+    MatIconModule,
     ResourceBrowserComponent,
     SearchBarComponent,
   ],
@@ -60,9 +67,22 @@ interface Tutorial {
       <mat-tab-group [(selectedIndex)]="selectedTabIndex">
         <mat-tab label="我的教程">
           <ng-template matTabContent>
+            <!-- 分类筛选 -->
+            <div class="category-filter" *ngIf="categories.length > 0">
+              <mat-chip-listbox>
+                <mat-chip-option [value]="null" [selected]="selectedCategoryId === null" (click)="filterByCategory(null)">
+                  全部
+                </mat-chip-option>
+                <mat-chip-option *ngFor="let cat of categories" [value]="cat.id" [selected]="selectedCategoryId === cat.id" (click)="filterByCategory(cat.id)">
+                  {{ cat.name }}
+                </mat-chip-option>
+              </mat-chip-listbox>
+            </div>
+            
             <!-- 教程列表 -->
             <div class="tutorial-grid">
-              <mat-card *ngFor="let tutorial of tutorials" class="tutorial-card">
+              <mat-card *ngFor="let tutorial of filteredTutorials" class="tutorial-card">
+                <div class="card-category-bar" [style.background-color]="getCategoryColor(tutorial.category)"></div>
                 <mat-card-header>
                   <mat-card-title>{{ tutorial.name }}</mat-card-title>
                   <mat-card-subtitle>{{ getCategoryName(tutorial.category) }}</mat-card-subtitle>
@@ -132,14 +152,16 @@ interface Tutorial {
           <mat-form-field appearance="outline" class="full-width">
             <mat-label>教程分类</mat-label>
             <mat-select [(ngModel)]="currentTutorial.category" name="category">
-              <mat-option value="physics">物理</mat-option>
-              <mat-option value="chemistry">化学</mat-option>
-              <mat-option value="biology">生物</mat-option>
-              <mat-option value="math">数学</mat-option>
-              <mat-option value="computer">计算机</mat-option>
-              <mat-option value="other">其他</mat-option>
+              <mat-option *ngFor="let cat of categories" [value]="cat.name">
+                <span [style.color]="cat.color">●</span> {{ cat.name }}
+              </mat-option>
             </mat-select>
           </mat-form-field>
+
+          <button mat-stroked-button color="primary" (click)="openCategoryManager()" type="button" class="manage-categories-btn">
+            <mat-icon>folder</mat-icon>
+            管理分类
+          </button>
 
           <div class="dialog-actions">
             <button mat-button type="button" (click)="closeDialog()">取消</button>
@@ -283,6 +305,22 @@ interface Tutorial {
         gap: 12px;
         margin-top: 24px;
       }
+
+      .category-filter {
+        margin-bottom: 20px;
+        padding: 12px 0;
+      }
+
+      .card-category-bar {
+        height: 4px;
+        width: 100%;
+        border-radius: 12px 12px 0 0;
+      }
+
+      .manage-categories-btn {
+        width: 100%;
+        margin-bottom: 16px;
+      }
     `,
   ],
 })
@@ -290,6 +328,9 @@ export class TutorialLibraryComponent implements OnInit {
   @ViewChild('dialogTemplate') dialogTemplate!: TemplateRef<unknown>;
 
   tutorials: Tutorial[] = [];
+  categories: Category[] = [];
+  filteredTutorials: Tutorial[] = [];
+  selectedCategoryId: number | null = null;
   currentTutorial: Tutorial = { name: '', description: '', category: '' };
   isEditMode = false;
   editingTutorialId?: number;
@@ -297,17 +338,82 @@ export class TutorialLibraryComponent implements OnInit {
 
   constructor(
     private tauriService: TauriService,
+    private categoryService: CategoryService,
+    private searchService: SearchService,
+    private shortcutService: ShortcutService,
     private dialog: MatDialog
   ) {}
 
-  ngOnInit(): void {
-    void this.loadTutorials();
+  async ngOnInit(): Promise<void> {
+    await Promise.all([this.loadTutorials(), this.loadCategories()]);
+    this.registerShortcuts();
+  }
+
+  /**
+   * 注册快捷键
+   */
+  private registerShortcuts(): void {
+    // Ctrl+N - 新建教程
+    this.shortcutService.register({
+      key: 'n',
+      ctrl: true,
+      description: '新建教程',
+      action: () => this.openCreateDialog()
+    });
+
+    // Ctrl+F - 聚焦搜索框
+    this.shortcutService.register({
+      key: 'f',
+      ctrl: true,
+      description: '搜索教程',
+      action: () => this.focusSearch()
+    });
+
+    // Delete - 删除选中（待实现）
+    this.shortcutService.register({
+      key: 'Delete',
+      description: '删除选中项',
+      action: () => this.deleteSelected()
+    });
+  }
+
+  focusSearch(): void {
+    // TODO: 聚焦到搜索框
+    console.log('聚焦搜索框');
+  }
+
+  deleteSelected(): void {
+    // TODO: 删除选中的教程
+    console.log('删除选中项');
+  }
+
+  async loadCategories(): Promise<void> {
+    try {
+      this.categories = await this.categoryService.getCategories();
+      // 如果没有分类，创建默认分类
+      if (this.categories.length === 0) {
+        const defaultCategories = [
+          { name: '物理', color: '#3b82f6', icon: 'science', sort_order: 1 },
+          { name: '化学', color: '#10b981', icon: 'science', sort_order: 2 },
+          { name: '生物', color: '#f59e0b', icon: 'science', sort_order: 3 },
+          { name: '数学', color: '#ef4444', icon: 'calculate', sort_order: 4 },
+          { name: '计算机', color: '#8b5cf6', icon: 'computer', sort_order: 5 },
+        ];
+        for (const cat of defaultCategories) {
+          await this.categoryService.createCategory(cat);
+        }
+        this.categories = await this.categoryService.getCategories();
+      }
+    } catch (error) {
+      console.error('加载分类失败:', error);
+    }
   }
 
   async loadTutorials(): Promise<void> {
     try {
       const result = await this.tauriService.getCourses();
       this.tutorials = (Array.isArray(result) ? result : []) as Tutorial[];
+      this.filterByCategory(this.selectedCategoryId);
     } catch (error) {
       console.error('加载教程失败:', error);
       // 使用模拟数据
@@ -316,18 +422,42 @@ export class TutorialLibraryComponent implements OnInit {
           id: 1,
           name: '高中物理基础',
           description: '力学、热学、电磁学等基础知识',
-          category: 'physics',
+          category: '物理',
           createdAt: new Date().toISOString(),
         },
         {
           id: 2,
           name: '化学反应原理',
           description: '化学反应速率、平衡、电化学等内容',
-          category: 'chemistry',
+          category: '化学',
           createdAt: new Date().toISOString(),
         },
       ];
+      this.filterByCategory(this.selectedCategoryId);
     }
+  }
+
+  filterByCategory(categoryId: number | null): void {
+    this.selectedCategoryId = categoryId;
+    
+    // 更新搜索服务
+    this.searchService.updateFilters({ categoryId });
+    
+    if (categoryId === null) {
+      this.filteredTutorials = [...this.tutorials];
+    } else {
+      const category = this.categories.find(c => c.id === categoryId);
+      if (category) {
+        this.filteredTutorials = this.tutorials.filter(t => t.category === category.name);
+      } else {
+        this.filteredTutorials = [...this.tutorials];
+      }
+    }
+  }
+
+  getCategoryColor(categoryName: string): string {
+    const category = this.categories.find(c => c.name === categoryName);
+    return category?.color || '#6366f1';
   }
 
   openCreateDialog(): void {
@@ -345,18 +475,24 @@ export class TutorialLibraryComponent implements OnInit {
 
   async saveTutorial(): Promise<void> {
     try {
+      // 查找分类ID
+      const category = this.categories.find(c => c.name === this.currentTutorial.category);
+      const categoryId = category?.id || null;
+
       if (this.isEditMode && this.editingTutorialId) {
         await this.tauriService.updateCourse(
           this.editingTutorialId,
           this.currentTutorial.name,
           this.currentTutorial.description,
-          this.currentTutorial.category
+          this.currentTutorial.category,
+          categoryId
         );
       } else {
         await this.tauriService.createCourse(
           this.currentTutorial.name,
           this.currentTutorial.description,
-          this.currentTutorial.category
+          this.currentTutorial.category,
+          categoryId
         );
       }
       this.closeDialog();
@@ -384,19 +520,60 @@ export class TutorialLibraryComponent implements OnInit {
   }
 
   getCategoryName(category: string): string {
-    const categories: { [key: string]: string } = {
-      physics: '物理',
-      chemistry: '化学',
-      biology: '生物',
-      math: '数学',
-      computer: '计算机',
-      other: '其他',
-    };
-    return categories[category] || category;
+    return category || '未分类';
   }
 
   formatDate(dateString: string): string {
     const date = new Date(dateString);
     return date.toLocaleDateString('zh-CN');
   }
+
+  openCategoryManager(): void {
+    // 简单版：使用浏览器原生prompt
+    const action = prompt('选择操作:\n1 - 创建分类\n2 - 删除分类\n3 - 查看所有分类\n输入数字：');
+    
+    if (action === '1') {
+      const name = prompt('分类名称：');
+      if (name) {
+        const color = prompt('分类颜色（十六进制，如#3b82f6）：') || '#6366f1';
+        this.categoryService.createCategory({ name, color })
+          .then(() => {
+            this.loadCategories();
+            alert('分类创建成功！');
+          })
+          .catch(err => alert('创建失败：' + err));
+      }
+    } else if (action === '2') {
+      const idStr = prompt('要删除的分类ID：');
+      if (idStr) {
+        const id = parseInt(idStr);
+        if (confirm('确定要删除这个分类吗？')) {
+          this.categoryService.deleteCategory(id)
+            .then(() => {
+              this.loadCategories();
+              this.loadTutorials();
+              alert('分类删除成功！');
+            })
+            .catch(err => alert('删除失败：' + err));
+        }
+      }
+    } else if (action === '3') {
+      const list = this.categories.map(c => `${c.id}: ${c.name} (${c.color})`).join('\n');
+      alert('所有分类:\n' + list);
+    }
+  }
 }
+
+// 颜色配置
+const CATEGORY_COLORS = [
+  '#3b82f6', // 蓝
+  '#10b981', // 绿
+  '#f59e0b', // 黄
+  '#ef4444', // 红
+  '#8b5cf6', // 紫
+  '#ec4899', // 粉
+  '#06b6d4', // 青
+  '#f97316', // 橙
+];
+
+export { CATEGORY_COLORS };

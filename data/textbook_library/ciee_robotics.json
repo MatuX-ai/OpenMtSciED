@@ -1,0 +1,458 @@
+[
+  {
+    "id": "CIEE-PPT-ROBO-L1-001",
+    "title": "机器人等级考试一级 - 第1章 机器人基础认知",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "机器人基础",
+    "related_course": "CIEE-ROBO-001",
+    "chapter": 1,
+    "knowledge_summary": [
+      "机器人的定义与发展历史",
+      "机器人的分类与应用领域",
+      "机器人基本组成部分",
+      "重心与重力概念"
+    ],
+    "duration_minutes": 40,
+    "grade_level": "小学",
+    "download_url": "https://www.qceit.org.cn/robotics/level1/ppt/chapter1.pdf",
+    "slides_count": 32
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L1-002",
+    "title": "机器人等级考试一级 - 第2章 简单机械原理",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "机器人基础",
+    "related_course": "CIEE-ROBO-001",
+    "chapter": 2,
+    "knowledge_summary": [
+      "杠杆原理与分类",
+      "轮轴与滑轮",
+      "斜面、楔与螺旋",
+      "简单机械的实际应用"
+    ],
+    "duration_minutes": 45,
+    "grade_level": "小学",
+    "download_url": "https://www.qceit.org.cn/robotics/level1/ppt/chapter2.pdf",
+    "slides_count": 38
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L1-003",
+    "title": "机器人等级考试一级 - 第3章 齿轮与传动",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "机器人基础",
+    "related_course": "CIEE-ROBO-001",
+    "chapter": 3,
+    "knowledge_summary": [
+      "齿轮类型与特点",
+      "齿轮比计算",
+      "链传动与带传动",
+      "机器人常用底盘"
+    ],
+    "duration_minutes": 45,
+    "grade_level": "小学",
+    "download_url": "https://www.qceit.org.cn/robotics/level1/ppt/chapter3.pdf",
+    "slides_count": 36
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L2-001",
+    "title": "机器人等级考试二级 - 第1章 驱动系统",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "机器人驱动",
+    "related_course": "CIEE-ROBO-002",
+    "chapter": 1,
+    "knowledge_summary": [
+      "电机类型：直流电机、步进电机、舵机",
+      "电机工作原理",
+      "电机选型与应用",
+      "电机驱动模块"
+    ],
+    "duration_minutes": 50,
+    "grade_level": "小学",
+    "download_url": "https://www.qceit.org.cn/robotics/level2/ppt/chapter1.pdf",
+    "slides_count": 42
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L2-002",
+    "title": "机器人等级考试二级 - 第2章 基础电路",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "机器人电路",
+    "related_course": "CIEE-ROBO-002",
+    "chapter": 2,
+    "knowledge_summary": [
+      "电路基本组成",
+      "串联与并联电路",
+      "开关控制",
+      "简单电路搭建实践"
+    ],
+    "duration_minutes": 45,
+    "grade_level": "小学",
+    "download_url": "https://www.qceit.org.cn/robotics/level2/ppt/chapter2.pdf",
+    "slides_count": 38
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L2-003",
+    "title": "机器人等级考试二级 - 第3章 传动系统进阶",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "机器人传动",
+    "related_course": "CIEE-ROBO-002",
+    "chapter": 3,
+    "knowledge_summary": [
+      "复杂齿轮组设计",
+      "差速器原理",
+      "多级传动系统",
+      "传动效率与优化"
+    ],
+    "duration_minutes": 50,
+    "grade_level": "小学",
+    "download_url": "https://www.qceit.org.cn/robotics/level2/ppt/chapter3.pdf",
+    "slides_count": 40
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L3-001",
+    "title": "机器人等级考试三级 - 第1章 开源硬件基础",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "开源硬件",
+    "related_course": "CIEE-ROBO-003",
+    "chapter": 1,
+    "knowledge_summary": [
+      "Arduino硬件平台介绍",
+      "micro:bit介绍",
+      "引脚与接口",
+      "开发环境搭建"
+    ],
+    "duration_minutes": 45,
+    "grade_level": "初中",
+    "download_url": "https://www.qceit.org.cn/robotics/level3/ppt/chapter1.pdf",
+    "slides_count": 38
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L3-002",
+    "title": "机器人等级考试三级 - 第2章 图形化编程",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "编程基础",
+    "related_course": "CIEE-ROBO-003",
+    "chapter": 2,
+    "knowledge_summary": [
+      "Scratch编程基础",
+      "顺序结构",
+      "循环结构",
+      "条件判断"
+    ],
+    "duration_minutes": 50,
+    "grade_level": "初中",
+    "download_url": "https://www.qceit.org.cn/robotics/level3/ppt/chapter2.pdf",
+    "slides_count": 44
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L3-003",
+    "title": "机器人等级考试三级 - 第3章 传感器入门",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "传感器",
+    "related_course": "CIEE-ROBO-003",
+    "chapter": 3,
+    "knowledge_summary": [
+      "触摸传感器原理与应用",
+      "红外传感器原理与应用",
+      "传感器数据采集",
+      "简单避障与寻线"
+    ],
+    "duration_minutes": 50,
+    "grade_level": "初中",
+    "download_url": "https://www.qceit.org.cn/robotics/level3/ppt/chapter3.pdf",
+    "slides_count": 42
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L4-001",
+    "title": "机器人等级考试四级 - 第1章 C/C++编程基础",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "C语言编程",
+    "related_course": "CIEE-ROBO-004",
+    "chapter": 1,
+    "knowledge_summary": [
+      "C语言变量与数据类型",
+      "运算符与表达式",
+      "条件判断语句",
+      "循环结构"
+    ],
+    "duration_minutes": 55,
+    "grade_level": "初中",
+    "download_url": "https://www.qceit.org.cn/robotics/level4/ppt/chapter1.pdf",
+    "slides_count": 48
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L4-002",
+    "title": "机器人等级考试四级 - 第2章 高级传感器",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "传感器",
+    "related_course": "CIEE-ROBO-004",
+    "chapter": 2,
+    "knowledge_summary": [
+      "超声波传感器原理与应用",
+      "光线传感器原理与应用",
+      "温度传感器原理与应用",
+      "多传感器数据读取"
+    ],
+    "duration_minutes": 55,
+    "grade_level": "初中",
+    "download_url": "https://www.qceit.org.cn/robotics/level4/ppt/chapter2.pdf",
+    "slides_count": 46
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L4-003",
+    "title": "机器人等级考试四级 - 第3章 电机控制进阶",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "电机控制",
+    "related_course": "CIEE-ROBO-004",
+    "chapter": 3,
+    "knowledge_summary": [
+      "PWM调速原理",
+      "舵机控制原理",
+      "电机驱动模块应用",
+      "精确运动控制"
+    ],
+    "duration_minutes": 55,
+    "grade_level": "初中",
+    "download_url": "https://www.qceit.org.cn/robotics/level4/ppt/chapter3.pdf",
+    "slides_count": 48
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L5-001",
+    "title": "机器人等级考试五级 - 第1章 串口通信",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "通信协议",
+    "related_course": "CIEE-ROBO-005",
+    "chapter": 1,
+    "knowledge_summary": [
+      "UART串口通信原理",
+      "串口通信协议",
+      "串口调试工具使用",
+      "串口数据收发实践"
+    ],
+    "duration_minutes": 50,
+    "grade_level": "初中",
+    "download_url": "https://www.qceit.org.cn/robotics/level5/ppt/chapter1.pdf",
+    "slides_count": 44
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L5-002",
+    "title": "机器人等级考试五级 - 第2章 I2C/SPI总线",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "通信协议",
+    "related_course": "CIEE-ROBO-005",
+    "chapter": 2,
+    "knowledge_summary": [
+      "I2C总线协议原理",
+      "SPI总线协议原理",
+      "总线通信编程实现",
+      "多设备总线通信"
+    ],
+    "duration_minutes": 55,
+    "grade_level": "初中",
+    "download_url": "https://www.qceit.org.cn/robotics/level5/ppt/chapter2.pdf",
+    "slides_count": 48
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L5-003",
+    "title": "机器人等级考试五级 - 第3章 多设备协同",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "系统集成",
+    "related_course": "CIEE-ROBO-005",
+    "chapter": 3,
+    "knowledge_summary": [
+      "多传感器数据融合",
+      "多电机协调控制",
+      "任务调度与管理",
+      "系统调试与优化"
+    ],
+    "duration_minutes": 60,
+    "grade_level": "初中",
+    "download_url": "https://www.qceit.org.cn/robotics/level5/ppt/chapter3.pdf",
+    "slides_count": 52
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L6-001",
+    "title": "机器人等级考试六级 - 第1章 WiFi/蓝牙通信",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "无线通信",
+    "related_course": "CIEE-ROBO-006",
+    "chapter": 1,
+    "knowledge_summary": [
+      "WiFi通信原理",
+      "ESP8266/ESP32模块",
+      "蓝牙通信原理",
+      "无线通信编程实践"
+    ],
+    "duration_minutes": 55,
+    "grade_level": "高中",
+    "download_url": "https://www.qceit.org.cn/robotics/level6/ppt/chapter1.pdf",
+    "slides_count": 48
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L6-002",
+    "title": "机器人等级考试六级 - 第2章 物联网协议",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "物联网",
+    "related_course": "CIEE-ROBO-006",
+    "chapter": 2,
+    "knowledge_summary": [
+      "MQTT协议原理",
+      "CoAP协议简介",
+      "物联网通信架构",
+      "协议编程实现"
+    ],
+    "duration_minutes": 60,
+    "grade_level": "高中",
+    "download_url": "https://www.qceit.org.cn/robotics/level6/ppt/chapter2.pdf",
+    "slides_count": 52
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L6-003",
+    "title": "机器人等级考试六级 - 第3章 云平台应用",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "物联网",
+    "related_course": "CIEE-ROBO-006",
+    "chapter": 3,
+    "knowledge_summary": [
+      "物联网云平台介绍",
+      "设备接入与注册",
+      "数据上传与下发",
+      "智能家居应用实例"
+    ],
+    "duration_minutes": 60,
+    "grade_level": "高中",
+    "download_url": "https://www.qceit.org.cn/robotics/level6/ppt/chapter3.pdf",
+    "slides_count": 54
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L7-001",
+    "title": "机器人等级考试七级 - 第1章 Python编程",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "Python编程",
+    "related_course": "CIEE-ROBO-007",
+    "chapter": 1,
+    "knowledge_summary": [
+      "Python语法基础",
+      "数据结构：列表、字典、元组",
+      "函数定义与调用",
+      "模块与包管理"
+    ],
+    "duration_minutes": 60,
+    "grade_level": "高中",
+    "download_url": "https://www.qceit.org.cn/robotics/level7/ppt/chapter1.pdf",
+    "slides_count": 52
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L7-002",
+    "title": "机器人等级考试七级 - 第2章 人工智能基础",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "人工智能",
+    "related_course": "CIEE-ROBO-007",
+    "chapter": 2,
+    "knowledge_summary": [
+      "机器学习基本概念",
+      "监督学习与无监督学习",
+      "神经网络基础",
+      "深度学习框架简介"
+    ],
+    "duration_minutes": 65,
+    "grade_level": "高中",
+    "download_url": "https://www.qceit.org.cn/robotics/level7/ppt/chapter2.pdf",
+    "slides_count": 58
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L7-003",
+    "title": "机器人等级考试七级 - 第3章 机器视觉",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "机器视觉",
+    "related_course": "CIEE-ROBO-007",
+    "chapter": 3,
+    "knowledge_summary": [
+      "OpenCV图像处理基础",
+      "图像滤波与边缘检测",
+      "目标识别与跟踪",
+      "视觉导航应用"
+    ],
+    "duration_minutes": 65,
+    "grade_level": "高中",
+    "download_url": "https://www.qceit.org.cn/robotics/level7/ppt/chapter3.pdf",
+    "slides_count": 56
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L8-001",
+    "title": "机器人等级考试八级 - 第1章 ROS系统基础",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "ROS系统",
+    "related_course": "CIEE-ROBO-008",
+    "chapter": 1,
+    "knowledge_summary": [
+      "ROS架构与核心概念",
+      "节点与话题通信",
+      "服务与动作",
+      "ROS工具与调试"
+    ],
+    "duration_minutes": 65,
+    "grade_level": "高中",
+    "download_url": "https://www.qceit.org.cn/robotics/level8/ppt/chapter1.pdf",
+    "slides_count": 56
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L8-002",
+    "title": "机器人等级考试八级 - 第2章 SLAM导航",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "导航技术",
+    "related_course": "CIEE-ROBO-008",
+    "chapter": 2,
+    "knowledge_summary": [
+      "SLAM原理与算法",
+      "激光雷达数据处理",
+      "路径规划算法",
+      "自主导航实践"
+    ],
+    "duration_minutes": 70,
+    "grade_level": "高中",
+    "download_url": "https://www.qceit.org.cn/robotics/level8/ppt/chapter2.pdf",
+    "slides_count": 62
+  },
+  {
+    "id": "CIEE-PPT-ROBO-L8-003",
+    "title": "机器人等级考试八级 - 第3章 自主决策",
+    "source": "中国电子学会",
+    "category": "机器人技术",
+    "subject": "智能决策",
+    "related_course": "CIEE-ROBO-008",
+    "chapter": 3,
+    "knowledge_summary": [
+      "行为树原理与应用",
+      "状态机设计",
+      "智能决策算法",
+      "复杂任务规划"
+    ],
+    "duration_minutes": 70,
+    "grade_level": "高中",
+    "download_url": "https://www.qceit.org.cn/robotics/level8/ppt/chapter3.pdf",
+    "slides_count": 60
+  }
+]

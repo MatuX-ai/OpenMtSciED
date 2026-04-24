@@ -57,8 +57,6 @@ export interface HardwareProject {
   /** 教学指南 */
   teaching_guide?: string;
 
-  /** 是否支持 WebUSB 烧录 */
-  webusb_support?: boolean;
 
   /** 支持的開發板列表 */
   supported_boards?: string[];

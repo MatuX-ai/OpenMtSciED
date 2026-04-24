@@ -5,7 +5,7 @@
 ### ✅ 已完成
 - [x] Setup Wizard（基础版 - 仅教师信息）
 - [x] Dashboard（仪表盘）
-- [x] Course Library（课程库 CRUD）
+- [x] Course Library（教程库 CRUD）
 - [x] Material Library（课件库 CRUD）
 - [x] Settings（设置页面 + 存储管理）
 - [x] 本地数据存储（SQLite + 自动目录）
@@ -393,7 +393,7 @@ src-tauri/tauri.conf.json  # 添加 updater 配置
 ### MVP 功能清单
 - [x] Setup Wizard（教师信息）
 - [ ] **API 配置** ← 必须补充
-- [x] 课程库管理
+- [x] 教程库管理
 - [x] 课件库管理
 - [ ] **文件预览** ← 强烈建议
 - [ ] **数据导出** ← 强烈建议

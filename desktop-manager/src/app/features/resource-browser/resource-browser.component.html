@@ -1,0 +1,31 @@
+<div class="browser-container">
+  <!-- 左侧：教程库 -->
+  <div class="sidebar">
+    <h3>📚 教程库 (Tutorials)</h3>
+    <div class="list-group">
+      <div 
+        *ngFor="let t of tutorials" 
+        class="list-item"
+        [class.active]="selectedTutorial?.id === t.id"
+        (click)="selectTutorial(t)"
+      >
+        <div class="item-title">{{ t.title }}</div>
+        <div class="item-meta">{{ t.subject }} | 难度: {{ t.difficulty }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 右侧：联动课件库 -->
+  <div class="main-content">
+    <h3 *ngIf="selectedTutorial">🔗 关联课件: {{ selectedTutorial.title }}</h3>
+    <h3 *ngIf="!selectedTutorial">👈 请选择一个教程单元</h3>
+    
+    <div class="grid-view">
+      <div *ngFor="let c of coursewares" class="card">
+        <h4>{{ c.title }}</h4>
+        <p>{{ c.description }}</p>
+        <button class="btn-sm">查看详情</button>
+      </div>
+    </div>
+  </div>
+</div>

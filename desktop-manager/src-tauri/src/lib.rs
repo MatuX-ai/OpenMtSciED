@@ -52,13 +52,21 @@ pub fn run() {
       Ok(())
     })
     .invoke_handler(tauri::generate_handler![
+      // 分类管理
+      commands::category::get_categories,
+      commands::category::create_category,
+      commands::category::update_category,
+      commands::category::delete_category,
+      // 课程管理
       commands::course::get_courses,
       commands::course::create_course,
       commands::course::update_course,
       commands::course::delete_course,
+      // 课件管理
       commands::material::get_materials,
       commands::material::upload_material,
       commands::material::delete_material,
+      // 资源管理
       commands::resource::import_resources_from_json,
       commands::resource::browse_open_resources,
       commands::resource::get_resource_detail,
@@ -66,12 +74,21 @@ pub fn run() {
       commands::resource::get_local_resources,
       commands::resource::get_resource_tags,
       commands::resource::browse_resources_by_tag,
+      // 存储管理
       commands::storage::get_storage_info,
       commands::storage::get_folder_size,
+      // API配置
       commands::api_config::save_api_config,
       commands::api_config::get_api_config,
       commands::api_config::delete_api_config,
       commands::api_config::test_api_connection,
+      // 导入导出
+      commands::import_export::export_courses_to_json,
+      commands::import_export::import_courses_from_json,
+      commands::import_export::export_materials_to_csv,
+      commands::import_export::backup_database,
+      commands::import_export::restore_database,
+      // 工具
       commands::utils::open_url,
     ])
     .run(tauri::generate_context!())
