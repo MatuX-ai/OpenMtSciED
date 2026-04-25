@@ -9,6 +9,8 @@ from pydantic import BaseModel
 import sqlite3
 import json
 import os
+import requests
+import base64
 from pathlib import Path
 
 logging.basicConfig(level=logging.INFO)
@@ -16,6 +18,11 @@ logger = logging.getLogger(__name__)
 
 # 本地数据库路径 (Tauri 桌面端共享)
 DB_PATH = os.getenv("LOCAL_DB_PATH", "../../desktop-manager/openmtscied_local.db")
+
+# Neo4j HTTP API 配置
+NEO4J_URI = os.getenv("NEO4J_URI", "https://4abd5ef9.databases.neo4j.io/db/4abd5ef9/query/v2")
+NEO4J_USER = os.getenv("NEO4J_USER", "4abd5ef9")
+NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "bXebDaB8hSalBxvvB5GhHmcvudO03ilZB7qItmI0Xbs")
 
 
 class LearningPathNode(BaseModel):
@@ -32,6 +39,56 @@ class TagBasedPathGenerator:
     def __init__(self, db_path: str = DB_PATH):
         self.db_path = Path(db_path)
         logger.info(f"Initialized TagBasedPathGenerator with DB: {self.db_path}")
+
+    def _get_neo4j_headers(self):
+        auth_string = f"{NEO4J_USER}:{NEO4J_PASSWORD}"
+        auth_bytes = auth_string.encode('ascii')
+        auth_base64 = base64.b64encode(auth_bytes).decode('ascii')
+        return {
+            "Content-Type": "application/json",
+            "Authorization": f"Basic {auth_base64}"
+        }
+
+    def generate_path_from_graph(self, subject: str, grade_level: str, max_nodes: int = 10) -> List[LearningPathNode]:
+        """从 Neo4j 知识图谱生成连贯路径"""
+        nodes = []
+        try:
+            # 使用参数化查询防止注入
+            query = """
+            MATCH path = (start:CourseUnit {subject: $subject, grade_level: $grade_level})-[:PROGRESSES_TO*1..3]->(end)
+            WITH nodes(path) AS path_nodes
+            UNWIND path_nodes AS node
+            RETURN DISTINCT node.id AS id, node.title AS title, labels(node)[0] AS type, 
+                   node.subject AS subject, node.grade_level AS level
+            LIMIT $max_nodes
+            """
+            params = {
+                "subject": subject,
+                "grade_level": grade_level,
+                "max_nodes": max_nodes
+            }
+            response = requests.post(
+                NEO4J_URI, 
+                headers=self._get_neo4j_headers(), 
+                json={"statement": query, "parameters": params}, 
+                verify=False, 
+                timeout=10
+            )
+            if response.status_code == 200:
+                data = response.json()
+                for row in data.get('data', []):
+                    row_data = row['row']
+                    nodes.append(LearningPathNode(
+                        node_type=row_data[2].lower(),
+                        node_id=row_data[0],
+                        title=row_data[1],
+                        difficulty=3, # 默认难度
+                        estimated_hours=4.0,
+                        tags={"source": "Neo4j Graph"}
+                    ))
+        except Exception as e:
+            logger.error(f"Neo4j graph path generation failed: {e}")
+        return nodes
 
     def _get_db_connection(self):
         if not self.db_path.exists():
@@ -116,11 +173,12 @@ class PathEngine:
     路径引擎：支持多种策略（标签匹配、图谱推理、AI推荐）
     """
     def __init__(self, db_path: str = DB_PATH):
-        self.generator = TagBasedPathGenerator(db_path)
+        self.db_path = db_path
 
     def generate(self, strategy: str = "tag_based", **kwargs) -> List[LearningPathNode]:
         if strategy == "tag_based":
-            return self.generator.generate_path(**kwargs)
+            generator = TagBasedPathGenerator(self.db_path)
+            return generator.generate_path(**kwargs)
         # TODO: 增加 graph_based 和 ai_recommended 策略
         return []
 

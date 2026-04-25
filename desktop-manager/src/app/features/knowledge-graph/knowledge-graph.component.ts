@@ -5,13 +5,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 // 声明 ECharts
 declare var echarts: any;
 
 interface KnowledgeNode {
   id: string;
-  type: 'tutorial' | 'material';
+  type: 'tutorial' | 'material' | 'hardware';
   title: string;
   source: string;
   level: 'elementary' | 'middle' | 'high' | 'university';
@@ -22,7 +24,7 @@ interface KnowledgeNode {
 interface KnowledgeEdge {
   from: string;
   to: string;
-  relation: 'prerequisite' | 'related' | 'progression';
+  relation: 'prerequisite' | 'related' | 'progression' | 'aligns_with';
 }
 
 interface LearningPath {
@@ -43,6 +45,8 @@ interface LearningPath {
     MatIconModule,
     MatSnackBarModule,
     MatTabsModule,
+    MatFormFieldModule,
+    MatSelectModule,
   ],
   template: `
     <div class="knowledge-graph-container">
@@ -73,6 +77,19 @@ interface LearningPath {
         </mat-tab-group>
       </div>
 
+      <!-- 筛选器 -->
+      <div class="filters">
+        <mat-form-field appearance="outline" class="filter-item">
+          <mat-label>学段跨度</mat-label>
+          <mat-select [(value)]="selectedLevelSpan" (selectionChange)="onFilterChange()">
+            <mat-option value="all">全部</mat-option>
+            <mat-option value="elementary-middle">小学 → 初中</mat-option>
+            <mat-option value="middle-high">初中 → 高中</mat-option>
+            <mat-option value="high-university">高中 → 大学</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
       <!-- ECharts 图表容器 -->
       <div #chartContainer class="chart-container"></div>
 
@@ -97,6 +114,14 @@ interface LearningPath {
         <div class="legend-item">
           <span class="legend-line progression"></span>
           <span>进阶路径</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color hardware"></span>
+          <span>硬件项目</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-line aligns_with"></span>
+          <span>标准对齐</span>
         </div>
       </div>
 
@@ -223,6 +248,10 @@ interface LearningPath {
       &.material {
         background: #f093fb;
       }
+
+      &.hardware {
+        background: #4caf50;
+      }
     }
 
     .legend-line {
@@ -241,6 +270,10 @@ interface LearningPath {
       &.progression {
         background: #ffa502;
       }
+
+      &.aligns_with {
+        background: #9c27b0;
+      }
     }
 
     .actions {
@@ -249,6 +282,16 @@ interface LearningPath {
       gap: 12px;
       padding: 16px;
       margin-top: 16px;
+    }
+
+    .filters {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .filter-item {
+      width: 200px;
     }
 
     ::ng-deep .mat-mdc-tab-body-wrapper {
@@ -261,12 +304,23 @@ export class KnowledgeGraphComponent implements OnInit, AfterViewInit {
 
   learningPaths: LearningPath[] = [];
   selectedPathIndex = 0;
+  selectedLevelSpan: string = 'all';
   private chart: any = null;
 
   constructor(private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.learningPaths = this.getMockLearningPaths();
+    // TODO: 替换为真实 API 调用
+    // this.loadRealLearningPaths();
+  }
+
+  loadRealLearningPaths(): void {
+    // 模拟从后端获取数据
+    console.log('正在从 Neo4j 加载真实学习路径...');
+    // fetch('/api/learning/path?subject=Physics&grade_level=middle')
+    //   .then(res => res.json())
+    //   .then(data => { this.learningPaths = data; this.updateChart(); });
   }
 
   ngAfterViewInit(): void {
@@ -300,16 +354,30 @@ export class KnowledgeGraphComponent implements OnInit, AfterViewInit {
     }
 
     const currentPath = this.learningPaths[this.selectedPathIndex];
+    let filteredNodes = currentPath.nodes;
+
+    // 根据学段跨度筛选
+    if (this.selectedLevelSpan !== 'all') {
+      const [start, end] = this.selectedLevelSpan.split('-');
+      const levelOrder = ['elementary', 'middle', 'high', 'university'];
+      const startIndex = levelOrder.indexOf(start);
+      const endIndex = levelOrder.indexOf(end);
+      
+      filteredNodes = currentPath.nodes.filter(node => {
+        const nodeIndex = levelOrder.indexOf(node.level);
+        return nodeIndex >= startIndex && nodeIndex <= endIndex;
+      });
+    }
 
     // 构建节点数据
-    const nodes = currentPath.nodes.map(node => ({
+    const nodes = filteredNodes.map(node => ({
       id: node.id,
       name: node.title,
-      symbolSize: node.type === 'tutorial' ? 60 : 50,
-      category: node.type === 'tutorial' ? 0 : 1,
+      symbolSize: node.type === 'tutorial' ? 60 : (node.type === 'material' ? 50 : 45),
+      category: node.type === 'tutorial' ? 0 : (node.type === 'material' ? 1 : 2),
       value: node.difficulty || 3,
       itemStyle: {
-        color: node.type === 'tutorial' ? '#667eea' : '#f093fb'
+        color: node.type === 'tutorial' ? '#667eea' : (node.type === 'material' ? '#f093fb' : '#4caf50')
       },
       label: {
         show: true,
@@ -356,7 +424,7 @@ export class KnowledgeGraphComponent implements OnInit, AfterViewInit {
             if (node) {
               return `
                 <strong>${node.title}</strong><br/>
-                类型: ${node.type === 'tutorial' ? '教程' : '课件'}<br/>
+                类型: ${node.type === 'tutorial' ? '教程' : (node.type === 'material' ? '课件' : '硬件')}<br/>
                 来源: ${node.source}<br/>
                 学段: ${this.getLevelName(node.level)}<br/>
                 学科: ${this.getSubjectName(node.subject)}
@@ -367,7 +435,7 @@ export class KnowledgeGraphComponent implements OnInit, AfterViewInit {
         }
       },
       legend: {
-        data: ['教程', '课件'],
+        data: ['教程', '课件', '硬件项目'],
         bottom: 10,
         left: 'center'
       },
@@ -379,7 +447,8 @@ export class KnowledgeGraphComponent implements OnInit, AfterViewInit {
           links: edges,
           categories: [
             { name: '教程' },
-            { name: '课件' }
+            { name: '课件' },
+            { name: '硬件项目' }
           ],
           roam: true,
           label: {
@@ -466,7 +535,8 @@ export class KnowledgeGraphComponent implements OnInit, AfterViewInit {
     const colors: Record<string, string> = {
       prerequisite: '#ff6b6b',  // 红色 - 前置关系
       related: '#4ecdc4',       // 青色 - 相关资源
-      progression: '#ffa502'    // 橙色 - 进阶路径
+      progression: '#ffa502',   // 橙色 - 进阶路径
+      aligns_with: '#9c27b0'    // 紫色 - 标准对齐
     };
     return colors[relation] || '#999';
   }
@@ -475,9 +545,14 @@ export class KnowledgeGraphComponent implements OnInit, AfterViewInit {
     const labels: Record<string, string> = {
       prerequisite: '前置',
       related: '相关',
-      progression: '进阶'
+      progression: '进阶',
+      aligns_with: 'PBL对齐'
     };
     return labels[relation] || '';
+  }
+
+  onFilterChange(): void {
+    this.updateChart();
   }
 
   private getMockLearningPaths(): LearningPath[] {

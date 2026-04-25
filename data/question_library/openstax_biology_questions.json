@@ -1,0 +1,743 @@
+[
+  {
+    "content": "The first forms of life on Earth were ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "plants",
+      "microorganisms",
+      "birds",
+      "dinosaurs"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.4,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "A suggested and testable explanation for an event is called a ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "hypothesis",
+      "variable",
+      "theory",
+      "control"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "Which of the following sciences is not considered a natural science?",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "biology",
+      "astronomy",
+      "physics",
+      "computer science"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "The type of logical thinking that uses related observations to arrive at a general conclusion is called ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "deductive reasoning",
+      "the scientific method",
+      "hypothesis-based science",
+      "inductive reasoning"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "The process of ________ helps to ensure that a scientistâs research is original, significant, logical, and thorough.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "publication",
+      "public speaking",
+      "peer review",
+      "the scientific method"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "A person notices that her houseplants that are regularly exposed to music seem to grow more quickly than those in rooms with no music. As a result, she determines that plants grow better when exposed to music. This example most closely resembles which type of reasoning?",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "inductive reasoning",
+      "deductive reasoning",
+      "neither, because no hypothesis was made",
+      "both inductive and deductive reasoning"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.6,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "The smallest unit of biological structure that meets the functional requirements of âlivingâ is the ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "organ",
+      "organelle",
+      "cell",
+      "macromolecule"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "Viruses are not considered living because they ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "are not made of cells",
+      "lack cell nuclei",
+      "do not contain DNA or RNA",
+      "cannot reproduce"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "The presence of a membrane-enclosed nucleus is a characteristic of ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "prokaryotic cells",
+      "eukaryotic cells",
+      "living organisms",
+      "bacteria"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "A group of individuals of the same species living in the same area is called a(n) ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "family",
+      "community",
+      "population",
+      "ecosystem"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "Which of the following sequences represents the hierarchy of biological organization from the most inclusive to the least complex level?",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "organelle, tissue, biosphere, ecosystem, population",
+      "organ, organism, tissue, organelle, molecule",
+      "organism, community, biosphere, molecule, tissue, organ",
+      "biosphere, ecosystem, community, population, organism"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "Where in a phylogenetic tree would you expect to find the organism that had evolved most recently?",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "at the base",
+      "within the branches",
+      "at the nodes",
+      "at the branch tips"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "If xenon has an atomic number of 54 and a mass number of 108, how many neutrons does it have?",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "54",
+      "27",
+      "100",
+      "108"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第2章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_2"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "Atoms that vary in the number of neutrons found in their nuclei are called ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "ions",
+      "neutrons",
+      "neutral atoms",
+      "isotopes"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第2章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_2"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "Potassium has an atomic number of 19. What is its electron configuration?",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "shells 1 and 2 are full, and shell 3 has nine electrons",
+      "shells 1, 2 and 3 are full and shell 4 has three electrons",
+      "shells 1, 2 and 3 are full and shell 4 has one electron",
+      "shells 1, 2 and 3 are full and no other electrons are present"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第2章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_2"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "Which type of bond represents a weak chemical bond?",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "hydrogen bond",
+      "atomic bond",
+      "covalent bond",
+      "nonpolar covalent bond"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第2章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_2"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "Which of the following statements is not true?",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "Water is polar.",
+      "Water stabilizes temperature.",
+      "Water is essential for life.",
+      "Water is the most abundant molecule in the Earthâs atmosphere."
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第2章复习题",
+    "difficulty": 0.4,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_2"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "When acids are added to a solution, the pH should ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "decrease",
+      "increase",
+      "stay the same",
+      "cannot tell without testing"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第2章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_2"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "We call a molecule that binds up excess hydrogen ions in a solution a(n) ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "acid",
+      "isotope",
+      "base",
+      "donator"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第2章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_2"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "Which of the following statements is true?",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "Acids and bases cannot mix together.",
+      "Acids and bases will neutralize each other.",
+      "Acids, but not bases, can change the pH of a solution.",
+      "Acids donate hydroxide ions (OHâ); bases donate hydrogen ions (H+)."
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第2章复习题",
+    "difficulty": 0.4,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_2"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "Each carbon atom can bond with as many as________ other atom(s) or molecule(s).",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "one",
+      "two",
+      "six",
+      "four"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第2章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_2"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "Which of the following is not a functional group that can bond with carbon?",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "sodium",
+      "hydroxyl",
+      "phosphate",
+      "carbonyl"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第2章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_2"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "Dehydration synthesis leads to formation of",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "monomers",
+      "polymers",
+      "water and polymers",
+      "none of the above"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第3章复习题",
+    "difficulty": 0.4,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_3"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "During the breakdown of polymers, which of the following reactions takes place?",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "hydrolysis",
+      "dehydration",
+      "condensation",
+      "covalent bond"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第3章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_3"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "The following chemical reactants produce the ester ethyl ethanoate (C4H8O2):",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "condensation",
+      "hydrolysis",
+      "combustion",
+      "acid-base reaction"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第3章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_3"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "An example of a monosaccharide is ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "fructose",
+      "glucose",
+      "galactose",
+      "all of the above"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第3章复习题",
+    "difficulty": 0.4,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_3"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "Cellulose and starch are examples of:",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "monosaccharides",
+      "disaccharides",
+      "lipids",
+      "polysaccharides"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第3章复习题",
+    "difficulty": 0.4,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_3"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "Plant cell walls contain which of the following in abundance?",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "starch",
+      "cellulose",
+      "glycogen",
+      "lactose"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第3章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_3"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "Lactose is a disaccharide formed by the formation of a ________ bond between glucose and ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "glycosidic; lactose",
+      "glycosidic; galactose",
+      "hydrogen; sucrose",
+      "hydrogen; fructose"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第3章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_3"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "Which of the following is not an extracellular matrix role of carbohydrates?",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "protect an insectâs internal organs from external trauma",
+      "prevent plant cells from lysing after the plant is watered",
+      "maintain the shape of a fungal spore",
+      "provide energy for muscle movement"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第3章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_3"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "Saturated fats have all of the following characteristics except:",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "they are solid at room temperature",
+      "they have single bonds within the carbon chain",
+      "they are usually obtained from animal sources",
+      "they tend to dissolve in water easily"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第3章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_3"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "Phospholipids are important components of ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "the plasma membrane of cells",
+      "the ring structure of steroids",
+      "the waxy covering on leaves",
+      "the double bond in hydrocarbon chains"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第3章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_3"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "Cholesterol is an integral part of plasma membranes. Based on its structure, where is it found in the membrane?",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "on the extracellular surface",
+      "embedded with the phospholipid heads",
+      "within the tail bilayer",
+      "attached to the intracellular surface"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第3章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_3"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "The monomers that make up proteins are called ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "nucleotides",
+      "disaccharides",
+      "amino acids",
+      "chaperones"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第3章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_3"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "TheÎ±-helix and theÎ²-pleated sheet are part of which protein structure?",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "primary",
+      "secondary",
+      "tertiary",
+      "quaternary"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第3章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_3"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "Mad cow disease is an infectious disease where one misfolded protein causes all other copies of the protein to begin misfolding. This is an example of a disease impacting ____ structure.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "primary",
+      "secondary",
+      "tertiary",
+      "quaternary"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第3章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_3"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "A nucleotide of DNA may contain ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "ribose, uracil, and a phosphate group",
+      "deoxyribose, uracil, and a phosphate group",
+      "deoxyribose, thymine, and a phosphate group",
+      "ribose, thymine, and a phosphate group"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第3章复习题",
+    "difficulty": 0.4,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_3"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "The building blocks of nucleic acids are ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "sugars",
+      "nitrogenous bases",
+      "peptides",
+      "nucleotides"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第3章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_3"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.446019"
+  },
+  {
+    "content": "How does the double helix structure of DNA support its role in encoding the genome?",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "The sugar-phosphate backbone provides a template for DNA replication.",
+      "tRNA pairing with the template strand creates proteins encoded by the genome.",
+      "Complementary base pairing creates a very stable structure.",
+      "Complementary base pairing allows for easy editing of both strands of DNA."
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第3章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_3"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:26:10.447019"
+  }
+]

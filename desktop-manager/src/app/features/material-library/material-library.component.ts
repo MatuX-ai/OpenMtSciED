@@ -9,12 +9,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
+import { ActivatedRoute } from '@angular/router';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { TauriService } from '../../core/services';
 import { ShortcutService } from '../../core/services/shortcut.service';
 import { SearchBarComponent } from '../../shared/components/search-bar/search-bar.component';
+import { ResourceAssociationsComponent } from '../../shared/components/resource-associations/resource-associations.component';
 
 import { OpenMaterialBrowserComponent } from './open-material-browser/open-material-browser.component';
 
@@ -25,6 +28,11 @@ interface Material {
   fileSize: number;
   courseId: number;
   createdAt?: string;
+}
+
+interface Course {
+  id: number;
+  name: string;
 }
 
 @Component({
@@ -42,21 +50,26 @@ interface Material {
     MatSelectModule,
     MatIconModule,
     MatTabsModule,
+    MatSnackBarModule,
     OpenMaterialBrowserComponent,
     SearchBarComponent,
+    ResourceAssociationsComponent,
+    ScrollingModule,
   ],
   template: `
     <div class="material-library-container">
-      <!-- 顶部操作栏 -->
-      <div class="toolbar">
-        <h1>📁 课件库</h1>
-        <button
-          mat-raised-button
-          color="primary"
-          (click)="openUploadDialog()"
-          *ngIf="selectedTabIndex === 0"
-        >
-          <i class="ri-upload-cloud-line"></i> 上传课件
+      <!-- 页面头部 -->
+      <div class="page-header">
+        <div class="header-content">
+          <h1 class="page-title">
+            <span class="title-icon">📁</span>
+            课件库
+          </h1>
+          <p class="page-subtitle">管理您的教学课件和学习资料</p>
+        </div>
+        <button mat-raised-button class="upload-btn" (click)="openUploadDialog()" *ngIf="selectedTabIndex === 0">
+          <mat-icon>cloud_upload</mat-icon>
+          上传课件
         </button>
       </div>
 
@@ -64,72 +77,100 @@ interface Material {
       <app-search-bar *ngIf="selectedTabIndex === 1"></app-search-bar>
 
       <!-- 标签页切换 -->
-      <mat-tab-group [(selectedIndex)]="selectedTabIndex">
+      <mat-tab-group [(selectedIndex)]="selectedTabIndex" class="modern-tabs">
         <mat-tab label="我的课件">
           <ng-template matTabContent>
             <!-- 筛选栏 -->
             <div class="filter-bar">
-              <mat-form-field appearance="outline" class="course-filter">
-                <mat-label>选择课程</mat-label>
-                <mat-select [(ngModel)]="selectedCourseId" (selectionChange)="loadMaterials()">
-                  <mat-option [value]="0">全部课程</mat-option>
-                  <mat-option *ngFor="let course of courses" [value]="course.id">
-                    {{ course.name }}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
+              <div class="filter-group">
+                <label class="filter-label">
+                  <mat-icon>filter_list</mat-icon>
+                  选择课程
+                </label>
+                <mat-form-field appearance="outline" class="course-filter full-width">
+                  <mat-select [(ngModel)]="selectedCourseId" (selectionChange)="loadMaterials()">
+                    <mat-option [value]="0">全部课程</mat-option>
+                    <mat-option *ngFor="let course of courses" [value]="course.id">
+                      {{ course.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
             </div>
 
-            <!-- 课件列表 -->
+            <!-- 批量操作栏 -->
             <div class="batch-actions" *ngIf="selectedMaterials.length > 0">
-              <span class="selected-count">已选择 {{ selectedMaterials.length }} 个课件</span>
-              <button mat-button color="warn" (click)="batchDelete()">
+              <span class="selected-count">
+                <mat-icon>check_circle</mat-icon>
+                已选择 {{ selectedMaterials.length }} 个课件
+              </span>
+              <button mat-stroked-button class="action-btn btn-danger" (click)="batchDelete()">
                 <mat-icon>delete</mat-icon>
                 批量删除
               </button>
             </div>
             
-            <div class="material-grid">
-              <mat-card *ngFor="let material of materials" class="material-card" [class.selected]="isSelected(material.id!)">
-                <div class="card-checkbox">
-                  <mat-checkbox 
-                    [checked]="isSelected(material.id!)" 
-                    (change)="toggleSelection(material.id!)"
-                    (click)="$event.stopPropagation()">
-                  </mat-checkbox>
-                </div>
-                <mat-card-header>
-                  <div mat-card-avatar class="file-icon">
-                    <i class="{{ getFileIcon(material.filePath) }}"></i>
+            <!-- 课件列表 -->
+            <cdk-virtual-scroll-viewport itemSize="180" class="material-viewport">
+              <div class="material-grid">
+                <mat-card *ngFor="let material of materials" class="material-card" [class.selected]="isSelected(material.id!)">
+                  <div class="card-checkbox">
+                    <mat-checkbox 
+                      [checked]="isSelected(material.id!)" 
+                      (change)="toggleSelection(material.id!)"
+                      (click)="$event.stopPropagation()">
+                    </mat-checkbox>
                   </div>
-                  <mat-card-title>{{ material.name }}</mat-card-title>
-                  <mat-card-subtitle>{{ formatFileSize(material.fileSize) }}</mat-card-subtitle>
-                </mat-card-header>
-                <mat-card-content>
-                  <p class="file-path">{{ material.filePath }}</p>
-                  <div class="material-meta">
-                    <span *ngIf="material.createdAt">
-                      <i class="ri-time-line"></i> {{ formatDate(material.createdAt) }}
-                    </span>
-                  </div>
-                </mat-card-content>
-                <mat-card-actions>
-                  <button mat-button color="primary" (click)="previewMaterial(material)">
-                    <i class="ri-eye-line"></i> 预览
-                  </button>
-                  <button mat-button color="accent"><i class="ri-download-line"></i> 下载</button>
-                  <button mat-button color="warn" (click)="deleteMaterial(material.id!)">
-                    <i class="ri-delete-bin-line"></i> 删除
-                  </button>
-                </mat-card-actions>
-              </mat-card>
+                  <div class="card-gradient"></div>
+                  <mat-card-header>
+                    <div class="file-icon">
+                      <mat-icon>{{ getFileIcon(material.filePath) }}</mat-icon>
+                    </div>
+                    <div class="header-info">
+                      <mat-card-title>{{ material.name }}</mat-card-title>
+                      <mat-card-subtitle>
+                        <mat-icon>storage</mat-icon>
+                        {{ formatFileSize(material.fileSize) }}
+                      </mat-card-subtitle>
+                    </div>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <p class="file-path">{{ material.filePath }}</p>
+                    <div class="material-meta" *ngIf="material.createdAt">
+                      <mat-icon>schedule</mat-icon>
+                      <span>{{ formatDate(material.createdAt) }}</span>
+                    </div>
+                  </mat-card-content>
+                  <mat-card-actions class="card-actions">
+                    <button mat-stroked-button class="action-btn btn-preview" (click)="previewMaterial(material)">
+                      <mat-icon>visibility</mat-icon>
+                      预览
+                    </button>
+                    <button mat-stroked-button class="action-btn btn-hardware" (click)="viewRequiredHardware(material)">
+                      <mat-icon>build</mat-icon>
+                      硬件
+                    </button>
+                    <button mat-stroked-button class="action-btn btn-delete" (click)="deleteMaterial(material.id!)">
+                      <mat-icon>delete</mat-icon>
+                      删除
+                    </button>
+                  </mat-card-actions>
+                </mat-card>
 
-              <!-- 空状态 -->
-              <div *ngIf="materials.length === 0" class="empty-state">
-                <i class="ri-folder-2-line"></i>
-                <p>暂无课件，点击右上角按钮上传第一个课件</p>
+                <!-- 空状态 -->
+                <div *ngIf="materials.length === 0" class="empty-state">
+                  <div class="empty-icon">
+                    <mat-icon>folder_open</mat-icon>
+                  </div>
+                  <h3>暂无课件</h3>
+                  <p>点击右上角"上传课件"按钮添加您的第一个课件</p>
+                  <button mat-raised-button class="upload-btn" (click)="openUploadDialog()">
+                    <mat-icon>cloud_upload</mat-icon>
+                    上传课件
+                  </button>
+                </div>
               </div>
-            </div>
+            </cdk-virtual-scroll-viewport>
           </ng-template>
         </mat-tab>
 
@@ -143,49 +184,79 @@ interface Material {
 
     <!-- 上传对话框模板 -->
     <ng-template #uploadDialogTemplate>
-      <div class="dialog-content">
-        <h2>上传课件</h2>
-        <form (ngSubmit)="uploadMaterial()">
-          <mat-form-field appearance="outline" class="full-width">
-            <mat-label>课件名称</mat-label>
-            <input
-              matInput
-              [(ngModel)]="currentMaterial.name"
-              name="name"
-              required
-              placeholder="请输入课件名称"
-            />
-          </mat-form-field>
-
-          <mat-form-field appearance="outline" class="full-width">
-            <mat-label>所属课程</mat-label>
-            <mat-select [(ngModel)]="currentMaterial.courseId" name="courseId">
-              <mat-option *ngFor="let course of courses" [value]="course.id">
-                {{ course.name }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-
-          <div class="file-upload-area">
-            <i class="ri-file-upload-line"></i>
-            <p>点击或拖拽文件到此处</p>
-            <input type="file" (change)="onFileSelected($event)" hidden #fileInput />
-            <button mat-button type="button" (click)="fileInput.click()">选择文件</button>
-            <p *ngIf="selectedFileName" class="selected-file">{{ selectedFileName }}</p>
+      <div class="modern-dialog">
+        <div class="dialog-header">
+          <div class="header-icon">
+            <mat-icon>cloud_upload</mat-icon>
           </div>
+          <h2>上传课件</h2>
+          <p>添加新的教学课件到课程中</p>
+        </div>
+        
+        <div class="dialog-body">
+          <form (ngSubmit)="uploadMaterial()">
+            <div class="form-group">
+              <label class="form-label">
+                <mat-icon>label</mat-icon>
+                课件名称
+              </label>
+              <input 
+                matInput 
+                [(ngModel)]="currentMaterial.name" 
+                name="name" 
+                required 
+                placeholder="请输入课件名称"
+                class="modern-input"
+              />
+            </div>
 
-          <div class="dialog-actions">
-            <button mat-button type="button" (click)="closeDialog()">取消</button>
-            <button
-              mat-raised-button
-              color="primary"
-              type="submit"
-              [disabled]="!currentMaterial.name || !currentMaterial.courseId || !selectedFile"
-            >
-              上传
-            </button>
-          </div>
-        </form>
+            <div class="form-group">
+              <label class="form-label">
+                <mat-icon>school</mat-icon>
+                所属课程
+              </label>
+              <mat-form-field appearance="outline" class="full-width-select">
+                <mat-select [(ngModel)]="currentMaterial.courseId" name="courseId">
+                  <mat-option *ngFor="let course of courses" [value]="course.id">
+                    {{ course.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">
+                <mat-icon>attach_file</mat-icon>
+                选择文件
+              </label>
+              <div class="file-upload-area" (click)="fileInput.click()">
+                <mat-icon class="upload-icon">upload_file</mat-icon>
+                <p class="upload-text">点击或拖拽文件到此处</p>
+                <p class="upload-hint">支持 PDF、PPT、DOC、图片、视频等格式</p>
+                <input type="file" (change)="onFileSelected($event)" hidden #fileInput />
+                <div class="selected-file" *ngIf="selectedFileName">
+                  <mat-icon>insert_drive_file</mat-icon>
+                  <span>{{ selectedFileName }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="dialog-footer">
+              <button mat-button type="button" (click)="closeDialog()" class="cancel-btn">
+                取消
+              </button>
+              <button 
+                mat-raised-button 
+                type="submit" 
+                [disabled]="!currentMaterial.name || !currentMaterial.courseId || !selectedFile"
+                class="submit-btn"
+              >
+                <mat-icon>cloud_upload</mat-icon>
+                上传课件
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </ng-template>
 
@@ -220,523 +291,806 @@ interface Material {
         </div>
       </div>
     </ng-template>
+
+    <!-- 所需硬件对话框模板 -->
+    <ng-template #hardwareDialogTemplate>
+      <div class="hardware-dialog-content">
+        <h2>🔧 所需硬件</h2>
+        <p class="material-name">{{ selectedMaterial?.name }}</p>
+        <app-resource-associations 
+          [materialId]="selectedMaterial?.id?.toString() || ''"
+          [showMaterials]="false"
+          [showHardware]="true">
+        </app-resource-associations>
+        <div class="dialog-actions">
+          <button mat-button (click)="closeHardwareDialog()">关闭</button>
+        </div>
+      </div>
+    </ng-template>
   `,
-  styles: [
-    `
-      .material-library-container {
-        padding: 24px;
-        max-width: 1400px;
-        margin: 0 auto;
+  styles: [`
+    .material-library-container {
+      padding: 32px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* 页面头部 */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 2px solid #f0f0f0;
+    }
+
+    .header-content {
+      flex: 1;
+    }
+
+    .page-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+      color: #1a1a2e;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .title-icon {
+      font-size: 36px;
+    }
+
+    .page-subtitle {
+      font-size: 15px;
+      color: #6c757d;
+      margin: 0;
+    }
+
+    .upload-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
       }
 
-      .toolbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 24px;
-        padding-bottom: 16px;
-        border-bottom: 2px solid #e0e0e0;
-      }
-
-      .toolbar h1 {
-        margin: 0;
-        font-size: 28px;
-        color: #333;
-      }
-
-      .toolbar button i {
+      mat-icon {
         margin-right: 8px;
       }
+    }
 
-      .filter-bar {
-        margin-bottom: 24px;
-      }
+    /* 现代标签页 */
+    .modern-tabs {
+      margin-top: 24px;
 
-      .course-filter {
-        width: 300px;
-      }
-
-      .material-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 20px;
-      }
-
-      .material-card {
-        transition: all 0.3s ease;
+      ::ng-deep .mat-mdc-tab-group {
         border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-        position: relative;
+        overflow: hidden;
+      }
+    }
+
+    /* 筛选栏 */
+    .filter-bar {
+      margin-bottom: 24px;
+    }
+
+    .filter-group {
+      max-width: 100%;
+    }
+
+    .filter-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+
+      mat-icon {
+        font-size: 18px;
+        width: 18px;
+        height: 18px;
+        color: #667eea;
+      }
+    }
+
+    .course-filter {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .full-width-select {
+      width: 100%;
+
+      ::ng-deep .mat-mdc-form-field-flex {
+        border-radius: 12px;
+      }
+    }
+
+    /* 批量操作栏 */
+    .batch-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
+      border: 1px solid #ffcdd2;
+      border-radius: 12px;
+      margin-bottom: 24px;
+    }
+
+    .selected-count {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #d32f2f;
+
+      mat-icon {
+        font-size: 20px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .action-btn {
+      border-radius: 10px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+
+      mat-icon {
+        margin-right: 6px;
+        font-size: 18px;
+        width: 18px;
+        height: 18px;
       }
 
-      .material-card.selected {
-        border: 2px solid #667eea;
-        background: #f5f7ff;
+      &.btn-danger {
+        border-color: #d32f2f;
+        color: #d32f2f;
+
+        &:hover {
+          background: rgba(211, 47, 47, 0.08);
+        }
       }
 
-      .card-checkbox {
-        position: absolute;
-        top: 12px;
-        right: 12px;
-        z-index: 10;
+      &.btn-preview {
+        border-color: #667eea;
+        color: #667eea;
+
+        &:hover {
+          background: rgba(102, 126, 234, 0.08);
+        }
       }
 
-      .material-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      &.btn-hardware {
+        border-color: #43e97b;
+        color: #43e97b;
+
+        &:hover {
+          background: rgba(67, 233, 123, 0.08);
+        }
       }
 
-      .file-icon {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      &.btn-delete {
+        border-color: #ff6b6b;
+        color: #ff6b6b;
+
+        &:hover {
+          background: rgba(255, 107, 107, 0.08);
+        }
+      }
+    }
+
+    /* 课件网格 */
+    .material-viewport {
+      height: calc(100vh - 380px);
+      min-height: 400px;
+    }
+
+    .material-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+      padding: 8px 0;
+    }
+
+    .material-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 2px solid #e9ecef;
+      background: white;
+
+      &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        border-color: #667eea;
+
+        .card-gradient {
+          opacity: 1;
+        }
+      }
+
+      &.selected {
+        border-color: #667eea;
+        background: rgba(102, 126, 234, 0.02);
+      }
+    }
+
+    .card-gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card-checkbox {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 10;
+    }
+
+    mat-card-header {
+      padding: 24px 24px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .file-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+
+      mat-icon {
         color: white;
+        font-size: 24px;
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    .header-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    mat-card-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1a1a2e;
+      margin: 0 0 8px 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    mat-card-subtitle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #6c757d;
+      margin: 0;
+
+      mat-icon {
+        font-size: 16px;
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    mat-card-content {
+      padding: 0 24px 16px;
+    }
+
+    .file-path {
+      font-size: 13px;
+      color: #495057;
+      margin: 0 0 12px 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .material-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #6c757d;
+
+      mat-icon {
+        font-size: 16px;
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    .card-actions {
+      padding: 16px 24px 24px;
+      display: flex;
+      gap: 8px;
+      border-top: 1px solid #f0f0f0;
+
+      .action-btn {
+        flex: 1;
+        font-size: 13px;
+        padding: 8px 12px;
+      }
+    }
+
+    /* 空状态 */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 80px 40px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 16px;
+      border: 2px dashed #dee2e6;
+
+      .empty-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 24px;
+        border-radius: 50%;
+        background: white;
         display: flex;
         align-items: center;
         justify-content: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+        mat-icon {
+          font-size: 40px;
+          width: 40px;
+          height: 40px;
+          color: #6c757d;
+        }
+      }
+
+      h3 {
         font-size: 24px;
-      }
-
-      mat-card-title {
-        font-size: 16px;
         font-weight: 600;
-        color: #333;
+        color: #1a1a2e;
+        margin: 0 0 12px 0;
       }
 
-      mat-card-subtitle {
-        color: #667eea;
-        font-weight: 500;
-      }
-
-      .file-path {
-        color: #999;
-        font-size: 13px;
-        margin: 12px 0;
-        word-break: break-all;
-      }
-
-      .material-meta {
-        display: flex;
-        gap: 16px;
-        margin-top: 12px;
-        font-size: 13px;
-        color: #999;
-      }
-
-      .material-meta i {
-        margin-right: 4px;
-      }
-
-      mat-card-actions {
-        display: flex;
-        gap: 8px;
-        padding: 12px 16px;
-        border-top: 1px solid #f0f0f0;
-      }
-
-      mat-card-actions button i {
-        margin-right: 6px;
-      }
-
-      .empty-state {
-        grid-column: 1 / -1;
-        text-align: center;
-        padding: 80px 20px;
-        color: #999;
-      }
-
-      .empty-state i {
-        font-size: 64px;
-        margin-bottom: 16px;
-        opacity: 0.3;
-      }
-
-      .empty-state p {
-        font-size: 16px;
-      }
-
-      .dialog-content {
-        padding: 24px;
-        min-width: 450px;
-      }
-
-      .dialog-content h2 {
+      p {
+        font-size: 15px;
+        color: #6c757d;
         margin: 0 0 24px 0;
-        color: #333;
-        font-size: 22px;
+      }
+    }
+
+    /* 现代化对话框 */
+    .modern-dialog {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .dialog-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 32px;
+      text-align: center;
+      color: white;
+
+      .header-icon {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto 16px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        mat-icon {
+          font-size: 32px;
+          width: 32px;
+          height: 32px;
+        }
       }
 
-      .full-width {
-        width: 100%;
-        margin-bottom: 16px;
+      h2 {
+        font-size: 24px;
+        font-weight: 700;
+        margin: 0 0 8px 0;
       }
 
-      .file-upload-area {
-        border: 2px dashed #d0d0d0;
-        border-radius: 8px;
-        padding: 40px 20px;
-        text-align: center;
-        margin: 20px 0;
-        transition: all 0.3s ease;
+      p {
+        font-size: 14px;
+        opacity: 0.9;
+        margin: 0;
       }
+    }
 
-      .file-upload-area:hover {
+    .dialog-body {
+      padding: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+
+      mat-icon {
+        font-size: 18px;
+        width: 18px;
+        height: 18px;
+        color: #667eea;
+      }
+    }
+
+    .modern-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e9ecef;
+      border-radius: 12px;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      font-family: inherit;
+
+      &:focus {
+        outline: none;
         border-color: #667eea;
-        background: #f5f7ff;
+        box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
       }
 
-      .file-upload-area i {
+      &::placeholder {
+        color: #adb5bd;
+      }
+    }
+
+    .file-upload-area {
+      border: 2px dashed #e9ecef;
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: #f8f9fa;
+
+      &:hover {
+        border-color: #667eea;
+        background: rgba(102, 126, 234, 0.02);
+      }
+
+      .upload-icon {
         font-size: 48px;
+        width: 48px;
+        height: 48px;
         color: #667eea;
         margin-bottom: 12px;
       }
 
-      .file-upload-area p {
-        color: #666;
-        margin: 8px 0;
+      .upload-text {
+        font-size: 15px;
+        color: #1a1a2e;
+        font-weight: 500;
+        margin: 0 0 4px 0;
+      }
+
+      .upload-hint {
+        font-size: 13px;
+        color: #6c757d;
+        margin: 0 0 16px 0;
       }
 
       .selected-file {
-        color: #667eea;
-        font-weight: 500;
-        margin-top: 12px;
-      }
-
-      .dialog-actions {
-        display: flex;
-        justify-content: flex-end;
-        gap: 12px;
-        margin-top: 24px;
-      }
-
-      .preview-dialog {
-        width: 90vw;
-        max-width: 1200px;
-        height: 85vh;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .preview-header {
-        display: flex;
-        justify-content: space-between;
+        display: inline-flex;
         align-items: center;
-        padding: 16px 24px;
-        border-bottom: 1px solid #e0e0e0;
+        gap: 8px;
+        padding: 8px 16px;
+        background: white;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        font-size: 14px;
+        color: #1a1a2e;
+
+        mat-icon {
+          font-size: 18px;
+          width: 18px;
+          height: 18px;
+          color: #667eea;
+        }
+      }
+    }
+
+    .dialog-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .cancel-btn {
+      padding: 10px 24px;
+      border-radius: 10px;
+      font-weight: 500;
+      color: #6c757d;
+
+      &:hover {
+        background: #f8f9fa;
+      }
+    }
+
+    .submit-btn {
+      padding: 10px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+
+      &:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
       }
 
-      .preview-header h3 {
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      mat-icon {
+        margin-right: 6px;
+        font-size: 18px;
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    /* 预览对话框 */
+    .preview-dialog {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+
+    .preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      border-bottom: 1px solid #e9ecef;
+
+      h3 {
         margin: 0;
         font-size: 18px;
-        color: #333;
+        font-weight: 600;
+        color: #1a1a2e;
       }
+    }
 
-      .preview-content {
-        flex: 1;
-        overflow: auto;
-        padding: 24px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #f5f5f5;
-      }
+    .preview-content {
+      padding: 24px;
+      max-height: 70vh;
+      overflow: auto;
+    }
 
-      .preview-frame {
-        width: 100%;
-        height: 100%;
-        border: none;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
+    .preview-frame {
+      width: 100%;
+      height: 70vh;
+      border: none;
+      border-radius: 8px;
+    }
 
-      .preview-image {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
+    .preview-image {
+      max-width: 100%;
+      max-height: 70vh;
+      border-radius: 8px;
+    }
 
-      .preview-video {
-        max-width: 100%;
-        max-height: 100%;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
+    .preview-video {
+      width: 100%;
+      max-height: 70vh;
+      border-radius: 8px;
+    }
 
-      .unsupported-preview {
-        text-align: center;
-        padding: 40px;
-      }
+    .unsupported-preview {
+      text-align: center;
+      padding: 40px;
 
       .large-icon {
         font-size: 64px;
         width: 64px;
         height: 64px;
-        color: #999;
+        color: #6c757d;
         margin-bottom: 16px;
       }
 
-      .unsupported-preview p {
-        color: #666;
-        margin: 16px 0;
+      p {
+        font-size: 16px;
+        color: #6c757d;
+        margin: 0 0 24px 0;
+      }
+    }
+
+    /* 硬件对话框 */
+    .hardware-dialog-content {
+      padding: 24px;
+      min-width: 500px;
+
+      h2 {
+        margin: 0 0 8px 0;
+        font-size: 24px;
+        font-weight: 600;
+        color: #1a1a2e;
       }
 
-      .batch-actions {
+      .material-name {
+        font-size: 14px;
+        color: #6c757d;
+        margin: 0 0 24px 0;
+      }
+
+      .dialog-actions {
         display: flex;
-        align-items: center;
-        gap: 16px;
-        padding: 12px 16px;
-        background: #fff3e0;
-        border-radius: 8px;
-        margin-bottom: 16px;
-        border-left: 4px solid #ff9800;
+        justify-content: flex-end;
+        margin-top: 24px;
+        padding-top: 16px;
+        border-top: 1px solid #e9ecef;
+      }
+    }
+
+    /* 响应式 */
+    @media (max-width: 768px) {
+      .material-library-container {
+        padding: 16px;
       }
 
-      .selected-count {
-        flex: 1;
-        font-weight: 500;
-        color: #e65100;
+      .page-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
       }
-    `,
-  ],
+
+      .page-title {
+        font-size: 24px;
+      }
+
+      .material-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card-actions {
+        flex-direction: column;
+      }
+    }
+  `]
 })
 export class MaterialLibraryComponent implements OnInit {
   @ViewChild('uploadDialogTemplate') uploadDialogTemplate!: TemplateRef<unknown>;
   @ViewChild('previewDialogTemplate') previewDialogTemplate!: TemplateRef<unknown>;
-
+  @ViewChild('hardwareDialogTemplate') hardwareDialogTemplate!: TemplateRef<unknown>;
+  
   materials: Material[] = [];
-  courses: Array<{ id: number; name: string }> = [];
-  selectedCourseId = 0;
+  courses: Course[] = [];
+  selectedCourseId: number = 0;
+  selectedTabIndex: number = 0;
+  selectedMaterials: number[] = [];
+  
   currentMaterial: Partial<Material> = {};
   selectedFile: File | null = null;
-  selectedFileName = '';
-  selectedTabIndex = 0; // 标签页索引: 0=我的课件, 1=开源课件
+  selectedFileName: string = '';
   
-  // 预览相关
-  previewMaterialName = '';
-  previewUrl = '';
-  previewType: 'pdf' | 'image' | 'video' | 'unsupported' = 'unsupported';
-  private previewDialogRef: any;
-  
-  // 批量操作
-  selectedMaterials: number[] = [];
+  previewMaterialName: string = '';
+  previewUrl: string = '';
+  previewType: string = '';
+  selectedMaterial: Material | null = null;
 
   constructor(
-    private dialog: MatDialog,
     private tauriService: TauriService,
-    private shortcutService: ShortcutService,
-    private snackBar: MatSnackBar
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar,
+    private route: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {
-    void this.loadCourses();
-    void this.loadMaterials();
-    this.registerShortcuts();
-  }
-
-  /**
-   * 注册快捷键
-   */
-  private registerShortcuts(): void {
-    // Ctrl+U - 上传课件
-    this.shortcutService.register({
-      key: 'u',
-      ctrl: true,
-      description: '上传课件',
-      action: () => this.openUploadDialog()
-    });
-
-    // Delete - 批量删除选中
-    this.shortcutService.register({
-      key: 'Delete',
-      description: '批量删除选中课件',
-      action: () => {
-        if (this.selectedMaterials.length > 0) {
-          void this.batchDelete();
-        }
-      }
-    });
-
-    // Ctrl+A - 全选（待实现）
-    this.shortcutService.register({
-      key: 'a',
-      ctrl: true,
-      description: '全选课件',
-      action: () => this.selectAll()
-    });
-  }
-
-  selectAll(): void {
-    // TODO: 全选所有课件
-    this.selectedMaterials = this.materials.map(m => m.id!).filter(id => id !== undefined);
+  async ngOnInit(): Promise<void> {
+    await this.loadCourses();
+    await this.loadMaterials();
   }
 
   async loadCourses(): Promise<void> {
     try {
-      const courses = await this.tauriService.getCourses();
-      this.courses = courses as Array<{ id: number; name: string }>;
+      this.courses = await this.tauriService.getCourses() as Course[];
     } catch (error) {
-      console.error('Failed to load courses:', error);
-      this.snackBar.open('加载课程列表失败', '关闭', { duration: 3000 });
+      console.error('加载课程失败:', error);
     }
   }
 
   async loadMaterials(): Promise<void> {
     try {
-      const courseId = this.selectedCourseId > 0 ? this.selectedCourseId : 0;
-      const materials = await this.tauriService.getMaterials(courseId);
-      this.materials = materials as Material[];
+      this.materials = await this.tauriService.getMaterials(this.selectedCourseId) as Material[];
     } catch (error) {
-      console.error('Failed to load materials:', error);
-      this.snackBar.open('加载课件列表失败', '关闭', { duration: 3000 });
+      console.error('加载课件失败:', error);
     }
   }
 
   openUploadDialog(): void {
-    this.currentMaterial = {};
+    this.currentMaterial = { name: '', courseId: 0 };
     this.selectedFile = null;
     this.selectedFileName = '';
-    this.dialog.open(this.uploadDialogTemplate, { width: '500px' });
+    this.dialog.open(this.uploadDialogTemplate, { 
+      width: '600px',
+      maxWidth: '90vw'
+    });
   }
 
-  onFileSelected(event: Event): void {
-    const target = event.target as HTMLInputElement;
-    const file = target.files?.[0];
+  onFileSelected(event: any): void {
+    const file = event.target.files[0];
     if (file) {
       this.selectedFile = file;
       this.selectedFileName = file.name;
-      if (!this.currentMaterial.name) {
-        this.currentMaterial.name = file.name.replace(/\.[^/.]+$/, '');
-      }
     }
   }
 
   async uploadMaterial(): Promise<void> {
-    if (!this.selectedFile || !this.currentMaterial.name || !this.currentMaterial.courseId) {
-      this.snackBar.open('请填写完整信息并选择文件', '关闭', { duration: 3000 });
-      return;
-    }
-
     try {
-      // 这里需要实现文件上传逻辑
-      // 由于 Tauri 的文件上传可能需要特殊处理，暂时使用模拟路径
-      const filePath = `/uploads/${this.selectedFile.name}`;
-      const fileSize = this.selectedFile.size;
+      if (!this.selectedFile || !this.currentMaterial.name || !this.currentMaterial.courseId) {
+        return;
+      }
 
-      await this.tauriService.uploadMaterial(
-        this.currentMaterial.name,
-        filePath,
-        fileSize,
-        this.currentMaterial.courseId
-      );
-
-      this.snackBar.open('课件上传成功', '关闭', { duration: 3000 });
+      // TODO: 实际文件上传逻辑
+      // await this.tauriService.uploadMaterial(
+      //   this.currentMaterial.name,
+      //   this.selectedFile.path,
+      //   this.selectedFile.size,
+      //   this.currentMaterial.courseId
+      // );
+      
       this.closeDialog();
       await this.loadMaterials();
+      this.snackBar.open('课件上传成功', '关闭', { duration: 3000 });
     } catch (error) {
-      console.error('Failed to upload material:', error);
-      this.snackBar.open('课件上传失败', '关闭', { duration: 3000 });
-    }
-  }
-
-  async deleteMaterial(id: number): Promise<void> {
-    if (!confirm('确定要删除这个课件吗？')) return;
-
-    try {
-      await this.tauriService.deleteMaterial(id);
-      this.snackBar.open('课件删除成功', '关闭', { duration: 3000 });
-      await this.loadMaterials();
-    } catch (error) {
-      console.error('Failed to delete material:', error);
-      this.snackBar.open('课件删除失败', '关闭', { duration: 3000 });
+      console.error('上传课件失败:', error);
+      this.snackBar.open('上传失败', '关闭', { duration: 3000 });
     }
   }
 
   closeDialog(): void {
     this.dialog.closeAll();
-  }
-
-  getFileIcon(filePath: string): string {
-    const ext = filePath.split('.').pop()?.toLowerCase();
-    const icons: { [key: string]: string } = {
-      pdf: 'ri-file-pdf-line',
-      ppt: 'ri-file-ppt-line',
-      pptx: 'ri-file-ppt-line',
-      doc: 'ri-file-word-line',
-      docx: 'ri-file-word-line',
-      xls: 'ri-file-excel-line',
-      xlsx: 'ri-file-excel-line',
-      mp4: 'ri-video-line',
-      avi: 'ri-video-line',
-      jpg: 'ri-image-line',
-      png: 'ri-image-line',
-    };
-    return icons[ext ?? ''] ?? 'ri-file-line';
-  }
-
-  formatFileSize(bytes: number): string {
-    if (bytes === 0) return '0 B';
-    const k = 1024;
-    const sizes = ['B', 'KB', 'MB', 'GB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + ' ' + sizes[i];
-  }
-
-  formatDate(dateString: string): string {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('zh-CN');
-  }
-
-  previewMaterial(material: Material): void {
-    this.previewMaterialName = material.name;
-    const ext = material.filePath.split('.').pop()?.toLowerCase();
-    
-    // 判断文件类型
-    if (ext === 'pdf') {
-      this.previewType = 'pdf';
-      this.previewUrl = this.getFilePath(material.filePath);
-    } else if (['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'].includes(ext || '')) {
-      this.previewType = 'image';
-      this.previewUrl = this.getFilePath(material.filePath);
-    } else if (['mp4', 'webm', 'avi', 'mov'].includes(ext || '')) {
-      this.previewType = 'video';
-      this.previewUrl = this.getFilePath(material.filePath);
-    } else {
-      this.previewType = 'unsupported';
-      this.previewUrl = '';
-    }
-    
-    this.previewDialogRef = this.dialog.open(this.previewDialogTemplate, {
-      width: '95vw',
-      maxWidth: '1400px',
-      height: '90vh',
-      panelClass: 'preview-dialog-panel'
-    });
-  }
-
-  closePreview(): void {
-    if (this.previewDialogRef) {
-      this.previewDialogRef.close();
-      this.previewUrl = '';
-    }
-  }
-
-  downloadCurrentMaterial(): void {
-    // TODO: 实现下载功能
-    alert('下载功能开发中...');
-  }
-
-  private getFilePath(filePath: string): string {
-    // 如果是相对路径，转换为绝对路径
-    if (!filePath.startsWith('http') && !filePath.startsWith('file://')) {
-      // 在Tauri环境中，使用本地文件协议
-      return `file://${filePath}`;
-    }
-    return filePath;
-  }
-
-  // 批量操作相关方法
-  isSelected(materialId: number): boolean {
-    return this.selectedMaterials.includes(materialId);
   }
 
   toggleSelection(materialId: number): void {
@@ -748,9 +1102,11 @@ export class MaterialLibraryComponent implements OnInit {
     }
   }
 
+  isSelected(materialId: number): boolean {
+    return this.selectedMaterials.includes(materialId);
+  }
+
   async batchDelete(): Promise<void> {
-    if (this.selectedMaterials.length === 0) return;
-    
     if (!confirm(`确定要删除选中的 ${this.selectedMaterials.length} 个课件吗？`)) {
       return;
     }
@@ -759,13 +1115,110 @@ export class MaterialLibraryComponent implements OnInit {
       for (const id of this.selectedMaterials) {
         await this.tauriService.deleteMaterial(id);
       }
-      
-      this.snackBar.open(`成功删除 ${this.selectedMaterials.length} 个课件`, '关闭', { duration: 3000 });
       this.selectedMaterials = [];
       await this.loadMaterials();
+      this.snackBar.open('批量删除成功', '关闭', { duration: 3000 });
     } catch (error) {
       console.error('批量删除失败:', error);
       this.snackBar.open('批量删除失败', '关闭', { duration: 3000 });
     }
+  }
+
+  async deleteMaterial(id: number): Promise<void> {
+    if (!confirm('确定要删除这个课件吗？')) {
+      return;
+    }
+
+    try {
+      await this.tauriService.deleteMaterial(id);
+      await this.loadMaterials();
+      this.snackBar.open('课件已删除', '关闭', { duration: 3000 });
+    } catch (error) {
+      console.error('删除课件失败:', error);
+      this.snackBar.open('删除失败', '关闭', { duration: 3000 });
+    }
+  }
+
+  previewMaterial(material: Material): void {
+    this.selectedMaterial = material;
+    this.previewMaterialName = material.name;
+    
+    // 根据文件类型确定预览方式
+    const ext = material.filePath.split('.').pop()?.toLowerCase();
+    if (['pdf'].includes(ext || '')) {
+      this.previewType = 'pdf';
+    } else if (['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'].includes(ext || '')) {
+      this.previewType = 'image';
+    } else if (['mp4', 'webm', 'ogg'].includes(ext || '')) {
+      this.previewType = 'video';
+    } else {
+      this.previewType = 'unsupported';
+    }
+
+    // TODO: 生成实际的预览URL
+    this.previewUrl = material.filePath;
+    
+    this.dialog.open(this.previewDialogTemplate, { 
+      width: '90vw',
+      maxWidth: '1200px',
+      maxHeight: '90vh'
+    });
+  }
+
+  closePreview(): void {
+    this.dialog.closeAll();
+  }
+
+  downloadCurrentMaterial(): void {
+    // TODO: 实现下载功能
+    this.snackBar.open('下载功能开发中', '关闭', { duration: 3000 });
+  }
+
+  viewRequiredHardware(material: Material): void {
+    this.selectedMaterial = material;
+    this.dialog.open(this.hardwareDialogTemplate, { 
+      width: '700px',
+      maxWidth: '90vw'
+    });
+  }
+
+  closeHardwareDialog(): void {
+    this.dialog.closeAll();
+  }
+
+  getFileIcon(filePath: string): string {
+    const ext = filePath.split('.').pop()?.toLowerCase();
+    const iconMap: { [key: string]: string } = {
+      'pdf': 'picture_as_pdf',
+      'doc': 'description',
+      'docx': 'description',
+      'ppt': 'slideshow',
+      'pptx': 'slideshow',
+      'xls': 'table_chart',
+      'xlsx': 'table_chart',
+      'jpg': 'image',
+      'jpeg': 'image',
+      'png': 'image',
+      'gif': 'image',
+      'mp4': 'videocam',
+      'webm': 'videocam',
+    };
+    return iconMap[ext || ''] || 'insert_drive_file';
+  }
+
+  formatFileSize(bytes: number): string {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+  }
+
+  formatDate(dateString: string): string {
+    return new Date(dateString).toLocaleDateString('zh-CN', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
   }
 }

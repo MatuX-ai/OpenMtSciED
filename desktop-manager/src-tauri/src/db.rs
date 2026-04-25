@@ -95,5 +95,35 @@ pub fn init_db(db_path: &Path) -> Result<Connection> {
         [],
     )?;
 
+    // 创建用户项目表
+    conn.execute(
+        "CREATE TABLE IF NOT EXISTS user_projects (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            description TEXT,
+            created_at TEXT NOT NULL DEFAULT (datetime('now')),
+            updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+        )",
+        [],
+    )?;
+
+    // 创建项目资源关联表
+    conn.execute(
+        "CREATE TABLE IF NOT EXISTS project_resources (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            project_id INTEGER NOT NULL,
+            resource_id TEXT NOT NULL,
+            added_at TEXT NOT NULL DEFAULT (datetime('now')),
+            FOREIGN KEY (project_id) REFERENCES user_projects(id) ON DELETE CASCADE,
+            FOREIGN KEY (resource_id) REFERENCES open_resources(id)
+        )",
+        [],
+    )?;
+
+    conn.execute(
+        "CREATE INDEX IF NOT EXISTS idx_project_resources_project_id ON project_resources(project_id)",
+        [],
+    )?;
+
     Ok(conn)
 }

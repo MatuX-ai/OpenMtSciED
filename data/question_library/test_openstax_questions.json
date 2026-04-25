@@ -1,0 +1,230 @@
+[
+  {
+    "content": "The first forms of life on Earth were ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "plants",
+      "microorganisms",
+      "birds",
+      "dinosaurs"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.4,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:25:30.994980"
+  },
+  {
+    "content": "A suggested and testable explanation for an event is called a ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "hypothesis",
+      "variable",
+      "theory",
+      "control"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:25:30.994980"
+  },
+  {
+    "content": "Which of the following sciences is not considered a natural science?",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "biology",
+      "astronomy",
+      "physics",
+      "computer science"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:25:30.994980"
+  },
+  {
+    "content": "The type of logical thinking that uses related observations to arrive at a general conclusion is called ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "deductive reasoning",
+      "the scientific method",
+      "hypothesis-based science",
+      "inductive reasoning"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:25:30.994980"
+  },
+  {
+    "content": "The process of ________ helps to ensure that a scientistâs research is original, significant, logical, and thorough.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "publication",
+      "public speaking",
+      "peer review",
+      "the scientific method"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:25:30.994980"
+  },
+  {
+    "content": "A person notices that her houseplants that are regularly exposed to music seem to grow more quickly than those in rooms with no music. As a result, she determines that plants grow better when exposed to music. This example most closely resembles which type of reasoning?",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "inductive reasoning",
+      "deductive reasoning",
+      "neither, because no hypothesis was made",
+      "both inductive and deductive reasoning"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.6,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:25:30.994980"
+  },
+  {
+    "content": "The smallest unit of biological structure that meets the functional requirements of âlivingâ is the ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "organ",
+      "organelle",
+      "cell",
+      "macromolecule"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:25:30.995981"
+  },
+  {
+    "content": "Viruses are not considered living because they ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "are not made of cells",
+      "lack cell nuclei",
+      "do not contain DNA or RNA",
+      "cannot reproduce"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:25:30.995981"
+  },
+  {
+    "content": "The presence of a membrane-enclosed nucleus is a characteristic of ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "prokaryotic cells",
+      "eukaryotic cells",
+      "living organisms",
+      "bacteria"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:25:30.995981"
+  },
+  {
+    "content": "A group of individuals of the same species living in the same area is called a(n) ________.",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "family",
+      "community",
+      "population",
+      "ecosystem"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:25:30.995981"
+  },
+  {
+    "content": "Which of the following sequences represents the hierarchy of biological organization from the most inclusive to the least complex level?",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "organelle, tissue, biosphere, ecosystem, population",
+      "organ, organism, tissue, organelle, molecule",
+      "organism, community, biosphere, molecule, tissue, organ",
+      "biosphere, ecosystem, community, population, organism"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:25:30.995981"
+  },
+  {
+    "content": "Where in a phylogenetic tree would you expect to find the organism that had evolved most recently?",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "at the base",
+      "within the branches",
+      "at the nodes",
+      "at the branch tips"
+    ],
+    "correct_answer": "",
+    "explanation": "来自 OpenStax biology-2e 第1章复习题",
+    "difficulty": 0.5,
+    "knowledge_points": [
+      "biology_2e",
+      "chapter_1"
+    ],
+    "source": "openstax",
+    "created_at": "2026-04-25T16:25:30.995981"
+  }
+]

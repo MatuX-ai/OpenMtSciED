@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
@@ -18,6 +19,7 @@ import {
   getCategoryName,
   calculateTotalCost
 } from '../../../models/hardware-project.models';
+import { ResourceAssociationService } from '../../../services/resource-association.service';
 
 @Component({
   selector: 'app-hardware-project-list',
@@ -145,6 +147,10 @@ import {
             <button mat-button (click)="viewMaterials(project)">
               <mat-icon>list</mat-icon>
               材料清单
+            </button>
+            <button mat-button color="accent" (click)="viewRelatedResources(project)">
+              <mat-icon>link</mat-icon>
+              相关资源
             </button>
             <button mat-button
                     color="accent"
@@ -437,12 +443,30 @@ export class HardwareProjectListComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private route: ActivatedRoute,
+    private associationService: ResourceAssociationService
   ) {}
 
   ngOnInit(): void {
     this.projects = this.getMockProjects();
     this.applyFilter();
+    
+    // 监听路由参数，支持从其他页面跳转时自动搜索
+    this.route.queryParams.subscribe(params => {
+      const search = params['search'];
+      const subject = params['subject'];
+      
+      if (search) {
+        this.filter.keyword = search;
+        if (subject) {
+          // 根据学科设置分类（简化处理）
+          this.filter.category = undefined;
+        }
+        this.applyFilter();
+        this.snackBar.open(`已搜索: ${search}`, '关闭', { duration: 3000 });
+      }
+    });
   }
 
   applyFilter(): void {
@@ -510,6 +534,47 @@ ${materialList}
       );
       // TODO: 打开Blockly编辑器或代码编辑器
     }
+  }
+
+  viewRelatedResources(project: HardwareProject): void {
+    console.log('查看相关资源:', project);
+    this.snackBar.open(
+      `正在查找 "${project.title}" 的相关教程和课件...`,
+      '关闭',
+      { duration: 2000 }
+    );
+    
+    // 调用服务获取相关资源
+    this.associationService.getHardwareRelatedResources(
+      project.project_id,
+      project.subject
+    ).subscribe({
+      next: (response) => {
+        if (response.success) {
+          const tutorialCount = response.data.related_tutorials?.length || 0;
+          const materialCount = response.data.related_materials?.length || 0;
+          
+          if (tutorialCount === 0 && materialCount === 0) {
+            this.snackBar.open(
+              '暂未找到相关教程和课件，您可以手动搜索',
+              '关闭',
+              { duration: 3000 }
+            );
+          } else {
+            this.snackBar.open(
+              `找到 ${tutorialCount} 个教程和 ${materialCount} 个课件`,
+              '查看详情',
+              { duration: 5000 }
+            );
+            // TODO: 显示详细列表对话框
+          }
+        }
+      },
+      error: (err) => {
+        console.error('获取相关资源失败:', err);
+        this.snackBar.open('获取相关资源失败', '关闭', { duration: 3000 });
+      }
+    });
   }
 
   getDifficultyStars(difficulty: number): string {

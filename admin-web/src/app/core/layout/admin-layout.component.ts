@@ -47,9 +47,34 @@ interface NavItem {
             <span matListItemTitle>爬虫管理</span>
           </a>
 
+          <a mat-list-item routerLink="/admin/knowledge-graph" routerLinkActive="active-link">
+            <mat-icon matListItemIcon>account_tree</mat-icon>
+            <span matListItemTitle>知识图谱</span>
+          </a>
+
+          <a mat-list-item routerLink="/admin/resource-associations" routerLinkActive="active-link">
+            <mat-icon matListItemIcon>link</mat-icon>
+            <span matListItemTitle>资源关联</span>
+          </a>
+
+          <a mat-list-item routerLink="/admin/question-bank" routerLinkActive="active-link">
+            <mat-icon matListItemIcon>quiz</mat-icon>
+            <span matListItemTitle>题库管理</span>
+          </a>
+
           <a mat-list-item routerLink="/admin/courses" routerLinkActive="active-link">
             <mat-icon matListItemIcon>school</mat-icon>
             <span matListItemTitle>课程管理</span>
+          </a>
+
+          <a mat-list-item routerLink="/admin/tutorials" routerLinkActive="active-link">
+            <mat-icon matListItemIcon>menu_book</mat-icon>
+            <span matListItemTitle>教程库</span>
+          </a>
+
+          <a mat-list-item routerLink="/admin/materials" routerLinkActive="active-link">
+            <mat-icon matListItemIcon>description</mat-icon>
+            <span matListItemTitle>课件库</span>
           </a>
 
           <a mat-list-item routerLink="/admin/education-platforms" routerLinkActive="active-link">
@@ -229,7 +254,12 @@ export class AdminLayoutComponent implements OnInit {
     if (url.includes('/dashboard')) return '仪表盘';
     if (url.includes('/admin/user-management')) return '用户管理';
     if (url.includes('/admin/courses')) return '课程管理';
+    if (url.includes('/admin/tutorials')) return '教程库管理';
+    if (url.includes('/admin/materials')) return '课件库管理';
     if (url.includes('/admin/crawlers')) return '爬虫管理';
+    if (url.includes('/admin/knowledge-graph')) return '知识图谱管理';
+    if (url.includes('/admin/resource-associations')) return '资源关联管理';
+    if (url.includes('/admin/question-bank')) return '题库管理';
     if (url.includes('/admin/education-platforms')) return '教育平台';
     if (url.includes('/admin/settings')) return '系统设置';
     return 'OpenMTSciEd Admin';

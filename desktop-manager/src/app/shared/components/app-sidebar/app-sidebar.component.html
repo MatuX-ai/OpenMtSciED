@@ -1,0 +1,93 @@
+<div class="sidebar-container" [class.is-collapsed]="isCollapsed">
+  <!-- Logo & Brand -->
+  <div class="brand">
+    <img src="assets/images/matu-logo.png" alt="Logo" class="brand-logo" *ngIf="!isCollapsed" />
+    <span class="brand-text" *ngIf="!isCollapsed">OpenMTSciEd</span>
+    <button mat-icon-button (click)="toggleSidebar()" class="toggle-btn">
+      <mat-icon>{{ isCollapsed ? 'chevron_right' : 'chevron_left' }}</mat-icon>
+    </button>
+  </div>
+
+  <!-- Navigation Menu -->
+  <nav class="nav-menu">
+    <a
+      *ngFor="let item of menuItems"
+      mat-list-item
+      [routerLink]="item.route"
+      routerLinkActive="active-link"
+      [matTooltip]="isCollapsed ? item.label : ''"
+      matTooltipPosition="right"
+      class="nav-item"
+    >
+      <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+      <span matListItemTitle *ngIf="!isCollapsed">{{ item.label }}</span>
+    </a>
+  </nav>
+
+  <!-- 资源关系说明卡片 -->
+  <div class="resource-info-card" *ngIf="!isCollapsed" [class.is-minimized]="isInfoMinimized">
+    <div class="info-header">
+      <div class="header-left">
+        <mat-icon>info</mat-icon>
+        <span>资源关系说明</span>
+      </div>
+      <button mat-icon-button class="minimize-btn" (click)="toggleInfoCard()" [matTooltip]="isInfoMinimized ? '展开' : '折叠'">
+        <mat-icon>{{ isInfoMinimized ? 'expand_less' : 'expand_more' }}</mat-icon>
+      </button>
+    </div>
+    <div class="info-content" *ngIf="!isInfoMinimized">
+      <div class="info-item">
+        <div class="info-icon course">
+          <mat-icon>menu_book</mat-icon>
+        </div>
+        <div class="info-text">
+          <strong>课程</strong>
+          <p>教学大纲与学习计划</p>
+        </div>
+      </div>
+      <div class="info-arrow">
+        <mat-icon>arrow_downward</mat-icon>
+      </div>
+      <div class="info-item">
+        <div class="info-icon tutorial">
+          <mat-icon>school</mat-icon>
+        </div>
+        <div class="info-text">
+          <strong>教程</strong>
+          <p>详细步骤与知识讲解</p>
+        </div>
+      </div>
+      <div class="info-arrow">
+        <mat-icon>arrow_downward</mat-icon>
+      </div>
+      <div class="info-item">
+        <div class="info-icon material">
+          <mat-icon>description</mat-icon>
+        </div>
+        <div class="info-text">
+          <strong>课件</strong>
+          <p>PPT、文档、视频等素材</p>
+        </div>
+      </div>
+      <div class="info-arrow">
+        <mat-icon>arrow_downward</mat-icon>
+      </div>
+      <div class="info-item">
+        <div class="info-icon question">
+          <mat-icon>quiz</mat-icon>
+        </div>
+        <div class="info-text">
+          <strong>题库</strong>
+          <p>练习题与知识点巩固</p>
+        </div>
+      </div>
+    </div>
+    <div class="info-footer" *ngIf="!isInfoMinimized">
+      <mat-icon>lightbulb</mat-icon>
+      <span>课程→教程→课件→题库</span>
+    </div>
+    <div class="minimized-hint" *ngIf="isInfoMinimized">
+      <mat-icon>help_outline</mat-icon>
+    </div>
+  </div>
+</div>

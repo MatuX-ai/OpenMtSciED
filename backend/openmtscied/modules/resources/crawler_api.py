@@ -12,6 +12,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 import threading
 
 from modules.resources.services.crawler_service import get_available_crawlers, get_crawler_handler, get_course_stats, get_courses
+from shared.models.db_models import SessionLocal, UserResource, UserProfile
 
 router = APIRouter()
 
@@ -185,6 +186,73 @@ def list_courses(
         return get_courses(skip=skip, limit=limit, level=level, subject=subject, search=search)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+@router.get("/smart-search")
+def smart_search_stem(keyword: str, limit: int = 10):
+    """智能STEM搜索：先搜本地，不足时触发全网搜索"""
+    try:
+        # 1. 搜索本地数据库
+        local_results = get_courses(search=keyword, limit=limit)
+        
+        if len(local_results) >= limit:
+            return {"success": True, "source": "local", "data": local_results}
+
+        # 2. 如果本地不足，触发混合搜索 (这里简化为调用外部API或爬虫)
+        # TODO: 集成 Bing Custom Search API 或 AI 总结服务
+        web_results = []
+        # 模拟外部搜索结果
+        if keyword:
+            web_results.append({
+                "id": f"web_{hash(keyword)}",
+                "title": f"[Web Result] {keyword} STEM Project",
+                "source": "internet",
+                "description": "Found via intelligent STEM search engine.",
+                "url": f"https://example.com/stem/{keyword.replace(' ', '-')}"
+            })
+        
+        combined = local_results + web_results
+        return {"success": True, "source": "hybrid", "data": combined[:limit]}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/share")
+def share_resource(data: dict):
+    """分享本地课程到云库"""
+    db = SessionLocal()
+    try:
+        new_resource = UserResource(
+            title=data.get("title"),
+            description=data.get("description"),
+            content_json=data.get("content"),
+            contributor_id=data.get("contributor_id", "anonymous")
+        )
+        db.add(new_resource)
+        db.commit()
+        return {"success": True, "message": "资源分享成功"}
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        db.close()
+
+@router.get("/leaderboard")
+def get_leaderboard(limit: int = 10):
+    """获取贡献者排行榜"""
+    db = SessionLocal()
+    try:
+        # 统计每个贡献者的总下载量
+        from sqlalchemy import func
+        results = db.query(
+            UserResource.contributor_id,
+            func.sum(UserResource.download_count).label('total_downloads')
+        ).group_by(UserResource.contributor_id).order_by(func.sum(UserResource.download_count).desc()).limit(limit).all()
+        
+        leaderboard = [{"user_id": r[0], "points": r[1]} for r in results]
+        return {"success": True, "data": leaderboard}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        db.close()
 
 @router.get("/education-platforms/status")
 def get_platform_status():

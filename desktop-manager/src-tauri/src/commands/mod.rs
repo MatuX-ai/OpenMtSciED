@@ -6,3 +6,5 @@ pub mod material;
 pub mod resource;
 pub mod storage;
 pub mod utils;
+pub mod user_project;
+pub mod smart_search;

@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { AuthService } from './auth.service';
+import { AuthService } from '../../services/auth.service';
 import { BulkImportResult, User, UserStats } from '../../models/user.models';
 
 /**

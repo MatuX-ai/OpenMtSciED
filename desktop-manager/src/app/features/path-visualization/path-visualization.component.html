@@ -30,6 +30,18 @@
   
   <div #chartContainer class="chart-container"></div>
   
+  <!-- 动态调整建议 -->
+  <div class="adjustment-panel" *ngIf="adjustmentSuggestions">
+    <h3>💡 学习路径优化建议</h3>
+    <p>根据您的练习记录，以下知识点需要加强：</p>
+    <div class="weak-points">
+      <span *ngFor="let point of adjustmentSuggestions.weak_points" class="point-tag">{{ point }}</span>
+    </div>
+    <button (click)="navigateToPractice(adjustmentSuggestions.weak_points[0])" class="btn-practice">
+      前往针对性练习
+    </button>
+  </div>
+
   <div class="legend">
     <div class="legend-item">
       <span class="dot course_unit"></span>

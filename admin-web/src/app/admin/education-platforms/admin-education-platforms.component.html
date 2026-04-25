@@ -30,15 +30,46 @@
 
   <!-- 平台列表 -->
   <div *ngIf="!loading()" class="platforms-container">
+    <!-- 统计信息卡片 -->
+    <div class="stats-grid">
+      <mat-card class="stat-card">
+        <mat-card-content>
+          <div class="stat-number">{{ platforms().length }}</div>
+          <div class="stat-label">已注册平台</div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="stat-card">
+        <mat-card-content>
+          <div class="stat-number">{{ activePlatformsCount() }}</div>
+          <div class="stat-label">活跃平台</div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="stat-card">
+        <mat-card-content>
+          <div class="stat-number">{{ updatedPlatformsCount() }}</div>
+          <div class="stat-label">已更新平台</div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="stat-card">
+        <mat-card-content>
+          <div class="stat-number">{{ scheduleActive() ? '运行中' : '已停止' }}</div>
+          <div class="stat-label">定时任务状态</div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
     <mat-card class="platforms-card">
       <mat-card-header>
         <mat-card-title>已注册的教育平台</mat-card-title>
         <mat-card-subtitle>管理和监控各教育平台的数据生成状态</mat-card-subtitle>
       </mat-card-header>
-      
+
       <mat-card-content>
         <table mat-table [dataSource]="platforms()" class="platforms-table">
-          
+
           <!-- 平台名称列 -->
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef>平台名称</th>
@@ -69,7 +100,7 @@
             <th mat-header-cell *matHeaderCellDef>数据文件</th>
             <td mat-cell *matCellDef="let platform">
               <div class="file-status">
-                <mat-icon 
+                <mat-icon
                   [color]="platform.data_file_exists ? 'primary' : 'warn'">
                   {{ platform.data_file_exists ? 'check_circle' : 'error' }}
                 </mat-icon>
@@ -96,15 +127,15 @@
             <th mat-header-cell *matHeaderCellDef>操作</th>
             <td mat-cell *matCellDef="let platform">
               <div class="action-buttons">
-                <button 
-                  mat-icon-button 
-                  color="primary" 
+                <button
+                  mat-icon-button
+                  color="primary"
                   (click)="generatePlatform(platform.platform_name)"
                   matTooltip="生成此平台数据">
                   <mat-icon>play_arrow</mat-icon>
                 </button>
-                <button 
-                  mat-icon-button 
+                <button
+                  mat-icon-button
                   color="accent"
                   (click)="viewPlatformDetails(platform.platform_name)"
                   matTooltip="查看详情">
@@ -119,37 +150,6 @@
         </table>
       </mat-card-content>
     </mat-card>
-
-    <!-- 统计信息卡片 -->
-    <div class="stats-grid">
-      <mat-card class="stat-card">
-        <mat-card-content>
-          <div class="stat-number">{{ platforms().length }}</div>
-          <div class="stat-label">已注册平台</div>
-        </mat-card-content>
-      </mat-card>
-      
-      <mat-card class="stat-card">
-        <mat-card-content>
-          <div class="stat-number">{{ activePlatformsCount() }}</div>
-          <div class="stat-label">活跃平台</div>
-        </mat-card-content>
-      </mat-card>
-      
-      <mat-card class="stat-card">
-        <mat-card-content>
-          <div class="stat-number">{{ updatedPlatformsCount() }}</div>
-          <div class="stat-label">已更新平台</div>
-        </mat-card-content>
-      </mat-card>
-      
-      <mat-card class="stat-card">
-        <mat-card-content>
-          <div class="stat-number">{{ scheduleActive() ? '运行中' : '已停止' }}</div>
-          <div class="stat-label">定时任务状态</div>
-        </mat-card-content>
-      </mat-card>
-    </div>
 
     <!-- 使用说明 -->
     <mat-card class="info-card">

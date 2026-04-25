@@ -1,5 +1,5 @@
 export * from './unified-course.models';
-export * from './unified-material.models';
+// export * from './unified-material.models'; // 暂时注释掉以避免重复导出冲突
 export * from './hardware-project.models';
 export * from './user.models';
 

@@ -223,3 +223,40 @@ pub fn restore_database(db_state: tauri::State<DbState>, backup_file: String) ->
         }
     }
 }
+
+/// 同步项目到云端
+#[command]
+pub async fn sync_project_to_cloud(
+    db_state: tauri::State<'_, DbState>,
+    project_id: i64,
+    api_url: String,
+    contributor_id: String,
+) -> Result<String, String> {
+    use crate::commands::user_project::get_project_resources;
+    
+    // 1. 获取本地项目资源
+    let resources = get_project_resources(db_state, project_id)?;
+    
+    // 2. 构建分享数据
+    let share_data = serde_json::json!({
+        "title": format!("Project #{}", project_id),
+        "description": "Shared from OpenMTSciEd Desktop",
+        "content": resources,
+        "contributor_id": contributor_id
+    });
+
+    // 3. 发送请求到后端
+    let client = reqwest::Client::new();
+    let res = client
+        .post(&format!("{}/api/v1/resources/share", api_url))
+        .json(&share_data)
+        .send()
+        .await
+        .map_err(|e| format!("网络请求失败: {}", e))?;
+
+    if res.status().is_success() {
+        Ok("项目已成功同步到云端！".to_string())
+    } else {
+        Err(format!("云端同步失败: {}", res.status()))
+    }
+}

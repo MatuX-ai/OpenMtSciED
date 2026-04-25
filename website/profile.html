@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心 - OpenMTSciEd</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="theme-color" content="#6366f1">
+    
+    <!-- 统一导航组件样式 -->
+    <link rel="stylesheet" href="css/navbar.css">
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --accent-color: #06b6d4;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --error-color: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        /* STEM Grid Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+        }
+
+        /* Main Content */
+        .profile-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 2rem 4rem;
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-bottom: 3rem;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Profile Card */
+        .profile-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 3rem;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-email {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-role {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--primary-color);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Form Styles */
+        .form-section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .form-input:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        textarea.form-input {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(15, 23, 42, 0.5);
+            color: var(--text-primary);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary-color);
+        }
+
+        .btn-danger {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--error-color);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .btn-danger:hover {
+            background: rgba(239, 68, 68, 0.3);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Password Section */
+        .password-section {
+            background: rgba(15, 23, 42, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        /* Alert Messages */
+        .alert {
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+
+        .alert.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .alert-success {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: var(--success-color);
+        }
+
+        .alert-error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: var(--error-color);
+        }
+
+        /* Loading State */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .profile-container {
+                padding: 80px 1rem 2rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation - 统一导航组件 -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <img src="logo.png" alt="OpenMTSciEd Logo" class="navbar-logo-icon">
+                <span>OpenMTSciEd</span>
+            </a>
+
+            <button class="navbar-toggle" id="navbarToggle" aria-label="切换菜单">
+                <span class="navbar-toggle-icon"></span>
+                <span class="navbar-toggle-icon"></span>
+                <span class="navbar-toggle-icon"></span>
+            </button>
+
+            <ul class="navbar-links" id="navbarLinks">
+                <li><a href="index.html#features">核心特性</a></li>
+                <li><a href="index.html#path">学习路径</a></li>
+                <li><a href="index.html#hardware">硬件项目</a></li>
+                <li><a href="index.html#community">社区</a></li>
+                <li><a href="https://github.com/MatuX-ai/OpenMtSciED" target="_blank">GitHub</a></li>
+                
+                <!-- 用户登录控件 -->
+                <li class="navbar-auth" id="navbarAuth">
+                    <div class="auth-buttons">
+                        <button class="btn-login" id="btnLogin" onclick="handleLogin()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                                <polyline points="10 17 15 12 10 7"/>
+                                <line x1="15" y1="12" x2="3" y2="12"/>
+                            </svg>
+                            <span>登录</span>
+                        </button>
+                        
+                        <button class="btn-mock-login" onclick="mockLogin()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                            </svg>
+                            <span>快速体验</span>
+                        </button>
+                    </div>
+                    
+                    <div class="user-menu" id="userMenu" style="display: none;">
+                        <div class="user-info">
+                            <div class="user-avatar" id="userAvatar">U</div>
+                            <span class="user-name" id="userName">用户</span>
+                        </div>
+                        <div class="user-dropdown">
+                            <a href="profile.html" class="dropdown-item active">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                个人中心
+                            </a>
+                            <a href="dashboard.html" class="dropdown-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="7" height="7"/>
+                                    <rect x="14" y="3" width="7" height="7"/>
+                                    <rect x="14" y="14" width="7" height="7"/>
+                                    <rect x="3" y="14" width="7" height="7"/>
+                                </svg>
+                                学习仪表盘
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item logout" onclick="handleLogout()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                                    <polyline points="16 17 21 12 16 7"/>
+                                    <line x1="21" y1="12" x2="9" y2="12"/>
+                                </svg>
+                                退出登录
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Profile Content -->
+    <div class="profile-container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title">个人中心</h1>
+            <p class="page-subtitle">管理你的账户信息和学习偏好</p>
+        </div>
+
+        <!-- Alert Messages -->
+        <div id="alertSuccess" class="alert alert-success"></div>
+        <div id="alertError" class="alert alert-error"></div>
+
+        <!-- Profile Card -->
+        <div class="profile-card">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="avatar" id="avatarDisplay">U</div>
+                <div class="profile-info">
+                    <div class="profile-name" id="displayName">加载中...</div>
+                    <div class="profile-email" id="displayEmail">-</div>
+                    <span class="profile-role" id="displayRole">用户</span>
+                </div>
+            </div>
+
+            <!-- Profile Form -->
+            <form id="profileForm">
+                <div class="form-section">
+                    <h3 class="section-title">基本信息</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">用户名</label>
+                            <input type="text" class="form-input" id="username" disabled>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">邮箱</label>
+                            <input type="email" class="form-input" id="email" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">姓名</label>
+                        <input type="text" class="form-input" id="fullName" placeholder="输入你的姓名">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">个人简介</label>
+                        <textarea class="form-input" id="bio" placeholder="介绍一下你自己..."></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">电话</label>
+                            <input type="tel" class="form-input" id="phone" placeholder="你的手机号码">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">位置</label>
+                            <input type="text" class="form-input" id="location" placeholder="城市/地区">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">网站</label>
+                        <input type="url" class="form-input" id="website" placeholder="https://example.com">
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="saveProfileBtn">
+                        💾 保存更改
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="resetForm()">
+                        重置
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Password Change Section -->
+        <div class="profile-card">
+            <div class="password-section">
+                <h3 class="section-title">修改密码</h3>
+                
+                <form id="passwordForm">
+                    <div class="form-group">
+                        <label class="form-label">当前密码</label>
+                        <input type="password" class="form-input" id="oldPassword" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">新密码</label>
+                        <input type="password" class="form-input" id="newPassword" required minlength="6">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">确认新密码</label>
+                        <input type="password" class="form-input" id="confirmPassword" required>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" id="changePasswordBtn">
+                            🔒 修改密码
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Account Actions -->
+        <div class="profile-card">
+            <h3 class="section-title">账户操作</h3>
+            <div class="form-actions">
+                <button class="btn btn-secondary" onclick="openFullDashboard()">
+                    📊 查看完整学习数据
+                </button>
+                <button class="btn btn-danger" onclick="handleLogout()">
+                    🚪 退出登录
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 统一导航组件脚本 -->
+    <script src="js/navbar.js"></script>
+    
+    <script>
+        const API_BASE_URL = 'http://localhost:8000/api/v1/auth';
+        let currentUser = null;
+        let originalData = null;
+
+        // 检查登录状态
+        function checkAuth() {
+            const userStr = localStorage.getItem('user');
+            if (!userStr) {
+                window.location.href = 'http://localhost:4200/login';
+                return false;
+            }
+            
+            try {
+                currentUser = JSON.parse(userStr);
+                return true;
+            } catch (e) {
+                localStorage.removeItem('user');
+                window.location.href = 'http://localhost:4200/login';
+                return false;
+            }
+        }
+
+        // 显示提示信息
+        function showAlert(type, message) {
+            const alertEl = document.getElementById(type === 'success' ? 'alertSuccess' : 'alertError');
+            alertEl.textContent = message;
+            alertEl.classList.add('show');
+            
+            setTimeout(() => {
+                alertEl.classList.remove('show');
+            }, 5000);
+        }
+
+        // 加载用户资料
+        async function loadProfile() {
+            const token = localStorage.getItem('access_token');
+            if (!token) {
+                console.warn('No token found');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/me`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    displayProfile(data);
+                    originalData = { ...data };
+                } else {
+                    console.error('Failed to load profile');
+                }
+            } catch (error) {
+                console.error('Error loading profile:', error);
+            }
+        }
+
+        // 显示用户资料
+        function displayProfile(data) {
+            document.getElementById('displayName').textContent = data.full_name || data.username || '用户';
+            document.getElementById('displayEmail').textContent = data.email;
+            document.getElementById('displayRole').textContent = data.role || '用户';
+            document.getElementById('avatarDisplay').textContent = (data.full_name || data.username || 'U').charAt(0).toUpperCase();
+
+            document.getElementById('username').value = data.username || '';
+            document.getElementById('email').value = data.email || '';
+            document.getElementById('fullName').value = data.full_name || '';
+            document.getElementById('bio').value = data.bio || '';
+            document.getElementById('phone').value = data.phone || '';
+            document.getElementById('location').value = data.location || '';
+            document.getElementById('website').value = data.website || '';
+        }
+
+        // 更新用户资料
+        async function updateProfile(profileData) {
+            const token = localStorage.getItem('access_token');
+            if (!token) {
+                showAlert('error', '请先登录');
+                return;
+            }
+
+            const btn = document.getElementById('saveProfileBtn');
+            btn.classList.add('loading');
+            btn.innerHTML = '<span class="spinner"></span> 保存中...';
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/me/profile`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(profileData)
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    showAlert('success', '个人资料更新成功！');
+                    displayProfile(data);
+                    
+                    // 更新localStorage中的用户信息
+                    const updatedUser = { ...currentUser, ...data };
+                    localStorage.setItem('user', JSON.stringify(updatedUser));
+                } else {
+                    const error = await response.json();
+                    showAlert('error', error.detail || '更新失败');
+                }
+            } catch (error) {
+                showAlert('error', '网络错误，请稍后重试');
+                console.error('Error updating profile:', error);
+            } finally {
+                btn.classList.remove('loading');
+                btn.innerHTML = '💾 保存更改';
+            }
+        }
+
+        // 修改密码
+        async function changePassword(oldPassword, newPassword) {
+            const token = localStorage.getItem('access_token');
+            if (!token) {
+                showAlert('error', '请先登录');
+                return;
+            }
+
+            const btn = document.getElementById('changePasswordBtn');
+            btn.classList.add('loading');
+            btn.innerHTML = '<span class="spinner"></span> 修改中...';
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/me/password`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        old_password: oldPassword,
+                        new_password: newPassword
+                    })
+                });
+
+                if (response.ok) {
+                    showAlert('success', '密码修改成功！');
+                    document.getElementById('passwordForm').reset();
+                } else {
+                    const error = await response.json();
+                    showAlert('error', error.detail || '修改失败');
+                }
+            } catch (error) {
+                showAlert('error', '网络错误，请稍后重试');
+                console.error('Error changing password:', error);
+            } finally {
+                btn.classList.remove('loading');
+                btn.innerHTML = '🔒 修改密码';
+            }
+        }
+
+        // 重置表单
+        function resetForm() {
+            if (originalData) {
+                displayProfile(originalData);
+                showAlert('success', '已重置为原始数据');
+            }
+        }
+
+        // 打开完整的桌面端仪表盘
+        function openFullDashboard() {
+            window.open('http://localhost:4200/dashboard', '_blank');
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!checkAuth()) return;
+            
+            loadProfile();
+
+            // 个人资料表单提交
+            document.getElementById('profileForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const profileData = {
+                    full_name: document.getElementById('fullName').value,
+                    bio: document.getElementById('bio').value,
+                    phone: document.getElementById('phone').value,
+                    location: document.getElementById('location').value,
+                    website: document.getElementById('website').value
+                };
+
+                updateProfile(profileData);
+            });
+
+            // 密码修改表单提交
+            document.getElementById('passwordForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const oldPassword = document.getElementById('oldPassword').value;
+                const newPassword = document.getElementById('newPassword').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+
+                if (newPassword !== confirmPassword) {
+                    showAlert('error', '两次输入的新密码不一致');
+                    return;
+                }
+
+                if (newPassword.length < 6) {
+                    showAlert('error', '新密码长度至少为6个字符');
+                    return;
+                }
+
+                changePassword(oldPassword, newPassword);
+            });
+        });
+    </script>
+</body>
+</html>

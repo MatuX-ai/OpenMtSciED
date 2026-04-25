@@ -10,12 +10,17 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { TauriService } from '../../core/services';
 import { CategoryService, Category } from '../../core/services/category.service';
 import { SearchService } from '../../core/services/search.service';
 import { ShortcutService } from '../../core/services/shortcut.service';
+import { ResourceAssociationService } from '../../services/resource-association.service';
 import { SearchBarComponent } from '../../shared/components/search-bar/search-bar.component';
+import { ResourceAssociationsComponent } from '../../shared/components/resource-associations/resource-associations.component';
 
 import { ResourceBrowserComponent } from './resource-browser/resource-browser.component';
 
@@ -42,8 +47,11 @@ interface Tutorial {
     MatTabsModule,
     MatChipsModule,
     MatIconModule,
+    MatSnackBarModule,
+    ScrollingModule,
     ResourceBrowserComponent,
     SearchBarComponent,
+    ResourceAssociationsComponent,
   ],
   template: `
     <div class="tutorial-library-container">
@@ -80,8 +88,9 @@ interface Tutorial {
             </div>
             
             <!-- 教程列表 -->
-            <div class="tutorial-grid">
-              <mat-card *ngFor="let tutorial of filteredTutorials" class="tutorial-card">
+            <cdk-virtual-scroll-viewport itemSize="200" class="tutorial-viewport">
+              <div class="tutorial-grid">
+                <mat-card *ngFor="let tutorial of filteredTutorials" class="tutorial-card">
                 <div class="card-category-bar" [style.background-color]="getCategoryColor(tutorial.category)"></div>
                 <mat-card-header>
                   <mat-card-title>{{ tutorial.name }}</mat-card-title>
@@ -99,6 +108,9 @@ interface Tutorial {
                   <button mat-button color="primary" (click)="editTutorial(tutorial)">
                     <i class="ri-edit-line"></i> 编辑
                   </button>
+                  <button mat-button color="accent" (click)="viewRelatedResources(tutorial)">
+                    <i class="ri-links-line"></i> 关联资源
+                  </button>
                   <button mat-button color="warn" (click)="deleteTutorial(tutorial.id!)">
                     <i class="ri-delete-bin-line"></i> 删除
                   </button>
@@ -111,6 +123,7 @@ interface Tutorial {
                 <p>暂无教程，点击右上角按钮创建第一个教程</p>
               </div>
             </div>
+            </cdk-virtual-scroll-viewport>
           </ng-template>
         </mat-tab>
 
@@ -177,6 +190,22 @@ interface Tutorial {
         </form>
       </div>
     </ng-template>
+
+    <!-- 关联资源对话框模板 -->
+    <ng-template #associationsDialogTemplate>
+      <div class="associations-dialog-content">
+        <h2>🔗 关联资源</h2>
+        <p class="tutorial-name">{{ selectedTutorial?.name }}</p>
+        <app-resource-associations 
+          [tutorialId]="selectedTutorial?.id?.toString() || ''"
+          [showMaterials]="true"
+          [showHardware]="true">
+        </app-resource-associations>
+        <div class="dialog-actions">
+          <button mat-button (click)="closeAssociationsDialog()">关闭</button>
+        </div>
+      </div>
+    </ng-template>
   `,
   styles: [
     `
@@ -205,10 +234,16 @@ interface Tutorial {
         margin-right: 8px;
       }
 
+      .tutorial-viewport {
+        height: calc(100vh - 300px);
+        min-height: 400px;
+      }
+
       .tutorial-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
         gap: 20px;
+        padding-bottom: 20px;
       }
 
       .tutorial-card {
@@ -321,17 +356,38 @@ interface Tutorial {
         width: 100%;
         margin-bottom: 16px;
       }
+
+      .associations-dialog-content {
+        padding: 24px;
+        min-width: 600px;
+        max-width: 1200px;
+      }
+
+      .associations-dialog-content h2 {
+        margin: 0 0 8px 0;
+        color: #333;
+        font-size: 22px;
+      }
+
+      .tutorial-name {
+        margin: 0 0 24px 0;
+        color: #667eea;
+        font-weight: 500;
+        font-size: 16px;
+      }
     `,
   ],
 })
 export class TutorialLibraryComponent implements OnInit {
   @ViewChild('dialogTemplate') dialogTemplate!: TemplateRef<unknown>;
+  @ViewChild('associationsDialogTemplate') associationsDialogTemplate!: TemplateRef<unknown>;
 
   tutorials: Tutorial[] = [];
   categories: Category[] = [];
   filteredTutorials: Tutorial[] = [];
   selectedCategoryId: number | null = null;
   currentTutorial: Tutorial = { name: '', description: '', category: '' };
+  selectedTutorial: Tutorial | null = null;
   isEditMode = false;
   editingTutorialId?: number;
   selectedTabIndex = 0; // 标签页索引: 0=我的教程, 1=开源资源
@@ -341,7 +397,10 @@ export class TutorialLibraryComponent implements OnInit {
     private categoryService: CategoryService,
     private searchService: SearchService,
     private shortcutService: ShortcutService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar,
+    private router: Router,
+    private associationService: ResourceAssociationService
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -504,14 +563,15 @@ export class TutorialLibraryComponent implements OnInit {
   }
 
   async deleteTutorial(id: number): Promise<void> {
-    if (!confirm('确定要删除这个教程吗？')) return;
+    if (!confirm('确定要删除这个教程吗？此操作不可恢复。')) return;
 
     try {
       await this.tauriService.deleteCourse(id);
+      this.snackBar.open('教程删除成功', '关闭', { duration: 3000 });
       void this.loadTutorials();
     } catch (error) {
       console.error('删除教程失败:', error);
-      alert('删除失败，请重试');
+      this.snackBar.open('删除失败，请重试', '关闭', { duration: 3000 });
     }
   }
 
@@ -561,6 +621,20 @@ export class TutorialLibraryComponent implements OnInit {
       const list = this.categories.map(c => `${c.id}: ${c.name} (${c.color})`).join('\n');
       alert('所有分类:\n' + list);
     }
+  }
+
+  viewRelatedResources(tutorial: Tutorial): void {
+    this.selectedTutorial = tutorial;
+    this.dialog.open(this.associationsDialogTemplate, { 
+      width: '90vw',
+      maxWidth: '1200px',
+      maxHeight: '90vh'
+    });
+  }
+
+  closeAssociationsDialog(): void {
+    this.dialog.closeAll();
+    this.selectedTutorial = null;
   }
 }
 

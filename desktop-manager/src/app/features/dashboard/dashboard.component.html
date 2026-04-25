@@ -1,0 +1,80 @@
+<div class="dashboard-container">
+  <!-- 快捷统计区域 -->
+  <div class="quick-stats">
+    <div class="stat-item">
+      <div class="stat-icon projects">
+        <mat-icon>folder</mat-icon>
+      </div>
+      <div class="stat-info">
+        <span class="stat-number">12</span>
+        <span class="stat-label">我的项目</span>
+      </div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon courses">
+        <mat-icon>menu_book</mat-icon>
+      </div>
+      <div class="stat-info">
+        <span class="stat-number">156</span>
+        <span class="stat-label">可用教程</span>
+      </div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-icon hardware">
+        <mat-icon>memory</mat-icon>
+      </div>
+      <div class="stat-info">
+        <span class="stat-number">24</span>
+        <span class="stat-label">硬件项目</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 核心功能区域 -->
+  <div class="section-title">
+    <h2>核心功能</h2>
+    <p>探索丰富的学习资源和工具</p>
+  </div>
+
+  <div class="action-grid">
+    <mat-card *ngFor="let action of primaryActions" class="action-card primary-card" (click)="navigate(action.route)">
+      <mat-card-content>
+        <div class="card-header">
+          <div class="icon-wrapper" [style.background]="action.color">
+            <mat-icon class="card-icon">{{ action.icon }}</mat-icon>
+          </div>
+          <div class="card-badge" *ngIf="action.badge">{{ action.badge }}</div>
+        </div>
+        <h3>{{ action.title }}</h3>
+        <p>{{ action.description }}</p>
+        <div class="card-arrow">
+          <mat-icon>arrow_forward</mat-icon>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- 学习工具区域 -->
+  <div class="section-title">
+    <h2>学习工具</h2>
+    <p>提升学习效率的辅助功能</p>
+  </div>
+
+  <div class="action-grid secondary-grid">
+    <mat-card *ngFor="let action of secondaryActions" class="action-card secondary-card" (click)="navigate(action.route)">
+      <mat-card-content>
+        <div class="card-header">
+          <div class="icon-wrapper" [style.background]="action.color">
+            <mat-icon class="card-icon">{{ action.icon }}</mat-icon>
+          </div>
+          <div class="card-badge" *ngIf="action.badge">{{ action.badge }}</div>
+        </div>
+        <h3>{{ action.title }}</h3>
+        <p>{{ action.description }}</p>
+        <div class="card-arrow">
+          <mat-icon>arrow_forward</mat-icon>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

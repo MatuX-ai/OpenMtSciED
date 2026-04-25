@@ -43,6 +43,14 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'my-projects',
+    canActivate: [AuthGuard],
+    loadComponent: () =>
+      import('./features/my-projects/my-projects.component').then(
+        (m) => m.MyProjectsComponent
+      ),
+  },
+  {
     path: 'material-library',
     canActivate: [AuthGuard],
     loadComponent: () =>
@@ -89,6 +97,18 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     loadComponent: () =>
       import('./features/search-map/search-map.component').then((m) => m.SearchMapComponent),
+  },
+  {
+    path: 'question-practice',
+    canActivate: [AuthGuard],
+    loadComponent: () =>
+      import('./features/learning/question-practice.component').then((m) => m.QuestionPracticeComponent),
+  },
+  {
+    path: 'question-stats',
+    canActivate: [AuthGuard],
+    loadComponent: () =>
+      import('./features/learning/question-stats.component').then((m) => m.QuestionStatsComponent),
   },
 
   // 设置

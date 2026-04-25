@@ -1,6 +1,9 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import * as echarts from 'echarts';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ResourceAssociationService } from '../../services/resource-association.service';
 
 interface PathNode {
   node_type: string;
@@ -32,6 +35,7 @@ export class PathVisualizationComponent implements OnInit, AfterViewInit {
   
   pathData: PathResponse | null = null;
   loading = false;
+  adjustmentSuggestions: any = null;
   private chart: any;
   
   // 测试用户数据（public以便单元测试访问）
@@ -50,7 +54,12 @@ export class PathVisualizationComponent implements OnInit, AfterViewInit {
     { label: '大学 (19岁)', age: 19, grade: '大学' }
   ];
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private snackBar: MatSnackBar,
+    private associationService: ResourceAssociationService
+  ) {}
 
   ngOnInit() {}
 
@@ -89,6 +98,7 @@ export class PathVisualizationComponent implements OnInit, AfterViewInit {
         next: (response) => {
           this.pathData = response;
           this.renderPathGraph(response.path_nodes);
+          this.loadAdjustmentSuggestions(); // 生成路径后加载调整建议
           this.loading = false;
         },
         error: (error) => {
@@ -183,6 +193,7 @@ export class PathVisualizationComponent implements OnInit, AfterViewInit {
               难度: ${node.difficulty}<br/>
               学时: ${node.estimated_hours}h<br/>
               ${node.description ? '说明: ' + node.description : ''}
+              <br/><small style="color:#999">💡 点击节点查看关联资源</small>
             `;
           }
           return params.name;
@@ -216,11 +227,59 @@ export class PathVisualizationComponent implements OnInit, AfterViewInit {
         lineStyle: {
           color: 'source',
           curveness: 0.3
+        },
+        emphasis: {
+          focus: 'adjacency',
+          lineStyle: {
+            width: 4
+          }
         }
       }]
     };
 
     this.chart.setOption(option);
+    
+    // 添加点击事件
+    this.chart.on('click', (params: any) => {
+      if (params.dataType === 'node') {
+        this.handleNodeClick(params.data);
+      }
+    });
+  }
+
+  handleNodeClick(nodeData: any): void {
+    const nodeId = nodeData.id;
+    const nodeName = nodeData.name;
+    const nodeCategory = nodeData.category;
+    
+    console.log('点击节点:', nodeId, nodeName, nodeCategory);
+    
+    // 根据节点类型导航到不同页面
+    if (nodeCategory === 'course_unit') {
+      this.snackBar.open(`查看教程: ${nodeName}`, '关闭', { duration: 2000 });
+      this.router.navigate(['/tutorial-library']);
+    } else if (nodeCategory === 'textbook_chapter') {
+      this.snackBar.open(`查看课件: ${nodeName}`, '关闭', { duration: 2000 });
+      this.router.navigate(['/material-library']);
+    } else if (nodeCategory === 'hardware_project') {
+      this.snackBar.open(`查看硬件: ${nodeName}`, '关闭', { duration: 2000 });
+      this.router.navigate(['/hardware-projects']);
+    } else {
+      this.snackBar.open(`节点: ${nodeName} (${this.getNodeTypeName(nodeCategory)})`, '关闭', { duration: 2000 });
+    }
+  }
+
+  loadAdjustmentSuggestions() {
+    const userId = 'test_user_001'; // 实际项目中应从认证服务获取
+    this.http.get(`/api/v1/path/dynamic-adjust/${userId}`).subscribe((res: any) => {
+      if (res.success && res.weak_points.length > 0) {
+        this.adjustmentSuggestions = res;
+      }
+    });
+  }
+
+  navigateToPractice(point: string) {
+    this.router.navigate(['/question-practice'], { queryParams: { point } });
   }
 
   getNodeTypeName(type: string): string {

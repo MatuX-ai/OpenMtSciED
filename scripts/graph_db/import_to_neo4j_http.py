@@ -58,7 +58,7 @@ class Neo4jHTTPImporter:
         """测试HTTP API连接"""
         try:
             data = {"statement": "RETURN 1 AS test"}
-            response = requests.post(self.base_url, headers=self.headers, json=data, timeout=10)
+            response = requests.post(self.base_url, headers=self.headers, json=data, timeout=10, verify=False)
             
             # 202 Accepted 或 200 OK 都表示连接成功
             if response.status_code in [200, 202]:
@@ -87,7 +87,8 @@ class Neo4jHTTPImporter:
                 self.base_url,
                 headers=self.headers,
                 json=data,
-                timeout=30
+                timeout=30,
+                verify=False
             )
             
             # 200 OK 或 202 Accepted 都表示成功

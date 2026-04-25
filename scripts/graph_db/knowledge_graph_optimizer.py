@@ -78,10 +78,13 @@ class KnowledgeGraphOptimizer:
         # 知识点
         if 'knowledge_points' in course:
             for kp in course['knowledge_points']:
-                if 'name' in kp:
-                    text_parts.append(kp['name'])
-                if 'description' in kp:
-                    text_parts.append(kp['description'])
+                if isinstance(kp, dict):
+                    if 'name' in kp:
+                        text_parts.append(kp['name'])
+                    if 'description' in kp:
+                        text_parts.append(kp['description'])
+                elif isinstance(kp, str):
+                    text_parts.append(kp)
         
         # 学科和级别
         if 'subject' in course:
@@ -136,7 +139,7 @@ class KnowledgeGraphOptimizer:
             return []
     
     def establish_progressive_relationships(self, courses: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-        """建立跨平台递进关系"""
+        """建立跨平台递进关系（细化匹配逻辑与权重）"""
         logger.info("建立跨平台递进关系...")
         
         progressive_relationships = []
@@ -149,13 +152,14 @@ class KnowledgeGraphOptimizer:
                 subject_groups[subject] = []
             subject_groups[subject].append((i, course))
         
+        level_order = {'elementary': 1, 'middle': 2, 'high': 3, 'university': 4}
+        
         # 为每个学科建立递进关系
         for subject, subject_courses in subject_groups.items():
             if len(subject_courses) < 2:
                 continue
             
             # 按难度级别排序
-            level_order = {'elementary': 1, 'middle': 2, 'high': 3, 'university': 4}
             sorted_courses = sorted(
                 subject_courses, 
                 key=lambda x: level_order.get(x[1].get('grade_level', ''), 0)
@@ -168,6 +172,17 @@ class KnowledgeGraphOptimizer:
                 
                 level1 = course1.get('grade_level', '')
                 level2 = course2.get('grade_level', '')
+                source = course1.get('source', '')
+                target = course2.get('source', '')
+                
+                # 基础权重：相邻级别
+                weight = 0.7
+                
+                # 跨平台增强权重：OpenSciEd -> OpenStax
+                if 'openscied' in source.lower() and 'openstax' in target.lower():
+                    weight = 0.95
+                elif 'gewustan' in source.lower() or 'arduino' in source.lower():
+                    weight = 0.85 # 硬件课程到理论课程的衔接
                 
                 # 只在相邻级别间建立关系
                 if (level1 in ['elementary', 'middle'] and level2 == 'middle') or \
@@ -178,12 +193,12 @@ class KnowledgeGraphOptimizer:
                         "source_course_id": course1.get('course_id') or course1.get('unit_id') or course1.get('chapter_id'),
                         "target_course_id": course2.get('course_id') or course2.get('unit_id') or course2.get('chapter_id'),
                         "relationship_type": "PROGRESSES_TO",
-                        "source_platform": course1.get('source', 'unknown'),
-                        "target_platform": course2.get('source', 'unknown'),
+                        "source_platform": source,
+                        "target_platform": target,
                         "subject": subject,
                         "source_level": level1,
                         "target_level": level2,
-                        "confidence": 0.8,
+                        "confidence": weight,
                         "created_at": datetime.now().isoformat()
                     }
                     progressive_relationships.append(relationship)

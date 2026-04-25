@@ -186,22 +186,20 @@
      * 更新认证 UI
      */
     function updateAuthUI(isLoggedIn) {
-        const btnLogin = document.getElementById('btnLogin');
-        const userMenu = document.getElementById('userMenu');
-
-        if (!btnLogin || !userMenu) return;
+        const authButtons = document.querySelector('.auth-buttons');
+        const loggedInControls = document.getElementById('loggedInControls');
 
         if (isLoggedIn) {
-            // 已登录状态
-            btnLogin.style.display = 'none';
-            userMenu.style.display = 'block';
+            // 已登录状态 - 隐藏未登录按钮，显示已登录控制区
+            if (authButtons) authButtons.style.display = 'none';
+            if (loggedInControls) loggedInControls.style.display = 'flex';
 
             // 加载用户信息
             loadUserInfo();
         } else {
-            // 未登录状态
-            btnLogin.style.display = 'flex';
-            userMenu.style.display = 'none';
+            // 未登录状态 - 显示未登录按钮，隐藏已登录控制区
+            if (authButtons) authButtons.style.display = 'flex';
+            if (loggedInControls) loggedInControls.style.display = 'none';
         }
     }
 
@@ -233,44 +231,51 @@
      * 处理登录
      */
     window.handleLogin = function() {
-        // TODO: 实现实际的登录逻辑
-        // 这里可以使用模态框、跳转到登录页或调用 API
+        // 检查是否已登录
+        const isLoggedIn = checkLoginStatus();
         
-        // 示例：显示登录提示
-        showLoginModal();
+        if (isLoggedIn) {
+            // 已登录状态 - 切换账号
+            if (confirm('确定要切换账号吗？当前用户将退出登录。')) {
+                // 清除用户信息
+                localStorage.removeItem('user');
+                sessionStorage.removeItem('user');
+                // 更新UI
+                updateAuthUI(false);
+            }
+            return;
+        }
         
-        // 或者跳转到登录页
-        // window.location.href = '/login.html';
+        // 未登录状态 - 跳转到登录页面
+        const currentUrl = window.location.href;
+        localStorage.setItem('redirect_after_login', currentUrl);
+        window.location.href = 'http://localhost:4200/login';
     };
 
     /**
-     * 显示登录模态框
+     * 模拟登录（快速体验）
      */
-    function showLoginModal() {
-        // 创建简单的登录提示（实际项目中应该使用完整的登录表单）
-        const email = prompt('请输入邮箱地址（演示功能）:');
-        if (!email) return;
-
-        const password = prompt('请输入密码（演示功能）:');
-        if (!password) return;
-
-        // 模拟登录成功
+    window.mockLogin = function() {
+        // 创建模拟用户信息
         const mockUser = {
-            id: 'user_' + Date.now(),
-            name: email.split('@')[0],
-            email: email,
-            loginTime: new Date().toISOString()
+            id: 1,
+            username: 'demo_user',
+            name: '演示用户',
+            email: 'demo@openmtscied.com',
+            role: 'user'
         };
-
-        // 保存用户信息到 localStorage
+        
+        // 保存到localStorage
         localStorage.setItem('user', JSON.stringify(mockUser));
-
-        // 更新 UI
+        
+        // 更新UI
         updateAuthUI(true);
-
+        
         // 显示欢迎消息
-        alert(`欢迎回来，${mockUser.name}！`);
-    }
+        alert('🎉 欢迎体验！\n\n您已使用演示账号登录，现在可以浏览所有功能。\n\n提示：点击导航栏的用户头像可以查看个人信息。');
+    };
+
+
 
     /**
      * 处理退出登录
@@ -295,9 +300,8 @@
     window.showProfile = function(e) {
         if (e) e.preventDefault();
         
-        // TODO: 跳转到个人中心页面
-        alert('个人中心功能开发中...');
-        // window.location.href = '/profile.html';
+        // 跳转到个人中心页面
+        window.location.href = 'profile.html';
     };
 
     /**
@@ -306,9 +310,8 @@
     window.showDashboard = function(e) {
         if (e) e.preventDefault();
         
-        // TODO: 跳转到学习仪表盘页面
-        alert('学习仪表盘功能开发中...');
-        // window.location.href = '/dashboard.html';
+        // 跳转到学习仪表盘页面
+        window.location.href = 'dashboard.html';
     };
 
     // 页面加载完成后初始化

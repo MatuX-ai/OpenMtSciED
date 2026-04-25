@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { Subscription } from 'rxjs';
 
 import { SearchFilters, SearchService } from '../../../core/services';
@@ -25,6 +26,7 @@ import { SearchFilters, SearchService } from '../../../core/services';
     MatIconModule,
     MatInputModule,
     MatSelectModule,
+    MatSlideToggleModule,
   ],
   template: `
     <div class="search-bar-container">
@@ -51,6 +53,13 @@ import { SearchFilters, SearchService } from '../../../core/services';
             <mat-icon>search</mat-icon>
           </button>
         </mat-form-field>
+
+        <!-- 智能全网搜索开关 -->
+        <div class="smart-search-toggle">
+          <mat-slide-toggle [(ngModel)]="isSmartSearch" (change)="onSearchModeChange()">
+            🌐 智能全网搜索 (STEM)
+          </mat-slide-toggle>
+        </div>
 
         <!-- 热门搜索标签 -->
         <div class="popular-tags" *ngIf="!hasActiveFilters">
@@ -276,6 +285,12 @@ import { SearchFilters, SearchService } from '../../../core/services';
         align-items: center;
       }
 
+      .smart-search-toggle {
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+      }
+
       .active-filters {
         display: flex;
         align-items: center;
@@ -296,6 +311,7 @@ import { SearchFilters, SearchService } from '../../../core/services';
 })
 export class SearchBarComponent implements OnInit, OnDestroy {
   searchKeyword = '';
+  isSmartSearch = false;
   showFilters = false;
   filters: SearchFilters = {};
   popularSearches: string[] = [];
@@ -331,8 +347,15 @@ export class SearchBarComponent implements OnInit, OnDestroy {
 
   onSearch(): void {
     if (this.searchKeyword.trim()) {
-      this.searchService.updateFilters({ keyword: this.searchKeyword.trim() });
+      const finalKeyword = this.isSmartSearch ? `[SMART] ${this.searchKeyword.trim()}` : this.searchKeyword.trim();
+      this.searchService.updateFilters({ keyword: finalKeyword });
       this.searchService.saveSearchHistory(this.searchKeyword.trim());
+    }
+  }
+
+  onSearchModeChange(): void {
+    if (this.searchKeyword) {
+      this.onSearch();
     }
   }
 

@@ -43,3 +43,4 @@ from .openstax_crawler import *
 from .khan_crawler import *
 from .coursera_crawler import *
 from .bnu_crawler import *
+from .openstax_question_crawler import *

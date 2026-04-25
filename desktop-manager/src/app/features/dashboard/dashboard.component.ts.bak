@@ -1,0 +1,351 @@
+import { CommonModule } from '@angular/common';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatBadgeModule } from '@angular/material/badge';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+
+import { NetworkStatusService } from '../../core/services/network-status.service';
+import { ThemeService } from '../../core/services/theme.service';
+import { ShortcutService } from '../../core/services/shortcut.service';
+import { TauriService } from '../../core/services/tauri.service';
+
+@Component({
+  selector: 'app-dashboard',
+  standalone: true,
+  imports: [CommonModule, MatButtonModule, MatCardModule, MatIconModule, MatTooltipModule, MatBadgeModule],
+  template: `
+    <div class="dashboard-container">
+      <!-- 欢迎区域 -->
+      <div class="welcome-section">
+        <div class="welcome-content">
+          <h1>👋 欢迎回来</h1>
+          <p class="welcome-subtitle">开始您的 STEM 学习之旅</p>
+        </div>
+        <div class="header-actions">
+          <button mat-icon-button class="theme-toggle" (click)="toggleTheme()" [matTooltip]="currentTheme === 'light' ? '切换到深色模式' : '切换到浅色模式'">
+            <mat-icon>{{ currentTheme === 'light' ? 'dark_mode' : 'light_mode' }}</mat-icon>
+          </button>
+          <button mat-stroked-button class="reset-btn" (click)="resetSetup()">
+            <mat-icon>refresh</mat-icon>
+            重新设置
+          </button>
+        </div>
+      </div>
+
+      <!-- 网络状态指示器 -->
+      <div class="network-status" [class.online]="isOnline" [class.offline]="!isOnline">
+        <mat-icon>{{ isOnline ? 'wifi' : 'wifi_off' }}</mat-icon>
+        <span>{{ isOnline ? '在线 - 同步云端资源' : '离线模式 - 使用本地资源' }}</span>
+        <button mat-button size="small" (click)="checkNetwork()" *ngIf="!isOnline">
+          重新检查
+        </button>
+      </div>
+
+      <!-- 快捷操作区域 -->
+      <div class="quick-stats">
+        <div class="stat-item">
+          <div class="stat-icon projects">
+            <mat-icon>folder</mat-icon>
+          </div>
+          <div class="stat-info">
+            <span class="stat-number">12</span>
+            <span class="stat-label">我的项目</span>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon courses">
+            <mat-icon>menu_book</mat-icon>
+          </div>
+          <div class="stat-info">
+            <span class="stat-number">156</span>
+            <span class="stat-label">可用教程</span>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon hardware">
+            <mat-icon>memory</mat-icon>
+          </div>
+          <div class="stat-info">
+            <span class="stat-number">24</span>
+            <span class="stat-label">硬件项目</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 功能卡片网格 -->
+      <div class="section-title">
+        <h2>核心功能</h2>
+        <p>探索丰富的学习资源和工具</p>
+      </div>
+
+      <div class="action-grid">
+        <mat-card *ngFor="let action of primaryActions" class="action-card primary-card" (click)="navigate(action.route)">
+          <mat-card-content>
+            <div class="card-header">
+              <div class="icon-wrapper" [style.background]="action.color">
+                <mat-icon class="card-icon">{{ action.icon }}</mat-icon>
+              </div>
+              <div class="card-badge" *ngIf="action.badge">{{ action.badge }}</div>
+            </div>
+            <h3>{{ action.title }}</h3>
+            <p>{{ action.description }}</p>
+            <div class="card-arrow">
+              <mat-icon>arrow_forward</mat-icon>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <!-- 辅助功能区域 -->
+      <div class="section-title">
+        <h2>学习工具</h2>
+        <p>提升学习效率的辅助功能</p>
+      </div>
+
+      <div class="action-grid secondary-grid">
+        <mat-card *ngFor="let action of secondaryActions" class="action-card secondary-card" (click)="navigate(action.route)">
+          <mat-card-content>
+            <div class="card-header">
+              <div class="icon-wrapper" [style.background]="action.color">
+                <mat-icon class="card-icon">{{ action.icon }}</mat-icon>
+              </div>
+              <div class="card-badge" *ngIf="action.badge">{{ action.badge }}</div>
+            </div>
+            <h3>{{ action.title }}</h3>
+            <p>{{ action.description }}</p>
+            <div class="card-arrow">
+              <mat-icon>arrow_forward</mat-icon>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  `,
+  styles: [`
+    .dashboard-container { 
+      padding: 32px; 
+      background: var(--bg-primary); 
+      min-height: 100vh;
+    }
+
+    /* 欢迎区域 */
+    .welcome-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .welcome-content h1 {
+      margin: 0 0 8px 0;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-primary);
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .welcome-subtitle {
+      margin: 0;
+      font-size: 16px;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .theme-toggle {
+      transition: transform 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: rotate(180deg);
+    }
+
+    .reset-btn {
+      border-radius: 8px;
+    }
+      height: 18px;
+    }
+    .network-status button {
+      margin-left: auto;
+      font-size: 12px;
+    }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .action-grid { 
+      display: grid; 
+      gap: 20px;
+      /* 响应式网格布局 */
+      grid-template-columns: repeat(4, 1fr); 
+    }
+    @media (max-width: 1200px) {
+      .action-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .action-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .action-grid { grid-template-columns: 1fr; }
+    }
+    .action-card { 
+      cursor: pointer; 
+      transition: transform 0.2s, box-shadow 0.2s; 
+      border-radius: 12px;
+      background: var(--card-bg);
+    }
+    .action-card:hover { 
+      transform: translateY(-4px); 
+      box-shadow: var(--card-shadow); 
+    }
+    mat-card-content { padding: 24px; text-align: center; }
+    .card-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .card-icon {
+      font-size: 48px;
+      width: 48px;
+      height: 48px;
+      color: var(--primary-color);
+    }
+    .card-badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--primary-color);
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 12px;
+      min-width: 20px;
+      text-align: center;
+    }
+    h3 { margin: 0 0 8px; color: var(--text-primary); }
+    p { margin: 0; color: var(--text-secondary); font-size: 14px; }
+  `]
+})
+export class DashboardComponent implements OnInit, OnDestroy {
+  actions = [
+    { title: '我的项目', description: '管理本地个性化课程', route: '/my-projects', icon: 'folder_special', badge: 0 },
+    { title: '资源浏览器', description: '教程与课件联动浏览', route: '/resource-browser', icon: 'explore' },
+    { title: '教程库', description: '浏览和管理开源 STEM 教程', route: '/tutorial-library', icon: 'menu_book', badge: 0 },
+    { title: '课件库', description: '获取 OpenStax 等经典教材', route: '/material-library', icon: 'library_books', badge: 0 },
+    { title: '知识图谱', description: '查看连贯学习路径', route: '/knowledge-graph', icon: 'hub' },
+    { title: '硬件项目', description: '低成本 Arduino/ESP32 实践', route: '/hardware-projects', icon: 'memory' },
+    { title: '系统设置', description: '配置存储与 AI 选项', route: '/settings', icon: 'settings' },
+  ];
+
+  isOnline = true;
+  currentTheme: 'light' | 'dark' = 'light';
+  private subscription?: Subscription;
+
+  constructor(
+    private router: Router,
+    private networkStatusService: NetworkStatusService,
+    private themeService: ThemeService,
+    private shortcutService: ShortcutService,
+    private tauriService: TauriService
+  ) {}
+
+  ngOnInit(): void {
+    this.isOnline = this.networkStatusService.isOnline();
+    this.currentTheme = this.themeService.getTheme();
+    
+    // 订阅网络状态变化
+    this.subscription = this.networkStatusService.status$.subscribe(status => {
+      this.isOnline = status.isOnline;
+    });
+
+    // 注册全局快捷键
+    this.registerShortcuts();
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
+  }
+
+  /**
+   * 注册快捷键
+   */
+  private registerShortcuts(): void {
+    // Ctrl+T - 切换主题
+    this.shortcutService.register({
+      key: 't',
+      ctrl: true,
+      description: '切换主题',
+      action: () => this.toggleTheme()
+    });
+
+    // Ctrl+R - 重新检查网络
+    this.shortcutService.register({
+      key: 'r',
+      ctrl: true,
+      description: '重新检查网络',
+      action: () => this.checkNetwork()
+    });
+
+    // F1 - 显示快捷键帮助
+    this.shortcutService.register({
+      key: 'F1',
+      description: '显示快捷键帮助',
+      action: () => this.showShortcutHelp()
+    });
+  }
+
+  /**
+   * 显示快捷键帮助
+   */
+  private showShortcutHelp(): void {
+    const shortcuts = this.shortcutService.getAllShortcuts();
+    const helpText = shortcuts.map(s => {
+      const modifiers = [];
+      if (s.ctrl) modifiers.push('Ctrl');
+      if (s.shift) modifiers.push('Shift');
+      if (s.alt) modifiers.push('Alt');
+      return `${modifiers.join('+')}+${s.key}: ${s.description}`;
+    }).join('\n');
+
+    alert(`快捷键列表:\n\n${helpText || '暂无注册的快捷键'}`);
+  }
+
+  async checkNetwork(): Promise<void> {
+    await this.networkStatusService.checkNetworkStatus();
+  }
+
+  toggleTheme(): void {
+    this.themeService.toggleTheme();
+    this.currentTheme = this.themeService.getTheme();
+  }
+
+  navigate(route: string): void {
+    void this.router.navigate([route]);
+  }
+
+  resetSetup(): void {
+    if (confirm('确定要重置配置吗？')) {
+      localStorage.removeItem('user-profile');
+      void this.router.navigate(['/setup-wizard']);
+    }
+  }
+}

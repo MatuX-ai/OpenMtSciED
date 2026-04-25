@@ -30,14 +30,23 @@
             <!-- 用户登录控件 -->
             <li class="navbar-auth" id="navbarAuth">
                 <!-- 未登录状态 -->
-                <button class="btn-login" id="btnLogin" onclick="handleLogin()">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
-                        <polyline points="10 17 15 12 10 7"/>
-                        <line x1="15" y1="12" x2="3" y2="12"/>
-                    </svg>
-                    <span>登录</span>
-                </button>
+                <div class="auth-buttons">
+                    <button class="btn-login" id="btnLogin" onclick="handleLogin()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                            <polyline points="10 17 15 12 10 7"/>
+                            <line x1="15" y1="12" x2="3" y2="12"/>
+                        </svg>
+                        <span>登录</span>
+                    </button>
+                    
+                    <button class="btn-mock-login" onclick="mockLogin()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                        <span>快速体验</span>
+                    </button>
+                </div>
                 
                 <!-- 已登录状态（默认隐藏） -->
                 <div class="user-menu" id="userMenu" style="display: none;">

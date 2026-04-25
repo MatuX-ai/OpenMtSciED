@@ -4,8 +4,13 @@ Neo4j连接测试和Schema初始化脚本
 """
 
 import sys
+import os
 import ssl
 from pathlib import Path
+from dotenv import load_dotenv
+
+# 加载环境变量
+load_dotenv(Path(__file__).parent.parent.parent / '.env.local')
 
 try:
     from neo4j import GraphDatabase
@@ -187,10 +192,19 @@ def main():
     print("OpenMTSciEd Neo4j 初始化工具")
     print("🚀" * 30 + "\n")
 
-    # 配置
-    uri = "bolt+s://4abd5ef9.databases.neo4j.io"  # Neo4j Aura 使用 bolt+s 直连协议
-    username = "4abd5ef9"
-    password = "bXebDaB8hSalBxvvB5GhHmcvudO03ilZB7qItmI0Xbs"
+    # 从环境变量读取配置
+    uri = os.getenv("NEO4J_URI", "bolt+s://localhost:7687")
+    username = os.getenv("NEO4J_USERNAME", "neo4j")
+    password = os.getenv("NEO4J_PASSWORD")
+    
+    if not password:
+        print("❌ 错误: NEO4J_PASSWORD 环境变量未设置")
+        print("请在 .env.local 文件中配置 Neo4j 密码")
+        print("示例: NEO4J_PASSWORD=your_strong_password_here")
+        sys.exit(1)
+    
+    print(f"📡 连接到 Neo4j: {uri}")
+    print(f"👤 用户名: {username}")
 
     # 步骤1: 测试连接
     if not test_connection(uri, username, password):

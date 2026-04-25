@@ -18,11 +18,18 @@ interface SystemSettings {
     enabled: boolean;
     provider: string;
     api_key?: string;
+    model?: string;
+    base_url?: string;
   };
   database?: {
-    host: string;
-    port: number;
-    name: string;
+    neon_host: string;
+    neon_port: number;
+    neon_name: string;
+    neon_user: string;
+    neon_password?: string;
+    neo4j_uri: string;
+    neo4j_username: string;
+    neo4j_password?: string;
   };
   storage?: {
     type: string;
@@ -106,6 +113,22 @@ interface SystemSettings {
 
                   <div class="form-group">
                     <mat-form-field appearance="outline" class="full-width">
+                      <mat-label>模型名称</mat-label>
+                      <input matInput [(ngModel)]="aiService.model"
+                             placeholder="gpt-3.5-turbo">
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-group">
+                    <mat-form-field appearance="outline" class="full-width">
+                      <mat-label>API基础URL</mat-label>
+                      <input matInput [(ngModel)]="aiService.base_url"
+                             placeholder="https://api.openai.com/v1">
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-group">
+                    <mat-form-field appearance="outline" class="full-width">
                       <mat-label>API密钥</mat-label>
                       <input matInput type="password" [(ngModel)]="aiService.api_key"
                              placeholder="输入API密钥">
@@ -121,26 +144,65 @@ interface SystemSettings {
             <div class="tab-content">
               <mat-card>
                 <mat-card-header>
-                  <mat-card-title>数据库连接</mat-card-title>
-                  <mat-card-subtitle>配置数据库连接参数</mat-card-subtitle>
+                  <mat-card-title>Neon PostgreSQL 数据库</mat-card-title>
+                  <mat-card-subtitle>配置Neon云数据库连接参数</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
                   <div class="form-row">
                     <mat-form-field appearance="outline">
                       <mat-label>主机地址</mat-label>
-                      <input matInput [(ngModel)]="database.host" placeholder="localhost">
+                      <input matInput [(ngModel)]="database.neon_host" placeholder="ep-throbbing-bread-a1b2c3d4.us-east-1.aws.neon.tech">
                     </mat-form-field>
 
                     <mat-form-field appearance="outline">
                       <mat-label>端口</mat-label>
-                      <input matInput type="number" [(ngModel)]="database.port" placeholder="5432">
+                      <input matInput type="number" [(ngModel)]="database.neon_port" placeholder="5432">
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-row">
+                    <mat-form-field appearance="outline">
+                      <mat-label>数据库名称</mat-label>
+                      <input matInput [(ngModel)]="database.neon_name" placeholder="openmtscied">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                      <mat-label>用户名</mat-label>
+                      <input matInput [(ngModel)]="database.neon_user" placeholder="neon_user">
                     </mat-form-field>
                   </div>
 
                   <div class="form-group">
                     <mat-form-field appearance="outline" class="full-width">
-                      <mat-label>数据库名称</mat-label>
-                      <input matInput [(ngModel)]="database.name" placeholder="openmtscied">
+                      <mat-label>密码</mat-label>
+                      <input matInput type="password" [(ngModel)]="database.neon_password" placeholder="输入Neon数据库密码">
+                    </mat-form-field>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+
+              <mat-card style="margin-top: 20px;">
+                <mat-card-header>
+                  <mat-card-title>Neo4j 图数据库</mat-card-title>
+                  <mat-card-subtitle>配置Neo4j Aura云数据库连接参数</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                  <div class="form-group">
+                    <mat-form-field appearance="outline" class="full-width">
+                      <mat-label>URI</mat-label>
+                      <input matInput [(ngModel)]="database.neo4j_uri" placeholder="neo4j+s://4abd5ef9.databases.neo4j.io">
+                    </mat-form-field>
+                  </div>
+
+                  <div class="form-row">
+                    <mat-form-field appearance="outline">
+                      <mat-label>用户名</mat-label>
+                      <input matInput [(ngModel)]="database.neo4j_username" placeholder="4abd5ef9">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                      <mat-label>密码</mat-label>
+                      <input matInput type="password" [(ngModel)]="database.neo4j_password" placeholder="输入Neo4j密码">
                     </mat-form-field>
                   </div>
                 </mat-card-content>
@@ -276,12 +338,19 @@ export class AdminSettingsComponent implements OnInit {
     ai_service: {
       enabled: false,
       provider: 'openai',
-      api_key: ''
+      api_key: '',
+      model: 'gpt-3.5-turbo',
+      base_url: 'https://api.openai.com/v1'
     },
     database: {
-      host: 'localhost',
-      port: 5432,
-      name: 'openmtscied'
+      neon_host: 'ep-raspy-shape-ao7ool7u-pooler.c-2.ap-southeast-1.aws.neon.tech',
+      neon_port: 5432,
+      neon_name: 'neondb',
+      neon_user: 'neondb_owner',
+      neon_password: '',
+      neo4j_uri: 'neo4j+s://4abd5ef9.databases.neo4j.io',
+      neo4j_username: '4abd5ef9',
+      neo4j_password: ''
     },
     storage: {
       type: 'local',

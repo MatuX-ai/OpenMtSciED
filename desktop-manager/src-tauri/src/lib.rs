@@ -88,6 +88,14 @@ pub fn run() {
       commands::import_export::export_materials_to_csv,
       commands::import_export::backup_database,
       commands::import_export::restore_database,
+      commands::import_export::sync_project_to_cloud,
+      // 用户项目
+      commands::user_project::create_user_project,
+      commands::user_project::get_user_projects,
+      commands::user_project::add_resource_to_project,
+      commands::user_project::get_project_resources,
+      // 智能搜索
+      commands::smart_search::smart_search,
       // 工具
       commands::utils::open_url,
     ])

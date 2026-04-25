@@ -11,6 +11,10 @@ import ssl
 from pathlib import Path
 from typing import List, Dict, Any
 from datetime import datetime
+from dotenv import load_dotenv
+
+# 加载环境变量
+load_dotenv(Path(__file__).parent.parent.parent / '.env.local')
 
 from neo4j import GraphDatabase
 from neo4j.exceptions import ServiceUnavailable
@@ -31,17 +35,26 @@ class Neo4jImporter:
     """Neo4j数据导入器"""
     
     def __init__(self):
-        # 从配置文件读取Neo4j连接信息
-        self.uri = "neo4j+s://4abd5ef9.databases.neo4j.io"
-        self.username = "4abd5ef9"
-        self.password = "bXebDaB8hSalBxvvB5GhHmcvudO03ilZB7qItmI0Xbs"
-        self.database = "4abd5ef9"  # Neo4j Aura实例ID作为数据库名
+        # 从环境变量读取Neo4j连接信息
+        self.uri = os.getenv("NEO4J_URI", "neo4j+s://localhost:7687")
+        self.username = os.getenv("NEO4J_USERNAME", "neo4j")
+        self.password = os.getenv("NEO4J_PASSWORD")
         
-        logger.info(f"连接Neo4j Aura: {self.uri}")
+        if not self.password:
+            raise EnvironmentError(
+                "NEO4J_PASSWORD 环境变量未设置。请在 .env.local 文件中配置。"
+            )
         
-        # 创建驱动时不设置额外SSL参数（URI scheme已隐含加密）
-        # 注意：neo4j+s协议已包含加密，不应手动设置encrypted或trust参数
+        # Neo4j Aura 使用实例 ID 作为数据库名，本地部署使用 'neo4j'
+        instance_id = self.uri.split('//')[1].split('.')[0] if 'databases.neo4j.io' in self.uri else None
+        self.database = instance_id if instance_id else "neo4j"
+        
+        logger.info(f"连接Neo4j: {self.uri}")
+        logger.info(f"数据库: {self.database}")
+        
+        # 连接 Neo4j Aura
         try:
+            # 尝试使用默认配置连接（neo4j+s 已隐含加密）
             self.driver = GraphDatabase.driver(
                 self.uri,
                 auth=(self.username, self.password)
@@ -105,9 +118,23 @@ class Neo4jImporter:
         
         logger.info("约束和索引创建完成")
     
+    def normalize_grade_level(self, level: str) -> str:
+        """统一学段标签映射"""
+        mapping = {
+            '小学': 'elementary', 'elementary': 'elementary',
+            '初中': 'middle', 'middle': 'middle',
+            '高中': 'high', 'high': 'high',
+            '大学': 'university', 'university': 'university'
+        }
+        return mapping.get(level, level)
+
     def import_course_units(self, units: List[Dict[str, Any]]):
         """导入教程单元"""
         logger.info(f"开始导入 {len(units)} 个教程单元...")
+        
+        # 预处理：统一学段标签
+        for unit in units:
+            unit['grade_level'] = self.normalize_grade_level(unit.get('grade_level', ''))
         
         with self.driver.session(database=self.database) as session:
             batch_size = 20
@@ -146,6 +173,10 @@ class Neo4jImporter:
     def import_textbook_chapters(self, chapters: List[Dict[str, Any]]):
         """导入教材章节"""
         logger.info(f"开始导入 {len(chapters)} 个教材章节...")
+        
+        # 预处理：统一学段标签
+        for chapter in chapters:
+            chapter['grade_level'] = self.normalize_grade_level(chapter.get('grade_level', ''))
         
         with self.driver.session(database=self.database) as session:
             batch_size = 20
@@ -263,6 +294,70 @@ class Neo4jImporter:
             logger.error(f"❌ 导入优化关系失败: {e}", exc_info=True)
             raise
     
+    def import_stem_pbl_standards(self, standards_data: Dict[str, Any]):
+        """导入STEM-PBL教学标准节点"""
+        logger.info("导入STEM-PBL教学标准...")
+        with self.driver.session(database=self.database) as session:
+            query = """
+            MERGE (pbl:StemPBLStandard {id: $id})
+            SET pbl.title = $title,
+                pbl.version = $version,
+                pbl.categories = $categories,
+                pbl.process = $process,
+                pbl.criteria = $criteria
+            """
+            session.run(query, 
+                id=standards_data.get('id'),
+                title=standards_data.get('title'),
+                version=standards_data.get('version'),
+                categories=json.dumps(standards_data.get('course_categories', [])),
+                process=json.dumps(standards_data.get('teaching_process', [])),
+                criteria=json.dumps(standards_data.get('evaluation_criteria', []))
+            )
+            logger.info("✅ STEM-PBL标准节点创建成功")
+
+    def import_hardware_projects(self, projects: List[Dict[str, Any]]):
+        """导入硬件项目节点"""
+        logger.info(f"开始导入 {len(projects)} 个硬件项目...")
+        with self.driver.session(database=self.database) as session:
+            batch_size = 20
+            for i in range(0, len(projects), batch_size):
+                batch = projects[i:i+batch_size]
+                query = """
+                UNWIND $projects AS project
+                MERGE (hp:HardwareProject {id: project.project_id})
+                SET hp.title = project.title,
+                    hp.category = project.category,
+                    hp.difficulty = project.difficulty,
+                    hp.subject = project.subject,
+                    hp.description = project.description,
+                    hp.mcu_type = project.mcu_type
+                WITH hp, project
+                UNWIND project.knowledge_point_ids AS kp_id
+                MATCH (kp:KnowledgePoint {id: kp_id})
+                MERGE (hp)-[:HARDWARE_MAPS_TO]->(kp)
+                """
+                session.run(query, projects=batch)
+                logger.info(f"已导入硬件项目 {min(i+batch_size, len(projects))}/{len(projects)}")
+        logger.info("✅ 硬件项目导入完成")
+
+    def create_pbl_alignment_relationships(self):
+        """建立教程与STEM-PBL标准的对齐关系"""
+        logger.info("建立教程与STEM-PBL标准对齐关系...")
+        with self.driver.session(database=self.database) as session:
+            # 简单起见，将所有K12教程与PBL标准建立 ALIGNS_WITH 关系
+            # 实际应用中可以根据 subject 或 keywords 进行更精细的匹配
+            query = """
+            MATCH (cu:CourseUnit), (pbl:StemPBLStandard)
+            WHERE cu.grade_level IN ['elementary', 'middle', 'high']
+            MERGE (cu)-[:ALIGNS_WITH {aligned_at: datetime()}]->(pbl)
+            RETURN count(*) AS count
+            """
+            result = session.run(query)
+            record = result.single()
+            if record:
+                logger.info(f"✅ 建立了 {record['count']} 条 ALIGNS_WITH 关系")
+
     def verify_import(self):
         """验证导入结果"""
         logger.info("验证导入结果...")
@@ -272,6 +367,7 @@ class Neo4jImporter:
                 "CourseUnit节点数": "MATCH (cu:CourseUnit) RETURN count(cu) AS count",
                 "KnowledgePoint节点数": "MATCH (kp:KnowledgePoint) RETURN count(kp) AS count",
                 "TextbookChapter节点数": "MATCH (tc:TextbookChapter) RETURN count(tc) AS count",
+                "StemPBLStandard节点数": "MATCH (pbl:StemPBLStandard) RETURN count(pbl) AS count",
                 "CONTAINS关系数": "MATCH ()-[:CONTAINS]->() RETURN count(*) AS count",
                 "PROGRESSES_TO关系数": "MATCH ()-[:PROGRESSES_TO]->() RETURN count(*) AS count",
             }
@@ -360,8 +456,25 @@ class Neo4jImporter:
                 logger.info(f"加载OpenStax: {len(openstax_chapters)}个章节")
                 self.import_textbook_chapters(openstax_chapters)
             
+            # 导入STEM-PBL标准
+            stem_pbl_file = textbook_library_dir / "stem_pbl_standard.json"
+            if stem_pbl_file.exists():
+                with open(stem_pbl_file, 'r', encoding='utf-8') as f:
+                    stem_pbl_data = json.load(f)
+                self.import_stem_pbl_standards(stem_pbl_data)
+            
+            # 导入硬件项目
+            hardware_file = Path("data/hardware_projects.json")
+            if hardware_file.exists():
+                with open(hardware_file, 'r', encoding='utf-8') as f:
+                    hardware_projects = json.load(f)
+                self.import_hardware_projects(hardware_projects)
+            
             # 4. 建立递进关系
             self.create_progresses_to_relationships()
+            
+            # 5. 建立PBL对齐关系
+            self.create_pbl_alignment_relationships()
             
             # 5. 导入优化后的关系数据（如果存在）
             relationships_file = Path("data/knowledge_graph_relationships.json")

@@ -48,10 +48,45 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'admin/tutorials',
+        loadComponent: () =>
+          import('./admin/tutorials/admin-tutorials.component').then(
+            (m) => m.AdminTutorialsComponent
+          ),
+      },
+      {
+        path: 'admin/materials',
+        loadComponent: () =>
+          import('./admin/materials/admin-materials.component').then(
+            (m) => m.AdminMaterialsComponent
+          ),
+      },
+      {
         path: 'admin/crawlers',
         loadComponent: () =>
           import('./admin/crawlers/admin-crawlers.component').then(
             (m) => m.AdminCrawlersComponent
+          ),
+      },
+      {
+        path: 'admin/knowledge-graph',
+        loadComponent: () =>
+          import('./admin/knowledge-graph/knowledge-graph-admin.component').then(
+            (m) => m.KnowledgeGraphAdminComponent
+          ),
+      },
+      {
+        path: 'admin/resource-associations',
+        loadComponent: () =>
+          import('./admin/resource-associations/resource-associations.component').then(
+            (m) => m.ResourceAssociationsComponent
+          ),
+      },
+      {
+        path: 'admin/question-bank',
+        loadComponent: () =>
+          import('./admin/question-bank/admin-question-bank.component').then(
+            (m) => m.AdminQuestionBankComponent
           ),
       },
     ],

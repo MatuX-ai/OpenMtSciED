@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学习仪表盘 - OpenMTSciEd</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="theme-color" content="#6366f1">
+    
+    <!-- 统一导航组件样式 -->
+    <link rel="stylesheet" href="css/navbar.css">
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --accent-color: #06b6d4;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --stem-science: #10b981;
+            --stem-tech: #3b82f6;
+            --stem-engineering: #f59e0b;
+            --stem-math: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        /* STEM Grid Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+        }
+
+        /* Main Content */
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 2rem 4rem;
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-bottom: 3rem;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .stat-card.science .stat-value { color: var(--stem-science); }
+        .stat-card.tech .stat-value { color: var(--stem-tech); }
+        .stat-card.engineering .stat-value { color: var(--stem-engineering); }
+        .stat-card.math .stat-value { color: var(--stem-math); }
+
+        /* Content Sections */
+        .content-section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .view-all-btn {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .view-all-btn:hover {
+            color: var(--accent-color);
+        }
+
+        /* Activity List */
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .activity-item:hover {
+            background: rgba(99, 102, 241, 0.1);
+            transform: translateX(5px);
+        }
+
+        .activity-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .activity-icon.completed { background: rgba(16, 185, 129, 0.2); }
+        .activity-icon.in-progress { background: rgba(59, 130, 246, 0.2); }
+        .activity-icon.recommended { background: rgba(245, 158, 11, 0.2); }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .activity-meta {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .activity-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .badge-completed {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--stem-science);
+        }
+
+        .badge-in-progress {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--stem-tech);
+        }
+
+        .badge-recommended {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--stem-engineering);
+        }
+
+        /* Recommendations Grid */
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .recommendation-card {
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .recommendation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .rec-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .rec-icon {
+            font-size: 2rem;
+        }
+
+        .rec-type {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .rec-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .rec-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .rec-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .rec-difficulty {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .difficulty-beginner {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--stem-science);
+        }
+
+        .difficulty-intermediate {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--stem-tech);
+        }
+
+        .difficulty-advanced {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--stem-math);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .cta-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-description {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.5);
+        }
+
+        .btn-secondary {
+            background: var(--card-bg);
+            color: var(--text-primary);
+            border: 2px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+        }
+
+        .empty-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .empty-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                padding: 80px 1rem 2rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .recommendations-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation - 统一导航组件 -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <img src="logo.png" alt="OpenMTSciEd Logo" class="navbar-logo-icon">
+                <span>OpenMTSciEd</span>
+            </a>
+
+            <button class="navbar-toggle" id="navbarToggle" aria-label="切换菜单">
+                <span class="navbar-toggle-icon"></span>
+                <span class="navbar-toggle-icon"></span>
+                <span class="navbar-toggle-icon"></span>
+            </button>
+
+            <ul class="navbar-links" id="navbarLinks">
+                <li><a href="index.html#features">核心特性</a></li>
+                <li><a href="index.html#path">学习路径</a></li>
+                <li><a href="index.html#hardware">硬件项目</a></li>
+                <li><a href="index.html#community">社区</a></li>
+                <li><a href="https://github.com/MatuX-ai/OpenMtSciED" target="_blank">GitHub</a></li>
+                
+                <!-- 用户登录控件 -->
+                <li class="navbar-auth" id="navbarAuth">
+                    <div class="auth-buttons">
+                        <button class="btn-login" id="btnLogin" onclick="handleLogin()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                                <polyline points="10 17 15 12 10 7"/>
+                                <line x1="15" y1="12" x2="3" y2="12"/>
+                            </svg>
+                            <span>登录</span>
+                        </button>
+                        
+                        <button class="btn-mock-login" onclick="mockLogin()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                            </svg>
+                            <span>快速体验</span>
+                        </button>
+                    </div>
+                    
+                    <div class="user-menu" id="userMenu" style="display: none;">
+                        <div class="user-info">
+                            <div class="user-avatar" id="userAvatar">U</div>
+                            <span class="user-name" id="userName">用户</span>
+                        </div>
+                        <div class="user-dropdown">
+                            <a href="profile.html" class="dropdown-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                个人中心
+                            </a>
+                            <a href="dashboard.html" class="dropdown-item active">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="7" height="7"/>
+                                    <rect x="14" y="3" width="7" height="7"/>
+                                    <rect x="14" y="14" width="7" height="7"/>
+                                    <rect x="3" y="14" width="7" height="7"/>
+                                </svg>
+                                学习仪表盘
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item logout" onclick="handleLogout()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                                    <polyline points="16 17 21 12 16 7"/>
+                                    <line x1="21" y1="12" x2="9" y2="12"/>
+                                </svg>
+                                退出登录
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title">学习仪表盘</h1>
+            <p class="page-subtitle">追踪你的STEM学习进度，发现新的学习机会</p>
+        </div>
+
+        <!-- Stats Overview -->
+        <div class="stats-grid">
+            <div class="stat-card science">
+                <div class="stat-icon">🔬</div>
+                <div class="stat-value" id="completedCourses">0</div>
+                <div class="stat-label">已完成课程</div>
+            </div>
+            <div class="stat-card tech">
+                <div class="stat-icon">💻</div>
+                <div class="stat-value" id="inProgressCourses">0</div>
+                <div class="stat-label">进行中课程</div>
+            </div>
+            <div class="stat-card engineering">
+                <div class="stat-icon">⚙️</div>
+                <div class="stat-value" id="completedProjects">0</div>
+                <div class="stat-label">完成项目</div>
+            </div>
+            <div class="stat-card math">
+                <div class="stat-icon">📊</div>
+                <div class="stat-value" id="learningHours">0</div>
+                <div class="stat-label">学习时长(小时)</div>
+            </div>
+        </div>
+
+        <!-- Recent Activities -->
+        <div class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">最近活动</h2>
+                <a href="#" class="view-all-btn" onclick="openFullDashboard(); return false;">查看全部 →</a>
+            </div>
+            <div class="activity-list" id="activityList">
+                <!-- 动态加载活动内容 -->
+            </div>
+        </div>
+
+        <!-- Recommended Learning -->
+        <div class="content-section">
+            <div class="section-header">
+                <h2 class="section-title">为你推荐</h2>
+                <a href="#" class="view-all-btn" onclick="openFullDashboard(); return false;">更多推荐 →</a>
+            </div>
+            <div class="recommendations-grid" id="recommendationsGrid">
+                <!-- 动态加载推荐内容 -->
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2 class="cta-title">想要更完整的学习体验？</h2>
+            <p class="cta-description">
+                下载桌面端应用，享受AI个性化学习路径、硬件项目模拟、知识图谱探索等高级功能
+            </p>
+            <div class="cta-buttons">
+                <a href="http://localhost:4200/dashboard" target="_blank" class="btn btn-primary">
+                    🚀 打开桌面端应用
+                </a>
+                <a href="index.html" class="btn btn-secondary">
+                    ← 返回首页
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 统一导航组件脚本 -->
+    <script src="js/navbar.js"></script>
+    
+    <script>
+        // 检查登录状态
+        function checkAuth() {
+            const user = localStorage.getItem('user');
+            if (!user) {
+                // 未登录，跳转到登录页
+                window.location.href = 'http://localhost:4200/login';
+                return false;
+            }
+            return true;
+        }
+
+        // 加载统计数据（模拟数据）
+        function loadStats() {
+            // TODO: 从后端API获取真实数据
+            document.getElementById('completedCourses').textContent = '3';
+            document.getElementById('inProgressCourses').textContent = '2';
+            document.getElementById('completedProjects').textContent = '5';
+            document.getElementById('learningHours').textContent = '28';
+        }
+
+        // 加载最近活动
+        function loadActivities() {
+            const activities = [
+                {
+                    icon: '📚',
+                    type: 'completed',
+                    title: '完成课程：生态系统能量流动',
+                    meta: 'OpenSciEd · 2小时前',
+                    badge: '已完成',
+                    badgeClass: 'badge-completed'
+                },
+                {
+                    icon: '🔧',
+                    type: 'in-progress',
+                    title: '进行项目：智能气象站',
+                    meta: '硬件项目 · 昨天',
+                    badge: '进行中',
+                    badgeClass: 'badge-in-progress'
+                },
+                {
+                    icon: '💡',
+                    type: 'recommended',
+                    title: '推荐课程：光合作用原理',
+                    meta: '基于你的学习兴趣 · 今天',
+                    badge: '推荐',
+                    badgeClass: 'badge-recommended'
+                }
+            ];
+
+            const activityList = document.getElementById('activityList');
+            
+            if (activities.length === 0) {
+                activityList.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">📭</div>
+                        <div class="empty-title">暂无活动记录</div>
+                        <p>开始你的第一个STEM课程吧！</p>
+                    </div>
+                `;
+                return;
+            }
+
+            activityList.innerHTML = activities.map(activity => `
+                <div class="activity-item">
+                    <div class="activity-icon ${activity.type}">${activity.icon}</div>
+                    <div class="activity-content">
+                        <div class="activity-title">${activity.title}</div>
+                        <div class="activity-meta">${activity.meta}</div>
+                    </div>
+                    <span class="activity-badge ${activity.badgeClass}">${activity.badge}</span>
+                </div>
+            `).join('');
+        }
+
+        // 加载推荐内容
+        function loadRecommendations() {
+            const recommendations = [
+                {
+                    icon: '🌡️',
+                    type: '硬件项目',
+                    title: '智能温度监测系统',
+                    description: '使用ESP32和温度传感器构建实时环境监测系统，学习物联网基础',
+                    difficulty: 'beginner',
+                    difficultyText: '初级'
+                },
+                {
+                    icon: '🧬',
+                    type: '科学课程',
+                    title: 'DNA结构与遗传',
+                    description: '深入理解遗传学基础，探索基因如何决定生物特征',
+                    difficulty: 'intermediate',
+                    difficultyText: '中级'
+                },
+                {
+                    icon: '🤖',
+                    type: '编程项目',
+                    title: 'Arduino机器人控制',
+                    description: '学习电机控制、传感器融合和自主导航算法',
+                    difficulty: 'advanced',
+                    difficultyText: '高级'
+                }
+            ];
+
+            const grid = document.getElementById('recommendationsGrid');
+            grid.innerHTML = recommendations.map(rec => `
+                <a href="#" class="recommendation-card" onclick="openFullDashboard(); return false;">
+                    <div class="rec-header">
+                        <div class="rec-icon">${rec.icon}</div>
+                        <div class="rec-type">${rec.type}</div>
+                    </div>
+                    <div class="rec-title">${rec.title}</div>
+                    <div class="rec-description">${rec.description}</div>
+                    <div class="rec-footer">
+                        <span class="rec-difficulty difficulty-${rec.difficulty}">${rec.difficultyText}</span>
+                        <span style="color: var(--primary-color); font-size: 0.9rem;">查看详情 →</span>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // 打开完整的桌面端仪表盘
+        function openFullDashboard() {
+            window.open('http://localhost:4200/dashboard', '_blank');
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!checkAuth()) return;
+            
+            loadStats();
+            loadActivities();
+            loadRecommendations();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "assoc-001",
+    "source_id": "OS-Unit-001",
+    "source_type": "tutorial",
+    "target_id": "OST-Bio-Ch5",
+    "target_type": "material",
+    "relevance_score": 0.85,
+    "created_at": "2026-04-24T10:00:00Z"
+  },
+  {
+    "id": "assoc-002",
+    "source_id": "OST-Bio-Ch5",
+    "source_type": "material",
+    "target_id": "HW-Sensor-001",
+    "target_type": "hardware",
+    "relevance_score": 0.75,
+    "created_at": "2026-04-24T10:00:00Z"
+  }
+]

@@ -6,7 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { AuthService } from '../../../core/services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -39,8 +39,11 @@ import { AuthService } from '../../../core/services/auth.service';
               <span>或</span>
             </div>
 
-            <button mat-stroked-button color="accent" class="full-width" (click)="mockLogin()" [disabled]="loading">
-              🚀 一键体验（模拟账号）
+            <button mat-stroked-button color="accent" class="full-width mock-login-btn" (click)="mockLogin()" [disabled]="loading">
+              <span style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <span>⚡</span>
+                <span>快速体验</span>
+              </span>
             </button>
           </form>
         </mat-card-content>
@@ -56,11 +59,13 @@ import { AuthService } from '../../../core/services/auth.service';
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #f5f7fa;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
     .login-card {
-      width: 400px;
-      padding: 20px;
+      width: 420px;
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     }
     .full-width {
       width: 100%;
@@ -68,14 +73,34 @@ import { AuthService } from '../../../core/services/auth.service';
     }
     .divider {
       text-align: center;
-      margin: 16px 0;
+      margin: 20px 0;
       position: relative;
+      color: #999;
+      font-size: 14px;
+    }
+    .divider::before,
+    .divider::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 45%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #e0e0e0, transparent);
+    }
+    .divider::before {
+      left: 0;
+    }
+    .divider::after {
+      right: 0;
     }
     .divider span {
       background-color: #fff;
-      padding: 0 10px;
-      color: #999;
-      font-size: 12px;
+      padding: 0 12px;
+      position: relative;
+      z-index: 1;
+    }
+    .mock-login-btn {
+      margin-top: 8px;
     }
   `]
 })
@@ -93,7 +118,14 @@ export class LoginComponent {
 
     this.authService.login(this.credentials).subscribe({
       next: () => {
-        this.router.navigate(['/dashboard']);
+        // 检查是否有重定向URL（从website跳转过来的）
+        const redirectUrl = localStorage.getItem('redirect_after_login');
+        if (redirectUrl) {
+          localStorage.removeItem('redirect_after_login');
+          window.location.href = redirectUrl;
+        } else {
+          this.router.navigate(['/dashboard']);
+        }
       },
       error: (err: any) => {
         this.loading = false;

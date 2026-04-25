@@ -221,4 +221,30 @@ export class TauriService {
       page_size: pageSize,
     });
   }
+
+  // 用户项目管理
+  async getUserProjects(): Promise<unknown[]> {
+    return this.invokeCommand<unknown[]>('get_user_projects');
+  }
+
+  async createUserProject(name: string, description?: string): Promise<unknown> {
+    return this.invokeCommand<unknown>('create_user_project', { name, description });
+  }
+
+  async addResourceToProject(projectId: number, resourceId: string): Promise<void> {
+    return this.invokeCommand<void>('add_resource_to_project', { project_id: projectId, resource_id: resourceId });
+  }
+
+  async getProjectResources(projectId: number): Promise<unknown[]> {
+    return this.invokeCommand<unknown[]>('get_project_resources', { project_id: projectId });
+  }
+
+  async syncProjectToCloud(projectId: number, apiUrl: string, contributorId: string): Promise<string> {
+    return this.invokeCommand<string>('sync_project_to_cloud', { project_id: projectId, api_url: apiUrl, contributor_id: contributorId });
+  }
+
+  // 智能搜索
+  async smartSearch(keyword: string, limit: number = 10): Promise<any> {
+    return this.invokeCommand<any>('smart_search', { keyword, limit });
+  }
 }

@@ -110,6 +110,13 @@ export class AuthService {
     return localStorage.getItem('access_token');
   }
 
+  getAuthHeaders(): { Authorization: string } {
+    const token = this.getToken();
+    return {
+      Authorization: `Bearer ${token}`
+    };
+  }
+
   /**
    * 修改密码
    */
