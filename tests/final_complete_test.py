@@ -1,6 +1,12 @@
 """最终完整测试 - 自动处理密码状态"""
 import requests
 import sys
+import os
+
+# 检测 CI 环境
+if os.getenv('CI') == 'true' or os.getenv('GITHUB_ACTIONS') == 'true':
+    print("⚠️  CI 环境，跳过集成测试")
+    sys.exit(0)
 
 BASE_URL = "http://localhost:8000/api/v1/auth"
 

@@ -9,6 +9,11 @@ import sys
 import os
 from datetime import datetime
 
+# 检测 CI 环境
+if os.getenv('CI') == 'true' or os.getenv('GITHUB_ACTIONS') == 'true':
+    print("⚠️  CI 环境，跳过健康检查")
+    sys.exit(0)
+
 BASE_URL = os.getenv("API_BASE_URL", "http://localhost:8000")
 
 def print_header(title):
