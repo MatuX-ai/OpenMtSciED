@@ -401,7 +401,7 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1.5rem 0.75rem 1.75rem;
     color: var(--text-secondary, #cbd5e1);
     text-decoration: none;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -414,7 +414,6 @@
 .dropdown-item:hover {
     background: rgba(99, 102, 241, 0.12);
     color: var(--text-primary, #f8fafc);
-    padding-left: 1.75rem;
     border-left-color: var(--primary-color, #6366f1);
 }
 
