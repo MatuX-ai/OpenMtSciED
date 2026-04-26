@@ -9,16 +9,12 @@ import os
 import time
 import json
 import requests
+import pytest
 from datetime import datetime
 from typing import Dict, List, Tuple
 
 # 检测 CI 环境 - 跳过需要本地服务的测试
 IS_CI = os.getenv('CI') == 'true' or os.getenv('GITHUB_ACTIONS') == 'true'
-if IS_CI:
-    print("⚠️  检测到 CI 环境")
-    print("提示: GitHub Actions 中没有运行后端服务，跳过集成测试")
-    print("\n✅ CI 检查通过（仅代码质量检查）")
-    sys.exit(0)
 
 # 配置
 BASE_URL = os.getenv("API_BASE_URL", "http://localhost:8000")
@@ -485,5 +481,8 @@ def main():
         return 2
 
 
-if __name__ == "__main__":
-    sys.exit(main())
+@pytest.mark.skipif(IS_CI, reason="CI 环境，跳过需要本地服务的测试")
+def test_deployment_pre_check():
+    """pytest 测试入口"""
+    result = main()
+    assert result == 0, f"部署前检查失败，返回码: {result}"

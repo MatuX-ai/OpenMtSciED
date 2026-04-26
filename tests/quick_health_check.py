@@ -7,12 +7,11 @@ OpenMTSciEd 快速健康检查脚本
 import requests
 import sys
 import os
+import pytest
 from datetime import datetime
 
 # 检测 CI 环境
-if os.getenv('CI') == 'true' or os.getenv('GITHUB_ACTIONS') == 'true':
-    print("⚠️  CI 环境，跳过健康检查")
-    sys.exit(0)
+IS_CI = os.getenv('CI') == 'true' or os.getenv('GITHUB_ACTIONS') == 'true'
 
 BASE_URL = os.getenv("API_BASE_URL", "http://localhost:8000")
 
@@ -82,5 +81,8 @@ def main():
         print(f"\n🔴 有 {failed} 个服务异常，需要立即处理！")
         return 2
 
-if __name__ == "__main__":
-    sys.exit(main())
+@pytest.mark.skipif(IS_CI, reason="CI 环境，跳过健康检查")
+def test_quick_health_check():
+    """pytest 测试入口"""
+    result = main()
+    assert result == 0, f"健康检查失败，返回码: {result}"
