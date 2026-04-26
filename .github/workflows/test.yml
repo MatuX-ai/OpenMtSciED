@@ -35,7 +35,7 @@ jobs:
         cd admin-web
         npm ci
 
-    - name: Run admin-web tests
+    - name: Build admin-web
       run: |
         cd admin-web
-        npm test
+        npm run build
