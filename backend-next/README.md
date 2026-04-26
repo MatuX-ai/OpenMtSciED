@@ -39,7 +39,10 @@ cp .env.example .env.local
 
 ### 3. 数据库迁移
 ```bash
+# 生成 Prisma 客户端（Prisma 5.x）
 npx prisma generate
+
+# 同步数据库结构
 npx prisma db push
 ```
 
