@@ -9,9 +9,27 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "next": "16.2.4",
-    "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "@prisma/client": "5.22.0",
+    "@types/cheerio": "^0.22.35",
+    "@types/cron": "^2.0.1",
+    "@types/dotenv": "^6.1.1",
+    "@types/pg": "^8.20.0",
+    "axios": "^1.15.2",
+    "bcryptjs": "^3.0.3",
+    "cheerio": "^1.2.0",
+    "cron": "^4.4.0",
+    "dotenv": "^17.4.2",
+    "jsonwebtoken": "^9.0.3",
+    "neo4j-driver": "^6.0.1",
+    "next": "15.5.15",
+    "pg": "^8.20.0",
+    "prisma": "5.22.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "zod": "^4.3.6"
+  },
+  "overrides": {
+    "postcss": "8.5.10"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
