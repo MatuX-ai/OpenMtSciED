@@ -564,7 +564,7 @@
                 下载桌面端应用，享受AI个性化学习路径、硬件项目模拟、知识图谱探索等高级功能
             </p>
             <div class="cta-buttons">
-                <a href="http://localhost:4200/dashboard" target="_blank" class="btn btn-primary">
+                <a href="/dashboard" target="_blank" class="btn btn-primary">
                     🚀 打开桌面端应用
                 </a>
                 <a href="index.html" class="btn btn-secondary">
@@ -583,7 +583,7 @@
             const user = localStorage.getItem('user');
             if (!user) {
                 // 未登录，跳转到登录页
-                window.location.href = 'http://localhost:4200/login';
+                window.location.href = '/login';
                 return false;
             }
             return true;
@@ -700,7 +700,7 @@
 
         // 打开完整的桌面端仪表盘
         function openFullDashboard() {
-            window.open('http://localhost:4200/dashboard', '_blank');
+            window.open('/dashboard', '_blank');
         }
 
         // 初始化

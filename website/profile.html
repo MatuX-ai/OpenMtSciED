@@ -555,7 +555,7 @@
         function checkAuth() {
             const userStr = localStorage.getItem('user');
             if (!userStr) {
-                window.location.href = 'http://localhost:4200/login';
+                window.location.href = '/login';
                 return false;
             }
             
@@ -564,7 +564,7 @@
                 return true;
             } catch (e) {
                 localStorage.removeItem('user');
-                window.location.href = 'http://localhost:4200/login';
+                window.location.href = '/login';
                 return false;
             }
         }
@@ -717,7 +717,7 @@
 
         // 打开完整的桌面端仪表盘
         function openFullDashboard() {
-            window.open('http://localhost:4200/dashboard', '_blank');
+            window.open('/dashboard', '_blank');
         }
 
         // 初始化

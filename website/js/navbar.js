@@ -249,7 +249,7 @@
         // 未登录状态 - 跳转到登录页面
         const currentUrl = window.location.href;
         localStorage.setItem('redirect_after_login', currentUrl);
-        window.location.href = 'http://localhost:4200/login';
+        window.location.href = '/login';
     };
 
     /**
