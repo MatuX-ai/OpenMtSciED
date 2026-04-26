@@ -4,13 +4,18 @@
 import os
 import sys
 import requests
+import pytest
 from dotenv import load_dotenv
 
 load_dotenv('.env.local')
 
+# 检测 CI 环境
+IS_CI = os.getenv('CI') == 'true' or os.getenv('GITHUB_ACTIONS') == 'true'
+
 BASE_URL = "http://localhost:8000/api/v1/learning"
 HEADERS = {"Content-Type": "application/json"}
 
+@pytest.mark.skipif(IS_CI, reason="CI 环境，跳过需要后端服务的测试")
 def test_get_banks():
     print("🧪 测试 1: 获取题库列表...")
     res = requests.get(f"{BASE_URL}/banks")
@@ -19,6 +24,7 @@ def test_get_banks():
     assert data['success'] is True
     print(f"✅ 成功获取 {len(data['data'])} 个题库")
 
+@pytest.mark.skipif(IS_CI, reason="CI 环境，跳过需要后端服务的测试")
 def test_submit_answer():
     print("\n🧪 测试 2: 提交答案并验证判分逻辑...")
     # 假设第一条题目是选择题，我们尝试提交一个错误答案
@@ -35,11 +41,13 @@ def test_submit_answer():
     result = res.json()
     print(f"✅ 答题结果: 正确={result['is_correct']}")
 
+@pytest.mark.skipif(IS_CI, reason="CI 环境，跳过需要后端服务的测试")
 def test_get_stats():
     print("\n🧪 测试 3: 获取学习统计与掌握度...")
     # 这里需要模拟认证，暂时跳过或返回空
     print("⚠️ 注意：此接口需要用户认证 Token，请在登录后手动验证 /stats 接口")
 
+@pytest.mark.skipif(IS_CI, reason="CI 环境，跳过需要后端服务的测试")
 def test_adaptive_quiz():
     print("\n🧪 测试 4: 自适应题目推荐...")
     res = requests.get(f"{BASE_URL}/adaptive-quiz")

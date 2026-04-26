@@ -8,63 +8,42 @@ Website用户中心页面自动化测试脚本
 import requests
 import json
 import time
+import os
+import pytest
+
+# 检测 CI 环境
+IS_CI = os.getenv('CI') == 'true' or os.getenv('GITHUB_ACTIONS') == 'true'
 
 BASE_URL = "http://localhost:8000/api/v1/auth"
 
-def test_auth_api():
-    """测试认证API是否正常"""
-    print("\n=== 测试1: 认证API连通性 ===")
-    
-    # 测试登录
-    login_data = {
-        "username": "admin",
-        "password": "12345678"
-    }
-    
+def _login():
+    """辅助函数：登录并返回token"""
+    login_data = {"username": "admin", "password": "12345678"}
     try:
         response = requests.post(f"{BASE_URL}/login", data=login_data)
         if response.status_code == 200:
-            token = response.json().get('access_token')
-            print("[OK] 登录API正常")
-            print(f"   Token: {token[:50]}...")
-            return token
-        else:
-            print(f"[FAIL] 登录失败: {response.status_code}")
-            print(f"   响应: {response.text}")
-            return None
-    except Exception as e:
-        print(f"[FAIL] 请求异常: {e}")
-        print("   请确保后端服务已启动: python backend/openmtscied/main.py")
-        return None
+            return response.json().get('access_token')
+    except Exception:
+        pass
+    return None
 
-def test_get_profile(token):
+@pytest.mark.skipif(IS_CI, reason="CI 环境，跳过需要后端服务的测试")
+def test_get_profile():
     """测试获取用户信息"""
-    print("\n=== 测试2: 获取用户信息 ===")
+    token = _login()
+    assert token is not None, "无法登录获取token"
     
-    headers = {
-        "Authorization": f"Bearer {token}"
-    }
-    
-    try:
-        response = requests.get(f"{BASE_URL}/me", headers=headers)
-        if response.status_code == 200:
-            user = response.json()
-            print("[OK] 获取用户信息成功")
-            print(f"   用户名: {user.get('username')}")
-            print(f"   邮箱: {user.get('email')}")
-            print(f"   角色: {user.get('role')}")
-            return user
-        else:
-            print(f"[FAIL] 获取失败: {response.status_code}")
-            print(f"   响应: {response.text}")
-            return None
-    except Exception as e:
-        print(f"[FAIL] 请求异常: {e}")
-        return None
+    headers = {"Authorization": f"Bearer {token}"}
+    response = requests.get(f"{BASE_URL}/me", headers=headers)
+    assert response.status_code == 200, f"获取用户信息失败: {response.status_code}"
+    user = response.json()
+    assert 'username' in user
 
-def test_update_profile(token):
+@pytest.mark.skipif(IS_CI, reason="CI 环境，跳过需要后端服务的测试")
+def test_update_profile():
     """测试更新用户资料"""
-    print("\n=== 测试3: 更新用户资料 ===")
+    token = _login()
+    assert token is not None, "无法登录获取token"
     
     headers = {
         "Authorization": f"Bearer {token}",
@@ -79,90 +58,36 @@ def test_update_profile(token):
         "website": "https://example.com"
     }
     
-    try:
-        response = requests.put(
-            f"{BASE_URL}/me/profile",
-            json=profile_data,
-            headers=headers
-        )
-        
-        if response.status_code == 200:
-            print("[OK] 更新资料成功")
-            updated_user = response.json()
-            print(f"   姓名: {updated_user.get('full_name', 'N/A')}")
-            print(f"   简介: {updated_user.get('bio', 'N/A')}")
-            return True
-        else:
-            print(f"[FAIL] 更新失败: {response.status_code}")
-            print(f"   响应: {response.text}")
-            return False
-    except Exception as e:
-        print(f"[FAIL] 请求异常: {e}")
-        return False
+    response = requests.put(f"{BASE_URL}/me/profile", json=profile_data, headers=headers)
+    assert response.status_code == 200, f"更新资料失败: {response.status_code}"
 
-def test_change_password(token):
+@pytest.mark.skipif(IS_CI, reason="CI 环境，跳过需要后端服务的测试")
+def test_change_password():
     """测试修改密码"""
-    print("\n=== 测试4: 修改密码 ===")
+    token = _login()
+    assert token is not None, "无法登录获取token"
     
     headers = {
         "Authorization": f"Bearer {token}",
         "Content-Type": "application/json"
     }
     
-    # 修改密码
     password_data = {
         "old_password": "12345678",
         "new_password": "newpass123"
     }
     
-    try:
-        response = requests.post(
-            f"{BASE_URL}/me/password",
-            json=password_data,
-            headers=headers
-        )
-        
-        if response.status_code == 200:
-            print("[OK] 修改密码成功")
-            
-            # 用新密码登录验证
-            print("\n   验证新密码登录...")
-            new_login_data = {
-                "username": "admin",
-                "password": "newpass123"
-            }
-            new_response = requests.post(f"{BASE_URL}/login", data=new_login_data)
-            
-            if new_response.status_code == 200:
-                print("   [OK] 新密码登录成功")
-                
-                # 恢复原密码
-                print("   恢复原密码...")
-                new_token = new_response.json().get('access_token')
-                headers["Authorization"] = f"Bearer {new_token}"
-                
-                restore_data = {
-                    "old_password": "newpass123",
-                    "new_password": "12345678"
-                }
-                requests.post(
-                    f"{BASE_URL}/me/password",
-                    json=restore_data,
-                    headers=headers
-                )
-                print("   [OK] 已恢复原密码")
-                
-                return True
-            else:
-                print("   [FAIL] 新密码登录失败")
-                return False
-        else:
-            print(f"[FAIL] 修改密码失败: {response.status_code}")
-            print(f"   响应: {response.text}")
-            return False
-    except Exception as e:
-        print(f"[FAIL] 请求异常: {e}")
-        return False
+    response = requests.post(f"{BASE_URL}/me/password", json=password_data, headers=headers)
+    assert response.status_code == 200, f"修改密码失败: {response.status_code}"
+    
+    # 恢复原密码
+    new_login_data = {"username": "admin", "password": "newpass123"}
+    new_response = requests.post(f"{BASE_URL}/login", data=new_login_data)
+    if new_response.status_code == 200:
+        new_token = new_response.json().get('access_token')
+        headers["Authorization"] = f"Bearer {new_token}"
+        restore_data = {"old_password": "newpass123", "new_password": "12345678"}
+        requests.post(f"{BASE_URL}/me/password", json=restore_data, headers=headers)
 
 def test_html_files_exist():
     """测试HTML文件是否存在"""
