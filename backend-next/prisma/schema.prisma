@@ -1,0 +1,87 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// 用户表
+model User {
+  id          Int      @id @default(autoincrement())
+  username    String   @unique
+  email       String   @unique
+  password    String
+  name        String?
+  role        String   @default("user") // user, admin
+  avatar      String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // 关联
+  learningRecords LearningRecord[]
+  assignments    Assignment[]
+  
+  @@index([username])
+  @@index([email])
+}
+
+// 学习记录
+model LearningRecord {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  courseId    String
+  progress    Float    @default(0)
+  score       Float?
+  completedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@index([userId])
+  @@index([courseId])
+}
+
+// 题库
+model Question {
+  id          Int      @id @default(autoincrement())
+  title       String
+  content     String
+  type        String   // multiple_choice, fill_blank, etc.
+  difficulty  String   @default("medium") // easy, medium, hard
+  subject     String
+  grade       String?
+  options     Json?    // 选择题选项
+  answer      String
+  explanation String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  assignments Assignment[]
+  
+  @@index([subject])
+  @@index([difficulty])
+}
+
+// 作业/练习
+model Assignment {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  questionId  Int
+  userAnswer  String?
+  isCorrect   Boolean?
+  score       Float?
+  completedAt DateTime?
+  createdAt   DateTime @default(now())
+  
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question    Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  
+  @@index([userId])
+  @@index([questionId])
+}
