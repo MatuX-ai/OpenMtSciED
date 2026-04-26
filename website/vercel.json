@@ -1,7 +1,41 @@
 {
-  "buildCommand": null,
-  "outputDirectory": ".",
-  "devCommand": "npx serve .",
-  "installCommand": null,
-  "framework": null
+  "version": 2,
+  "builds": [
+    {
+      "src": "**/*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "backend/openmtscied/main.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/openmtscied/main.py"
+    },
+    {
+      "src": "/health",
+      "dest": "backend/openmtscied/main.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ],
+  "env": {
+    "PYTHONPATH": "backend"
+  }
 }

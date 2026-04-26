@@ -11,7 +11,7 @@ const isProduction = window.location.hostname !== 'localhost' &&
 const API_CONFIG = {
     // 生产环境（Vercel 部署）
     production: {
-        baseUrl: 'https://openmtscied-api.vercel.app',  // 替换为实际后端地址
+        baseUrl: '',  // 同一域名，使用相对路径
         timeout: 10000
     },
     // 开发环境（本地运行）
