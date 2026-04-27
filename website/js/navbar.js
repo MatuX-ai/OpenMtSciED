@@ -95,6 +95,7 @@
         if (!navbarLinks) return;
 
         const currentPath = window.location.pathname;
+        // 支持 /dashboard、/profile 等无扩展名路径
         const currentPage = currentPath.split('/').pop() || 'index.html';
         const links = navbarLinks.querySelectorAll('a');
 
@@ -107,7 +108,10 @@
             // 检查是否为当前页面
             if (href && !href.startsWith('#') && !href.startsWith('http')) {
                 const linkPage = href.split('#')[0];
-                if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+                // 支持匹配带 .html 和不带 .html 的路径
+                if (linkPage === currentPage || 
+                    linkPage === currentPage.replace('.html', '') ||
+                    (currentPage === '' && (linkPage === 'index.html' || linkPage === '/'))) {
                     link.classList.add('active');
                 }
             }
@@ -301,7 +305,7 @@
         if (e) e.preventDefault();
         
         // 跳转到个人中心页面
-        window.location.href = 'profile.html';
+        window.location.href = '/profile';
     };
 
     /**
@@ -311,7 +315,7 @@
         if (e) e.preventDefault();
         
         // 跳转到学习仪表盘页面
-        window.location.href = 'dashboard.html';
+        window.location.href = '/dashboard';
     };
 
     // 页面加载完成后初始化
