@@ -617,7 +617,7 @@ export class MyProjectsComponent implements OnInit {
       const config = await this.tauriService.getApiConfig();
       const result = await this.tauriService.syncProjectToCloud(
         project.id || 0,
-        config?.apiUrl || 'http://localhost:8000',
+        config?.apiUrl || 'http://localhost:3000',
         'user_123' // TODO: 从登录状态获取
       );
       this.snackBar.open(result, '关闭', { duration: 3000 });

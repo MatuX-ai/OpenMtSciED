@@ -44,7 +44,7 @@ export class SidebarComponent {
     { icon: 'library_books', label: '课件库', route: '/material-library' },
     { icon: 'quiz', label: '题库练习', route: '/question-practice' },
     { icon: 'insights', label: '学习统计', route: '/question-stats' },
-    { icon: 'hub', label: '知识图谱', route: '/knowledge-graph' },
+    { icon: 'hub', label: 'STEM知识图谱', route: '/knowledge-graph' },
     { icon: 'memory', label: '硬件项目', route: '/hardware-projects' },
     { icon: 'person', label: '个人中心', route: '/profile' },
     { icon: 'settings', label: '系统设置', route: '/settings' },

@@ -54,8 +54,8 @@ interface LearningPath {
       <div class="info-banner">
         <mat-icon>lightbulb</mat-icon>
         <div class="info-text">
-          <h3>🧠 知识图谱与学习路径</h3>
-          <p>基于知识图谱自动关联教程与课件,生成连贯的STEM学习路径</p>
+          <h3>🧠 STEM知识图谱与学习路径</h3>
+          <p>基于知识图谱自动关联教程与课件，生成连贯的STEM（科学、技术、工程、数学）学习路径</p>
         </div>
       </div>
 
@@ -506,12 +506,17 @@ export class KnowledgeGraphComponent implements OnInit, AfterViewInit {
 
   getSubjectName(subject: string): string {
     const names: Record<string, string> = {
+      science: '科学',
+      technology: '技术',
+      engineering: '工程',
+      mathematics: '数学',
       physics: '物理',
       chemistry: '化学',
       biology: '生物',
       math: '数学',
-      engineering: '工程',
-      computer_science: '计算机科学'
+      computer_science: '计算机科学',
+      environmental: '环境科学',
+      robotics: '机器人技术'
     };
     return names[subject] || subject;
   }
@@ -559,15 +564,15 @@ export class KnowledgeGraphComponent implements OnInit, AfterViewInit {
     return [
       {
         id: 'path-001',
-        name: '初中物理力学学习路径',
-        description: '从基础概念到综合应用,循序渐进掌握力学知识体系',
+        name: 'STEM基础：工程设计与科学探究',
+        description: '从科学方法到工程实践，培养STEM核心素养与问题解决能力',
         nodes: [
-          { id: 't1', type: 'tutorial', title: '运动与力', source: 'OpenSciEd', level: 'middle', subject: 'physics', difficulty: 2 },
-          { id: 'm1', type: 'material', title: '牛顿定律PPT', source: 'OpenStax', level: 'middle', subject: 'physics' },
-          { id: 't2', type: 'tutorial', title: '能量守恒', source: 'OpenSciEd', level: 'middle', subject: 'physics', difficulty: 3 },
-          { id: 'm2', type: 'material', title: '能量转化视频', source: 'TED-Ed', level: 'middle', subject: 'physics' },
-          { id: 't3', type: 'tutorial', title: '简单机械', source: '格物斯坦', level: 'middle', subject: 'engineering', difficulty: 3 },
-          { id: 'm3', type: 'material', title: '杠杆仿真实验', source: 'PhET', level: 'middle', subject: 'physics' },
+          { id: 't1', type: 'tutorial', title: '工程设计流程', source: 'OpenSciEd', level: 'middle', subject: 'engineering', difficulty: 2 },
+          { id: 'm1', type: 'material', title: '设计思维工作坊', source: 'MIT OpenCourseWare', level: 'middle', subject: 'engineering' },
+          { id: 't2', type: 'tutorial', title: '科学探究方法', source: 'OpenSciEd', level: 'middle', subject: 'science', difficulty: 3 },
+          { id: 'm2', type: 'material', title: '实验设计与数据分析', source: 'Coursera', level: 'middle', subject: 'science' },
+          { id: 't3', type: 'tutorial', title: 'Arduino传感器应用', source: '格物斯坦', level: 'middle', subject: 'technology', difficulty: 3 },
+          { id: 'm3', type: 'material', title: '智能环境监测项目', source: '格物斯坦', level: 'middle', subject: 'technology' },
         ],
         edges: [
           { from: 't1', to: 'm1', relation: 'related' },
@@ -579,15 +584,15 @@ export class KnowledgeGraphComponent implements OnInit, AfterViewInit {
       },
       {
         id: 'path-002',
-        name: '高中化学生态系统路径',
-        description: '探索化学反应与环境科学的交叉领域,培养跨学科思维',
+        name: 'STEM进阶：智能制造与机器人',
+        description: '融合机械工程、电子技术与编程，探索智能制造领域',
         nodes: [
-          { id: 't4', type: 'tutorial', title: '原子结构', source: 'OpenStax', level: 'high', subject: 'chemistry', difficulty: 2 },
-          { id: 'm4', type: 'material', title: '元素周期表PDF', source: 'OpenStax', level: 'high', subject: 'chemistry' },
-          { id: 't5', type: 'tutorial', title: '化学键与分子', source: 'OpenStax', level: 'high', subject: 'chemistry', difficulty: 3 },
-          { id: 'm5', type: 'material', title: '分子结构视频', source: 'TED-Ed', level: 'high', subject: 'chemistry' },
-          { id: 't6', type: 'tutorial', title: '碳循环', source: 'OpenSciEd', level: 'high', subject: 'chemistry', difficulty: 4 },
-          { id: 'm6', type: 'material', title: '水质检测实验', source: 'stemcloud.cn', level: 'high', subject: 'chemistry' },
+          { id: 't4', type: 'tutorial', title: '机械结构与传动', source: 'MIT OCW', level: 'high', subject: 'engineering', difficulty: 2 },
+          { id: 'm4', type: 'material', title: '3D打印技术手册', source: 'Coursera', level: 'high', subject: 'technology' },
+          { id: 't5', type: 'tutorial', title: '电路与控制系统', source: '格物斯坦', level: 'high', subject: 'technology', difficulty: 3 },
+          { id: 'm5', type: 'material', title: '传感器与执行器', source: 'edx', level: 'high', subject: 'technology' },
+          { id: 't6', type: 'tutorial', title: 'ROS机器人编程', source: 'MIT OCW', level: 'high', subject: 'technology', difficulty: 4 },
+          { id: 'm6', type: 'material', title: '自主导航项目实战', source: '格物斯坦', level: 'high', subject: 'engineering' },
         ],
         edges: [
           { from: 't4', to: 'm4', relation: 'related' },
@@ -599,15 +604,15 @@ export class KnowledgeGraphComponent implements OnInit, AfterViewInit {
       },
       {
         id: 'path-003',
-        name: '小学到初中编程启蒙路径',
-        description: '从图形化编程到文本编程,培养计算思维',
+        name: 'STEM综合：环境科学与可持续发展',
+        description: '跨学科整合环境科学、数据分析与技术创新，应对全球挑战',
         nodes: [
-          { id: 't7', type: 'tutorial', title: 'Scratch入门', source: 'stemcloud.cn', level: 'elementary', subject: 'computer_science', difficulty: 1 },
-          { id: 'm7', type: 'material', title: 'Scratch教程视频', source: 'TED-Ed', level: 'elementary', subject: 'computer_science' },
-          { id: 't8', type: 'tutorial', title: 'Python基础', source: 'stemcloud.cn', level: 'middle', subject: 'computer_science', difficulty: 2 },
-          { id: 'm8', type: 'material', title: 'Python交互练习', source: 'PhET', level: 'middle', subject: 'computer_science' },
-          { id: 't9', type: 'tutorial', title: 'Arduino编程', source: '格物斯坦', level: 'middle', subject: 'computer_science', difficulty: 3 },
-          { id: 'm9', type: 'material', title: '智能小车项目', source: '格物斯坦', level: 'middle', subject: 'engineering' },
+          { id: 't7', type: 'tutorial', title: '生态系统基础', source: 'OpenSciEd', level: 'elementary', subject: 'science', difficulty: 1 },
+          { id: 'm7', type: 'material', title: '生物多样性观察指南', source: 'Khan Academy', level: 'elementary', subject: 'science' },
+          { id: 't8', type: 'tutorial', title: '气候变化与数据分析', source: 'OpenSciEd', level: 'middle', subject: 'science', difficulty: 2 },
+          { id: 'm8', type: 'material', title: 'Python数据可视化', source: 'Coursera', level: 'middle', subject: 'technology' },
+          { id: 't9', type: 'tutorial', title: '可再生能源技术', source: 'edx', level: 'high', subject: 'engineering', difficulty: 3 },
+          { id: 'm9', type: 'material', title: '太阳能追踪系统设计', source: '格物斯坦', level: 'high', subject: 'technology' },
         ],
         edges: [
           { from: 't7', to: 'm7', relation: 'related' },

@@ -5,13 +5,14 @@ import { Router, RouterLink } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, MatCardModule, MatInputModule, MatButtonModule, MatSnackBarModule],
+  imports: [CommonModule, FormsModule, RouterLink, MatCardModule, MatInputModule, MatButtonModule, MatIconModule, MatSnackBarModule],
   template: `
     <div class="login-container">
       <mat-card class="login-card">
@@ -28,7 +29,10 @@ import { AuthService } from '../../../core/services/auth.service';
 
             <mat-form-field appearance="outline" class="full-width">
               <mat-label>密码</mat-label>
-              <input matInput type="password" [(ngModel)]="credentials.password" name="password" required>
+              <input matInput [type]="hidePassword ? 'password' : 'text'" [(ngModel)]="credentials.password" name="password" required>
+              <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+                <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
             </mat-form-field>
 
             <button mat-raised-button color="primary" class="full-width" [disabled]="loading || !loginForm.valid">
@@ -112,6 +116,7 @@ export class LoginComponent {
 
   credentials = { username: '', password: '' };
   loading = false;
+  hidePassword = true;
 
   onSubmit(): void {
     if (this.loading) return;

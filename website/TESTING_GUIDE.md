@@ -3,9 +3,9 @@
 ## 🚀 快速测试步骤
 
 ### 前置条件
-1. ✅ 后端服务正在运行 (`http://localhost:8000`)
+1. ✅ Next.js后端服务正在运行 (`http://localhost:3000`)
 2. ✅ Desktop-manager应用可访问 (`http://localhost:4200`)
-3. ✅ 有一个可用的测试账号（admin/12345678）
+3. ✅ 有一个可用的测试账号（testadmin/test123456）
 
 ---
 

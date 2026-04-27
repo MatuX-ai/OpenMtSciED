@@ -707,7 +707,7 @@ export class AdminCrawlersComponent implements OnInit {
   async loadCrawlerTasks(): Promise<void> {
     this.loading.set(true);
     try {
-      const response: any = await firstValueFrom(this.http.get('http://localhost:8000/api/v1/admin/crawlers'));
+      const response: any = await firstValueFrom(this.http.get('/api/v1/admin/crawler'));
       if (response.success) {
         this.crawlerTasks.set(response.data);
         // 数据加载完成后更新统计
@@ -822,7 +822,7 @@ export class AdminCrawlersComponent implements OnInit {
     const hours = prompt('请输入抓取间隔（小时）：', '24');
     if (!hours) return;
 
-    this.http.post(`http://localhost:8000/api/v1/admin/crawlers/${task.id}/schedule?interval_hours=${hours}`, {}).subscribe({
+    this.http.post(`/api/v1/admin/crawler/${task.id}/schedule?interval_hours=${hours}`, {}).subscribe({
       next: () => this.snackBar.open('定时任务设置成功', '关闭', { duration: 2000 }),
       error: () => this.snackBar.open('设置失败', '关闭', { duration: 3000 })
     });
@@ -831,7 +831,7 @@ export class AdminCrawlersComponent implements OnInit {
   async deleteCrawler(task: CrawlerTask): Promise<void> {
     if (confirm(`确定要删除爬虫 "${task.name}" 吗？`)) {
       try {
-        await firstValueFrom(this.http.delete(`http://localhost:8000/api/v1/admin/crawlers/${task.id}`));
+        await firstValueFrom(this.http.delete(`/api/v1/admin/crawler/${task.id}`));
         this.snackBar.open('删除成功', '关闭', { duration: 2000 });
         this.loadCrawlerTasks();
       } catch (error) {
@@ -861,7 +861,7 @@ export class AdminCrawlersComponent implements OnInit {
       error_message: null
     };
 
-    this.http.post('http://localhost:8000/api/v1/admin/crawlers', newCrawler).subscribe({
+    this.http.post('/api/v1/admin/crawler', newCrawler).subscribe({
       next: () => {
         this.snackBar.open('添加成功', '关闭', { duration: 2000 });
         this.loadCrawlerTasks();
@@ -874,7 +874,7 @@ export class AdminCrawlersComponent implements OnInit {
 
   async runCrawler(task: CrawlerTask): Promise<void> {
     try {
-      await firstValueFrom(this.http.post(`http://localhost:8000/api/v1/admin/crawlers/${task.id}/run`, {}));
+      await firstValueFrom(this.http.post(`/api/v1/admin/crawler/${task.id}/run`, {}));
       this.snackBar.open(`启动爬虫: ${task.name}`, '关闭', { duration: 2000 });
       setTimeout(() => this.loadCrawlerTasks(), 1000);
     } catch (error) {

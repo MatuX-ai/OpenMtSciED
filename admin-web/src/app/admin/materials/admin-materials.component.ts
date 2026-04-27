@@ -127,6 +127,15 @@ interface TextbookChapter {
               </mat-form-field>
 
               <mat-form-field appearance="outline">
+                <mat-label>课件类型</mat-label>
+                <mat-select [(ngModel)]="selectedMaterialType" (ngModelChange)="applyFilters()">
+                  <mat-option value="all">全部课件 ({{ stats().totalMaterials }})</mat-option>
+                  <mat-option value="k12"> K-12 课件 ({{ k12Count() }})</mat-option>
+                  <mat-option value="university">🎓 大学教材 ({{ universityCount() }})</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
                 <mat-label>教材来源</mat-label>
                 <mat-select [(ngModel)]="selectedSource" (ngModelChange)="applyFilters()">
                   <mat-option value="all">全部来源</mat-option>
@@ -287,11 +296,14 @@ export class AdminMaterialsComponent implements OnInit {
   readonly filteredMaterials = signal<TextbookChapter[]>([]);
 
   readonly stats = signal({ totalMaterials: 0, textbooks: 0, subjects: 0, withDownloads: 0 });
+  readonly k12Count = signal(0);
+  readonly universityCount = signal(0);
 
   readonly searchQuery = signal<string>('');
   readonly selectedSource = signal<string>('all');
   readonly selectedSubject = signal<string>('all');
   readonly selectedGradeLevel = signal<string>('all');
+  readonly selectedMaterialType = signal<string>('all'); // 新增：课件类型筛选
 
   readonly availableSources = signal<string[]>([]);
   readonly availableSubjects = signal<string[]>([]);
@@ -306,7 +318,7 @@ export class AdminMaterialsComponent implements OnInit {
     this.loading.set(true);
     try {
       const response: any = await firstValueFrom(
-        this.http.get('http://localhost:8000/api/v1/libraries/materials', {
+        this.http.get('/api/v1/libraries/materials', {
           params: { skip: 0, limit: 1000 }
         })
       );
@@ -328,6 +340,7 @@ export class AdminMaterialsComponent implements OnInit {
         this.filteredMaterials.set(allMaterials);
         this.updateAvailableOptions(allMaterials);
         this.updateStats(allMaterials);
+        this.updateMaterialTypeCounts(allMaterials); // 新增：更新课件类型统计
       } else {
         this.materials.set([]);
         this.filteredMaterials.set([]);
@@ -350,9 +363,21 @@ export class AdminMaterialsComponent implements OnInit {
   }
 
   updateStats(materials: TextbookChapter[]): void {
+    // 教材来源：统计 textbook 字段（真正的教材名称）
     const textbooks = new Set(materials.map(m => m.textbook).filter(Boolean));
+    // 如果没有 textbook，则使用 source 作为补充
+    materials.forEach(m => {
+      if (!m.textbook && m.source) {
+        textbooks.add(m.source);
+      }
+    });
+
+    // 学科领域：统计 subject 字段
     const subjects = new Set(materials.map(m => m.subject).filter(Boolean));
-    const withDownloads = materials.filter(m => m.pdf_download_url).length;
+
+    // 可下载课件：统计有 pdf_download_url 或 download_url 的课件
+    const withDownloads = materials.filter(m => m.pdf_download_url || (m as any).download_url).length;
+
     this.stats.set({
       totalMaterials: materials.length,
       textbooks: textbooks.size,
@@ -361,9 +386,26 @@ export class AdminMaterialsComponent implements OnInit {
     });
   }
 
+  // 新增：统计 K-12 和大学教材数量
+  updateMaterialTypeCounts(materials: TextbookChapter[]): void {
+    const k12 = materials.filter(m => m.grade_level !== 'university').length;
+    const university = materials.filter(m => m.grade_level === 'university').length;
+    this.k12Count.set(k12);
+    this.universityCount.set(university);
+  }
+
   applyFilters(): void {
     let filtered = this.materials();
     const query = this.searchQuery().toLowerCase();
+
+    // 课件类型筛选
+    const materialType = this.selectedMaterialType();
+    if (materialType === 'k12') {
+      filtered = filtered.filter(m => m.grade_level !== 'university');
+    } else if (materialType === 'university') {
+      filtered = filtered.filter(m => m.grade_level === 'university');
+    }
+
     if (query) {
       filtered = filtered.filter(m =>
         m.title.toLowerCase().includes(query) || m.textbook.toLowerCase().includes(query)

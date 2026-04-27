@@ -496,7 +496,7 @@ export class AdminTutorialsComponent implements OnInit {
     try {
       // 从新的教程库API获取数据
       const response: any = await firstValueFrom(
-        this.http.get('http://localhost:8000/api/v1/libraries/tutorials', {
+        this.http.get('/api/v1/libraries/tutorials', {
           params: { skip: 0, limit: 1000 }
         })
       );
@@ -518,7 +518,8 @@ export class AdminTutorialsComponent implements OnInit {
         this.filteredTutorials.set(allTutorials);
 
         this.updateAvailableOptions(allTutorials);
-        this.updateStats(allTutorials);
+        // 使用后端返回的 total 作为真实总数
+        this.updateStats(allTutorials, response.total);
       } else {
         this.tutorials.set([]);
         this.filteredTutorials.set([]);
@@ -541,13 +542,14 @@ export class AdminTutorialsComponent implements OnInit {
     this.availableSubjects.set(Array.from(subjects).sort());
   }
 
-  updateStats(tutorials: Tutorial[]): void {
+  updateStats(tutorials: Tutorial[], totalFromBackend?: number): void {
     const sources = new Set(tutorials.map(t => t.source).filter(Boolean));
     const subjects = new Set(tutorials.map(t => t.subject).filter(Boolean));
     const categories = new Set(tutorials.map(t => t.category).filter(Boolean));
 
     this.stats.set({
-      totalTutorials: tutorials.length,
+      // 使用后端返回的 total，如果没有则使用本地数组长度
+      totalTutorials: totalFromBackend || tutorials.length,
       sources: sources.size,
       subjects: subjects.size,
       categories: categories.size

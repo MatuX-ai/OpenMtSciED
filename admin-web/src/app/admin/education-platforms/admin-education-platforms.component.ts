@@ -13,16 +13,16 @@ import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 
 interface PlatformStatus {
+  id: string;
   platform_name: string;
-  registered: boolean;
-  schedule: {
-    interval: string;
-    day: string;
-    time: string;
-  };
-  data_file_exists: boolean;
-  last_updated: string | null;
-  file_size: number | null;
+  source: string;
+  target_url: string;
+  type: string;
+  output_file: string;
+  status: string;
+  last_run: string | null;
+  total_items: number;
+  error_message: string | null;
 }
 
 interface PlatformInfo {
@@ -80,6 +80,37 @@ interface PlatformInfo {
 
       <!-- 平台列表 -->
       <div *ngIf="!loading()" class="platforms-container">
+        <!-- 统计信息卡片 -->
+        <div class="stats-grid">
+          <mat-card class="stat-card">
+            <mat-card-content>
+              <div class="stat-number">{{ platforms().length }}</div>
+              <div class="stat-label">已注册平台</div>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="stat-card">
+            <mat-card-content>
+              <div class="stat-number">{{ activePlatformsCount() }}</div>
+              <div class="stat-label">活跃平台</div>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="stat-card">
+            <mat-card-content>
+              <div class="stat-number">{{ updatedPlatformsCount() }}</div>
+              <div class="stat-label">已更新平台</div>
+            </mat-card-content>
+          </mat-card>
+
+          <mat-card class="stat-card">
+            <mat-card-content>
+              <div class="stat-number">{{ scheduleActive() ? '运行中' : '已停止' }}</div>
+              <div class="stat-label">定时任务状态</div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
         <mat-card class="platforms-card">
           <mat-card-header>
             <mat-card-title>已注册的教育平台</mat-card-title>
@@ -102,13 +133,11 @@ interface PlatformInfo {
 
               <!-- 调度配置列 -->
               <ng-container matColumnDef="schedule">
-                <th mat-header-cell *matHeaderCellDef>调度配置</th>
+                <th mat-header-cell *matHeaderCellDef>类型</th>
                 <td mat-cell *matCellDef="let platform">
                   <div class="schedule-info">
                     <mat-chip-set>
-                      <mat-chip>{{ platform.schedule.interval }}</mat-chip>
-                      <mat-chip>{{ platform.schedule.day }}</mat-chip>
-                      <mat-chip>{{ platform.schedule.time }}</mat-chip>
+                      <mat-chip>{{ platform.type }}</mat-chip>
                     </mat-chip-set>
                   </div>
                 </td>
@@ -116,24 +145,27 @@ interface PlatformInfo {
 
               <!-- 数据文件状态列 -->
               <ng-container matColumnDef="dataFile">
-                <th mat-header-cell *matHeaderCellDef>数据文件</th>
+                <th mat-header-cell *matHeaderCellDef>状态</th>
                 <td mat-cell *matCellDef="let platform">
                   <div class="file-status">
                     <mat-icon
-                      [color]="platform.data_file_exists ? 'primary' : 'warn'">
-                      {{ platform.data_file_exists ? 'check_circle' : 'error' }}
+                      [color]="platform.status === 'completed' ? 'primary' : (platform.status === 'failed' ? 'warn' : 'accent')">
+                      {{ platform.status === 'completed' ? 'check_circle' : (platform.status === 'failed' ? 'error' : 'hourglass_empty') }}
                     </mat-icon>
-                    <span>{{ platform.data_file_exists ? '存在' : '不存在' }}</span>
+                    <span>{{ getStatusText(platform.status) }}</span>
                   </div>
                 </td>
               </ng-container>
 
               <!-- 最后更新时间列 -->
               <ng-container matColumnDef="lastUpdated">
-                <th mat-header-cell *matHeaderCellDef>最后更新</th>
+                <th mat-header-cell *matHeaderCellDef>最后运行</th>
                 <td mat-cell *matCellDef="let platform">
                   <div class="update-time">
-                    {{ platform.last_updated ? (platform.last_updated | date:'yyyy-MM-dd HH:mm:ss') : '从未更新' }}
+                    {{ platform.last_run ? (platform.last_run | date:'yyyy-MM-dd HH:mm:ss') : '从未运行' }}
+                  </div>
+                  <div class="update-time" *ngIf="platform.total_items > 0">
+                    数据量: {{ platform.total_items }} 条
                   </div>
                 </td>
               </ng-container>
@@ -166,37 +198,6 @@ interface PlatformInfo {
             </table>
           </mat-card-content>
         </mat-card>
-
-        <!-- 统计信息卡片 -->
-        <div class="stats-grid">
-          <mat-card class="stat-card">
-            <mat-card-content>
-              <div class="stat-number">{{ platforms().length }}</div>
-              <div class="stat-label">已注册平台</div>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card class="stat-card">
-            <mat-card-content>
-              <div class="stat-number">{{ activePlatformsCount() }}</div>
-              <div class="stat-label">活跃平台</div>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card class="stat-card">
-            <mat-card-content>
-              <div class="stat-number">{{ updatedPlatformsCount() }}</div>
-              <div class="stat-label">已更新平台</div>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card class="stat-card">
-            <mat-card-content>
-              <div class="stat-number">{{ scheduleActive() ? '运行中' : '已停止' }}</div>
-              <div class="stat-label">定时任务状态</div>
-            </mat-card-content>
-          </mat-card>
-        </div>
       </div>
     </div>
   `,
@@ -342,13 +343,11 @@ export class AdminEducationPlatformsComponent implements OnInit {
     this.loading.set(true);
     try {
       const response: any = await firstValueFrom(
-        this.http.get('/api/v1/admin/education-platforms/status')
+        this.http.get('/api/v1/admin/education-platforms')
       );
 
       if (response.success && response.data) {
-        // 将对象转换为数组
-        const platformsArray = Object.values(response.data);
-        this.platforms.set(platformsArray as PlatformStatus[]);
+        this.platforms.set(response.data as PlatformStatus[]);
       }
 
     } catch (error) {
@@ -401,11 +400,11 @@ export class AdminEducationPlatformsComponent implements OnInit {
   }
 
   get activePlatformsCount(): () => number {
-    return () => this.platforms().filter(p => p.registered).length;
+    return () => this.platforms().filter(p => p.status === 'completed' || p.status === 'running').length;
   }
 
   get updatedPlatformsCount(): () => number {
-    return () => this.platforms().filter(p => p.data_file_exists).length;
+    return () => this.platforms().filter(p => p.total_items > 0).length;
   }
 
   formatFileSize(bytes: number): string {
@@ -414,5 +413,16 @@ export class AdminEducationPlatformsComponent implements OnInit {
     const sizes = ['B', 'KB', 'MB', 'GB'];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
     return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+  }
+
+  getStatusText(status: string): string {
+    const statusMap: Record<string, string> = {
+      'completed': '已完成',
+      'running': '运行中',
+      'failed': '失败',
+      'idle': '空闲',
+      'cleaned': '已清理',
+    };
+    return statusMap[status] || status;
   }
 }

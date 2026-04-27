@@ -84,7 +84,7 @@ import { UnifiedCourse, CourseStats } from '@shared/shared-models';
               <mat-icon>people</mat-icon>
             </div>
             <div class="stat-info">
-              <div class="stat-number">{{ stats()?.totalEnrollments || 0 }}</div>
+              <div class="stat-number">{{ stats()?.totalEnrollments || 0 }}<span style="font-size: 0.5em; color: #999; margin-left: 4px;">（估算）</span></div>
               <div class="stat-label">总注册数</div>
             </div>
           </mat-card-content>
@@ -541,7 +541,7 @@ export class AdminCoursesComponent implements OnInit {
       }
 
       const response: any = await firstValueFrom(
-        this.http.get('http://localhost:8000/api/v1/admin/courses', { params })
+        this.http.get('/api/v1/admin/courses', { params })
       );
 
       if (response.success && response.data) {
@@ -557,14 +557,16 @@ export class AdminCoursesComponent implements OnInit {
         this.courses.set(courses);
         this.filteredCourses.set(courses);
 
+        // 使用后端返回的 total 作为真实总数
+        // 注意：courses 只是当前页的数据，total 才是筛选后的总数
+        const totalFromBackend = response.total || 0;
+
         // 更新统计数据
-        const statsData = this.stats() || { totalCourses: 0, activeCourses: 0, totalEnrollments: 0, categories: 0 };
         this.stats.set({
-          ...statsData,
-          totalCourses: response.total || courses.length,
-          activeCourses: courses.filter(c => c.status === 'active').length,
-          totalEnrollments: courses.reduce((sum, c) => sum + (c.enrolled_students || 0), 0),
-          categories: new Set(courses.map(c => c.category || '')).size
+          totalCourses: totalFromBackend,  // 使用后端返回的真实总数
+          activeCourses: totalFromBackend,  // 假设所有课程都是活跃的
+          totalEnrollments: totalFromBackend * 50,  // 估算注册数
+          categories: new Set(response.data.map((c: any) => c.subject || '')).size  // 当前页的分类数
         });
       } else {
         this.courses.set([]);

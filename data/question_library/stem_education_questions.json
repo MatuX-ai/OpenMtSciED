@@ -1,0 +1,146 @@
+[
+  {
+    "id": "stem-q-001",
+    "content": "在Arduino项目中，哪个引脚通常用于PWM（脉冲宽度调制）输出？",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "数字引脚2",
+      "数字引脚3（带~标记）",
+      "模拟引脚A0",
+      "电源引脚5V"
+    ],
+    "correct_answer": "数字引脚3（带~标记）",
+    "explanation": "Arduino上带有~标记的数字引脚支持PWM输出，可以用于控制LED亮度或电机速度。",
+    "difficulty": 0.4,
+    "knowledge_points": ["arduino基础", "PWM", "数字引脚"],
+    "source": "hardware_projects",
+    "category": "arduino",
+    "created_at": "2026-04-26T17:00:00Z"
+  },
+  {
+    "id": "stem-q-002",
+    "content": "循迹小车使用什么传感器来检测黑色线条？",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "超声波传感器",
+      "红外反射传感器",
+      "温度传感器",
+      "光敏电阻"
+    ],
+    "correct_answer": "红外反射传感器",
+    "explanation": "红外反射传感器可以检测地面颜色差异，黑色吸收红外线，白色反射红外线，从而实现循迹功能。",
+    "difficulty": 0.3,
+    "knowledge_points": ["机器人", "传感器", "循迹算法"],
+    "source": "hardware_projects",
+    "category": "robotics",
+    "created_at": "2026-04-26T17:00:00Z"
+  },
+  {
+    "id": "stem-q-003",
+    "content": "在Scratch编程中，哪个积木块可以让角色重复执行动作？",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "如果...那么",
+      "重复执行",
+      "等待",
+      "广播"
+    ],
+    "correct_answer": "重复执行",
+    "explanation": "'重复执行'积木块是循环结构，可以让内部的代码块持续重复运行。",
+    "difficulty": 0.2,
+    "knowledge_points": ["Scratch", "循环", "编程基础"],
+    "source": "programming_courses",
+    "category": "programming",
+    "created_at": "2026-04-26T17:00:00Z"
+  },
+  {
+    "id": "stem-q-004",
+    "content": "3D打印机的工作原理是什么？",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "减材制造（切削材料）",
+      "增材制造（逐层堆积材料）",
+      "注塑成型",
+      "铸造工艺"
+    ],
+    "correct_answer": "增材制造（逐层堆积材料）",
+    "explanation": "3D打印是增材制造技术，通过逐层堆积塑料、树脂等材料来构建三维物体。",
+    "difficulty": 0.5,
+    "knowledge_points": ["3D打印", "增材制造", "制造工艺"],
+    "source": "maker_education",
+    "category": "3d_printing",
+    "created_at": "2026-04-26T17:00:00Z"
+  },
+  {
+    "id": "stem-q-005",
+    "content": "物联网（IoT）设备的核心特征是什么？",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "只能离线工作",
+      "通过网络连接和通信",
+      "必须使用电池供电",
+      "只能接收数据不能发送"
+    ],
+    "correct_answer": "通过网络连接和通信",
+    "explanation": "物联网设备的核心特征是能够通过网络（WiFi、蓝牙等）进行数据传输和远程控制。",
+    "difficulty": 0.4,
+    "knowledge_points": ["物联网", "网络通信", "智能设备"],
+    "source": "iot_courses",
+    "category": "iot",
+    "created_at": "2026-04-26T17:00:00Z"
+  },
+  {
+    "id": "stem-q-006",
+    "content": "在电子电路中，LED灯为什么要串联电阻？",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "增加亮度",
+      "限制电流，保护LED",
+      "改变颜色",
+      "提高电压"
+    ],
+    "correct_answer": "限制电流，保护LED",
+    "explanation": "LED对电流敏感，串联电阻可以限制通过的电流，防止LED因电流过大而烧毁。",
+    "difficulty": 0.5,
+    "knowledge_points": ["电子电路", "LED", "欧姆定律"],
+    "source": "electronics_courses",
+    "category": "electronics",
+    "created_at": "2026-04-26T17:00:00Z"
+  },
+  {
+    "id": "stem-q-007",
+    "content": "机器学习中的'监督学习'需要什么？",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "只需要输入数据",
+      "带标签的训练数据",
+      "不需要任何数据",
+      "只需要输出结果"
+    ],
+    "correct_answer": "带标签的训练数据",
+    "explanation": "监督学习需要标注好的训练数据（输入+正确答案），让模型学习输入与输出的映射关系。",
+    "difficulty": 0.6,
+    "knowledge_points": ["人工智能", "机器学习", "监督学习"],
+    "source": "ai_courses",
+    "category": "ai_ml",
+    "created_at": "2026-04-26T17:00:00Z"
+  },
+  {
+    "id": "stem-q-008",
+    "content": "在工程设计流程中，原型制作之后应该做什么？",
+    "question_type": "multiple_choice",
+    "options_json": [
+      "直接投入生产",
+      "测试和评估",
+      "重新开始设计",
+      "放弃项目"
+    ],
+    "correct_answer": "测试和评估",
+    "explanation": "工程设计流程通常是：定义问题→设计方案→制作原型→测试评估→改进优化。",
+    "difficulty": 0.4,
+    "knowledge_points": ["工程设计", "原型制作", "测试评估"],
+    "source": "engineering_courses",
+    "category": "engineering",
+    "created_at": "2026-04-26T17:00:00Z"
+  }
+]

@@ -23,6 +23,6 @@ export class AuthGuard implements CanActivate {
     }
 
     // 未登录，重定向到登录页
-    return this.router.createUrlTree(['/auth/login']);
+    return this.router.createUrlTree(['/login']);
   }
 }

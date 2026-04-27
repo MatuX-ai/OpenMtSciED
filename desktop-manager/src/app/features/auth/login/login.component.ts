@@ -138,14 +138,16 @@ export class LoginComponent {
     if (this.loading) return;
     this.loading = true;
     
-    this.authService.login({ username: 'user', password: '12345678' }).subscribe({
+    // 使用默认管理员账号
+    this.authService.login({ username: '3936318150@qq.com', password: '12345678' }).subscribe({
       next: () => {
-        this.snackBar.open('欢迎体验！已使用模拟账号登录', '关闭', { duration: 3000 });
+        this.snackBar.open('欢迎体验！已使用默认账号登录', '关闭', { duration: 3000 });
         this.router.navigate(['/dashboard']);
       },
       error: (err: any) => {
         this.loading = false;
-        this.snackBar.open('模拟登录失败，请确保后端服务已启动', '关闭', { duration: 3000 });
+        console.error('模拟登录失败:', err);
+        this.snackBar.open('登录失败，请确保后端服务已启动（端口3000）', '关闭', { duration: 5000 });
       }
     });
   }

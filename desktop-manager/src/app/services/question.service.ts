@@ -29,7 +29,7 @@ export interface Question {
   providedIn: 'root'
 })
 export class QuestionService {
-  private apiUrl = 'http://localhost:8000/api/v1/learning'; 
+  private apiUrl = 'http://localhost:3000/api/v1/learning'; 
 
   constructor(private http: HttpClient) {}
 

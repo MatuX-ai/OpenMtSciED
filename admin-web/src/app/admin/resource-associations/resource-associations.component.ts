@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -471,7 +471,8 @@ export class ResourceAssociationsComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -479,13 +480,11 @@ export class ResourceAssociationsComponent implements OnInit {
   }
 
   loadStats(): void {
-    this.http.get<any>('http://localhost:8000/api/v1/resources/associations/stats').subscribe({
+    this.http.get<any>('/api/v1/resources/associations/stats').subscribe({
       next: (response) => {
         if (response.success) {
-          // 使用setTimeout避免NG0100错误
-          setTimeout(() => {
-            this.stats = response.data;
-          });
+          this.stats = response.data;
+          this.cdr.detectChanges();
         }
       },
       error: (error) => {
@@ -497,33 +496,30 @@ export class ResourceAssociationsComponent implements OnInit {
 
   loadAssociations(): void {
     this.loading = true;
+    this.cdr.detectChanges(); // 立即更新UI显示loading状态
 
     const filterParam = this.filterType === 'all' ? 'all' : this.filterType;
 
-    this.http.get<any>(`http://localhost:8000/api/v1/resources/associations?filter_type=${filterParam}`).subscribe({
+    this.http.get<any>(`/api/v1/resources/associations?filter_type=${filterParam}`).subscribe({
       next: (response) => {
         if (response.success) {
           this.associations = response.data;
-          // 使用setTimeout确保在下一个变更检测周期更新状态
-          setTimeout(() => {
-            this.loadStats();
-            this.loading = false;
-          });
+          this.loading = false;
+          this.cdr.detectChanges(); // 更新UI
+          this.loadStats();
         }
       },
       error: (error) => {
         console.error('加载关联数据失败:', error);
         this.snackBar.open('加载关联数据失败', '关闭', { duration: 3000 });
-        // 使用setTimeout确保在下一个变更检测周期更新状态
-        setTimeout(() => {
-          this.loading = false;
-        });
+        this.loading = false;
+        this.cdr.detectChanges(); // 更新UI
       }
     });
   }
 
   createAssociation(): void {
-    this.http.post<any>('http://localhost:8000/api/v1/resources/associations', this.newAssoc).subscribe({
+    this.http.post<any>('/api/v1/resources/associations', this.newAssoc).subscribe({
       next: (response) => {
         if (response.success) {
           this.snackBar.open('关联创建成功', '关闭', { duration: 3000 });
@@ -555,7 +551,7 @@ export class ResourceAssociationsComponent implements OnInit {
       return;
     }
 
-    this.http.delete<any>(`http://localhost:8000/api/v1/resources/associations/${assoc.id}`).subscribe({
+    this.http.delete<any>(`/api/v1/resources/associations/${assoc.id}`).subscribe({
       next: (response) => {
         if (response.success) {
           this.snackBar.open('关联已删除', '关闭', { duration: 3000 });

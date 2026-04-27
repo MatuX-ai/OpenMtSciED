@@ -16,7 +16,7 @@ const API_CONFIG = {
     },
     // 开发环境（本地运行）
     development: {
-        baseUrl: 'http://localhost:8000',
+        baseUrl: 'http://localhost:3001',
         timeout: 5000
     }
 };

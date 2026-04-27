@@ -46,8 +46,8 @@ export class ThemeService {
    */
   private applyTheme(theme: Theme): void {
     if (typeof document !== 'undefined') {
-      document.body.classList.remove('light-theme', 'dark-theme');
-      document.body.classList.add(`${theme}-theme`);
+      // 使用 data-theme 属性而不是 CSS 类
+      document.documentElement.setAttribute('data-theme', theme);
       
       // 更新meta theme-color
       const metaThemeColor = document.querySelector('meta[name="theme-color"]');

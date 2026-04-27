@@ -194,7 +194,7 @@ export const API_CONFIG_TEMPLATES: ApiConfigTemplate[] = [
     id: 'matux-cloud',
     name: 'MatuX 云服务',
     provider: 'matux-cloud',
-    defaultUrl: 'http://localhost:8000/api/v1/ai/chat',
+    defaultUrl: 'http://localhost:3000/api/v1/ai/chat',
     recommendedModel: 'matux-v1',
     description: 'MatuX 提供的云端大模型服务，支持多种模型选择',
     docUrl: '',

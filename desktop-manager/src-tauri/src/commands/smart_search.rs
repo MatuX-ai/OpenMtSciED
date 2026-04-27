@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use crate::db::DbState;
+use crate::commands::course::DbState;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct SmartSearchRequest {
@@ -22,7 +22,7 @@ pub async fn smart_search(
     limit: usize,
 ) -> Result<SmartSearchResult, String> {
     // 调用后端智能搜索 API
-    let api_url = "http://localhost:8000"; // 从配置读取
+    let api_url = "http://localhost:3000"; // 从配置读取
     let client = reqwest::Client::new();
     
     let response = client

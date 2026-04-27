@@ -247,7 +247,7 @@ export class AdminQuestionBankComponent implements OnInit {
   async loadBanks() {
     this.loading.set(true);
     try {
-      const res: any = await firstValueFrom(this.http.get('/api/questions/banks'));
+      const res: any = await firstValueFrom(this.http.get('/api/v1/questions/banks'));
       if (res.success) {
         this.banks.set(res.data);
       }
@@ -304,7 +304,7 @@ export class AdminQuestionBankComponent implements OnInit {
 
   async createBank(data: Partial<QuestionBank>) {
     try {
-      const res: any = await firstValueFrom(this.http.post('/api/questions/banks', data));
+      const res: any = await firstValueFrom(this.http.post('/api/v1/questions/banks', data));
       if (res.success) {
         this.snackBar.open('题库创建成功', '关闭', { duration: 2000 });
         this.loadBanks();
@@ -316,8 +316,7 @@ export class AdminQuestionBankComponent implements OnInit {
 
   async updateBank(id: number, data: Partial<QuestionBank>) {
     try {
-      // Assuming PUT /api/questions/banks/:id exists or similar
-      const res: any = await firstValueFrom(this.http.put(`/api/questions/banks/${id}`, data));
+      const res: any = await firstValueFrom(this.http.put(`/api/v1/questions/banks/${id}`, data));
       if (res.success) {
         this.snackBar.open('题库更新成功', '关闭', { duration: 2000 });
         this.loadBanks();
@@ -330,7 +329,7 @@ export class AdminQuestionBankComponent implements OnInit {
   async deleteBank(bank: QuestionBank) {
     if (confirm(`确定要删除题库 "${bank.name}" 吗？此操作不可恢复。`)) {
       try {
-        const res: any = await firstValueFrom(this.http.delete(`/api/questions/banks/${bank.id}`));
+        const res: any = await firstValueFrom(this.http.delete(`/api/v1/questions/banks/${bank.id}`));
         if (res.success) {
           this.snackBar.open('题库删除成功', '关闭', { duration: 2000 });
           this.loadBanks();
