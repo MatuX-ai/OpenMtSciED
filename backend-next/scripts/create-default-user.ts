@@ -1,67 +1,48 @@
 import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
-import dotenv from 'dotenv';
-import path from 'path';
+import * as dotenv from 'dotenv';
 
-// 加载环境变量
-const envPath = path.join(process.cwd(), '.env.local');
-dotenv.config({ path: envPath });
+// 加载 .env.local 文件
+dotenv.config({ path: '.env.local' });
 
 const prisma = new PrismaClient();
 
 async function createDefaultUser() {
-  console.log('🔍 检查默认用户...\n');
-  
   try {
-    // 检查用户是否已存在
-    const existingUser = await prisma.user.findFirst({
-      where: {
-        OR: [
-          { email: '3936318150@qq.com' },
-          { username: '3936318150@qq.com' }
-        ]
-      }
+    console.log('🔍 检查是否存在默认用户...');
+
+    // 检查是否已存在 admin 用户
+    const existingUser = await prisma.user.findUnique({
+      where: { username: 'admin' }
     });
-    
+
     if (existingUser) {
-      console.log('✅ 默认用户已存在:');
-      console.log(`   ID: ${existingUser.id}`);
-      console.log(`   用户名: ${existingUser.username}`);
-      console.log(`   邮箱: ${existingUser.email}`);
-      console.log(`   角色: ${existingUser.role}`);
-      console.log('\n💡 使用以下凭据登录:');
-      console.log('   用户名: 3936318150@qq.com');
-      console.log('   密码: 12345678');
+      console.log('✅ 默认用户已存在:', existingUser.username);
       return;
     }
-    
-    console.log('📝 创建默认管理员用户...\n');
-    
-    // 创建默认用户
-    const hashedPassword = await bcrypt.hash('12345678', 10);
+
+    // 创建默认管理员用户
+    const hashedPassword = await bcrypt.hash('admin123', 10);
     
     const newUser = await prisma.user.create({
       data: {
-        username: '3936318150@qq.com',
-        email: '3936318150@qq.com',
+        username: 'admin',
+        email: 'admin@openmtscied.com',
         password: hashedPassword,
-        name: 'Admin User',
+        name: '系统管理员',
         role: 'admin',
-        isActive: true
+        isActive: true,
       }
     });
-    
-    console.log('✅ 默认用户创建成功!');
-    console.log(`   ID: ${newUser.id}`);
-    console.log(`   用户名: ${newUser.username}`);
-    console.log(`   邮箱: ${newUser.email}`);
-    console.log(`   角色: ${newUser.role}`);
-    console.log('\n💡 使用以下凭据登录:');
-    console.log('   用户名: 3936318150@qq.com');
-    console.log('   密码: 12345678');
-    
+
+    console.log('✅ 默认用户创建成功！');
+    console.log('👤 用户名: admin');
+    console.log('🔑 密码: admin123');
+    console.log('📧 邮箱:', newUser.email);
+    console.log('🎭 角色:', newUser.role);
+
   } catch (error) {
-    console.error('❌ 创建用户失败:', error);
+    console.error('❌ 创建默认用户失败:', error);
   } finally {
     await prisma.$disconnect();
   }
