@@ -144,8 +144,9 @@ export async function POST() {
     });
   } catch (error: unknown) {
     console.error('Import STEM questions error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: '导入失败', message: error.message },
+      { error: '导入失败', message: errorMessage },
       { status: 500 }
     );
   } finally {
