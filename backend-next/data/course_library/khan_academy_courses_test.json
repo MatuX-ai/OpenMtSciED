@@ -1,0 +1,366 @@
+[
+  {
+    "course_id": "KA-Math-001",
+    "title": "算术基础",
+    "source": "khan_academy",
+    "grade_level": "elementary",
+    "subject": "数学",
+    "duration_weeks": 8,
+    "description": "学习加减乘除、分数、小数等基本算术运算，建立数学基础。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-KA-Math-Arith-001",
+        "name": "四则运算",
+        "description": "加减乘除的基本规则"
+      },
+      {
+        "kp_id": "KP-KA-Math-Arith-002",
+        "name": "分数运算",
+        "description": "分数的加减乘除"
+      },
+      {
+        "kp_id": "KP-KA-Math-Arith-003",
+        "name": "小数与百分数",
+        "description": "小数的意义和转换"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "购物计算练习",
+        "materials": [
+          "模拟货币",
+          "商品标签"
+        ],
+        "low_cost_alternatives": [
+          "用纸片制作货币"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "生活技能·理财",
+      "工程·测量计算"
+    ],
+    "course_url": "https://www.khanacademy.org/math/arithmetic",
+    "video_url": "https://www.khanacademy.org/math/arithmetic/arith-review",
+    "scraped_at": "2026-04-26T13:04:21.492Z"
+  },
+  {
+    "course_id": "KA-Math-002",
+    "title": "代数基础",
+    "source": "khan_academy",
+    "grade_level": "middle",
+    "subject": "数学",
+    "duration_weeks": 10,
+    "description": "学习变量、方程、不等式等代数概念，为高等数学打基础。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-KA-Math-Alg-001",
+        "name": "变量与表达式",
+        "description": "用字母表示未知数"
+      },
+      {
+        "kp_id": "KP-KA-Math-Alg-002",
+        "name": "一元一次方程",
+        "description": "解方程的基本方法"
+      },
+      {
+        "kp_id": "KP-KA-Math-Alg-003",
+        "name": "线性函数",
+        "description": "y=kx+b的图像与性质"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "方程平衡实验",
+        "materials": [
+          "天平",
+          "砝码"
+        ],
+        "low_cost_alternatives": [
+          "用硬币代替砝码"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "物理·力学平衡",
+      "计算机·算法思维"
+    ],
+    "course_url": "https://www.khanacademy.org/math/algebra",
+    "video_url": "https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:foundation-algebra",
+    "scraped_at": "2026-04-26T13:04:21.494Z"
+  },
+  {
+    "course_id": "KA-Math-003",
+    "title": "几何学入门",
+    "source": "khan_academy",
+    "grade_level": "middle",
+    "subject": "数学",
+    "duration_weeks": 12,
+    "description": "学习点、线、面、角、三角形、圆等几何基本概念和定理。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-KA-Math-Geom-001",
+        "name": "基本几何图形",
+        "description": "认识各种平面图形"
+      },
+      {
+        "kp_id": "KP-KA-Math-Geom-002",
+        "name": "角度与平行",
+        "description": "角的分类和平行线性质"
+      },
+      {
+        "kp_id": "KP-KA-Math-Geom-003",
+        "name": "三角形全等",
+        "description": "三角形全等的判定条件"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "几何图形拼贴",
+        "materials": [
+          "彩纸",
+          "剪刀",
+          "胶水"
+        ],
+        "low_cost_alternatives": [
+          "用废旧杂志剪贴"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "艺术·几何图案",
+      "工程·结构设计"
+    ],
+    "course_url": "https://www.khanacademy.org/math/geometry",
+    "video_url": "https://www.khanacademy.org/math/geometry/hs-geo-foundations",
+    "scraped_at": "2026-04-26T13:04:21.494Z"
+  },
+  {
+    "course_id": "KA-Science-001",
+    "title": "生物学基础",
+    "source": "khan_academy",
+    "grade_level": "high",
+    "subject": "科学",
+    "duration_weeks": 16,
+    "description": "学习细胞结构、遗传学、进化论、生态系统等生物学核心概念。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-KA-Sci-Bio-001",
+        "name": "细胞结构",
+        "description": "动植物细胞的结构和功能"
+      },
+      {
+        "kp_id": "KP-KA-Sci-Bio-002",
+        "name": "DNA与遗传",
+        "description": "遗传信息的传递"
+      },
+      {
+        "kp_id": "KP-KA-Sci-Bio-003",
+        "name": "自然选择",
+        "description": "进化的机制"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "洋葱表皮细胞观察",
+        "materials": [
+          "显微镜",
+          "洋葱",
+          "载玻片"
+        ],
+        "low_cost_alternatives": [
+          "使用手机显微镜附件"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "化学·生物分子",
+      "医学·健康科学"
+    ],
+    "course_url": "https://www.khanacademy.org/science/biology",
+    "video_url": "https://www.khanacademy.org/science/biology/intro-to-biology",
+    "scraped_at": "2026-04-26T13:04:21.494Z"
+  },
+  {
+    "course_id": "KA-Science-002",
+    "title": "化学入门",
+    "source": "khan_academy",
+    "grade_level": "high",
+    "subject": "科学",
+    "duration_weeks": 14,
+    "description": "学习原子结构、化学键、化学反应、酸碱理论等化学基础知识。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-KA-Sci-Chem-001",
+        "name": "原子结构",
+        "description": "质子、中子、电子"
+      },
+      {
+        "kp_id": "KP-KA-Sci-Chem-002",
+        "name": "元素周期表",
+        "description": "元素的分类和性质"
+      },
+      {
+        "kp_id": "KP-KA-Sci-Chem-003",
+        "name": "化学反应",
+        "description": "反应类型和方程式配平"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "酸碱指示剂实验",
+        "materials": [
+          "紫甘蓝",
+          "白醋",
+          "小苏打"
+        ],
+        "low_cost_alternatives": [
+          "用家用材料制作指示剂"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "物理·物质状态",
+      "环境科学·污染控制"
+    ],
+    "course_url": "https://www.khanacademy.org/science/chemistry",
+    "video_url": "https://www.khanacademy.org/science/chemistry/atoms-compounds",
+    "scraped_at": "2026-04-26T13:04:21.494Z"
+  },
+  {
+    "course_id": "KA-Science-003",
+    "title": "物理学基础",
+    "source": "khan_academy",
+    "grade_level": "high",
+    "subject": "科学",
+    "duration_weeks": 18,
+    "description": "学习运动学、力学、能量、波动、电磁学等物理学核心内容。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-KA-Sci-Phys-001",
+        "name": "牛顿运动定律",
+        "description": "力与运动的关系"
+      },
+      {
+        "kp_id": "KP-KA-Sci-Phys-002",
+        "name": "能量守恒",
+        "description": "动能、势能及其转化"
+      },
+      {
+        "kp_id": "KP-KA-Sci-Phys-003",
+        "name": "电路基础",
+        "description": "电流、电压、电阻"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "斜面小车实验",
+        "materials": [
+          "斜面轨道",
+          "小车",
+          "计时器"
+        ],
+        "low_cost_alternatives": [
+          "用书本搭建斜面，用手机计时"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "工程·机械设计",
+      "天文学·天体运动"
+    ],
+    "course_url": "https://www.khanacademy.org/science/physics",
+    "video_url": "https://www.khanacademy.org/science/physics/one-dimensional-motion",
+    "scraped_at": "2026-04-26T13:04:21.494Z"
+  },
+  {
+    "course_id": "KA-CS-001",
+    "title": "编程入门",
+    "source": "khan_academy",
+    "grade_level": "middle",
+    "subject": "计算机科学",
+    "duration_weeks": 10,
+    "description": "学习JavaScript编程基础，包括变量、循环、函数、数组等核心概念。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-KA-CS-Prog-001",
+        "name": "变量与数据类型",
+        "description": "存储和操作数据"
+      },
+      {
+        "kp_id": "KP-KA-CS-Prog-002",
+        "name": "控制流",
+        "description": "条件判断和循环"
+      },
+      {
+        "kp_id": "KP-KA-CS-Prog-003",
+        "name": "函数",
+        "description": "代码复用和模块化"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "简单动画制作",
+        "materials": [
+          "电脑",
+          "浏览器"
+        ],
+        "low_cost_alternatives": [
+          "使用免费在线编程平台"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "数学·算法思维",
+      "艺术·数字创作"
+    ],
+    "course_url": "https://www.khanacademy.org/computing/computer-programming",
+    "video_url": "https://www.khanacademy.org/computing/computer-programming/programming",
+    "scraped_at": "2026-04-26T13:04:21.494Z"
+  },
+  {
+    "course_id": "KA-CS-002",
+    "title": "算法与数据结构",
+    "source": "khan_academy",
+    "grade_level": "high",
+    "subject": "计算机科学",
+    "duration_weeks": 12,
+    "description": "学习排序算法、搜索算法、栈、队列、树等基本数据结构。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-KA-CS-Algo-001",
+        "name": "排序算法",
+        "description": "冒泡排序、快速排序等"
+      },
+      {
+        "kp_id": "KP-KA-CS-Algo-002",
+        "name": "搜索算法",
+        "description": "线性搜索、二分搜索"
+      },
+      {
+        "kp_id": "KP-KA-CS-Algo-003",
+        "name": "树结构",
+        "description": "二叉树及其应用"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "算法可视化",
+        "materials": [
+          "编程环境",
+          "可视化工具"
+        ],
+        "low_cost_alternatives": [
+          "用纸牌演示排序过程"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "数学·离散数学",
+      "工程·系统优化"
+    ],
+    "course_url": "https://www.khanacademy.org/computing/computer-science",
+    "video_url": "https://www.khanacademy.org/computing/computer-science/algorithms",
+    "scraped_at": "2026-04-26T13:04:21.494Z"
+  }
+]

@@ -1,43 +1,34 @@
 import { NextResponse } from 'next/server';
-import { getTokenFromHeader, verifyToken } from '@/lib/auth';
+import {
+  loadConfigs,
+  addCrawlerConfig,
+  deleteCrawlerConfig,
+  getAvailableCrawlers,
+  initCrawlers,
+} from './lib';
 
-// Python 后端地址（爬虫服务保留在 Python）
-const PYTHON_BACKEND_URL = process.env.PYTHON_BACKEND_URL || 'http://localhost:8000';
+// 初始化爬虫（只在首次请求时执行）
+let crawlersInitialized = false;
+async function ensureCrawlersInitialized() {
+  if (!crawlersInitialized) {
+    await initCrawlers();
+    crawlersInitialized = true;
+  }
+}
 
 /**
- * GET /api/v1/admin/crawler/status
- * 获取爬虫状态
+ * GET /api/v1/admin/crawler
+ * 获取爬虫列表
  */
-export async function GET(request: Request) {
+export async function GET() {
   try {
-    // 验证管理员权限
-    const authHeader = request.headers.get('authorization');
-    const token = getTokenFromHeader(authHeader);
-
-    if (!token) {
-      return NextResponse.json({ error: '未授权访问' }, { status: 401 });
-    }
-
-    const decoded = verifyToken(token);
-    if (decoded.role !== 'admin') {
-      return NextResponse.json({ error: '需要管理员权限' }, { status: 403 });
-    }
-
-    // 转发请求到 Python 后端
-    const response = await fetch(`${PYTHON_BACKEND_URL}/api/v1/admin/crawler/status`, {
-      headers: {
-        'Authorization': authHeader || '',
-      },
+    const configs = loadConfigs();
+    return NextResponse.json({
+      success: true,
+      data: configs,
     });
-
-    if (!response.ok) {
-      throw new Error('Python 后端请求失败');
-    }
-
-    const data = await response.json();
-    return NextResponse.json(data);
   } catch (error: any) {
-    console.error('Get crawler status error:', error);
+    console.error('Get crawler list error:', error);
     return NextResponse.json(
       { error: '服务器错误', message: error.message },
       { status: 500 }
@@ -46,88 +37,40 @@ export async function GET(request: Request) {
 }
 
 /**
- * POST /api/v1/admin/crawler/start
- * 启动爬虫任务
+ * POST /api/v1/admin/crawler
+ * 创建爬虫任务
  */
 export async function POST(request: Request) {
   try {
-    const authHeader = request.headers.get('authorization');
-    const token = getTokenFromHeader(authHeader);
-
-    if (!token) {
-      return NextResponse.json({ error: '未授权访问' }, { status: 401 });
-    }
-
-    const decoded = verifyToken(token);
-    if (decoded.role !== 'admin') {
-      return NextResponse.json({ error: '需要管理员权限' }, { status: 403 });
-    }
-
     const body = await request.json();
-
-    // 转发请求到 Python 后端
-    const response = await fetch(`${PYTHON_BACKEND_URL}/api/v1/admin/crawler/start`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': authHeader || '',
-      },
-      body: JSON.stringify(body),
+    
+    // 设置默认值
+    const config = {
+      id: body.id || `crawler-${Date.now()}`,
+      name: body.name,
+      description: body.description || '',
+      target_url: body.target_url || '',
+      type: body.type || 'course',
+      status: 'idle' as const,
+      progress: 0,
+      total_items: 0,
+      scraped_items: 0,
+      last_run: null,
+      error_message: null,
+      output_file: body.output_file,
+      schedule_interval: body.schedule_interval,
+      ...body,
+    };
+    
+    addCrawlerConfig(config);
+    
+    return NextResponse.json({
+      success: true,
+      message: '爬虫任务创建成功',
+      data: config,
     });
-
-    if (!response.ok) {
-      throw new Error('Python 后端请求失败');
-    }
-
-    const data = await response.json();
-    return NextResponse.json(data);
   } catch (error: any) {
-    console.error('Start crawler error:', error);
-    return NextResponse.json(
-      { error: '服务器错误', message: error.message },
-      { status: 500 }
-    );
-  }
-}
-
-/**
- * POST /api/v1/admin/crawler/stop
- * 停止爬虫任务
- */
-export async function PUT(request: Request) {
-  try {
-    const authHeader = request.headers.get('authorization');
-    const token = getTokenFromHeader(authHeader);
-
-    if (!token) {
-      return NextResponse.json({ error: '未授权访问' }, { status: 401 });
-    }
-
-    const decoded = verifyToken(token);
-    if (decoded.role !== 'admin') {
-      return NextResponse.json({ error: '需要管理员权限' }, { status: 403 });
-    }
-
-    const body = await request.json();
-
-    // 转发请求到 Python 后端
-    const response = await fetch(`${PYTHON_BACKEND_URL}/api/v1/admin/crawler/stop`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': authHeader || '',
-      },
-      body: JSON.stringify(body),
-    });
-
-    if (!response.ok) {
-      throw new Error('Python 后端请求失败');
-    }
-
-    const data = await response.json();
-    return NextResponse.json(data);
-  } catch (error: any) {
-    console.error('Stop crawler error:', error);
+    console.error('Create crawler error:', error);
     return NextResponse.json(
       { error: '服务器错误', message: error.message },
       { status: 500 }

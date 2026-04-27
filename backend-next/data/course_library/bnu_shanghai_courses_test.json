@@ -1,0 +1,1549 @@
+[
+  {
+    "course_id": "SHNU-STEM-4000",
+    "title": "STEM教育理念与价值（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：STEM教育理念与价值，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4000-01",
+        "name": "理论基础",
+        "description": "STEM教育理念与价值的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4000-02",
+        "name": "实践技能",
+        "description": "STEM教育理念与价值的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "STEM教育理念与价值实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4000",
+    "scraped_at": "2026-04-26T13:33:29.004Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4001",
+    "title": "STEM教育理念与价值（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：STEM教育理念与价值，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4001-01",
+        "name": "理论基础",
+        "description": "STEM教育理念与价值的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4001-02",
+        "name": "实践技能",
+        "description": "STEM教育理念与价值的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "STEM教育理念与价值实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4001",
+    "scraped_at": "2026-04-26T13:33:29.006Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4002",
+    "title": "STEM教育理念与价值（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：STEM教育理念与价值，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4002-01",
+        "name": "理论基础",
+        "description": "STEM教育理念与价值的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4002-02",
+        "name": "实践技能",
+        "description": "STEM教育理念与价值的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "STEM教育理念与价值实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4002",
+    "scraped_at": "2026-04-26T13:33:29.006Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4003",
+    "title": "美国STEM教育案例分析（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：美国STEM教育案例分析，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4003-01",
+        "name": "理论基础",
+        "description": "美国STEM教育案例分析的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4003-02",
+        "name": "实践技能",
+        "description": "美国STEM教育案例分析的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "美国STEM教育案例分析实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4003",
+    "scraped_at": "2026-04-26T13:33:29.006Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4004",
+    "title": "美国STEM教育案例分析（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：美国STEM教育案例分析，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4004-01",
+        "name": "理论基础",
+        "description": "美国STEM教育案例分析的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4004-02",
+        "name": "实践技能",
+        "description": "美国STEM教育案例分析的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "美国STEM教育案例分析实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4004",
+    "scraped_at": "2026-04-26T13:33:29.006Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4005",
+    "title": "美国STEM教育案例分析（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：美国STEM教育案例分析，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4005-01",
+        "name": "理论基础",
+        "description": "美国STEM教育案例分析的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4005-02",
+        "name": "实践技能",
+        "description": "美国STEM教育案例分析的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "美国STEM教育案例分析实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4005",
+    "scraped_at": "2026-04-26T13:33:29.006Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4006",
+    "title": "中国STEM教育政策解读（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：中国STEM教育政策解读，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4006-01",
+        "name": "理论基础",
+        "description": "中国STEM教育政策解读的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4006-02",
+        "name": "实践技能",
+        "description": "中国STEM教育政策解读的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "中国STEM教育政策解读实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4006",
+    "scraped_at": "2026-04-26T13:33:29.006Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4007",
+    "title": "中国STEM教育政策解读（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：中国STEM教育政策解读，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4007-01",
+        "name": "理论基础",
+        "description": "中国STEM教育政策解读的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4007-02",
+        "name": "实践技能",
+        "description": "中国STEM教育政策解读的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "中国STEM教育政策解读实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4007",
+    "scraped_at": "2026-04-26T13:33:29.006Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4008",
+    "title": "中国STEM教育政策解读（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：中国STEM教育政策解读，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4008-01",
+        "name": "理论基础",
+        "description": "中国STEM教育政策解读的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4008-02",
+        "name": "实践技能",
+        "description": "中国STEM教育政策解读的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "中国STEM教育政策解读实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4008",
+    "scraped_at": "2026-04-26T13:33:29.006Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4009",
+    "title": "STEM与核心素养（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：STEM与核心素养，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4009-01",
+        "name": "理论基础",
+        "description": "STEM与核心素养的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4009-02",
+        "name": "实践技能",
+        "description": "STEM与核心素养的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "STEM与核心素养实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4009",
+    "scraped_at": "2026-04-26T13:33:29.006Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4010",
+    "title": "STEM与核心素养（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：STEM与核心素养，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4010-01",
+        "name": "理论基础",
+        "description": "STEM与核心素养的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4010-02",
+        "name": "实践技能",
+        "description": "STEM与核心素养的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "STEM与核心素养实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4010",
+    "scraped_at": "2026-04-26T13:33:29.006Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4011",
+    "title": "STEM与核心素养（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "STEM项目学习概述",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：STEM与核心素养，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4011-01",
+        "name": "理论基础",
+        "description": "STEM与核心素养的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4011-02",
+        "name": "实践技能",
+        "description": "STEM与核心素养的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "STEM与核心素养实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4011",
+    "scraped_at": "2026-04-26T13:33:29.006Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4012",
+    "title": "苔藓绿化产品设计案例（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：苔藓绿化产品设计案例，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4012-01",
+        "name": "理论基础",
+        "description": "苔藓绿化产品设计案例的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4012-02",
+        "name": "实践技能",
+        "description": "苔藓绿化产品设计案例的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "苔藓绿化产品设计案例实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4012",
+    "scraped_at": "2026-04-26T13:33:29.006Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4013",
+    "title": "苔藓绿化产品设计案例（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：苔藓绿化产品设计案例，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4013-01",
+        "name": "理论基础",
+        "description": "苔藓绿化产品设计案例的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4013-02",
+        "name": "实践技能",
+        "description": "苔藓绿化产品设计案例的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "苔藓绿化产品设计案例实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4013",
+    "scraped_at": "2026-04-26T13:33:29.006Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4014",
+    "title": "苔藓绿化产品设计案例（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：苔藓绿化产品设计案例，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4014-01",
+        "name": "理论基础",
+        "description": "苔藓绿化产品设计案例的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4014-02",
+        "name": "实践技能",
+        "description": "苔藓绿化产品设计案例的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "苔藓绿化产品设计案例实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4014",
+    "scraped_at": "2026-04-26T13:33:29.006Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4015",
+    "title": "项目式学习方法论（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：项目式学习方法论，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4015-01",
+        "name": "理论基础",
+        "description": "项目式学习方法论的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4015-02",
+        "name": "实践技能",
+        "description": "项目式学习方法论的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目式学习方法论实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4015",
+    "scraped_at": "2026-04-26T13:33:29.006Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4016",
+    "title": "项目式学习方法论（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：项目式学习方法论，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4016-01",
+        "name": "理论基础",
+        "description": "项目式学习方法论的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4016-02",
+        "name": "实践技能",
+        "description": "项目式学习方法论的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目式学习方法论实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4016",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4017",
+    "title": "项目式学习方法论（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：项目式学习方法论，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4017-01",
+        "name": "理论基础",
+        "description": "项目式学习方法论的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4017-02",
+        "name": "实践技能",
+        "description": "项目式学习方法论的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "项目式学习方法论实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4017",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4018",
+    "title": "跨学科整合策略（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：跨学科整合策略，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4018-01",
+        "name": "理论基础",
+        "description": "跨学科整合策略的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4018-02",
+        "name": "实践技能",
+        "description": "跨学科整合策略的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "跨学科整合策略实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4018",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4019",
+    "title": "跨学科整合策略（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：跨学科整合策略，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4019-01",
+        "name": "理论基础",
+        "description": "跨学科整合策略的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4019-02",
+        "name": "实践技能",
+        "description": "跨学科整合策略的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "跨学科整合策略实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4019",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4020",
+    "title": "跨学科整合策略（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：跨学科整合策略，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4020-01",
+        "name": "理论基础",
+        "description": "跨学科整合策略的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4020-02",
+        "name": "实践技能",
+        "description": "跨学科整合策略的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "跨学科整合策略实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4020",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4021",
+    "title": "探究式教学设计（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：探究式教学设计，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4021-01",
+        "name": "理论基础",
+        "description": "探究式教学设计的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4021-02",
+        "name": "实践技能",
+        "description": "探究式教学设计的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "探究式教学设计实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4021",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4022",
+    "title": "探究式教学设计（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：探究式教学设计，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4022-01",
+        "name": "理论基础",
+        "description": "探究式教学设计的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4022-02",
+        "name": "实践技能",
+        "description": "探究式教学设计的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "探究式教学设计实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4022",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4023",
+    "title": "探究式教学设计（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "STEM教学流程设计",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：探究式教学设计，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4023-01",
+        "name": "理论基础",
+        "description": "探究式教学设计的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4023-02",
+        "name": "实践技能",
+        "description": "探究式教学设计的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "探究式教学设计实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4023",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4024",
+    "title": "科学思维培养（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：科学思维培养，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4024-01",
+        "name": "理论基础",
+        "description": "科学思维培养的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4024-02",
+        "name": "实践技能",
+        "description": "科学思维培养的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "科学思维培养实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4024",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4025",
+    "title": "科学思维培养（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：科学思维培养，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4025-01",
+        "name": "理论基础",
+        "description": "科学思维培养的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4025-02",
+        "name": "实践技能",
+        "description": "科学思维培养的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "科学思维培养实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4025",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4026",
+    "title": "科学思维培养（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：科学思维培养，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4026-01",
+        "name": "理论基础",
+        "description": "科学思维培养的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4026-02",
+        "name": "实践技能",
+        "description": "科学思维培养的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "科学思维培养实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4026",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4027",
+    "title": "工程问题解决（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：工程问题解决，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4027-01",
+        "name": "理论基础",
+        "description": "工程问题解决的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4027-02",
+        "name": "实践技能",
+        "description": "工程问题解决的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "工程问题解决实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4027",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4028",
+    "title": "工程问题解决（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：工程问题解决，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4028-01",
+        "name": "理论基础",
+        "description": "工程问题解决的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4028-02",
+        "name": "实践技能",
+        "description": "工程问题解决的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "工程问题解决实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4028",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4029",
+    "title": "工程问题解决（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：工程问题解决，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4029-01",
+        "name": "理论基础",
+        "description": "工程问题解决的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4029-02",
+        "name": "实践技能",
+        "description": "工程问题解决的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "工程问题解决实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4029",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4030",
+    "title": "数学建模应用（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：数学建模应用，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4030-01",
+        "name": "理论基础",
+        "description": "数学建模应用的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4030-02",
+        "name": "实践技能",
+        "description": "数学建模应用的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "数学建模应用实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4030",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4031",
+    "title": "数学建模应用（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：数学建模应用，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4031-01",
+        "name": "理论基础",
+        "description": "数学建模应用的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4031-02",
+        "name": "实践技能",
+        "description": "数学建模应用的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "数学建模应用实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4031",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4032",
+    "title": "数学建模应用（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：数学建模应用，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4032-01",
+        "name": "理论基础",
+        "description": "数学建模应用的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4032-02",
+        "name": "实践技能",
+        "description": "数学建模应用的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "数学建模应用实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4032",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4033",
+    "title": "技术创新实践（小学高年级）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "elementary",
+    "target_grade": "小学高年级",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：技术创新实践，适合小学高年级学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4033-01",
+        "name": "理论基础",
+        "description": "技术创新实践的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4033-02",
+        "name": "实践技能",
+        "description": "技术创新实践的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "技术创新实践实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4033",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4034",
+    "title": "技术创新实践（初中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：技术创新实践，适合初中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4034-01",
+        "name": "理论基础",
+        "description": "技术创新实践的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4034-02",
+        "name": "实践技能",
+        "description": "技术创新实践的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "技术创新实践实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4034",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "SHNU-STEM-4035",
+    "title": "技术创新实践（高中）",
+    "source": "上海师范大学STEM教育中心",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "STEM综合",
+    "module": "模型建构与实践",
+    "duration_weeks": 4,
+    "description": "上海师范大学STEM团队研发：技术创新实践，适合高中学生",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-SHNU-4035-01",
+        "name": "理论基础",
+        "description": "技术创新实践的核心概念"
+      },
+      {
+        "kp_id": "KP-SHNU-4035-02",
+        "name": "实践技能",
+        "description": "技术创新实践的应用方法"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "技术创新实践实践活动",
+        "materials": [
+          "实验器材包"
+        ],
+        "low_cost_alternatives": [
+          "家庭材料替代"
+        ]
+      }
+    ],
+    "course_url": "https://www.icourse163.org/course/SHNU-STEM/4035",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "BNU-K12-001",
+    "title": "生活中的物理现象",
+    "source": "北师大基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "物理",
+    "duration_weeks": 6,
+    "description": "通过日常生活中的物理现象，培养学生的科学观察和探究能力。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-Phys-001",
+        "name": "力与运动",
+        "description": "推拉力的作用"
+      },
+      {
+        "kp_id": "KP-BNU-Phys-002",
+        "name": "声音传播",
+        "description": "声音的产生和传播"
+      },
+      {
+        "kp_id": "KP-BNU-Phys-003",
+        "name": "光的反射",
+        "description": "镜子和水面反射"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "简易望远镜制作",
+        "materials": [
+          "纸筒",
+          "透镜",
+          "胶带"
+        ],
+        "low_cost_alternatives": [
+          "用放大镜代替透镜"
+        ]
+      }
+    ],
+    "course_url": "https://open-ct.com/course/bnu-physics-elementary",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "BNU-K12-002",
+    "title": "化学与生活",
+    "source": "北师大基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "化学",
+    "duration_weeks": 8,
+    "description": "探索日常生活中的化学现象，理解物质的变化和性质。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-Chem-001",
+        "name": "酸碱反应",
+        "description": "常见酸碱物质"
+      },
+      {
+        "kp_id": "KP-BNU-Chem-002",
+        "name": "氧化还原",
+        "description": "生锈和燃烧"
+      },
+      {
+        "kp_id": "KP-BNU-Chem-003",
+        "name": "溶液配制",
+        "description": "浓度计算"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "自制指示剂",
+        "materials": [
+          "紫甘蓝",
+          "白醋",
+          "小苏打"
+        ],
+        "low_cost_alternatives": [
+          "使用家用材料"
+        ]
+      }
+    ],
+    "course_url": "https://open-ct.com/course/bnu-chemistry-middle",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "BNU-K12-003",
+    "title": "生物多样性探究",
+    "source": "北师大基础教育研究院",
+    "grade_level": "middle",
+    "target_grade": "初中",
+    "subject": "生物",
+    "duration_weeks": 6,
+    "description": "调查校园和社区的生物多样性，理解生态系统的重要性。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-Bio-001",
+        "name": "物种分类",
+        "description": "动植物分类方法"
+      },
+      {
+        "kp_id": "KP-BNU-Bio-002",
+        "name": "生态关系",
+        "description": "食物链和食物网"
+      },
+      {
+        "kp_id": "KP-BNU-Bio-003",
+        "name": "环境保护",
+        "description": "生物多样性保护"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "校园生物调查",
+        "materials": [
+          "记录本",
+          "相机",
+          "识别APP"
+        ],
+        "low_cost_alternatives": [
+          "用手机拍照记录"
+        ]
+      }
+    ],
+    "course_url": "https://open-ct.com/course/bnu-biology-middle",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "BNU-K12-004",
+    "title": "地球系统科学",
+    "source": "北师大基础教育研究院",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "地球科学",
+    "duration_weeks": 10,
+    "description": "研究地球各圈层的相互作用，理解全球变化的影响。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-Earth-001",
+        "name": "岩石循环",
+        "description": "三大类岩石转化"
+      },
+      {
+        "kp_id": "KP-BNU-Earth-002",
+        "name": "水循环",
+        "description": "水的相变和运动"
+      },
+      {
+        "kp_id": "KP-BNU-Earth-003",
+        "name": "气候变化",
+        "description": "温室效应机制"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "岩石样本分析",
+        "materials": [
+          "岩石样本",
+          "放大镜",
+          "硬度测试工具"
+        ],
+        "low_cost_alternatives": [
+          "收集路边石头"
+        ]
+      }
+    ],
+    "course_url": "https://open-ct.com/course/bnu-earth-high",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "BNU-K12-005",
+    "title": "编程与计算思维",
+    "source": "北师大基础教育研究院",
+    "grade_level": "elementary",
+    "target_grade": "小学",
+    "subject": "计算机",
+    "duration_weeks": 8,
+    "description": "通过图形化编程培养计算思维和问题解决能力。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-CS-001",
+        "name": "顺序执行",
+        "description": "程序的基本结构"
+      },
+      {
+        "kp_id": "KP-BNU-CS-002",
+        "name": "循环结构",
+        "description": "重复执行代码"
+      },
+      {
+        "kp_id": "KP-BNU-CS-003",
+        "name": "条件判断",
+        "description": "if-else逻辑"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "Scratch动画制作",
+        "materials": [
+          "电脑",
+          "Scratch软件"
+        ],
+        "low_cost_alternatives": [
+          "使用免费在线平台"
+        ]
+      }
+    ],
+    "course_url": "https://open-ct.com/course/bnu-coding-elementary",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  },
+  {
+    "course_id": "BNU-K12-006",
+    "title": "工程设计基础",
+    "source": "北师大基础教育研究院",
+    "grade_level": "high",
+    "target_grade": "高中",
+    "subject": "工程",
+    "duration_weeks": 10,
+    "description": "学习工程设计流程，解决真实世界的工程问题。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-BNU-Eng-001",
+        "name": "设计思维",
+        "description": "同理心和问题定义"
+      },
+      {
+        "kp_id": "KP-BNU-Eng-002",
+        "name": "原型制作",
+        "description": "快速迭代和测试"
+      },
+      {
+        "kp_id": "KP-BNU-Eng-003",
+        "name": "优化改进",
+        "description": "基于反馈的改进"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "桥梁结构设计",
+        "materials": [
+          "意大利面",
+          "胶水",
+          "砝码"
+        ],
+        "low_cost_alternatives": [
+          "用吸管和胶带"
+        ]
+      }
+    ],
+    "course_url": "https://open-ct.com/course/bnu-engineering-high",
+    "scraped_at": "2026-04-26T13:33:29.007Z"
+  }
+]

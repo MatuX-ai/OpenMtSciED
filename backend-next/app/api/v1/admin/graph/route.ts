@@ -43,10 +43,11 @@ export async function POST(request: Request) {
       results,
       count: results.length,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Graph query error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: '查询失败', message: error.message },
+      { error: '查询失败', message: errorMessage },
       { status: 500 }
     );
   }
@@ -87,61 +88,14 @@ export async function GET(request: Request) {
         relationships: stats[3][0]?.count || 0,
       },
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Graph stats error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: '服务器错误', message: error.message },
+      { error: '服务器错误', message: errorMessage },
       { status: 500 }
     );
   }
 }
 
-/**
- * GET /api/v1/admin/graph/explore
- * 探索知识图谱结构
- */
-export async function GET_EXPLORE(request: Request) {
-  try {
-    const { searchParams } = new URL(request.url);
-    const nodeId = searchParams.get('nodeId');
-    const depth = parseInt(searchParams.get('depth') || '2');
 
-    let cypher: string;
-    let params: any = { depth };
-
-    if (nodeId) {
-      // 从指定节点开始探索
-      cypher = `
-        MATCH path = (start)-[*1..$depth]-(neighbor)
-        WHERE start.id = $nodeId
-        RETURN nodes(path) as nodes, relationships(path) as relationships
-        LIMIT 50
-      `;
-      params.nodeId = nodeId;
-    } else {
-      // 随机探索
-      cypher = `
-        MATCH (start)
-        WITH start
-        ORDER BY rand()
-        LIMIT 1
-        MATCH path = (start)-[*1..$depth]-(neighbor)
-        RETURN nodes(path) as nodes, relationships(path) as relationships
-        LIMIT 50
-      `;
-    }
-
-    const results = await runCypher(cypher, params);
-
-    return NextResponse.json({
-      exploration: results,
-      total_paths: results.length,
-    });
-  } catch (error: any) {
-    console.error('Graph explore error:', error);
-    return NextResponse.json(
-      { error: '服务器错误', message: error.message },
-      { status: 500 }
-    );
-  }
-}

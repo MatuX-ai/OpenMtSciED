@@ -1,0 +1,996 @@
+[
+  {
+    "chapter_id": "OS-物理-01",
+    "title": "单位和测量",
+    "textbook_title": "University Physics Volume 1",
+    "subject": "物理",
+    "grade_level": "university",
+    "chapter_number": 1,
+    "description": "University Physics Volume 1 第1章：单位和测量。涵盖 SI单位、量纲分析、有效数字 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/university-physics-volume-1/chapter/1",
+    "web_url": "https://openstax.org/details/books/university-physics-volume-1/pages/1-introduction",
+    "topics": [
+      "SI单位",
+      "量纲分析",
+      "有效数字"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.809Z"
+  },
+  {
+    "chapter_id": "OS-物理-02",
+    "title": "向量",
+    "textbook_title": "University Physics Volume 1",
+    "subject": "物理",
+    "grade_level": "university",
+    "chapter_number": 2,
+    "description": "University Physics Volume 1 第2章：向量。涵盖 向量加法、标量积、向量积 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/university-physics-volume-1/chapter/2",
+    "web_url": "https://openstax.org/details/books/university-physics-volume-1/pages/2-introduction",
+    "topics": [
+      "向量加法",
+      "标量积",
+      "向量积"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-物理-03",
+    "title": "直线运动",
+    "textbook_title": "University Physics Volume 1",
+    "subject": "物理",
+    "grade_level": "university",
+    "chapter_number": 3,
+    "description": "University Physics Volume 1 第3章：直线运动。涵盖 位移、速度、加速度 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/university-physics-volume-1/chapter/3",
+    "web_url": "https://openstax.org/details/books/university-physics-volume-1/pages/3-introduction",
+    "topics": [
+      "位移",
+      "速度",
+      "加速度"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-物理-04",
+    "title": "二维和三维运动",
+    "textbook_title": "University Physics Volume 1",
+    "subject": "物理",
+    "grade_level": "university",
+    "chapter_number": 4,
+    "description": "University Physics Volume 1 第4章：二维和三维运动。涵盖 抛体运动、圆周运动、相对运动 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/university-physics-volume-1/chapter/4",
+    "web_url": "https://openstax.org/details/books/university-physics-volume-1/pages/4-introduction",
+    "topics": [
+      "抛体运动",
+      "圆周运动",
+      "相对运动"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-物理-05",
+    "title": "牛顿运动定律",
+    "textbook_title": "University Physics Volume 1",
+    "subject": "物理",
+    "grade_level": "university",
+    "chapter_number": 5,
+    "description": "University Physics Volume 1 第5章：牛顿运动定律。涵盖 力的概念、牛顿第一定律、牛顿第二定律、牛顿第三定律 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/university-physics-volume-1/chapter/5",
+    "web_url": "https://openstax.org/details/books/university-physics-volume-1/pages/5-introduction",
+    "topics": [
+      "力的概念",
+      "牛顿第一定律",
+      "牛顿第二定律",
+      "牛顿第三定律"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-物理-06",
+    "title": "常见力的应用",
+    "textbook_title": "University Physics Volume 1",
+    "subject": "物理",
+    "grade_level": "university",
+    "chapter_number": 6,
+    "description": "University Physics Volume 1 第6章：常见力的应用。涵盖 摩擦力、张力、弹力、向心力 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/university-physics-volume-1/chapter/6",
+    "web_url": "https://openstax.org/details/books/university-physics-volume-1/pages/6-introduction",
+    "topics": [
+      "摩擦力",
+      "张力",
+      "弹力",
+      "向心力"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-物理-07",
+    "title": "功和动能",
+    "textbook_title": "University Physics Volume 1",
+    "subject": "物理",
+    "grade_level": "university",
+    "chapter_number": 7,
+    "description": "University Physics Volume 1 第7章：功和动能。涵盖 功的定义、动能定理、功率 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/university-physics-volume-1/chapter/7",
+    "web_url": "https://openstax.org/details/books/university-physics-volume-1/pages/7-introduction",
+    "topics": [
+      "功的定义",
+      "动能定理",
+      "功率"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-物理-08",
+    "title": "势能和能量守恒",
+    "textbook_title": "University Physics Volume 1",
+    "subject": "物理",
+    "grade_level": "university",
+    "chapter_number": 8,
+    "description": "University Physics Volume 1 第8章：势能和能量守恒。涵盖 重力势能、弹性势能、机械能守恒 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/university-physics-volume-1/chapter/8",
+    "web_url": "https://openstax.org/details/books/university-physics-volume-1/pages/8-introduction",
+    "topics": [
+      "重力势能",
+      "弹性势能",
+      "机械能守恒"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-物理-09",
+    "title": "动量和碰撞",
+    "textbook_title": "University Physics Volume 1",
+    "subject": "物理",
+    "grade_level": "university",
+    "chapter_number": 9,
+    "description": "University Physics Volume 1 第9章：动量和碰撞。涵盖 线性动量、冲量、弹性碰撞、非弹性碰撞 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/university-physics-volume-1/chapter/9",
+    "web_url": "https://openstax.org/details/books/university-physics-volume-1/pages/9-introduction",
+    "topics": [
+      "线性动量",
+      "冲量",
+      "弹性碰撞",
+      "非弹性碰撞"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-物理-10",
+    "title": "固定轴转动",
+    "textbook_title": "University Physics Volume 1",
+    "subject": "物理",
+    "grade_level": "university",
+    "chapter_number": 10,
+    "description": "University Physics Volume 1 第10章：固定轴转动。涵盖 角速度、角加速度、转动惯量、力矩 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/university-physics-volume-1/chapter/10",
+    "web_url": "https://openstax.org/details/books/university-physics-volume-1/pages/10-introduction",
+    "topics": [
+      "角速度",
+      "角加速度",
+      "转动惯量",
+      "力矩"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-物理-01",
+    "title": "温度和热量",
+    "textbook_title": "University Physics Volume 2",
+    "subject": "物理",
+    "grade_level": "university",
+    "chapter_number": 1,
+    "description": "University Physics Volume 2 第1章：温度和热量。涵盖 温度尺度、热膨胀、热量传递 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/university-physics-volume-2/chapter/1",
+    "web_url": "https://openstax.org/details/books/university-physics-volume-2/pages/1-introduction",
+    "topics": [
+      "温度尺度",
+      "热膨胀",
+      "热量传递"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-物理-02",
+    "title": "气体动力学理论",
+    "textbook_title": "University Physics Volume 2",
+    "subject": "物理",
+    "grade_level": "university",
+    "chapter_number": 2,
+    "description": "University Physics Volume 2 第2章：气体动力学理论。涵盖 分子模型、压强、温度与动能 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/university-physics-volume-2/chapter/2",
+    "web_url": "https://openstax.org/details/books/university-physics-volume-2/pages/2-introduction",
+    "topics": [
+      "分子模型",
+      "压强",
+      "温度与动能"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-物理-03",
+    "title": "热力学第一定律",
+    "textbook_title": "University Physics Volume 2",
+    "subject": "物理",
+    "grade_level": "university",
+    "chapter_number": 3,
+    "description": "University Physics Volume 2 第3章：热力学第一定律。涵盖 内能、功和热量、热力学过程 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/university-physics-volume-2/chapter/3",
+    "web_url": "https://openstax.org/details/books/university-physics-volume-2/pages/3-introduction",
+    "topics": [
+      "内能",
+      "功和热量",
+      "热力学过程"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-物理-04",
+    "title": "热力学第二定律",
+    "textbook_title": "University Physics Volume 2",
+    "subject": "物理",
+    "grade_level": "university",
+    "chapter_number": 4,
+    "description": "University Physics Volume 2 第4章：热力学第二定律。涵盖 热机、制冷机、熵 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/university-physics-volume-2/chapter/4",
+    "web_url": "https://openstax.org/details/books/university-physics-volume-2/pages/4-introduction",
+    "topics": [
+      "热机",
+      "制冷机",
+      "熵"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-物理-05",
+    "title": "电荷和电场",
+    "textbook_title": "University Physics Volume 2",
+    "subject": "物理",
+    "grade_level": "university",
+    "chapter_number": 5,
+    "description": "University Physics Volume 2 第5章：电荷和电场。涵盖 电荷、库仑定律、电场、电场线 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/university-physics-volume-2/chapter/5",
+    "web_url": "https://openstax.org/details/books/university-physics-volume-2/pages/5-introduction",
+    "topics": [
+      "电荷",
+      "库仑定律",
+      "电场",
+      "电场线"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-物理-06",
+    "title": "高斯定律",
+    "textbook_title": "University Physics Volume 2",
+    "subject": "物理",
+    "grade_level": "university",
+    "chapter_number": 6,
+    "description": "University Physics Volume 2 第6章：高斯定律。涵盖 电通量、高斯定律、导体中的电场 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/university-physics-volume-2/chapter/6",
+    "web_url": "https://openstax.org/details/books/university-physics-volume-2/pages/6-introduction",
+    "topics": [
+      "电通量",
+      "高斯定律",
+      "导体中的电场"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-物理-07",
+    "title": "电势",
+    "textbook_title": "University Physics Volume 2",
+    "subject": "物理",
+    "grade_level": "university",
+    "chapter_number": 7,
+    "description": "University Physics Volume 2 第7章：电势。涵盖 电势能、电势差、等势面 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/university-physics-volume-2/chapter/7",
+    "web_url": "https://openstax.org/details/books/university-physics-volume-2/pages/7-introduction",
+    "topics": [
+      "电势能",
+      "电势差",
+      "等势面"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-物理-08",
+    "title": "电容",
+    "textbook_title": "University Physics Volume 2",
+    "subject": "物理",
+    "grade_level": "university",
+    "chapter_number": 8,
+    "description": "University Physics Volume 2 第8章：电容。涵盖 电容器、电容计算、电介质 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/university-physics-volume-2/chapter/8",
+    "web_url": "https://openstax.org/details/books/university-physics-volume-2/pages/8-introduction",
+    "topics": [
+      "电容器",
+      "电容计算",
+      "电介质"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-物理-09",
+    "title": "电流和电阻",
+    "textbook_title": "University Physics Volume 2",
+    "subject": "物理",
+    "grade_level": "university",
+    "chapter_number": 9,
+    "description": "University Physics Volume 2 第9章：电流和电阻。涵盖 电流、电阻、欧姆定律、电功率 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/university-physics-volume-2/chapter/9",
+    "web_url": "https://openstax.org/details/books/university-physics-volume-2/pages/9-introduction",
+    "topics": [
+      "电流",
+      "电阻",
+      "欧姆定律",
+      "电功率"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-物理-10",
+    "title": "直流电路",
+    "textbook_title": "University Physics Volume 2",
+    "subject": "物理",
+    "grade_level": "university",
+    "chapter_number": 10,
+    "description": "University Physics Volume 2 第10章：直流电路。涵盖 串联和并联、基尔霍夫定律、RC电路 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/university-physics-volume-2/chapter/10",
+    "web_url": "https://openstax.org/details/books/university-physics-volume-2/pages/10-introduction",
+    "topics": [
+      "串联和并联",
+      "基尔霍夫定律",
+      "RC电路"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-化学-01",
+    "title": "物质的基本组成",
+    "textbook_title": "Chemistry 2e",
+    "subject": "化学",
+    "grade_level": "university",
+    "chapter_number": 1,
+    "description": "Chemistry 2e 第1章：物质的基本组成。涵盖 原子、分子、元素周期表 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/chemistry-2e/chapter/1",
+    "web_url": "https://openstax.org/details/books/chemistry-2e/pages/1-introduction",
+    "topics": [
+      "原子",
+      "分子",
+      "元素周期表"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-化学-02",
+    "title": "原子结构和周期性",
+    "textbook_title": "Chemistry 2e",
+    "subject": "化学",
+    "grade_level": "university",
+    "chapter_number": 2,
+    "description": "Chemistry 2e 第2章：原子结构和周期性。涵盖 电子构型、量子数、周期性趋势 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/chemistry-2e/chapter/2",
+    "web_url": "https://openstax.org/details/books/chemistry-2e/pages/2-introduction",
+    "topics": [
+      "电子构型",
+      "量子数",
+      "周期性趋势"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-化学-03",
+    "title": "化学键和分子几何",
+    "textbook_title": "Chemistry 2e",
+    "subject": "化学",
+    "grade_level": "university",
+    "chapter_number": 3,
+    "description": "Chemistry 2e 第3章：化学键和分子几何。涵盖 离子键、共价键、VSEPR理论 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/chemistry-2e/chapter/3",
+    "web_url": "https://openstax.org/details/books/chemistry-2e/pages/3-introduction",
+    "topics": [
+      "离子键",
+      "共价键",
+      "VSEPR理论"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-化学-04",
+    "title": "化学反应和计量学",
+    "textbook_title": "Chemistry 2e",
+    "subject": "化学",
+    "grade_level": "university",
+    "chapter_number": 4,
+    "description": "Chemistry 2e 第4章：化学反应和计量学。涵盖 化学方程式、摩尔概念、限制试剂 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/chemistry-2e/chapter/4",
+    "web_url": "https://openstax.org/details/books/chemistry-2e/pages/4-introduction",
+    "topics": [
+      "化学方程式",
+      "摩尔概念",
+      "限制试剂"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-化学-05",
+    "title": "溶液化学",
+    "textbook_title": "Chemistry 2e",
+    "subject": "化学",
+    "grade_level": "university",
+    "chapter_number": 5,
+    "description": "Chemistry 2e 第5章：溶液化学。涵盖 浓度、溶解度、电解质 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/chemistry-2e/chapter/5",
+    "web_url": "https://openstax.org/details/books/chemistry-2e/pages/5-introduction",
+    "topics": [
+      "浓度",
+      "溶解度",
+      "电解质"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-化学-06",
+    "title": "热化学",
+    "textbook_title": "Chemistry 2e",
+    "subject": "化学",
+    "grade_level": "university",
+    "chapter_number": 6,
+    "description": "Chemistry 2e 第6章：热化学。涵盖 焓变、生成热、赫斯定律 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/chemistry-2e/chapter/6",
+    "web_url": "https://openstax.org/details/books/chemistry-2e/pages/6-introduction",
+    "topics": [
+      "焓变",
+      "生成热",
+      "赫斯定律"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-化学-07",
+    "title": "电子结构和周期性",
+    "textbook_title": "Chemistry 2e",
+    "subject": "化学",
+    "grade_level": "university",
+    "chapter_number": 7,
+    "description": "Chemistry 2e 第7章：电子结构和周期性。涵盖 电磁辐射、波尔模型、轨道 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/chemistry-2e/chapter/7",
+    "web_url": "https://openstax.org/details/books/chemistry-2e/pages/7-introduction",
+    "topics": [
+      "电磁辐射",
+      "波尔模型",
+      "轨道"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-化学-08",
+    "title": "高级共价键理论",
+    "textbook_title": "Chemistry 2e",
+    "subject": "化学",
+    "grade_level": "university",
+    "chapter_number": 8,
+    "description": "Chemistry 2e 第8章：高级共价键理论。涵盖 杂化轨道、分子轨道理论 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/chemistry-2e/chapter/8",
+    "web_url": "https://openstax.org/details/books/chemistry-2e/pages/8-introduction",
+    "topics": [
+      "杂化轨道",
+      "分子轨道理论"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-化学-09",
+    "title": "气体",
+    "textbook_title": "Chemistry 2e",
+    "subject": "化学",
+    "grade_level": "university",
+    "chapter_number": 9,
+    "description": "Chemistry 2e 第9章：气体。涵盖 气体定律、理想气体方程、动力学理论 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/chemistry-2e/chapter/9",
+    "web_url": "https://openstax.org/details/books/chemistry-2e/pages/9-introduction",
+    "topics": [
+      "气体定律",
+      "理想气体方程",
+      "动力学理论"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-化学-10",
+    "title": "液体和固体",
+    "textbook_title": "Chemistry 2e",
+    "subject": "化学",
+    "grade_level": "university",
+    "chapter_number": 10,
+    "description": "Chemistry 2e 第10章：液体和固体。涵盖 分子间作用力、相变、晶体结构 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/chemistry-2e/chapter/10",
+    "web_url": "https://openstax.org/details/books/chemistry-2e/pages/10-introduction",
+    "topics": [
+      "分子间作用力",
+      "相变",
+      "晶体结构"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-生物-01",
+    "title": "生命研究",
+    "textbook_title": "Biology 2e",
+    "subject": "生物",
+    "grade_level": "university",
+    "chapter_number": 1,
+    "description": "Biology 2e 第1章：生命研究。涵盖 生物学主题、科学方法、生命特征 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/biology-2e/chapter/1",
+    "web_url": "https://openstax.org/details/books/biology-2e/pages/1-introduction",
+    "topics": [
+      "生物学主题",
+      "科学方法",
+      "生命特征"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-生物-02",
+    "title": "生命的化学基础",
+    "textbook_title": "Biology 2e",
+    "subject": "生物",
+    "grade_level": "university",
+    "chapter_number": 2,
+    "description": "Biology 2e 第2章：生命的化学基础。涵盖 原子、分子、水、碳 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/biology-2e/chapter/2",
+    "web_url": "https://openstax.org/details/books/biology-2e/pages/2-introduction",
+    "topics": [
+      "原子",
+      "分子",
+      "水",
+      "碳"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-生物-03",
+    "title": "生物分子",
+    "textbook_title": "Biology 2e",
+    "subject": "生物",
+    "grade_level": "university",
+    "chapter_number": 3,
+    "description": "Biology 2e 第3章：生物分子。涵盖 碳水化合物、脂质、蛋白质、核酸 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/biology-2e/chapter/3",
+    "web_url": "https://openstax.org/details/books/biology-2e/pages/3-introduction",
+    "topics": [
+      "碳水化合物",
+      "脂质",
+      "蛋白质",
+      "核酸"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-生物-04",
+    "title": "细胞结构",
+    "textbook_title": "Biology 2e",
+    "subject": "生物",
+    "grade_level": "university",
+    "chapter_number": 4,
+    "description": "Biology 2e 第4章：细胞结构。涵盖 原核细胞、真核细胞、细胞器 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/biology-2e/chapter/4",
+    "web_url": "https://openstax.org/details/books/biology-2e/pages/4-introduction",
+    "topics": [
+      "原核细胞",
+      "真核细胞",
+      "细胞器"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-生物-05",
+    "title": "细胞膜",
+    "textbook_title": "Biology 2e",
+    "subject": "生物",
+    "grade_level": "university",
+    "chapter_number": 5,
+    "description": "Biology 2e 第5章：细胞膜。涵盖 膜结构、被动运输、主动运输 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/biology-2e/chapter/5",
+    "web_url": "https://openstax.org/details/books/biology-2e/pages/5-introduction",
+    "topics": [
+      "膜结构",
+      "被动运输",
+      "主动运输"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-生物-06",
+    "title": "新陈代谢",
+    "textbook_title": "Biology 2e",
+    "subject": "生物",
+    "grade_level": "university",
+    "chapter_number": 6,
+    "description": "Biology 2e 第6章：新陈代谢。涵盖 能量、酶、ATP、代谢途径 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/biology-2e/chapter/6",
+    "web_url": "https://openstax.org/details/books/biology-2e/pages/6-introduction",
+    "topics": [
+      "能量",
+      "酶",
+      "ATP",
+      "代谢途径"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-生物-07",
+    "title": "细胞呼吸",
+    "textbook_title": "Biology 2e",
+    "subject": "生物",
+    "grade_level": "university",
+    "chapter_number": 7,
+    "description": "Biology 2e 第7章：细胞呼吸。涵盖 糖酵解、柠檬酸循环、氧化磷酸化 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/biology-2e/chapter/7",
+    "web_url": "https://openstax.org/details/books/biology-2e/pages/7-introduction",
+    "topics": [
+      "糖酵解",
+      "柠檬酸循环",
+      "氧化磷酸化"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-生物-08",
+    "title": "光合作用",
+    "textbook_title": "Biology 2e",
+    "subject": "生物",
+    "grade_level": "university",
+    "chapter_number": 8,
+    "description": "Biology 2e 第8章：光合作用。涵盖 光反应、卡尔文循环、C3/C4植物 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/biology-2e/chapter/8",
+    "web_url": "https://openstax.org/details/books/biology-2e/pages/8-introduction",
+    "topics": [
+      "光反应",
+      "卡尔文循环",
+      "C3/C4植物"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-生物-09",
+    "title": "细胞通讯",
+    "textbook_title": "Biology 2e",
+    "subject": "生物",
+    "grade_level": "university",
+    "chapter_number": 9,
+    "description": "Biology 2e 第9章：细胞通讯。涵盖 信号分子、受体、信号转导 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/biology-2e/chapter/9",
+    "web_url": "https://openstax.org/details/books/biology-2e/pages/9-introduction",
+    "topics": [
+      "信号分子",
+      "受体",
+      "信号转导"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-生物-10",
+    "title": "细胞繁殖",
+    "textbook_title": "Biology 2e",
+    "subject": "生物",
+    "grade_level": "university",
+    "chapter_number": 10,
+    "description": "Biology 2e 第10章：细胞繁殖。涵盖 细胞周期、有丝分裂、减数分裂 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/biology-2e/chapter/10",
+    "web_url": "https://openstax.org/details/books/biology-2e/pages/10-introduction",
+    "topics": [
+      "细胞周期",
+      "有丝分裂",
+      "减数分裂"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-数学-01",
+    "title": "函数和图形",
+    "textbook_title": "Calculus Volume 1",
+    "subject": "数学",
+    "grade_level": "university",
+    "chapter_number": 1,
+    "description": "Calculus Volume 1 第1章：函数和图形。涵盖 函数表示、基本函数、函数变换 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/calculus-volume-1/chapter/1",
+    "web_url": "https://openstax.org/details/books/calculus-volume-1/pages/1-introduction",
+    "topics": [
+      "函数表示",
+      "基本函数",
+      "函数变换"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-数学-02",
+    "title": "极限",
+    "textbook_title": "Calculus Volume 1",
+    "subject": "数学",
+    "grade_level": "university",
+    "chapter_number": 2,
+    "description": "Calculus Volume 1 第2章：极限。涵盖 极限概念、极限定律、连续性 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/calculus-volume-1/chapter/2",
+    "web_url": "https://openstax.org/details/books/calculus-volume-1/pages/2-introduction",
+    "topics": [
+      "极限概念",
+      "极限定律",
+      "连续性"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-数学-03",
+    "title": "导数",
+    "textbook_title": "Calculus Volume 1",
+    "subject": "数学",
+    "grade_level": "university",
+    "chapter_number": 3,
+    "description": "Calculus Volume 1 第3章：导数。涵盖 导数定义、求导法则、链式法则 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/calculus-volume-1/chapter/3",
+    "web_url": "https://openstax.org/details/books/calculus-volume-1/pages/3-introduction",
+    "topics": [
+      "导数定义",
+      "求导法则",
+      "链式法则"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-数学-04",
+    "title": "导数的应用",
+    "textbook_title": "Calculus Volume 1",
+    "subject": "数学",
+    "grade_level": "university",
+    "chapter_number": 4,
+    "description": "Calculus Volume 1 第4章：导数的应用。涵盖 相关变化率、极值、中值定理 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/calculus-volume-1/chapter/4",
+    "web_url": "https://openstax.org/details/books/calculus-volume-1/pages/4-introduction",
+    "topics": [
+      "相关变化率",
+      "极值",
+      "中值定理"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-数学-05",
+    "title": "积分",
+    "textbook_title": "Calculus Volume 1",
+    "subject": "数学",
+    "grade_level": "university",
+    "chapter_number": 5,
+    "description": "Calculus Volume 1 第5章：积分。涵盖 不定积分、定积分、微积分基本定理 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/calculus-volume-1/chapter/5",
+    "web_url": "https://openstax.org/details/books/calculus-volume-1/pages/5-introduction",
+    "topics": [
+      "不定积分",
+      "定积分",
+      "微积分基本定理"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-数学-06",
+    "title": "积分的应用",
+    "textbook_title": "Calculus Volume 1",
+    "subject": "数学",
+    "grade_level": "university",
+    "chapter_number": 6,
+    "description": "Calculus Volume 1 第6章：积分的应用。涵盖 面积、体积、弧长 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/calculus-volume-1/chapter/6",
+    "web_url": "https://openstax.org/details/books/calculus-volume-1/pages/6-introduction",
+    "topics": [
+      "面积",
+      "体积",
+      "弧长"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-数学-07",
+    "title": "积分技术",
+    "textbook_title": "Calculus Volume 1",
+    "subject": "数学",
+    "grade_level": "university",
+    "chapter_number": 7,
+    "description": "Calculus Volume 1 第7章：积分技术。涵盖 换元法、分部积分、部分分式 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/calculus-volume-1/chapter/7",
+    "web_url": "https://openstax.org/details/books/calculus-volume-1/pages/7-introduction",
+    "topics": [
+      "换元法",
+      "分部积分",
+      "部分分式"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-数学-08",
+    "title": "微分方程",
+    "textbook_title": "Calculus Volume 1",
+    "subject": "数学",
+    "grade_level": "university",
+    "chapter_number": 8,
+    "description": "Calculus Volume 1 第8章：微分方程。涵盖 可分离方程、一阶线性方程、应用 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/calculus-volume-1/chapter/8",
+    "web_url": "https://openstax.org/details/books/calculus-volume-1/pages/8-introduction",
+    "topics": [
+      "可分离方程",
+      "一阶线性方程",
+      "应用"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-社会-01",
+    "title": "社会学视角",
+    "textbook_title": "Introduction to Sociology 3e",
+    "subject": "社会科学",
+    "grade_level": "university",
+    "chapter_number": 1,
+    "description": "Introduction to Sociology 3e 第1章：社会学视角。涵盖 社会学定义、理论视角、研究方法 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/introduction-sociology-3e/chapter/1",
+    "web_url": "https://openstax.org/details/books/introduction-sociology-3e/pages/1-introduction",
+    "topics": [
+      "社会学定义",
+      "理论视角",
+      "研究方法"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-社会-02",
+    "title": "社会学研究",
+    "textbook_title": "Introduction to Sociology 3e",
+    "subject": "社会科学",
+    "grade_level": "university",
+    "chapter_number": 2,
+    "description": "Introduction to Sociology 3e 第2章：社会学研究。涵盖 研究设计、数据收集、伦理问题 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/introduction-sociology-3e/chapter/2",
+    "web_url": "https://openstax.org/details/books/introduction-sociology-3e/pages/2-introduction",
+    "topics": [
+      "研究设计",
+      "数据收集",
+      "伦理问题"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-社会-03",
+    "title": "文化",
+    "textbook_title": "Introduction to Sociology 3e",
+    "subject": "社会科学",
+    "grade_level": "university",
+    "chapter_number": 3,
+    "description": "Introduction to Sociology 3e 第3章：文化。涵盖 文化元素、文化多样性、全球化 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/introduction-sociology-3e/chapter/3",
+    "web_url": "https://openstax.org/details/books/introduction-sociology-3e/pages/3-introduction",
+    "topics": [
+      "文化元素",
+      "文化多样性",
+      "全球化"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-社会-04",
+    "title": "社会化",
+    "textbook_title": "Introduction to Sociology 3e",
+    "subject": "社会科学",
+    "grade_level": "university",
+    "chapter_number": 4,
+    "description": "Introduction to Sociology 3e 第4章：社会化。涵盖 自我发展、社会化机构、生命周期 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/introduction-sociology-3e/chapter/4",
+    "web_url": "https://openstax.org/details/books/introduction-sociology-3e/pages/4-introduction",
+    "topics": [
+      "自我发展",
+      "社会化机构",
+      "生命周期"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-社会-05",
+    "title": "社会互动",
+    "textbook_title": "Introduction to Sociology 3e",
+    "subject": "社会科学",
+    "grade_level": "university",
+    "chapter_number": 5,
+    "description": "Introduction to Sociology 3e 第5章：社会互动。涵盖 角色和地位、群体、网络 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/introduction-sociology-3e/chapter/5",
+    "web_url": "https://openstax.org/details/books/introduction-sociology-3e/pages/5-introduction",
+    "topics": [
+      "角色和地位",
+      "群体",
+      "网络"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-社会-06",
+    "title": "群体和组织",
+    "textbook_title": "Introduction to Sociology 3e",
+    "subject": "社会科学",
+    "grade_level": "university",
+    "chapter_number": 6,
+    "description": "Introduction to Sociology 3e 第6章：群体和组织。涵盖 初级群体、正式组织、官僚制 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/introduction-sociology-3e/chapter/6",
+    "web_url": "https://openstax.org/details/books/introduction-sociology-3e/pages/6-introduction",
+    "topics": [
+      "初级群体",
+      "正式组织",
+      "官僚制"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-社会-07",
+    "title": "越轨和社会控制",
+    "textbook_title": "Introduction to Sociology 3e",
+    "subject": "社会科学",
+    "grade_level": "university",
+    "chapter_number": 7,
+    "description": "Introduction to Sociology 3e 第7章：越轨和社会控制。涵盖 越轨定义、犯罪、社会控制 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/introduction-sociology-3e/chapter/7",
+    "web_url": "https://openstax.org/details/books/introduction-sociology-3e/pages/7-introduction",
+    "topics": [
+      "越轨定义",
+      "犯罪",
+      "社会控制"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-社会-08",
+    "title": "社会阶层",
+    "textbook_title": "Introduction to Sociology 3e",
+    "subject": "社会科学",
+    "grade_level": "university",
+    "chapter_number": 8,
+    "description": "Introduction to Sociology 3e 第8章：社会阶层。涵盖  stratification、不平等、流动性 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/introduction-sociology-3e/chapter/8",
+    "web_url": "https://openstax.org/details/books/introduction-sociology-3e/pages/8-introduction",
+    "topics": [
+      " stratification",
+      "不平等",
+      "流动性"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-社会-09",
+    "title": "全球不平等",
+    "textbook_title": "Introduction to Sociology 3e",
+    "subject": "社会科学",
+    "grade_level": "university",
+    "chapter_number": 9,
+    "description": "Introduction to Sociology 3e 第9章：全球不平等。涵盖 世界体系、发展、贫困 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/introduction-sociology-3e/chapter/9",
+    "web_url": "https://openstax.org/details/books/introduction-sociology-3e/pages/9-introduction",
+    "topics": [
+      "世界体系",
+      "发展",
+      "贫困"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  },
+  {
+    "chapter_id": "OS-社会-10",
+    "title": "种族和民族",
+    "textbook_title": "Introduction to Sociology 3e",
+    "subject": "社会科学",
+    "grade_level": "university",
+    "chapter_number": 10,
+    "description": "Introduction to Sociology 3e 第10章：种族和民族。涵盖 种族建构、偏见、歧视 等核心概念。",
+    "pdf_url": "https://openstax.org/details/books/introduction-sociology-3e/chapter/10",
+    "web_url": "https://openstax.org/details/books/introduction-sociology-3e/pages/10-introduction",
+    "topics": [
+      "种族建构",
+      "偏见",
+      "歧视"
+    ],
+    "scraped_at": "2026-04-26T13:19:11.811Z"
+  }
+]

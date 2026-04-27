@@ -1,0 +1,453 @@
+[
+  {
+    "course_id": "COURS-CS-001",
+    "title": "Python编程入门",
+    "source": "coursera",
+    "grade_level": "university",
+    "subject": "计算机",
+    "duration_weeks": 6,
+    "description": "从零开始学习Python编程，掌握基本语法、数据结构和算法。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-COURS-CS-Py-001",
+        "name": "Python基础语法",
+        "description": "变量、数据类型、运算符"
+      },
+      {
+        "kp_id": "KP-COURS-CS-Py-002",
+        "name": "控制结构",
+        "description": "条件语句、循环、异常处理"
+      },
+      {
+        "kp_id": "KP-COURS-CS-Py-003",
+        "name": "函数与模块",
+        "description": "函数定义、参数传递、模块导入"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "简单计算器开发",
+        "materials": [
+          "Python环境",
+          "代码编辑器"
+        ],
+        "low_cost_alternatives": [
+          "使用在线Python编译器"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "数学·数值计算",
+      "数据科学·数据分析"
+    ],
+    "course_url": "https://www.coursera.org/learn/python-programming-introduction",
+    "certificate_url": "https://www.coursera.org/professional-certificates/python",
+    "scraped_at": "2026-04-26T13:24:40.736Z"
+  },
+  {
+    "course_id": "COURS-CS-002",
+    "title": "机器学习基础",
+    "source": "coursera",
+    "grade_level": "university",
+    "subject": "计算机",
+    "duration_weeks": 11,
+    "description": "Andrew Ng经典课程，学习监督学习、无监督学习和神经网络。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-COURS-CS-ML-001",
+        "name": "线性回归",
+        "description": "最小二乘法、梯度下降"
+      },
+      {
+        "kp_id": "KP-COURS-CS-ML-002",
+        "name": "逻辑回归",
+        "description": "分类问题、sigmoid函数"
+      },
+      {
+        "kp_id": "KP-COURS-CS-ML-003",
+        "name": "神经网络",
+        "description": "前向传播、反向传播"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "手写数字识别",
+        "materials": [
+          "MNIST数据集",
+          "Python",
+          "TensorFlow"
+        ],
+        "low_cost_alternatives": [
+          "使用Google Colab免费GPU"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "数学·线性代数",
+      "统计学·概率论"
+    ],
+    "course_url": "https://www.coursera.org/learn/machine-learning",
+    "certificate_url": "https://www.coursera.org/specializations/machine-learning-introduction",
+    "scraped_at": "2026-04-26T13:24:40.738Z"
+  },
+  {
+    "course_id": "COURS-CS-003",
+    "title": "数据结构与算法",
+    "source": "coursera",
+    "grade_level": "university",
+    "subject": "计算机",
+    "duration_weeks": 8,
+    "description": "深入学习高级数据结构和算法设计与分析。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-COURS-CS-DSA-001",
+        "name": "树与图",
+        "description": "二叉树、平衡树、图的遍历"
+      },
+      {
+        "kp_id": "KP-COURS-CS-DSA-002",
+        "name": "动态规划",
+        "description": "最优子结构、状态转移方程"
+      },
+      {
+        "kp_id": "KP-COURS-CS-DSA-003",
+        "name": "算法复杂度",
+        "description": "时间复杂度、空间复杂度分析"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "算法性能对比",
+        "materials": [
+          "大数据集",
+          "计时工具"
+        ],
+        "low_cost_alternatives": [
+          "使用小规模数据测试"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "数学·组合优化",
+      "工程·系统性能"
+    ],
+    "course_url": "https://www.coursera.org/learn/algorithms-part1",
+    "certificate_url": "https://www.coursera.org/specializations/data-structures-algorithms",
+    "scraped_at": "2026-04-26T13:24:40.738Z"
+  },
+  {
+    "course_id": "COURS-CS-004",
+    "title": "数据库系统",
+    "source": "coursera",
+    "grade_level": "university",
+    "subject": "计算机",
+    "duration_weeks": 8,
+    "description": "学习关系数据库设计、SQL查询和数据库管理系统原理。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-COURS-CS-DB-001",
+        "name": "关系模型",
+        "description": "表、键、范式理论"
+      },
+      {
+        "kp_id": "KP-COURS-CS-DB-002",
+        "name": "SQL语言",
+        "description": "SELECT、JOIN、子查询"
+      },
+      {
+        "kp_id": "KP-COURS-CS-DB-003",
+        "name": "事务管理",
+        "description": "ACID特性、并发控制"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "数据库设计项目",
+        "materials": [
+          "MySQL/PostgreSQL",
+          "ER图工具"
+        ],
+        "low_cost_alternatives": [
+          "使用SQLite轻量级数据库"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "信息系统·数据管理",
+      "软件工程·系统设计"
+    ],
+    "course_url": "https://www.coursera.org/learn/database-systems-concepts-design",
+    "certificate_url": "https://www.coursera.org/professional-certificates/google-database-engineer",
+    "scraped_at": "2026-04-26T13:24:40.738Z"
+  },
+  {
+    "course_id": "COURS-BUS-001",
+    "title": "金融基础",
+    "source": "coursera",
+    "grade_level": "university",
+    "subject": "商业",
+    "duration_weeks": 7,
+    "description": "学习金融市场、投资决策、风险管理和公司财务基础知识。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-COURS-BUS-FIN-001",
+        "name": "货币时间价值",
+        "description": "现值、终值、年金计算"
+      },
+      {
+        "kp_id": "KP-COURS-BUS-FIN-002",
+        "name": "投资组合理论",
+        "description": "风险与收益、分散化投资"
+      },
+      {
+        "kp_id": "KP-COURS-BUS-FIN-003",
+        "name": "资本预算",
+        "description": "NPV、IRR、投资评估"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "股票投资组合模拟",
+        "materials": [
+          "股票市场数据",
+          "Excel"
+        ],
+        "low_cost_alternatives": [
+          "使用免费金融API"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "数学·统计分析",
+      "经济学·市场理论"
+    ],
+    "course_url": "https://www.coursera.org/learn/financial-markets-global",
+    "certificate_url": "https://www.coursera.org/professional-certificates/investment-management",
+    "scraped_at": "2026-04-26T13:24:40.738Z"
+  },
+  {
+    "course_id": "COURS-BUS-002",
+    "title": "市场营销原理",
+    "source": "coursera",
+    "grade_level": "university",
+    "subject": "商业",
+    "duration_weeks": 6,
+    "description": "学习市场分析、消费者行为、品牌管理和数字营销策略。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-COURS-BUS-MKT-001",
+        "name": "市场细分",
+        "description": "目标市场选择、定位策略"
+      },
+      {
+        "kp_id": "KP-COURS-BUS-MKT-002",
+        "name": "消费者行为",
+        "description": "购买决策过程、影响因素"
+      },
+      {
+        "kp_id": "KP-COURS-BUS-MKT-003",
+        "name": "营销组合",
+        "description": "产品、价格、渠道、促销"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "市场调研项目",
+        "materials": [
+          "问卷工具",
+          "数据分析软件"
+        ],
+        "low_cost_alternatives": [
+          "使用免费在线调查工具"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "心理学·消费心理",
+      "数据科学·市场分析"
+    ],
+    "course_url": "https://www.coursera.org/learn/marketing-mix",
+    "certificate_url": "https://www.coursera.org/professional-certificates/digital-marketing",
+    "scraped_at": "2026-04-26T13:24:40.738Z"
+  },
+  {
+    "course_id": "COURS-DS-001",
+    "title": "数据科学导论",
+    "source": "coursera",
+    "grade_level": "university",
+    "subject": "数据科学",
+    "duration_weeks": 10,
+    "description": "学习数据收集、清洗、分析和可视化的完整流程。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-COURS-DS-INTRO-001",
+        "name": "数据收集",
+        "description": "API调用、网络爬取、数据库查询"
+      },
+      {
+        "kp_id": "KP-COURS-DS-INTRO-002",
+        "name": "数据清洗",
+        "description": "缺失值处理、异常值检测"
+      },
+      {
+        "kp_id": "KP-COURS-DS-INTRO-003",
+        "name": "数据可视化",
+        "description": "图表选择、可视化工具"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "真实数据集分析",
+        "materials": [
+          "Kaggle数据集",
+          "Jupyter Notebook"
+        ],
+        "low_cost_alternatives": [
+          "使用公开数据集"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "统计学·推断统计",
+      "计算机·编程"
+    ],
+    "course_url": "https://www.coursera.org/learn/data-science",
+    "certificate_url": "https://www.coursera.org/professional-certificates/ibm-data-science",
+    "scraped_at": "2026-04-26T13:24:40.738Z"
+  },
+  {
+    "course_id": "COURS-DS-002",
+    "title": "统计学基础",
+    "source": "coursera",
+    "grade_level": "university",
+    "subject": "数据科学",
+    "duration_weeks": 8,
+    "description": "学习描述统计、概率分布、假设检验和回归分析。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-COURS-DS-STAT-001",
+        "name": "描述统计",
+        "description": "均值、中位数、标准差"
+      },
+      {
+        "kp_id": "KP-COURS-DS-STAT-002",
+        "name": "概率分布",
+        "description": "正态分布、二项分布"
+      },
+      {
+        "kp_id": "KP-COURS-DS-STAT-003",
+        "name": "假设检验",
+        "description": "t检验、卡方检验、p值"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "A/B测试实验",
+        "materials": [
+          "实验数据",
+          "统计软件"
+        ],
+        "low_cost_alternatives": [
+          "使用Python/R开源工具"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "数学·概率论",
+      "科学研究·实验设计"
+    ],
+    "course_url": "https://www.coursera.org/learn/statistics-intro",
+    "certificate_url": "https://www.coursera.org/specializations/statistics",
+    "scraped_at": "2026-04-26T13:24:40.738Z"
+  },
+  {
+    "course_id": "COURS-ENG-001",
+    "title": "电路分析基础",
+    "source": "coursera",
+    "grade_level": "university",
+    "subject": "工程",
+    "duration_weeks": 10,
+    "description": "学习直流电路、交流电路、电路定理和分析方法。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-COURS-ENG-CIRC-001",
+        "name": "欧姆定律",
+        "description": "电压、电流、电阻关系"
+      },
+      {
+        "kp_id": "KP-COURS-ENG-CIRC-002",
+        "name": "基尔霍夫定律",
+        "description": "KCL、KVL应用"
+      },
+      {
+        "kp_id": "KP-COURS-ENG-CIRC-003",
+        "name": "电路定理",
+        "description": "叠加定理、戴维南定理"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "电路仿真实验",
+        "materials": [
+          "Multisim/LTspice",
+          "电路元件"
+        ],
+        "low_cost_alternatives": [
+          "使用在线电路模拟器"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "物理·电磁学",
+      "计算机·仿真技术"
+    ],
+    "course_url": "https://www.coursera.org/learn/circuit-analysis",
+    "certificate_url": "https://www.coursera.org/professional-certificates/electrical-engineering",
+    "scraped_at": "2026-04-26T13:24:40.738Z"
+  },
+  {
+    "course_id": "COURS-ENG-002",
+    "title": "材料科学基础",
+    "source": "coursera",
+    "grade_level": "university",
+    "subject": "工程",
+    "duration_weeks": 8,
+    "description": "学习材料的结构、性能、加工和应用。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-COURS-ENG-MAT-001",
+        "name": "晶体结构",
+        "description": "晶格、晶胞、缺陷"
+      },
+      {
+        "kp_id": "KP-COURS-ENG-MAT-002",
+        "name": "力学性能",
+        "description": "强度、硬度、韧性"
+      },
+      {
+        "kp_id": "KP-COURS-ENG-MAT-003",
+        "name": "相图",
+        "description": "合金相变、热处理"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "材料拉伸测试",
+        "materials": [
+          "万能试验机",
+          "标准试样"
+        ],
+        "low_cost_alternatives": [
+          "观看虚拟实验视频"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "化学·材料合成",
+      "物理·固体物理"
+    ],
+    "course_url": "https://www.coursera.org/learn/materials-science",
+    "certificate_url": "https://www.coursera.org/specializations/materials-science-engineering",
+    "scraped_at": "2026-04-26T13:24:40.738Z"
+  }
+]

@@ -1,0 +1,563 @@
+[
+  {
+    "unit_id": "OS-MS-Phys-001",
+    "title": "光与物质",
+    "source": "openscied",
+    "grade_level": "middle",
+    "subject": "物理",
+    "duration_weeks": 6,
+    "phenomenon": "为什么我们能看到物体？",
+    "description": "通过探究光的传播、反射和吸收，理解我们如何看到周围的世界。学生将建立光与视觉的模型。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-OS-MS-Phys-Light-001",
+        "name": "光的直线传播",
+        "description": "光沿直线传播，遇到障碍物会被阻挡"
+      },
+      {
+        "kp_id": "KP-OS-MS-Phys-Light-002",
+        "name": "光的反射",
+        "description": "光遇到光滑表面会发生反射"
+      },
+      {
+        "kp_id": "KP-OS-MS-Phys-Light-003",
+        "name": "光的吸收",
+        "description": "不同材料对光的吸收程度不同"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "镜子反射实验",
+        "materials": [
+          "平面镜",
+          "激光笔",
+          "白纸"
+        ],
+        "low_cost_alternatives": [
+          "用手电筒代替激光笔"
+        ]
+      },
+      {
+        "name": "颜色与吸收",
+        "materials": [
+          "彩色纸",
+          "温度计",
+          "光源"
+        ],
+        "low_cost_alternatives": [
+          "在阳光下进行实验"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "生物·视觉系统",
+      "工程·光学设计"
+    ],
+    "ngss_standards": [
+      "MS-PS4-2",
+      "MS-PS4-3"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/6-1-light-and-matter/teacher-guide",
+    "student_handbook_url": "https://www.openscied.org/resources/units/6-1-light-and-matter/student-handbook",
+    "unit_url": "https://www.openscied.org/resources/units/6-1-light-and-matter/",
+    "scraped_at": "2026-04-26T13:31:33.853Z"
+  },
+  {
+    "unit_id": "OS-MS-Earth-001",
+    "title": "板块构造",
+    "source": "openscied",
+    "grade_level": "middle",
+    "subject": "地球科学",
+    "duration_weeks": 6,
+    "phenomenon": "为什么会发生地震和火山爆发？",
+    "description": "探究地球内部结构和板块运动，理解地震、火山和山脉形成的原因。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-OS-MS-Earth-Plate-001",
+        "name": "地球内部结构",
+        "description": "地壳、地幔、外核、内核"
+      },
+      {
+        "kp_id": "KP-OS-MS-Earth-Plate-002",
+        "name": "板块边界类型",
+        "description": "汇聚边界、分离边界、转换边界"
+      },
+      {
+        "kp_id": "KP-OS-MS-Earth-Plate-003",
+        "name": "板块运动证据",
+        "description": "化石分布、岩石年龄、海底扩张"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "板块模型制作",
+        "materials": [
+          "泡沫板",
+          "黏土",
+          "地图"
+        ],
+        "low_cost_alternatives": [
+          "用硬纸板代替泡沫板"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "物理·力的作用",
+      "化学·岩石形成"
+    ],
+    "ngss_standards": [
+      "MS-ESS2-1",
+      "MS-ESS2-2",
+      "MS-ESS2-3"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/7-1-plate-tectonics/teacher-guide",
+    "student_handbook_url": "https://www.openscied.org/resources/units/7-1-plate-tectonics/student-handbook",
+    "unit_url": "https://www.openscied.org/resources/units/7-1-plate-tectonics/",
+    "scraped_at": "2026-04-26T13:31:33.855Z"
+  },
+  {
+    "unit_id": "OS-MS-Bio-001",
+    "title": "代谢与细胞",
+    "source": "openscied",
+    "grade_level": "middle",
+    "subject": "生物",
+    "duration_weeks": 6,
+    "phenomenon": "食物如何变成能量？",
+    "description": "探索细胞如何利用食物中的化学物质产生能量，理解呼吸作用和光合作用的关系。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-OS-MS-Bio-Metab-001",
+        "name": "细胞呼吸",
+        "description": "葡萄糖与氧气反应产生能量"
+      },
+      {
+        "kp_id": "KP-OS-MS-Bio-Metab-002",
+        "name": "光合作用",
+        "description": "植物利用光能合成有机物"
+      },
+      {
+        "kp_id": "KP-OS-MS-Bio-Metab-003",
+        "name": "物质循环",
+        "description": "碳循环和能量流动"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "酵母发酵实验",
+        "materials": [
+          "酵母",
+          "糖",
+          "气球",
+          "瓶子"
+        ],
+        "low_cost_alternatives": [
+          "使用回收塑料瓶"
+        ]
+      },
+      {
+        "name": "植物光合作用",
+        "materials": [
+          "水生植物",
+          "试管",
+          "光源"
+        ],
+        "low_cost_alternatives": [
+          "观察池塘水草"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "化学·化学反应",
+      "物理·能量转化"
+    ],
+    "ngss_standards": [
+      "MS-LS1-7",
+      "MS-LS2-3"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/7-2-metabolism/teacher-guide",
+    "student_handbook_url": "https://www.openscied.org/resources/units/7-2-metabolism/student-handbook",
+    "unit_url": "https://www.openscied.org/resources/units/7-2-metabolism/",
+    "scraped_at": "2026-04-26T13:31:33.855Z"
+  },
+  {
+    "unit_id": "OS-MS-Chem-001",
+    "title": "接触中的物质",
+    "source": "openscied",
+    "grade_level": "middle",
+    "subject": "化学",
+    "duration_weeks": 6,
+    "phenomenon": "为什么不同物质混合后会产生新物质？",
+    "description": "研究物质的性质和化学反应，理解原子重组形成新物质的过程。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-OS-MS-Chem-Matter-001",
+        "name": "物质分类",
+        "description": "元素、化合物、混合物"
+      },
+      {
+        "kp_id": "KP-OS-MS-Chem-Matter-002",
+        "name": "化学反应",
+        "description": "原子重新排列形成新物质"
+      },
+      {
+        "kp_id": "KP-OS-MS-Chem-Matter-003",
+        "name": "质量守恒",
+        "description": "化学反应前后总质量不变"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "酸碱反应",
+        "materials": [
+          "小苏打",
+          "醋",
+          "气球"
+        ],
+        "low_cost_alternatives": [
+          "使用家用材料"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "物理·物质状态",
+      "工程·材料应用"
+    ],
+    "ngss_standards": [
+      "MS-PS1-1",
+      "MS-PS1-2",
+      "MS-PS1-5"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/7-3-substances-reactions/teacher-guide",
+    "student_handbook_url": "https://www.openscied.org/resources/units/7-3-substances-reactions/student-handbook",
+    "unit_url": "https://www.openscied.org/resources/units/7-3-substances-reactions/",
+    "scraped_at": "2026-04-26T13:31:33.855Z"
+  },
+  {
+    "unit_id": "OS-MS-Phys-002",
+    "title": "力与运动",
+    "source": "openscied",
+    "grade_level": "middle",
+    "subject": "物理",
+    "duration_weeks": 6,
+    "phenomenon": "为什么物体会运动或停止？",
+    "description": "探究力、质量和加速度之间的关系，建立牛顿运动定律的理解。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-OS-MS-Phys-Force-001",
+        "name": "牛顿第一定律",
+        "description": "惯性定律"
+      },
+      {
+        "kp_id": "KP-OS-MS-Phys-Force-002",
+        "name": "牛顿第二定律",
+        "description": "F=ma"
+      },
+      {
+        "kp_id": "KP-OS-MS-Phys-Force-003",
+        "name": "牛顿第三定律",
+        "description": "作用力与反作用力"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "小车斜面实验",
+        "materials": [
+          "斜面轨道",
+          "小车",
+          "计时器"
+        ],
+        "low_cost_alternatives": [
+          "用手机计时"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "工程·机械设计",
+      "数学·函数关系"
+    ],
+    "ngss_standards": [
+      "MS-PS2-1",
+      "MS-PS2-2"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/8-1-forces/teacher-guide",
+    "student_handbook_url": "https://www.openscied.org/resources/units/8-1-forces/student-handbook",
+    "unit_url": "https://www.openscied.org/resources/units/8-1-forces/",
+    "scraped_at": "2026-04-26T13:31:33.855Z"
+  },
+  {
+    "unit_id": "OS-MS-Earth-002",
+    "title": "气候变化",
+    "source": "openscied",
+    "grade_level": "middle",
+    "subject": "地球科学",
+    "duration_weeks": 6,
+    "phenomenon": "地球气候为什么会变化？",
+    "description": "研究地球能量平衡、温室效应和人类活动对气候的影响。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-OS-MS-Earth-Climate-001",
+        "name": "温室效应",
+        "description": "大气层如何保持地球温暖"
+      },
+      {
+        "kp_id": "KP-OS-MS-Earth-Climate-002",
+        "name": "碳循环",
+        "description": "碳在地球系统中的流动"
+      },
+      {
+        "kp_id": "KP-OS-MS-Earth-Climate-003",
+        "name": "气候证据",
+        "description": "冰芯、树木年轮等气候记录"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "温室效应模拟",
+        "materials": [
+          "透明容器",
+          "温度计",
+          "光源"
+        ],
+        "low_cost_alternatives": [
+          "在阳光下进行"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "化学·气体性质",
+      "生物·生态系统"
+    ],
+    "ngss_standards": [
+      "MS-ESS2-4",
+      "MS-ESS3-4",
+      "MS-ESS3-5"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/8-2-climate-change/teacher-guide",
+    "student_handbook_url": "https://www.openscied.org/resources/units/8-2-climate-change/student-handbook",
+    "unit_url": "https://www.openscied.org/resources/units/8-2-climate-change/",
+    "scraped_at": "2026-04-26T13:31:33.855Z"
+  },
+  {
+    "unit_id": "OS-HS-Bio-001",
+    "title": "自然选择与进化",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "生物",
+    "duration_weeks": 6,
+    "phenomenon": "物种如何适应环境变化？",
+    "description": "通过证据推理理解自然选择机制和生物进化的过程。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-OS-HS-Bio-Evol-001",
+        "name": "遗传变异",
+        "description": "种群内的基因多样性"
+      },
+      {
+        "kp_id": "KP-OS-HS-Bio-Evol-002",
+        "name": "自然选择",
+        "description": "适者生存的机制"
+      },
+      {
+        "kp_id": "KP-OS-HS-Bio-Evol-003",
+        "name": "共同祖先",
+        "description": "所有生命的进化关系"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "模拟自然选择",
+        "materials": [
+          "彩色豆子",
+          "不同背景布",
+          "计时器"
+        ],
+        "low_cost_alternatives": [
+          "使用纽扣或其他小物件"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "地质学·化石记录",
+      "统计学·数据分析"
+    ],
+    "ngss_standards": [
+      "HS-LS4-1",
+      "HS-LS4-2",
+      "HS-LS4-3",
+      "HS-LS4-4"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/bio-natural-selection/teacher-guide",
+    "student_handbook_url": "https://www.openscied.org/resources/units/bio-natural-selection/student-handbook",
+    "unit_url": "https://www.openscied.org/resources/units/bio-natural-selection/",
+    "scraped_at": "2026-04-26T13:31:33.855Z"
+  },
+  {
+    "unit_id": "OS-HS-Chem-001",
+    "title": "化学键与相互作用",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "化学",
+    "duration_weeks": 6,
+    "phenomenon": "原子如何结合形成分子？",
+    "description": "探究原子间的电磁相互作用，理解离子键、共价键和金属键的形成。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-OS-HS-Chem-Bond-001",
+        "name": "电子结构",
+        "description": "价电子和电子排布"
+      },
+      {
+        "kp_id": "KP-OS-HS-Chem-Bond-002",
+        "name": "化学键类型",
+        "description": "离子键、共价键、金属键"
+      },
+      {
+        "kp_id": "KP-OS-HS-Chem-Bond-003",
+        "name": "分子结构",
+        "description": "VSEPR理论和分子几何"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "分子模型构建",
+        "materials": [
+          "球棍模型套件",
+          "元素周期表"
+        ],
+        "low_cost_alternatives": [
+          "用橡皮泥和牙签制作"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "物理·电磁力",
+      "生物·生物分子"
+    ],
+    "ngss_standards": [
+      "HS-PS1-1",
+      "HS-PS1-2",
+      "HS-PS1-3"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/chem-bonding/teacher-guide",
+    "student_handbook_url": "https://www.openscied.org/resources/units/chem-bonding/student-handbook",
+    "unit_url": "https://www.openscied.org/resources/units/chem-bonding/",
+    "scraped_at": "2026-04-26T13:31:33.855Z"
+  },
+  {
+    "unit_id": "OS-HS-Phys-001",
+    "title": "电场与磁场",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "物理",
+    "duration_weeks": 6,
+    "phenomenon": "电荷和磁体如何相互作用？",
+    "description": "研究电场和磁场的性质，理解电磁感应和电磁波。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-OS-HS-Phys-EM-001",
+        "name": "库仑定律",
+        "description": "电荷间的相互作用力"
+      },
+      {
+        "kp_id": "KP-OS-HS-Phys-EM-002",
+        "name": "电场与电势",
+        "description": "电场的概念和电势差"
+      },
+      {
+        "kp_id": "KP-OS-HS-Phys-EM-003",
+        "name": "电磁感应",
+        "description": "变化的磁场产生电场"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "静电实验",
+        "materials": [
+          "气球",
+          "羊毛布",
+          "碎纸片"
+        ],
+        "low_cost_alternatives": [
+          "用塑料梳子摩擦头发"
+        ]
+      },
+      {
+        "name": "电磁感应",
+        "materials": [
+          "线圈",
+          "磁铁",
+          "电流计"
+        ],
+        "low_cost_alternatives": [
+          "用LED灯检测电流"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "工程·电机设计",
+      "技术·无线通信"
+    ],
+    "ngss_standards": [
+      "HS-PS2-4",
+      "HS-PS2-5",
+      "HS-PS3-5"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/phys-electromagnetism/teacher-guide",
+    "student_handbook_url": "https://www.openscied.org/resources/units/phys-electromagnetism/student-handbook",
+    "unit_url": "https://www.openscied.org/resources/units/phys-electromagnetism/",
+    "scraped_at": "2026-04-26T13:31:33.855Z"
+  },
+  {
+    "unit_id": "OS-HS-Earth-001",
+    "title": "能源资源与可持续性",
+    "source": "openscied",
+    "grade_level": "high",
+    "subject": "地球科学",
+    "duration_weeks": 6,
+    "phenomenon": "我们如何满足未来的能源需求？",
+    "description": "评估不同能源资源的优缺点，探讨可持续能源解决方案。",
+    "knowledge_points": [
+      {
+        "kp_id": "KP-OS-HS-Earth-Energy-001",
+        "name": "能源类型",
+        "description": "化石燃料、核能、可再生能源"
+      },
+      {
+        "kp_id": "KP-OS-HS-Earth-Energy-002",
+        "name": "能源转换效率",
+        "description": "能量损失和效率提升"
+      },
+      {
+        "kp_id": "KP-OS-HS-Earth-Energy-003",
+        "name": "环境影响",
+        "description": "碳排放和生态足迹"
+      }
+    ],
+    "experiments": [
+      {
+        "name": "太阳能电池测试",
+        "materials": [
+          "小型太阳能板",
+          "电压表",
+          "光源"
+        ],
+        "low_cost_alternatives": [
+          "使用计算器太阳能板"
+        ]
+      }
+    ],
+    "cross_discipline": [
+      "经济学·成本效益",
+      "政治学·能源政策"
+    ],
+    "ngss_standards": [
+      "HS-ESS3-1",
+      "HS-ESS3-2",
+      "HS-ESS3-4"
+    ],
+    "teacher_guide_url": "https://www.openscied.org/resources/units/hs-energy/teacher-guide",
+    "student_handbook_url": "https://www.openscied.org/resources/units/hs-energy/student-handbook",
+    "unit_url": "https://www.openscied.org/resources/units/hs-energy/",
+    "scraped_at": "2026-04-26T13:31:33.855Z"
+  }
+]

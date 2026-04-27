@@ -19,6 +19,7 @@ model User {
   name        String?
   role        String   @default("user") // user, admin
   avatar      String?
+  isActive    Boolean  @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   
@@ -28,6 +29,29 @@ model User {
   
   @@index([username])
   @@index([email])
+}
+
+// 课程表
+model Course {
+  id          Int      @id @default(autoincrement())
+  courseId    String   @unique // 原始课程ID
+  title       String
+  subject     String
+  gradeLevel  String?
+  source      String?
+  description String?
+  url         String?
+  durationMinutes Int? 
+  complexity  String?
+  metadata    Json?    // 存储完整的课程元数据
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  learningRecords LearningRecord[]
+  
+  @@index([subject])
+  @@index([gradeLevel])
+  @@index([source])
 }
 
 // 学习记录
@@ -42,6 +66,7 @@ model LearningRecord {
   updatedAt   DateTime @updatedAt
   
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course      Course?  @relation(fields: [courseId], references: [courseId], onDelete: Cascade)
   
   @@index([userId])
   @@index([courseId])
@@ -84,4 +109,44 @@ model Assignment {
   
   @@index([userId])
   @@index([questionId])
+}
+
+// 爬虫配置
+model CrawlerConfig {
+  id              String   @id
+  name            String
+  description     String?
+  targetUrl       String?
+  type            String   @default("course") // course, question, textbook
+  status          String   @default("idle") // idle, running, completed, failed
+  progress        Int      @default(0)
+  totalItems      Int      @default(0)
+  scrapedItems    Int      @default(0)
+  lastRun         DateTime?
+  errorMessage    String?
+  outputFile      String?
+  scheduleInterval Int?    // hours
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  @@index([status])
+  @@index([type])
+}
+
+// 教育平台
+model EducationPlatform {
+  id            String   @id @default(cuid())
+  platformName  String   @unique
+  source        String?
+  targetUrl     String?
+  type          String   @default("course")
+  status        String   @default("active")
+  lastSync      DateTime?
+  totalItems    Int      @default(0)
+  metadata      Json?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  @@index([platformName])
+  @@index([status])
 }
