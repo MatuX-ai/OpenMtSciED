@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "generate-prisma-client.js",
+    "test-prisma-client.js",
+    "scripts/**/*.js"
   ]),
   {
     rules: {
