@@ -1,11 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 import { CronJob } from 'cron';
-import { generateKhanAcademyCourses, saveCourses } from '../../../../lib/crawlers/khan-academy-crawler';
-import { generateOpenStaxChapters, saveChapters as saveOpenStaxChapters } from '../../../../lib/crawlers/openstax-crawler';
-import { generateCourseraCourses, saveCourses as saveCourseraCourses } from '../../../../lib/crawlers/coursera-crawler';
-import { generateOpenSciEdUnits, saveUnits as saveOpenSciEdUnits } from '../../../../lib/crawlers/openscied-crawler';
-import { generateBNUCourses, saveCourses as saveBNUCourses } from '../../../../lib/crawlers/bnu-shanghai-crawler';
+// TODO: 实现爬虫模块
+// import { generateKhanAcademyCourses, saveCourses } from '../../../../lib/crawlers/khan-academy-crawler';
+// import { generateOpenStaxChapters, saveChapters as saveOpenStaxChapters } from '../../../../lib/crawlers/openstax-crawler';
+// import { generateCourseraCourses, saveCourses as saveCourseraCourses } from '../../../../lib/crawlers/coursera-crawler';
+// import { generateOpenSciEdUnits, saveUnits as saveOpenSciEdUnits } from '../../../../lib/crawlers/openscied-crawler';
+// import { generateBNUCourses, saveCourses as saveBNUCourses } from '../../../../lib/crawlers/bnu-shanghai-crawler';
 
 export interface CrawlerConfig {
   id: string;
@@ -150,42 +151,40 @@ export async function executeCrawl(config: CrawlerConfig): Promise<void> {
     
     console.log(`[Crawler] Starting ${config.name} (${crawlerId})`);
     
+    // TODO: 实现爬虫逻辑
     // 根据爬虫ID执行不同的爬虫
     let itemsCount = 0;
     
-    if (crawlerId === 'khan_academy') {
-      // Khan Academy 课程生成
-      const courses = generateKhanAcademyCourses();
-      const outputFile = config.output_file || 'data/course_library/khan_academy_courses.json';
-      await saveCourses(courses, outputFile);
-      itemsCount = courses.length;
-    } else if (crawlerId === 'openstax') {
-      // OpenStax 教材章节生成
-      const chapters = generateOpenStaxChapters();
-      const outputFile = config.output_file || 'data/textbook_library/openstax_chapters.json';
-      await saveOpenStaxChapters(chapters, outputFile);
-      itemsCount = chapters.length;
-    } else if (crawlerId === 'coursera') {
-      // Coursera 大学课程生成
-      const courses = generateCourseraCourses();
-      const outputFile = config.output_file || 'data/course_library/coursera_courses.json';
-      await saveCourseraCourses(courses, outputFile);
-      itemsCount = courses.length;
-    } else if (crawlerId === 'openscied') {
-      // OpenSciEd 科学探究单元生成
-      const units = generateOpenSciEdUnits();
-      const outputFile = config.output_file || 'data/course_library/openscied_units.json';
-      await saveOpenSciEdUnits(units, outputFile);
-      itemsCount = units.length;
-    } else if (crawlerId === 'bnu_shanghai') {
-      // BNU Shanghai K12 课程生成
-      const courses = generateBNUCourses();
-      const outputFile = config.output_file || 'data/course_library/bnu_shanghai_courses.json';
-      await saveBNUCourses(courses, outputFile);
-      itemsCount = courses.length;
-    } else {
-      throw new Error(`Unknown crawler: ${crawlerId}`);
-    }
+    // if (crawlerId === 'khan_academy') {
+    //   const courses = generateKhanAcademyCourses();
+    //   const outputFile = config.output_file || 'data/course_library/khan_academy_courses.json';
+    //   await saveCourses(courses, outputFile);
+    //   itemsCount = courses.length;
+    // } else if (crawlerId === 'openstax') {
+    //   const chapters = generateOpenStaxChapters();
+    //   const outputFile = config.output_file || 'data/textbook_library/openstax_chapters.json';
+    //   await saveOpenStaxChapters(chapters, outputFile);
+    //   itemsCount = chapters.length;
+    // } else if (crawlerId === 'coursera') {
+    //   const courses = generateCourseraCourses();
+    //   const outputFile = config.output_file || 'data/course_library/coursera_courses.json';
+    //   await saveCourseraCourses(courses, outputFile);
+    //   itemsCount = courses.length;
+    // } else if (crawlerId === 'openscied') {
+    //   const units = generateOpenSciEdUnits();
+    //   const outputFile = config.output_file || 'data/course_library/openscied_units.json';
+    //   await saveOpenSciEdUnits(units, outputFile);
+    //   itemsCount = units.length;
+    // } else if (crawlerId === 'bnu_shanghai') {
+    //   const courses = generateBNUCourses();
+    //   const outputFile = config.output_file || 'data/course_library/bnu_shanghai_courses.json';
+    //   await saveBNUCourses(courses, outputFile);
+    //   itemsCount = courses.length;
+    // } else {
+    //   throw new Error(`Unknown crawler: ${crawlerId}`);
+    // }
+    
+    console.log(`[Crawler] Crawler execution not implemented yet for ${crawlerId}`);
     
     // 更新状态为完成
     updateCrawlerConfig(crawlerId, {
