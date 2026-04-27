@@ -7,10 +7,10 @@ import { getCrawlerConfig, executeCrawl } from '../../lib';
  */
 export async function POST(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const crawlerId = params.id;
+    const { id: crawlerId } = await params;
     const config = getCrawlerConfig(crawlerId);
     
     if (!config) {

@@ -7,10 +7,10 @@ import { getCrawlerConfig, updateCrawlerConfig, scheduleCrawler, unscheduleCrawl
  */
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const crawlerId = params.id;
+    const { id: crawlerId } = await params;
     const url = new URL(request.url);
     const intervalHours = parseInt(url.searchParams.get('interval_hours') || '24');
     

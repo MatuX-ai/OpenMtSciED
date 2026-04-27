@@ -6,9 +6,10 @@ const PYTHON_BACKEND_URL = process.env.PYTHON_BACKEND_URL || 'http://localhost:8
  * DELETE /api/v1/resources/associations/[id]
  * 代理到 Python 后端删除资源关联
  */
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+export async function DELETE(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const response = await fetch(`${PYTHON_BACKEND_URL}/api/v1/resources/associations/${params.id}`, {
+    const { id } = await params;
+    const response = await fetch(`${PYTHON_BACKEND_URL}/api/v1/resources/associations/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
