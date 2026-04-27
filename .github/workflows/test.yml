@@ -50,7 +50,7 @@ jobs:
 
   test-legacy-python:
     runs-on: ubuntu-latest
-    if: ${{ hashFiles('requirements.txt') != '' }}
+    if: hashFiles('requirements.txt') != ''
     steps:
     - uses: actions/checkout@v4
 
