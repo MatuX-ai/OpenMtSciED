@@ -11,9 +11,14 @@ async function createDefaultUser() {
   try {
     console.log('🔍 检查是否存在默认用户...');
 
-    // 检查是否已存在 admin 用户
-    const existingUser = await prisma.user.findUnique({
-      where: { username: 'admin' }
+    // 检查是否已存在默认用户
+    const existingUser = await prisma.user.findFirst({
+      where: {
+        OR: [
+          { email: '3936318150@qq.com' },
+          { username: '3936318150@qq.com' }
+        ]
+      }
     });
 
     if (existingUser) {
@@ -22,12 +27,12 @@ async function createDefaultUser() {
     }
 
     // 创建默认管理员用户
-    const hashedPassword = await bcrypt.hash('admin123', 10);
+    const hashedPassword = await bcrypt.hash('12345678', 10);
     
     const newUser = await prisma.user.create({
       data: {
-        username: 'admin',
-        email: 'admin@openmtscied.com',
+        username: '3936318150@qq.com',
+        email: '3936318150@qq.com',
         password: hashedPassword,
         name: '系统管理员',
         role: 'admin',
@@ -36,8 +41,8 @@ async function createDefaultUser() {
     });
 
     console.log('✅ 默认用户创建成功！');
-    console.log('👤 用户名: admin');
-    console.log('🔑 密码: admin123');
+    console.log('👤 用户名: 3936318150@qq.com');
+    console.log('🔑 密码: 12345678');
     console.log('📧 邮箱:', newUser.email);
     console.log('🎭 角色:', newUser.role);
 
