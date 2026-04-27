@@ -3,8 +3,8 @@
  * 测试 OpenStax 爬虫
  */
 
-import { generateOpenStaxChapters, saveChapters } from '../app/lib/crawlers/openstax-crawler';
-import path from 'path';
+import { generateOpenStaxChapters, saveChapters } from '../lib/crawlers/openstax-crawler';
+import * as path from 'path';
 
 async function testOpenStaxCrawler() {
   console.log('🧪 测试 OpenStax 爬虫...\n');

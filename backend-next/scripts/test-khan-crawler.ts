@@ -3,8 +3,8 @@
  * 测试 Khan Academy 爬虫
  */
 
-import { generateKhanAcademyCourses, saveCourses } from '../app/lib/crawlers/khan-academy-crawler';
-import path from 'path';
+import { generateKhanAcademyCourses, saveCourses } from '../lib/crawlers/khan-academy-crawler';
+import * as path from 'path';
 
 async function testKhanAcademyCrawler() {
   console.log('🧪 测试 Khan Academy 爬虫...\n');

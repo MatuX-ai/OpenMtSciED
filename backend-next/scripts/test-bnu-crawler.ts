@@ -3,8 +3,8 @@
  * 测试 BNU Shanghai 爬虫
  */
 
-import { generateBNUCourses, saveCourses } from '../app/lib/crawlers/bnu-shanghai-crawler';
-import path from 'path';
+import { generateBNUCourses, saveCourses } from '../lib/crawlers/bnu-shanghai-crawler';
+import * as path from 'path';
 
 async function testBNUCrawler() {
   console.log('🧪 测试 BNU Shanghai 爬虫...\n');
