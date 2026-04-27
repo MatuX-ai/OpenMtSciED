@@ -22,8 +22,9 @@ export async function POST() {
     });
   } catch (error: unknown) {
     console.error('Update admin role error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: 'Failed to update', message: error.message },
+      { error: 'Failed to update', message: errorMessage },
       { status: 500 }
     );
   }
