@@ -31,6 +31,10 @@
       "dest": "admin-web/index.html"
     },
     {
+      "src": "/admin/[^.]*",
+      "dest": "admin-web/index.html"
+    },
+    {
       "src": "/login",
       "dest": "website/login.html"
     },
