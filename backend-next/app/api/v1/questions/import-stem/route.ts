@@ -210,11 +210,12 @@ export async function POST() {
   } catch (error: unknown) {
     console.error('Import STEM questions error:', error);
     await driver.close();
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
       { 
         success: false,
         error: '导入失败', 
-        message: error.message 
+        message: errorMessage 
       },
       { status: 500 }
     );
