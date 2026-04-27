@@ -14,10 +14,10 @@ import {
  */
 export async function POST(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const crawlerId = params.id;
+    const { id: crawlerId } = await params;
     const config = getCrawlerConfig(crawlerId);
     
     if (!config) {
@@ -51,10 +51,10 @@ export async function POST(
  */
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const crawlerId = params.id;
+    const { id: crawlerId } = await params;
     const url = new URL(request.url);
     const intervalHours = parseInt(url.searchParams.get('interval_hours') || '24');
     
@@ -99,10 +99,10 @@ export async function PUT(
  */
 export async function DELETE(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const crawlerId = params.id;
+    const { id: crawlerId } = await params;
     
     // 取消定时任务
     unscheduleCrawler(crawlerId);
