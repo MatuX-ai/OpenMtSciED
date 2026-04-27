@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 import neo4j from 'neo4j-driver';
 
 const NEO4J_URI = process.env.NEO4J_URI || 'neo4j+s://4abd5ef9.databases.neo4j.io';
@@ -142,7 +142,7 @@ export async function POST() {
       message: `成功导入 ${imported} 道STEM题目`,
       total: imported
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Import STEM questions error:', error);
     return NextResponse.json(
       { error: '导入失败', message: error.message },

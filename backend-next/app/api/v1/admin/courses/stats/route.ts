@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 import prisma from '@/lib/db';
 
 /**
@@ -24,7 +24,7 @@ export async function GET() {
         questions: totalQuestions
       }
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Get course stats error:', error);
     return NextResponse.json({
       success: true,

@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 import neo4j from 'neo4j-driver';
 
 const NEO4J_URI = process.env.NEO4J_URI || 'neo4j+s://4abd5ef9.databases.neo4j.io';
@@ -207,7 +207,7 @@ export async function POST() {
         categories: stats.get('categories').toNumber()
       }
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Import STEM questions error:', error);
     await driver.close();
     return NextResponse.json(

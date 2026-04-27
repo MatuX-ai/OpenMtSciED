@@ -55,7 +55,7 @@ export async function GET(request: Request) {
         totalPages: Math.ceil(total / limit),
       },
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Get users error:', error);
     return NextResponse.json({ error: '服务器错误' }, { status: 500 });
   }
@@ -89,7 +89,7 @@ export async function GET_BY_ID(request: Request, { params }: { params: Promise<
     }
 
     return NextResponse.json({ user });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Get user error:', error);
     return NextResponse.json({ error: '服务器错误' }, { status: 500 });
   }
@@ -125,7 +125,7 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
     });
 
     return NextResponse.json({ message: '更新成功', user });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Update user error:', error);
     return NextResponse.json({ error: '服务器错误' }, { status: 500 });
   }
@@ -145,7 +145,7 @@ export async function DELETE(request: Request, { params }: { params: Promise<{ i
     });
 
     return NextResponse.json({ message: '删除成功' });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Delete user error:', error);
     return NextResponse.json({ error: '服务器错误' }, { status: 500 });
   }

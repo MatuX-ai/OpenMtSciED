@@ -50,7 +50,7 @@ export async function GET(request: Request) {
     }
 
     return NextResponse.json({ user });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Get user error:', error);
     return NextResponse.json(
       { error: 'Token 无效或已过期' },

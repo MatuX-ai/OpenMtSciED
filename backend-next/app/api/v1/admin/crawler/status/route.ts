@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 import { loadConfigs } from '../lib';
 
 /**
@@ -25,10 +25,11 @@ export async function GET() {
       success: true,
       data: statusList,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Get crawler status error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: '服务器错误', message: error.message },
+    { error: '服务器错误', message: errorMessage },
       { status: 500 }
     );
   }

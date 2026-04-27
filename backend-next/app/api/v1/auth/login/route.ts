@@ -74,10 +74,11 @@ export async function POST(request: Request) {
         avatar: user.avatar,
       },
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Login error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: '服务器错误', message: error.message },
+      { error: '服务器错误', message: errorMessage },
       { status: 500 }
     );
   }

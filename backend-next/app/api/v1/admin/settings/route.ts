@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
@@ -11,7 +11,7 @@ const SETTINGS_FILE = path.join(SETTINGS_DIR, 'system_settings.json');
  */
 export async function GET() {
   try {
-    let settings: any = {};
+    let settings: Record<string, unknown> = {};
     
     if (fs.existsSync(SETTINGS_FILE)) {
       const data = fs.readFileSync(SETTINGS_FILE, 'utf-8');
@@ -47,9 +47,11 @@ export async function GET() {
     }
 
     return NextResponse.json({ success: true, data: settings });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Get settings error:', error);
-    return NextResponse.json({ error: '服务器错误', message: error.message }, { status: 500 });
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
+    return NextResponse.json(
+    { error: '服务器错误', message: errorMessage }, { status: 500 });
   }
 }
 
@@ -67,7 +69,7 @@ export async function POST(request: Request) {
     }
 
     // 合并现有设置
-    let currentSettings: any = {};
+    let currentSettings: Record<string, unknown> = {};
     if (fs.existsSync(SETTINGS_FILE)) {
       const data = fs.readFileSync(SETTINGS_FILE, 'utf-8');
       currentSettings = JSON.parse(data);
@@ -79,8 +81,10 @@ export async function POST(request: Request) {
     fs.writeFileSync(SETTINGS_FILE, JSON.stringify(updatedSettings, null, 2), 'utf-8');
 
     return NextResponse.json({ success: true, message: '设置已保存', data: updatedSettings });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Update settings error:', error);
-    return NextResponse.json({ error: '服务器错误', message: error.message }, { status: 500 });
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
+    return NextResponse.json(
+    { error: '服务器错误', message: errorMessage }, { status: 500 });
   }
 }

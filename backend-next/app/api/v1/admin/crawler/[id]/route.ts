@@ -36,10 +36,11 @@ export async function POST(
       success: true,
       message: `爬虫 ${config.name} 已启动`,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Run crawler error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: '服务器错误', message: error.message },
+      { error: '服务器错误', message: errorMessage },
       { status: 500 }
     );
   }
@@ -84,10 +85,11 @@ export async function PUT(
       success: true,
       message: `爬虫 ${config.name} 定时任务已设置为每 ${intervalHours} 小时`,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Schedule crawler error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: '服务器错误', message: error.message },
+      { error: '服务器错误', message: errorMessage },
       { status: 500 }
     );
   }
@@ -121,10 +123,11 @@ export async function DELETE(
       success: true,
       message: `爬虫已删除`,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Delete crawler error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: '服务器错误', message: error.message },
+      { error: '服务器错误', message: errorMessage },
       { status: 500 }
     );
   }

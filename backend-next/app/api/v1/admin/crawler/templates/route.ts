@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 import { getAvailableCrawlers, initCrawlers } from '../lib';
 
 // 初始化爬虫（只在首次请求时执行）
@@ -24,10 +24,11 @@ export async function GET() {
       success: true,
       data: templates,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Get crawler templates error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: '服务器错误', message: error.message },
+    { error: '服务器错误', message: errorMessage },
       { status: 500 }
     );
   }

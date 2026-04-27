@@ -1,4 +1,4 @@
-import neo4j, { Driver, Session } from 'neo4j-driver';
+import neo4j, { Driver } from 'neo4j-driver';
 
 let driver: Driver | null = null;
 
@@ -13,7 +13,10 @@ export function getDriver(): Driver {
   return driver;
 }
 
-export async function runCypher(query: string, params: Record<string, any> = {}): Promise<any> {
+export async function runCypher(
+  query: string,
+  params: Record<string, unknown> = {}
+): Promise<Record<string, unknown>[]> {
   const session = getDriver().session();
   try {
     const result = await session.run(query, params);

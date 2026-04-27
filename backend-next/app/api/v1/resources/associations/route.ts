@@ -36,17 +36,17 @@ export async function GET(request: Request) {
     
     // 根据过滤条件筛选
     if (filterType && filterType !== 'all') {
-      associations = associations.filter((a: any) => 
+      associations = associations.filter((a: { source_type: string; target_type: string }) => 
         a.source_type === filterType || a.target_type === filterType
       );
     }
     
     if (sourceType) {
-      associations = associations.filter((a: any) => a.source_type === sourceType);
+      associations = associations.filter((a: { source_type: string }) => a.source_type === sourceType);
     }
     
     if (targetType) {
-      associations = associations.filter((a: any) => a.target_type === targetType);
+      associations = associations.filter((a: { target_type: string }) => a.target_type === targetType);
     }
     
     return NextResponse.json({
@@ -54,10 +54,11 @@ export async function GET(request: Request) {
       data: associations,
       total: associations.length
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Get associations error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: '服务器错误', message: error.message },
+      { error: '服务器错误', message: errorMessage },
       { status: 500 }
     );
   }
@@ -93,10 +94,11 @@ export async function POST(request: Request) {
       success: true,
       data: newAssociation
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Create association error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: '服务器错误', message: error.message },
+      { error: '服务器错误', message: errorMessage },
       { status: 500 }
     );
   }

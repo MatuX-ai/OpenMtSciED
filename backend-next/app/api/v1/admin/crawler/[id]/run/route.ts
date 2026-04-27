@@ -29,10 +29,11 @@ export async function POST(
       success: true,
       message: `爬虫 ${config.name} 已启动`,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Run crawler error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: '服务器错误', message: error.message },
+      { error: '服务器错误', message: errorMessage },
       { status: 500 }
     );
   }

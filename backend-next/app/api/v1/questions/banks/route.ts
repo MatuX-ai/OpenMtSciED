@@ -14,7 +14,16 @@ const NEO4J_PASSWORD = process.env.NEO4J_PASSWORD || 'bXebDaB8hSalBxvvB5GhHmcvud
  * 注意：本项目针对学科外STEM教育，排除传统学科内容
  */
 function generateBanks() {
-  const banks: any[] = [];
+  const banks: Array<{ 
+    id: number; 
+    name: string; 
+    source: string;
+    subject: string;
+    level?: string;
+    total_questions: number;
+    created_at: string;
+    updated_at: string;
+  }> = [];
   
   // STEM教育主题分类（学科外）
   const stemCategories = {
@@ -143,7 +152,15 @@ async function getStemBanksFromNeo4j() {
       ORDER BY count DESC
     `);
     
-    const banks = result.records.map((record, index) => {
+    const banks: Array<{ 
+      id: number; 
+      name: string; 
+      source: string;
+      subject: string;
+      total_questions: number;
+      created_at: string;
+      updated_at: string;
+    }> = result.records.map((record, index) => {
       const category = record.get('category');
       const count = record.get('count').toNumber();
       
@@ -203,10 +220,11 @@ export async function GET() {
       success: true,
       data: allBanks
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Get question banks error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: '服务器错误', message: error.message },
+      { error: '服务器错误', message: errorMessage },
       { status: 500 }
     );
   }
@@ -234,10 +252,11 @@ export async function POST(request: Request) {
       success: true,
       data: newBank
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Create question bank error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: '服务器错误', message: error.message },
+      { error: '服务器错误', message: errorMessage },
       { status: 500 }
     );
   }

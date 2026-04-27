@@ -40,7 +40,7 @@ export function generateToken(payload: TokenPayload): string {
 export function verifyToken(token: string): TokenPayload | null {
   try {
     return jwt.verify(token, SECRET_KEY) as TokenPayload;
-  } catch (error) {
+  } catch {
     return null;
   }
 }

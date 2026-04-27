@@ -22,10 +22,11 @@ export async function PUT(
         updated_at: new Date().toISOString()
       }
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Update question bank error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: '服务器错误', message: error.message },
+      { error: '服务器错误', message: errorMessage },
       { status: 500 }
     );
   }
@@ -48,10 +49,11 @@ export async function DELETE(
       success: true,
       message: `题库 ${id} 已删除`
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Delete question bank error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: '服务器错误', message: error.message },
+      { error: '服务器错误', message: errorMessage },
       { status: 500 }
     );
   }

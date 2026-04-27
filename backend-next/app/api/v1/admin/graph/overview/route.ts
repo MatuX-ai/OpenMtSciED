@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 import { runCypher } from '@/lib/neo4j';
 
 /**
@@ -18,7 +18,7 @@ export async function GET() {
     const nodesResult = await runCypher(nodesQuery);
     
     // 处理节点数据
-    const nodes = nodesResult.map((record: any) => ({
+    const nodes = nodesResult.map((record: Record<string, unknown>) => ({
       id: record.id,
       name: record.name || record.title || record.id,
       category: record.category || 'Unknown',
@@ -38,7 +38,7 @@ export async function GET() {
     const relationshipsResult = await runCypher(relationshipsQuery);
     
     // 处理关系数据
-    const relationships = relationshipsResult.map((record: any) => ({
+    const relationships = relationshipsResult.map((record: Record<string, unknown>) => ({
       source: record.source,
       target: record.target,
       name: record.name || ''
@@ -46,8 +46,9 @@ export async function GET() {
     
     // 调试：检查关系分布
     const sourceCount: Record<string, number> = {};
-    relationships.forEach((r: any) => {
-      sourceCount[r.source] = (sourceCount[r.source] || 0) + 1;
+    relationships.forEach((r: Record<string, unknown>) => {
+      const source = r.source as string;
+      sourceCount[source] = (sourceCount[source] || 0) + 1;
     });
     const topSources = Object.entries(sourceCount)
       .sort((a, b) => b[1] - a[1])
@@ -63,13 +64,14 @@ export async function GET() {
       totalNodes: nodes.length,
       totalRelationships: relationships.length
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Get graph overview error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
       { 
         success: false,
         error: '服务器错误', 
-        message: error.message,
+        message: errorMessage,
         nodes: [],
         relationships: []
       },

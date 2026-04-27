@@ -67,7 +67,7 @@ export async function GET(request: Request) {
       LIMIT $limit
     `;
 
-    const params: any = {
+    const params: Record<string, string | number> = {
       userId,
       limit,
     };
@@ -85,10 +85,11 @@ export async function GET(request: Request) {
         grade: grade || 'all',
       },
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Get learning path error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: '服务器错误', message: error.message },
+      { error: '服务器错误', message: errorMessage },
       { status: 500 }
     );
   }
@@ -148,10 +149,11 @@ export async function POST(request: Request) {
       generated_path: results[0]?.path_nodes || [],
       steps: results[0]?.steps || 0,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Generate path error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: '服务器错误', message: error.message },
+      { error: '服务器错误', message: errorMessage },
       { status: 500 }
     );
   }

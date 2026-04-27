@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 import neo4j from 'neo4j-driver';
@@ -100,7 +100,7 @@ export async function POST() {
         categories: stats.get('categories').toNumber()
       }
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Import extended questions error:', error);
     return NextResponse.json(
       { 

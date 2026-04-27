@@ -17,7 +17,7 @@ export async function GET(request: Request) {
     const skip = (page - 1) * limit;
 
     // 构建查询条件
-    const where: any = {};
+    const where: Record<string, string> = {};
     if (subject) where.subject = subject;
     if (difficulty) where.difficulty = difficulty;
     if (type) where.type = type;
@@ -42,10 +42,11 @@ export async function GET(request: Request) {
         totalPages: Math.ceil(total / limit),
       },
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Get questions error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: '服务器错误', message: error.message },
+      { error: '服务器错误', message: errorMessage },
       { status: 500 }
     );
   }
@@ -114,10 +115,11 @@ export async function POST(request: Request) {
       },
       assignment,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Submit answer error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: '服务器错误', message: error.message },
+      { error: '服务器错误', message: errorMessage },
       { status: 500 }
     );
   }
@@ -172,10 +174,11 @@ export async function GET_PROGRESS(request: Request) {
       },
       recentAssignments: assignments,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Get progress error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: '服务器错误', message: error.message },
+      { error: '服务器错误', message: errorMessage },
       { status: 500 }
     );
   }

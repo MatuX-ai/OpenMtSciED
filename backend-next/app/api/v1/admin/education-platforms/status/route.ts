@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 
 /**
  * GET /api/v1/admin/education-platforms/status
@@ -16,10 +16,11 @@ export async function GET() {
         lastSyncTime: null
       }
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Get education platforms status error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
-      { error: '服务器错误', message: error.message },
+    { error: '服务器错误', message: errorMessage },
       { status: 500 }
     );
   }

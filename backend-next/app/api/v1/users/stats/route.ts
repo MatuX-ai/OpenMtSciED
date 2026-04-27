@@ -36,7 +36,7 @@ export async function GET(request: Request) {
       adminUsers,
       orgAdminUsers: 0,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Get user stats error:', error);
     return NextResponse.json({ error: '服务器错误' }, { status: 500 });
   }
