@@ -23,6 +23,10 @@
       "dest": "backend-next/app/api/$1"
     },
     {
+      "src": "/admin",
+      "dest": "admin-web/index.html"
+    },
+    {
       "src": "/admin/(.*)",
       "dest": "admin-web/$1"
     },
