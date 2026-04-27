@@ -16,11 +16,18 @@ jobs:
     - name: Install backend-next dependencies
       run: |
         cd backend-next
-        npm ci
+        npm ci --prefer-offline=false
+
+    - name: Clear Next.js cache
+      run: |
+        cd backend-next
+        rm -rf .next
+        rm -rf node_modules/.cache
 
     - name: Build backend-next
       run: |
         cd backend-next
+        npx prisma generate
         npm run build
 
     - name: Run backend-next lint
