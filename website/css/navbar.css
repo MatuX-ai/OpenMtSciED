@@ -54,6 +54,7 @@
     height: 32px;
     border-radius: 50%;
     -webkit-background-clip: initial;
+    background-clip: initial;
     -webkit-text-fill-color: initial;
     filter: invert(85%) sepia(90%) saturate(500%) hue-rotate(10deg) brightness(1.1);
 }
