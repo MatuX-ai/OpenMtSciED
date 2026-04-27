@@ -26,7 +26,8 @@ async function crawlKhanAcademy(config: CrawlerConfig): Promise<CrawlResult> {
     return createSuccessResult(data.length, data.length, data);
   } catch (error: unknown) {
     console.error('[Khan Academy] Crawler error:', error);
-    return createErrorResult(error.message || 'Unknown error');
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    return createErrorResult(errorMessage);
   }
 }
 
