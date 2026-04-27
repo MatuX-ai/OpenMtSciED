@@ -1,7 +1,0 @@
-# OpenMTSciEd - Legacy Python dependencies
-# This file is intentionally minimal as the project has migrated to Next.js backend
-# Add Python dependencies here only if needed for legacy tests or scripts
-
-# Testing dependencies
-requests>=2.31.0
-pytest>=7.4.0
