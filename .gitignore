@@ -23,6 +23,7 @@ downloads/
 eggs/
 .eggs/
 lib/
+!backend-next/lib/
 lib64/
 parts/
 sdist/
