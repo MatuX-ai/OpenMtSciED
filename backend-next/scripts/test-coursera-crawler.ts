@@ -4,7 +4,6 @@
  */
 
 import { generateCourseraCourses, saveCourses } from '../lib/crawlers/coursera-crawler';
-import * as path from 'path';
 
 async function testCourseraCrawler() {
   console.log('🧪 测试 Coursera 爬虫...\n');

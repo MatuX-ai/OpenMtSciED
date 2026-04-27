@@ -4,7 +4,6 @@
  */
 
 import { generateOpenSciEdUnits, saveUnits } from '../lib/crawlers/openscied-crawler';
-import * as path from 'path';
 
 async function testOpenSciEdCrawler() {
   console.log('🧪 测试 OpenSciEd 爬虫...\n');
