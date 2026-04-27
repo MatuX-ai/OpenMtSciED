@@ -2,6 +2,10 @@
   "version": 2,
   "builds": [
     {
+      "src": "website/**",
+      "use": "@vercel/static"
+    },
+    {
       "src": "admin-web/package.json",
       "use": "@vercel/static-build",
       "config": {
