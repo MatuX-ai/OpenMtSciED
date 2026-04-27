@@ -255,3 +255,20 @@ export function unscheduleCrawler(crawlerId: string): void {
     console.log(`[Crawler] Unscheduled crawler ${crawlerId}`);
   }
 }
+
+/**
+ * 获取教育平台状态
+ */
+export function getPlatformStatus() {
+  const configs = loadConfigs();
+  return configs.map(config => ({
+    id: config.id,
+    name: config.name,
+    status: config.status,
+    progress: config.progress,
+    total_items: config.total_items,
+    scraped_items: config.scraped_items,
+    last_run: config.last_run,
+    error_message: config.error_message,
+  }));
+}
