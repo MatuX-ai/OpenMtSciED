@@ -102,11 +102,12 @@ export async function POST() {
     });
   } catch (error: unknown) {
     console.error('Import extended questions error:', error);
+    const errorMessage = error instanceof Error ? error.message : '未知错误';
     return NextResponse.json(
       { 
         success: false,
         error: '导入失败', 
-        message: error.message 
+        message: errorMessage 
       },
       { status: 500 }
     );
