@@ -153,7 +153,7 @@ export async function executeCrawl(config: CrawlerConfig): Promise<void> {
     
     // TODO: 实现爬虫逻辑
     // 根据爬虫ID执行不同的爬虫
-    let itemsCount = 0;
+    const itemsCount = 0;
     
     // if (crawlerId === 'khan_academy') {
     //   const courses = generateKhanAcademyCourses();

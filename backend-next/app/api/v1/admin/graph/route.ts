@@ -9,7 +9,7 @@ import { getTokenFromHeader, verifyToken } from '@/lib/auth';
 export async function POST(request: Request) {
   try {
     // 验证管理员权限
-    const authHeader = request.headers.get('authorization');
+    const authHeader = request.headers.get('authorization') || undefined;
     const token = getTokenFromHeader(authHeader);
 
     if (!token) {
@@ -17,7 +17,7 @@ export async function POST(request: Request) {
     }
 
     const decoded = verifyToken(token);
-    if (decoded.role !== 'admin') {
+    if (!decoded || decoded.role !== 'admin') {
       return NextResponse.json({ error: '需要管理员权限' }, { status: 403 });
     }
 
@@ -60,7 +60,7 @@ export async function POST(request: Request) {
 export async function GET(request: Request) {
   try {
     // 验证管理员权限
-    const authHeader = request.headers.get('authorization');
+    const authHeader = request.headers.get('authorization') || undefined;
     const token = getTokenFromHeader(authHeader);
 
     if (!token) {
@@ -68,7 +68,7 @@ export async function GET(request: Request) {
     }
 
     const decoded = verifyToken(token);
-    if (decoded.role !== 'admin') {
+    if (!decoded || decoded.role !== 'admin') {
       return NextResponse.json({ error: '需要管理员权限' }, { status: 403 });
     }
 

@@ -57,7 +57,7 @@ export async function GET(request: Request) {
  */
 export async function POST(request: Request) {
   try {
-    const authHeader = request.headers.get('authorization');
+    const authHeader = request.headers.get('authorization') || undefined;
     const token = getTokenFromHeader(authHeader);
 
     if (!token) {
@@ -65,6 +65,9 @@ export async function POST(request: Request) {
     }
 
     const decoded = verifyToken(token);
+    if (!decoded) {
+      return NextResponse.json({ error: 'Token 无效' }, { status: 401 });
+    }
     const userId = decoded.userId;
 
     const body = await request.json();
@@ -126,7 +129,7 @@ export async function POST(request: Request) {
  */
 export async function GET_PROGRESS(request: Request) {
   try {
-    const authHeader = request.headers.get('authorization');
+    const authHeader = request.headers.get('authorization') || undefined;
     const token = getTokenFromHeader(authHeader);
 
     if (!token) {
@@ -134,6 +137,9 @@ export async function GET_PROGRESS(request: Request) {
     }
 
     const decoded = verifyToken(token);
+    if (!decoded) {
+      return NextResponse.json({ error: 'Token 无效' }, { status: 401 });
+    }
     const userId = decoded.userId;
 
     // 统计数据

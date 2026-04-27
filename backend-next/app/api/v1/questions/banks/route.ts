@@ -78,7 +78,7 @@ function generateBanks() {
           // 推断STEM主题和来源
           let subject = 'STEM综合';
           let source = 'unknown';
-          let level = undefined;
+          const level = undefined;
           
           // 匹配STEM主题
           for (const [key, value] of Object.entries(stemCategories)) {

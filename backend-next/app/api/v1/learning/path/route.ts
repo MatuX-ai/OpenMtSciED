@@ -9,7 +9,7 @@ import { getTokenFromHeader, verifyToken } from '@/lib/auth';
 export async function GET(request: Request) {
   try {
     // 验证用户身份
-    const authHeader = request.headers.get('authorization');
+    const authHeader = request.headers.get('authorization') || undefined;
     const token = getTokenFromHeader(authHeader);
 
     if (!token) {
@@ -17,6 +17,9 @@ export async function GET(request: Request) {
     }
 
     const decoded = verifyToken(token);
+    if (!decoded) {
+      return NextResponse.json({ error: 'Token 无效' }, { status: 401 });
+    }
     const userId = decoded.userId;
 
     // 获取查询参数
@@ -97,7 +100,7 @@ export async function GET(request: Request) {
  */
 export async function POST(request: Request) {
   try {
-    const authHeader = request.headers.get('authorization');
+    const authHeader = request.headers.get('authorization') || undefined;
     const token = getTokenFromHeader(authHeader);
 
     if (!token) {
@@ -105,6 +108,9 @@ export async function POST(request: Request) {
     }
 
     const decoded = verifyToken(token);
+    if (!decoded) {
+      return NextResponse.json({ error: 'Token 无效' }, { status: 401 });
+    }
     const userId = decoded.userId;
 
     const body = await request.json();

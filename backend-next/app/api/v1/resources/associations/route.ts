@@ -72,7 +72,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     
     // 读取现有数据
-    let associations = loadAssociations();
+    const associations = loadAssociations();
     
     // 生成新ID
     const newId = `assoc-${String(associations.length + 1).padStart(3, '0')}`;

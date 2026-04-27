@@ -9,7 +9,7 @@ import prisma from '@/lib/db';
 export async function GET(request: Request) {
   try {
     // 获取 Token
-    const authHeader = request.headers.get('authorization');
+    const authHeader = request.headers.get('authorization') || undefined;
     const token = getTokenFromHeader(authHeader);
 
     if (!token) {
@@ -21,6 +21,12 @@ export async function GET(request: Request) {
 
     // 验证 Token
     const decoded = verifyToken(token);
+    if (!decoded) {
+      return NextResponse.json(
+        { error: 'Token 无效' },
+        { status: 401 }
+      );
+    }
 
     // 查询用户
     const user = await prisma.user.findUnique({

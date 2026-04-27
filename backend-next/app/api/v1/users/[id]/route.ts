@@ -9,7 +9,7 @@ import { getTokenFromHeader, verifyToken } from '@/lib/auth';
 export async function GET(request: Request) {
   try {
     // 验证管理员权限
-    const authHeader = request.headers.get('authorization');
+    const authHeader = request.headers.get('authorization') || undefined;
     const token = getTokenFromHeader(authHeader);
 
     if (!token) {
@@ -17,7 +17,7 @@ export async function GET(request: Request) {
     }
 
     const decoded = verifyToken(token);
-    if (decoded.role !== 'admin') {
+    if (!decoded || decoded.role !== 'admin') {
       return NextResponse.json({ error: '需要管理员权限' }, { status: 403 });
     }
 
@@ -65,9 +65,10 @@ export async function GET(request: Request) {
  * GET /api/v1/users/[id]
  * 获取用户详情
  */
-export async function GET_BY_ID(request: Request, { params }: { params: { id: string } }) {
+export async function GET_BY_ID(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const userId = parseInt(params.id);
+    const { id } = await params;
+    const userId = parseInt(id);
 
     const user = await prisma.user.findUnique({
       where: { id: userId },
@@ -98,9 +99,10 @@ export async function GET_BY_ID(request: Request, { params }: { params: { id: st
  * PUT /api/v1/users/[id]
  * 更新用户信息
  */
-export async function PUT(request: Request, { params }: { params: { id: string } }) {
+export async function PUT(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const userId = parseInt(params.id);
+    const { id } = await params;
+    const userId = parseInt(id);
     const body = await request.json();
     const { name, email, role, avatar } = body;
 
@@ -133,9 +135,10 @@ export async function PUT(request: Request, { params }: { params: { id: string }
  * DELETE /api/v1/users/[id]
  * 删除用户
  */
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+export async function DELETE(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const userId = parseInt(params.id);
+    const { id } = await params;
+    const userId = parseInt(id);
 
     await prisma.user.delete({
       where: { id: userId },
