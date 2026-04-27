@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "admin-web/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/admin-web/browser"
+      }
+    },
+    {
+      "src": "backend-next/package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "backend-next/app/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "admin-web/$1"
+    }
+  ]
+}
