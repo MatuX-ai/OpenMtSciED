@@ -3,8 +3,8 @@
  * 在服务器启动时调用，初始化所有定时任务
  */
 
-import { initScheduledTasks } from '@/app/api/v1/admin/crawler/lib/scheduler';
-import { initCrawlers } from '@/app/api/v1/admin/crawler/lib/registry';
+import { initScheduledTasks } from '../app/api/v1/admin/crawler/lib/scheduler.js';
+import { initCrawlers } from '../app/api/v1/admin/crawler/lib/registry.js';
 
 let initialized = false;
 
