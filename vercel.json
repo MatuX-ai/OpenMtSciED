@@ -23,15 +23,11 @@
       "dest": "backend-next/app/api/$1"
     },
     {
-      "src": "/admin/(.*)",
+      "src": "/admin/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
       "dest": "admin-web/$1"
     },
     {
-      "src": "/admin",
-      "dest": "admin-web/index.html"
-    },
-    {
-      "src": "/admin/[^.]*",
+      "src": "/admin/(.*)",
       "dest": "admin-web/index.html"
     },
     {
