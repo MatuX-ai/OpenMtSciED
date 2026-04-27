@@ -27,6 +27,18 @@
       "dest": "admin-web/$1"
     },
     {
+      "src": "/login",
+      "dest": "website/login.html"
+    },
+    {
+      "src": "/dashboard",
+      "dest": "website/dashboard.html"
+    },
+    {
+      "src": "/profile",
+      "dest": "website/profile.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "website/$1"
     }
