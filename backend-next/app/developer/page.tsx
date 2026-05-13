@@ -23,6 +23,22 @@ interface HardwareProject {
   estimated_time_hours: number;
 }
 
+interface TutorialListResponse {
+  items: Tutorial[];
+  total: number;
+  page: number;
+  size: number;
+  total_pages: number;
+}
+
+interface HardwareProjectListResponse {
+  items: HardwareProject[];
+  total: number;
+  page: number;
+  size: number;
+  total_pages: number;
+}
+
 export default function DeveloperPortal() {
   const [activeTab, setActiveTab] = useState<'overview' | 'tutorials' | 'hardware' | 'api'>('overview');
   const [tutorials, setTutorials] = useState<Tutorial[]>([]);
@@ -33,7 +49,7 @@ export default function DeveloperPortal() {
     setLoading(true);
     try {
       const res = await fetch('/api/v1/tutorials?page=1&size=10');
-      const data = await res.json();
+      const data: TutorialListResponse = await res.json();
       setTutorials(data.items || []);
     } catch (error) {
       console.error('Failed to load tutorials:', error);
@@ -46,7 +62,7 @@ export default function DeveloperPortal() {
     setLoading(true);
     try {
       const res = await fetch('/api/v1/hardware-projects?page=1&size=10');
-      const data = await res.json();
+      const data: HardwareProjectListResponse = await res.json();
       setHardwareProjects(data.items || []);
     } catch (error) {
       console.error('Failed to load hardware projects:', error);
@@ -57,9 +73,9 @@ export default function DeveloperPortal() {
 
   useEffect(() => {
     if (activeTab === 'tutorials') {
-      loadTutorials();
+      void loadTutorials();
     } else if (activeTab === 'hardware') {
-      loadHardwareProjects();
+      void loadHardwareProjects();
     }
   }, [activeTab]);
 

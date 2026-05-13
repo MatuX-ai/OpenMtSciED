@@ -1,7 +1,10 @@
 // Neo4j 连接测试脚本
-// 使用方法: node test-neo4j-connection.js
+// 使用方法: node --loader ts-node/esm test-neo4j-connection.mjs
 
-const neo4j = require('neo4j-driver');
+import neo4j from 'neo4j-driver';
+import dotenv from 'dotenv';
+
+dotenv.config({ path: '.env.local' });
 
 // 从环境变量读取配置
 const NEO4J_URI = process.env.NEO4J_URI || 'neo4j+s://4abd5ef9.databases.neo4j.io';
