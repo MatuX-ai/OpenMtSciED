@@ -40,7 +40,7 @@ export async function GET(
       content: tutorial.properties.content,
       created_at: tutorial.properties.created_at,
       updated_at: tutorial.properties.updated_at,
-      contents: contents.map((c: any) => ({
+      contents: contents.map((c: { properties: Record<string, unknown> }) => ({
         id: c.properties.id,
         type: c.properties.type,
         title: c.properties.title,

@@ -71,10 +71,13 @@ export default function DeveloperPortal() {
     }
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (activeTab === 'tutorials') {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       void loadTutorials();
     } else if (activeTab === 'hardware') {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       void loadHardwareProjects();
     }
   }, [activeTab]);
@@ -191,7 +194,7 @@ export default function DeveloperPortal() {
             ].map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
+                onClick={() => setActiveTab(tab.id as 'overview' | 'tutorials' | 'hardware' | 'api')}
                 className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
                   activeTab === tab.id
                     ? 'border-blue-500 text-blue-600 dark:text-blue-400'

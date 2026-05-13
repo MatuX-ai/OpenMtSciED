@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getDriver } from '@/lib/neo4j';
-import neo4j from 'neo4j-driver';
+import neo4j, { Integer } from 'neo4j-driver';
 
 export async function POST(request: Request) {
   try {
@@ -107,7 +107,7 @@ export async function GET(request: Request) {
   
   try {
     let whereClause = '';
-    const params: any = { userId, limit };
+    const params: Record<string, string | number | Integer> = { userId, limit };
     
     if (subject) {
       whereClause = ' WHERE c.subject = $subject';

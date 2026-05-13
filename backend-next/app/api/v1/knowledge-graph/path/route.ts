@@ -4,7 +4,7 @@ import { getDriver } from '@/lib/neo4j';
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { user_id, current_grade, subjects, learning_goals } = body;
+    const { user_id, current_grade, subjects } = body;
     
     if (!user_id || !current_grade || !subjects || !Array.isArray(subjects) || subjects.length === 0) {
       return NextResponse.json(
