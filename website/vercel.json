@@ -1,19 +1,31 @@
 {
   "version": 2,
-  "functions": {
-    "backend/openmtscied/main.py": {
-      "runtime": "@vercel/python",
-      "maxDuration": 10
-    }
-  },
-  "routes": [
+  "builds": [
     {
-      "src": "/api/(.*)",
-      "dest": "backend/openmtscied/main.py"
+      "src": "**/*.html",
+      "use": "@vercel/static"
     },
     {
-      "src": "/health",
-      "dest": "backend/openmtscied/main.py"
+      "src": "**/*.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.js",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/developer.html",
+      "dest": "/developer.html"
+    },
+    {
+      "src": "/dashboard.html",
+      "dest": "/dashboard.html"
+    },
+    {
+      "src": "/profile.html",
+      "dest": "/profile.html"
     },
     {
       "src": "/(.*)",

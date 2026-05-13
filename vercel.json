@@ -2,17 +2,6 @@
   "version": 2,
   "builds": [
     {
-      "src": "website/**",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "admin-web/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist/admin-web/browser"
-      }
-    },
-    {
       "src": "backend-next/package.json",
       "use": "@vercel/next"
     }
@@ -23,28 +12,8 @@
       "dest": "backend-next/app/api/$1"
     },
     {
-      "src": "/admin/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
-      "dest": "admin-web/$1"
-    },
-    {
-      "src": "/admin/(.*)",
-      "dest": "admin-web/index.html"
-    },
-    {
-      "src": "/login",
-      "dest": "website/login.html"
-    },
-    {
-      "src": "/dashboard",
-      "dest": "website/dashboard.html"
-    },
-    {
-      "src": "/profile",
-      "dest": "website/profile.html"
-    },
-    {
       "src": "/(.*)",
-      "dest": "website/$1"
+      "dest": "backend-next/app/api/not-found"
     }
   ]
 }
