@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开发者门户 - OpenMTSciEd</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="theme-color" content="#10b981">
+    
+    <!-- 统一导航组件样式 -->
+    <link rel="stylesheet" href="css/navbar.css">
+    
+    <style>
+        :root {
+            --primary-color: #10b981;
+            --secondary-color: #06b6d4;
+            --accent-color: #3b82f6;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* 页面内容区 */
+        .page-content {
+            padding-top: 64px;
+            min-height: 100vh;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-banner h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero-banner .subtitle {
+            font-size: 1.5rem;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+
+        .hero-banner .description {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-button.primary {
+            background: white;
+            color: #10b981;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            background: var(--card-bg);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+            position: sticky;
+            top: 64px;
+            z-index: 100;
+        }
+
+        .tab-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .tab-list {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            overflow-x: auto;
+        }
+
+        .tab-item {
+            padding: 1rem 0.5rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .tab-item:hover {
+            color: var(--text-primary);
+        }
+
+        .tab-item.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .tab-icon {
+            margin-right: 0.5rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .card h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(99, 102, 241, 0.05);
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(99, 102, 241, 0.08);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Code Block */
+        .code-block {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #e2e8f0;
+        }
+
+        .code-block code {
+            color: inherit;
+        }
+
+        /* Resource Cards */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .resource-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .resource-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .resource-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            flex: 1;
+        }
+
+        .resource-badge {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .resource-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .resource-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .resource-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+        }
+
+        .loading-spinner {
+            width: 48px;
+            height: 48px;
+            border: 3px solid rgba(99, 102, 241, 0.2);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        /* API Endpoint */
+        .endpoint {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.75rem 0;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.9rem;
+        }
+
+        .endpoint-method {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+
+        .endpoint-method.get {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .endpoint-method.post {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+
+        .endpoint-method.put {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+        }
+
+        .endpoint-method.delete {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-banner h1 {
+                font-size: 2rem;
+            }
+
+            .hero-banner .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .tab-list {
+                gap: 1rem;
+            }
+
+            .main-content {
+                padding: 1rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--card-bg);
+            border-top: 1px solid rgba(99, 102, 241, 0.1);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <img src="logo.png" alt="OpenMTSciEd Logo" class="navbar-logo-icon">
+                <span>OpenMTSciEd</span>
+            </a>
+
+            <button class="navbar-toggle" id="navbarToggle" aria-label="切换菜单">
+                <span class="navbar-toggle-icon"></span>
+                <span class="navbar-toggle-icon"></span>
+                <span class="navbar-toggle-icon"></span>
+            </button>
+
+            <ul class="navbar-links" id="navbarLinks">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="developer.html" class="active">开发者门户</a></li>
+                <li><a href="index.html#features">核心特性</a></li>
+                <li><a href="index.html#path">学习路径</a></li>
+                <li><a href="index.html#hardware">硬件项目</a></li>
+                <li><a href="https://github.com/MatuX-ai/OpenMtSciED" target="_blank">GitHub</a></li>
+                
+                <!-- 用户登录控件 -->
+                <li class="navbar-auth" id="navbarAuth">
+                    <div class="auth-buttons">
+                        <button class="btn-login" id="btnLogin" onclick="handleLogin()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                                <polyline points="10 17 15 12 10 7"/>
+                                <line x1="15" y1="12" x2="3" y2="12"/>
+                            </svg>
+                            <span>登录</span>
+                        </button>
+                        
+                        <button class="btn-mock-login" onclick="mockLogin()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                            </svg>
+                            <span>快速体验</span>
+                        </button>
+                    </div>
+                    
+                    <!-- 已登录状态（默认隐藏） -->
+                    <div class="logged-in-controls" id="loggedInControls" style="display: none;">
+                        <div class="user-menu">
+                            <div class="user-info">
+                                <div class="user-avatar" id="userAvatar">U</div>
+                                <span class="user-name" id="userName">用户</span>
+                            </div>
+                            <div class="user-dropdown">
+                                <a href="dashboard.html" class="dropdown-item" onclick="showDashboard(event)">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="3" width="7" height="7"/>
+                                        <rect x="14" y="3" width="7" height="7"/>
+                                        <rect x="14" y="14" width="7" height="7"/>
+                                        <rect x="3" y="14" width="7" height="7"/>
+                                    </svg>
+                                    <span>学习仪表盘</span>
+                                </a>
+                                <a href="profile.html" class="dropdown-item" onclick="showProfile(event)">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="12" cy="7" r="4"/>
+                                    </svg>
+                                    <span>个人中心</span>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item logout" onclick="handleLogout(event)">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                                        <polyline points="16 17 21 12 16 7"/>
+                                        <line x1="21" y1="12" x2="9" y2="12"/>
+                                    </svg>
+                                    <span>退出登录</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="page-content">
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <div class="hero-content">
+                <h1>🚀 Developer Portal</h1>
+                <p class="subtitle">STEM教育资源开放平台</p>
+                <p class="description">为开发者提供高质量的教程、课件和硬件项目API，助力STEM教育创新</p>
+                <div class="cta-buttons">
+                    <button class="cta-button primary" onclick="switchTab('overview')">🚀 快速开始</button>
+                    <button class="cta-button secondary" onclick="switchTab('api')">📖 API文档</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-nav">
+            <div class="tab-container">
+                <ul class="tab-list">
+                    <li class="tab-item active" data-tab="overview" onclick="switchTab('overview')">
+                        <span class="tab-icon"></span>概览
+                    </li>
+                    <li class="tab-item" data-tab="tutorials" onclick="switchTab('tutorials')">
+                        <span class="tab-icon">📚</span>教程资源
+                    </li>
+                    <li class="tab-item" data-tab="hardware" onclick="switchTab('hardware')">
+                        <span class="tab-icon">🔧</span>硬件项目
+                    </li>
+                    <li class="tab-item" data-tab="api" onclick="switchTab('api')">
+                        <span class="tab-icon">⚡</span>API文档
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Overview Tab -->
+            <div class="tab-content active" id="overview">
+                <div class="card">
+                    <h2>欢迎使用 OpenMTSciEd 开发者平台</h2>
+                    <p>OpenMTSciEd 是一个开放的STEM教育资源平台，提供高质量的科学、技术、工程和数学教育资源。通过我们的API，您可以轻松集成教程、课件和硬件项目到您的应用中。</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">📚</div>
+                            <h4>教程资源</h4>
+                            <p>涵盖物理、化学、数学等学科的完整教程</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🎓</div>
+                            <h4>互动课件</h4>
+                            <p>PDF、视频和交互式学习材料</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🔧</div>
+                            <h4>硬件项目</h4>
+                            <p>Arduino、机器人等实践项目</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>🚀 快速开始</h2>
+                    
+                    <h3>1. 安装SDK</h3>
+                    <div class="code-block">
+                        <code>npm install @openmtscied/sdk</code>
+                    </div>
+
+                    <h3>2. 初始化客户端</h3>
+                    <div class="code-block">
+                        <code>import { OpenMTClient } from '@openmtscied/sdk';
+
+const client = new OpenMTClient({
+  apiKey: 'your-api-key',
+  baseUrl: 'http://localhost:3000/api/v1'
+});</code>
+                    </div>
+
+                    <h3>3. 获取教程</h3>
+                    <div class="code-block">
+                        <code>const tutorials = await client.tutorials.list({
+  subject: 'physics',
+  gradeLevel: '9-12',
+  page: 1,
+  size: 10
+});
+
+console.log(tutorials.items);</code>
+                    </div>
+
+                    <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button class="cta-button primary" onclick="switchTab('api')" style="background: var(--primary-color); color: white;">查看完整API文档</button>
+                        <a href="https://github.com/MatuX-ai/OpenMtSciED" target="_blank" class="cta-button secondary" style="color: var(--text-primary); border-color: var(--text-secondary);">GitHub仓库</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>✨ 核心特性</h2>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.5rem 0; color: var(--text-secondary);">✅ RESTful API设计，易于集成</li>
+                        <li style="padding: 0.5rem 0; color: var(--text-secondary);">✅ 完整的TypeScript类型定义</li>
+                        <li style="padding: 0.5rem 0; color: var(--text-secondary);">✅ 知识图谱驱动的智能推荐</li>
+                        <li style="padding: 0.5rem 0; color: var(--text-secondary);">✅ 个性化学习路径生成</li>
+                        <li style="padding: 0.5rem 0; color: var(--text-secondary);">✅ 开源免费，社区驱动</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>📊 平台数据</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">4,623</div>
+                            <div class="stat-label">知识点</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">2,225</div>
+                            <div class="stat-label">课程单元</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">14</div>
+                            <div class="stat-label">硬件项目</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">15</div>
+                            <div class="stat-label">学科覆盖</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tutorials Tab -->
+            <div class="tab-content" id="tutorials">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h2 style="color: var(--text-primary);"> 教程资源</h2>
+                    <button class="cta-button primary" onclick="loadTutorials()" style="background: var(--primary-color); color: white; padding: 0.5rem 1.5rem; font-size: 0.9rem;">🔄 刷新</button>
+                </div>
+
+                <div id="tutorials-container">
+                    <div class="loading">
+                        <div class="loading-spinner"></div>
+                        <p>正在加载教程资源...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hardware Projects Tab -->
+            <div class="tab-content" id="hardware">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h2 style="color: var(--text-primary);">🔧 硬件项目</h2>
+                    <button class="cta-button primary" onclick="loadHardwareProjects()" style="background: var(--accent-color); color: white; padding: 0.5rem 1.5rem; font-size: 0.9rem;">🔄 刷新</button>
+                </div>
+
+                <div id="hardware-container">
+                    <div class="loading">
+                        <div class="loading-spinner"></div>
+                        <p>正在加载硬件项目...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- API Documentation Tab -->
+            <div class="tab-content" id="api">
+                <h2 style="color: var(--text-primary); margin-bottom: 2rem;">⚡ API文档</h2>
+
+                <div class="card">
+                    <h3>基础信息</h3>
+                    <p><strong>Base URL:</strong> <code style="background: rgba(0,0,0,0.3); padding: 0.25rem 0.5rem; border-radius: 4px;">http://localhost:3000/api/v1</code></p>
+                    <p><strong>认证方式:</strong> 目前无需认证(开发环境)</p>
+                    <p><strong>响应格式:</strong> JSON</p>
+                    <p><strong>字符编码:</strong> UTF-8</p>
+                </div>
+
+                <div class="card">
+                    <h3>主要端点</h3>
+                    
+                    <h4 style="color: var(--text-primary); margin: 1.5rem 0 1rem;">教程管理</h4>
+                    <div class="endpoint">
+                        <span class="endpoint-method get">GET</span>
+                        /tutorials?page=1&size=20&subject=physics
+                    </div>
+                    <div class="endpoint">
+                        <span class="endpoint-method post">POST</span>
+                        /tutorials
+                    </div>
+                    <div class="endpoint">
+                        <span class="endpoint-method get">GET</span>
+                        /tutorials/:id
+                    </div>
+
+                    <h4 style="color: var(--text-primary); margin: 1.5rem 0 1rem;">知识图谱</h4>
+                    <div class="endpoint">
+                        <span class="endpoint-method post">POST</span>
+                        /knowledge-graph/path
+                        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">生成学习路径</div>
+                    </div>
+                    <div class="endpoint">
+                        <span class="endpoint-method post">POST</span>
+                        /knowledge-graph/recommend
+                        <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">获取资源推荐</div>
+                    </div>
+
+                    <h4 style="color: var(--text-primary); margin: 1.5rem 0 1rem;">硬件项目</h4>
+                    <div class="endpoint">
+                        <span class="endpoint-method get">GET</span>
+                        /hardware-projects?page=1&size=20
+                    </div>
+                    <div class="endpoint">
+                        <span class="endpoint-method post">POST</span>
+                        /hardware-projects
+                    </div>
+                </div>
+
+                <div class="card" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3);">
+                    <h3>📖 完整文档</h3>
+                    <p>查看完整的API文档、示例代码和最佳实践指南。</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                        <a href="https://github.com/MatuX-ai/OpenMtSciED" target="_blank" class="cta-button primary" style="background: var(--primary-color); color: white; text-decoration: none;">GitHub文档</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>OpenMTSciEd - 开放STEM教育资源平台</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Built with ❤️ for educators and developers</p>
+    </footer>
+
+    <!-- 统一导航组件脚本 -->
+    <script src="js/api-config.js"></script>
+    <script src="js/navbar.js"></script>
+    
+    <script>
+        // Tab Switching
+        function switchTab(tabName) {
+            // Update tab items
+            document.querySelectorAll('.tab-item').forEach(item => {
+                item.classList.toggle('active', item.dataset.tab === tabName);
+            });
+
+            // Update tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabName).classList.add('active');
+
+            // Load data if needed
+            if (tabName === 'tutorials' && !window.tutorialsLoaded) {
+                loadTutorials();
+            } else if (tabName === 'hardware' && !window.hardwareLoaded) {
+                loadHardwareProjects();
+            }
+        }
+
+        // Load Tutorials
+        async function loadTutorials() {
+            const container = document.getElementById('tutorials-container');
+            container.innerHTML = '<div class="loading"><div class="loading-spinner"></div><p>正在加载教程资源...</p></div>';
+
+            try {
+                const response = await fetch('http://localhost:3000/api/v1/tutorials?page=1&size=12');
+                const data = await response.json();
+                
+                window.tutorialsLoaded = true;
+                
+                if (data.items && data.items.length > 0) {
+                    container.innerHTML = `
+                        <div class="resource-grid">
+                            ${data.items.map(tutorial => `
+                                <div class="resource-card">
+                                    <div class="resource-header">
+                                        <div class="resource-title">${tutorial.title}</div>
+                                        <span class="resource-badge">${tutorial.subject}</span>
+                                    </div>
+                                    <p class="resource-description">${tutorial.description || '暂无描述'}</p>
+                                    <div class="resource-meta">
+                                        <span>📚 ${tutorial.grade_level}</span>
+                                        <span>⏱️ ${tutorial.duration_minutes}分钟</span>
+                                        <span>📊 ${tutorial.difficulty_level}</span>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                } else {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-state-icon">📚</div>
+                            <p>暂无教程数据。请先在Neo4j中创建Tutorial节点。</p>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Failed to load tutorials:', error);
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">⚠️</div>
+                        <p>加载失败，请确保API服务正在运行</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Load Hardware Projects
+        async function loadHardwareProjects() {
+            const container = document.getElementById('hardware-container');
+            container.innerHTML = '<div class="loading"><div class="loading-spinner"></div><p>正在加载硬件项目...</p></div>';
+
+            try {
+                const response = await fetch('http://localhost:3000/api/v1/hardware-projects?page=1&size=12');
+                const data = await response.json();
+                
+                window.hardwareLoaded = true;
+                
+                if (data.items && data.items.length > 0) {
+                    container.innerHTML = `
+                        <div class="resource-grid">
+                            ${data.items.map(project => `
+                                <div class="resource-card">
+                                    <div class="resource-header">
+                                        <div class="resource-title">${project.title}</div>
+                                        <span class="resource-badge" style="background: rgba(139, 92, 246, 0.15); color: #8b5cf6;">${project.category}</span>
+                                    </div>
+                                    <p class="resource-description">${project.description || '暂无描述'}</p>
+                                    <div class="resource-meta">
+                                        <span> ${project.difficulty_level}</span>
+                                        <span>⏱️ ${project.estimated_time_hours}小时</span>
+                                        <span>📚 ${project.subject}</span>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                } else {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-state-icon">🔧</div>
+                            <p>暂无硬件项目数据。</p>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Failed to load hardware projects:', error);
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">⚠️</div>
+                        <p>加载失败，请确保API服务正在运行</p>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
