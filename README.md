@@ -28,7 +28,7 @@ git clone https://github.com/openmtscied/openmtscied.git
 cd openmtscied
 ```
 
-### 2. 启动后端
+### 2. 启动API服务
 ```bash
 cd backend-next
 npm install
@@ -36,9 +36,18 @@ npm run dev
 ```
 
 ### 3. 访问应用
-- **主页**: http://localhost:3000
-- **开发者门户**: http://localhost:3000/developer
-- **API文档**: http://localhost:3000/developer#api
+```bash
+# 打开website目录
+# 双击 index.html 或用静态服务器
+cd website
+python -m http.server 8080  # Python
+# 或
+npx serve .  # Node.js
+```
+
+- **主页**: http://localhost:8080
+- **开发者门户**: http://localhost:8080/developer.html
+- **API文档**: http://localhost:8080/developer.html → API文档Tab
 
 ### 4. 测试API
 ```bash
@@ -59,7 +68,7 @@ curl http://localhost:3000/api/v1/hardware-projects?page=1&size=5
 ### 🎯 新手入门
 - **[项目总览](PROJECT_OVERVIEW.md)** - 了解系统架构和功能
 - **[快速开始指南](FRONTEND_INTEGRATION_README.md)** - 5分钟集成API
-- **[开发者门户说明](backend-next/DEVELOPER_PORTAL_README.md)** - 浏览资源
+- **[Website说明](website/README.md)** - 网站结构和使用
 
 ### 🔧 开发者文档
 - **[前端集成指南](FRONTEND_INTEGRATION_GUIDE.md)** - Angular集成详细步骤
@@ -78,11 +87,11 @@ curl http://localhost:3000/api/v1/hardware-projects?page=1&size=5
 
 ```
 ┌─────────────────┐         ┌──────────────────┐
-│  iMato Frontend │         │ Developer Portal │
-│   (Angular)     │         │    (Next.js)     │
+│  iMato Frontend │         │   Website        │
+│   (Angular)     │         │  (Static HTML)   │
 └────────┬────────┘         └────────┬─────────┘
          │                           │
-         └───────────┬───────────────┘
+         ───────────┬───────────────┘
                      │ HTTP/REST
             ┌────────▼────────┐
             │  Backend APIs   │
@@ -94,6 +103,30 @@ curl http://localhost:3000/api/v1/hardware-projects?page=1&size=5
             │  Cloud Database │
             └─────────────────┘
 ```
+
+### 目录结构
+```
+OpenMTSciEd/
+├── website/              ← 唯一的前端站点
+│   ├── index.html        ← 营销首页
+│   ├── developer.html    ← 开发者门户
+│   ├── dashboard.html    ← 学习仪表盘
+│   ├── profile.html      ← 个人中心
+│   ├── css/              ← 样式文件
+│   ├── js/               ← JavaScript
+│   └── docs/             ← 文档页面
+│
+├── backend-next/         ← 纯API后端服务
+│   ├── app/api/          ← REST API路由
+│   ├── lib/              ← 数据库/认证库
+│   └── package.json
+│
+└── docs/                 ← 项目文档
+    ├── FRONTEND_INTEGRATION_GUIDE.md
+    ├── PROJECT_OVERVIEW.md
+    └── ...
+```
+
 
 ---
 
@@ -186,21 +219,22 @@ useEffect(() => {
 ## 🛠️ 技术栈
 
 ### 后端
-- **框架**: Next.js 16.2.4 (App Router)
+- **框架**: Next.js 16.2.4 (App Router) - 纯API服务
 - **语言**: TypeScript
-- **数据库**: Neo4j Aura
+- **数据库**: Neo4j Aura + Prisma ORM
 - **驱动**: neo4j-driver 6.0.1
-- **样式**: Tailwind CSS
+- **API**: RESTful JSON
 
-### 前端(iMato)
-- **框架**: Angular 17+
-- **HTTP**: HttpClient
+### 前端
+- **主网站**: 静态HTML/CSS/JS (website目录)
+- **iMato集成**: Angular 17+ (独立项目)
+- **HTTP**: Fetch API / HttpClient
 - **状态**: RxJS Observables
 
 ### 工具
 - **包管理**: npm
 - **版本控制**: Git
-- **部署**: Vercel (计划)
+- **部署**: Vercel (API) + 静态托管 (Website)
 
 ---
 
@@ -284,8 +318,10 @@ useEffect(() => {
 - [x] Next.js后端搭建
 - [x] Neo4j连接配置
 - [x] 核心API开发
-- [x] 开发者门户
+- [x] Website静态站点
+- [x] 开发者门户整合
 - [x] 前端集成指南
+- [x] 架构优化(前后端分离)
 
 ### 🔄 Phase 2: 功能增强 (进行中)
 - [ ] 用户认证系统
@@ -310,6 +346,13 @@ useEffect(() => {
 ---
 
 ## 📝 更新日志
+
+### v2.0.0 (2026-05-13)
+- ✅ 站点架构优化:前后端完全分离
+- ✅ Website静态站点整合开发者门户
+- ✅ 清理backend-next重复前端代码
+- ✅ 统一导航组件系统
+- ✅ API服务专注纯后端功能
 
 ### v1.0.0 (2026-05-13)
 - ✅ 初始版本发布
