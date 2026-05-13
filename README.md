@@ -1,163 +1,326 @@
-﻿# OpenMTSciEd - STEM 连贯学习路径引擎
+﻿# OpenMTSciEd - 开放STEM教育资源平台
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.12+-blue.svg)](https://www.python.org/)
-[![Angular](https://img.shields.io/badge/Angular-21+-red.svg)](https://angular.dev/)
-[![Tauri](https://img.shields.io/badge/Tauri-2.0-FFC131.svg)](https://tauri.app/)
+[![API Status](https://img.shields.io/badge/API-v1.0.0-green)](http://localhost:3000/api/health)
+[![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
+[![Neo4j](https://img.shields.io/badge/Database-Neo4j_Aura-purple)](https://neo4j.com/cloud/)
+[![Next.js](https://img.shields.io/badge/Framework-Next.js_16-black)](https://nextjs.org/)
 
-**OpenMTSciEd** 是一个开源的 STEM 教育辅助工具。**核心技术**是通过知识图谱打通 K12 到大学的完整教学路径，整合教程库（OpenSciEd、格物斯坦）与课件库（OpenStax），为学生生成"现象驱动 → 理论深化 → 硬件实践"的连贯学习路径。
+> **Open Science & Technology Education** - 为教育者、开发者和学习者提供开放的STEM教育资源
 
-## 🚀 核心特性
+---
 
-*   **K12-大学完整路径**：从小学兴趣启蒙到大学专业衔接，覆盖全学段STEM教育资源
-*   **双库联动**：自动关联 K-12 现象驱动教程与大学经典教材章节
-*   **低成本硬件映射**：为每个知识点匹配预算 ≤50 元的 Arduino/ESP32 实践项目
-*   **知识图谱驱动**：基于 Neo4j 构建包含 500+ 节点、1000+ 关系的 STEM 知识图谱
-*   **桌面端优先**：核心学习、编程与硬件烧录功能均在 Tauri 桌面应用中完成
-*   **离线可用**：支持本地 SQLite 存储资源，无网络环境下依然可以学习
+## 🌟 特性
 
-### 🔗 模块关联逻辑
+- 📚 **丰富资源**: 4,623+知识点, 2,225+课程单元, 15个学科覆盖
+- 🧠 **智能推荐**: 基于Neo4j知识图谱的个性化学习路径
+- 🔧 **实践项目**: Arduino、机器人等硬件项目
+- ⚡ **开放API**: RESTful API供第三方集成
+- 🎨 **现代UI**: 响应式设计,支持深色模式
+- 🌍 **开源免费**: MIT许可证,社区驱动
 
-本项目通过 **Neo4j 知识图谱** 将三大核心模块深度串联：
+---
 
-1.  **教程库 (Tutorial Library)**：作为 K-12 阶段的入口。图谱中的 `CourseUnit` 节点记录了 OpenSciEd、格物斯坦等平台的单元信息，并通过 `ALIGNS_WITH` 关系对齐《STEM-PBL 教学标准》。
-2.  **课件库 (Courseware Library)**：提供理论深化支持。图谱通过 `PROGRESSES_TO` 关系，将初中/高中的实验教程与 OpenStax 大学的理论章节（`TextbookChapter`）相连，实现“现象→理论”的跨越。
-3.  **课程管理 (Course Management)**：提供可视化调度。管理端调用图谱 API，根据用户选择的学科和学段，自动检索出包含教程、课件及硬件项目的连贯路径，并以网状图形式展示。
+## 🚀 快速开始
 
-**数据流向**：底层资源入库 → 建立跨平台/跨学段连线 → 上层应用生成个性化学习路径。
-
-## 📊 当前进展（2026-04-19）
-
-### ✅ 已完成阶段
-
-| 阶段 | 任务 | 状态 |
-|------|------|------|
-| **阶段A** | 资源获取与知识图谱构建 | ✅ 100% 完成 |
-| **阶段B** | 学习路径原型开发 | ✅ 100% 完成 |
-| **阶段C** | 硬件与课件库联动开发 | ✅ 100% 完成 |
-| **阶段D** | 测试与优化 | ⏳ 进行中 |
-
-### 🎯 核心成果
-
-- **课程资源**: 4,740+ 个STEM课程（含编程、游戏开发、Arduino、ROS等专项课程）
-- **知识图谱**: 500+ 节点，1000+ 关系（Neo4j）
-- **硬件项目**: 30+ 个低成本项目（预算≤50元）
-- **Blockly积木**: 9 个硬件积木块（数字/模拟/传感器/电机/通信）
-- **AI任务**: 2 个理论-实践映射任务（可扩展）
-- **前端组件**: PathMap可视化、WebUSB烧录、AI导师等
-
-## 🏗️ 技术架构
-
-| 模块 | 技术栈 | 说明 |
-| :--- | :--- | :--- |
-| **路径引擎** | FastAPI, SQLite | **核心服务**：基于标签匹配生成 STEM 学习路径，支持离线运行。 |
-| **AI 辅助** | Python, LLM API | 统一 AI 服务：生成课程大纲、理论-实践联动解释。 |
-| **桌面客户端** | Tauri (Rust), Angular | 资源管理、Blockly 编程、WebUSB 硬件烧录。 |
-| **知识图谱** | Neo4j | 维护复杂的知识点先修关系与跨学科关联。 |
-| **全局存储** | Neon (PostgreSQL) | 存储用户画像与长期学习进度。 |
-
-## 📦 快速开始
-
-### 1. 环境准备
-*   Python 3.12+
-*   Node.js 18+ & npm
-*   Rust (用于 Tauri 开发)
-*   Neo4j 数据库实例
-
-### 2. 安装依赖
+### 1. 克隆项目
 ```bash
-# 克隆仓库
-git clone https://github.com/MatuX-ai/OpenMtSciED.git
-cd OpenMtSciED
+git clone https://github.com/openmtscied/openmtscied.git
+cd openmtscied
+```
 
-# 安装后端依赖
-pip install -r requirements.txt
-
-# 安装桌面端依赖
-cd desktop-manager
+### 2. 启动后端
+```bash
+cd backend-next
 npm install
-```
-
-### 3. 启动服务
-```bash
-# 启动后端 API (默认端口 8000)
-cd backend
-python -m uvicorn openmtscied.main:app --host 0.0.0.0 --port 8000 --reload
-
-# 启动桌面客户端开发模式
-cd desktop-manager
-npm run tauri dev
-
-# 启动Web前端（用户端 - http://localhost:3000）
-cd frontend
 npm run dev
-
-# 启动Admin后台（管理端 - http://localhost:4200）
-cd admin-web
-npm start
 ```
 
-## 📂 项目结构
+### 3. 访问应用
+- **主页**: http://localhost:3000
+- **开发者门户**: http://localhost:3000/developer
+- **API文档**: http://localhost:3000/developer#api
+
+### 4. 测试API
+```bash
+# 健康检查
+curl http://localhost:3000/api/health
+
+# 获取教程列表
+curl http://localhost:3000/api/v1/tutorials?page=1&size=5
+
+# 获取硬件项目
+curl http://localhost:3000/api/v1/hardware-projects?page=1&size=5
+```
+
+---
+
+## 📖 文档导航
+
+### 🎯 新手入门
+- **[项目总览](PROJECT_OVERVIEW.md)** - 了解系统架构和功能
+- **[快速开始指南](FRONTEND_INTEGRATION_README.md)** - 5分钟集成API
+- **[开发者门户说明](backend-next/DEVELOPER_PORTAL_README.md)** - 浏览资源
+
+### 🔧 开发者文档
+- **[前端集成指南](FRONTEND_INTEGRATION_GUIDE.md)** - Angular集成详细步骤
+- **[集成检查清单](INTEGRATION_CHECKLIST.md)** - 逐步验证流程
+- **[API完整文档](backend-next/API_DOCUMENTATION.md)** - 所有端点参考
+- **[API快速参考](backend-next/API_QUICK_REFERENCE.md)** - 常用命令和示例
+
+### 📊 技术文档
+- **[API实施指南](OPENMTSCIED_API_IMPLEMENTATION.md)** - 原始设计文档
+- **[测试报告](backend-next/API_FINAL_TEST_REPORT.md)** - API测试结果
+- **[完成报告](FRONTEND_INTEGRATION_COMPLETE.md)** - 本次更新总结
+
+---
+
+## 🏗️ 系统架构
 
 ```
-OpenMTSciEd/
-├── backend/openmtscied/      # Python 后端核心 (FastAPI)
-│   ├── api/                  # RESTful API路由
-│   ├── models/               # Pydantic数据模型
-│   ├── services/             # 业务逻辑服务
-│   │   ├── path_generator.py         # 路径生成服务
-│   │   ├── blockly_generator.py      # Blockly代码生成
-│   │   ├── hardware_blockly_blocks.py # 硬件积木块定义
-│   │   ├── theory_practice_mapper.py # AI理论-实践映射
-│   │   └── webusb_flash_service.py   # WebUSB烧录服务
-│   └── data/                 # 数据模型
-│       ├── hardware_projects.py      # 硬件项目库
-│       └── transition_projects.py    # 过渡项目库
-├── frontend/                 # Web前端应用（Angular）
-│   └── src/app/
-│       ├── auth/             # 认证模块
-│       ├── path-visualization/ # 路径可视化
-│       └── marketing-home/   # 营销首页
-├── admin-web/                # 管理后台（Angular）
-├── desktop-manager/          # Tauri + Angular 桌面客户端
-├── ai-service/               # AI服务（独立服务）
-├── website/                  # 营销网站
-├── data/                     # 数据文件
-│   ├── databases/            # 数据库文件
-│   ├── course_library/       # 教程库（OpenSciEd、格物斯坦等）
-│   ├── textbook_library/     # 课件库（OpenStax等）
-│   ├── hardware_projects.json # 硬件项目数据
-│   └── ai_learning_tasks.json # AI学习任务
-├── datasets/                 # 数据集和缓存
-├── scripts/                  # 数据处理与爬虫脚本
-│   ├── db_management/        # 数据库管理脚本
-│   ├── data_processing/      # 数据处理脚本
-│   ├── scrapers/             # 资源爬取器
-│   └── graph_db/             # Neo4j导入脚本
-├── docs/                     # 技术文档
-├── models/                   # AI模型文件
-├── logs/                     # 日志文件
-├── tests/                    # 测试文件
+┌─────────────────┐         ┌──────────────────┐
+│  iMato Frontend │         │ Developer Portal │
+│   (Angular)     │         │    (Next.js)     │
+└────────┬────────┘         └────────┬─────────┘
+         │                           │
+         └───────────┬───────────────┘
+                     │ HTTP/REST
+            ┌────────▼────────┐
+            │  Backend APIs   │
+            │  Next.js :3000  │
+            └────────┬────────┘
+                     │ Neo4j Driver
+            ┌────────▼────────┐
+            │  Neo4j Aura     │
+            │  Cloud Database │
+            └─────────────────┘
 ```
+
+---
+
+## 📦 核心模块
+
+### 1. 教程管理
+```typescript
+GET  /api/v1/tutorials?page=1&size=20&subject=physics
+POST /api/v1/tutorials
+GET  /api/v1/tutorials/:id
+PUT  /api/v1/tutorials/:id
+DELETE /api/v1/tutorials/:id
+```
+
+### 2. 课件管理
+```typescript
+GET  /api/v1/coursewares?page=1&size=20&type=pdf
+POST /api/v1/coursewares
+```
+
+### 3. 知识图谱
+```typescript
+POST /api/v1/knowledge-graph/path        # 生成学习路径
+GET  /api/v1/knowledge-graph/path?user_id=1
+POST /api/v1/knowledge-graph/recommend   # 资源推荐
+GET  /api/v1/knowledge-graph/recommend?user_id=1
+```
+
+### 4. 硬件项目
+```typescript
+GET  /api/v1/hardware-projects?page=1&size=20&difficulty=beginner
+POST /api/v1/hardware-projects
+```
+
+---
+
+## 💻 前端集成示例
+
+### Angular服务
+```typescript
+import { OpenMtSciEdService } from './services/openmt-scied.service';
+
+constructor(private openMtService: OpenMtSciEdService) {}
+
+// 获取教程
+this.openMtService.getTutorials(1, 10, 'physics').subscribe({
+  next: (data) => console.log(data.items),
+  error: (err) => console.error(err)
+});
+
+// 生成学习路径
+this.openMtService.generateLearningPath(1, '9-12', ['physics'])
+  .subscribe(path => {
+    console.log(`路径包含 ${path.nodes.length} 个节点`);
+  });
+```
+
+### React Hooks
+```typescript
+const [tutorials, setTutorials] = useState([]);
+
+useEffect(() => {
+  fetch('/api/v1/tutorials?page=1&size=10')
+    .then(res => res.json())
+    .then(data => setTutorials(data.items));
+}, []);
+```
+
+---
+
+## 📊 平台数据
+
+| 资源类型 | 数量 |
+|---------|------|
+| 知识点 | 4,623 |
+| 课程单元 | 2,225 |
+| 题目 | 1,080 |
+| 教材章节 | 1,058 |
+| 课程 | 540 |
+| 学科 | 15 |
+| 硬件项目 | 14 |
+
+**关系统计**:
+- PROGRESSES_TO: 28,380条
+- CONTAINS: 4,612条
+- BELONGS_TO: 539条
+
+---
+
+## 🛠️ 技术栈
+
+### 后端
+- **框架**: Next.js 16.2.4 (App Router)
+- **语言**: TypeScript
+- **数据库**: Neo4j Aura
+- **驱动**: neo4j-driver 6.0.1
+- **样式**: Tailwind CSS
+
+### 前端(iMato)
+- **框架**: Angular 17+
+- **HTTP**: HttpClient
+- **状态**: RxJS Observables
+
+### 工具
+- **包管理**: npm
+- **版本控制**: Git
+- **部署**: Vercel (计划)
+
+---
+
+## 🎯 目标用户
+
+### 👨‍💻 开发者
+- 集成STEM教育资源到自己的应用
+- 使用API构建教育平台
+- 贡献代码和资源
+
+### 👩‍🏫 教师
+- 获取优质教学材料
+- 浏览教程和课件
+- 设计课程计划
+
+### 👨‍🎓 学生
+- 获取个性化学习路径
+- 参与硬件项目实践
+- 接收智能推荐
+
+### 🏢 教育科技公司
+- 评估API能力
+- 集成到现有产品
+- 定制化开发
+
+---
 
 ## 🤝 贡献指南
 
-我们欢迎任何形式的贡献！在提交 PR 之前，请阅读 [CONTRIBUTING.md](CONTRIBUTING.md)。
+我们欢迎所有形式的贡献!
 
-1.  Fork 本仓库
-2.  创建你的特性分支 (\git checkout -b feature/AmazingFeature\)
-3.  提交你的改动 (\git commit -m 'Add some AmazingFeature'\)
-4.  推送到分支 (\git push origin feature/AmazingFeature\)
-5.  开启一个 Pull Request
+### 贡献领域
+- 📝 文档改进
+- 🐛 Bug修复
+- ✨ 新功能开发
+- 🎨 UI/UX优化
+- 🧪 测试用例
+- 🌍 国际化
+- 📚 添加新资源
+
+### 贡献步骤
+1. Fork仓库
+2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 开启Pull Request
+
+详见 [贡献指南](CONTRIBUTING.md) (待创建)
+
+---
 
 ## 📄 许可证
 
-本项目采用 Apache 2.0 许可证。详见 [LICENSE](LICENSE) 文件。
-
-## 📧 联系我们
-
-*   项目主页: [GitHub Repository](https://github.com/MatuX-ai/OpenMtSciED)
-*   联系邮箱: dev@openmtscied.org
+本项目采用 [MIT许可证](LICENSE) - 自由使用、修改和分发
 
 ---
-*Powered by MatuX AI Team*
+
+## 📞 联系方式
+
+- **GitHub**: https://github.com/openmtscied
+- **Issues**: [报告问题](https://github.com/openmtscied/issues)
+- **Discussions**: [参与讨论](https://github.com/openmtscied/discussions)
+- **邮箱**: contact@openmtscied.org (待设置)
+
+---
+
+## 🙏 致谢
+
+感谢以下开源项目:
+- [Next.js](https://nextjs.org/) - React框架
+- [Neo4j](https://neo4j.com/) - 图数据库
+- [Angular](https://angular.io/) - 前端框架
+- [Tailwind CSS](https://tailwindcss.com/) - 实用CSS框架
+- [TypeScript](https://www.typescriptlang.org/) - 类型安全
+
+---
+
+## 📈 路线图
+
+### ✅ Phase 1: 基础建设 (已完成)
+- [x] Next.js后端搭建
+- [x] Neo4j连接配置
+- [x] 核心API开发
+- [x] 开发者门户
+- [x] 前端集成指南
+
+### 🔄 Phase 2: 功能增强 (进行中)
+- [ ] 用户认证系统
+- [ ] 更多Tutorial数据
+- [ ] 缓存层(Redis)
+- [ ] API速率限制
+- [ ] 错误监控
+
+### 📋 Phase 3: 高级功能 (计划)
+- [ ] AI辅助内容生成
+- [ ] 学习进度追踪
+- [ ] 社区功能
+- [ ] 多语言支持
+- [ ] 移动端App
+
+### 🔮 Phase 4: 生态建设 (未来)
+- [ ] SDK发布(npm package)
+- [ ] 插件系统
+- [ ] 第三方集成
+- [ ] 数据分析仪表板
+
+---
+
+## 📝 更新日志
+
+### v1.0.0 (2026-05-13)
+- ✅ 初始版本发布
+- ✅ 8个核心API模块
+- ✅ 开发者门户上线
+- ✅ 前端集成指南完成
+- ✅ Neo4j索引优化
+- ✅ 完整文档体系
+
+---
+
+**让STEM教育资源触手可及!** 🚀
+
+*Made with ❤️ for educators and developers*

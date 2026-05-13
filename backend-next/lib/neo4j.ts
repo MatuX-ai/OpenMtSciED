@@ -32,3 +32,15 @@ export async function closeDriver(): Promise<void> {
     driver = null;
   }
 }
+
+export async function verifyNeo4jConnection(): Promise<boolean> {
+  try {
+    const driver = getDriver();
+    await driver.verifyConnectivity();
+    console.log('✅ Neo4j connection verified successfully');
+    return true;
+  } catch (error) {
+    console.error('❌ Neo4j connection verification failed:', error);
+    return false;
+  }
+}

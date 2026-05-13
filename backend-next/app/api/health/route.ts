@@ -1,10 +1,10 @@
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 
 export async function GET() {
   return NextResponse.json({
-    service: 'OpenMTSciEd API',
-    version: '2.0.0',
-    status: 'running',
+    status: 'ok',
     timestamp: new Date().toISOString(),
+    service: 'OpenMTSciEd API',
+    version: '1.0.0'
   });
 }
