@@ -869,6 +869,7 @@ console.log(tutorials.items);</code>
             container.innerHTML = '<div class="loading"><div class="loading-spinner"></div><p>正在加载硬件项目...</p></div>';
 
             try {
+                const API_BASE_URL = window.API_BASE_URL || '/api/v1';
                 const response = await fetch(`${API_BASE_URL}/hardware-projects?page=1&size=12`);
                 const data = await response.json();
                 
