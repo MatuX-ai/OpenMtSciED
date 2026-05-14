@@ -55,9 +55,11 @@ export async function GET(request: Request) {
     const result = await session.run(query, params);
     const tutorials = result.records.map(record => {
       const node = record.get('t');
+      const title = node.properties.title;
+      console.log('Tutorial title:', title, 'Type:', typeof title);
       return {
         id: node.properties.id,
-        title: node.properties.title,
+        title: title,
         description: node.properties.description,
         grade_level: node.properties.grade_level,
         subject: node.properties.subject,
@@ -66,6 +68,8 @@ export async function GET(request: Request) {
         created_at: node.properties.created_at,
       };
     });
+
+    console.log('First tutorial:', tutorials[0]);
 
     return NextResponse.json({
       items: tutorials,
