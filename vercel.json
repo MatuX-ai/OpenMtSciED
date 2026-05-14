@@ -1,9 +1,35 @@
 {
   "version": 2,
+  "builds": [
+    {
+      "src": "website/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "backend-next/package.json",
+      "use": "@vercel/next"
+    }
+  ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/$1"
+      "dest": "backend-next/app/api/$1"
+    },
+    {
+      "src": "/developer.html",
+      "dest": "website/developer.html"
+    },
+    {
+      "src": "/dashboard.html",
+      "dest": "website/dashboard.html"
+    },
+    {
+      "src": "/profile.html",
+      "dest": "website/profile.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "website/$1"
     }
   ]
 }
