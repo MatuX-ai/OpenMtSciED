@@ -1,19 +1,9 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "backend-next/package.json",
-      "use": "@vercel/next"
-    }
-  ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "backend-next/app/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "backend-next/app/api/not-found"
+      "dest": "/api/$1"
     }
   ]
 }
