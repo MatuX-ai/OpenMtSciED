@@ -73,6 +73,10 @@ export async function GET(request: Request) {
       page,
       size,
       total_pages: Math.ceil(total / size)
+    }, {
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8'
+      }
     });
   } catch (error) {
     console.error('Error fetching tutorials:', error);
