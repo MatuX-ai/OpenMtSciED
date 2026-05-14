@@ -723,7 +723,8 @@ console.log(tutorials.items);</code>
 
                 <div class="card">
                     <h3>基础信息</h3>
-                    <p><strong>Base URL:</strong> <code style="background: rgba(0,0,0,0.3); padding: 0.25rem 0.5rem; border-radius: 4px;">http://localhost:3000/api/v1</code></p>
+                    <p><strong>Base URL:</strong> <code style="background: rgba(0,0,0,0.3); padding: 0.25rem 0.5rem; border-radius: 4px;">/api/v1</code></p>
+                    <p class="resource-description">生产环境使用相对路径，自动适配域名</p>
                     <p><strong>认证方式:</strong> 目前无需认证(开发环境)</p>
                     <p><strong>响应格式:</strong> JSON</p>
                     <p><strong>字符编码:</strong> UTF-8</p>
@@ -818,7 +819,8 @@ console.log(tutorials.items);</code>
             container.innerHTML = '<div class="loading"><div class="loading-spinner"></div><p>正在加载教程资源...</p></div>';
 
             try {
-                const response = await fetch('http://localhost:3000/api/v1/tutorials?page=1&size=12');
+                const API_BASE_URL = window.API_BASE_URL || '/api/v1';
+                const response = await fetch(`${API_BASE_URL}/tutorials?page=1&size=12`);
                 const data = await response.json();
                 
                 window.tutorialsLoaded = true;
@@ -867,7 +869,7 @@ console.log(tutorials.items);</code>
             container.innerHTML = '<div class="loading"><div class="loading-spinner"></div><p>正在加载硬件项目...</p></div>';
 
             try {
-                const response = await fetch('http://localhost:3000/api/v1/hardware-projects?page=1&size=12');
+                const response = await fetch(`${API_BASE_URL}/hardware-projects?page=1&size=12`);
                 const data = await response.json();
                 
                 window.hardwareLoaded = true;
