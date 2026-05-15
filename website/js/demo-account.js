@@ -192,10 +192,16 @@
         if (!isDemoUser()) return;
 
         const avatar = document.getElementById('userAvatar');
+        const userName = document.getElementById('userName');
+        const userInfo = document.querySelector('.user-info');
+        
         if (!avatar) return;
 
-        // 添加演示样式类
+        // 添加演示样式类到头像
         avatar.classList.add('demo-avatar');
+        
+        // 演示账号头像显示固定的"D"字母，而非中文名
+        avatar.textContent = 'D';
         
         // 如果还没有角标，添加一个
         if (!avatar.querySelector('.demo-badge')) {
@@ -203,6 +209,17 @@
             badge.className = 'demo-badge';
             badge.textContent = 'DEMO';
             avatar.appendChild(badge);
+        }
+        
+        // 优化用户名显示，添加演示标识
+        if (userName && userName.textContent === '演示用户') {
+            userName.style.color = '#fbbf24';
+            userName.style.fontWeight = '700';
+        }
+        
+        // 添加演示用户信息框特殊样式
+        if (userInfo) {
+            userInfo.classList.add('demo-user-info');
         }
     };
 
