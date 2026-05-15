@@ -133,6 +133,16 @@
         padding: 0.5rem 0.8rem;
         font-size: 0.85rem;
     }
+    
+    /* 中等屏幕隐藏用户名，只显示头像 */
+    .user-name {
+        display: none !important;
+    }
+    
+    .user-info {
+        padding: 0.5rem;
+        gap: 0;
+    }
 }
 
 /* 较窄屏幕 - 只显示图标 */
@@ -166,6 +176,16 @@
     
     .btn-mock-login svg {
         margin-right: 0;
+    }
+    
+    /* 中等屏幕隐藏用户名，只显示头像 */
+    .user-name {
+        display: none !important;
+    }
+    
+    .user-info {
+        padding: 0.5rem;
+        gap: 0;
     }
 }
 
@@ -310,6 +330,16 @@
     .btn-mock-login span {
         display: inline !important;
         white-space: nowrap;
+    }
+
+    /* 移动端隐藏用户名，只显示头像 */
+    .user-name {
+        display: none !important;
+    }
+    
+    .user-info {
+        padding: 0.5rem;
+        gap: 0;
     }
 
     .navbar-logo-icon {
@@ -587,8 +617,9 @@
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    height: 36px;
     box-sizing: border-box;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .user-info:hover {
@@ -667,6 +698,7 @@
     color: var(--text-primary, #f8fafc);
     font-weight: 600;
     font-size: 0.95rem;
+    white-space: nowrap;
 }
 
 /* 演示用户名称特殊样式（由JS动态添加） */
