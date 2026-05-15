@@ -127,6 +127,12 @@
         display: inline;
         font-size: 0.9rem;
     }
+    
+    /* 中等屏幕演示按钮优化 */
+    .btn-mock-login {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+    }
 }
 
 /* 较窄屏幕 - 只显示图标 */
@@ -146,6 +152,20 @@
     .nav-icon {
         width: 20px;
         height: 20px;
+    }
+    
+    /* 中等屏幕演示按钮优化 */
+    .btn-mock-login {
+        padding: 0.5rem;
+        min-width: 36px;
+    }
+    
+    .btn-mock-login span {
+        display: none;
+    }
+    
+    .btn-mock-login svg {
+        margin-right: 0;
     }
 }
 
@@ -277,6 +297,19 @@
 
     .navbar-logo {
         font-size: 1.2rem;
+    }
+
+    /* 移动端演示按钮优化 */
+    .btn-mock-login {
+        width: auto;
+        min-width: unset;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .btn-mock-login span {
+        display: inline !important;
+        white-space: nowrap;
     }
 
     .navbar-logo-icon {
@@ -513,6 +546,11 @@
     white-space: nowrap;
     height: 36px;
     line-height: 1;
+    flex-shrink: 0;
+}
+
+.btn-mock-login span {
+    white-space: nowrap;
 }
 
 .btn-mock-login:hover {
