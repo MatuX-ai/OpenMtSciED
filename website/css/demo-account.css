@@ -1,0 +1,316 @@
+/**
+ * OpenMTSciEd 演示账号系统样式
+ * 包含Toast通知、演示提示条、DEMO标识等
+ */
+
+/* ==================== Toast 通知样式 ==================== */
+
+.demo-toast {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    min-width: 320px;
+    max-width: 400px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    padding: 16px 20px;
+    z-index: 10000;
+    animation: slideInRight 0.3s ease;
+    border-left: 4px solid #6366f1;
+}
+
+.demo-toast-success {
+    border-left-color: #10b981;
+}
+
+.demo-toast-warning {
+    border-left-color: #f59e0b;
+}
+
+.demo-toast-error {
+    border-left-color: #ef4444;
+}
+
+.demo-toast-info {
+    border-left-color: #3b82f6;
+}
+
+.toast-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.toast-icon {
+    font-size: 1.2rem;
+}
+
+.toast-header strong {
+    color: #1e293b;
+    font-size: 0.95rem;
+}
+
+.toast-body {
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.toast-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #94a3b8;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.toast-close:hover {
+    color: #1e293b;
+}
+
+.demo-toast.fade-out {
+    animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(400px);
+    }
+}
+
+/* 移动端Toast适配 */
+@media (max-width: 768px) {
+    .demo-toast {
+        top: 70px;
+        right: 10px;
+        left: 10px;
+        min-width: auto;
+        max-width: none;
+    }
+}
+
+/* ==================== 演示模式提示条 ==================== */
+
+.demo-banner {
+    background: linear-gradient(90deg, #fef3c7, #fde68a);
+    border-bottom: 2px solid #f59e0b;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    animation: slideDown 0.3s ease;
+}
+
+.demo-banner-icon {
+    font-size: 1.2rem;
+}
+
+.demo-banner-text {
+    color: #92400e;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.demo-timer {
+    color: #b45309;
+    font-weight: 600;
+}
+
+.demo-banner-close {
+    position: absolute;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #b45309;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    border-radius: 4px;
+}
+
+.demo-banner-close:hover {
+    background: rgba(180, 83, 9, 0.1);
+    color: #78350f;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ==================== DEMO头像标识 ==================== */
+
+.demo-avatar {
+    position: relative;
+    background: linear-gradient(135deg, #f59e0b, #ef4444) !important;
+}
+
+.demo-badge {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    background: #ffffff;
+    color: #ef4444;
+    font-size: 8px;
+    font-weight: 800;
+    padding: 2px 4px;
+    border-radius: 3px;
+    border: 1px solid #ef4444;
+    letter-spacing: 0.5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* ==================== 演示模式功能限制对话框 ==================== */
+
+.demo-limit-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10001;
+    animation: fadeIn 0.2s ease;
+}
+
+.demo-limit-content {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 480px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: scaleIn 0.3s ease;
+}
+
+.demo-limit-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.demo-limit-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 12px;
+}
+
+.demo-limit-message {
+    color: #64748b;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.demo-limit-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.demo-limit-btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+}
+
+.demo-limit-btn-primary {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.demo-limit-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);
+}
+
+.demo-limit-btn-secondary {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.demo-limit-btn-secondary:hover {
+    background: #e2e8f0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

@@ -1,7 +1,7 @@
 <!-- 
   OpenMTSciEd 统一导航组件
   使用方法：在每个 HTML 页面的 <body> 开始处引入此文件
-  需要同时引入 css/navbar.css 和 js/navbar.js
+  需要同时引入 css/navbar.css、css/demo-account.css 和 js/demo-account.js、js/navbar.js
 -->
 
 <nav class="navbar" id="navbar">
@@ -22,11 +22,21 @@
         <!-- 导航链接 -->
         <ul class="navbar-links" id="navbarLinks">
             <li><a href="index.html">首页</a></li>
-            <li><a href="developer.html">开发者门户</a></li>
-            <li><a href="index.html#features">核心特性</a></li>
-            <li><a href="index.html#path">学习路径</a></li>
-            <li><a href="index.html#hardware">硬件项目</a></li>
+            <li><a href="#features">核心特性</a></li>
+            <li><a href="#path">学习路径</a></li>
+            <li><a href="#hardware">硬件项目</a></li>
             <li><a href="https://github.com/MatuX-ai/OpenMtSciED" target="_blank">GitHub</a></li>
+            
+            <!-- 开发者入口按钮 -->
+            <li class="navbar-dev-portal">
+                <a href="developer.html" class="btn-dev-portal">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="16 18 22 12 16 6"/>
+                        <polyline points="8 6 2 12 8 18"/>
+                    </svg>
+                    <span class="nav-text">开发者入口</span>
+                </a>
+            </li>
             
             <!-- 用户登录控件 -->
             <li class="navbar-auth" id="navbarAuth">
@@ -41,11 +51,11 @@
                         <span>登录</span>
                     </button>
                     
-                    <button class="btn-mock-login" onclick="mockLogin()">
+                    <button class="btn-mock-login" onclick="enterDemoMode()">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                         </svg>
-                        <span>快速体验</span>
+                        <span>演示模式</span>
                     </button>
                 </div>
                 

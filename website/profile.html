@@ -12,6 +12,7 @@
     
     <!-- 统一导航组件样式 -->
     <link rel="stylesheet" href="css/navbar.css">
+        <link rel="stylesheet" href="css/demo-account.css">
     <style>
         :root {
             --primary-color: #6366f1;
@@ -414,11 +415,11 @@
                             <span>登录</span>
                         </button>
                         
-                        <button class="btn-mock-login" onclick="mockLogin()">
+                        <button class="btn-mock-login" onclick="enterDemoMode()">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                             </svg>
-                            <span>快速体验</span>
+                            <span>演示模式</span>
                         </button>
                     </div>
                     
@@ -586,6 +587,7 @@
 
     <!-- 统一导航组件脚本 -->
     <script src="js/api-config.js"></script>
+    <script src="js/demo-account.js"></script>
     <script src="js/navbar.js"></script>
     
     <script>

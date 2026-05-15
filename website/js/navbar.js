@@ -45,6 +45,12 @@
 
         // 初始化用户登录状态
         initAuthState();
+        
+        // 初始化演示账号系统（如果已加载）
+        if (window.DemoAccount) {
+            window.DemoAccount.addBanner();
+            window.DemoAccount.addBadgeToAvatar();
+        }
     }
 
     /**
@@ -257,26 +263,14 @@
     };
 
     /**
-     * 模拟登录（快速体验）
+     * 模拟登录（快速体验）- 已废弃，使用 enterDemoMode 代替
+     * @deprecated 请使用 window.enterDemoMode()
      */
     window.mockLogin = function() {
-        // 创建模拟用户信息
-        const mockUser = {
-            id: 1,
-            username: 'demo_user',
-            name: '演示用户',
-            email: 'demo@openmtscied.com',
-            role: 'user'
-        };
-        
-        // 保存到localStorage
-        localStorage.setItem('user', JSON.stringify(mockUser));
-        
-        // 更新UI
-        updateAuthUI(true);
-        
-        // 显示欢迎消息
-        alert('🎉 欢迎体验！\n\n您已使用演示账号登录，现在可以浏览所有功能。\n\n提示：点击导航栏的用户头像可以查看个人信息。');
+        console.warn('mockLogin() is deprecated. Use enterDemoMode() instead.');
+        if (window.enterDemoMode) {
+            window.enterDemoMode();
+        }
     };
 
 

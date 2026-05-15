@@ -6,6 +6,7 @@
     <title>登录 - OpenMTSciEd</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/demo-account.css">
     <style>
         :root {
             --primary-color: #6366f1;
@@ -256,7 +257,7 @@
             </div>
 
             <button class="btn-demo" onclick="handleDemoLogin()">
-                👤 使用演示账号体验
+                🧪 以演示身份继续（24小时体验）
             </button>
 
             <div class="back-link">
@@ -305,23 +306,39 @@
             }
         });
 
-        // 演示账号登录
+        // 演示账号登录 - 使用新的演示账号系统
         function handleDemoLogin() {
-            const mockUser = {
-                id: 1,
-                username: 'demo_user',
-                name: '演示用户',
-                email: 'demo@openmtscied.com',
-                role: 'user'
-            };
-            
-            localStorage.setItem('user', JSON.stringify(mockUser));
-            
-            const redirectUrl = localStorage.getItem('redirect_after_login') || '/dashboard';
-            localStorage.removeItem('redirect_after_login');
-            window.location.href = redirectUrl;
+            if (window.enterDemoMode) {
+                window.enterDemoMode();
+                
+                // 延迟跳转，让用户看到Toast提示
+                setTimeout(() => {
+                    const redirectUrl = localStorage.getItem('redirect_after_login') || '/dashboard';
+                    localStorage.removeItem('redirect_after_login');
+                    window.location.href = redirectUrl;
+                }, 1500);
+            } else {
+                // 降级方案：如果demo-account.js未加载
+                console.warn('Demo account system not loaded, using fallback');
+                const mockUser = {
+                    id: 0,
+                    username: 'demo_user',
+                    name: '演示用户',
+                    email: 'demo@openmtscied.com',
+                    role: 'demo',
+                    isDemo: true,
+                    expiresAt: Date.now() + 24 * 60 * 60 * 1000
+                };
+                
+                localStorage.setItem('user', JSON.stringify(mockUser));
+                
+                const redirectUrl = localStorage.getItem('redirect_after_login') || '/dashboard';
+                localStorage.removeItem('redirect_after_login');
+                window.location.href = redirectUrl;
+            }
         }
     </script>
     <script src="js/api-config.js"></script>
+    <script src="js/demo-account.js"></script>
 </body>
 </html>
