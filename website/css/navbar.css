@@ -62,7 +62,7 @@
 /* 导航链接列表 */
 .navbar-links {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -77,10 +77,76 @@
     transition: all 0.3s ease;
     font-weight: 500;
     position: relative;
-    padding: 0.5rem 0;
+    padding: 0.5rem 0.8rem;
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     height: 100%;
+    border-radius: 6px;
+}
+
+/* 导航图标 */
+.nav-icon {
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    display: inline-block; /* 默认显示图标 */
+}
+
+/* 导航文字 */
+.nav-text {
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 200px;
+}
+
+/* 大屏幕 - 完整显示图标+文字 */
+@media (min-width: 1200px) {
+    .navbar-links {
+        gap: 2rem;
+    }
+    
+    .nav-text {
+        display: inline;
+        max-width: 200px;
+    }
+}
+
+/* 中等屏幕 - 图标+缩小文字 */
+@media (max-width: 1199px) and (min-width: 992px) {
+    .navbar-links {
+        gap: 1rem;
+    }
+    
+    .navbar-links a {
+        padding: 0.5rem 0.6rem;
+    }
+    
+    .nav-text {
+        display: inline;
+        font-size: 0.9rem;
+    }
+}
+
+/* 较窄屏幕 - 只显示图标 */
+@media (max-width: 991px) and (min-width: 769px) {
+    .navbar-links {
+        gap: 0.8rem;
+    }
+    
+    .navbar-links a {
+        padding: 0.5rem;
+    }
+    
+    .nav-text {
+        display: none;
+    }
+    
+    .nav-icon {
+        width: 20px;
+        height: 20px;
+    }
 }
 
 /* 链接悬停效果 - 下划线动画 */
@@ -158,28 +224,55 @@
 
     .navbar-links {
         position: fixed;
-        top: 0;
+        top: 60px;
         right: -100%;
-        width: 70%;
-        max-width: 300px;
-        height: 100vh;
+        width: 100%;
+        max-width: none;
+        height: calc(100vh - 60px);
         background: rgba(15, 23, 42, 0.98);
         backdrop-filter: blur(10px);
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 0;
         transition: right 0.3s ease;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        padding: 1rem 0;
+        overflow-y: auto;
     }
 
     .navbar-links.active {
         right: 0;
     }
 
+    .navbar-links li {
+        width: 100%;
+    }
+
     .navbar-links a {
-        font-size: 1.2rem;
-        padding: 1rem 2rem;
+        font-size: 1rem;
+        padding: 1rem 1.5rem;
+        justify-content: flex-start;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+    }
+    
+    .navbar-links a:last-child {
+        border-bottom: none;
+    }
+
+    .navbar-links a:hover {
+        background: rgba(99, 102, 241, 0.1);
+    }
+
+    /* 移动端显示图标+文字 */
+    .nav-icon {
+        display: inline-block !important;
+        margin-right: 0.8rem;
+    }
+    
+    .nav-text {
+        display: inline !important;
     }
 
     .navbar-logo {
@@ -280,14 +373,42 @@
 @media (max-width: 768px) {
     .navbar-dev-portal {
         margin-left: 0;
-        margin-top: 1rem;
         width: 100%;
     }
 
     .btn-dev-portal {
         width: 100%;
         justify-content: center;
-        padding: 0.8rem 1.5rem;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* 较窄屏幕 - 只显示图标 */
+@media (max-width: 991px) and (min-width: 769px) {
+    .btn-dev-portal .nav-text {
+        display: none;
+    }
+    
+    .btn-dev-portal {
+        padding: 0.5rem;
+        min-width: 36px;
+    }
+    
+    .btn-dev-portal svg {
+        margin: 0;
+    }
+    
+    /* 登录按钮也只显示图标 */
+    .btn-login span,
+    .btn-mock-login span {
+        display: none;
+    }
+    
+    .btn-login,
+    .btn-mock-login {
+        padding: 0.5rem;
+        min-width: 36px;
     }
 }
 
