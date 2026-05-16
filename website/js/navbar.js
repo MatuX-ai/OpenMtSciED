@@ -309,7 +309,7 @@
         if (e) e.preventDefault();
         
         // 跳转到学习仪表盘页面
-        window.location.href = '/dashboard';
+        window.location.href = 'dashboard.html';
     };
 
     // 页面加载完成后初始化
