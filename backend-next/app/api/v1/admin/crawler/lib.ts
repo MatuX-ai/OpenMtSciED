@@ -1,12 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import { CronJob } from 'cron';
-// TODO: 实现爬虫模块
-// import { generateKhanAcademyCourses, saveCourses } from '../../../../lib/crawlers/khan-academy-crawler';
-// import { generateOpenStaxChapters, saveChapters as saveOpenStaxChapters } from '../../../../lib/crawlers/openstax-crawler';
-// import { generateCourseraCourses, saveCourses as saveCourseraCourses } from '../../../../lib/crawlers/coursera-crawler';
-// import { generateOpenSciEdUnits, saveUnits as saveOpenSciEdUnits } from '../../../../lib/crawlers/openscied-crawler';
-// import { generateBNUCourses, saveCourses as saveBNUCourses } from '../../../../lib/crawlers/bnu-shanghai-crawler';
 
 export interface CrawlerConfig {
   id: string;
