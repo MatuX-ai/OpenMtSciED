@@ -28,6 +28,10 @@
       "dest": "website/profile.html"
     },
     {
+      "src": "/download.html",
+      "dest": "website/download.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "website/$1"
     }
