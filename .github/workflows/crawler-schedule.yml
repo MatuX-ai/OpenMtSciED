@@ -1,0 +1,56 @@
+name: 定时爬虫执行
+
+on:
+  # 推送后自动触发（Vercel 自动部署后执行）
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'backend-next/**'
+      - 'data/crawler_configs.json'
+  # 每天定时执行
+  schedule:
+    - cron: '0 0 * * *'  # 每天 UTC 0:00（北京时间 8:00）
+  # 支持手动触发
+  workflow_dispatch:
+    inputs:
+      crawler_id:
+        description: '指定运行的爬虫ID（留空则运行所有）'
+        required: false
+        type: string
+      max_items:
+        description: '每轮抓取上限'
+        required: false
+        default: '100'
+        type: string
+
+jobs:
+  trigger-crawlers:
+    name: 触发爬虫任务
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: 触发所有已配置的爬虫（定时/推送/手动全部）
+        if: ${{ github.event_name == 'schedule' || github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.crawler_id == '') }}
+        run: |
+          echo "触发方式: ${{ github.event_name }}"
+          # 已配置每日调度的爬虫列表
+          CRAWLERS="khan_academy coursera_stem bnu_shanghai_k12"
+          for CRAWLER_ID in $CRAWLERS; do
+            echo "触发爬虫: $CRAWLER_ID"
+            curl -s -X POST "https://${{ secrets.VERCEL_URL }}/api/v1/admin/crawler/${CRAWLER_ID}/run" \
+              -H "Content-Type: application/json" \
+              --max-time 300
+            echo ""
+          done
+
+      - name: 触发指定爬虫
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.crawler_id != '' }}
+        run: |
+          MAX_ITEMS="${{ inputs.max_items }}"
+          echo "触发爬虫: ${{ inputs.crawler_id }}, 上限: ${MAX_ITEMS}"
+          curl -s -X POST "https://${{ secrets.VERCEL_URL }}/api/v1/admin/crawler/${{ inputs.crawler_id }}/run" \
+            -H "Content-Type: application/json" \
+            -d "{\"max_items\": ${MAX_ITEMS}}" \
+            --max-time 300

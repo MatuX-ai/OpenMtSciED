@@ -30,6 +30,7 @@ export interface CrawlerConfig {
   error_message: string | null;
   output_file?: string;
   schedule_interval?: number; // 小时
+  max_items?: number; // 每次抓取上限
   [key: string]: unknown; // 允许额外的配置字段
 }
 

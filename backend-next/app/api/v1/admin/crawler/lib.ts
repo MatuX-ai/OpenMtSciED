@@ -16,10 +16,11 @@ export interface CrawlerConfig {
   error_message: string | null;
   output_file?: string;
   schedule_interval?: number; // hours
+  max_items?: number; // 每次抓取上限
   [key: string]: unknown;
 }
 
-const CRAWLER_CONFIG_FILE = path.join(process.cwd(), 'data', 'crawler_configs.json');
+const CRAWLER_CONFIG_FILE = path.join(process.cwd(), '..', 'data', 'crawler_configs.json');
 
 /**
  * 加载爬虫配置
@@ -145,32 +146,35 @@ export async function executeCrawl(config: CrawlerConfig): Promise<void> {
     
     console.log(`[Crawler] Starting ${config.name} (${crawlerId})`);
     
+    const maxItems = config.max_items || 100;
+    console.log(`[Crawler] Max items for this run: ${maxItems}`);
+    
     // TODO: 实现爬虫逻辑
     // 根据爬虫ID执行不同的爬虫
     const itemsCount = 0;
     
     // if (crawlerId === 'khan_academy') {
-    //   const courses = generateKhanAcademyCourses();
+    //   const courses = generateKhanAcademyCourses(maxItems);
     //   const outputFile = config.output_file || 'data/course_library/khan_academy_courses.json';
     //   await saveCourses(courses, outputFile);
     //   itemsCount = courses.length;
     // } else if (crawlerId === 'openstax') {
-    //   const chapters = generateOpenStaxChapters();
+    //   const chapters = generateOpenStaxChapters(maxItems);
     //   const outputFile = config.output_file || 'data/textbook_library/openstax_chapters.json';
     //   await saveOpenStaxChapters(chapters, outputFile);
     //   itemsCount = chapters.length;
     // } else if (crawlerId === 'coursera') {
-    //   const courses = generateCourseraCourses();
+    //   const courses = generateCourseraCourses(maxItems);
     //   const outputFile = config.output_file || 'data/course_library/coursera_courses.json';
     //   await saveCourseraCourses(courses, outputFile);
     //   itemsCount = courses.length;
     // } else if (crawlerId === 'openscied') {
-    //   const units = generateOpenSciEdUnits();
+    //   const units = generateOpenSciEdUnits(maxItems);
     //   const outputFile = config.output_file || 'data/course_library/openscied_units.json';
     //   await saveOpenSciEdUnits(units, outputFile);
     //   itemsCount = units.length;
     // } else if (crawlerId === 'bnu_shanghai') {
-    //   const courses = generateBNUCourses();
+    //   const courses = generateBNUCourses(maxItems);
     //   const outputFile = config.output_file || 'data/course_library/bnu_shanghai_courses.json';
     //   await saveBNUCourses(courses, outputFile);
     //   itemsCount = courses.length;

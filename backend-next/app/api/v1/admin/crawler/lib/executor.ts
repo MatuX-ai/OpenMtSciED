@@ -21,6 +21,9 @@ export async function executeCrawl(crawler: CrawlerConfig): Promise<void> {
     
     console.log(`[Crawler] Starting ${crawler.name} (${crawlerId})`);
     
+    const maxItems = crawler.max_items || 100;
+    console.log(`[Crawler] Max items for this run: ${maxItems}`);
+    
     // 获取注册的爬虫处理函数
     const handler = getCrawlerHandler(crawlerId);
     

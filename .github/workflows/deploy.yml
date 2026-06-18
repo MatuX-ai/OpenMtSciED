@@ -1,0 +1,32 @@
+name: Vercel 自动部署
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - 'backend-next/**'
+      - 'vercel.json'
+
+jobs:
+  deploy:
+    name: 部署后端到 Vercel
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 设置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 安装 Vercel CLI
+        run: npm install -g vercel
+
+      - name: 部署到 Vercel（生产环境）
+        run: |
+          vercel --prod \
+            --token ${{ secrets.VERCEL_TOKEN }} \
+            --yes

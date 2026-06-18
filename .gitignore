@@ -24,6 +24,7 @@ eggs/
 .eggs/
 lib/
 !backend-next/lib/
+!backend-next/app/api/v1/admin/crawler/lib/
 lib64/
 parts/
 sdist/
