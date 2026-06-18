@@ -1,9 +1,11 @@
 # OpenMTSciEd API 快速参考
 
+> **状态**: 2026-06-18 更新 (Neo4j → PostgreSQL/Prisma 迁移完成)
+
 ## 🚀 服务状态
 - **URL**: http://localhost:3000
 - **状态**: ✅ 运行中
-- **Neo4j**: ✅ 已连接 (neo4j+s://4abd5ef9.databases.neo4j.io)
+- **数据库**: ✅ PostgreSQL (Neon) - Prisma 客户端
 
 ## 📋 API端点速查
 
@@ -90,20 +92,24 @@ curl http://localhost:3000/api/health
 curl "http://localhost:3000/api/v1/hardware-projects?difficulty=beginner"
 ```
 
-## 🗄️ Neo4j数据概览
+## 🗄️ PostgreSQL 数据概览
 
-| 节点类型 | 数量 |
-|---------|------|
-| KnowledgePoint | 4,623 |
-| CourseUnit | 2,225 |
-| Question | 1,080 |
-| HardwareProject | 14 |
-| Tutorial | 1+ |
+### 主要表
+| 表名 | 用途 |
+|------|------|
+| tutorial | 教程 |
+| courseware | 课件 |
+| hardware_project | 硬件项目 |
+| concept | 知识点 |
+| concept_dependency | 依赖关系 |
+| concept_path | 闭包表 (递归CTE 路径) |
+| course / question / user | 业务表 |
 
 ## ⚡ 性能提示
 
 - 所有分页查询已优化 (< 2s)
-- 6个索引已创建加速查询
+- Prisma @@index 索引已创建加速查询
+- 闭包表递归CTE 查询 < 100ms
 - 推荐API响应时间 < 1s
 
 ## 🛠️ 常用命令
@@ -112,11 +118,11 @@ curl "http://localhost:3000/api/v1/hardware-projects?difficulty=beginner"
 # 启动开发服务器
 npm run dev
 
-# 创建Neo4j索引
-node scripts/create-neo4j-indexes.js
+# 生成 Prisma 客户端
+npx prisma generate
 
-# 测试Neo4j连接
-node test-neo4j-connection.js
+# 同步 schema 到数据库
+npx prisma db push
 
 # 测试所有API
 .\test-openmtscied-apis.ps1
@@ -131,15 +137,18 @@ node test-neo4j-connection.js
 
 ## 🆘 故障排查
 
-### 500错误 - 整数类型
-**症状**: `Invalid input. '0.0' is not a valid value`  
-**解决**: 确保使用 `neo4j.int()` 包装分页参数
-
-### 连接失败
+### 数据库连接失败
 **检查**: 
-1. .env.local中的Neo4j配置
-2. Neo4j Aura实例状态
-3. 网络连接
+1. `.env.local` 中的 `DATABASE_URL` 是否正确
+2. Neon PostgreSQL 实例状态
+3. 网络连接 (需要 SSL)
+
+### Prisma 客户端错误
+**症状**: `PrismaClientInitializationError`  
+**解决**: 
+1. 运行 `npx prisma generate` 重新生成客户端
+2. 确认 `DATABASE_URL` 正确
+3. 重启开发服务器
 
 ### 端口占用
 ```powershell
@@ -150,5 +159,6 @@ taskkill /PID <PID> /F
 
 ---
 
-**最后更新**: 2026-05-13  
-**版本**: v1.0.0
+**最后更新**: 2026-06-18  
+**版本**: v1.1.0  
+**技术栈**: Next.js + PostgreSQL (Prisma) + 闭包表

@@ -1,6 +1,9 @@
 # OpenMTSciEd API 实施指南
 
-## 📁 已创建的目录结构
+> **状态**: 2026-06-18 更新 (Neo4j → PostgreSQL/Prisma 迁移完成)
+> 原 Neo4j 实施代码已遗弃,请参考以下 PostgreSQL + Prisma 版本。
+
+## 📁 当前目录结构
 
 ```
 G:\OpenMTSciEd\backend-next\app\api\
@@ -8,166 +11,105 @@ G:\OpenMTSciEd\backend-next\app\api\
 │   └── route.ts          ✅ 已创建
 └── v1/
     ├── tutorials/
-    │   ├── route.ts      ⏳ 待创建
+    │   ├── route.ts      ✅ Prisma 实现
     │   └── [id]/
-    │       └── route.ts  ⏳ 待创建
+    │       └── route.ts  ✅ Prisma 实现
     ├── coursewares/
-    │   └── route.ts      ⏳ 待创建
+    │   └── route.ts      ✅ Prisma 实现
     ├── knowledge-graph/
     │   ├── path/
-    │   │   └── route.ts  ⏳ 待创建
+    │   │   └── route.ts  ✅ 闭包表递归 CTE
     │   └── recommend/
-    │       └── route.ts  ⏳ 待创建
-    └── hardware-projects/
-        └── route.ts      ⏳ 待创建
+    │       └── route.ts  ✅ Prisma + concept 关联
+    ├── hardware-projects/
+    │   └── route.ts      ✅ Prisma 实现
+    ├── questions/
+    │   ├── banks/        ✅ Prisma 分组统计
+    │   ├── import-stem/  ✅ Prisma upsert
+    │   └── import-extended/ ✅ Prisma upsert
+    └── admin/
+        ├── graph/        ✅ SQL 统计
+        └── graph/overview/ ✅ 图可视化
 ```
 
-## 🔧 需要创建的文件
+## 🔧 核心库文件
 
-### 1. lib/neo4j.ts (Neo4j 连接工具)
+### 1. lib/db.ts (Prisma 客户端单例)
 
-**路径**: `G:\OpenMTSciEd\backend-next\lib\neo4j.ts`
+**路径**: `G:\OpenMTSciEd\backend-next\lib\db.ts`
 
 ```typescript
-import neo4j from 'neo4j-driver';
+import { PrismaClient } from '@prisma/client';
 
-const NEO4J_URI = process.env.NEO4J_URI || 'bolt://localhost:7687';
-const NEO4J_USER = process.env.NEO4J_USER || 'neo4j';
-const NEO4J_PASSWORD = process.env.NEO4J_PASSWORD || 'password';
+const globalForPrisma = global as unknown as { prisma: PrismaClient };
 
-let driver: neo4j.Driver | null = null;
+export const prisma = globalForPrisma.prisma || new PrismaClient({
+  log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
+});
 
-export function getNeo4jDriver(): neo4j.Driver {
-  if (!driver) {
-    driver = neo4j.driver(NEO4J_URI, neo4j.auth.basic(NEO4J_USER, NEO4J_PASSWORD), {
-      maxConnectionPoolSize: 50,
-      connectionTimeout: 30000,
-    });
-
-    driver.verifyConnectivity()
-      .then(() => console.log('✅ Neo4j connected successfully'))
-      .catch((error) => console.error('❌ Neo4j connection failed:', error));
-  }
-
-  return driver;
-}
-
-export async function closeNeo4jDriver(): Promise<void> {
-  if (driver) {
-    await driver.close();
-    driver = null;
-    console.log('Neo4j driver closed');
-  }
-}
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
 ```
 
-### 2. app/api/v1/tutorials/route.ts (教程列表)
+### 2. lib/concept-path.ts (闭包表服务)
+
+**路径**: `G:\OpenMTSciEd\backend-next\lib\concept-path.ts`
 
 ```typescript
-import { NextResponse } from 'next/server';
-import { getNeo4jDriver } from '@/lib/neo4j';
+import { prisma } from '@/lib/db';
 
-export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url);
-  const page = parseInt(searchParams.get('page') || '1');
-  const size = parseInt(searchParams.get('size') || '20');
-  const subject = searchParams.get('subject');
-  
-  const driver = getNeo4jDriver();
-  const session = driver.session();
-  
-  try {
-    let whereClause = '';
-    const params: any = { skip: (page - 1) * size, limit: size };
-    
-    if (subject) {
-      whereClause = ' WHERE t.subject = $subject';
-      params.subject = subject;
-    }
-    
-    const query = `
-      MATCH (t:Tutorial)
-      ${whereClause}
-      RETURN t
-      ORDER BY t.created_at DESC
-      SKIP $skip LIMIT $limit
-    `;
-    
-    const result = await session.run(query, params);
-    const tutorials = result.records.map(record => {
-      const node = record.get('t');
-      return {
-        id: node.properties.id,
-        title: node.properties.title,
-        description: node.properties.description,
-        grade_level: node.properties.grade_level,
-        subject: node.properties.subject,
-        duration_minutes: node.properties.duration_minutes,
-      };
-    });
-    
-    return NextResponse.json({ items: tutorials, total: tutorials.length, page, size });
-  } catch (error) {
-    console.error('Error:', error);
-    return NextResponse.json({ error: 'Failed' }, { status: 500 });
-  } finally {
-    await session.close();
-  }
+// 递归 CTE 查询前置依赖
+export async function getPrerequisites(conceptId: number, pathType: string = 'required') {
+  return prisma.$queryRawUnsafe<Array<{id: number, depth: number}>>(
+    `SELECT descendant_id as id, depth
+     FROM concept_path
+     WHERE ancestor_id = $1 AND path_type = $2 AND depth > 0
+     ORDER BY depth`,
+    [conceptId, pathType]
+  );
+}
+
+// 查找两个知识点之间的最短路径
+export async function findRoute(
+  startId: number,
+  endId: number,
+  pathType: string = 'required'
+) {
+  return prisma.$queryRawUnsafe<Array<{concept_id: number, depth: number}>>(
+    `WITH RECURSIVE route AS (
+      SELECT $1::int as concept_id, 0 as depth
+      UNION ALL
+      SELECT cd.dependent_id, r.depth + 1
+      FROM route r
+      JOIN concept_dependency cd ON cd.prerequisite_id = r.concept_id
+      WHERE r.depth < 20 AND cd.path_type = $2
+    )
+    SELECT * FROM route WHERE concept_id = $3`,
+    [startId, pathType, endId]
+  );
 }
 ```
 
-### 3. app/api/v1/knowledge-graph/path/route.ts (学习路径)
+### 3. lib/auth.ts (JWT 认证)
+
+**路径**: `G:\OpenMTSciEd\backend-next\lib\auth.ts`
 
 ```typescript
-import { NextResponse } from 'next/server';
-import { getNeo4jDriver } from '@/lib/neo4j';
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcryptjs';
 
-export async function POST(request: Request) {
-  try {
-    const body = await request.json();
-    const { user_id, current_grade, subjects } = body;
-    
-    if (!user_id || !current_grade || !subjects) {
-      return NextResponse.json(
-        { error: 'Missing required fields' },
-        { status: 400 }
-      );
-    }
-    
-    const driver = getNeo4jDriver();
-    const session = driver.session();
-    
-    const query = `
-      MATCH (start:Tutorial)
-      WHERE start.grade_level = $grade AND start.subject IN $subjects
-      MATCH path = (start)-[:PROGRESSES_TO*1..5]->(end)
-      WITH path, length(path) as pathLength
-      ORDER BY pathLength ASC LIMIT 1
-      UNWIND nodes(path) as node
-      RETURN node ORDER BY node.order_index
-    `;
-    
-    const result = await session.run(query, { grade: current_grade, subjects });
-    
-    const nodes = result.records.map((record, index) => ({
-      id: `node_${index}`,
-      type: 'tutorial',
-      resource_id: record.get('node').properties.id,
-      title: record.get('node').properties.title,
-      prerequisites: index > 0 ? [`node_${index - 1}`] : [],
-      next_steps: []
-    }));
-    
-    return NextResponse.json({
-      path_id: `path_${user_id}_${Date.now()}`,
-      nodes,
-      estimated_duration_hours: nodes.length * 2,
-      difficulty_progression: 'adaptive'
-    });
-  } catch (error) {
-    console.error('Error:', error);
-    return NextResponse.json({ error: 'Failed' }, { status: 500 });
-  }
+const JWT_SECRET = process.env.JWT_SECRET || 'dev-secret';
+
+export function signToken(payload: object): string {
+  return jwt.sign(payload, JWT_SECRET, { expiresIn: '7d' });
+}
+
+export function verifyToken(token: string): object | null {
+  try { return jwt.verify(token, JWT_SECRET) as object; }
+  catch { return null; }
+}
+
+export async function hashPassword(plain: string): Promise<string> {
+  return bcrypt.hash(plain, 10);
 }
 ```
 
@@ -175,29 +117,34 @@ export async function POST(request: Request) {
 
 1. **配置环境变量** (`G:\OpenMTSciEd\backend-next\.env.local`):
 ```env
-NEO4J_URI=bolt://localhost:7687
-NEO4J_USER=neo4j
-NEO4J_PASSWORD=your_password
+DATABASE_URL="postgresql://user:password@host/db?sslmode=require"
+JWT_SECRET="your_jwt_secret"
 ```
 
 2. **安装依赖**:
 ```bash
 cd G:\OpenMTSciEd\backend-next
-npm install neo4j-driver
+npm install
 ```
 
-3. **启动开发服务器**:
+3. **同步数据库**:
+```bash
+npx prisma generate
+npx prisma db push
+```
+
+4. **启动开发服务器**:
 ```bash
 npm run dev
 ```
 
-4. **测试 API**:
+5. **测试 API**:
 ```bash
 # 健康检查
 curl http://localhost:3000/api/health
 
 # 获取教程列表
-curl http://localhost:3000/api/v1/tutorials?page=1&size=10
+curl "http://localhost:3000/api/v1/tutorials?page=1&size=10"
 
 # 生成学习路径
 curl -X POST http://localhost:3000/api/v1/knowledge-graph/path \
@@ -212,7 +159,7 @@ curl -X POST http://localhost:3000/api/v1/knowledge-graph/path \
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:8000',
-  openMtSciEdApiUrl: 'http://localhost:3000/api/v1',  // 新增
+  openMtSciEdApiUrl: 'http://localhost:3000/api/v1',
 };
 ```
 
@@ -220,4 +167,5 @@ export const environment = {
 
 ---
 
-**下一步**: 手动创建上述文件，或告诉我您希望我如何帮助您继续。
+**最后更新**: 2026-06-18  
+**技术栈**: Next.js + PostgreSQL (Prisma) + 闭包表 + TypeScript

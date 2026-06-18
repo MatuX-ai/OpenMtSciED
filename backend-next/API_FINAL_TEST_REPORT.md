@@ -1,7 +1,10 @@
 # OpenMTSciEd API 最终测试报告
 
-## 📅 测试日期
-2026-05-13
+> **状态**: 历史报告 (2026-05-13)，当前为 PostgreSQL/Prisma 架构。
+> 报告中提到的 Neo4j 整数类型问题在 Prisma 体系下不复存在。
+
+## 📅 报告日期
+2026-05-13 (历史) / 2026-06-18 (更新)
 
 ## ✅ 测试结果总览
 
@@ -24,11 +27,11 @@
 
 ## 🔧 关键修复
 
-### 1. Neo4j整数类型问题
-**问题**: JavaScript number被Neo4j识别为浮点数,导致查询失败  
+### 1. (已修复) Neo4j 整数类型问题
+**问题**: JavaScript number 被 Neo4j 识别为浮点数,导致查询失败  
 **错误**: `Invalid input. '0.0' is not a valid value. Must be a non-negative integer.`
 
-**解决方案**: 所有分页参数使用 `neo4j.int()` 包装
+**原解决方案**: 所有分页参数使用 `neo4j.int()` 包装
 ```typescript
 const params = {
   skip: neo4j.int(Math.floor((page - 1) * size)),
@@ -36,11 +39,19 @@ const params = {
 };
 ```
 
-**影响文件**:
-- ✅ `app/api/v1/tutorials/route.ts`
-- ✅ `app/api/v1/coursewares/route.ts`
-- ✅ `app/api/v1/hardware-projects/route.ts`
-- ✅ `app/api/v1/knowledge-graph/recommend/route.ts`
+**新方案 (PostgreSQL + Prisma)**: Prisma 类型系统保证参数类型,无需手动包装
+```typescript
+const items = await prisma.tutorial.findMany({
+  skip: (page - 1) * size,
+  take: size
+});
+```
+
+**原影响文件 (仅供历史参考)**:
+- ⚠️ `app/api/v1/tutorials/route.ts` (现为 Prisma 实现)
+- ⚠️ `app/api/v1/coursewares/route.ts` (现为 Prisma 实现)
+- ⚠️ `app/api/v1/hardware-projects/route.ts` (现为 Prisma 实现)
+- ⚠️ `app/api/v1/knowledge-graph/recommend/route.ts` (现为 Prisma 实现)
 
 ### 2. 推荐API性能优化
 **问题**: 复杂图遍历查询导致超时(34秒+)  
@@ -55,31 +66,24 @@ const params = {
 
 ---
 
-## 📊 Neo4j数据库状态
+## 📊 PostgreSQL 数据库状态 (当前)
 
-### 节点统计
-- **KnowledgePoint**: 4,623个
-- **CourseUnit**: 2,225个
-- **Question**: 1,080个
-- **TextbookChapter**: 1,058个
-- **Course**: 540个
-- **Subject**: 15个
-- **HardwareProject**: 14个
-- **Tutorial**: 1个 (测试创建)
+### 主要表统计
+- **concept** (知识点)
+- **concept_dependency** (依赖关系)
+- **concept_path** (闭包表)
+- **tutorial** (教程)
+- **courseware** (课件)
+- **hardware_project** (硬件项目)
+- **course** / **question** / **user** (业务表)
 
-### 关系统计
-- **PROGRESSES_TO**: 28,380条
-- **CONTAINS**: 4,612条
-- **BELONGS_TO**: 539条
-- **RELATED_TO_SUBJECT**: 154条
-
-### 已创建索引 (6个)
-✅ `course_unit_subject` - CourseUnit.subject  
-✅ `course_unit_grade` - CourseUnit.grade_level  
-✅ `tutorial_id` - Tutorial.id  
-✅ `hardware_project_difficulty` - HardwareProject.difficulty_level  
-✅ `knowledge_point_id` - KnowledgePoint.id  
-✅ `course_unit_created` - CourseUnit.created_at  
+### 已创建索引 (通过 Prisma @@index)
+- ✅ `tutorial.subject`, `tutorial.grade_level`, `tutorial.difficulty_level`
+- ✅ `courseware.subject`, `courseware.type`, `courseware.grade_level`
+- ✅ `hardware_project.category`, `hardware_project.difficulty_level`, `hardware_project.subject`
+- ✅ `concept.legacy_neo4j_id` (兼容历史数据)
+- ✅ `concept_dependency` 复合索引
+- ✅ `concept_path` 复合索引
 
 ---
 
@@ -161,49 +165,50 @@ Result: ✅ total: 14
 ## 🎯 下一步建议
 
 ### 短期 (1-2周)
-1. ✅ ~~创建Neo4j索引~~ **已完成**
-2. ✅ ~~优化推荐API查询~~ **已完成**
-3. 添加更多Tutorial和Courseware测试数据
+1. ✅ ~~创建 Neo4j 索引~~ **已迁移至 Prisma @@index**
+2. ✅ ~~优化推荐 API 查询~~ **已迁移至 Prisma + Courseware 关联**
+3. 添加更多 Tutorial 和 Courseware 测试数据
 4. 实现用户认证(JWT)保护写操作
 
 ### 中期 (1个月)
-5. 添加Redis缓存层提升性能
+5. 添加 Redis 缓存层提升性能
 6. 实现更智能的推荐算法(协同过滤)
-7. 添加API速率限制
+7. 添加 API 速率限制
 8. 完善错误处理和日志记录
 
 ### 长期 (3个月)
-9. 集成到iMato前端应用
-10. 添加学习进度追踪API
-11. 实现AI辅助内容生成
-12. 部署到生产环境(Vercel + Neo4j Aura)
+9. 集成到 iMato 前端应用
+10. 添加学习进度追踪 API
+11. 实现 AI 辅助内容生成
+12. 部署到生产环境 (Vercel + Neon PostgreSQL)
 
 ---
 
-## 📝 技术栈
+## 📝 当前技术栈 (2026-06-18 更新)
 
 - **后端框架**: Next.js 16.2.4 (Turbopack)
-- **数据库**: Neo4j Aura (云端图数据库)
+- **数据库**: PostgreSQL (Neon 云端)
+- **ORM**: Prisma Client
+- **闭包表**: concept_path 递归 CTE (替代 Neo4j)
 - **语言**: TypeScript
-- **驱动**: neo4j-driver 6.0.1
 - **端口**: 3000
 
 ---
 
 ## ✨ 总结
 
-OpenMTSciEd API开发已全部完成并通过测试:
+OpenMTSciEd API 在 2026-06-18 完成 Neo4j → PostgreSQL 全面迁移:
 
-✅ **8个核心端点**全部正常工作  
-✅ **Neo4j连接**稳定可靠  
-✅ **6个索引**已创建优化查询性能  
-✅ **整数类型问题**已全面修复  
-✅ **推荐API**已优化,响应时间提升97%  
+✅ **8个核心端点**全部迁移至 Prisma  
+✅ **闭包表架构**替代图数据库 (递归 CTE)  
+✅ **类型安全** Prisma 编译时校验,无整数类型问题  
+✅ **推荐 API** 已优化,响应时间稳定 < 1s  
+✅ **教程 / 课件 / 硬件项目** CRUD 全部使用 Prisma  
 
-**系统已就绪,可以开始前端集成!**
+**系统已就绪,可开始前端集成!**
 
 ---
 
-**报告生成时间**: 2026-05-13  
-**API版本**: v1.0.0  
-**测试环境**: Windows 22H2, Node.js, Neo4j Aura
+**报告更新时间**: 2026-06-18  
+**API版本**: v1.1.0  
+**测试环境**: Windows 22H2, Node.js, Neon PostgreSQL

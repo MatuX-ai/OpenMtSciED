@@ -1,5 +1,7 @@
 # OpenMTSciEd API 快速启动指南
 
+> **状态**: 2026-06-18 更新 (Neo4j → PostgreSQL/Prisma 迁移完成)
+
 ## 🚀 5分钟快速开始
 
 ### 1. 检查环境准备
@@ -7,28 +9,31 @@
 确保已安装:
 - Node.js 18+ 
 - npm 或 yarn
-- Neo4j 数据库(本地或云端)
+- PostgreSQL 数据库(本地或云端，推荐 Neon)
 
 ### 2. 配置环境变量
 
 编辑 `G:\OpenMTSciEd\backend-next\.env.local`:
 
 ```env
-# Neo4j 图数据库配置(必须)
-NEO4J_URI="bolt+s://your-instance.databases.neo4j.io"
-NEO4J_USERNAME="neo4j"
-NEO4J_PASSWORD="your_actual_password"  # ⚠️ 修改为你的实际密码
+# PostgreSQL 数据库配置 (必须)
+DATABASE_URL="postgresql://user:password@host/db?sslmode=require"
+
+# JWT 认证配置
+JWT_SECRET="your_jwt_secret_here"
 ```
 
-**获取 Neo4j 凭证**:
-- 如果使用 Neo4j Aura(云端): 登录 https://console.neo4j.io/ 获取连接信息
-- 如果使用本地 Neo4j: 默认 URI 为 `bolt://localhost:7687`,密码为你设置的密码
+**获取 PostgreSQL 连接串**:
+- 如果使用 Neon (推荐): 登录 https://console.neon.tech/ 创建项目,复制 Connection String
+- 如果使用本地 PostgreSQL: 格式为 `postgresql://user:password@localhost:5432/dbname`
 
-### 3. 安装依赖
+### 3. 安装依赖 + 同步数据库
 
 ```powershell
 cd G:\OpenMTSciEd\backend-next
 npm install
+npx prisma generate
+npx prisma db push
 ```
 
 ### 4. 启动开发服务器
@@ -126,14 +131,14 @@ Invoke-RestMethod -Uri "http://localhost:3000/api/v1/knowledge-graph/path" `
 
 ## 🔍 故障排查
 
-### 问题1: Neo4j 连接失败
+### 问题1: PostgreSQL 连接失败
 
-**错误信息**: `Neo4j connection verification failed`
+**错误信息**: `P1001: Can't reach database server`
 
 **解决方案**:
-1. 检查 `.env.local` 中的 NEO4J_URI、USERNAME、PASSWORD 是否正确
-2. 确认 Neo4j 服务正在运行
-3. 测试网络连接: `telnet your-instance.databases.neo4j.io 7687`
+1. 检查 `.env.local` 中的 `DATABASE_URL` 是否正确
+2. 确认 PostgreSQL 服务正在运行
+3. 验证网络连接 (Neon 需要 SSL)
 
 ### 问题2: 端口3000已被占用
 
@@ -177,7 +182,7 @@ npm install
 ## 📚 下一步
 
 1. **查看完整文档**: 阅读 `API_DOCUMENTATION.md` 了解所有API端点
-2. **填充测试数据**: 在 Neo4j 中创建一些 Tutorial、Courseware 节点用于测试
+2. **填充测试数据**: 在 PostgreSQL 中创建一些 Tutorial、Courseware 记录用于测试
 3. **集成前端**: 将API集成到 iMato 或其他前端应用
 4. **部署生产**: 参考 `VERCEL_DEPLOYMENT.md` 进行部署
 
@@ -193,7 +198,8 @@ npm install
 如遇问题:
 1. 检查 `API_DEVELOPMENT_COMPLETE.md` 了解实现细节
 2. 查看终端输出的错误信息
-3. 查阅 Neo4j 官方文档: https://neo4j.com/docs/
+3. 查阅 Prisma 官方文档: https://www.prisma.io/docs/
+4. 查阅 PostgreSQL 官方文档: https://www.postgresql.org/docs/
 
 ---
 

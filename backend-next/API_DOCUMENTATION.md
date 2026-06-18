@@ -2,7 +2,7 @@
 
 ## 概述
 
-OpenMTSciEd API 是基于 Next.js 和 Neo4j 图数据库构建的教育平台后端服务,提供教程管理、课件管理、学习路径生成和资源推荐等功能。
+OpenMTSciEd API 是基于 Next.js 和 PostgreSQL (Prisma) 构建的教育平台后端服务,提供教程管理、课件管理、学习路径生成和资源推荐等功能。
 
 **基础URL**: `http://localhost:3000/api`
 
@@ -471,12 +471,11 @@ cd G:\OpenMTSciEd\backend-next
 
 ## 环境变量配置
 
-确保 `.env.local` 文件中配置了正确的Neo4j连接信息:
+确保 `.env.local` 文件中配置了正确的 PostgreSQL 连接信息:
 
 ```env
-NEO4J_URI="bolt+s://instance.databases.neo4j.io"
-NEO4J_USERNAME="neo4j"
-NEO4J_PASSWORD="your_actual_password"
+DATABASE_URL="postgresql://user:password@host/db?sslmode=require"
+JWT_SECRET="your_jwt_secret"
 ```
 
 ---

@@ -15,7 +15,7 @@ http://localhost:3000/developer
 - 快速开始指南
 
 ### 2. 教程浏览
-- 实时从Neo4j加载教程列表
+- 实时从 PostgreSQL (Prisma) 加载教程列表
 - 按学科、年级筛选
 - 显示难度和时长信息
 
@@ -86,7 +86,7 @@ npm run dev
 
 ## 📊 数据来源
 
-所有数据来自Neo4j图数据库:
+所有数据来自 PostgreSQL (Prisma):
 - 教程: `/api/v1/tutorials`
 - 硬件项目: `/api/v1/hardware-projects`
 - 课件: `/api/v1/coursewares`
@@ -177,9 +177,9 @@ curl http://localhost:3000/api/health
 
 ### 问题: 数据加载失败
 **解决**: 
-1. 检查Neo4j连接
+1. 检查 PostgreSQL 连接 (DATABASE_URL)
 2. 查看浏览器控制台错误
-3. 确认API端点可访问
+3. 确认 API 端点可访问
 
 ### 问题: 样式异常
 **解决**: 
