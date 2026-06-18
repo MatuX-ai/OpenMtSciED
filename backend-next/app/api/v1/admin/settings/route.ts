@@ -19,7 +19,6 @@ export async function GET() {
     } else {
       // 从环境变量获取默认配置
       const databaseUrl = process.env.DATABASE_URL || '';
-      const neo4jUri = process.env.NEO4J_URI || 'neo4j+s://4abd5ef9.databases.neo4j.io';
       
       settings = {
         ai_service: {
@@ -34,10 +33,7 @@ export async function GET() {
           neon_port: 5432,
           neon_name: 'neondb',
           neon_user: 'neondb_owner',
-          neon_password: '',
-          neo4j_uri: neo4jUri,
-          neo4j_username: process.env.NEO4J_USERNAME || '4abd5ef9',
-          neo4j_password: ''
+          neon_password: ''
         },
         storage: {
           type: 'local',

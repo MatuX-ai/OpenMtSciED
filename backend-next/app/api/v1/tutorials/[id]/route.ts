@@ -1,51 +1,30 @@
 import { NextResponse } from 'next/server';
-import { getDriver } from '@/lib/neo4j';
+import prisma from '@/lib/db';
 
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const driver = getDriver();
-  const session = driver.session();
 
   try {
-    const query = `
-      MATCH (t:Tutorial {id: $id})
-      OPTIONAL MATCH (t)-[:CONTAINS]->(c:Content)
-      RETURN t, collect(c) as contents
-    `;
+    const tutorial = await prisma.tutorial.findUnique({ where: { id } });
 
-    const result = await session.run(query, { id });
-
-    if (result.records.length === 0) {
-      return NextResponse.json(
-        { error: 'Tutorial not found' },
-        { status: 404 }
-      );
+    if (!tutorial) {
+      return NextResponse.json({ error: 'Tutorial not found' }, { status: 404 });
     }
 
-    const record = result.records[0];
-    const tutorial = record.get('t');
-    const contents = record.get('contents');
-
     return NextResponse.json({
-      id: tutorial.properties.id,
-      title: tutorial.properties.title,
-      description: tutorial.properties.description,
-      grade_level: tutorial.properties.grade_level,
-      subject: tutorial.properties.subject,
-      duration_minutes: tutorial.properties.duration_minutes,
-      difficulty_level: tutorial.properties.difficulty_level,
-      content: tutorial.properties.content,
-      created_at: tutorial.properties.created_at,
-      updated_at: tutorial.properties.updated_at,
-      contents: contents.map((c: { properties: Record<string, unknown> }) => ({
-        id: c.properties.id,
-        type: c.properties.type,
-        title: c.properties.title,
-        url: c.properties.url,
-      })),
+      id: tutorial.id,
+      title: tutorial.title,
+      description: tutorial.description,
+      grade_level: tutorial.gradeLevel,
+      subject: tutorial.subject,
+      duration_minutes: tutorial.durationMinutes,
+      difficulty_level: tutorial.difficultyLevel,
+      content: tutorial.content,
+      created_at: tutorial.createdAt.toISOString(),
+      updated_at: tutorial.updatedAt.toISOString(),
     });
   } catch (error) {
     console.error('Error fetching tutorial:', error);
@@ -53,8 +32,6 @@ export async function GET(
       { error: 'Failed to fetch tutorial', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
-  } finally {
-    await session.close();
   }
 }
 
@@ -63,7 +40,7 @@ export async function PUT(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  
+
   try {
     const body = await request.json();
     const {
@@ -73,54 +50,32 @@ export async function PUT(
       subject,
       duration_minutes,
       difficulty_level,
-      content
+      content,
     } = body;
 
-    const driver = getDriver();
-    const session = driver.session();
-
-    try {
-      const query = `
-        MATCH (t:Tutorial {id: $id})
-        SET t.title = COALESCE($title, t.title),
-            t.description = COALESCE($description, t.description),
-            t.grade_level = COALESCE($grade_level, t.grade_level),
-            t.subject = COALESCE($subject, t.subject),
-            t.duration_minutes = COALESCE($duration_minutes, t.duration_minutes),
-            t.difficulty_level = COALESCE($difficulty_level, t.difficulty_level),
-            t.content = COALESCE($content, t.content),
-            t.updated_at = datetime()
-        RETURN t
-      `;
-
-      const result = await session.run(query, {
-        id,
-        title,
-        description,
-        grade_level,
-        subject,
-        duration_minutes,
-        difficulty_level,
-        content
-      });
-
-      if (result.records.length === 0) {
-        return NextResponse.json(
-          { error: 'Tutorial not found' },
-          { status: 404 }
-        );
-      }
-
-      const tutorial = result.records[0].get('t');
-      
-      return NextResponse.json({
-        id: tutorial.properties.id,
-        title: tutorial.properties.title,
-        message: 'Tutorial updated successfully'
-      });
-    } finally {
-      await session.close();
+    const existing = await prisma.tutorial.findUnique({ where: { id } });
+    if (!existing) {
+      return NextResponse.json({ error: 'Tutorial not found' }, { status: 404 });
     }
+
+    const updated = await prisma.tutorial.update({
+      where: { id },
+      data: {
+        ...(title !== undefined ? { title } : {}),
+        ...(description !== undefined ? { description } : {}),
+        ...(grade_level !== undefined ? { gradeLevel: grade_level } : {}),
+        ...(subject !== undefined ? { subject } : {}),
+        ...(duration_minutes !== undefined ? { durationMinutes: duration_minutes } : {}),
+        ...(difficulty_level !== undefined ? { difficultyLevel: difficulty_level } : {}),
+        ...(content !== undefined ? { content } : {}),
+      },
+    });
+
+    return NextResponse.json({
+      id: updated.id,
+      title: updated.title,
+      message: 'Tutorial updated successfully',
+    });
   } catch (error) {
     console.error('Error updating tutorial:', error);
     return NextResponse.json(
@@ -135,29 +90,18 @@ export async function DELETE(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const driver = getDriver();
-  const session = driver.session();
 
   try {
-    const query = `
-      MATCH (t:Tutorial {id: $id})
-      DETACH DELETE t
-      RETURN count(t) as deleted
-    `;
-
-    const result = await session.run(query, { id });
-    const deleted = result.records[0].get('deleted').toNumber();
-
-    if (deleted === 0) {
-      return NextResponse.json(
-        { error: 'Tutorial not found' },
-        { status: 404 }
-      );
+    const existing = await prisma.tutorial.findUnique({ where: { id } });
+    if (!existing) {
+      return NextResponse.json({ error: 'Tutorial not found' }, { status: 404 });
     }
+
+    await prisma.tutorial.delete({ where: { id } });
 
     return NextResponse.json({
       message: 'Tutorial deleted successfully',
-      id
+      id,
     });
   } catch (error) {
     console.error('Error deleting tutorial:', error);
@@ -165,7 +109,5 @@ export async function DELETE(
       { error: 'Failed to delete tutorial', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
-  } finally {
-    await session.close();
   }
 }

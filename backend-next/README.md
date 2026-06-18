@@ -5,8 +5,8 @@
 ### ✅ 已完成
 - [x] Next.js 项目初始化
 - [x] 项目目录结构创建
-- [x] Prisma 数据库模型定义（7个模型）
-- [x] 核心库文件（db.ts, neo4j.ts, auth.ts）
+- [x] Prisma 数据库模型定义（10个模型）
+- [x] 核心库文件（db.ts, concept-path.ts, auth.ts）
 - [x] 健康检查 API
 - [x] 环境变量配置
 - [x] **Markdown 导出 API** ✨ 新增
@@ -85,14 +85,14 @@ backend-next/
 │   └── page.tsx
 ├── lib/
 │   ├── db.ts                        # PostgreSQL (Prisma)
-│   ├── neo4j.ts                     # Neo4j 图数据库
+│   ├── concept-path.ts              # 闭包表查询服务
 │   └── auth.ts                      # JWT 认证
 ├── scripts/                         # 工具脚本 ✨
 │   ├── check-db-tables.ts           # 数据库表检查
 │   ├── verify-schema.ts             # Schema 验证
 │   └── test-khan-crawler.ts         # 爬虫测试
 ├── prisma/
-│   └── schema.prisma                # 数据库模型（7个）
+│   └── schema.prisma                # 数据库模型（10个）
 ├── data/                            # 数据文件
 │   └── course_library/              # 课程数据
 └── package.json
@@ -103,7 +103,7 @@ backend-next/
 - **框架**: Next.js 14 (App Router)
 - **语言**: TypeScript
 - **数据库**: PostgreSQL (Prisma ORM) - Neon 云数据库
-- **图数据库**: Neo4j
+- **闭包表**: concept_path 递归 CTE 查询（替代 Neo4j 图数据库，已完全迁移）
 - **认证**: JWT + bcrypt
 - **定时任务**: cron
 - **部署**: Vercel（原生支持）

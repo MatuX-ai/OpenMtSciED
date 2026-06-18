@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 
 const SECRET_KEY = process.env.SECRET_KEY || 'your-super-secret-key-change-this';
+const IMATO_SHARED_SECRET = process.env.IMATO_SHARED_SECRET || 'your-imato-shared-secret-change-this';
 const ACCESS_TOKEN_EXPIRE_MINUTES = parseInt(process.env.ACCESS_TOKEN_EXPIRE_MINUTES || '10080');
 
 export interface TokenPayload {
@@ -43,6 +44,27 @@ export function verifyToken(token: string): TokenPayload | null {
   } catch {
     return null;
   }
+}
+
+/**
+ * 验证 iMato 共享密钥签发的 Token
+ * 用于 iMato 平台与 OpenMTSciEd 之间的跨系统认证
+ */
+export function verifyImatoToken(token: string): TokenPayload & { imatuUserId?: string } | null {
+  try {
+    return jwt.verify(token, IMATO_SHARED_SECRET) as TokenPayload & { imatuUserId?: string };
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * 使用 iMato 共享密钥签发 Token
+ */
+export function generateImatoToken(payload: TokenPayload & { imatuUserId?: string }): string {
+  return jwt.sign(payload, IMATO_SHARED_SECRET, {
+    expiresIn: `${ACCESS_TOKEN_EXPIRE_MINUTES}m`,
+  });
 }
 
 /**

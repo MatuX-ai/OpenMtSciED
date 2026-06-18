@@ -1,86 +1,47 @@
 import { NextResponse } from 'next/server';
-import { getDriver } from '@/lib/neo4j';
-import neo4j, { Integer } from 'neo4j-driver';
+import prisma from '@/lib/db';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const page = Math.floor(parseInt(searchParams.get('page') || '1'));
-  const size = Math.floor(parseInt(searchParams.get('size') || '20'));
+  const page = Math.max(1, Math.floor(parseInt(searchParams.get('page') || '1')));
+  const size = Math.max(1, Math.floor(parseInt(searchParams.get('size') || '20')));
   const subject = searchParams.get('subject');
   const gradeLevel = searchParams.get('grade_level');
 
-  const driver = getDriver();
-  const session = driver.session();
-
   try {
-    let whereClause = '';
-    const params: Record<string, string | number | Integer> = { 
-      skip: neo4j.int(Math.floor((page - 1) * size)), 
-      limit: neo4j.int(Math.floor(size))
-    };
+    const where: Record<string, unknown> = {};
+    if (subject) where.subject = subject;
+    if (gradeLevel) where.gradeLevel = gradeLevel;
 
-    if (subject) {
-      whereClause += whereClause ? ' AND t.subject = $subject' : ' WHERE t.subject = $subject';
-      params.subject = subject;
-    }
+    const [items, total] = await Promise.all([
+      prisma.tutorial.findMany({
+        where,
+        orderBy: { createdAt: 'desc' },
+        skip: (page - 1) * size,
+        take: size,
+      }),
+      prisma.tutorial.count({ where }),
+    ]);
 
-    if (gradeLevel) {
-      whereClause += whereClause ? ' AND t.grade_level = $gradeLevel' : ' WHERE t.grade_level = $gradeLevel';
-      params.gradeLevel = gradeLevel;
-    }
-
-    // 获取总数
-    const countQuery = `
-      MATCH (t:Tutorial)
-      ${whereClause}
-      RETURN count(t) as total
-    `;
-
-    console.log('Params:', params);
-    console.log('Param types:', { skip: typeof params.skip, limit: typeof params.limit });
-    console.log('Param values:', { skip: params.skip, limit: params.limit });
-
-    const countResult = await session.run(countQuery, params);
-    const total = countResult.records[0].get('total').toNumber();
-
-    // 获取教程列表
-    const query = `
-      MATCH (t:Tutorial)
-      ${whereClause}
-      RETURN t
-      ORDER BY t.created_at DESC
-      SKIP $skip LIMIT $limit
-    `;
-
-    const result = await session.run(query, params);
-    const tutorials = result.records.map(record => {
-      const node = record.get('t');
-      const title = node.properties.title;
-      console.log('Tutorial title:', title, 'Type:', typeof title);
-      return {
-        id: node.properties.id,
-        title: title,
-        description: node.properties.description,
-        grade_level: node.properties.grade_level,
-        subject: node.properties.subject,
-        duration_minutes: node.properties.duration_minutes,
-        difficulty_level: node.properties.difficulty_level,
-        created_at: node.properties.created_at,
-      };
-    });
-
-    console.log('First tutorial:', tutorials[0]);
+    const tutorials = items.map((t) => ({
+      id: t.id,
+      title: t.title,
+      description: t.description,
+      grade_level: t.gradeLevel,
+      subject: t.subject,
+      duration_minutes: t.durationMinutes,
+      difficulty_level: t.difficultyLevel,
+      created_at: t.createdAt.toISOString(),
+    }));
 
     return NextResponse.json({
       items: tutorials,
       total,
       page,
       size,
-      total_pages: Math.ceil(total / size)
+      total_pages: Math.ceil(total / size),
     }, {
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8'
-      }
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
     });
   } catch (error) {
     console.error('Error fetching tutorials:', error);
@@ -88,8 +49,6 @@ export async function GET(request: Request) {
       { error: 'Failed to fetch tutorials', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
-  } finally {
-    await session.close();
   }
 }
 
@@ -104,57 +63,34 @@ export async function POST(request: Request) {
       subject,
       duration_minutes,
       difficulty_level,
-      content
+      content,
     } = body;
 
-    if (!id || !title || !grade_level || !subject) {
+    if (!title || !subject) {
       return NextResponse.json(
-        { error: 'Missing required fields: id, title, grade_level, subject' },
+        { error: 'Missing required fields: title, subject' },
         { status: 400 }
       );
     }
 
-    const driver = getDriver();
-    const session = driver.session();
-
-    try {
-      const query = `
-        CREATE (t:Tutorial {
-          id: $id,
-          title: $title,
-          description: $description,
-          grade_level: $grade_level,
-          subject: $subject,
-          duration_minutes: $duration_minutes,
-          difficulty_level: $difficulty_level,
-          content: $content,
-          created_at: datetime(),
-          updated_at: datetime()
-        })
-        RETURN t
-      `;
-
-      const result = await session.run(query, {
-        id,
+    const tutorial = await prisma.tutorial.create({
+      data: {
+        ...(id ? { id } : {}),
         title,
         description: description || '',
-        grade_level,
+        gradeLevel: grade_level,
         subject,
-        duration_minutes: duration_minutes || 60,
-        difficulty_level: difficulty_level || 'beginner',
-        content: content || ''
-      });
+        durationMinutes: duration_minutes || 60,
+        difficultyLevel: difficulty_level || 'beginner',
+        content: content || '',
+      },
+    });
 
-      const tutorial = result.records[0].get('t');
-      
-      return NextResponse.json({
-        id: tutorial.properties.id,
-        title: tutorial.properties.title,
-        message: 'Tutorial created successfully'
-      }, { status: 201 });
-    } finally {
-      await session.close();
-    }
+    return NextResponse.json({
+      id: tutorial.id,
+      title: tutorial.title,
+      message: 'Tutorial created successfully',
+    }, { status: 201 });
   } catch (error) {
     console.error('Error creating tutorial:', error);
     return NextResponse.json(

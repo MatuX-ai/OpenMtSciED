@@ -1,11 +1,21 @@
+/**
+ * @deprecated 此端点将在后续版本废弃。
+ * 学习路径依赖查询已迁移至 PostgreSQL 闭包表:
+ *   - GET /api/v1/learning-path/prerequisites/:conceptId  (前置依赖)
+ *   - GET /api/v1/learning-path/successors/:conceptId    (后续可学)
+ *   - GET /api/v1/learning-path/route                     (完整路径)
+ *
+ * 当前保留此端点以兼容前端，使用 PostgreSQL 闭包表查询。
+ */
+
 import { NextResponse } from 'next/server';
-import { getDriver } from '@/lib/neo4j';
+import prisma from '@/lib/db';
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { user_id, current_grade, subjects } = body;
-    
+
     if (!user_id || !current_grade || !subjects || !Array.isArray(subjects) || subjects.length === 0) {
       return NextResponse.json(
         { error: 'Missing required fields: user_id, current_grade, subjects (array)' },
@@ -13,86 +23,66 @@ export async function POST(request: Request) {
       );
     }
 
-    const driver = getDriver();
-    const session = driver.session();
-    
+    // PostgreSQL 闭包表查询
     try {
-      // 构建Cypher查询来生成学习路径
-      // 这里我们查找指定科目和年级的教程，并考虑先修关系
-      const query = `
-        MATCH (start:Tutorial)
-        WHERE start.grade_level = $grade 
-          AND start.subject IN $subjects
-          AND NOT (start)<-[:PROGRESSES_TO]-() // 确保是路径起点，没有前置依赖
-        OPTIONAL MATCH path = (start)-[:PROGRESSES_TO*1..8]->(end)
-        WHERE ALL(node IN nodes(path) WHERE node.difficulty_level <= $maxDifficulty)
-        WITH path, length(path) as pathLength
-        ORDER BY pathLength ASC
-        LIMIT 1
-        UNWIND nodes(path) as node
-        RETURN node ORDER BY node.order_index
+      const { Prisma } = await import('@prisma/client');
+      const subjectFilter = subjects.length > 0
+        ? `AND c.name ILIKE '%${subjects.map((s: string) => s.replace(/'/g, "''")).join("%' OR c.name ILIKE '%")}%'`
+        : '';
+
+      const closureResult = await prisma.$queryRaw<Array<{
+        id: number;
+        name: string;
+        description: string | null;
+        depth: number;
+      }>>`
+        SELECT c.id, c.name, c.description, cp.depth
+        FROM concept_path cp
+        JOIN concept c ON cp.ancestor_id = c.id
+        WHERE cp.path_type = 'required'
+          AND cp.depth > 0
+          ${Prisma.raw(subjectFilter)}
+        ORDER BY cp.depth DESC
+        LIMIT 10
       `;
-      
-      // 设置最大难度级别为高级
-      const maxDifficulty = 'advanced';
-      
-      const result = await session.run(query, { 
-        grade: current_grade, 
-        subjects,
-        maxDifficulty 
-      });
-      
-      if (result.records.length === 0) {
-        // 如果没有找到路径，则返回从基础开始的路径
-        const fallbackQuery = `
-          MATCH (t:Tutorial)
-          WHERE t.grade_level = $grade AND t.subject IN $subjects
-          RETURN t ORDER BY t.difficulty_level, t.created_at
-          LIMIT 10
-        `;
-        
-        const fallbackResult = await session.run(fallbackQuery, { grade: current_grade, subjects });
-        
-        const tutorials = fallbackResult.records.map((record, index) => ({
+
+      if (closureResult.length > 0) {
+        const nodes = closureResult.map((row, index) => ({
           id: `node_${index}`,
-          type: 'tutorial',
-          resource_id: record.get('t').properties.id,
-          title: record.get('t').properties.title,
+          type: 'concept',
+          resource_id: String(row.id),
+          title: row.name,
           prerequisites: index > 0 ? [`node_${index - 1}`] : [],
-          next_steps: index < fallbackResult.records.length - 1 ? [`node_${index + 1}`] : [],
-          estimated_time_minutes: record.get('t').properties.duration_minutes || 45
+          next_steps: index < closureResult.length - 1 ? [`node_${index + 1}`] : [],
+          estimated_time_minutes: 45,
+          difficulty_level: row.depth > 3 ? 'advanced' : row.depth > 1 ? 'intermediate' : 'beginner',
         }));
-        
+
         return NextResponse.json({
           path_id: `path_${user_id}_${Date.now()}`,
-          nodes: tutorials,
-          estimated_duration_hours: tutorials.reduce((sum, node) => sum + (node.estimated_time_minutes / 60), 0),
-          difficulty_progression: 'linear',
-          message: 'Generated basic learning path as no prerequisite-based path was found'
+          nodes,
+          estimated_duration_hours: nodes.reduce((sum: number, node: { estimated_time_minutes: number }) => sum + node.estimated_time_minutes / 60, 0),
+          difficulty_progression: 'adaptive',
+          message: 'Learning path generated from PostgreSQL closure table',
+          source: 'postgresql_closure',
         });
       }
-      
-      // 处理找到的路径
-      const nodes = result.records.map((record, index) => ({
-        id: `node_${index}`,
-        type: 'tutorial',
-        resource_id: record.get('node').properties.id,
-        title: record.get('node').properties.title,
-        prerequisites: index > 0 ? [`node_${index - 1}`] : [],
-        next_steps: index < result.records.length - 1 ? [`node_${index + 1}`] : [],
-        estimated_time_minutes: record.get('node').properties.duration_minutes || 45,
-        difficulty_level: record.get('node').properties.difficulty_level
-      }));
 
+      // 闭包表无数据时返回空路径
       return NextResponse.json({
         path_id: `path_${user_id}_${Date.now()}`,
-        nodes,
-        estimated_duration_hours: nodes.reduce((sum, node) => sum + (node.estimated_time_minutes / 60), 0),
+        nodes: [],
+        estimated_duration_hours: 0,
         difficulty_progression: 'adaptive',
-        message: 'Learning path generated successfully based on prerequisite relationships'
+        message: 'No learning path data available for the specified subjects',
+        source: 'postgresql_closure',
       });
-    } finally {
-      await session.close();
+    } catch (pgError) {
+      console.error('[knowledge-graph/path] 闭包表查询失败:', pgError);
+      return NextResponse.json(
+        { error: 'Failed to query learning path from database', details: pgError instanceof Error ? pgError.message : 'Unknown error' },
+        { status: 500 }
+      );
     }
   } catch (error) {
     console.error('Error generating learning path:', error);
@@ -103,41 +93,27 @@ export async function POST(request: Request) {
   }
 }
 
-// 添加一个辅助端点用于获取用户的学习进度
+// 辅助端点：获取用户的学习进度
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const userId = searchParams.get('user_id');
-  
+
   if (!userId) {
     return NextResponse.json(
       { error: 'Missing user_id parameter' },
       { status: 400 }
     );
   }
-  
-  const driver = getDriver();
-  const session = driver.session();
-  
+
   try {
-    // 查询用户已完成的教程
-    const query = `
-      MATCH (u:User {id: $userId})-[r:COMPLETED]->(t:Tutorial)
-      RETURN t, r.completion_date as completionDate
-      ORDER BY r.completion_date DESC
-    `;
-    
-    const result = await session.run(query, { userId });
-    
-    const completedTutorials = result.records.map(record => ({
-      tutorial_id: record.get('t').properties.id,
-      title: record.get('t').properties.title,
-      completion_date: record.get('completionDate')
-    }));
-    
+    // TODO: 接入用户学习进度表（user_progress）后替换此 stub
+    // 当前返回空进度数据，前端可安全处理
     return NextResponse.json({
       user_id: userId,
-      completed_tutorials: completedTutorials,
-      count: completedTutorials.length
+      completed_tutorials: [],
+      count: 0,
+      message: 'User progress tracking not yet available (pending user_progress table)',
+      source: 'postgresql_stub',
     });
   } catch (error) {
     console.error('Error fetching user progress:', error);
@@ -145,7 +121,5 @@ export async function GET(request: Request) {
       { error: 'Failed to fetch user progress', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
-  } finally {
-    await session.close();
   }
 }

@@ -269,7 +269,7 @@
 
     <section class="hero">
         <h1>🕸️ 知识图谱驱动</h1>
-        <p>基于 Neo4j 构建教程库与课件库的关联网络，打通 STEM 知识体系</p>
+        <p>基于 PostgreSQL 闭包表构建教程库与课件库的关联网络，打通 STEM 知识体系</p>
     </section>
 
     <div class="content">
@@ -277,7 +277,7 @@
 
         <div class="section">
             <h2>技术架构</h2>
-            <p>OpenMTSciEd 使用 Neo4j 图数据库存储和管理 STEM 知识点之间的复杂关系，实现跨学科、跨学段的知识关联。</p>
+            <p>OpenMTSciEd 使用 PostgreSQL 闭包表（Closure Table）存储和管理 STEM 知识点之间的复杂关系，实现跨学科、跨学段的知识关联。通过递归 CTE 查询，可在毫秒级完成任意深度的依赖路径计算。</p>
 
             <div class="feature-image">
                 <div class="diagram">
@@ -342,34 +342,31 @@
 
         <div class="section">
             <h2>代码示例</h2>
-            <h3>Cypher 查询 - 查找知识关联</h3>
+            <h3>SQL 递归 CTE - 查找前置依赖路径</h3>
             <div class="code-block">
                 <code>
-<span class="comment">// 查询"生态系统能量流动"关联的所有资源</span>
-<span class="keyword">MATCH</span> (unit:<span class="function">CourseUnit</span> {title: <span class="string">"生态系统能量流动"</span>})
-<span class="keyword">OPTIONAL MATCH</span> (unit)-[:<span class="function">LEADS_TO</span>]->(chapter:<span class="function">TextbookChapter</span>)
-<span class="keyword">OPTIONAL MATCH</span> (unit)-[:<span class="function">HAS_PROJECT</span>]->(project:<span class="function">HardwareProject</span>)
-<span class="keyword">RETURN</span> unit, chapter, project
+<span class="comment">-- 查询"生态系统能量流动"的所有前置依赖知识点</span>
+<span class="keyword">SELECT</span> c.id, c.name, cp.depth
+<span class="keyword">FROM</span> <span class="function">concept_path</span> cp
+<span class="keyword">JOIN</span> <span class="function">concept</span> c <span class="keyword">ON</span> cp.ancestor_id = c.id
+<span class="keyword">WHERE</span> cp.descendant_id = <span class="string">$target_concept_id</span>
+  <span class="keyword">AND</span> cp.path_type = <span class="string">'required'</span>
+  <span class="keyword">AND</span> cp.depth &gt; 0
+<span class="keyword">ORDER BY</span> cp.depth <span class="keyword">DESC</span>
                 </code>
             </div>
 
-            <h3>Python API 调用</h3>
+            <h3>TypeScript API 调用 (Prisma ORM)</h3>
             <div class="code-block">
                 <code>
-<span class="keyword">from</span> neo4j <span class="keyword">import</span> GraphDatabase
+<span class="keyword">import</span> { getPrerequisites, findRoute } <span class="keyword">from</span> <span class="string">'@/lib/concept-path'</span>;
 
-<span class="keyword">class</span> <span class="function">KnowledgeGraphService</span>:
-    <span class="keyword">def</span> <span class="function">__init__</span>(self, uri, user, password):
-        self.driver = GraphDatabase.driver(uri, auth=(user, password))
+<span class="comment">// 获取目标知识点的所有前置依赖</span>
+<span class="keyword">const</span> prereqs = <span class="keyword">await</span> <span class="function">getPrerequisites</span>(conceptId, <span class="string">'required'</span>);
 
-    <span class="keyword">def</span> <span class="function">get_related_resources</span>(self, unit_id):
-        <span class="keyword">with</span> self.driver.session() <span class="keyword">as</span> session:
-            result = session.run(<span class="string">"""
-                MATCH (unit:CourseUnit {id: $unit_id})
-                -[:LEADS_TO*1..3]->(resource)
-                RETURN resource
-            """</span>, unit_id=unit_id)
-            <span class="keyword">return</span> [record[<span class="string">"resource"</span>] <span class="keyword">for</span> record <span class="keyword">in</span> result]
+<span class="comment">// 查找从起点到终点的完整学习路径</span>
+<span class="keyword">const</span> route = <span class="keyword">await</span> <span class="function">findRoute</span>(fromId, toId, <span class="string">'required'</span>);
+<span class="comment">// route.concepts → [{ id: 3, name: '基础代数' }, ...]</span>
                 </code>
             </div>
         </div>
@@ -377,18 +374,18 @@
         <div class="section">
             <h2>技术栈</h2>
             <ul class="tech-list">
-                <li><strong>Neo4j 5.x</strong> - 图数据库存储</li>
-                <li><strong>Cypher</strong> - 图查询语言</li>
-                <li><strong>Python neo4j driver</strong> - 后端集成</li>
+                <li><strong>PostgreSQL 16</strong> - Neon 云数据库 + 闭包表存储</li>
+                <li><strong>递归 CTE</strong> - SQL 图遍历查询语言</li>
+                <li><strong>Prisma ORM</strong> - 后端 TypeScript 集成</li>
                 <li><strong>ECharts</strong> - 前端可视化</li>
-                <li><strong>APOC Plugin</strong> - 高级图算法</li>
+                <li><strong>闭包表算法</strong> - O(1) 可达性查询，O(d) 路径重建</li>
             </ul>
         </div>
 
         <div class="section">
             <h2>相关文档</h2>
             <ul class="tech-list">
-                <li><a href="docs/neo4j_schema_design.md" style="color: var(--primary-color);">Neo4j Schema 设计文档</a></li>
+                <li><a href="../../docs/requirements/08-learning-path-closure-table-migration.md" style="color: var(--primary-color);">闭包表迁移设计文档</a></li>
                 <li><a href="docs/DATA_ACQUISITION_GUIDE.md" style="color: var(--primary-color);">数据获取指南</a></li>
                 <li><a href="docs/ARCHITECTURE.md" style="color: var(--primary-color);">系统架构说明</a></li>
             </ul>

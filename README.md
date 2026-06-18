@@ -2,7 +2,7 @@
 
 [![API Status](https://img.shields.io/badge/API-v1.0.0-green)](http://localhost:3000/api/health)
 [![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
-[![Neo4j](https://img.shields.io/badge/Database-Neo4j_Aura-purple)](https://neo4j.com/cloud/)
+[![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-blue)](https://neon.tech/)
 [![Next.js](https://img.shields.io/badge/Framework-Next.js_16-black)](https://nextjs.org/)
 
 > **Open Science & Technology Education** - 为教育者、开发者和学习者提供开放的STEM教育资源
@@ -12,7 +12,7 @@
 ## 🌟 特性
 
 - 📚 **丰富资源**: 4,623+知识点, 2,225+课程单元, 15个学科覆盖
-- 🧠 **智能推荐**: 基于Neo4j知识图谱的个性化学习路径
+- 🧠 **智能推荐**: 基于PostgreSQL闭包表的个性化学习路径
 - 🔧 **实践项目**: Arduino、机器人等硬件项目
 - ⚡ **开放API**: RESTful API供第三方集成
 - 🎨 **现代UI**: 响应式设计,支持深色模式
@@ -97,10 +97,10 @@ curl http://localhost:3000/api/v1/hardware-projects?page=1&size=5
             │  Backend APIs   │
             │  Next.js :3000  │
             └────────┬────────┘
-                     │ Neo4j Driver
+                     │ Prisma ORM
             ┌────────▼────────┐
-            │  Neo4j Aura     │
-            │  Cloud Database │
+            │  PostgreSQL     │
+            │  Neon Cloud DB  │
             └─────────────────┘
 ```
 
@@ -221,8 +221,8 @@ useEffect(() => {
 ### 后端
 - **框架**: Next.js 16.2.4 (App Router) - 纯API服务
 - **语言**: TypeScript
-- **数据库**: Neo4j Aura + Prisma ORM
-- **驱动**: neo4j-driver 6.0.1
+- **数据库**: PostgreSQL (Neon) + Prisma ORM
+- **闭包表**: concept_path 递归 CTE 查询
 - **API**: RESTful JSON
 
 ### 前端
@@ -305,7 +305,8 @@ useEffect(() => {
 
 感谢以下开源项目:
 - [Next.js](https://nextjs.org/) - React框架
-- [Neo4j](https://neo4j.com/) - 图数据库
+- [PostgreSQL](https://www.postgresql.org/) - 关系型数据库
+- [Neon](https://neon.tech/) - 云数据库服务
 - [Angular](https://angular.io/) - 前端框架
 - [Tailwind CSS](https://tailwindcss.com/) - 实用CSS框架
 - [TypeScript](https://www.typescriptlang.org/) - 类型安全
@@ -316,7 +317,7 @@ useEffect(() => {
 
 ### ✅ Phase 1: 基础建设 (已完成)
 - [x] Next.js后端搭建
-- [x] Neo4j连接配置
+- [x] PostgreSQL闭包表迁移
 - [x] 核心API开发
 - [x] Website静态站点
 - [x] 开发者门户整合
@@ -359,7 +360,7 @@ useEffect(() => {
 - ✅ 8个核心API模块
 - ✅ 开发者门户上线
 - ✅ 前端集成指南完成
-- ✅ Neo4j索引优化
+- ✅ PostgreSQL闭包表优化
 - ✅ 完整文档体系
 
 ---
