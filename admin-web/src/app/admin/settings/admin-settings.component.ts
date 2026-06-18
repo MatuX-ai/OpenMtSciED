@@ -27,9 +27,7 @@ interface SystemSettings {
     neon_name: string;
     neon_user: string;
     neon_password?: string;
-    neo4j_uri: string;
-    neo4j_username: string;
-    neo4j_password?: string;
+    database_url: string;  // DATABASE_URL 单字段（只读展示 + 修改提示）
   };
   storage?: {
     type: string;
@@ -183,28 +181,21 @@ interface SystemSettings {
 
               <mat-card style="margin-top: 20px;">
                 <mat-card-header>
-                  <mat-card-title>Neo4j 图数据库</mat-card-title>
-                  <mat-card-subtitle>配置Neo4j Aura云数据库连接参数</mat-card-subtitle>
+                  <mat-card-title>PostgreSQL 闭包表连接</mat-card-title>
+                  <mat-card-subtitle>当前 Prisma 使用的 DATABASE_URL（修改需编辑 backend-next/.env.local 并重启服务）</mat-card-subtitle>
                 </mat-card-header>
                 <mat-card-content>
                   <div class="form-group">
                     <mat-form-field appearance="outline" class="full-width">
-                      <mat-label>URI</mat-label>
-                      <input matInput [(ngModel)]="database.neo4j_uri" placeholder="neo4j+s://4abd5ef9.databases.neo4j.io">
+                      <mat-label>DATABASE_URL</mat-label>
+                      <input matInput readonly [value]="database.database_url"
+                             placeholder="postgresql://user:password@host:5432/dbname">
                     </mat-form-field>
                   </div>
-
-                  <div class="form-row">
-                    <mat-form-field appearance="outline">
-                      <mat-label>用户名</mat-label>
-                      <input matInput [(ngModel)]="database.neo4j_username" placeholder="4abd5ef9">
-                    </mat-form-field>
-
-                    <mat-form-field appearance="outline">
-                      <mat-label>密码</mat-label>
-                      <input matInput type="password" [(ngModel)]="database.neo4j_password" placeholder="输入Neo4j密码">
-                    </mat-form-field>
-                  </div>
+                  <button mat-stroked-button color="primary" (click)="showDatabaseUrlHint()">
+                    <mat-icon>edit</mat-icon>
+                    修改
+                  </button>
                 </mat-card-content>
               </mat-card>
             </div>
@@ -348,9 +339,7 @@ export class AdminSettingsComponent implements OnInit {
       neon_name: 'neondb',
       neon_user: 'neondb_owner',
       neon_password: '',
-      neo4j_uri: 'neo4j+s://4abd5ef9.databases.neo4j.io',
-      neo4j_username: '4abd5ef9',
-      neo4j_password: ''
+      database_url: 'postgresql://neondb_owner:***@ep-raspy-shape-ao7ool7u-pooler.c-2.ap-southeast-1.aws.neon.tech:5432/neondb'
     },
     storage: {
       type: 'local',
@@ -398,5 +387,19 @@ export class AdminSettingsComponent implements OnInit {
     } finally {
       this.saving.set(false);
     }
+  }
+
+  /**
+   * 提示用户如何在后端修改 DATABASE_URL
+   *
+   * 注意：Prisma 默认读取 .env 而非 .env.local（已知 pitfall），
+   * 因此修改后必须重启 backend-next 服务才能生效。
+   */
+  showDatabaseUrlHint(): void {
+    this.snackBar.open(
+      '请在 backend-next/.env.local 中修改 DATABASE_URL 后重启服务（注意 Prisma 默认读取 .env）',
+      '关闭',
+      { duration: 5000 }
+    );
   }
 }

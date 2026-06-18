@@ -18,7 +18,7 @@ declare var echarts: any;
       <mat-card>
         <mat-card-header>
           <mat-card-title>知识图谱可视化与管理</mat-card-title>
-          <mat-card-subtitle>实时查看 Neo4j 中的教程、课件与硬件项目关联</mat-card-subtitle>
+          <mat-card-subtitle>实时查看 PostgreSQL 闭包表中的知识图谱</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
           <div class="toolbar">
