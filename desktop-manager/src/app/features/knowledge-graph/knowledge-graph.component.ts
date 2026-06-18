@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -7,6 +8,8 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { firstValueFrom } from 'rxjs';
+import { AuthService } from '../../services/auth.service';
 
 // 声明 ECharts
 declare var echarts: any;
@@ -306,21 +309,94 @@ export class KnowledgeGraphComponent implements OnInit, AfterViewInit {
   selectedPathIndex = 0;
   selectedLevelSpan: string = 'all';
   private chart: any = null;
+  private readonly apiUrl = 'http://localhost:3000/api/v1/learning/path';
 
-  constructor(private snackBar: MatSnackBar) {}
+  constructor(
+    private snackBar: MatSnackBar,
+    private http: HttpClient,
+    private authService: AuthService,
+  ) {}
 
   ngOnInit(): void {
+    // 先用 mock 数据保证 UI 立即可见，避免空白态
     this.learningPaths = this.getMockLearningPaths();
-    // TODO: 替换为真实 API 调用
-    // this.loadRealLearningPaths();
+    // 异步从 PostgreSQL 闭包表加载真实学习路径
+    this.loadRealLearningPaths();
   }
 
-  loadRealLearningPaths(): void {
-    // 模拟从后端获取数据
-    console.log('正在从 Neo4j 加载真实学习路径...');
-    // fetch('/api/learning/path?subject=Physics&grade_level=middle')
-    //   .then(res => res.json())
-    //   .then(data => { this.learningPaths = data; this.updateChart(); });
+  async loadRealLearningPaths(): Promise<void> {
+    console.log('正在从 PostgreSQL 闭包表加载真实学习路径...');
+    try {
+      const token = this.authService.getToken();
+      if (!token) {
+        console.warn('未登录，跳过远端学习路径加载，使用 mock 数据');
+        return;
+      }
+
+      const response = await firstValueFrom(
+        this.http.get<{
+          learning_path: Array<{
+            id: number;
+            title: string;
+            description: string | null;
+            subject: string;
+            grade: string;
+            difficulty: string;
+            depth: number;
+            hasPrerequisites: boolean;
+          }>;
+          total: number;
+          source: string;
+        }>(this.apiUrl, {
+          headers: new HttpHeaders({ Authorization: `Bearer ${token}` }),
+          params: { limit: '20' },
+        })
+      );
+
+      if (response?.learning_path?.length) {
+        this.learningPaths = response.learning_path.map((item) =>
+          this.mapToLearningPath(item)
+        );
+        this.updateChart();
+        console.log(
+          `✅ 成功从 ${response.source} 加载 ${response.learning_path.length} 条学习路径`
+        );
+      }
+    } catch (error: any) {
+      // 优雅降级：500/网络错误时保留 mock 数据 + 提示
+      console.warn(
+        'PostgreSQL 闭包表学习路径加载失败，已迁移至降级方案（保留 mock 数据）:',
+        error?.message || error
+      );
+      this.snackBar.open('路径生成中，已显示本地推荐路径', '关闭', { duration: 3000 });
+    }
+  }
+
+  private mapToLearningPath(item: {
+    id: number;
+    title: string;
+    description: string | null;
+    difficulty: string;
+    depth: number;
+  }): LearningPath {
+    const nodeId = `concept-${item.id}`;
+    return {
+      id: String(item.id),
+      name: item.title,
+      description: item.description ?? '基于闭包表生成的学习路径',
+      nodes: [
+        {
+          id: nodeId,
+          type: 'tutorial',
+          title: item.title,
+          source: 'PostgreSQL 闭包表',
+          level: 'middle',
+          subject: 'stem',
+          difficulty: item.depth,
+        },
+      ],
+      edges: [],
+    };
   }
 
   ngAfterViewInit(): void {
