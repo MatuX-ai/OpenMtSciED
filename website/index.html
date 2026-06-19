@@ -515,6 +515,434 @@
             text-decoration: underline;
         }
 
+        /* ===== STEM 搜索引擎组件样式 ===== */
+        .search-section {
+            margin: 2.5rem auto 0;
+            max-width: 720px;
+            width: 100%;
+        }
+
+        /* 资源统计卡片（营销展示） */
+        .resource-stats {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.8rem;
+            max-width: 720px;
+            margin: 2.5rem auto 0;
+            width: 100%;
+        }
+
+        .stat-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            border-radius: 14px;
+            padding: 1.2rem 0.8rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            border-radius: 3px 3px 0 0;
+            opacity: 0.8;
+        }
+
+        .stat-card[data-type="tutorial"]::before { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+        .stat-card[data-type="material"]::before { background: linear-gradient(90deg, #10b981, #34d399); }
+        .stat-card[data-type="hardware"]::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+        .stat-card[data-type="question"]::before { background: linear-gradient(90deg, #ef4444, #f87171); }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-card.active {
+            border-color: var(--primary-color);
+            background: rgba(99, 102, 241, 0.1);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+        }
+
+        .stat-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-card[data-type="tutorial"] .stat-number {
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .stat-card[data-type="material"] .stat-number {
+            background: linear-gradient(135deg, #10b981, #34d399);
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .stat-card[data-type="hardware"] .stat-number {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .stat-card[data-type="question"] .stat-number {
+            background: linear-gradient(135deg, #ef4444, #f87171);
+            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            margin-top: 0.2rem;
+            font-weight: 500;
+        }
+
+        .stat-total {
+            text-align: center;
+            margin-top: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .stat-total strong {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 600px) {
+            .resource-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .search-type-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .search-type-tab {
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            background: rgba(30, 41, 59, 0.6);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .search-type-tab:hover {
+            border-color: var(--primary-color);
+            color: var(--text-primary);
+            transform: translateY(-1px);
+        }
+
+        .search-type-tab.active {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: rgba(30, 41, 59, 0.8);
+            border: 2px solid rgba(99, 102, 241, 0.25);
+            border-radius: 16px;
+            padding: 0.3rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-box:focus-within {
+            border-color: var(--primary-color);
+            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.3), 0 0 20px rgba(99, 102, 241, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .search-box .search-icon {
+            padding: 0 0.8rem 0 1.2rem;
+            font-size: 1.2rem;
+            opacity: 0.6;
+            flex-shrink: 0;
+        }
+
+        .search-box input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--text-primary);
+            font-size: 1.05rem;
+            padding: 0.9rem 0.5rem;
+            font-family: inherit;
+        }
+
+        .search-box input::placeholder {
+            color: var(--text-secondary);
+            opacity: 0.7;
+        }
+
+        .search-box .search-submit-btn {
+            padding: 0.7rem 1.8rem;
+            border-radius: 12px;
+            border: none;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            font-family: inherit;
+        }
+
+        .search-box .search-submit-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .search-box .search-submit-btn:active {
+            transform: scale(0.97);
+        }
+
+        .hot-searches {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.55rem;
+            margin-top: 1rem;
+        }
+
+        .hot-search-label {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            padding: 0.3rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .hot-search-tag {
+            padding: 0.3rem 0.9rem;
+            border-radius: 14px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .hot-search-tag:hover {
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--text-primary);
+            border-color: var(--primary-color);
+            transform: translateY(-2px) scale(1.05);
+        }
+
+        .hot-search-tag .tag-icon {
+            margin-right: 0.2rem;
+        }
+
+        /* 搜索下拉结果面板 */
+        .search-results-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .search-results-dropdown {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            left: 0;
+            right: 0;
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 16px;
+            padding: 0.8rem 0;
+            max-height: 420px;
+            overflow-y: auto;
+            z-index: 100;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            display: none;
+        }
+
+        .search-results-dropdown.visible {
+            display: block;
+            animation: dropdownFadeIn 0.2s ease;
+        }
+
+        @keyframes dropdownFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .search-results-dropdown .result-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            padding: 0.7rem 1.2rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .search-results-dropdown .result-item:hover {
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .result-item .result-icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 0.15rem;
+        }
+
+        .result-item .result-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .result-item .result-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.15rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .result-item .result-meta {
+            display: flex;
+            gap: 0.6rem;
+            align-items: center;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .result-item .result-meta .type-badge {
+            padding: 0.1rem 0.5rem;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .type-badge.tutorial {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+        }
+
+        .type-badge.material {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+        }
+
+        .type-badge.hardware {
+            background: rgba(245, 158, 11, 0.15);
+            color: #fbbf24;
+        }
+
+        .type-badge.question {
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+        }
+
+        .result-item .result-desc {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            margin-top: 0.15rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.3;
+        }
+
+        .search-results-dropdown .result-empty {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .search-results-dropdown .result-loading {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: var(--text-secondary);
+        }
+
+        .search-results-dropdown .result-loading .spinner {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border: 3px solid rgba(99, 102, 241, 0.2);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .search-results-dropdown .result-more {
+            text-align: center;
+            padding: 0.6rem;
+            border-top: 1px solid rgba(99, 102, 241, 0.1);
+            color: var(--primary-color);
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-results-dropdown .result-more:hover {
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        /* 搜索滚动条 */
+        .search-results-dropdown::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .search-results-dropdown::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .search-results-dropdown::-webkit-scrollbar-thumb {
+            background: rgba(99, 102, 241, 0.3);
+            border-radius: 4px;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -749,8 +1177,29 @@
             </h1>
             <p>
                 全球共建"STEM 知识地图"，让资源匮乏地区的学生也能享受前沿教育<br>
-                教程库 × 课件库 × 硬件项目 = 连贯学习路径
+                教程库 × 课件库 × 试题库 × 硬件项目 = 连贯学习路径
             </p>
+
+            <!-- STEM 搜索引擎组件 -->
+            <div class="search-section" id="searchSection">
+                <div class="search-results-wrapper">
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="搜索STEM教程、课件、试题、硬件项目..."
+                            autocomplete="off"
+                        />
+                        <button class="search-submit-btn" id="searchSubmitBtn">搜索</button>
+                    </div>
+                    <div class="search-results-dropdown" id="searchResultsDropdown"></div>
+                </div>
+                <div class="hot-searches" id="hotSearches">
+                    <span class="hot-search-label">🔥 热门搜索</span>
+                </div>
+            </div>
+
             <div class="cta-buttons">
                 <a href="download.html" class="btn btn-primary">
                     💻 下载桌面端
@@ -758,6 +1207,38 @@
                 <a href="#features" class="btn btn-secondary">
                     📚 了解项目
                 </a>
+            </div>
+
+            <!-- 资源数据统计（营销展示） -->
+            <div class="resource-stats" id="resourceStats">
+                <div class="stat-card active" data-type="all" onclick="filterByType('all')">
+                    <span class="stat-icon">📊</span>
+                    <div class="stat-number" id="statTotal">0</div>
+                    <div class="stat-label">总资源量</div>
+                </div>
+                <div class="stat-card" data-type="tutorial" onclick="filterByType('tutorial')">
+                    <span class="stat-icon">📚</span>
+                    <div class="stat-number" id="statTutorials">0</div>
+                    <div class="stat-label">教程</div>
+                </div>
+                <div class="stat-card" data-type="material" onclick="filterByType('material')">
+                    <span class="stat-icon">📖</span>
+                    <div class="stat-number" id="statMaterials">0</div>
+                    <div class="stat-label">课件</div>
+                </div>
+                <div class="stat-card" data-type="hardware" onclick="filterByType('hardware')">
+                    <span class="stat-icon">🔧</span>
+                    <div class="stat-number" id="statHardware">0</div>
+                    <div class="stat-label">硬件项目</div>
+                </div>
+                <div class="stat-card" data-type="question" onclick="filterByType('question')">
+                    <span class="stat-icon">📝</span>
+                    <div class="stat-number" id="statQuestions">0</div>
+                    <div class="stat-label">试题</div>
+                </div>
+            </div>
+            <div class="stat-total" id="statTotalLine">
+                已收录 <strong id="statTotalInline">0</strong> 份 STEM 教育资源，持续更新中
             </div>
         </div>
     </section>
@@ -961,6 +1442,7 @@
         </p>
     </footer>
 
+    <script src="js/api-config.js"></script>
     <script>
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1035,11 +1517,280 @@
             }
         }
         
+        // ===== STEM 搜索引擎 JS 逻辑 =====
+        (function() {
+            'use strict';
+
+            const searchInput = document.getElementById('searchInput');
+            const searchSubmitBtn = document.getElementById('searchSubmitBtn');
+            const searchResultsDropdown = document.getElementById('searchResultsDropdown');
+            const hotSearchesContainer = document.getElementById('hotSearches');
+
+            let currentType = 'all';
+            let searchTimer = null;
+            let isDropdownOpen = false;
+
+            // 获取API基础地址
+            const API_BASE = window.API_BASE_URL || '';
+
+            // ===== 加载资源统计（动态数字） =====
+            async function loadStats() {
+                try {
+                    const res = await fetch(API_BASE + '/api/v1/libraries/stats');
+                    const json = await res.json();
+                    if (json.success && json.data) {
+                        animateCounter('statTotal', json.data.total);
+                        animateCounter('statTutorials', json.data.tutorials);
+                        animateCounter('statMaterials', json.data.materials);
+                        animateCounter('statHardware', json.data.hardware);
+                        animateCounter('statQuestions', json.data.questions);
+                        animateCounter('statTotalInline', json.data.total);
+                    }
+                } catch (e) {
+                    // 失败时显示静态备用数字
+                    document.getElementById('statTotal').textContent = '3,400+';
+                    document.getElementById('statTutorials').textContent = '2,600+';
+                    document.getElementById('statMaterials').textContent = '80+';
+                    document.getElementById('statHardware').textContent = '14';
+                    document.getElementById('statQuestions').textContent = '660+';
+                    document.getElementById('statTotalInline').textContent = '3,400+';
+                }
+            }
+
+            // 计数器动画：从0递增到目标值
+            function animateCounter(elementId, target) {
+                const el = document.getElementById(elementId);
+                if (!el) return;
+                const duration = 1500; // 动画时长 ms
+                const startTime = performance.now();
+                const startVal = 0;
+
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    // easeOutExpo 缓动
+                    const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+                    const current = Math.round(startVal + (target - startVal) * eased);
+                    el.textContent = current.toLocaleString();
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    }
+                }
+                requestAnimationFrame(update);
+            }
+
+            // ===== 类型切换（点击统计卡片） =====
+            const statCards = document.querySelectorAll('.stat-card');
+
+            window.filterByType = function(type) {
+                currentType = type;
+                // 更新卡片激活状态
+                statCards.forEach(card => {
+                    card.classList.toggle('active', card.dataset.type === type);
+                });
+                // 如果有搜索内容，重新搜索
+                if (searchInput.value.trim()) {
+                    performSearch();
+                } else {
+                    // 没有输入时，用类型对应的热门词搜索
+                    const typeKeywords = {
+                        all: 'Arduino',
+                        tutorial: 'Arduino',
+                        material: '物理',
+                        hardware: '传感器',
+                        question: 'PWM'
+                    };
+                    searchInput.value = typeKeywords[type] || 'Arduino';
+                    performSearch();
+                }
+                // 滚动到搜索框
+                searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                searchInput.focus();
+            };
+
+            // ===== 加载热门搜索 =====
+            async function loadHotSearches() {
+                try {
+                    const res = await fetch(API_BASE + '/api/v1/libraries/hot-searches');
+                    const json = await res.json();
+                    if (json.success && json.data) {
+                        renderHotSearches(json.data);
+                    }
+                } catch (e) {
+                    // 失败时使用备用热门词
+                    renderHotSearches([
+                        { keyword: 'Arduino', icon: '🔧' },
+                        { keyword: '机器人', icon: '🤖' },
+                        { keyword: 'Python', icon: '🐍' },
+                        { keyword: '人工智能', icon: '🧠' },
+                        { keyword: '物联网', icon: '🌐' },
+                        { keyword: '3D打印', icon: '🖨️' },
+                        { keyword: '编程入门', icon: '💻' },
+                        { keyword: '创客项目', icon: '🛠️' }
+                    ]);
+                }
+            }
+
+            function renderHotSearches(searches) {
+                hotSearchesContainer.innerHTML = '<span class="hot-search-label">🔥 热门搜索</span>';
+                searches.forEach(item => {
+                    const tag = document.createElement('span');
+                    tag.className = 'hot-search-tag';
+                    tag.innerHTML = (item.icon ? '<span class="tag-icon">' + item.icon + '</span>' : '') + item.keyword;
+                    tag.addEventListener('click', function() {
+                        searchInput.value = item.keyword;
+                        performSearch();
+                    });
+                    hotSearchesContainer.appendChild(tag);
+                });
+            }
+
+            // ===== 执行搜索 =====
+            async function performSearch() {
+                const q = searchInput.value.trim();
+                if (!q) {
+                    closeDropdown();
+                    return;
+                }
+
+                // 显示加载状态
+                showLoading();
+
+                try {
+                    const res = await fetch(API_BASE + '/api/v1/libraries/search?q=' + encodeURIComponent(q) + '&type=' + currentType + '&limit=10');
+                    const json = await res.json();
+                    if (json.success) {
+                        renderResults(json.data, json.total);
+                        openDropdown();
+                    } else {
+                        showEmpty('搜索服务暂不可用');
+                    }
+                } catch (e) {
+                    console.error('Search error:', e);
+                    showEmpty('网络错误，请稍后重试');
+                }
+            }
+
+            function showLoading() {
+                searchResultsDropdown.innerHTML = '<div class="result-loading"><div class="spinner"></div><p style="margin-top:0.5rem;">正在搜索...</p></div>';
+                searchResultsDropdown.classList.add('visible');
+            }
+
+            function showEmpty(msg) {
+                searchResultsDropdown.innerHTML = '<div class="result-empty">📭 ' + msg + '</div>';
+                searchResultsDropdown.classList.add('visible');
+            }
+
+            function renderResults(results, total) {
+                if (!results || results.length === 0) {
+                    showEmpty('没有找到相关结果，试试其他关键词');
+                    return;
+                }
+
+                const typeLabels = {
+                    tutorial: '📚 教程',
+                    material: '📖 课件',
+                    hardware: '🔧 硬件',
+                    question: '📝 试题'
+                };
+                const typeIcons = {
+                    tutorial: '📚',
+                    material: '📖',
+                    hardware: '🔧',
+                    question: '📝'
+                };
+
+                let html = '';
+                results.forEach(item => {
+                    const desc = item.description ? item.description.substring(0, 100) : '';
+                    const sourceText = item.source ? '来源: ' + item.source : '';
+                    html += '<a class="result-item" href="' + (item.url || 'javascript:void(0)') + '" target="' + (item.url ? '_blank' : '_self') + '">' +
+                        '<span class="result-icon">' + (typeIcons[item.type] || '📄') + '</span>' +
+                        '<div class="result-info">' +
+                            '<div class="result-title">' + escapeHtml(item.title) + '</div>' +
+                            '<div class="result-meta">' +
+                                '<span class="type-badge ' + item.type + '">' + (typeLabels[item.type] || item.type) + '</span>' +
+                                (sourceText ? '<span>' + escapeHtml(sourceText) + '</span>' : '') +
+                                (item.subject && item.subject !== '未分类' ? '<span>' + escapeHtml(item.subject) + '</span>' : '') +
+                            '</div>' +
+                            (desc ? '<div class="result-desc">' + escapeHtml(desc) + '</div>' : '') +
+                        '</div>' +
+                    '</a>';
+                });
+
+                if (total > results.length) {
+                    html += '<div class="result-more">查看全部 ' + total + ' 条结果 →</div>';
+                }
+
+                searchResultsDropdown.innerHTML = html;
+                searchResultsDropdown.classList.add('visible');
+            }
+
+            function escapeHtml(text) {
+                if (!text) return '';
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            function openDropdown() {
+                isDropdownOpen = true;
+                searchResultsDropdown.classList.add('visible');
+            }
+
+            function closeDropdown() {
+                isDropdownOpen = false;
+                searchResultsDropdown.classList.remove('visible');
+            }
+
+            // ===== 输入防抖 =====
+            searchInput.addEventListener('input', function() {
+                clearTimeout(searchTimer);
+                const q = this.value.trim();
+                if (!q) {
+                    closeDropdown();
+                    return;
+                }
+                searchTimer = setTimeout(function() {
+                    performSearch();
+                }, 300);
+            });
+
+            // ===== 键盘事件 =====
+            searchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    performSearch();
+                }
+                if (e.key === 'Escape') {
+                    closeDropdown();
+                    this.blur();
+                }
+            });
+
+            // ===== 点击搜索按钮 =====
+            searchSubmitBtn.addEventListener('click', function() {
+                performSearch();
+            });
+
+            // ===== 点击外部关闭下拉 =====
+            document.addEventListener('click', function(e) {
+                const wrapper = document.querySelector('.search-results-wrapper');
+                if (wrapper && !wrapper.contains(e.target) &&
+                    !e.target.closest('.hot-search-tag')) {
+                    closeDropdown();
+                }
+            });
+
+            // ===== 初始化 =====
+            loadHotSearches();
+            loadStats();
+        })();
+
         generateStemIcons();
     </script>
     
     <!-- 统一导航组件脚本 -->
-    <script src="js/api-config.js"></script>
     <script src="js/demo-account.js"></script>
     <script src="js/navbar.js?v=20260515001"></script>
 </body>

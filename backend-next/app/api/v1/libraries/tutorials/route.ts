@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
+import { filterOutK12Academic } from '@/lib/k12-filter';
+import { loadJsonFiles, COURSE_LIBRARY_DIR } from '@/lib/library-data';
 
 interface CourseTutorial {
   course_id?: string;
@@ -17,48 +17,13 @@ interface CourseTutorial {
   [key: string]: unknown;
 }
 
-const DATA_DIR = path.join(process.cwd(), '..', 'data');
-const COURSE_LIBRARY_DIR = path.join(DATA_DIR, 'course_library');
-
-/**
- * 加载JSON文件
- */
-function loadJsonFiles(dir: string): CourseTutorial[] {
-  const allData: CourseTutorial[] = [];
-  
-  if (!fs.existsSync(dir)) {
-    console.warn(`Directory not found: ${dir}`);
-    return allData;
-  }
-
-  const files = fs.readdirSync(dir).filter(f => 
-    f.endsWith('.json') && 
-    !f.includes('complete') && 
-    !f.includes('validated') // 排除合并文件，避免重复
-  );
-  
-  for (const filename of files) {
-    try {
-      const filePath = path.join(dir, filename);
-      const content = fs.readFileSync(filePath, 'utf-8');
-      const data = JSON.parse(content);
-      
-      // 如果数据是数组，直接添加；如果是对象且有data字段，添加data数组
-      if (Array.isArray(data)) {
-        allData.push(...data.map((item: CourseTutorial) => ({ ...item, _source_file: filename })));
-      } else if (data.data && Array.isArray(data.data)) {
-        allData.push(...data.data.map((item: CourseTutorial) => ({ ...item, _source_file: filename })));
-      } else {
-        // 单个对象
-        allData.push({ ...(data as CourseTutorial), _source_file: filename });
-      }
-    } catch (e) {
-      console.error(`Failed to load file ${filename}:`, e);
-    }
-  }
-  
-  return allData;
-}
+// 排除合并数据文件（避免与原始数据重复）
+const EXCLUDED_FILES = [
+  'complete_stem_library.json',
+  'validated_stem_library.json',
+  'stem_complete_with_robotics.json',
+  'stem_comprehensive_courses.json',
+];
 
 /**
  * GET /api/v1/libraries/tutorials
@@ -74,7 +39,7 @@ export async function GET(request: Request) {
     const search = searchParams.get('search');
 
     // 加载所有教程数据
-    const tutorials = loadJsonFiles(COURSE_LIBRARY_DIR);
+    const tutorials = loadJsonFiles<CourseTutorial>(COURSE_LIBRARY_DIR, [], EXCLUDED_FILES);
     
     // 筛选
     let filtered = tutorials;
@@ -95,8 +60,11 @@ export async function GET(request: Request) {
       );
     }
     
-    // 先过滤出真正的教程（有 tutorial_id 或 unit_id 的数据）
-    filtered = filtered.filter(t => t.tutorial_id || t.unit_id);
+    // 先过滤出真正的教程（有 tutorial_id/unit_id/course_id 的数据）
+    filtered = filtered.filter(t => t.tutorial_id || t.unit_id || t.course_id || t.id);
+    
+    // 过滤 K12 学科类课程
+    filtered = filterOutK12Academic(filtered);
     
     const total = filtered.length;
     const paginated = filtered.slice(skip, skip + limit);
