@@ -1,6 +1,6 @@
 # OpenMTSciEd v2.1.0 发布说明
 
-**版本**：v2.1.0（智能课件管理 · Phase 2.5）  
+**版本**：v2.1.0（智能STEM课件管理 · Phase 2.5）  
 **发布日期**：2026-06-21  
 **代号**：Intelligent Courseware
 
@@ -8,7 +8,7 @@
 
 ## 概述
 
-v2.1.0 将 OpenMTSciEd 桌面端从「资源浏览器」升级为 **课件智能管理与教学图谱编排平台**。本版本交付课题工作室（Topic Studio）六步向导、搜索纳入教程闭环、图谱挂接、创课分（CC）激励、发布审核与公开资源库，并 **移除 Blockly 内置编辑器**（Out of Scope）。
+v2.1.0 将 OpenMTSciEd 桌面端从「资源浏览器」升级为 **智能STEM课件管理与教学图谱编排平台**。本版本交付课题工作室（Topic Studio）六步向导、搜索纳入教程闭环、图谱挂接、创课分（CC）激励、发布审核与公开资源库，并 **移除 Blockly 内置编辑器**（Out of Scope）。
 
 涉及子项目：
 
@@ -228,7 +228,7 @@ npx tsx scripts/process-credit-payouts.ts
 
 ## 相关文档
 
-- [PRD v2.1 — 智能课件管理](./requirements/09-intelligent-courseware-management-v2.md)
+- [PRD v2.1 — 智能STEM课件管理](./requirements/09-intelligent-courseware-management-v2.md)
 - [开发计划 M1–M4](../.qoder/plans/intelligent-courseware-development-plan.md)
 - [路线图与实现状态](./requirements/07-roadmap-and-status.md)
 - [Desktop CHANGELOG](../desktop-manager/CHANGELOG.md)

@@ -13,14 +13,14 @@
 5. **[数据需求](./05-data-requirements.md)** — 数据资产与存储设计
 6. **[系统架构](./06-system-architecture.md)** — 子系统划分与技术选型
 7. **[路线图与实现状态](./07-roadmap-and-status.md)** — 已完成 / 进行中 / 计划中
-8. **[智能课件管理 v2.1](./09-intelligent-courseware-management-v2.md)** — **当前主线**：课题工作室、全网搜闭环、原创激励
+8. **[智能STEM课件管理 v2.1](./09-intelligent-courseware-management-v2.md)** — **当前主线**：课题工作室、全网搜闭环、原创激励
 
 ## 专项需求
 
 | 文档 | 说明 | 状态 |
 |------|------|------|
 | **[08 - 学习路径闭包表迁移](./08-learning-path-closure-table-migration.md)** | Neo4j → Neon PostgreSQL 闭包表方案 | ✅ 已完成 |
-| **[09 - 智能课件管理 v2.1](./09-intelligent-courseware-management-v2.md)** | 产品定位升级、Topic Studio、激励体系 | ✅ v2.1.0 |
+| **[09 - 智能STEM课件管理 v2.1](./09-intelligent-courseware-management-v2.md)** | 产品定位升级、Topic Studio、激励体系 | ✅ v2.1.0 |
 | **[开发计划](../../.qoder/plans/intelligent-courseware-development-plan.md)** | M1–M4 里程碑与任务分解 | ✅ v2.1.0 已交付 |
 | **[v2.1.0 发布说明](./RELEASE-v2.1.0.md)** | Phase 2.5 升级、迁移与验收 | 📦 当前版本 |
 
@@ -48,5 +48,5 @@
 ## 版本信息
 
 - **文档版本**: 2.1
-- **对应产品版本**: v2.1（智能课件管理主线）
+- **对应产品版本**: v2.1（智能STEM课件管理主线）
 - **最后更新**: 2026-06-21（新增 REQ-ICM v2.1、Topic Studio 开发计划）

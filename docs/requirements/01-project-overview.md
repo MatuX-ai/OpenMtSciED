@@ -18,7 +18,7 @@ STEM（科学、技术、工程、数学）教育资源分散在 Khan Academy、
 |------|------|
 | 资源整合 | 聚合多平台课程、教材、题库、硬件项目等 STEM 资源 |
 | 智能学习 | 基于知识图谱（PostgreSQL 闭包表）生成学习路径与个性化推荐 |
-| **课件智能管理** | 全网搜、教程-课件关联、课题工作室、教学图谱编排（v2.1 主线） |
+| **智能STEM课件管理** | 全网搜、教程-课件关联、课题工作室、教学图谱编排（v2.1 主线） |
 | 开放集成 | 提供 RESTful API，供第三方应用与 iMato 等平台集成 |
 | 多端覆盖 | 网站（营销/轻量）、桌面端（教师主工作台）、管理后台（运营） |
 | 开源共建 | MIT 许可证，社区驱动内容与代码贡献；原创激励体系鼓励 UGC |
@@ -83,5 +83,5 @@ STEM（科学、技术、工程、数学）教育资源分散在 Khan Academy、
 - [用户与场景](./02-users-and-scenarios.md)
 - [功能需求](./03-functional-requirements.md)
 - [系统架构](./06-system-architecture.md)
-- [智能课件管理 v2.1](./09-intelligent-courseware-management-v2.md)
+- [智能STEM课件管理 v2.1](./09-intelligent-courseware-management-v2.md)
 - [开发计划](../../.qoder/plans/intelligent-courseware-development-plan.md)

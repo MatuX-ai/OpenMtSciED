@@ -1,10 +1,10 @@
-# 09 - 智能课件管理需求升级（v2.1）
+# 09 - 智能STEM课件管理需求升级（v2.1）
 
 > **文档类型**：需求升级 / PRD 增量  
 > **版本**：2.1.0  
 > **状态**：已批准待开发  
 > **最后更新**：2026-06-21  
-> **关联计划**：[智能课件管理开发计划](../../.qoder/plans/intelligent-courseware-development-plan.md)
+> **关联计划**：[智能STEM课件管理开发计划](../../.qoder/plans/intelligent-courseware-development-plan.md)
 
 ---
 
@@ -26,7 +26,7 @@
 
 **产品定位升级**：
 
-> OpenMTSciEd 桌面端对教师的核心价值，从「STEM 资源浏览器」升级为 **「课件智能管理与教学图谱编排平台」**。
+> OpenMTSciEd 桌面端对教师的核心价值，从「STEM 资源浏览器」升级为 **「智能STEM课件管理与教学图谱编排平台」**。
 
 **明确不做**：
 

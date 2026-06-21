@@ -9,7 +9,7 @@
 
 ## [2.1.0] - 2026-06-21
 
-### 智能课件管理（Phase 2.5 · 与 OpenMTSciEd v2.1.0 对齐）
+### 智能STEM课件管理（Phase 2.5 · 与 OpenMTSciEd v2.1.0 对齐）
 
 完整说明见 [docs/RELEASE-v2.1.0.md](../docs/RELEASE-v2.1.0.md)。
 

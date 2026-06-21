@@ -167,5 +167,5 @@ flowchart LR
 ## 6. 相关文档
 
 - [功能需求](./03-functional-requirements.md)
-- [智能课件管理 v2.1](./09-intelligent-courseware-management-v2.md)
+- [智能STEM课件管理 v2.1](./09-intelligent-courseware-management-v2.md)
 - [非功能需求](./04-non-functional-requirements.md) — 安全与认证章节

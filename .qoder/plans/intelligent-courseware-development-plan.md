@@ -1,4 +1,4 @@
-# 智能课件管理 — 开发计划
+# 智能STEM课件管理 — 开发计划
 
 > **关联 PRD**：[09-intelligent-courseware-management-v2.md](../docs/requirements/09-intelligent-courseware-management-v2.md)  
 > **创建日期**：2026-06-21  
@@ -8,7 +8,7 @@
 
 ## 1. 目标摘要
 
-将桌面端从「资源浏览器」升级为 **课件智能管理与教学图谱编排平台**，交付：
+将桌面端从「资源浏览器」升级为 **智能STEM课件管理与教学图谱编排平台**，交付：
 
 1. 课题工作室（Topic Studio）六步向导  
 2. 搜索 → 纳入教程闭环  
@@ -158,7 +158,7 @@ model TutorialPackage { ... }
 
 ```mermaid
 gantt
-  title 智能课件管理开发排期
+  title 智能STEM课件管理开发排期
   dateFormat YYYY-MM-DD
   section M1
   Topic Studio UI           :m1a, 2026-06-23, 3w

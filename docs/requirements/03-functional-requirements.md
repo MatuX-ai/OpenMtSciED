@@ -311,7 +311,7 @@ Angular 21 管理后台，需管理员登录。
 
 ---
 
-## FR-6 智能课件管理（v2.1 跨端）
+## FR-6 智能STEM课件管理（v2.1 跨端）
 
 > 详细 FR-ICM-* 见 [09-intelligent-courseware-management-v2.md](./09-intelligent-courseware-management-v2.md)
 
@@ -343,4 +343,4 @@ Angular 21 管理后台，需管理员登录。
 - [数据需求](./05-data-requirements.md)
 - [系统架构](./06-system-architecture.md)
 - [路线图与实现状态](./07-roadmap-and-status.md)
-- [智能课件管理 v2.1](./09-intelligent-courseware-management-v2.md)
+- [智能STEM课件管理 v2.1](./09-intelligent-courseware-management-v2.md)

@@ -6,7 +6,7 @@
 |------|------|------|------|
 | Phase 1 | 基础建设 | ✅ 已完成 | API、Neo4j、Website、文档体系 |
 | Phase 2 | 功能增强 | 🔄 进行中 | 认证、爬虫、Admin、Desktop 完善 |
-| **Phase 2.5** | **智能课件管理（v2.1 主线）** | **📋 已排期** | Topic Studio、搜索闭环、激励体系 |
+| **Phase 2.5** | **智能STEM课件管理（v2.1 主线）** | **📋 已排期** | Topic Studio、搜索闭环、激励体系 |
 | Phase 3 | 高级功能 | ⏳ 计划中 | 社区评论、多语言、移动端 |
 | Phase 4 | 生态建设 | ⏳ 未来 | SDK、插件、商业化分成 |
 
@@ -67,7 +67,7 @@
 
 ---
 
-## 3.5 Phase 2.5：智能课件管理 📋（v2.1 主线）
+## 3.5 Phase 2.5：智能STEM课件管理 📋（v2.1 主线）
 
 > PRD：[09-intelligent-courseware-management-v2.md](./09-intelligent-courseware-management-v2.md)  
 > 计划：[intelligent-courseware-development-plan.md](../../.qoder/plans/intelligent-courseware-development-plan.md)
@@ -200,7 +200,7 @@
 ## 相关文档
 
 - [功能需求](./03-functional-requirements.md)
-- [智能课件管理 v2.1](./09-intelligent-courseware-management-v2.md)
+- [智能STEM课件管理 v2.1](./09-intelligent-courseware-management-v2.md)
 - [开发计划](../../.qoder/plans/intelligent-courseware-development-plan.md)
 - [非功能需求](./04-non-functional-requirements.md)
 - [项目 README](../../README.md)
@@ -208,4 +208,4 @@
 
 ---
 
-*最后更新：2026-06-21（Phase 2.5 智能课件管理主线）*
+*最后更新：2026-06-21（Phase 2.5 智能STEM课件管理主线）*
