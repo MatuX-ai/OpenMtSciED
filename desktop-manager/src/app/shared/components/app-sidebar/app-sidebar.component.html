@@ -4,7 +4,7 @@
     <img src="assets/images/matu-logo.png" alt="Logo" class="brand-logo" *ngIf="!isCollapsed" />
     <span class="brand-text" *ngIf="!isCollapsed">OpenMTSciEd</span>
     <button mat-icon-button (click)="toggleSidebar()" class="toggle-btn">
-      <mat-icon>{{ isCollapsed ? 'chevron_right' : 'chevron_left' }}</mat-icon>
+      <i [class]="isCollapsed ? 'ri-arrow-right-s-line' : 'ri-arrow-left-s-line'"></i>
     </button>
   </div>
 
@@ -19,7 +19,7 @@
       matTooltipPosition="right"
       class="nav-item"
     >
-      <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+      <i [class]="item.icon" class="nav-icon"></i>
       <span matListItemTitle *ngIf="!isCollapsed">{{ item.label }}</span>
     </a>
   </nav>
@@ -28,17 +28,17 @@
   <div class="resource-info-card" *ngIf="!isCollapsed" [class.is-minimized]="isInfoMinimized">
     <div class="info-header">
       <div class="header-left">
-        <mat-icon>info</mat-icon>
+        <i class="ri-information-line"></i>
         <span>资源关系说明</span>
       </div>
       <button mat-icon-button class="minimize-btn" (click)="toggleInfoCard()" [matTooltip]="isInfoMinimized ? '展开' : '折叠'">
-        <mat-icon>{{ isInfoMinimized ? 'expand_less' : 'expand_more' }}</mat-icon>
+        <i [class]="isInfoMinimized ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line'"></i>
       </button>
     </div>
     <div class="info-content" *ngIf="!isInfoMinimized">
       <div class="info-item">
         <div class="info-icon course">
-          <mat-icon>menu_book</mat-icon>
+          <i class="ri-book-2-line"></i>
         </div>
         <div class="info-text">
           <strong>课程</strong>
@@ -46,11 +46,11 @@
         </div>
       </div>
       <div class="info-arrow">
-        <mat-icon>arrow_downward</mat-icon>
+        <i class="ri-arrow-down-line"></i>
       </div>
       <div class="info-item">
         <div class="info-icon tutorial">
-          <mat-icon>school</mat-icon>
+          <i class="ri-graduation-cap-line"></i>
         </div>
         <div class="info-text">
           <strong>教程</strong>
@@ -58,11 +58,11 @@
         </div>
       </div>
       <div class="info-arrow">
-        <mat-icon>arrow_downward</mat-icon>
+        <i class="ri-arrow-down-line"></i>
       </div>
       <div class="info-item">
         <div class="info-icon material">
-          <mat-icon>description</mat-icon>
+          <i class="ri-file-text-line"></i>
         </div>
         <div class="info-text">
           <strong>课件</strong>
@@ -70,11 +70,11 @@
         </div>
       </div>
       <div class="info-arrow">
-        <mat-icon>arrow_downward</mat-icon>
+        <i class="ri-arrow-down-line"></i>
       </div>
       <div class="info-item">
         <div class="info-icon question">
-          <mat-icon>quiz</mat-icon>
+          <i class="ri-question-line"></i>
         </div>
         <div class="info-text">
           <strong>题库</strong>
@@ -83,11 +83,11 @@
       </div>
     </div>
     <div class="info-footer" *ngIf="!isInfoMinimized">
-      <mat-icon>lightbulb</mat-icon>
+      <i class="ri-lightbulb-line"></i>
       <span>课程→教程→课件→题库</span>
     </div>
     <div class="minimized-hint" *ngIf="isInfoMinimized">
-      <mat-icon>help_outline</mat-icon>
+      <i class="ri-question-mark"></i>
     </div>
   </div>
 </div>

@@ -78,6 +78,10 @@ export class TauriService {
     return typeof window.__TAURI__ !== 'undefined';
   }
 
+  isDesktopApp(): boolean {
+    return this.isTauri();
+  }
+
   async invokeCommand<T>(command: string, args?: unknown): Promise<T> {
     if (!this.isTauri()) {
       console.warn('Not running in Tauri environment');
@@ -140,6 +144,16 @@ export class TauriService {
       course_id: courseId,
     };
     return this.invokeCommand<unknown>('upload_material', data);
+  }
+
+  async importMaterialForCourse(
+    courseId: number,
+    displayName?: string
+  ): Promise<unknown> {
+    return this.invokeCommand<unknown>('import_material_for_course', {
+      course_id: courseId,
+      display_name: displayName ?? null,
+    });
   }
 
   async deleteMaterial(id: number): Promise<void> {
@@ -219,6 +233,34 @@ export class TauriService {
       tag,
       page,
       page_size: pageSize,
+    });
+  }
+
+  // 开源课件管理
+  async importOpenMaterialsFromJson(): Promise<number> {
+    return this.invokeCommand<number>('import_open_materials_from_json');
+  }
+
+  async browseOpenMaterials(query: {
+    source?: string;
+    subject?: string;
+    level?: string;
+    material_type?: string;
+    keyword?: string;
+    page: number;
+    page_size: number;
+  }): Promise<unknown> {
+    return this.invokeCommand<unknown>('browse_open_materials', query);
+  }
+
+  async getOpenMaterialDetail(materialId: string): Promise<unknown> {
+    return this.invokeCommand<unknown>('get_open_material_detail', { material_id: materialId });
+  }
+
+  async downloadOpenMaterial(materialId: string, saveDir: string): Promise<string> {
+    return this.invokeCommand<string>('download_open_material', {
+      material_id: materialId,
+      save_dir: saveDir,
     });
   }
 

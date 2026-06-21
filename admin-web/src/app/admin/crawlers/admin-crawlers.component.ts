@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -9,49 +9,25 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialog } from '@angular/material/dialog';
-import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-
-interface CrawlerTask {
-  id: string;
-  name: string;
-  description: string;
-  status: 'idle' | 'running' | 'completed' | 'failed';
-  progress: number;
-  total_items: number;
-  scraped_items: number;
-  last_run: string | null;
-  next_scheduled: string | null;
-  error_message: string | null;
-}
-
-interface CrawlerStats {
-  totalCrawlers: number;
-  activeCrawlers: number;
-  totalItemsScraped: number;
-  lastRunTime: string | null;
-}
-
-interface ExecutionRecord {
-  crawlerName: string;
-  startTime: string;
-  endTime: string | null;
-  status: 'success' | 'failed' | 'running';
-  itemsScraped: number;
-  duration: number; // seconds
-}
-
-interface ErrorLog {
-  crawlerName: string;
-  timestamp: string;
-  message: string;
-  details?: string;
-}
+import { ConfirmDialogComponent } from '../../core/components/confirm-dialog.component';
+import { PromptDialogComponent } from '../../core/components/prompt-dialog.component';
+import { formatDateTime, formatDuration as formatDurationUtil } from '../../core/utils';
+import {
+  CrawlerService,
+  CrawlerTask,
+  CrawlerStats,
+  ExecutionRecord,
+  ErrorLog,
+  CreateCrawlerRequest,
+} from '../../core/services/crawler.service';
 
 @Component({
   selector: 'app-admin-crawlers',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
     FormsModule,
@@ -62,6 +38,7 @@ interface ErrorLog {
     MatTableModule,
     MatChipsModule,
     MatTabsModule,
+    MatTooltipModule,
   ],
   template: `
     <div class="admin-crawlers">
@@ -242,7 +219,8 @@ interface ErrorLog {
                             mat-icon-button
                             color="accent"
                             (click)="viewLogs(task)"
-                            matTooltip="查看日志">
+                            disabled
+                            matTooltip="查看日志 — 功能开发中">
                             <mat-icon>list_alt</mat-icon>
                           </button>
                         </div>
@@ -250,7 +228,7 @@ interface ErrorLog {
                     </ng-container>
 
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns; trackBy: trackByCrawler"></tr>
 
                     <!-- 空数据提示 -->
                     <tr class="empty-row" *matNoDataRow>
@@ -320,7 +298,7 @@ interface ErrorLog {
                     </ng-container>
 
                     <tr mat-header-row *matHeaderRowDef="historyColumns"></tr>
-                    <tr mat-row *matRowDef="let row; columns: historyColumns;"></tr>
+                    <tr mat-row *matRowDef="let row; columns: historyColumns; trackBy: trackByExecution"></tr>
 
                     <tr class="empty-row" *matNoDataRow>
                       <td [attr.colspan]="historyColumns.length">
@@ -684,7 +662,7 @@ interface ErrorLog {
   `],
 })
 export class AdminCrawlersComponent implements OnInit {
-  private http = inject(HttpClient);
+  private crawlerService = inject(CrawlerService);
   private snackBar = inject(MatSnackBar);
   private dialog = inject(MatDialog);
 
@@ -707,12 +685,10 @@ export class AdminCrawlersComponent implements OnInit {
   async loadCrawlerTasks(): Promise<void> {
     this.loading.set(true);
     try {
-      const response: any = await firstValueFrom(this.http.get('/api/v1/admin/crawler'));
-      if (response.success) {
-        this.crawlerTasks.set(response.data);
-        // 数据加载完成后更新统计
-        this.loadStats();
-      }
+      const tasks = await firstValueFrom(this.crawlerService.getCrawlerTasks());
+      this.crawlerTasks.set(tasks);
+      // 数据加载完成后更新统计
+      this.loadStats();
     } catch (error) {
       console.error('加载爬虫任务失败:', error);
       this.snackBar.open('加载爬虫任务失败', '关闭', { duration: 3000 });
@@ -812,69 +788,117 @@ export class AdminCrawlersComponent implements OnInit {
   }
 
   async runAllCrawlers(): Promise<void> {
-    if (confirm('确定要运行所有爬虫任务吗？')) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '400px',
+      data: {
+        title: '运行所有爬虫',
+        message: '确定要运行所有爬虫任务吗？',
+        confirmText: '运行',
+        color: 'primary',
+        icon: 'play_arrow',
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((confirmed) => {
+      if (!confirmed) return;
       this.snackBar.open('开始运行所有爬虫任务...', '关闭', { duration: 2000 });
       // TODO: 调用API运行所有爬虫
-    }
+    });
   }
 
   setSchedule(task: CrawlerTask): void {
-    const hours = prompt('请输入抓取间隔（小时）：', '24');
-    if (!hours) return;
+    const dialogRef = this.dialog.open(PromptDialogComponent, {
+      width: '400px',
+      data: {
+        title: '设置抓取周期',
+        label: '抓取间隔（小时）',
+        placeholder: '请输入小时数',
+        defaultValue: '24',
+        inputType: 'number',
+        confirmText: '设置',
+      },
+    });
 
-    this.http.post(`/api/v1/admin/crawler/${task.id}/schedule?interval_hours=${hours}`, {}).subscribe({
-      next: () => this.snackBar.open('定时任务设置成功', '关闭', { duration: 2000 }),
-      error: () => this.snackBar.open('设置失败', '关闭', { duration: 3000 })
+    dialogRef.afterClosed().subscribe((hours) => {
+      if (!hours) return;
+      firstValueFrom(this.crawlerService.setSchedule(task.id, hours))
+        .then(() => this.snackBar.open('定时任务设置成功', '关闭', { duration: 2000 }))
+        .catch(() => this.snackBar.open('设置失败', '关闭', { duration: 3000 }));
     });
   }
 
   async deleteCrawler(task: CrawlerTask): Promise<void> {
-    if (confirm(`确定要删除爬虫 "${task.name}" 吗？`)) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '400px',
+      data: {
+        title: '删除爬虫',
+        message: `确定要删除爬虫 "${task.name}" 吗？`,
+        confirmText: '删除',
+        color: 'warn',
+        icon: 'delete',
+      },
+    });
+
+    dialogRef.afterClosed().subscribe(async (confirmed) => {
+      if (!confirmed) return;
       try {
-        await firstValueFrom(this.http.delete(`/api/v1/admin/crawler/${task.id}`));
+        await firstValueFrom(this.crawlerService.deleteCrawler(task.id));
         this.snackBar.open('删除成功', '关闭', { duration: 2000 });
         this.loadCrawlerTasks();
       } catch (error) {
         this.snackBar.open('删除失败', '关闭', { duration: 3000 });
       }
-    }
+    });
   }
 
   openAddDialog(): void {
-    const name = prompt('请输入数据源名称：');
-    if (!name) return;
-    const url = prompt('请输入目标网站地址：');
-    if (!url) return;
-    const type = confirm('是教程吗？(点击“取消”则为课件)') ? 'course' : 'textbook';
+    // Step 1: 输入名称
+    const nameDialogRef = this.dialog.open(PromptDialogComponent, {
+      width: '400px',
+      data: { title: '新增数据源', label: '数据源名称', placeholder: '请输入名称', confirmText: '下一步' },
+    });
 
-    const newCrawler = {
-      id: `crawler-${Date.now()}`,
-      name: name,
-      description: `爬取 ${name} 的资源`,
-      target_url: url,
-      type: type,
-      status: 'idle',
-      progress: 0,
-      total_items: 0,
-      scraped_items: 0,
-      last_run: null,
-      error_message: null
-    };
+    nameDialogRef.afterClosed().subscribe((name) => {
+      if (!name) return;
+      // Step 2: 输入 URL
+      const urlDialogRef = this.dialog.open(PromptDialogComponent, {
+        width: '400px',
+        data: { title: '新增数据源', message: `名称：${name}`, label: '目标网站地址', placeholder: '请输入URL', inputType: 'url', confirmText: '下一步' },
+      });
 
-    this.http.post('/api/v1/admin/crawler', newCrawler).subscribe({
-      next: () => {
-        this.snackBar.open('添加成功', '关闭', { duration: 2000 });
-        this.loadCrawlerTasks();
-      },
-      error: (err) => {
-        this.snackBar.open('添加失败', '关闭', { duration: 3000 });
-      }
+      urlDialogRef.afterClosed().subscribe((url) => {
+        if (!url) return;
+        // Step 3: 确认类型
+        const typeDialogRef = this.dialog.open(ConfirmDialogComponent, {
+          width: '400px',
+          data: { title: '选择类型', message: `名称：${name}\n地址：${url}\n\n数据源类型是“教程”吗？（点击“取消”则为“课件”）`, confirmText: '教程', cancelText: '课件', color: 'primary', icon: 'school' },
+        });
+
+        typeDialogRef.afterClosed().subscribe((isCourse) => {
+          const type = isCourse ? 'course' : 'textbook';
+          const newCrawler: CreateCrawlerRequest = {
+            name: name,
+            url: url,
+            type: type,
+            description: `爬取 ${name} 的资源`,
+          };
+
+          firstValueFrom(this.crawlerService.createCrawler(newCrawler))
+            .then(() => {
+              this.snackBar.open('添加成功', '关闭', { duration: 2000 });
+              this.loadCrawlerTasks();
+            })
+            .catch(() => {
+              this.snackBar.open('添加失败', '关闭', { duration: 3000 });
+            });
+        });
+      });
     });
   }
 
   async runCrawler(task: CrawlerTask): Promise<void> {
     try {
-      await firstValueFrom(this.http.post(`/api/v1/admin/crawler/${task.id}/run`, {}));
+      await firstValueFrom(this.crawlerService.runCrawler(task.id));
       this.snackBar.open(`启动爬虫: ${task.name}`, '关闭', { duration: 2000 });
       setTimeout(() => this.loadCrawlerTasks(), 1000);
     } catch (error) {
@@ -883,14 +907,37 @@ export class AdminCrawlersComponent implements OnInit {
   }
 
   async stopCrawler(task: CrawlerTask): Promise<void> {
-    if (confirm(`确定要停止爬虫 "${task.name}" 吗？`)) {
-      this.snackBar.open(`停止爬虫: ${task.name}`, '关闭', { duration: 2000 });
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '400px',
+      data: {
+        title: '停止爬虫',
+        message: `确定要停止爬虫 "${task.name}" 吗？`,
+        confirmText: '停止',
+        color: 'warn',
+        icon: 'stop',
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((confirmed) => {
+      if (!confirmed) return;
+      this.snackBar.open(`🚧 停止爬虫: ${task.name} — 功能开发中，即将上线`, '关闭', { duration: 2000 });
       // TODO: 调用API停止爬虫
-    }
+    });
   }
 
+  /**
+   * 表格行 trackBy：按 id 追踪
+   */
+  trackByCrawler = (_index: number, task: CrawlerTask): string => task.id;
+
+  /**
+   * 历史表 trackBy：按 crawlerName + startTime 复合键追踪
+   */
+  trackByExecution = (_index: number, record: ExecutionRecord): string =>
+    `${record.crawlerName}_${record.startTime}`;
+
   viewLogs(task: CrawlerTask): void {
-    this.snackBar.open(`查看日志: ${task.name}`, '关闭', { duration: 2000 });
+    this.snackBar.open(`🚧 查看日志: ${task.name} — 功能开发中，即将上线`, '关闭', { duration: 2000 });
     // TODO: 打开日志查看对话框
   }
 
@@ -914,16 +961,9 @@ export class AdminCrawlersComponent implements OnInit {
     return textMap[status] || status;
   }
 
-  formatDate(dateString: string): string {
-    const date = new Date(dateString);
-    return date.toLocaleString('zh-CN', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit'
-    });
-  }
+  // 使用共享工具函数
+  readonly formatDate = formatDateTime;
+  readonly formatDuration = formatDurationUtil;
 
   formatLastRun(dateString: string | null): string {
     if (!dateString) return '从未';
@@ -960,18 +1000,5 @@ export class AdminCrawlersComponent implements OnInit {
       running: '运行中'
     };
     return textMap[status] || status;
-  }
-
-  formatDuration(seconds: number): string {
-    if (seconds < 60) {
-      return `${seconds}秒`;
-    }
-    const minutes = Math.floor(seconds / 60);
-    if (minutes < 60) {
-      return `${minutes}分钟`;
-    }
-    const hours = Math.floor(minutes / 60);
-    const remainingMinutes = minutes % 60;
-    return remainingMinutes > 0 ? `${hours}小时${remainingMinutes}分钟` : `${hours}小时`;
   }
 }

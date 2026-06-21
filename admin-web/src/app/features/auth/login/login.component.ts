@@ -38,17 +38,6 @@ import { AuthService } from '../../../core/services/auth.service';
             <button mat-raised-button color="primary" class="full-width" [disabled]="loading || !loginForm.valid">
               {{ loading ? '登录中...' : '登录' }}
             </button>
-
-            <div class="divider">
-              <span>或</span>
-            </div>
-
-            <button mat-stroked-button color="accent" class="full-width mock-login-btn" (click)="mockLogin()" [disabled]="loading">
-              <span style="display: flex; align-items: center; justify-content: center; gap: 8px;">
-                <span>⚡</span>
-                <span>快速体验</span>
-              </span>
-            </button>
           </form>
         </mat-card-content>
         <mat-card-actions align="end">
@@ -75,37 +64,7 @@ import { AuthService } from '../../../core/services/auth.service';
       width: 100%;
       margin-bottom: 16px;
     }
-    .divider {
-      text-align: center;
-      margin: 20px 0;
-      position: relative;
-      color: #999;
-      font-size: 14px;
-    }
-    .divider::before,
-    .divider::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      width: 45%;
-      height: 1px;
-      background: linear-gradient(to right, transparent, #e0e0e0, transparent);
-    }
-    .divider::before {
-      left: 0;
-    }
-    .divider::after {
-      right: 0;
-    }
-    .divider span {
-      background-color: #fff;
-      padding: 0 12px;
-      position: relative;
-      z-index: 1;
-    }
-    .mock-login-btn {
-      margin-top: 8px;
-    }
+
   `]
 })
 export class LoginComponent {
@@ -131,24 +90,6 @@ export class LoginComponent {
         this.loading = false;
         this.cdr.detectChanges();
         this.snackBar.open(err.error?.detail || '登录失败，请检查用户名和密码', '关闭', { duration: 3000 });
-      }
-    });
-  }
-
-  mockLogin(): void {
-    if (this.loading) return;
-    this.loading = true;
-    this.cdr.detectChanges();
-
-    this.authService.login({ username: 'user', password: '12345678' }).subscribe({
-      next: () => {
-        this.snackBar.open('欢迎体验！已使用模拟账号登录', '关闭', { duration: 3000 });
-        this.router.navigate(['/dashboard']);
-      },
-      error: (err: any) => {
-        this.loading = false;
-        this.cdr.detectChanges();
-        this.snackBar.open('模拟登录失败，请确保后端服务已启动', '关闭', { duration: 3000 });
       }
     });
   }

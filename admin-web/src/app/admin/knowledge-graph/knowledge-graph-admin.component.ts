@@ -1,13 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
-
-declare var echarts: any;
+import type { ECharts } from 'echarts';
 
 @Component({
   selector: 'app-knowledge-graph-admin',
@@ -81,7 +80,7 @@ declare var echarts: any;
     .chart-container { width: 100%; height: 600px; background: #f5f5f5; border-radius: 4px; }
   `]
 })
-export class KnowledgeGraphAdminComponent implements OnInit, AfterViewInit {
+export class KnowledgeGraphAdminComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('chartContainer') chartContainer!: ElementRef;
 
   nodes: any[] = [];
@@ -89,7 +88,8 @@ export class KnowledgeGraphAdminComponent implements OnInit, AfterViewInit {
   filteredNodes: any[] = [];
   filteredRelationships: any[] = [];
   searchKeyword: string = '';
-  private chart: any = null;
+  private chart: ECharts | null = null;
+  private onResize = () => this.chart?.resize();
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar, private cdr: ChangeDetectorRef) {}
 
@@ -97,6 +97,14 @@ export class KnowledgeGraphAdminComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.loadGraphData();
+  }
+
+  ngOnDestroy(): void {
+    window.removeEventListener('resize', this.onResize);
+    if (this.chart) {
+      this.chart.dispose();
+      this.chart = null;
+    }
   }
 
   loadGraphData(): void {
@@ -160,7 +168,7 @@ export class KnowledgeGraphAdminComponent implements OnInit, AfterViewInit {
     this.updateChart();
   }
 
-  initChart(): void {
+  async initChart(): Promise<void> {
     if (!this.chartContainer) {
       console.error('图表容器未找到');
       return;
@@ -174,16 +182,14 @@ export class KnowledgeGraphAdminComponent implements OnInit, AfterViewInit {
     }
 
     if (this.chart) this.chart.dispose();
-    this.chart = echarts.init(this.chartContainer.nativeElement);
+    // 动态导入 ECharts，仅在实际需要时加载 ~1MB 图表库
+    const { init } = await import('echarts');
+    this.chart = init(this.chartContainer.nativeElement);
 
     this.updateChart();
 
     // 添加窗口大小调整监听
-    window.addEventListener('resize', () => {
-      if (this.chart) {
-        this.chart.resize();
-      }
-    });
+    window.addEventListener('resize', this.onResize);
   }
 
   // 更新图表（用于搜索后重新渲染）

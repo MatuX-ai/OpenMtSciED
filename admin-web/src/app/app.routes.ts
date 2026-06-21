@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './core/guards/auth.guard';
+import { roleGuard } from './core/guards/role.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -21,6 +22,7 @@ export const routes: Routes = [
       },
       {
         path: 'admin/user-management',
+        canActivate: [authGuard, roleGuard(['admin', 'org_admin'])],
         loadComponent: () =>
           import('./admin/user-management/admin-user-management.component').then(
             (m) => m.AdminUserManagementComponent
@@ -35,6 +37,7 @@ export const routes: Routes = [
       },
       {
         path: 'admin/settings',
+        canActivate: [authGuard, roleGuard(['admin'])],
         loadComponent: () =>
           import('./admin/settings/admin-settings.component').then(
             (m) => m.AdminSettingsComponent
@@ -63,6 +66,7 @@ export const routes: Routes = [
       },
       {
         path: 'admin/crawlers',
+        canActivate: [authGuard, roleGuard(['admin', 'org_admin'])],
         loadComponent: () =>
           import('./admin/crawlers/admin-crawlers.component').then(
             (m) => m.AdminCrawlersComponent
@@ -70,6 +74,7 @@ export const routes: Routes = [
       },
       {
         path: 'admin/knowledge-graph',
+        canActivate: [authGuard, roleGuard(['admin', 'org_admin', 'premium'])],
         loadComponent: () =>
           import('./admin/knowledge-graph/knowledge-graph-admin.component').then(
             (m) => m.KnowledgeGraphAdminComponent
@@ -87,6 +92,22 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./admin/question-bank/admin-question-bank.component').then(
             (m) => m.AdminQuestionBankComponent
+          ),
+      },
+      {
+        path: 'admin/publish-review',
+        canActivate: [authGuard, roleGuard(['admin', 'org_admin'])],
+        loadComponent: () =>
+          import('./admin/publish-review/admin-publish-review.component').then(
+            (m) => m.AdminPublishReviewComponent
+          ),
+      },
+      {
+        path: 'admin/plagiarism',
+        canActivate: [authGuard, roleGuard(['admin', 'org_admin'])],
+        loadComponent: () =>
+          import('./admin/plagiarism/admin-plagiarism.component').then(
+            (m) => m.AdminPlagiarismComponent
           ),
       },
     ],

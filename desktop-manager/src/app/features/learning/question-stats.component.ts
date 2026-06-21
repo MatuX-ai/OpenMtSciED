@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatChipsModule } from '@angular/material/chips';
@@ -11,7 +10,6 @@ import { QuestionService } from '../../services/question.service';
   standalone: true,
   imports: [
     CommonModule,
-    MatIconModule,
     MatCardModule,
     MatProgressBarModule,
     MatChipsModule
@@ -19,7 +17,7 @@ import { QuestionService } from '../../services/question.service';
   template: `
     <div class="stats-container">
       <div class="page-header">
-        <h2><mat-icon class="header-icon">insights</mat-icon> 学习数据分析</h2>
+        <h2><i class="ri-line-chart-line header-icon"></i> 学习数据分析</h2>
         <p class="subtitle">追踪你的学习进度和知识掌握情况</p>
       </div>
       
@@ -28,7 +26,7 @@ import { QuestionService } from '../../services/question.service';
         <mat-card class="stat-card overall-card">
           <mat-card-content>
             <div class="card-header">
-              <mat-icon class="card-icon">track_changes</mat-icon>
+              <i class="ri-focus-line card-icon"></i>
               <h3>总体正确率</h3>
             </div>
             <div class="accuracy-display">
@@ -54,7 +52,7 @@ import { QuestionService } from '../../services/question.service';
         <mat-card class="stat-card trend-card">
           <mat-card-content>
             <div class="card-header">
-              <mat-icon class="card-icon">trending_up</mat-icon>
+              <i class="ri-line-chart-line card-icon"></i>
               <h3>最近表现</h3>
             </div>
             <div class="trend-info">
@@ -75,7 +73,7 @@ import { QuestionService } from '../../services/question.service';
       <mat-card class="mastery-section">
         <mat-card-content>
           <div class="section-header">
-            <h3><mat-icon>psychology</mat-icon> 知识点掌握度</h3>
+            <h3><i class="ri-bubble-chart-line"></i> 知识点掌握度</h3>
             <span class="total-count">共 {{ masteryList.length }} 个知识点</span>
           </div>
           <div class="mastery-list">
@@ -92,7 +90,7 @@ import { QuestionService } from '../../services/question.service';
             </div>
           </div>
           <div *ngIf="masteryList.length === 0" class="empty-state">
-            <mat-icon class="empty-icon">analytics</mat-icon>
+            <i class="ri-bar-chart-line empty-icon"></i>
             <p>暂无学习数据，开始答题后即可查看</p>
           </div>
         </mat-card-content>
@@ -102,14 +100,14 @@ import { QuestionService } from '../../services/question.service';
       <mat-card class="mistakes-section">
         <mat-card-content>
           <div class="section-header">
-            <h3><mat-icon>error_outline</mat-icon> 最近错题回顾</h3>
+            <h3><i class="ri-error-warning-line"></i> 最近错题回顾</h3>
             <button *ngIf="mistakes.length > 0" mat-stroked-button color="primary" class="review-btn">
-              <mat-icon>refresh</mat-icon>
+              <i class="ri-refresh-line"></i>
               <span>重新练习</span>
             </button>
           </div>
           <div *ngIf="mistakes.length === 0" class="empty-state">
-            <mat-icon class="empty-icon">check_circle</mat-icon>
+            <i class="ri-checkbox-circle-line empty-icon"></i>
             <p>太棒了！目前没有错题记录。</p>
           </div>
           <div *ngFor="let m of mistakes" class="mistake-card">
@@ -121,7 +119,7 @@ import { QuestionService } from '../../services/question.service';
             <div class="tags">
               <mat-chip-set>
                 <mat-chip *ngFor="let tag of m.knowledge_points">
-                  <mat-icon>tag</mat-icon>
+                  <i class="ri-price-tag-3-line" style="font-size: 16px; vertical-align: middle; margin-right: 4px;"></i>
                   {{ tag }}
                 </mat-chip>
               </mat-chip-set>
@@ -318,7 +316,7 @@ import { QuestionService } from '../../services/question.service';
           color: var(--text-primary);
           margin: 0;
 
-          mat-icon {
+          i[class^="ri-"] {
             color: var(--primary-color);
           }
         }
@@ -450,10 +448,8 @@ import { QuestionService } from '../../services/question.service';
           align-items: center;
           gap: 4px;
 
-          mat-icon {
+          i[class^="ri-"] {
             font-size: 14px;
-            width: 14px;
-            height: 14px;
           }
         }
       }

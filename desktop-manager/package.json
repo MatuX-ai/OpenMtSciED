@@ -26,7 +26,6 @@
     "@angular/platform-browser": "^17.0.0",
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
-    "blockly": "^12.5.1",
     "echarts": "^5.4.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
@@ -37,7 +36,7 @@
     "@angular/cli": "^17.0.0",
     "@angular/compiler-cli": "^17.0.0",
     "@tauri-apps/cli": "^2.0.0",
-    "puppeteer": "^22.0.0",
+    "puppeteer": "^25.1.0",
     "typescript": "~5.2.0"
   }
 }

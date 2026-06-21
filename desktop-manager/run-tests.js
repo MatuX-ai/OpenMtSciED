@@ -18,10 +18,10 @@ const { ensurePuppeteer, launchBrowser } = require('./tests/helpers/browser');
 const ALL_SCENARIOS = [
   './tests/scenarios/app-load.spec.js',
   './tests/scenarios/setup-wizard.spec.js',
-  './tests/scenarios/course-library.spec.js',
-  './tests/scenarios/material-library.spec.js',
+  './tests/scenarios/resource-explorer.spec.js',
   './tests/scenarios/create-course.spec.js',
   './tests/scenarios/knowledge-graph.spec.js',
+  './tests/scenarios/topic-studio.spec.js',
 ];
 
 async function main() {

@@ -9,30 +9,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatChipsModule } from '@angular/material/chips';
-import { HttpClient } from '@angular/common/http';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { firstValueFrom } from 'rxjs';
-
-interface PlatformStatus {
-  id: string;
-  platform_name: string;
-  source: string;
-  target_url: string;
-  type: string;
-  output_file: string;
-  status: string;
-  last_run: string | null;
-  total_items: number;
-  error_message: string | null;
-}
-
-interface PlatformInfo {
-  name: string;
-  schedule_config: {
-    interval: string;
-    day: string;
-    time: string;
-  };
-}
+import { formatFileSize as formatFileSizeUtil } from '../../core/utils';
+import { EducationPlatformsService, PlatformStatus } from '../../core/services/education-platforms.service';
+import { SkeletonStatCardComponent, SkeletonTableComponent } from '../../core/components/skeleton.component';
 
 @Component({
   selector: 'app-admin-education-platforms',
@@ -47,6 +28,9 @@ interface PlatformInfo {
     MatTableModule,
     MatTabsModule,
     MatChipsModule,
+    MatTooltipModule,
+    SkeletonStatCardComponent,
+    SkeletonTableComponent,
   ],
   template: `
     <div class="admin-education-platforms">
@@ -72,10 +56,19 @@ interface PlatformInfo {
         </div>
       </div>
 
-      <!-- 加载状态 -->
-      <div *ngIf="loading()" class="loading-container">
-        <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
-        <p>加载中...</p>
+      <!-- 加载状态：骨架屏占位 -->
+      <div *ngIf="loading()" class="platforms-container">
+        <div class="stats-grid">
+          <app-skeleton-stat-card *ngFor="let _ of [1,2,3,4]" />
+        </div>
+        <mat-card class="platforms-card">
+          <mat-card-content>
+            <app-skeleton-table
+              [colWidths]="[2, 1.5, 1.5, 2, 1]"
+              [rows]="6"
+            />
+          </mat-card-content>
+        </mat-card>
       </div>
 
       <!-- 平台列表 -->
@@ -186,7 +179,8 @@ interface PlatformInfo {
                       mat-icon-button
                       color="accent"
                       (click)="viewPlatformDetails(platform.platform_name)"
-                      matTooltip="查看详情">
+                      disabled
+                      matTooltip="查看详情 — 功能开发中">
                       <mat-icon>info</mat-icon>
                     </button>
                   </div>
@@ -194,7 +188,7 @@ interface PlatformInfo {
               </ng-container>
 
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns; trackBy: trackByPlatform"></tr>
             </table>
           </mat-card-content>
         </mat-card>
@@ -326,7 +320,7 @@ interface PlatformInfo {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AdminEducationPlatformsComponent implements OnInit {
-  private http = inject(HttpClient);
+  private educationPlatformsService = inject(EducationPlatformsService);
   private snackBar = inject(MatSnackBar);
 
   readonly loading = signal<boolean>(true);
@@ -342,14 +336,8 @@ export class AdminEducationPlatformsComponent implements OnInit {
   async loadPlatformStatus(): Promise<void> {
     this.loading.set(true);
     try {
-      const response: any = await firstValueFrom(
-        this.http.get('/api/v1/admin/education-platforms')
-      );
-
-      if (response.success && response.data) {
-        this.platforms.set(response.data as PlatformStatus[]);
-      }
-
+      const platforms = await firstValueFrom(this.educationPlatformsService.getPlatforms());
+      this.platforms.set(platforms);
     } catch (error) {
       console.error('加载平台状态失败:', error);
       this.snackBar.open('加载平台状态失败', '关闭', { duration: 3000 });
@@ -365,9 +353,7 @@ export class AdminEducationPlatformsComponent implements OnInit {
 
   async generateAllPlatforms(): Promise<void> {
     try {
-      await firstValueFrom(
-        this.http.post('/api/v1/education-platforms/generate', {})
-      );
+      await firstValueFrom(this.educationPlatformsService.generateAllPlatforms());
       this.snackBar.open('已开始生成所有平台数据', '关闭', { duration: 3000 });
     } catch (error) {
       console.error('生成平台数据失败:', error);
@@ -377,9 +363,7 @@ export class AdminEducationPlatformsComponent implements OnInit {
 
   async generatePlatform(platformName: string): Promise<void> {
     try {
-      await firstValueFrom(
-        this.http.post('/api/v1/education-platforms/generate', { platform_name: platformName })
-      );
+      await firstValueFrom(this.educationPlatformsService.generatePlatform(platformName));
       this.snackBar.open(`已开始生成 ${platformName} 平台数据`, '关闭', { duration: 3000 });
     } catch (error) {
       console.error(`生成 ${platformName} 平台数据失败:`, error);
@@ -394,9 +378,14 @@ export class AdminEducationPlatformsComponent implements OnInit {
     this.snackBar.open(`定时任务${status}（演示模式）`, '关闭', { duration: 2000 });
   }
 
+  /**
+   * 表格行 trackBy：按 id 追踪
+   */
+  trackByPlatform = (_index: number, platform: PlatformStatus): string => platform.id;
+
   viewPlatformDetails(platformName: string): void {
     // 这里可以打开详情对话框或导航到详情页
-    this.snackBar.open(`查看 ${platformName} 详情功能待实现`, '关闭', { duration: 2000 });
+    this.snackBar.open(`🚧 查看 ${platformName} 详情 — 功能开发中，即将上线`, '关闭', { duration: 2000 });
   }
 
   get activePlatformsCount(): () => number {
@@ -407,13 +396,8 @@ export class AdminEducationPlatformsComponent implements OnInit {
     return () => this.platforms().filter(p => p.total_items > 0).length;
   }
 
-  formatFileSize(bytes: number): string {
-    if (bytes === 0) return '0 B';
-    const k = 1024;
-    const sizes = ['B', 'KB', 'MB', 'GB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
-  }
+  // 使用共享工具函数
+  readonly formatFileSize = formatFileSizeUtil;
 
   getStatusText(status: string): string {
     const statusMap: Record<string, string> = {

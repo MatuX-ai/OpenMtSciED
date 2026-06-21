@@ -24,11 +24,31 @@ function ensurePuppeteer() {
 
 async function launchBrowser(config) {
   const p = ensurePuppeteer();
-  return p.launch({
+  const launchOptions = {
     headless: config.HEADLESS,
     slowMo: config.SLOWMO,
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  });
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      // 禁用 CORS + 不安全 localhost
+      '--disable-web-security',
+      '--allow-insecure-localhost',
+    ],
+  };
+
+  // 优先使用系统 Chrome（更好的 CORS 支持）
+  const chromePath =
+    'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
+  const edgePath =
+    'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe';
+
+  if (require('fs').existsSync(chromePath)) {
+    launchOptions.executablePath = chromePath;
+  } else if (require('fs').existsSync(edgePath)) {
+    launchOptions.executablePath = edgePath;
+  }
+
+  return p.launch(launchOptions);
 }
 
 /**

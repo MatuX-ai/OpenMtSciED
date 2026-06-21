@@ -7,7 +7,7 @@ import { loadConfigs } from '../lib';
  */
 export async function GET() {
   try {
-    const configs = loadConfigs();
+    const configs = await loadConfigs();
     
     // 只返回状态相关的信息
     const statusList = configs.map(config => ({

@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
@@ -20,6 +19,7 @@ import {
   calculateTotalCost
 } from '../../../models/hardware-project.models';
 import { ResourceAssociationService } from '../../../services/resource-association.service';
+import { HardwareProjectService } from '../../../core/services/hardware-project.service';
 
 @Component({
   selector: 'app-hardware-project-list',
@@ -31,7 +31,6 @@ import { ResourceAssociationService } from '../../../services/resource-associati
     MatCardModule,
     MatChipsModule,
     MatDialogModule,
-    MatIconModule,
     MatInputModule,
     MatSelectModule,
     MatSnackBarModule
@@ -52,7 +51,7 @@ import { ResourceAssociationService } from '../../../services/resource-associati
                  [(ngModel)]="filter.keyword"
                  (input)="applyFilter()"
                  placeholder="输入关键词...">
-          <mat-icon matSuffix>search</mat-icon>
+          <i matSuffix class="ri-search-line search-suffix-icon"></i>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="filter-field">
@@ -76,7 +75,7 @@ import { ResourceAssociationService } from '../../../services/resource-associati
         </mat-form-field>
 
         <button mat-raised-button color="primary" (click)="resetFilter()">
-          <mat-icon>refresh</mat-icon>
+          <i class="ri-refresh-line"></i>
           重置筛选
         </button>
       </div>
@@ -128,43 +127,43 @@ import { ResourceAssociationService } from '../../../services/resource-associati
 
             <!-- 编程支持 -->
             <div class="code-support" *ngIf="project.code_templates && project.code_templates.length > 0">
-              <mat-icon>code</mat-icon>
+              <i class="ri-code-s-slash-line"></i>
               <span>支持 {{ getCodeLanguageName(project.code_templates[0].language) }}</span>
             </div>
 
             <!-- 安全提示 -->
             <div class="safety-notes" *ngIf="project.safety_notes && project.safety_notes.length > 0">
-              <mat-icon>warning</mat-icon>
+              <i class="ri-alert-line"></i>
               <span>{{ project.safety_notes.length }} 条安全注意事项</span>
             </div>
           </mat-card-content>
 
           <mat-card-actions>
             <button mat-raised-button color="primary" (click)="viewDetail(project)">
-              <mat-icon>visibility</mat-icon>
+              <i class="ri-eye-line"></i>
               查看详情
             </button>
             <button mat-button (click)="viewMaterials(project)">
-              <mat-icon>list</mat-icon>
+              <i class="ri-list-unordered"></i>
               材料清单
             </button>
             <button mat-button color="accent" (click)="viewRelatedResources(project)">
-              <mat-icon>link</mat-icon>
+              <i class="ri-link"></i>
               相关资源
             </button>
             <button mat-button
                     color="accent"
-                    (click)="startCoding(project)"
+                    (click)="addToTopicStudio(project)"
                     *ngIf="project.code_templates && project.code_templates.length > 0">
-              <mat-icon>edit</mat-icon>
-              开始编程
+              <i class="ri-lightbulb-flash-line"></i>
+              加入课题
             </button>
           </mat-card-actions>
         </mat-card>
 
         <!-- 空状态 -->
         <div *ngIf="filteredProjects.length === 0" class="empty-state">
-          <mat-icon>search_off</mat-icon>
+          <i class="ri-file-search-line empty-icon"></i>
           <h3>未找到匹配的项目</h3>
           <p>请尝试调整筛选条件或搜索关键词</p>
           <button mat-raised-button color="primary" (click)="resetFilter()">
@@ -354,12 +353,10 @@ import { ResourceAssociationService } from '../../../services/resource-associati
       border-radius: 8px;
       color: #1565c0;
       font-size: 13px;
-    }
 
-    .code-support mat-icon {
-      font-size: 18px;
-      width: 18px;
-      height: 18px;
+      i[class^="ri-"] {
+        font-size: 18px;
+      }
     }
 
 
@@ -373,12 +370,15 @@ import { ResourceAssociationService } from '../../../services/resource-associati
       border-radius: 6px;
       color: #e65100;
       font-size: 13px;
+
+      i[class^="ri-"] {
+        font-size: 18px;
+      }
     }
 
-    .safety-notes mat-icon {
-      font-size: 18px;
-      width: 18px;
-      height: 18px;
+    .search-suffix-icon {
+      font-size: 20px;
+      color: #999;
     }
 
     .empty-state {
@@ -391,10 +391,9 @@ import { ResourceAssociationService } from '../../../services/resource-associati
       color: #999;
     }
 
-    .empty-state mat-icon {
+    .empty-state .empty-icon,
+    .empty-state i[class^="ri-"] {
       font-size: 72px;
-      width: 72px;
-      height: 72px;
       margin-bottom: 16px;
       opacity: 0.5;
     }
@@ -445,28 +444,99 @@ export class HardwareProjectListComponent implements OnInit {
     private dialog: MatDialog,
     private snackBar: MatSnackBar,
     private route: ActivatedRoute,
-    private associationService: ResourceAssociationService
+    private router: Router,
+    private associationService: ResourceAssociationService,
+    private hardwareProjectService: HardwareProjectService
   ) {}
 
   ngOnInit(): void {
-    this.projects = this.getMockProjects();
-    this.applyFilter();
-    
+    this.loadProjects();
+
     // 监听路由参数，支持从其他页面跳转时自动搜索
     this.route.queryParams.subscribe(params => {
       const search = params['search'];
       const subject = params['subject'];
-      
+
       if (search) {
         this.filter.keyword = search;
         if (subject) {
-          // 根据学科设置分类（简化处理）
           this.filter.category = undefined;
         }
         this.applyFilter();
         this.snackBar.open(`已搜索: ${search}`, '关闭', { duration: 3000 });
       }
     });
+  }
+
+  /**
+   * 从后端加载硬件项目
+   */
+  loadProjects(): void {
+    this.hardwareProjectService.getProjects({ page: 1, size: 50 }).subscribe({
+      next: (resp) => {
+        this.projects = (resp.items || []).map((item) => this.mapProject(item));
+        this.applyFilter();
+        if (this.projects.length === 0) {
+          this.snackBar.open('暂未从后端获取到硬件项目', '关闭', { duration: 2000 });
+        }
+      },
+      error: (err) => {
+        console.error('加载硬件项目失败:', err);
+        this.projects = [];
+        this.snackBar.open('硬件项目 API 不可用', '关闭', { duration: 3000 });
+      },
+    });
+  }
+
+  /**
+   * 后端字段 → 前端 HardwareProject 字段映射
+   */
+  private mapProject(raw: any): HardwareProject {
+    // 后端字段: title, category, difficulty_level(string), estimated_time_hours, hardware_required
+    // 前端字段: total_cost(number), materials, code_templates, safety_notes
+    return {
+      id: raw.id,
+      project_id: raw.project_id || raw.id?.toString() || '',
+      title: raw.title || '',
+      subject: raw.subject || '',
+      description: raw.description || '',
+      category: (raw.category || 'electronics') as HardwareCategory,
+      difficulty: this.parseDifficulty(raw.difficulty_level),
+      estimated_time_hours: raw.estimated_time_hours || 0,
+      // 后端暂无 total_cost 字段，临时从 hardware_required 估算或为 0
+      total_cost: raw.total_cost ?? 0,
+      // 后端 hardware_required 数组（如果有）→ 转为前端 materials 格式
+      materials: Array.isArray(raw.materials)
+        ? raw.materials
+        : Array.isArray(raw.hardware_required)
+        ? raw.hardware_required.map((m: any) => ({
+            name: typeof m === 'string' ? m : m.name || '',
+            quantity: m.quantity || 1,
+            unit: m.unit || '个',
+            unitPrice: m.unitPrice || m.unit_price || 0,
+          }))
+        : [],
+      code_templates: raw.code_templates || [],
+      safety_notes: raw.safety_notes || [],
+      knowledge_point_ids: raw.knowledge_point_ids || [],
+    } as HardwareProject;
+  }
+
+  /**
+   * 后端 difficulty_level 是 string（如 'beginner'/'intermediate'/'advanced'），转为数字 1-5
+   */
+  private parseDifficulty(level: string | number | undefined): number {
+    if (typeof level === 'number') return level;
+    if (!level) return 3;
+    const map: Record<string, number> = {
+      beginner: 1,
+      elementary: 1,
+      intermediate: 3,
+      medium: 3,
+      advanced: 4,
+      expert: 5,
+    };
+    return map[String(level).toLowerCase()] || 3;
   }
 
   applyFilter(): void {
@@ -524,16 +594,10 @@ ${materialList}
 💰 总计: ¥${totalCost}`);
   }
 
-  startCoding(project: HardwareProject): void {
-    console.log('开始编程:', project);
-    if (project.code_templates && project.code_templates.length > 0) {
-      this.snackBar.open(
-        `🔧 启动 ${this.getCodeLanguageName(project.code_templates[0].language)} 编辑器`,
-        '关闭',
-        { duration: 3000 }
-      );
-      // TODO: 打开Blockly编辑器或代码编辑器
-    }
+  addToTopicStudio(project: HardwareProject): void {
+    this.router.navigate(['/topic-studio', 'new'], {
+      queryParams: { title: project.title, subject: project.subject || '' },
+    });
   }
 
   viewRelatedResources(project: HardwareProject): void {
@@ -599,6 +663,10 @@ ${materialList}
     return calculateTotalCost(materials);
   }
 
+  /**
+   * @deprecated 不再使用 - 改为从后端 API 加载
+   * 保留作为完全离线场景的最后 fallback
+   */
   private getMockProjects(): HardwareProject[] {
     return [
       {

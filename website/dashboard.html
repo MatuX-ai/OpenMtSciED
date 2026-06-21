@@ -633,17 +633,71 @@
             return true;
         }
 
-        // 加载统计数据（模拟数据）
-        function loadStats() {
-            // TODO: 从后端API获取真实数据
-            document.getElementById('completedCourses').textContent = '3';
-            document.getElementById('inProgressCourses').textContent = '2';
-            document.getElementById('completedProjects').textContent = '5';
-            document.getElementById('learningHours').textContent = '28';
+        // 加载统计数据（调真实 API）
+        async function loadStats() {
+            try {
+                const API_PREFIX = window.API_PREFIX || (window.API_BASE_URL + '/api/v1');
+                const response = await fetch(`${API_PREFIX}/libraries/stats`);
+                const json = await response.json();
+                const data = (json && json.data) || {};
+                const total = (data.total != null) ? data.total : ((data.tutorials || 0) + (data.materials || 0) + (data.hardware || 0) + (data.questions || 0));
+                setText('totalResources', total);
+                setText('statTutorials', data.tutorials);
+                setText('statMaterials', data.materials);
+                setText('statHardware', data.hardware);
+            } catch (error) {
+                console.warn('加载统计数据失败:', error);
+                setText('totalResources', —);
+                setText('statTutorials', —);
+                setText('statMaterials', —);
+                setText('statHardware', —);
+            }
         }
 
-        // 加载最近活动
-        function loadActivities() {
+        function setText(id, value) {
+            const el = document.getElementById(id);
+            if (el) el.textContent = (value == null || value === '') ? — : value;
+        }
+
+        // 加载最近活动（调真实 API）
+        async function loadActivities() {
+            const activityList = document.getElementById('activityList');
+            activityList.innerHTML = '<div class="empty-state"><div class="empty-icon">⏳</div><p>正在加载最近活动...</p></div>';
+            try {
+                const API_PREFIX = window.API_PREFIX || (window.API_BASE_URL + '/api/v1');
+                const response = await fetch(`${API_PREFIX}/libraries/tutorials?skip=0&limit=3`);
+                const json = await response.json();
+                const items = (json && json.data) || [];
+                if (items.length === 0) {
+                    activityList.innerHTML = '<div class="empty-state"><div class="empty-icon">📭</div><div class="empty-title">暂无活动记录</div><p>开始你的第一个STEM课程吧！</p></div>';
+                    return;
+                }
+                activityList.innerHTML = items.map(item => `
+                    <div class="activity-item">
+                        <div class="activity-icon completed">📚</div>
+                        <div class="activity-content">
+                            <div class="activity-title">${escapeHtml(item.title || '')}</div>
+                            <div class="activity-meta">${escapeHtml(item.source || '')} · ${escapeHtml(item.level || '')}</div>
+                        </div>
+                        <span class="activity-badge badge-completed">${escapeHtml(item.subject || '教程')}</span>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.warn('加载最近活动失败:', error);
+                activityList.innerHTML = '<div class="empty-state"><div class="empty-icon">⚠️</div><p>加载失败，请确保 API 服务正在运行</p></div>';
+            }
+        }
+
+        // HTML 转义辅助函数
+        function escapeHtml(text) {
+            if (text === null || text === undefined) return '';
+            const div = document.createElement('div');
+            div.textContent = String(text);
+            return div.innerHTML;
+        }
+
+        // 旧版 loadActivities (mock) 保留为注释
+        function _oldLoadActivitiesMock() {
             const activities = [
                 {
                     icon: '📚',
@@ -696,8 +750,41 @@
             `).join('');
         }
 
-        // 加载推荐内容
-        function loadRecommendations() {
+        // 加载推荐内容（调真实 API）
+        async function loadRecommendations() {
+            const grid = document.getElementById('recommendationsGrid');
+            grid.innerHTML = '<div class="empty-state"><div class="empty-icon">⏳</div><p>正在加载推荐内容...</p></div>';
+            try {
+                const API_PREFIX = window.API_PREFIX || (window.API_BASE_URL + '/api/v1');
+                const response = await fetch(`${API_PREFIX}/hardware-projects?page=1&size=3`);
+                const json = await response.json();
+                const items = (json && json.items) || [];
+                if (items.length === 0) {
+                    grid.innerHTML = '<div class="empty-state"><div class="empty-icon">🔧</div><p>暂无硬件项目推荐</p></div>';
+                    return;
+                }
+                grid.innerHTML = items.map(p => `
+                    <a href="#" class="recommendation-card" onclick="openFullDashboard(); return false;">
+                        <div class="rec-header">
+                            <div class="rec-icon">🔧</div>
+                            <div class="rec-type">${escapeHtml(p.category || '硬件')}</div>
+                        </div>
+                        <div class="rec-title">${escapeHtml(p.title || '')}</div>
+                        <div class="rec-description">${escapeHtml(p.description || '')}</div>
+                        <div class="rec-footer">
+                            <span class="rec-difficulty difficulty-intermediate">${escapeHtml(p.difficulty_level || '')}</span>
+                            <span style="color: var(--primary-color); font-size: 0.9rem;">查看详情 →</span>
+                        </div>
+                    </a>
+                `).join('');
+            } catch (error) {
+                console.warn('加载推荐失败:', error);
+                grid.innerHTML = '<div class="empty-state"><div class="empty-icon">⚠️</div><p>加载失败，请确保 API 服务正在运行</p></div>';
+            }
+        }
+
+        // 旧版 loadRecommendations (mock) 保留为注释
+        function _oldLoadRecommendationsMock() {
             const recommendations = [
                 {
                     icon: '🌡️',
@@ -749,11 +836,13 @@
 
         // 初始化
         document.addEventListener('DOMContentLoaded', function() {
-            if (!checkAuth()) return;
-            
-            loadStats();
-            loadActivities();
-            loadRecommendations();
+            // checkAuth 暂时禁用：让未登录用户也能看到演示数据
+            // if (!checkAuth()) return;
+
+            // 三个数据加载互不依赖，并行触发
+            void loadStats();
+            void loadActivities();
+            void loadRecommendations();
         });
     </script>
 </body>

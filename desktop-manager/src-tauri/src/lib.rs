@@ -36,9 +36,15 @@ pub fn run() {
 
       // 首次启动时从 JSON 导入资源数据
       if let Some(db_state) = app.try_state::<commands::course::DbState>() {
-        match commands::resource::import_resources_from_json(db_state) {
+        match commands::resource::import_resources_from_json(app.handle().clone(), db_state.clone()) {
           Ok(count) => println!("✓ 成功导入 {} 个开源资源", count),
           Err(e) => eprintln!("⚠ 导入资源失败: {}", e),
+        }
+
+        // 首次启动时从 JSON 导入开源课件数据
+        match commands::open_material::import_open_materials_from_json(app.handle().clone(), db_state.clone()) {
+          Ok(count) => println!("✓ 成功导入 {} 个开源课件", count),
+          Err(e) => eprintln!("⚠ 导入开源课件失败: {}", e),
         }
       }
 
@@ -65,6 +71,7 @@ pub fn run() {
       // 课件管理
       commands::material::get_materials,
       commands::material::upload_material,
+      commands::material::import_material_for_course,
       commands::material::delete_material,
       // 资源管理
       commands::resource::import_resources_from_json,
@@ -74,6 +81,11 @@ pub fn run() {
       commands::resource::get_local_resources,
       commands::resource::get_resource_tags,
       commands::resource::browse_resources_by_tag,
+      // 开源课件管理
+      commands::open_material::import_open_materials_from_json,
+      commands::open_material::browse_open_materials,
+      commands::open_material::get_open_material_detail,
+      commands::open_material::download_open_material,
       // 存储管理
       commands::storage::get_storage_info,
       commands::storage::get_folder_size,

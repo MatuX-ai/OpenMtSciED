@@ -2,18 +2,34 @@
 
 ## 1. 数据存储架构
 
-OpenMTSciEd 采用**双数据库**架构：
+OpenMTSciEd 采用**混合存储**架构：
 
 | 存储 | 技术 | 用途 |
 |------|------|------|
-| 图数据库 | Neo4j Aura | 知识图谱、教程、课件、硬件项目、学习路径 |
-| 关系数据库 | PostgreSQL (Neon) + Prisma | 用户、课程、学习记录、题库、爬虫配置 |
+| 关系数据库 | PostgreSQL (Neon) + Prisma | 用户、课程、学习记录、题库、爬虫配置、**学习路径闭包表** |
+| 遗留图数据 | Neo4j Aura（逐步退役） | 部分教程/课件/硬件项目（非学习路径依赖） |
+
+**学习路径依赖**已迁移至 PostgreSQL 闭包表（`concept` / `concept_dependency` / `concept_path`），详见 [08 - 闭包表迁移](./08-learning-path-closure-table-migration.md) 与 `backend-next/sql/`。
 
 本地 JSON 文件（`data/`）作为**数据源与离线资产**，供爬虫输出与 Desktop 本地使用。
 
 ---
 
-## 2. Neo4j 图数据模型
+## 2. PostgreSQL 学习路径闭包表（已实现）
+
+| 模型 | 说明 |
+|------|------|
+| Concept | 知识点节点（含 `legacyNeo4jId` 迁移映射） |
+| ConceptDependency | 直接依赖边 `(prerequisiteId, dependentId, pathType)` |
+| ConceptPath | 传递闭包 `(ancestorId, descendantId, depth, pathType)` |
+
+**path_type 值**：`required`（原 PROGRESSES_TO）、`optional`（选修/推荐路线）
+
+**维护方式**：应用层 `lib/concept-path.ts` 或 SQL `rebuild_closure(path_type)`
+
+---
+
+## 3. Neo4j 图数据模型（遗留/部分资源）
 
 ### 2.1 节点类型
 
@@ -32,7 +48,7 @@ OpenMTSciEd 采用**双数据库**架构：
 
 | 关系 | 说明 | 数量 |
 |------|------|------|
-| PROGRESSES_TO | 先修/进阶关系（学习路径核心） | 28,380 |
+| PROGRESSES_TO | 先修/进阶关系（**已迁移至 PostgreSQL 闭包表**） | 28,380 |
 | CONTAINS | 包含关系（如课程含单元） | 4,612 |
 | BELONGS_TO | 归属关系（如单元归属学科） | 539 |
 | RELATED_TO_SUBJECT | 与学科关联 | 154 |
@@ -51,7 +67,7 @@ OpenMTSciEd 采用**双数据库**架构：
 
 ---
 
-## 3. PostgreSQL 关系模型（Prisma）
+## 4. PostgreSQL 关系模型（Prisma）
 
 ### 3.1 核心表
 
@@ -73,7 +89,7 @@ role: "user" | "admin"
 
 ---
 
-## 4. 本地 JSON 数据资产 (`data/`)
+## 5. 本地 JSON 数据资产 (`data/`)
 
 ### 4.1 课程库 (`data/course_library/`)
 
@@ -125,7 +141,7 @@ role: "user" | "admin"
 
 ---
 
-## 5. 数据质量要求
+## 6. 数据质量要求
 
 | ID | 要求 | 优先级 |
 |----|------|--------|
@@ -138,7 +154,7 @@ role: "user" | "admin"
 
 ---
 
-## 6. 数据采集需求
+## 7. 数据采集需求
 
 ### 6.1 已支持爬虫
 
@@ -162,7 +178,7 @@ role: "user" | "admin"
 
 ---
 
-## 7. 数据同步与一致性
+## 8. 数据同步与一致性
 
 | 场景 | 策略 |
 |------|------|
@@ -174,7 +190,7 @@ role: "user" | "admin"
 
 ---
 
-## 8. 备份与恢复
+## 9. 备份与恢复
 
 | 需求 | 状态 |
 |------|------|

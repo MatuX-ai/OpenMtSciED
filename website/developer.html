@@ -611,7 +611,7 @@
             <div class="tab-container">
                 <ul class="tab-list">
                     <li class="tab-item active" data-tab="overview" onclick="switchTab('overview')">
-                        <span class="tab-icon"></span>概览
+                        <span class="tab-icon">🏠</span>概览
                     </li>
                     <li class="tab-item" data-tab="tutorials" onclick="switchTab('tutorials')">
                         <span class="tab-icon">📚</span>教程资源
@@ -829,6 +829,14 @@ console.log(tutorials.items);</code>
     <script src="js/navbar.js?v=20260515001"></script>
     
     <script>
+        // HTML 转义辅助函数（XSS 防护）
+        function escapeHtml(text) {
+            if (text === null || text === undefined) return '';
+            const div = document.createElement('div');
+            div.textContent = String(text);
+            return div.innerHTML;
+        }
+
         // Tab Switching
         function switchTab(tabName) {
             // Update tab items
@@ -856,26 +864,27 @@ console.log(tutorials.items);</code>
             container.innerHTML = '<div class="loading"><div class="loading-spinner"></div><p>正在加载教程资源...</p></div>';
 
             try {
-                const API_BASE_URL = window.API_BASE_URL || '/api/v1';
-                const response = await fetch(`${API_BASE_URL}/tutorials?page=1&size=12`);
+                const API_BASE_URL = window.API_PREFIX || (window.API_BASE_URL + '/api/v1');
+                const response = await fetch(`${API_BASE_URL}/libraries/tutorials?skip=0&limit=12`);
                 const data = await response.json();
                 
                 window.tutorialsLoaded = true;
-                
-                if (data.items && data.items.length > 0) {
+
+                // 后端返回结构: {success, data, total, skip, limit}
+                const items = (data && data.data) || [];
+                if (items.length > 0) {
                     container.innerHTML = `
                         <div class="resource-grid">
-                            ${data.items.map(tutorial => `
+                            ${items.map(tutorial => `
                                 <div class="resource-card">
                                     <div class="resource-header">
-                                        <div class="resource-title">${tutorial.title}</div>
-                                        <span class="resource-badge">${tutorial.subject}</span>
+                                        <div class="resource-title">${escapeHtml(tutorial.title || '')}</div>
+                                        <span class="resource-badge">${escapeHtml(tutorial.subject || '未分类')}</span>
                                     </div>
-                                    <p class="resource-description">${tutorial.description || '暂无描述'}</p>
+                                    <p class="resource-description">${escapeHtml(tutorial.description || '暂无描述')}</p>
                                     <div class="resource-meta">
-                                        <span>📚 ${tutorial.grade_level}</span>
-                                        <span>⏱️ ${tutorial.duration_minutes}分钟</span>
-                                        <span>📊 ${tutorial.difficulty_level}</span>
+                                        <span>📚 ${escapeHtml(tutorial.level || '通用')}</span>
+                                        <span>📊 ${escapeHtml(tutorial.source || '')}</span>
                                     </div>
                                 </div>
                             `).join('')}
@@ -894,7 +903,7 @@ console.log(tutorials.items);</code>
                 container.innerHTML = `
                     <div class="empty-state">
                         <div class="empty-state-icon">⚠️</div>
-                        <p>加载失败，请确保API服务正在运行</p>
+                        <p>加载失败: ${escapeHtml(error.message || '请确保 API 服务正在运行')}</p>
                     </div>
                 `;
             }
@@ -906,26 +915,27 @@ console.log(tutorials.items);</code>
             container.innerHTML = '<div class="loading"><div class="loading-spinner"></div><p>正在加载硬件项目...</p></div>';
 
             try {
-                const API_BASE_URL = window.API_BASE_URL || '/api/v1';
+                const API_BASE_URL = window.API_PREFIX || (window.API_BASE_URL + '/api/v1');
                 const response = await fetch(`${API_BASE_URL}/hardware-projects?page=1&size=12`);
                 const data = await response.json();
                 
                 window.hardwareLoaded = true;
-                
-                if (data.items && data.items.length > 0) {
+
+                const items = (data && data.items) || [];
+                if (items.length > 0) {
                     container.innerHTML = `
                         <div class="resource-grid">
-                            ${data.items.map(project => `
+                            ${items.map(project => `
                                 <div class="resource-card">
                                     <div class="resource-header">
-                                        <div class="resource-title">${project.title}</div>
-                                        <span class="resource-badge" style="background: rgba(139, 92, 246, 0.15); color: #8b5cf6;">${project.category}</span>
+                                        <div class="resource-title">${escapeHtml(project.title || '')}</div>
+                                        <span class="resource-badge" style="background: rgba(139, 92, 246, 0.15); color: #8b5cf6;">${escapeHtml(project.category || '')}</span>
                                     </div>
-                                    <p class="resource-description">${project.description || '暂无描述'}</p>
+                                    <p class="resource-description">${escapeHtml(project.description || '暂无描述')}</p>
                                     <div class="resource-meta">
-                                        <span> ${project.difficulty_level}</span>
-                                        <span>⏱️ ${project.estimated_time_hours}小时</span>
-                                        <span>📚 ${project.subject}</span>
+                                        <span>📍 ${escapeHtml(project.difficulty_level || '')}</span>
+                                        <span>⏱️ ${escapeHtml(String(project.estimated_time_hours || ''))}小时</span>
+                                        <span>📚 ${escapeHtml(project.subject || '')}</span>
                                     </div>
                                 </div>
                             `).join('')}
@@ -944,7 +954,7 @@ console.log(tutorials.items);</code>
                 container.innerHTML = `
                     <div class="empty-state">
                         <div class="empty-state-icon">⚠️</div>
-                        <p>加载失败，请确保API服务正在运行</p>
+                        <p>加载失败: ${escapeHtml(error.message || '请确保 API 服务正在运行')}</p>
                     </div>
                 `;
             }

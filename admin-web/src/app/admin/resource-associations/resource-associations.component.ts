@@ -11,23 +11,9 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { HttpClient } from '@angular/common/http';
-
-interface ResourceItem {
-  id: string;
-  title: string;
-  subject: string;
-  type: 'tutorial' | 'material' | 'hardware';
-}
-
-interface Association {
-  id: string;
-  source_id: string;
-  source_type: string;
-  target_id: string;
-  target_type: string;
-  relevance_score: number;
-}
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { ResourceAssociationService, Association, AssociationFilter } from '../../core/services/resource-association.service';
+import { ConfirmDialogComponent } from '../../core/components/confirm-dialog.component';
 
 @Component({
   selector: 'app-resource-associations',
@@ -148,7 +134,7 @@ interface Association {
               </ng-container>
 
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns; trackBy: trackByAssociation"></tr>
             </table>
 
             <div *ngIf="!loading && associations.length === 0" class="empty-state">
@@ -470,9 +456,10 @@ export class ResourceAssociationsComponent implements OnInit {
   };
 
   constructor(
-    private http: HttpClient,
+    private associationService: ResourceAssociationService,
     private snackBar: MatSnackBar,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -480,12 +467,10 @@ export class ResourceAssociationsComponent implements OnInit {
   }
 
   loadStats(): void {
-    this.http.get<any>('/api/v1/resources/associations/stats').subscribe({
-      next: (response) => {
-        if (response.success) {
-          this.stats = response.data;
-          this.cdr.detectChanges();
-        }
+    this.associationService.getStats().subscribe({
+      next: (stats) => {
+        this.stats = stats;
+        this.cdr.detectChanges();
       },
       error: (error) => {
         console.error('加载统计数据失败:', error);
@@ -498,16 +483,12 @@ export class ResourceAssociationsComponent implements OnInit {
     this.loading = true;
     this.cdr.detectChanges(); // 立即更新UI显示loading状态
 
-    const filterParam = this.filterType === 'all' ? 'all' : this.filterType;
-
-    this.http.get<any>(`/api/v1/resources/associations?filter_type=${filterParam}`).subscribe({
-      next: (response) => {
-        if (response.success) {
-          this.associations = response.data;
-          this.loading = false;
-          this.cdr.detectChanges(); // 更新UI
-          this.loadStats();
-        }
+    this.associationService.getAssociations(this.filterType as AssociationFilter).subscribe({
+      next: (associations) => {
+        this.associations = associations;
+        this.loading = false;
+        this.cdr.detectChanges(); // 更新UI
+        this.loadStats();
       },
       error: (error) => {
         console.error('加载关联数据失败:', error);
@@ -518,26 +499,29 @@ export class ResourceAssociationsComponent implements OnInit {
     });
   }
 
+  /**
+   * 表格行 trackBy：按 id 追踪
+   */
+  trackByAssociation = (_index: number, assoc: Association): string => assoc.id;
+
   createAssociation(): void {
-    this.http.post<any>('/api/v1/resources/associations', this.newAssoc).subscribe({
-      next: (response) => {
-        if (response.success) {
-          this.snackBar.open('关联创建成功', '关闭', { duration: 3000 });
+    this.associationService.createAssociation(this.newAssoc).subscribe({
+      next: () => {
+        this.snackBar.open('关联创建成功', '关闭', { duration: 3000 });
 
-          // 重置表单
-          this.newAssoc = {
-            source_type: 'tutorial',
-            source_id: '',
-            target_type: 'material',
-            target_id: '',
-            relevance_score: 0.8
-          };
+        // 重置表单
+        this.newAssoc = {
+          source_type: 'tutorial',
+          source_id: '',
+          target_type: 'material',
+          target_id: '',
+          relevance_score: 0.8
+        };
 
-          // 刷新列表（使用setTimeout避免NG0100错误）
-          setTimeout(() => {
-            this.loadAssociations();
-          });
-        }
+        // 刷新列表（使用setTimeout避免NG0100错误）
+        setTimeout(() => {
+          this.loadAssociations();
+        });
       },
       error: (error) => {
         console.error('创建关联失败:', error);
@@ -547,24 +531,33 @@ export class ResourceAssociationsComponent implements OnInit {
   }
 
   deleteAssociation(assoc: Association): void {
-    if (!confirm(`确定要删除此关联吗？\n${assoc.source_id} → ${assoc.target_id}`)) {
-      return;
-    }
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '400px',
+      data: {
+        title: '删除关联',
+        message: `确定要删除此关联吗？\n${assoc.source_id} → ${assoc.target_id}`,
+        confirmText: '删除',
+        color: 'warn',
+        icon: 'delete',
+      },
+    });
 
-    this.http.delete<any>(`/api/v1/resources/associations/${assoc.id}`).subscribe({
-      next: (response) => {
-        if (response.success) {
+    dialogRef.afterClosed().subscribe((confirmed) => {
+      if (!confirmed) return;
+
+      this.associationService.deleteAssociation(assoc.id).subscribe({
+        next: () => {
           this.snackBar.open('关联已删除', '关闭', { duration: 3000 });
           // 使用setTimeout避免NG0100错误
           setTimeout(() => {
             this.loadAssociations();
           });
+        },
+        error: (error) => {
+          console.error('删除关联失败:', error);
+          this.snackBar.open('删除关联失败', '关闭', { duration: 3000 });
         }
-      },
-      error: (error) => {
-        console.error('删除关联失败:', error);
-        this.snackBar.open('删除关联失败', '关闭', { duration: 3000 });
-      }
+      });
     });
   }
 

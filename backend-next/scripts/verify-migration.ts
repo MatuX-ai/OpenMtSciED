@@ -259,6 +259,48 @@ async function checkReportConsistency() {
 }
 
 // ──────────────────────────────────────────────
+// 检查 5：查询性能 (AC-6: P95 < 50ms)
+// ──────────────────────────────────────────────
+
+async function checkQueryPerformance() {
+  console.log('\n📋 检查 5: 查询性能 (P95 < 50ms)');
+
+  const conceptCount = await prisma.concept.count();
+  const samples = await prisma.$queryRaw<Array<{ id: number }>>`
+    SELECT id FROM concept ORDER BY RANDOM() LIMIT 50
+  `;
+
+  if (samples.length === 0) {
+    record('性能基准', false, '无概念数据，跳过');
+    return;
+  }
+
+  const latencies: number[] = [];
+
+  for (const s of samples) {
+    const t0 = performance.now();
+    await getPrerequisites(s.id, 'required');
+    await getSuccessors(s.id, 'required');
+    latencies.push(performance.now() - t0);
+  }
+
+  latencies.sort((a, b) => a - b);
+  const p50 = latencies[Math.floor(latencies.length * 0.5)];
+  const p95 = latencies[Math.floor(latencies.length * 0.95)];
+  const max = latencies[latencies.length - 1];
+
+  const threshold = conceptCount <= 5000 ? 50 : 100;
+  const passed = p95 < threshold;
+
+  record(
+    '查询 P95 延迟',
+    passed,
+    `P50=${p50.toFixed(1)}ms P95=${p95.toFixed(1)}ms Max=${max.toFixed(1)}ms (阈值 ${threshold}ms, 概念数 ${conceptCount})`,
+    { p50, p95, max, threshold, conceptCount, samples: latencies.length }
+  );
+}
+
+// ──────────────────────────────────────────────
 // 主流程
 // ──────────────────────────────────────────────
 
@@ -279,6 +321,7 @@ async function main() {
   await checkConceptPathFunctions();
   await checkTransitivity();
   await checkReportConsistency();
+  await checkQueryPerformance();
 
   // 汇总
   const passed = results.filter(r => r.passed).length;

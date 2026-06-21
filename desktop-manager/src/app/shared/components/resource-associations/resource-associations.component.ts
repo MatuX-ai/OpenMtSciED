@@ -3,7 +3,6 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
-import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -20,7 +19,6 @@ import { RelatedMaterial, RequiredHardware, LearningPath } from '../../../models
     MatButtonModule,
     MatCardModule,
     MatChipsModule,
-    MatIconModule,
     MatProgressSpinnerModule,
     MatSnackBarModule
   ],
@@ -35,12 +33,12 @@ import { RelatedMaterial, RequiredHardware, LearningPath } from '../../../models
 
       <!-- 错误状态 -->
       <div *ngIf="error && !loading" class="error-container">
-        <mat-icon color="warn" class="error-icon">error_outline</mat-icon>
+        <i class="ri-error-warning-line error-icon"></i>
         <h3>加载失败</h3>
         <p>{{ error }}</p>
         <div class="error-actions">
           <button mat-stroked-button color="primary" (click)="loadAssociations()">
-            <mat-icon>refresh</mat-icon>
+            <i class="ri-refresh-line"></i>
             重试
           </button>
         </div>
@@ -48,11 +46,11 @@ import { RelatedMaterial, RequiredHardware, LearningPath } from '../../../models
 
       <!-- 关联内容 -->
       <div *ngIf="!loading && !error" class="associations-content">
-        
+
         <!-- 相关课件部分 -->
         <div *ngIf="showMaterials && relatedMaterials.length > 0" class="section">
           <h3>
-            <mat-icon>menu_book</mat-icon>
+            <i class="ri-book-shelf-line"></i>
             相关课件 ({{ relatedMaterials.length }})
           </h3>
           <div class="cards-grid">
@@ -71,11 +69,11 @@ import { RelatedMaterial, RequiredHardware, LearningPath } from '../../../models
               </mat-card-header>
               <mat-card-actions>
                 <button mat-button color="primary" (click)="viewMaterial(material)">
-                  <mat-icon>visibility</mat-icon>
+                  <i class="ri-eye-line"></i>
                   查看
                 </button>
                 <button mat-button *ngIf="material.pdf_download_url" (click)="downloadMaterial(material)">
-                  <mat-icon>download</mat-icon>
+                  <i class="ri-download-2-line"></i>
                   下载
                 </button>
               </mat-card-actions>
@@ -86,7 +84,7 @@ import { RelatedMaterial, RequiredHardware, LearningPath } from '../../../models
         <!-- 所需硬件部分 -->
         <div *ngIf="showHardware && requiredHardware.length > 0" class="section">
           <h3>
-            <mat-icon>build</mat-icon>
+            <i class="ri-tools-line"></i>
             所需硬件 ({{ requiredHardware.length }})
           </h3>
           <div class="cards-grid">
@@ -106,13 +104,13 @@ import { RelatedMaterial, RequiredHardware, LearningPath } from '../../../models
               <mat-card-content>
                 <p>{{ hardware.description }}</p>
                 <div *ngIf="hardware.estimated_time_hours" class="meta-info">
-                  <mat-icon>schedule</mat-icon>
+                  <i class="ri-time-line"></i>
                   <span>预计耗时: {{ hardware.estimated_time_hours }}小时</span>
                 </div>
               </mat-card-content>
               <mat-card-actions>
                 <button mat-button color="accent" (click)="viewHardware(hardware)">
-                  <mat-icon>visibility</mat-icon>
+                  <i class="ri-eye-line"></i>
                   查看详情
                 </button>
               </mat-card-actions>
@@ -122,7 +120,7 @@ import { RelatedMaterial, RequiredHardware, LearningPath } from '../../../models
 
         <!-- 空状态 -->
         <div *ngIf="!relatedMaterials.length && !requiredHardware.length" class="empty-state">
-          <mat-icon class="empty-icon">info_outline</mat-icon>
+          <i class="ri-information-line empty-icon"></i>
           <h3>暂无关联资源</h3>
           <p>当前资源暂未建立关联关系</p>
           <div class="empty-hints">
@@ -169,9 +167,8 @@ import { RelatedMaterial, RequiredHardware, LearningPath } from '../../../models
 
     .error-icon {
       font-size: 56px;
-      width: 56px;
-      height: 56px;
       margin-bottom: 16px;
+      color: #c53030;
     }
 
     .error-container h3 {
@@ -198,8 +195,6 @@ import { RelatedMaterial, RequiredHardware, LearningPath } from '../../../models
 
     .empty-icon {
       font-size: 56px;
-      width: 56px;
-      height: 56px;
       margin-bottom: 16px;
       opacity: 0.4;
       color: #a0aec0;
@@ -255,10 +250,10 @@ import { RelatedMaterial, RequiredHardware, LearningPath } from '../../../models
       margin: 0 0 16px 0;
       color: #333;
       font-size: 18px;
-    }
 
-    .section h3 mat-icon {
-      color: #667eea;
+      i[class^="ri-"] {
+        color: #667eea;
+      }
     }
 
     .cards-grid {
@@ -363,12 +358,10 @@ import { RelatedMaterial, RequiredHardware, LearningPath } from '../../../models
       margin-top: 8px;
       font-size: 13px;
       color: #999;
-    }
 
-    .meta-info mat-icon {
-      font-size: 16px;
-      width: 16px;
-      height: 16px;
+      i[class^="ri-"] {
+        font-size: 16px;
+      }
     }
 
     mat-card-actions {
@@ -376,13 +369,11 @@ import { RelatedMaterial, RequiredHardware, LearningPath } from '../../../models
       gap: 8px;
       padding: 12px 16px;
       border-top: 1px solid #f0f0f0;
-    }
 
-    mat-card-actions button mat-icon {
-      margin-right: 4px;
-      font-size: 18px;
-      width: 18px;
-      height: 18px;
+      button i[class^="ri-"] {
+        margin-right: 4px;
+        font-size: 18px;
+      }
     }
 
     @media (max-width: 768px) {
@@ -472,9 +463,8 @@ export class ResourceAssociationsComponent implements OnInit, OnDestroy {
 
   viewMaterial(material: RelatedMaterial): void {
     this.snackBar.open(`正在跳转到课件: ${material.title}`, '关闭', { duration: 2000 });
-    // 导航到课件库，并传递搜索参数
-    this.router.navigate(['/material-library'], {
-      queryParams: { search: material.title, subject: material.subject }
+    this.router.navigate(['/resource-explorer'], {
+      queryParams: { search: material.title, type: 'material' },
     });
   }
 

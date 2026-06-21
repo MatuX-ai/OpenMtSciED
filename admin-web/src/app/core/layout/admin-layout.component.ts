@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -17,6 +18,7 @@ interface NavItem {
 @Component({
   selector: 'app-admin-layout',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
     RouterLink,
@@ -42,22 +44,22 @@ interface NavItem {
             <span matListItemTitle>仪表盘</span>
           </a>
 
-          <a mat-list-item routerLink="/admin/crawlers" routerLinkActive="active-link">
+          <a mat-list-item routerLink="/admin/crawlers" routerLinkActive="active-link" *ngIf="hasRole(['admin', 'org_admin'])">
             <mat-icon matListItemIcon>extension</mat-icon>
             <span matListItemTitle>爬虫管理</span>
           </a>
 
-          <a mat-list-item routerLink="/admin/knowledge-graph" routerLinkActive="active-link">
+          <a mat-list-item routerLink="/admin/knowledge-graph" routerLinkActive="active-link" *ngIf="hasRole(['admin', 'org_admin', 'premium'])">
             <mat-icon matListItemIcon>account_tree</mat-icon>
             <span matListItemTitle>知识图谱</span>
           </a>
 
-          <a mat-list-item routerLink="/admin/resource-associations" routerLinkActive="active-link">
+          <a mat-list-item routerLink="/admin/resource-associations" routerLinkActive="active-link" *ngIf="hasRole(['admin', 'org_admin', 'premium'])">
             <mat-icon matListItemIcon>link</mat-icon>
             <span matListItemTitle>资源关联</span>
           </a>
 
-          <a mat-list-item routerLink="/admin/question-bank" routerLinkActive="active-link">
+          <a mat-list-item routerLink="/admin/question-bank" routerLinkActive="active-link" *ngIf="hasRole(['admin', 'org_admin', 'premium'])">
             <mat-icon matListItemIcon>quiz</mat-icon>
             <span matListItemTitle>题库管理</span>
           </a>
@@ -77,17 +79,27 @@ interface NavItem {
             <span matListItemTitle>课件库</span>
           </a>
 
-          <a mat-list-item routerLink="/admin/education-platforms" routerLinkActive="active-link">
+          <a mat-list-item routerLink="/admin/education-platforms" routerLinkActive="active-link" *ngIf="hasRole(['admin', 'org_admin'])">
             <mat-icon matListItemIcon>dns</mat-icon>
             <span matListItemTitle>教育平台</span>
           </a>
 
-          <a mat-list-item routerLink="/admin/user-management" routerLinkActive="active-link">
+          <a mat-list-item routerLink="/admin/user-management" routerLinkActive="active-link" *ngIf="hasRole(['admin', 'org_admin'])">
             <mat-icon matListItemIcon>people</mat-icon>
             <span matListItemTitle>用户管理</span>
           </a>
 
-          <a mat-list-item routerLink="/admin/settings" routerLinkActive="active-link">
+          <a mat-list-item routerLink="/admin/publish-review" routerLinkActive="active-link" *ngIf="hasRole(['admin', 'org_admin'])">
+            <mat-icon matListItemIcon>fact_check</mat-icon>
+            <span matListItemTitle>发布审核</span>
+          </a>
+
+          <a mat-list-item routerLink="/admin/plagiarism" routerLinkActive="active-link" *ngIf="hasRole(['admin', 'org_admin'])">
+            <mat-icon matListItemIcon>report</mat-icon>
+            <span matListItemTitle>抄袭举报</span>
+          </a>
+
+          <a mat-list-item routerLink="/admin/settings" routerLinkActive="active-link" *ngIf="hasRole(['admin'])">
             <mat-icon matListItemIcon>settings</mat-icon>
             <span matListItemTitle>系统设置</span>
           </a>
@@ -241,13 +253,17 @@ export class AdminLayoutComponent implements OnInit {
   private authService = inject(AuthService);
   private router = inject(Router);
 
-  readonly currentUser = signal<UserInfo | null>(null);
+  readonly currentUser = toSignal(this.authService.currentUser$, { initialValue: null });
 
-  ngOnInit(): void {
-    this.authService.currentUser$.subscribe((user: UserInfo | null) => {
-      this.currentUser.set(user);
-    });
+  /**
+   * 判断当前用户是否具有指定角色之一
+   */
+  hasRole(roles: string[]): boolean {
+    const user = this.currentUser();
+    return user !== null && roles.includes(user.role || '');
   }
+
+  ngOnInit(): void {}
 
   getTitle(): string {
     const url = this.router.url;

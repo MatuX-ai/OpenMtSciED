@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -10,30 +11,20 @@ import { MatTableModule } from '@angular/material/table';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { HttpClient } from '@angular/common/http';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { firstValueFrom } from 'rxjs';
+import { ConfirmDialogComponent } from '../../core/components/confirm-dialog.component';
+import { getSubjectName } from '../../core/utils';
+import { Tutorial, TutorialsService } from '../../core/services/tutorials.service';
+import { SkeletonStatCardComponent, SkeletonTableComponent } from '../../core/components/skeleton.component';
 
-interface Tutorial {
-  tutorial_id: string;
-  title: string;
-  source: string;
-  age_range?: string;
-  subject: string;
-  category?: string;
-  difficulty?: number;
-  duration_hours?: number;
-  description: string;
-  modules?: any[];
-  hardware_list?: any[];
-  knowledge_points?: string[];
-  experiments?: any[];
-  cross_discipline?: string[];
-  tutorial_url?: string;
-}
+/** 后兼容导出（供其他模块可能引用） */
+export type { Tutorial } from '../../core/services/tutorials.service';
 
 @Component({
   selector: 'app-admin-tutorials',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
     FormsModule,
@@ -45,6 +36,9 @@ interface Tutorial {
     MatChipsModule,
     MatInputModule,
     MatSelectModule,
+    MatTooltipModule,
+    SkeletonStatCardComponent,
+    SkeletonTableComponent,
   ],
   template: `
     <div class="admin-tutorials">
@@ -59,7 +53,7 @@ interface Tutorial {
             <mat-icon>refresh</mat-icon>
             刷新
           </button>
-          <button mat-flat-button color="primary" (click)="importTutorial()">
+          <button mat-flat-button color="primary" (click)="importTutorial()" disabled matTooltip="功能开发中，即将上线">
             <mat-icon>upload</mat-icon>
             导入教程
           </button>
@@ -118,10 +112,17 @@ interface Tutorial {
       </div>
 
       <ng-template #loadingTemplate>
-        <div class="loading-container">
-          <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
-          <p>加载教程数据...</p>
+        <div class="stats-grid">
+          <app-skeleton-stat-card *ngFor="let _ of [1,2,3,4]" />
         </div>
+        <mat-card class="tutorials-card">
+          <mat-card-content>
+            <app-skeleton-table
+              [colWidths]="[3, 1.5, 1.5, 1.5, 1.5]"
+              [rows]="6"
+            />
+          </mat-card-content>
+        </mat-card>
       </ng-template>
 
       <!-- 教程列表 -->
@@ -228,10 +229,10 @@ interface Tutorial {
                 <th mat-header-cell *matHeaderCellDef>操作</th>
                 <td mat-cell *matCellDef="let tutorial">
                   <div class="action-buttons">
-                    <button mat-icon-button color="primary" (click)="viewTutorial(tutorial)" matTooltip="查看详情">
+                    <button mat-icon-button color="primary" (click)="viewTutorial(tutorial)" disabled matTooltip="查看详情 — 功能开发中">
                       <mat-icon>visibility</mat-icon>
                     </button>
-                    <button mat-icon-button color="accent" (click)="editTutorial(tutorial)" matTooltip="编辑教程">
+                    <button mat-icon-button color="accent" (click)="editTutorial(tutorial)" disabled matTooltip="编辑教程 — 功能开发中">
                       <mat-icon>edit</mat-icon>
                     </button>
                     <button mat-icon-button color="warn" (click)="deleteTutorial(tutorial)" matTooltip="删除教程">
@@ -242,7 +243,7 @@ interface Tutorial {
               </ng-container>
 
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns; trackBy: trackByTutorial"></tr>
 
               <!-- 空数据提示 -->
               <tr class="empty-row" *matNoDataRow>
@@ -463,8 +464,9 @@ interface Tutorial {
   `],
 })
 export class AdminTutorialsComponent implements OnInit {
-  private http = inject(HttpClient);
+  private tutorialsService = inject(TutorialsService);
   private snackBar = inject(MatSnackBar);
+  private dialog = inject(MatDialog);
 
   readonly loading = signal<boolean>(true);
   readonly tutorials = signal<Tutorial[]>([]);
@@ -494,36 +496,29 @@ export class AdminTutorialsComponent implements OnInit {
   async loadTutorials(): Promise<void> {
     this.loading.set(true);
     try {
-      // 从新的教程库API获取数据
-      const response: any = await firstValueFrom(
-        this.http.get('/api/v1/libraries/tutorials', {
-          params: { skip: 0, limit: 1000 }
-        })
+      // 从 Service 获取教程库数据
+      const response = await firstValueFrom(
+        this.tutorialsService.getTutorials({ skip: 0, limit: 1000 })
       );
 
-      if (response.success && response.data) {
-        const allTutorials = response.data.map((item: any) => ({
-          tutorial_id: item.tutorial_id || item.unit_id || item.course_id || '',
-          title: item.title,
-          source: item.source || '未知来源',
-          subject: item.subject || '未分类',
-          category: item.category || item.subject || '',
-          difficulty: item.difficulty || item.complexity ? this.mapComplexity(item.complexity) : 2,
-          duration_hours: item.duration_hours || (item.duration_minutes ? item.duration_minutes / 60 : 0),
-          description: item.description || '',
-          knowledge_points: item.knowledge_points || []
-        }));
+      const allTutorials: Tutorial[] = response.items.map((item: any) => ({
+        tutorial_id: item.tutorial_id || item.unit_id || item.course_id || '',
+        title: item.title,
+        source: item.source || '未知来源',
+        subject: item.subject || '未分类',
+        category: item.category || item.subject || '',
+        difficulty: item.difficulty || item.complexity ? this.mapComplexity(item.complexity) : 2,
+        duration_hours: item.duration_hours || (item.duration_minutes ? item.duration_minutes / 60 : 0),
+        description: item.description || '',
+        knowledge_points: item.knowledge_points || []
+      }));
 
-        this.tutorials.set(allTutorials);
-        this.filteredTutorials.set(allTutorials);
+      this.tutorials.set(allTutorials);
+      this.filteredTutorials.set(allTutorials);
 
-        this.updateAvailableOptions(allTutorials);
-        // 使用后端返回的 total 作为真实总数
-        this.updateStats(allTutorials, response.total);
-      } else {
-        this.tutorials.set([]);
-        this.filteredTutorials.set([]);
-      }
+      this.updateAvailableOptions(allTutorials);
+      // 使用后端返回的 total 作为真实总数
+      this.updateStats(allTutorials, response.total);
     } catch (error) {
       console.error('加载教程失败:', error);
       this.snackBar.open('加载教程数据失败', '关闭', { duration: 3000 });
@@ -595,22 +590,39 @@ export class AdminTutorialsComponent implements OnInit {
     this.snackBar.open('数据已刷新', '关闭', { duration: 2000 });
   }
 
+  /**
+   * 表格行 trackBy：按 tutorial_id 追踪
+   */
+  trackByTutorial = (_index: number, tutorial: Tutorial): string => tutorial.tutorial_id;
+
   importTutorial(): void {
-    this.snackBar.open('导入教程功能待实现', '关闭', { duration: 2000 });
+    this.snackBar.open('🚧 导入教程 — 功能开发中，即将上线', '关闭', { duration: 2000 });
   }
 
   viewTutorial(tutorial: Tutorial): void {
-    this.snackBar.open(`查看教程详情: ${tutorial.title}`, '关闭', { duration: 2000 });
+    this.snackBar.open(`🚧 查看教程详情: ${tutorial.title} — 功能开发中，即将上线`, '关闭', { duration: 2000 });
   }
 
   editTutorial(tutorial: Tutorial): void {
-    this.snackBar.open(`编辑教程: ${tutorial.title}`, '关闭', { duration: 2000 });
+    this.snackBar.open(`🚧 编辑教程: ${tutorial.title} — 功能开发中，即将上线`, '关闭', { duration: 2000 });
   }
 
   deleteTutorial(tutorial: Tutorial): void {
-    if (confirm(`确定要删除教程 "${tutorial.title}" 吗？`)) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '400px',
+      data: {
+        title: '删除教程',
+        message: `确定要删除教程 "${tutorial.title}" 吗？`,
+        confirmText: '删除',
+        color: 'warn',
+        icon: 'delete',
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((confirmed) => {
+      if (!confirmed) return;
       this.snackBar.open(`删除教程: ${tutorial.title}`, '关闭', { duration: 2000 });
-    }
+    });
   }
 
   getDifficultyName(difficulty?: number): string {
@@ -635,19 +647,8 @@ export class AdminTutorialsComponent implements OnInit {
     return difficulty ? (colorMap[difficulty] || '') : '';
   }
 
-  getSubjectName(subject: string): string {
-    const nameMap: Record<string, string> = {
-      physics: '物理',
-      chemistry: '化学',
-      biology: '生物',
-      earth: '地球科学',
-      engineering: '工程',
-      programming: '编程',
-      robotics: '机器人',
-      electronics: '电子'
-    };
-    return nameMap[subject] || subject;
-  }
+  // 使用共享工具函数
+  readonly getSubjectName = getSubjectName;
 
   getKnowledgePointCount(tutorial: Tutorial): number {
     if (tutorial.knowledge_points && Array.isArray(tutorial.knowledge_points)) {

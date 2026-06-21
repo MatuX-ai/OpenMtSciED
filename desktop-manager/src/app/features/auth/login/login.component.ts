@@ -58,7 +58,8 @@ import { AuthService } from '../../../services/auth.service';
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100%;
+      padding: 24px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
     .login-card {

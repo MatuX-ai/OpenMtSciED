@@ -52,7 +52,8 @@ import { AuthService } from '../../../services/auth.service';
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100%;
+      padding: 24px;
       background-color: #f5f7fa;
     }
     .register-card {

@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -10,26 +11,17 @@ import { MatTableModule } from '@angular/material/table';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { HttpClient } from '@angular/common/http';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { firstValueFrom } from 'rxjs';
-
-interface TextbookChapter {
-  chapter_id: string;
-  title: string;
-  textbook: string;
-  source: string;
-  grade_level: string;
-  subject: string;
-  chapter_url?: string;
-  pdf_download_url?: string;
-  prerequisites?: string[];
-  key_concepts?: any[];
-  exercises?: any[];
-}
+import { ConfirmDialogComponent } from '../../core/components/confirm-dialog.component';
+import { getSubjectName, getGradeLevelName } from '../../core/utils';
+import { MaterialsService, TextbookChapter } from '../../core/services/materials.service';
+import { SkeletonStatCardComponent, SkeletonTableComponent } from '../../core/components/skeleton.component';
 
 @Component({
   selector: 'app-admin-materials',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
     FormsModule,
@@ -41,6 +33,9 @@ interface TextbookChapter {
     MatChipsModule,
     MatInputModule,
     MatSelectModule,
+    MatTooltipModule,
+    SkeletonStatCardComponent,
+    SkeletonTableComponent,
   ],
   template: `
     <div class="admin-materials">
@@ -54,7 +49,7 @@ interface TextbookChapter {
             <mat-icon>refresh</mat-icon>
             刷新
           </button>
-          <button mat-flat-button color="primary" (click)="uploadMaterial()">
+          <button mat-flat-button color="primary" (click)="uploadMaterial()" disabled matTooltip="功能开发中，即将上线">
             <mat-icon>upload</mat-icon>
             上传课件
           </button>
@@ -104,10 +99,17 @@ interface TextbookChapter {
       </div>
 
       <ng-template #loadingTemplate>
-        <div class="loading-container">
-          <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
-          <p>加载课件数据...</p>
+        <div class="stats-grid">
+          <app-skeleton-stat-card *ngFor="let _ of [1,2,3,4]" />
         </div>
+        <mat-card class="materials-card">
+          <mat-card-content>
+            <app-skeleton-table
+              [colWidths]="[3, 1.5, 1.5, 1.5, 1, 1]"
+              [rows]="6"
+            />
+          </mat-card-content>
+        </mat-card>
       </ng-template>
 
       <div class="materials-container" *ngIf="!loading()">
@@ -217,7 +219,7 @@ interface TextbookChapter {
                 <th mat-header-cell *matHeaderCellDef>操作</th>
                 <td mat-cell *matCellDef="let material">
                   <div class="action-buttons">
-                    <button mat-icon-button color="primary" (click)="viewMaterial(material)" matTooltip="查看详情">
+                    <button mat-icon-button color="primary" (click)="viewMaterial(material)" disabled matTooltip="查看详情 — 功能开发中">
                       <mat-icon>visibility</mat-icon>
                     </button>
                     <button mat-icon-button color="warn" (click)="deleteMaterial(material)" matTooltip="删除课件">
@@ -228,7 +230,7 @@ interface TextbookChapter {
               </ng-container>
 
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns; trackBy: trackByMaterial"></tr>
 
               <tr class="empty-row" *matNoDataRow>
                 <td [attr.colspan]="displayedColumns.length">
@@ -288,8 +290,9 @@ interface TextbookChapter {
   `],
 })
 export class AdminMaterialsComponent implements OnInit {
-  private http = inject(HttpClient);
+  private materialsService = inject(MaterialsService);
   private snackBar = inject(MatSnackBar);
+  private dialog = inject(MatDialog);
 
   readonly loading = signal<boolean>(true);
   readonly materials = signal<TextbookChapter[]>([]);
@@ -317,34 +320,27 @@ export class AdminMaterialsComponent implements OnInit {
   async loadMaterials(): Promise<void> {
     this.loading.set(true);
     try {
-      const response: any = await firstValueFrom(
-        this.http.get('/api/v1/libraries/materials', {
-          params: { skip: 0, limit: 1000 }
-        })
+      const response = await firstValueFrom(
+        this.materialsService.getMaterials({ skip: 0, limit: 1000 })
       );
 
-      if (response.success && response.data) {
-        const allMaterials = response.data.map((item: any) => ({
-          chapter_id: item.chapter_id || '',
-          title: item.title,
-          textbook: item.textbook || item.source,
-          source: item.source || '未知来源',
-          grade_level: item.grade_level || 'university',
-          subject: item.subject || '未分类',
-          chapter_url: item.chapter_url,
-          pdf_download_url: item.pdf_download_url,
-          key_concepts: item.key_concepts || []
-        }));
+      const allMaterials: TextbookChapter[] = response.items.map((item: any) => ({
+        chapter_id: item.chapter_id || '',
+        title: item.title,
+        textbook: item.textbook || item.source,
+        source: item.source || '未知来源',
+        grade_level: item.grade_level || 'university',
+        subject: item.subject || '未分类',
+        chapter_url: item.chapter_url,
+        pdf_download_url: item.pdf_download_url,
+        key_concepts: item.key_concepts || []
+      }));
 
-        this.materials.set(allMaterials);
-        this.filteredMaterials.set(allMaterials);
-        this.updateAvailableOptions(allMaterials);
-        this.updateStats(allMaterials);
-        this.updateMaterialTypeCounts(allMaterials); // 新增：更新课件类型统计
-      } else {
-        this.materials.set([]);
-        this.filteredMaterials.set([]);
-      }
+      this.materials.set(allMaterials);
+      this.filteredMaterials.set(allMaterials);
+      this.updateAvailableOptions(allMaterials);
+      this.updateStats(allMaterials);
+      this.updateMaterialTypeCounts(allMaterials); // 新增：更新课件类型统计
     } catch (error) {
       console.error('加载课件失败:', error);
       this.snackBar.open('加载课件数据失败', '关闭', { duration: 3000 });
@@ -425,33 +421,44 @@ export class AdminMaterialsComponent implements OnInit {
     this.snackBar.open('数据已刷新', '关闭', { duration: 2000 });
   }
 
+  /**
+   * 表格行 trackBy：按 chapter_id 追踪
+   */
+  trackByMaterial = (_index: number, material: TextbookChapter): string => material.chapter_id;
+
   uploadMaterial(): void {
-    this.snackBar.open('上传课件功能待实现', '关闭', { duration: 2000 });
+    this.snackBar.open('🚧 上传课件 — 功能开发中，即将上线', '关闭', { duration: 2000 });
   }
 
   viewMaterial(material: TextbookChapter): void {
-    this.snackBar.open(`查看课件详情: ${material.title}`, '关闭', { duration: 2000 });
+    this.snackBar.open(`🚧 查看课件详情: ${material.title} — 功能开发中，即将上线`, '关闭', { duration: 2000 });
   }
 
   deleteMaterial(material: TextbookChapter): void {
-    if (confirm(`确定要删除课件 "${material.title}" 吗？`)) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '400px',
+      data: {
+        title: '删除课件',
+        message: `确定要删除课件 "${material.title}" 吗？`,
+        confirmText: '删除',
+        color: 'warn',
+        icon: 'delete',
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((confirmed) => {
+      if (!confirmed) return;
       this.snackBar.open(`删除课件: ${material.title}`, '关闭', { duration: 2000 });
-    }
+    });
   }
 
   downloadMaterial(material: TextbookChapter): void {
     if (material.pdf_download_url) window.open(material.pdf_download_url, '_blank');
   }
 
-  getSubjectName(subject: string): string {
-    const map: Record<string, string> = { physics: '物理', chemistry: '化学', biology: '生物', mathematics: '数学' };
-    return map[subject] || subject;
-  }
-
-  getGradeLevelName(level: string): string {
-    const map: Record<string, string> = { elementary: '小学', middle: '初中', high: '高中', university: '大学' };
-    return map[level] || level;
-  }
+  // 使用共享工具函数
+  readonly getSubjectName = getSubjectName;
+  readonly getGradeLevelName = getGradeLevelName;
 
   getKeyConceptCount(material: TextbookChapter): number {
     return material.key_concepts?.length || 0;

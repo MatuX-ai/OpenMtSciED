@@ -2,11 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-
 import { ThemeService } from '../../../core/services/theme.service';
 
 interface MenuItem {
@@ -22,7 +20,6 @@ interface MenuItem {
     CommonModule,
     MatSidenavModule,
     MatListModule,
-    MatIconModule,
     MatButtonModule,
     MatTooltipModule,
     RouterLink,
@@ -37,17 +34,18 @@ export class SidebarComponent {
   currentTheme: 'light' | 'dark' = 'light';
 
   menuItems: MenuItem[] = [
-    { icon: 'dashboard', label: '仪表盘', route: '/dashboard' },
-    { icon: 'folder_special', label: '我的项目', route: '/my-projects' },
-    { icon: 'explore', label: '资源浏览器', route: '/resource-browser' },
-    { icon: 'menu_book', label: '教程库', route: '/tutorial-library' },
-    { icon: 'library_books', label: '课件库', route: '/material-library' },
-    { icon: 'quiz', label: '题库练习', route: '/question-practice' },
-    { icon: 'insights', label: '学习统计', route: '/question-stats' },
-    { icon: 'hub', label: 'STEM知识图谱', route: '/knowledge-graph' },
-    { icon: 'memory', label: '硬件项目', route: '/hardware-projects' },
-    { icon: 'person', label: '个人中心', route: '/profile' },
-    { icon: 'settings', label: '系统设置', route: '/settings' },
+    { icon: 'ri-dashboard-line', label: '仪表盘', route: '/dashboard' },
+    { icon: 'ri-lightbulb-flash-line', label: '课题工作室', route: '/topic-studio' },
+    { icon: 'ri-medal-line', label: '创作者中心', route: '/creator-center' },
+    { icon: 'ri-global-line', label: '公开资源库', route: '/public-library' },
+    { icon: 'ri-folder-shield-2-line', label: '我的项目', route: '/my-projects' },
+    { icon: 'ri-archive-line', label: '统一资源库', route: '/resource-explorer' },
+    { icon: 'ri-question-line', label: '题库练习', route: '/question-practice' },
+    { icon: 'ri-line-chart-line', label: '学习统计', route: '/question-stats' },
+    { icon: 'ri-share-line', label: 'STEM知识图谱', route: '/knowledge-graph' },
+    { icon: 'ri-cpu-line', label: '硬件项目', route: '/hardware-projects' },
+    { icon: 'ri-user-line', label: '个人中心', route: '/profile' },
+    { icon: 'ri-settings-3-line', label: '系统设置', route: '/settings' },
   ];
 
   constructor(

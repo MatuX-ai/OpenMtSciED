@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -9,9 +9,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { UserService } from '../../core/services/user.service';
 import { BulkImportResult } from '../../models/user.models';
+import { formatFileSize } from '../../core/utils';
 
 /**
  * 批量导入用户对话框组件
@@ -19,6 +21,7 @@ import { BulkImportResult } from '../../models/user.models';
 @Component({
   selector: 'app-bulk-import-dialog',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
     FormsModule,
@@ -29,6 +32,7 @@ import { BulkImportResult } from '../../models/user.models';
     MatStepperModule,
     MatRadioModule,
     MatProgressSpinnerModule,
+    MatTooltipModule,
   ],
   template: `
     <div class="bulk-import-dialog">
@@ -77,7 +81,7 @@ import { BulkImportResult } from '../../models/user.models';
               </div>
 
               <div class="sample-download">
-                <a href="#" (click)="downloadSample($event)">
+                <a href="#" (click)="downloadSample($event)" class="disabled-link" matTooltip="功能开发中，即将上线" aria-disabled="true">
                   <mat-icon>download</mat-icon>
                   下载示例文件
                 </a>
@@ -203,7 +207,7 @@ import { BulkImportResult } from '../../models/user.models';
                   }
 
                   <div class="result-actions">
-                    <button mat-stroked-button (click)="downloadReport()">
+                    <button mat-stroked-button (click)="downloadReport()" disabled matTooltip="功能开发中，即将上线">
                       <mat-icon>download</mat-icon>
                       下载报告
                     </button>
@@ -332,6 +336,13 @@ import { BulkImportResult } from '../../models/user.models';
 
             &:hover {
               text-decoration: underline;
+            }
+
+            &.disabled-link {
+              color: #999;
+              cursor: not-allowed;
+              pointer-events: none;
+              text-decoration: line-through;
             }
           }
         }
@@ -611,20 +622,14 @@ export class BulkImportDialogComponent {
   /**
    * 格式化文件大小
    */
-  formatFileSize(bytes: number): string {
-    if (bytes === 0) return '0 B';
-    const k = 1024;
-    const sizes = ['B', 'KB', 'MB', 'GB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + ' ' + sizes[i];
-  }
+  readonly formatFileSize = formatFileSize;
 
   /**
    * 下载示例文件
    */
   downloadSample(event: Event): void {
     event.preventDefault();
-    this.snackBar.open('下载示例文件功能开发中...', '关闭', { duration: 2000 });
+    this.snackBar.open('🚧 下载示例文件 — 功能开发中，即将上线', '关闭', { duration: 2000 });
   }
 
   /**
@@ -660,7 +665,7 @@ export class BulkImportDialogComponent {
    * 下载报告
    */
   downloadReport(): void {
-    this.snackBar.open('下载报告功能开发中...', '关闭', { duration: 2000 });
+    this.snackBar.open('🚧 下载报告 — 功能开发中，即将上线', '关闭', { duration: 2000 });
   }
 
   /**

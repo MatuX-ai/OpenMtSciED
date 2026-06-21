@@ -14,9 +14,9 @@
 
 | 属性 | 描述 |
 |------|------|
-| 需求 | 获取优质教学材料，设计课程计划 |
-| 主要触点 | Website 开发者门户、Desktop Manager 资源浏览 |
-| 典型行为 | 浏览教程/课件 → 筛选学科与年级 → 下载或关联到课程 → 查看硬件项目方案 |
+| 需求 | 围绕课题组织教程、匹配课件与硬件、挂接教学图谱、产出个性化教学包并可选发布 |
+| 主要触点 | **课题工作室**、统一资源库、知识图谱、创作者中心 |
+| 典型行为 | 提出课题 → AI 生成大纲 → 确认教程 → 全网搜/匹配课件 → 品牌化 → 挂图谱 → 发布获激励 |
 
 ### 1.3 开发者 / 集成方
 
@@ -101,16 +101,35 @@
 
 **涉及模块**：Admin Web、Crawler API、Education Platforms
 
-### 场景 E：硬件项目实践
+### 场景 E：硬件项目作为课题资源
 
 ```
-Desktop Manager → 硬件项目列表
+课题工作室 Step 4 或 硬件项目列表
   → 查看项目详情（难度、所需硬件、关联知识点）
-  → 关联 Blockly 积木（blockly_hardware_blocks.json）
-  → 在「我的项目」中跟踪进度
+  → 将硬件项目挂入当前教程包
+  → 在「我的项目」中跟踪实践进度
 ```
 
-**涉及模块**：Hardware Projects、My Projects、Blockly 数据
+**涉及模块**：Topic Studio、Hardware Projects、My Projects
+
+> v2.1 起不再集成 Blockly 编辑器；编程实践使用教师自有工具。
+
+### 场景 G：教师课题工作室（v2.1 主线）
+
+```
+Desktop Manager → 课题工作室
+  → Step 1：输入课题（学科、学段、目标、课时）
+  → Step 2：AI 生成教程大纲，教师编辑确认
+  → Step 3：保存至教程库
+  → Step 4：全网搜 + 本地库匹配课件与硬件
+  → Step 5：可选水印/Logo 品牌化
+  → Step 6：私有保存或提交平台发布
+  → 创作者中心查看 CC 积分与等级
+```
+
+**涉及模块**：Topic Studio、统一资源库、智能搜索、知识图谱、Creator Center
+
+详见 [09-intelligent-courseware-management-v2.md](./09-intelligent-courseware-management-v2.md)。
 
 ### 场景 F：题库练习
 
@@ -133,7 +152,8 @@ flowchart LR
     C --> D
     D --> E[Website 轻量仪表盘]
     D --> F[Desktop 完整功能]
-    F --> G[学习路径 / 题库 / 硬件]
+    F --> G[课题工作室 / 资源库 / 图谱]
+    F --> H2[学习路径 / 题库 / 硬件匹配]
     H[Admin 后台] --> I[爬虫 / 内容管理]
     J[开发者] --> K[API 集成]
 ```
@@ -147,4 +167,5 @@ flowchart LR
 ## 6. 相关文档
 
 - [功能需求](./03-functional-requirements.md)
+- [智能课件管理 v2.1](./09-intelligent-courseware-management-v2.md)
 - [非功能需求](./04-non-functional-requirements.md) — 安全与认证章节

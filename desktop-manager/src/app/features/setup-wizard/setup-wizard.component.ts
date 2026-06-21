@@ -8,7 +8,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSelectModule } from '@angular/material/select';
-import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { Router } from '@angular/router';
 import { ApiConfigService } from '../../core/services/api-config.service';
@@ -20,7 +19,7 @@ import { ApiProvider, ApiConfig } from '../../core/models/api-config.model';
   imports: [
     CommonModule, FormsModule, MatButtonModule, MatCardModule,
     MatStepperModule, MatFormFieldModule, MatInputModule,
-    MatSelectModule, MatIconModule, MatCheckboxModule
+    MatSelectModule, MatCheckboxModule
   ],
   providers: [{ provide: STEPPER_GLOBAL_OPTIONS, useValue: { displayDefaultIndicatorType: false } }],
   template: `
@@ -84,7 +83,7 @@ import { ApiProvider, ApiConfig } from '../../core/models/api-config.model';
                   <code>%APPDATA%\openmtscied\materials\</code>
                 </div>
                 <div class="warning-box">
-                  <mat-icon>warning</mat-icon>
+                  <i class="ri-alert-line"></i>
                   <span>建议至少预留 10GB 可用空间</span>
                 </div>
               </div>
@@ -128,7 +127,7 @@ import { ApiProvider, ApiConfig } from '../../core/models/api-config.model';
 
                   <div class="test-section">
                     <button mat-raised-button color="accent" (click)="testApiConnection()" [disabled]="apiTestStatus === 'testing'">
-                      <mat-icon>check_circle</mat-icon>
+                      <i class="ri-checkbox-circle-line"></i>
                       {{ apiTestStatus === 'testing' ? '测试中...' : '测试连接' }}
                     </button>
                     
@@ -139,7 +138,7 @@ import { ApiProvider, ApiConfig } from '../../core/models/api-config.model';
                 </form>
                 
                 <div class="skip-notice">
-                  <mat-icon>info</mat-icon>
+                  <i class="ri-information-line"></i>
                   <span>可以稍后在设置中配置 AI</span>
                 </div>
               </div>

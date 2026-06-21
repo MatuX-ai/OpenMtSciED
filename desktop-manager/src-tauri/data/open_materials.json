@@ -1,0 +1,125 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-06-20",
+  "total_count": 8,
+  "sources": {
+    "openstax": [
+      {
+        "id": "os-mat-001",
+        "title": "大学物理 Vol.1 - 力学与热学",
+        "description": "OpenStax 出版的大学物理教材第一卷，完整覆盖运动学、动力学、能量守恒、动量、转动、流体力学和热力学。配套例题、习题与互动图表。",
+        "source": "openstax",
+        "type": "pdf",
+        "subject": "physics",
+        "level": "university",
+        "file_size": "45.2 MB",
+        "download_url": "https://openstax.org/details/books/university-physics-volume-1",
+        "preview_url": "https://openstax.org/books/university-physics-volume-1/pages/1-introduction",
+        "language": "en",
+        "license": "CC BY 4.0",
+        "estimated_duration": "一学期（64 课时）",
+        "learning_objectives": [
+          "应用牛顿三定律分析质点运动",
+          "使用能量守恒与动量守恒解决多体问题",
+          "理解转动惯量与角动量守恒",
+          "掌握流体力学与热力学基础"
+        ]
+      },
+      {
+        "id": "os-mat-002",
+        "title": "高中化学 - 原子结构与周期表",
+        "description": "系统讲解原子结构、电子排布、元素周期律、化学键与分子几何。配套彩色插图、思维导图与例题解析。",
+        "source": "openstax",
+        "type": "pdf",
+        "subject": "chemistry",
+        "level": "high",
+        "file_size": "28.7 MB",
+        "download_url": "https://openstax.org/details/books/chemistry-2e",
+        "language": "en",
+        "license": "CC BY 4.0",
+        "estimated_duration": "一学期（48 课时）"
+      },
+      {
+        "id": "os-mat-003",
+        "title": "生物学基础 - 细胞与遗传",
+        "description": "介绍细胞结构与代谢、DNA 复制、基因表达、孟德尔遗传与分子遗传学基础知识。",
+        "source": "openstax",
+        "type": "pdf",
+        "subject": "biology",
+        "level": "high",
+        "file_size": "76.5 MB",
+        "download_url": "https://openstax.org/details/books/biology-2e",
+        "language": "en",
+        "license": "CC BY 4.0",
+        "estimated_duration": "一学期（48 课时）"
+      }
+    ],
+    "ted-ed": [
+      {
+        "id": "ted-001",
+        "title": "量子纠缠如何工作？",
+        "description": "通过精美动画解释量子纠缠现象，探讨爱因斯坦的「鬼魅般的超距作用」。适合高中及以上学生理解量子力学基础。",
+        "source": "ted-ed",
+        "type": "video",
+        "subject": "physics",
+        "level": "high",
+        "duration": "5:23",
+        "download_url": "https://ed.ted.com/lessons/how-does-quantum-entanglement-work",
+        "language": "en",
+        "license": "CC BY-NC-ND 4.0"
+      },
+      {
+        "id": "ted-002",
+        "title": "DNA 是如何被发现的？",
+        "description": "回顾沃森、克里克、富兰克林等科学家发现 DNA 双螺旋结构的历史故事。展现科学合作与竞争的精彩历程。",
+        "source": "ted-ed",
+        "type": "video",
+        "subject": "biology",
+        "level": "middle",
+        "duration": "4:47",
+        "download_url": "https://ed.ted.com/lessons/the-discoveries-that-led-to-dna",
+        "language": "en",
+        "license": "CC BY-NC-ND 4.0"
+      }
+    ],
+    "phetsim": [
+      {
+        "id": "phet-001",
+        "title": "电路构建工具包 (DC)",
+        "description": "交互式电路仿真实验，学生可以拖拽电池、电阻、灯泡等元件搭建电路，实时观察电流电压变化。支持串联/并联电路。",
+        "source": "phetsim",
+        "type": "interactive",
+        "subject": "physics",
+        "level": "middle",
+        "download_url": "https://phet.colorado.edu/en/simulations/circuit-construction-kit-dc",
+        "preview_url": "https://phet.colorado.edu/sims/html/circuit-construction-kit-dc/latest/circuit-construction-kit-dc_en.html",
+        "language": "zh-CN",
+        "license": "CC BY 4.0"
+      },
+      {
+        "id": "phet-002",
+        "title": "化学反应与平衡",
+        "description": "可视化化学反应过程，调整反应物浓度、温度、压力，观察反应速率和平衡移动。帮助理解勒夏特列原理。",
+        "source": "phetsim",
+        "type": "interactive",
+        "subject": "chemistry",
+        "level": "high",
+        "download_url": "https://phet.colorado.edu/en/simulations/reactions-and-rates",
+        "language": "zh-CN",
+        "license": "CC BY 4.0"
+      },
+      {
+        "id": "phet-003",
+        "title": "自然选择模拟器",
+        "description": "模拟进化过程，调整环境压力、突变率、繁殖率等参数，观察种群基因频率变化。直观展示达尔文进化论。",
+        "source": "phetsim",
+        "type": "interactive",
+        "subject": "biology",
+        "level": "high",
+        "download_url": "https://phet.colorado.edu/en/simulations/natural-selection",
+        "language": "zh-CN",
+        "license": "CC BY 4.0"
+      }
+    ]
+  }
+}

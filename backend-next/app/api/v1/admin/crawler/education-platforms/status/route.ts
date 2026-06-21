@@ -7,7 +7,7 @@ import { getPlatformStatus } from '../../lib';
  */
 export async function GET() {
   try {
-    const platforms = getPlatformStatus();
+    const platforms = await getPlatformStatus();
     
     return NextResponse.json({
       success: true,

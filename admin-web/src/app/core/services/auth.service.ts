@@ -37,8 +37,15 @@ export class AuthService {
   private currentUserSubject = new BehaviorSubject<UserInfo | null>(null);
   public currentUser$ = this.currentUserSubject.asObservable();
 
+  /**
+   * 获取当前登录用户的快照值（用于路由守卫等非响应式场景）
+   */
+  getCurrentUser(): UserInfo | null {
+    return this.currentUserSubject.getValue();
+  }
+
   constructor() {
-    const token = localStorage.getItem('access_token');
+    const token = sessionStorage.getItem('access_token');
     if (token) {
       this.loadCurrentUser();
     }
@@ -47,7 +54,7 @@ export class AuthService {
   login(credentials: LoginRequest): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(`${this.apiUrl}/auth/login`, credentials).pipe(
       tap(response => {
-        localStorage.setItem('access_token', response.access_token);
+        sessionStorage.setItem('access_token', response.access_token);
         this.loadCurrentUser();
       })
     );
@@ -58,12 +65,12 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('access_token');
+    sessionStorage.removeItem('access_token');
     this.currentUserSubject.next(null);
   }
 
   getToken(): string | null {
-    return localStorage.getItem('access_token');
+    return sessionStorage.getItem('access_token');
   }
 
   isAuthenticated(): boolean {

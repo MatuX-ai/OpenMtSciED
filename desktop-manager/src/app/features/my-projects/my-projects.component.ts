@@ -7,7 +7,6 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatIconModule } from '@angular/material/icon';
 
 import { TauriService } from '../../core/services';
 
@@ -30,7 +29,6 @@ interface UserProject {
     MatFormFieldModule,
     MatInputModule,
     MatSnackBarModule,
-    MatIconModule,
   ],
   template: `
     <div class="my-projects-container">
@@ -44,7 +42,7 @@ interface UserProject {
           <p class="page-subtitle">管理和组织您的个性化学习项目</p>
         </div>
         <button mat-raised-button class="create-btn" (click)="openCreateDialog()">
-          <mat-icon>add_circle_outline</mat-icon>
+          <i class="ri-add-circle-line"></i>
           新建项目
         </button>
       </div>
@@ -56,11 +54,11 @@ interface UserProject {
             <div class="card-gradient"></div>
             <mat-card-header>
               <div class="card-icon">
-                <mat-icon>folder_special</mat-icon>
+                <i class="ri-star-line"></i>
               </div>
               <mat-card-title>{{ project.name }}</mat-card-title>
               <mat-card-subtitle>
-                <mat-icon>schedule</mat-icon>
+                <i class="ri-time-line"></i>
                 {{ formatDate(project.created_at) }}
               </mat-card-subtitle>
             </mat-card-header>
@@ -69,11 +67,11 @@ interface UserProject {
             </mat-card-content>
             <mat-card-actions class="card-actions">
               <button mat-stroked-button class="action-btn view-btn" (click)="viewResources(project)">
-                <mat-icon>folder_open</mat-icon>
+                <i class="ri-folder-open-line"></i>
                 查看资源
               </button>
               <button mat-stroked-button class="action-btn sync-btn" (click)="syncToCloud(project)">
-                <mat-icon>cloud_upload</mat-icon>
+                <i class="ri-cloud-upload-line"></i>
                 同步云端
               </button>
             </mat-card-actions>
@@ -83,12 +81,12 @@ interface UserProject {
         <!-- 空状态 -->
         <div *ngIf="projects.length === 0" class="empty-state">
           <div class="empty-icon">
-            <mat-icon>inbox</mat-icon>
+            <i class="ri-inbox-line"></i>
           </div>
           <h3>还没有项目</h3>
           <p>点击右上角"新建项目"按钮创建您的第一个学习项目</p>
           <button mat-raised-button class="create-btn" (click)="openCreateDialog()">
-            <mat-icon>add</mat-icon>
+            <i class="ri-add-line"></i>
             创建项目
           </button>
         </div>
@@ -100,7 +98,7 @@ interface UserProject {
       <div class="modern-dialog">
         <div class="dialog-header">
           <div class="header-icon">
-            <mat-icon>create_new_folder</mat-icon>
+            <i class="ri-folder-add-line"></i>
           </div>
           <h2>新建项目</h2>
           <p>创建一个新的个性化学习项目</p>
@@ -110,7 +108,7 @@ interface UserProject {
           <form (ngSubmit)="saveProject()">
             <div class="form-group">
               <label class="form-label">
-                <mat-icon>label</mat-icon>
+                <i class="ri-price-tag-3-line"></i>
                 项目名称
               </label>
               <input 
@@ -125,7 +123,7 @@ interface UserProject {
 
             <div class="form-group">
               <label class="form-label">
-                <mat-icon>description</mat-icon>
+                <i class="ri-file-list-line"></i>
                 项目描述
               </label>
               <textarea 
@@ -143,7 +141,7 @@ interface UserProject {
                 取消
               </button>
               <button mat-raised-button type="submit" [disabled]="!currentProject.name" class="submit-btn">
-                <mat-icon>check</mat-icon>
+                <i class="ri-check-line"></i>
                 创建项目
               </button>
             </div>
@@ -209,7 +207,7 @@ interface UserProject {
         box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
       }
 
-      mat-icon {
+      i[class^="ri-"] {
         margin-right: 8px;
       }
     }
@@ -283,7 +281,7 @@ interface UserProject {
       justify-content: center;
       margin-bottom: 12px;
 
-      mat-icon {
+      i[class^="ri-"] {
         color: white;
         font-size: 24px;
         width: 24px;
@@ -306,7 +304,7 @@ interface UserProject {
       color: #6c757d;
       margin: 0;
 
-      mat-icon {
+      i[class^="ri-"] {
         font-size: 16px;
         width: 16px;
         height: 16px;
@@ -337,7 +335,7 @@ interface UserProject {
       font-weight: 500;
       transition: all 0.2s ease;
 
-      mat-icon {
+      i[class^="ri-"] {
         margin-right: 6px;
         font-size: 18px;
         width: 18px;
@@ -383,7 +381,7 @@ interface UserProject {
         justify-content: center;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 
-        mat-icon {
+        i[class^="ri-"] {
           font-size: 40px;
           width: 40px;
           height: 40px;
@@ -430,7 +428,7 @@ interface UserProject {
         align-items: center;
         justify-content: center;
 
-        mat-icon {
+        i[class^="ri-"] {
           font-size: 32px;
           width: 32px;
           height: 32px;
@@ -467,7 +465,7 @@ interface UserProject {
       color: #1a1a2e;
       margin-bottom: 8px;
 
-      mat-icon {
+      i[class^="ri-"] {
         font-size: 18px;
         width: 18px;
         height: 18px;
@@ -540,7 +538,7 @@ interface UserProject {
         cursor: not-allowed;
       }
 
-      mat-icon {
+      i[class^="ri-"] {
         margin-right: 6px;
         font-size: 18px;
         width: 18px;

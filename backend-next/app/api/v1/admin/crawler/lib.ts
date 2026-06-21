@@ -1,6 +1,5 @@
-import fs from 'fs';
-import path from 'path';
 import { CronJob } from 'cron';
+import { prisma } from '../../../../../lib/db';
 
 export interface CrawlerConfig {
   id: string;
@@ -20,81 +19,121 @@ export interface CrawlerConfig {
   [key: string]: unknown;
 }
 
-const CRAWLER_CONFIG_FILE = path.join(process.cwd(), '..', 'data', 'crawler_configs.json');
+// === Prisma 持久化层（取代文件存储，兼容 Vercel Serverless 只读文件系统） ===
 
-/**
- * 加载爬虫配置
- */
-export function loadConfigs(): CrawlerConfig[] {
-  if (!fs.existsSync(CRAWLER_CONFIG_FILE)) {
-    return [];
-  }
-  
-  try {
-    const content = fs.readFileSync(CRAWLER_CONFIG_FILE, 'utf-8');
-    return JSON.parse(content);
-  } catch (error) {
-    console.error('Failed to load crawler configs:', error);
-    return [];
-  }
+interface DbCrawlerConfig {
+  id: string;
+  name: string;
+  description: string | null;
+  targetUrl: string | null;
+  type: string;
+  status: string;
+  progress: number;
+  totalItems: number;
+  scrapedItems: number;
+  lastRun: Date | null;
+  errorMessage: string | null;
+  outputFile: string | null;
+  scheduleInterval: number | null;
+  maxItems: number | null;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+function dbToApi(db: DbCrawlerConfig): CrawlerConfig {
+  const api: CrawlerConfig = {
+    id: db.id,
+    name: db.name,
+    description: db.description ?? undefined,
+    target_url: db.targetUrl ?? undefined,
+    type: db.type as CrawlerConfig['type'],
+    status: db.status as CrawlerConfig['status'],
+    progress: db.progress,
+    total_items: db.totalItems,
+    scraped_items: db.scrapedItems,
+    last_run: db.lastRun ? db.lastRun.toISOString() : null,
+    error_message: db.errorMessage,
+    output_file: db.outputFile ?? undefined,
+  };
+  if (db.scheduleInterval != null) api.schedule_interval = db.scheduleInterval;
+  if (db.maxItems != null) api.max_items = db.maxItems;
+  return api;
+}
+
+function apiToDb(api: Partial<CrawlerConfig>): Record<string, unknown> {
+  const data: Record<string, unknown> = {};
+  if (api.name !== undefined) data.name = api.name;
+  if (api.description !== undefined) data.description = api.description;
+  if (api.target_url !== undefined) data.targetUrl = api.target_url;
+  if (api.type !== undefined) data.type = api.type;
+  if (api.status !== undefined) data.status = api.status;
+  if (api.progress !== undefined) data.progress = api.progress;
+  if (api.total_items !== undefined) data.totalItems = api.total_items;
+  if (api.scraped_items !== undefined) data.scrapedItems = api.scraped_items;
+  if (api.last_run !== undefined) data.lastRun = api.last_run ? new Date(api.last_run) : null;
+  if (api.error_message !== undefined) data.errorMessage = api.error_message;
+  if (api.output_file !== undefined) data.outputFile = api.output_file;
+  if (api.schedule_interval !== undefined) data.scheduleInterval = api.schedule_interval;
+  if (api.max_items !== undefined) data.maxItems = api.max_items;
+  return data;
 }
 
 /**
- * 保存爬虫配置
+ * 加载所有爬虫配置
  */
-function saveConfigs(configs: CrawlerConfig[]): void {
-  const dir = path.dirname(CRAWLER_CONFIG_FILE);
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
+export async function loadConfigs(): Promise<CrawlerConfig[]> {
+  try {
+    const rows = await prisma.crawlerConfig.findMany({ orderBy: { id: 'asc' } });
+    return rows.map(dbToApi);
+  } catch (error) {
+    console.error('Failed to load crawler configs from DB:', error);
+    return [];
   }
-  
-  fs.writeFileSync(CRAWLER_CONFIG_FILE, JSON.stringify(configs, null, 2), 'utf-8');
 }
 
 /**
  * 添加爬虫配置
  */
-export function addCrawlerConfig(config: CrawlerConfig): void {
-  const configs = loadConfigs();
-  configs.push(config);
-  saveConfigs(configs);
+export async function addCrawlerConfig(config: CrawlerConfig): Promise<void> {
+  await prisma.crawlerConfig.create({
+    data: { id: config.id, ...apiToDb(config) } as never,
+  });
 }
 
 /**
  * 删除爬虫配置
  */
-export function deleteCrawlerConfig(crawlerId: string): boolean {
-  const configs = loadConfigs();
-  const index = configs.findIndex(c => c.id === crawlerId);
-  
-  if (index === -1) {
+export async function deleteCrawlerConfig(crawlerId: string): Promise<boolean> {
+  try {
+    await prisma.crawlerConfig.delete({ where: { id: crawlerId } });
+    return true;
+  } catch {
     return false;
   }
-  
-  configs.splice(index, 1);
-  saveConfigs(configs);
-  return true;
 }
 
 /**
  * 更新爬虫配置
  */
-export function updateCrawlerConfig(crawlerId: string, updates: Partial<CrawlerConfig>): void {
-  const configs = loadConfigs();
-  const index = configs.findIndex(c => c.id === crawlerId);
-  
-  if (index !== -1) {
-    configs[index] = { ...configs[index], ...updates };
-    saveConfigs(configs);
+export async function updateCrawlerConfig(
+  crawlerId: string,
+  updates: Partial<CrawlerConfig>
+): Promise<void> {
+  const data = apiToDb(updates);
+  if (Object.keys(data).length === 0) return;
+  try {
+    await prisma.crawlerConfig.update({ where: { id: crawlerId }, data });
+  } catch (error) {
+    console.error(`Failed to update crawler config ${crawlerId}:`, error);
   }
 }
 
 /**
  * 获取单个爬虫配置
  */
-export function getCrawlerConfig(crawlerId: string): CrawlerConfig | null {
-  const configs = loadConfigs();
-  return configs.find(c => c.id === crawlerId) || null;
+export async function getCrawlerConfig(crawlerId: string): Promise<CrawlerConfig | null> {
+  const row = await prisma.crawlerConfig.findUnique({ where: { id: crawlerId } });
+  return row ? dbToApi(row) : null;
 }
 
 /**
@@ -119,14 +158,12 @@ const scheduledJobs: Map<string, CronJob> = new Map();
  * 初始化爬虫（注册定时任务）
  */
 export async function initCrawlers(): Promise<void> {
-  const configs = loadConfigs();
-  
+  const configs = await loadConfigs();
   for (const config of configs) {
     if (config.schedule_interval && config.schedule_interval > 0) {
       scheduleCrawler(config);
     }
   }
-  
   console.log(`[Crawler] Initialized ${configs.length} crawlers`);
 }
 
@@ -138,7 +175,7 @@ export async function executeCrawl(config: CrawlerConfig): Promise<void> {
   
   try {
     // 更新状态为运行中
-    updateCrawlerConfig(crawlerId, {
+    await updateCrawlerConfig(crawlerId, {
       status: 'running',
       progress: 10,
       error_message: null,
@@ -185,7 +222,7 @@ export async function executeCrawl(config: CrawlerConfig): Promise<void> {
     console.log(`[Crawler] Crawler execution not implemented yet for ${crawlerId}`);
     
     // 更新状态为完成
-    updateCrawlerConfig(crawlerId, {
+    await updateCrawlerConfig(crawlerId, {
       status: 'completed',
       progress: 100,
       scraped_items: itemsCount,
@@ -198,7 +235,7 @@ export async function executeCrawl(config: CrawlerConfig): Promise<void> {
     const errorMessage = error instanceof Error ? error.message : String(error);
     
     // 更新状态为失败
-    updateCrawlerConfig(crawlerId, {
+    await updateCrawlerConfig(crawlerId, {
       status: 'failed',
       error_message: errorMessage,
       last_run: new Date().toISOString(),
@@ -256,8 +293,8 @@ export function unscheduleCrawler(crawlerId: string): void {
 /**
  * 获取教育平台状态
  */
-export function getPlatformStatus() {
-  const configs = loadConfigs();
+export async function getPlatformStatus() {
+  const configs = await loadConfigs();
   return configs.map(config => ({
     id: config.id,
     name: config.name,

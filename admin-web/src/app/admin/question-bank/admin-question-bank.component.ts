@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Inject, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Inject, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -11,22 +11,15 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialog, MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-
-interface QuestionBank {
-  id: number;
-  name: string;
-  description?: string;
-  source?: string;
-  subject?: string;
-  level?: string;
-  total_questions: number;
-}
+import { ConfirmDialogComponent } from '../../core/components/confirm-dialog.component';
+import { QuestionBank, QuestionBankService } from '../../core/services/question-bank.service';
+import { SkeletonStatCardComponent, SkeletonTableComponent } from '../../core/components/skeleton.component';
 
 @Component({
   selector: 'app-admin-question-bank',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
     FormsModule,
@@ -39,6 +32,8 @@ interface QuestionBank {
     MatInputModule,
     MatSelectModule,
     MatDialogModule,
+    SkeletonStatCardComponent,
+    SkeletonTableComponent,
   ],
   template: `
     <div class="admin-question-bank">
@@ -88,9 +83,18 @@ interface QuestionBank {
       </div>
 
       <ng-template #loadingTemplate>
-        <div class="loading-container">
-          <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
-          <p>加载题库数据...</p>
+        <div class="stats-grid">
+          <app-skeleton-stat-card *ngFor="let _ of [1,2]" />
+        </div>
+        <div class="content-section">
+          <mat-card>
+            <mat-card-content>
+              <app-skeleton-table
+                [colWidths]="[2, 1.5, 1.5, 1.5, 1.5, 1]"
+                [rows]="6"
+              />
+            </mat-card-content>
+          </mat-card>
         </div>
       </ng-template>
 
@@ -150,7 +154,7 @@ interface QuestionBank {
               </ng-container>
 
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns; trackBy: trackByBank"></tr>
             </table>
 
             <div *ngIf="banks().length === 0" class="empty-state">
@@ -231,7 +235,7 @@ interface QuestionBank {
   `]
 })
 export class AdminQuestionBankComponent implements OnInit {
-  private http = inject(HttpClient);
+  private questionBankService = inject(QuestionBankService);
   private snackBar = inject(MatSnackBar);
   private dialog = inject(MatDialog);
 
@@ -247,10 +251,8 @@ export class AdminQuestionBankComponent implements OnInit {
   async loadBanks() {
     this.loading.set(true);
     try {
-      const res: any = await firstValueFrom(this.http.get('/api/v1/questions/banks'));
-      if (res.success) {
-        this.banks.set(res.data);
-      }
+      const banks = await firstValueFrom(this.questionBankService.getBanks());
+      this.banks.set(banks);
     } catch (error) {
       this.snackBar.open('加载题库失败', '关闭', { duration: 3000 });
     } finally {
@@ -275,6 +277,11 @@ export class AdminQuestionBankComponent implements OnInit {
     };
     return map[level || ''] || level || '通用';
   }
+
+  /**
+   * 表格行 trackBy：按 id 追踪
+   */
+  trackByBank = (_index: number, bank: QuestionBank): number => bank.id;
 
   openCreateDialog() {
     const dialogRef = this.dialog.open(QuestionBankDialogComponent, {
@@ -304,11 +311,9 @@ export class AdminQuestionBankComponent implements OnInit {
 
   async createBank(data: Partial<QuestionBank>) {
     try {
-      const res: any = await firstValueFrom(this.http.post('/api/v1/questions/banks', data));
-      if (res.success) {
-        this.snackBar.open('题库创建成功', '关闭', { duration: 2000 });
-        this.loadBanks();
-      }
+      await firstValueFrom(this.questionBankService.createBank(data));
+      this.snackBar.open('题库创建成功', '关闭', { duration: 2000 });
+      this.loadBanks();
     } catch (error) {
       this.snackBar.open('创建题库失败', '关闭', { duration: 3000 });
     }
@@ -316,28 +321,36 @@ export class AdminQuestionBankComponent implements OnInit {
 
   async updateBank(id: number, data: Partial<QuestionBank>) {
     try {
-      const res: any = await firstValueFrom(this.http.put(`/api/v1/questions/banks/${id}`, data));
-      if (res.success) {
-        this.snackBar.open('题库更新成功', '关闭', { duration: 2000 });
-        this.loadBanks();
-      }
+      await firstValueFrom(this.questionBankService.updateBank(id, data));
+      this.snackBar.open('题库更新成功', '关闭', { duration: 2000 });
+      this.loadBanks();
     } catch (error) {
       this.snackBar.open('更新题库失败', '关闭', { duration: 3000 });
     }
   }
 
   async deleteBank(bank: QuestionBank) {
-    if (confirm(`确定要删除题库 "${bank.name}" 吗？此操作不可恢复。`)) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '400px',
+      data: {
+        title: '删除题库',
+        message: `确定要删除题库 "${bank.name}" 吗？此操作不可恢复。`,
+        confirmText: '删除',
+        color: 'warn',
+        icon: 'delete_forever',
+      },
+    });
+
+    dialogRef.afterClosed().subscribe(async (confirmed) => {
+      if (!confirmed) return;
       try {
-        const res: any = await firstValueFrom(this.http.delete(`/api/v1/questions/banks/${bank.id}`));
-        if (res.success) {
-          this.snackBar.open('题库删除成功', '关闭', { duration: 2000 });
-          this.loadBanks();
-        }
+        await firstValueFrom(this.questionBankService.deleteBank(bank.id));
+        this.snackBar.open('题库删除成功', '关闭', { duration: 2000 });
+        this.loadBanks();
       } catch (error) {
         this.snackBar.open('删除题库失败', '关闭', { duration: 3000 });
       }
-    }
+    });
   }
 }
 

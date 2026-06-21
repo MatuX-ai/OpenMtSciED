@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
 import { AuthService, UserInfo } from '../../../services/auth.service';
 
@@ -22,7 +21,7 @@ interface UserProfile {
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatCardModule, MatButtonModule, MatIconModule, MatChipsModule],
+  imports: [CommonModule, FormsModule, MatCardModule, MatButtonModule, MatChipsModule],
   template: `
     <div class="profile-container">
       <!-- 页面头部 -->
@@ -58,7 +57,7 @@ interface UserProfile {
                 <div class="avatar-edit" *ngIf="isEditing">
                   <input type="file" (change)="onAvatarChange($event)" accept="image/*" hidden #fileInput />
                   <button class="btn-upload" (click)="fileInput.click()">
-                    <mat-icon>camera_alt</mat-icon>
+                    <i class="ri-camera-line"></i>
                     更换头像
                   </button>
                 </div>
@@ -74,11 +73,11 @@ interface UserProfile {
                   class="input-field"
                 />
                 <p class="email">
-                  <mat-icon>email</mat-icon>
+                  <i class="ri-mail-line"></i>
                   {{ profile.email }}
                 </p>
                 <p class="user-id">
-                  <mat-icon>badge</mat-icon>
+                  <i class="ri-vip-crown-line"></i>
                   ID: {{ profile.user_id }}
                 </p>
               </div>
@@ -86,16 +85,16 @@ interface UserProfile {
 
             <div class="action-buttons">
               <button *ngIf="!isEditing" mat-raised-button class="btn btn-primary" (click)="startEdit()">
-                <mat-icon>edit</mat-icon>
+                <i class="ri-edit-line"></i>
                 编辑资料
               </button>
               <ng-container *ngIf="isEditing">
                 <button mat-raised-button class="btn btn-success" (click)="saveProfile()" [disabled]="saving">
-                  <mat-icon>{{ saving ? 'hourglass_empty' : 'save' }}</mat-icon>
+                  <i [class]="saving ? 'ri-loader-4-line' : 'ri-save-line'"></i>
                   {{ saving ? '保存中...' : '保存' }}
                 </button>
                 <button mat-stroked-button class="btn btn-secondary" (click)="cancelEdit()">
-                  <mat-icon>cancel</mat-icon>
+                  <i class="ri-close-line"></i>
                   取消
                 </button>
               </ng-container>
@@ -108,7 +107,7 @@ interface UserProfile {
           <!-- 学习信息 -->
           <mat-card class="detail-card">
             <div class="card-icon icon-blue">
-              <mat-icon>school</mat-icon>
+              <i class="ri-graduation-cap-line"></i>
             </div>
             <h3>学习信息</h3>
             
@@ -140,7 +139,7 @@ interface UserProfile {
           <!-- 学习偏好 -->
           <mat-card class="detail-card">
             <div class="card-icon icon-purple">
-              <mat-icon>target</mat-icon>
+              <i class="ri-target-line"></i>
             </div>
             <h3>学习偏好</h3>
             
@@ -169,7 +168,7 @@ interface UserProfile {
           <!-- 账户信息 -->
           <mat-card class="detail-card">
             <div class="card-icon icon-green">
-              <mat-icon>security</mat-icon>
+              <i class="ri-shield-check-line"></i>
             </div>
             <h3>账户信息</h3>
             <div class="detail-item">
@@ -186,34 +185,34 @@ interface UserProfile {
         <!-- 学习统计 -->
         <mat-card class="stats-card">
           <div class="card-icon icon-orange">
-            <mat-icon>trending_up</mat-icon>
+            <i class="ri-line-chart-line"></i>
           </div>
           <h3>学习统计</h3>
           <div class="stats-grid">
             <div class="stat-item">
               <div class="stat-icon">
-                <mat-icon>star</mat-icon>
+                <i class="ri-star-line"></i>
               </div>
               <div class="stat-value" [class.animate-points]="pointsChanged">{{ points }}</div>
               <div class="stat-label">贡献积分</div>
             </div>
             <div class="stat-item">
               <div class="stat-icon">
-                <mat-icon>check_circle</mat-icon>
+                <i class="ri-checkbox-circle-line"></i>
               </div>
               <div class="stat-value">0</div>
               <div class="stat-label">完成课程</div>
             </div>
             <div class="stat-item">
               <div class="stat-icon">
-                <mat-icon>schedule</mat-icon>
+                <i class="ri-time-line"></i>
               </div>
               <div class="stat-value">0</div>
               <div class="stat-label">学习时长(小时)</div>
             </div>
             <div class="stat-item">
               <div class="stat-icon">
-                <mat-icon>build</mat-icon>
+                <i class="ri-tools-line"></i>
               </div>
               <div class="stat-value">0</div>
               <div class="stat-label">硬件项目</div>
@@ -224,7 +223,7 @@ interface UserProfile {
         <!-- 排行榜 -->
         <mat-card class="leaderboard-card">
           <div class="card-icon icon-gold">
-            <mat-icon>emoji_events</mat-icon>
+            <i class="ri-trophy-line"></i>
           </div>
           <h3>社区贡献排行榜</h3>
           <div class="leaderboard-list">
@@ -237,7 +236,7 @@ interface UserProfile {
                 <span class="lb-label">贡献者</span>
               </div>
               <div class="lb-points">
-                <mat-icon>star</mat-icon>
+                <i class="ri-star-line"></i>
                 {{ user.points }} 分
               </div>
             </div>
@@ -417,10 +416,8 @@ interface UserProfile {
       margin: 8px 0;
       font-size: 15px;
 
-      mat-icon {
+      i[class^="ri-"] {
         font-size: 18px;
-        width: 18px;
-        height: 18px;
       }
     }
 
@@ -441,7 +438,7 @@ interface UserProfile {
       font-weight: 600;
       transition: all 0.2s ease;
 
-      mat-icon {
+      i[class^="ri-"] {
         margin-right: 6px;
       }
 
@@ -516,11 +513,9 @@ interface UserProfile {
         justify-content: center;
         margin-bottom: 16px;
 
-        mat-icon {
+        i[class^="ri-"] {
           color: white;
           font-size: 24px;
-          width: 24px;
-          height: 24px;
         }
 
         &.icon-blue {
@@ -652,11 +647,9 @@ interface UserProfile {
         margin-bottom: 16px;
         background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
 
-        mat-icon {
+        i[class^="ri-"] {
           color: white;
           font-size: 24px;
-          width: 24px;
-          height: 24px;
         }
       }
 
@@ -697,10 +690,8 @@ interface UserProfile {
         justify-content: center;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 
-        mat-icon {
+        i[class^="ri-"] {
           font-size: 20px;
-          width: 20px;
-          height: 20px;
           color: #667eea;
         }
       }
@@ -747,11 +738,9 @@ interface UserProfile {
         margin-bottom: 16px;
         background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
 
-        mat-icon {
+        i[class^="ri-"] {
           color: white;
           font-size: 24px;
-          width: 24px;
-          height: 24px;
         }
       }
 
@@ -835,10 +824,8 @@ interface UserProfile {
       color: #667eea;
       font-size: 16px;
 
-      mat-icon {
+      i[class^="ri-"] {
         font-size: 18px;
-        width: 18px;
-        height: 18px;
       }
     }
 

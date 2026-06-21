@@ -1,7 +1,61 @@
 use serde::{Deserialize, Serialize};
 use tauri::command;
+use tauri::Manager;
 use crate::commands::course::DbState;
 use std::fs;
+
+/// 内嵌的开源资源 JSON 数据（构建时嵌入二进制，保证已安装应用总能访问）
+const EMBEDDED_OPEN_RESOURCES_JSON: &str = include_str!("../../data/open_resources.json");
+
+/// 尝试解析 open_resources.json 路径并返回内容
+/// 支持多个备选路径，依次尝试：
+/// 1. Tauri 资源目录（已安装应用的打包资源）
+/// 2. EXE 同级目录的 data/open_resources.json
+/// 3. 当前工作目录的 data/open_resources.json
+/// 4. 开发环境相对路径（src-tauri/data/open_resources.json）
+/// 5. 内嵌的默认数据（兜底，任何情况下都能返回）
+fn read_open_resources_json(_app: &tauri::AppHandle) -> Result<String, String> {
+    let file_name = "open_resources.json";
+
+    // 候选路径列表（按优先级排序）
+    let mut candidates: Vec<std::path::PathBuf> = Vec::new();
+
+    // 1. Tauri 资源目录
+    if let Ok(resource_dir) = _app.path().resource_dir() {
+        candidates.push(resource_dir.join(file_name));
+        candidates.push(resource_dir.join("data").join(file_name));
+    }
+
+    // 2. EXE 同级目录
+    if let Ok(exe_path) = std::env::current_exe() {
+        if let Some(exe_dir) = exe_path.parent() {
+            candidates.push(exe_dir.join(file_name));
+            candidates.push(exe_dir.join("data").join(file_name));
+            candidates.push(exe_dir.join("resources").join(file_name));
+        }
+    }
+
+    // 3. 当前工作目录
+    if let Ok(cwd) = std::env::current_dir() {
+        candidates.push(cwd.join("data").join(file_name));
+        candidates.push(cwd.join(file_name));
+    }
+
+    for candidate in &candidates {
+        if candidate.exists() {
+            return fs::read_to_string(candidate).map_err(|e| {
+                format!("Failed to read {} from {}: {}", file_name, candidate.display(), e)
+            });
+        }
+    }
+
+    // 4. 兜底：使用构建时嵌入的数据
+    println!(
+        "ℹ {} not found on disk, using embedded fallback data",
+        file_name
+    );
+    Ok(EMBEDDED_OPEN_RESOURCES_JSON.to_string())
+}
 
 /// 根据资源属性生成标签
 fn generate_tags(subject: &str, level: &str, has_hardware: bool, difficulty: u8) -> Vec<String> {
@@ -90,17 +144,14 @@ pub struct PaginatedResources {
 
 /// 从 JSON 文件导入资源到数据库（首次启动时调用）
 #[command]
-pub fn import_resources_from_json(db_state: tauri::State<DbState>) -> Result<usize, String> {
+pub fn import_resources_from_json(
+    app: tauri::AppHandle,
+    db_state: tauri::State<DbState>,
+) -> Result<usize, String> {
     let conn = db_state.lock().map_err(|e| e.to_string())?;
 
-    // 读取 JSON 文件
-    let data_dir = std::env::current_dir()
-        .map_err(|e| e.to_string())?
-        .join("data");
-
-    let json_path = data_dir.join("open_resources.json");
-    let json_content = fs::read_to_string(&json_path)
-        .map_err(|e| format!("Failed to read resources file: {}", e))?;
+    // 读取 JSON 文件 - 支持多种路径解析策略，确保已安装的应用也能访问
+    let json_content = read_open_resources_json(&app)?;
 
     let all_resources: serde_json::Value = serde_json::from_str(&json_content)
         .map_err(|e| format!("Failed to parse resources: {}", e))?;
@@ -320,15 +371,11 @@ pub fn browse_open_resources(
 
 /// 获取资源详情
 #[command]
-pub fn get_resource_detail(resource_id: String) -> Result<OpenResource, String> {
-    let data_dir = std::env::current_dir()
-        .map_err(|e| e.to_string())?
-        .join("data");
-
-    let json_path = data_dir.join("open_resources.json");
-    let json_content = fs::read_to_string(&json_path)
-        .map_err(|e| e.to_string())?;
-
+pub fn get_resource_detail(
+    app: tauri::AppHandle,
+    resource_id: String,
+) -> Result<OpenResource, String> {
+    let json_content = read_open_resources_json(&app)?;
     let all_resources: serde_json::Value = serde_json::from_str(&json_content)
         .map_err(|e| e.to_string())?;
 
@@ -349,6 +396,7 @@ pub fn get_resource_detail(resource_id: String) -> Result<OpenResource, String> 
 /// 下载开源资源到本地
 #[command]
 pub fn download_open_resource(
+    app: tauri::AppHandle,
     db_state: tauri::State<DbState>,
     resource_id: String,
     save_dir: String,
@@ -356,13 +404,7 @@ pub fn download_open_resource(
     let conn = db_state.lock().map_err(|e| e.to_string())?;
 
     // 从JSON文件查找资源
-    let data_dir = std::env::current_dir()
-        .map_err(|e| e.to_string())?
-        .join("data");
-
-    let json_path = data_dir.join("open_resources.json");
-    let json_content = fs::read_to_string(&json_path)
-        .map_err(|e| e.to_string())?;
+    let json_content = read_open_resources_json(&app)?;
 
     let all_resources: serde_json::Value = serde_json::from_str(&json_content)
         .map_err(|e| e.to_string())?;

@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 
 import { ImportExportService } from '../../core/services/import-export.service';
@@ -11,14 +10,14 @@ import { ImportExportService } from '../../core/services/import-export.service';
 @Component({
   selector: 'app-settings',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatCardModule, MatSnackBarModule, MatIconModule],
+  imports: [CommonModule, MatButtonModule, MatCardModule, MatSnackBarModule],
   template: `
     <div class="settings-container">
       <!-- 页面头部 -->
       <div class="page-header">
         <div class="header-content">
           <button mat-icon-button class="back-btn" (click)="goBack()">
-            <mat-icon>arrow_back</mat-icon>
+            <i class="ri-arrow-left-line"></i>
           </button>
           <div class="header-text">
             <h1 class="page-title">
@@ -37,7 +36,7 @@ import { ImportExportService } from '../../core/services/import-export.service';
           <div class="card-gradient gradient-purple"></div>
           <mat-card-header>
             <div class="card-icon icon-purple">
-              <mat-icon>settings_backup_restore</mat-icon>
+              <i class="ri-restart-line"></i>
             </div>
             <mat-card-title>重置向导</mat-card-title>
             <mat-card-subtitle>重新配置 AI 或存储路径</mat-card-subtitle>
@@ -49,7 +48,7 @@ import { ImportExportService } from '../../core/services/import-export.service';
           </mat-card-content>
           <mat-card-actions>
             <button mat-raised-button class="action-btn btn-purple" (click)="resetSetup()">
-              <mat-icon>refresh</mat-icon>
+              <i class="ri-refresh-line"></i>
               重新运行设置向导
             </button>
           </mat-card-actions>
@@ -60,7 +59,7 @@ import { ImportExportService } from '../../core/services/import-export.service';
           <div class="card-gradient gradient-blue"></div>
           <mat-card-header>
             <div class="card-icon icon-blue">
-              <mat-icon>import_export</mat-icon>
+              <i class="ri-exchange-line"></i>
             </div>
             <mat-card-title>数据导入导出</mat-card-title>
             <mat-card-subtitle>管理教程和课件数据</mat-card-subtitle>
@@ -72,15 +71,15 @@ import { ImportExportService } from '../../core/services/import-export.service';
           </mat-card-content>
           <mat-card-actions class="card-actions-grid">
             <button mat-stroked-button class="action-btn btn-blue" (click)="exportCourses()">
-              <mat-icon>download</mat-icon>
+              <i class="ri-download-line"></i>
               导出教程库
             </button>
             <button mat-stroked-button class="action-btn btn-blue" (click)="importCourses()">
-              <mat-icon>upload</mat-icon>
+              <i class="ri-upload-line"></i>
               导入教程库
             </button>
             <button mat-stroked-button class="action-btn btn-blue" (click)="exportMaterials()">
-              <mat-icon>description</mat-icon>
+              <i class="ri-file-list-line"></i>
               导出课件清单
             </button>
           </mat-card-actions>
@@ -91,7 +90,7 @@ import { ImportExportService } from '../../core/services/import-export.service';
           <div class="card-gradient gradient-green"></div>
           <mat-card-header>
             <div class="card-icon icon-green">
-              <mat-icon>backup</mat-icon>
+              <i class="ri-save-line"></i>
             </div>
             <mat-card-title>数据库管理</mat-card-title>
             <mat-card-subtitle>备份和恢复数据库</mat-card-subtitle>
@@ -103,11 +102,11 @@ import { ImportExportService } from '../../core/services/import-export.service';
           </mat-card-content>
           <mat-card-actions class="card-actions-grid">
             <button mat-stroked-button class="action-btn btn-green" (click)="backupDatabase()">
-              <mat-icon>cloud_upload</mat-icon>
+              <i class="ri-cloud-upload-line"></i>
               备份数据库
             </button>
             <button mat-stroked-button class="action-btn btn-orange" (click)="restoreDatabase()">
-              <mat-icon>restore</mat-icon>
+              <i class="ri-restart-line"></i>
               恢复数据库
             </button>
           </mat-card-actions>
@@ -118,7 +117,7 @@ import { ImportExportService } from '../../core/services/import-export.service';
           <div class="card-gradient gradient-orange"></div>
           <mat-card-header>
             <div class="card-icon icon-orange">
-              <mat-icon>info</mat-icon>
+              <i class="ri-information-line"></i>
             </div>
             <mat-card-title>关于 OpenMTSciEd</mat-card-title>
             <mat-card-subtitle>应用信息</mat-card-subtitle>
@@ -179,7 +178,7 @@ import { ImportExportService } from '../../core/services/import-export.service';
         transform: translateX(-4px);
       }
 
-      mat-icon {
+      i[class^="ri-"] {
         font-size: 24px;
         width: 24px;
         height: 24px;
@@ -277,7 +276,7 @@ import { ImportExportService } from '../../core/services/import-export.service';
       justify-content: center;
       margin-bottom: 12px;
 
-      mat-icon {
+      i[class^="ri-"] {
         color: white;
         font-size: 24px;
         width: 24px;
@@ -349,7 +348,7 @@ import { ImportExportService } from '../../core/services/import-export.service';
       position: relative;
       overflow: hidden;
 
-      mat-icon {
+      i[class^="ri-"] {
         margin-right: 8px;
         font-size: 18px;
         width: 18px;

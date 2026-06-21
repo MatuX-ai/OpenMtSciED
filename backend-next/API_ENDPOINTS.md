@@ -48,12 +48,69 @@
 
 ---
 
-## 🗺️ 知识图谱 - 学习路径 (Knowledge Graph Path)
+---
+
+## 🧭 学习路径闭包表 (Learning Path — PostgreSQL)
 
 | 方法 | 路径 | 说明 | 认证 | 状态 |
 |------|------|------|------|------|
-| POST | `/v1/knowledge-graph/path` | 生成学习路径 | ❌ | ✅ |
-| GET | `/v1/knowledge-graph/path` | 获取用户进度 | ❌ | ✅ |
+| GET | `/v1/learning-path/prerequisites/:conceptId` | 前置依赖（depth DESC） | ❌ | ✅ |
+| GET | `/v1/learning-path/successors/:conceptId` | 后续可学（depth ASC） | ❌ | ✅ |
+| GET | `/v1/learning-path/route` | 完整路径链条 | ❌ | ✅ |
+
+**查询参数**:
+- `path_type`: 路径类型 (默认: `required`)
+
+**示例**:
+```bash
+curl "http://localhost:3000/api/v1/learning-path/prerequisites/42?path_type=required"
+curl "http://localhost:3000/api/v1/learning-path/route?from=3&to=42&path_type=required"
+```
+
+---
+
+## 🛤️ Desktop 路径兼容 (Path Shim)
+
+| 方法 | 路径 | 说明 | 认证 | 状态 |
+|------|------|------|------|------|
+| POST | `/v1/path/generate` | path-visualization 路径生成 | ❌ | ✅ |
+| GET | `/v1/path/dynamic-adjust/:userId` | 动态调整建议 | ❌ | ✅ |
+
+**请求体 (POST /v1/path/generate)**:
+```json
+{ "user_id": "test_user_001", "age": 14, "grade_level": "初中", "max_nodes": 15 }
+```
+
+---
+
+## 👤 Admin 知识点管理 (Concepts)
+
+| 方法 | 路径 | 说明 | 认证 | 状态 |
+|------|------|------|------|------|
+| GET | `/v1/admin/concepts` | 知识点列表 | ✅ admin | ✅ |
+| POST | `/v1/admin/concepts` | 创建知识点 | ✅ admin | ✅ |
+| GET | `/v1/admin/concepts/:id` | 知识点详情 | ✅ admin | ✅ |
+| PUT | `/v1/admin/concepts/:id` | 更新知识点 | ✅ admin | ✅ |
+| DELETE | `/v1/admin/concepts/:id` | 删除知识点 | ✅ admin | ✅ |
+| POST | `/v1/admin/concepts/dependencies` | 新增依赖 + 闭包维护 | ✅ admin | ✅ |
+| DELETE | `/v1/admin/concepts/dependencies` | 删除依赖 + 重建闭包 | ✅ admin | ✅ |
+| POST | `/v1/admin/concepts/rebuild-closure` | 全量重建闭包表 | ✅ admin | ✅ |
+
+**依赖请求体**:
+```json
+{ "prerequisiteId": 10, "dependentId": 20, "pathType": "required" }
+```
+
+---
+
+## 🗺️ 知识图谱 - 学习路径 (Knowledge Graph Path) — 已废弃
+
+| 方法 | 路径 | 说明 | 认证 | 状态 |
+|------|------|------|------|------|
+| POST | `/v1/knowledge-graph/path` | 生成学习路径（兼容） | ❌ | ⚠️ deprecated |
+| GET | `/v1/knowledge-graph/path` | 获取用户进度（stub） | ❌ | ⚠️ deprecated |
+
+> 请改用 `/v1/learning-path/*` 端点。
 
 **请求体 (POST /v1/knowledge-graph/path)**:
 ```json
@@ -111,21 +168,24 @@
 
 ## 📊 统计汇总
 
-### 已实现端点总数: **14个**
+### 已实现端点总数: **30+**
 
 - 系统端点: 1个
-- 教程管理: 5个 (CRUD + 列表)
-- 课件管理: 2个 (列表 + 创建)
-- 学习路径: 2个 (生成 + 进度)
-- 资源推荐: 2个 (教程推荐 + 课件推荐)
-- 硬件项目: 2个 (列表 + 创建)
+- 学习路径闭包表: 3个（canonical）
+- Desktop 路径兼容: 2个
+- Admin 知识点: 8个
+- 教程管理: 5个
+- 课件管理: 2个
+- 学习路径（legacy）: 2个
+- 资源推荐: 2个
+- 硬件项目: 2个
 
 ### 功能覆盖
 
 ✅ **完整CRUD**: 教程管理  
 ✅ **列表查询**: 所有模块支持分页和筛选  
+✅ **闭包表**: 学习路径前置/后续/链条查询（PostgreSQL）  
 ✅ **智能算法**: 学习路径生成、个性化推荐  
-✅ **图算法**: PostgreSQL 闭包表递归CTE查询  
 ✅ **错误处理**: 统一的错误响应格式  
 ✅ **文档完善**: API文档、测试脚本、快速启动指南  
 
@@ -242,7 +302,8 @@ curl -X POST http://localhost:3000/api/v1/knowledge-graph/path \
 - **完整API文档**: `API_DOCUMENTATION.md`
 - **开发完成报告**: `API_DEVELOPMENT_COMPLETE.md`
 - **快速启动指南**: `QUICK_START_API.md`
-- **实施计划**: `../OPENMTSCIED_API_IMPLEMENTATION.md`
+- **SQL 脚本**: `sql/README.md`
+- **闭包表需求**: `../docs/requirements/08-learning-path-closure-table-migration.md`
 
 ---
 

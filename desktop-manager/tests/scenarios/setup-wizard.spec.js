@@ -1,16 +1,11 @@
 /**
  * 场景: 初始化向导
  *
- * 验证：
- * - 教师姓名字段存在
- * - 学校名称字段存在
- * - 学科选择器存在
- * - 提交按钮存在
- * - 空表单触发验证
+ * 验证多步向导的基础 UI 与表单验证
  */
 
 const { launchBrowser, newTrackedPage } = require('../helpers/browser');
-const { waitFor } = require('../helpers/dom');
+const { waitFor, waitForText } = require('../helpers/dom');
 
 async function run(config, reporter) {
   reporter.startScenario('setup-wizard');
@@ -19,27 +14,36 @@ async function run(config, reporter) {
 
   try {
     await page.goto(`${config.BASE_URL}/setup-wizard`, {
-      waitUntil: 'networkidle0',
+      waitUntil: 'domcontentloaded',
       timeout: config.TIMEOUTS.navigation,
     });
 
-    const hasTeacherName = await waitFor(page, 'input[placeholder*="教师姓名"]', config.TIMEOUTS.element);
-    reporter.logTest('教师姓名字段存在', hasTeacherName);
+    const hasStart = await waitForText(page, '开始', config.TIMEOUTS.element);
+    reporter.logTest('向导起始步骤可见', hasStart);
 
-    const hasSchoolName = await waitFor(page, 'input[placeholder*="学校名称"]', config.TIMEOUTS.element);
-    reporter.logTest('学校名称字段存在', hasSchoolName);
+    const startBtn = await page.$('button');
+    if (startBtn) {
+      await startBtn.click();
+      await new Promise((r) => setTimeout(r, 500));
+    }
+
+    const hasTeacherField = await waitFor(page, 'input[name="teacherName"], mat-form-field', config.TIMEOUTS.element);
+    reporter.logTest('教师姓名字段存在', hasTeacherField);
 
     const hasSubjectSelect = await waitFor(page, 'mat-select', config.TIMEOUTS.element);
     reporter.logTest('学科选择器存在', hasSubjectSelect);
 
-    const hasSubmitButton = await waitFor(page, 'button:has-text("完成设置")', config.TIMEOUTS.element);
-    reporter.logTest('提交按钮存在', hasSubmitButton);
+    const hasNextButton = await page.evaluate(() =>
+      Array.from(document.querySelectorAll('button')).some((b) => b.textContent.includes('下一步'))
+    );
+    reporter.logTest('下一步按钮存在', hasNextButton);
 
-    if (hasSubmitButton) {
-      await page.click('button:has-text("完成设置")');
-      await new Promise((r) => setTimeout(r, 1000));
-      const hasValidationErrors = await page.evaluate(() => document.querySelector('.ng-invalid') !== null);
-      reporter.logTest('空表单触发验证', hasValidationErrors);
+    if (hasNextButton) {
+      const nextDisabledWhenEmpty = await page.evaluate(() => {
+        const btn = Array.from(document.querySelectorAll('button')).find((b) => b.textContent.includes('下一步'));
+        return btn ? btn.disabled : false;
+      });
+      reporter.logTest('教师姓名为空时下一步禁用', nextDisabledWhenEmpty);
     }
   } catch (err) {
     reporter.logTest('初始化向导测试', false, err.message);

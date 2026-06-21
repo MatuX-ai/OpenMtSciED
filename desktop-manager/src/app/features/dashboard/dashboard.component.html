@@ -3,28 +3,28 @@
   <div class="quick-stats">
     <div class="stat-item">
       <div class="stat-icon projects">
-        <mat-icon>folder</mat-icon>
+        <i class="ri-folder-line"></i>
       </div>
       <div class="stat-info">
-        <span class="stat-number">12</span>
+        <span class="stat-number" id="stat-projects">12</span>
         <span class="stat-label">我的项目</span>
       </div>
     </div>
     <div class="stat-item">
       <div class="stat-icon courses">
-        <mat-icon>menu_book</mat-icon>
+        <i class="ri-book-2-line"></i>
       </div>
       <div class="stat-info">
-        <span class="stat-number">156</span>
+        <span class="stat-number" id="stat-courses">156</span>
         <span class="stat-label">可用教程</span>
       </div>
     </div>
     <div class="stat-item">
       <div class="stat-icon hardware">
-        <mat-icon>memory</mat-icon>
+        <i class="ri-cpu-line"></i>
       </div>
       <div class="stat-info">
-        <span class="stat-number">24</span>
+        <span class="stat-number" id="stat-hardware">24</span>
         <span class="stat-label">硬件项目</span>
       </div>
     </div>
@@ -41,14 +41,14 @@
       <mat-card-content>
         <div class="card-header">
           <div class="icon-wrapper" [style.background]="action.color">
-            <mat-icon class="card-icon">{{ action.icon }}</mat-icon>
+            <i class="card-icon" [class]="action.icon"></i>
           </div>
           <div class="card-badge" *ngIf="action.badge">{{ action.badge }}</div>
         </div>
         <h3>{{ action.title }}</h3>
         <p>{{ action.description }}</p>
         <div class="card-arrow">
-          <mat-icon>arrow_forward</mat-icon>
+          <i class="ri-arrow-right-line"></i>
         </div>
       </mat-card-content>
     </mat-card>
@@ -65,14 +65,14 @@
       <mat-card-content>
         <div class="card-header">
           <div class="icon-wrapper" [style.background]="action.color">
-            <mat-icon class="card-icon">{{ action.icon }}</mat-icon>
+            <i class="card-icon" [class]="action.icon"></i>
           </div>
           <div class="card-badge" *ngIf="action.badge">{{ action.badge }}</div>
         </div>
         <h3>{{ action.title }}</h3>
         <p>{{ action.description }}</p>
         <div class="card-arrow">
-          <mat-icon>arrow_forward</mat-icon>
+          <i class="ri-arrow-right-line"></i>
         </div>
       </mat-card-content>
     </mat-card>

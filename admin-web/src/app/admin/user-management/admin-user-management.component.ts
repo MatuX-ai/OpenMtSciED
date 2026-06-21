@@ -20,6 +20,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -27,6 +28,8 @@ import { UserService } from '../../core/services/user.service';
 import { User, UserRole } from '../../models/user.models';
 import { UserDetailDialogComponent } from './user-detail-dialog.component';
 import { BulkImportDialogComponent } from './bulk-import-dialog.component';
+import { ConfirmDialogComponent } from '../../core/components/confirm-dialog.component';
+import { formatDate, getRoleDisplayName, getRoleClass } from '../../core/utils';
 
 /**
  * Admin用户管理组件
@@ -48,6 +51,7 @@ import { BulkImportDialogComponent } from './bulk-import-dialog.component';
     MatTableModule,
     MatCheckboxModule,
     MatChipsModule,
+    MatTooltipModule,
   ],
   templateUrl: './admin-user-management.component.html',
   styleUrls: ['./admin-user-management.component.scss'],
@@ -197,7 +201,7 @@ export class AdminUserManagementComponent implements OnInit, OnDestroy {
    * 导出用户数据
    */
   exportUsers(): void {
-    this.snackBar.open('导出用户数据功能开发中...', '关闭', { duration: 2000 });
+    this.snackBar.open('🚧 导出用户数据 — 功能开发中，即将上线', '关闭', { duration: 2000 });
   }
 
   /**
@@ -225,7 +229,7 @@ export class AdminUserManagementComponent implements OnInit, OnDestroy {
    * 编辑用户
    */
   onEditUser(user: User): void {
-    this.snackBar.open(`编辑用户 ${user.username} 功能开发中...`, '关闭', {
+    this.snackBar.open(`🚧 编辑用户 ${user.username} — 功能开发中，即将上线`, '关闭', {
       duration: 2000,
     });
   }
@@ -234,7 +238,19 @@ export class AdminUserManagementComponent implements OnInit, OnDestroy {
    * 删除用户
    */
   onDeleteUser(user: User): void {
-    if (confirm(`确定要删除用户 "${user.username}" 吗？此操作不可恢复！`)) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '400px',
+      data: {
+        title: '删除用户',
+        message: `确定要删除用户 "${user.username}" 吗？此操作不可恢复！`,
+        confirmText: '删除',
+        color: 'warn',
+        icon: 'delete_forever',
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((confirmed) => {
+      if (!confirmed) return;
       this.userService.deleteUser(user.id).pipe(takeUntil(this.destroy$)).subscribe({
         next: () => {
           this.snackBar.open('用户删除成功', '关闭', { duration: 2000 });
@@ -245,7 +261,7 @@ export class AdminUserManagementComponent implements OnInit, OnDestroy {
           this.snackBar.open('删除用户失败', '关闭', { duration: 3000 });
         },
       });
-    }
+    });
   }
 
   /**
@@ -282,49 +298,15 @@ export class AdminUserManagementComponent implements OnInit, OnDestroy {
       return;
     }
 
-    this.snackBar.open(`批量${action} ${selected.length} 个用户功能开发中...`, '关闭', {
+    this.snackBar.open(`🚧 批量${action} ${selected.length} 个用户 — 功能开发中，即将上线`, '关闭', {
       duration: 2000,
     });
   }
 
-  /**
-   * 获取角色显示名称
-   */
-  getRoleDisplayName(role: UserRole | string): string {
-    const roleMap: Record<string, string> = {
-      user: '普通用户',
-      admin: '系统管理员',
-      org_admin: '机构管理员',
-      premium: '高级用户',
-    };
-    return roleMap[role] || role;
-  }
-
-  /**
-   * 获取角色样式类
-   */
-  getRoleClass(role: UserRole | string): string {
-    const classMap: Record<string, string> = {
-      user: 'role-user',
-      admin: 'role-admin',
-      org_admin: 'role-org-admin',
-      premium: 'role-premium',
-    };
-    return classMap[role] || 'role-default';
-  }
-
-  /**
-   * 格式化日期
-   */
-  formatDate(dateString: string | undefined): string {
-    if (!dateString) return '-';
-    const date = new Date(dateString);
-    return date.toLocaleDateString('zh-CN', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-    });
-  }
+  // 使用共享工具函数
+  readonly formatDate = formatDate;
+  readonly getRoleDisplayName = getRoleDisplayName;
+  readonly getRoleClass = getRoleClass;
 
   /**
    * 获取组织名称

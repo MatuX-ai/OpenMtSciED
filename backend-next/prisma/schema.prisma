@@ -27,8 +27,20 @@ model User {
   updatedAt   DateTime @updatedAt
 
   // 关联
-  learningRecords LearningRecord[]
-  assignments     Assignment[]
+  learningRecords        LearningRecord[]
+  assignments            Assignment[]
+  topicDrafts            TopicDraft[]
+  creatorProfile         CreatorProfile?
+  creditLedgers          CreditLedger[]
+  brandTemplates         BrandTemplate[]
+  resourceAttributions   ResourceAttribution[]
+  conceptTutorialLinks   ConceptTutorialLink[]
+  tutorialPackages       TutorialPackage[]
+  publishRequests        PublishRequest[]
+  publishReviews         PublishRequest[]       @relation("PublishReviewer")
+  plagiarismReportsFiled PlagiarismReport[]     @relation("PlagiarismReporter")
+  plagiarismReportsAgainst PlagiarismReport[]   @relation("PlagiarismTarget")
+  plagiarismReportsResolved PlagiarismReport[]  @relation("PlagiarismAdmin")
 
   @@index([username])
   @@index([email])
@@ -129,6 +141,7 @@ model CrawlerConfig {
   errorMessage     String?
   outputFile       String?
   scheduleInterval Int? // hours
+  maxItems         Int?    @default(100) // 每次抓取上限
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @updatedAt
 
@@ -234,8 +247,9 @@ model Concept {
 
   prerequisites   ConceptDependency[] @relation("Prerequisite")
   dependents      ConceptDependency[] @relation("Dependent")
-  ancestorPaths   ConceptPath[]       @relation("Ancestor")
-  descendantPaths ConceptPath[]       @relation("Descendant")
+  ancestorPaths        ConceptPath[]           @relation("Ancestor")
+  descendantPaths      ConceptPath[]           @relation("Descendant")
+  tutorialLinks        ConceptTutorialLink[]
 
   @@index([name])
   @@map("concept")
@@ -271,4 +285,206 @@ model ConceptPath {
   @@index([descendantId, pathType, depth])
   @@index([ancestorId, pathType, depth])
   @@map("concept_path")
+}
+
+// 课题工作室草稿
+model TopicDraft {
+  id                   Int      @id @default(autoincrement())
+  userId               Int?     @map("user_id")
+  title                String
+  subject              String?  @db.VarChar(100)
+  gradeLevel           String?  @map("grade_level") @db.VarChar(50)
+  goals                String?  @db.Text
+  durationHours        Float?   @map("duration_hours")
+  maxBudget            Float?   @map("max_budget")
+  needsHardware        Boolean  @default(false) @map("needs_hardware")
+  outlineJson          Json?    @map("outline_json")
+  matchedResourcesJson Json?    @map("matched_resources_json")
+  status               String   @default("draft") @db.VarChar(30)
+  currentStep          Int      @default(0) @map("current_step")
+  localTutorialId      Int?     @map("local_tutorial_id")
+  createdAt            DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt            DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+  packages TutorialPackage[]
+
+  @@index([userId])
+  @@index([status])
+  @@map("topic_draft")
+}
+
+// 课件来源 attribution（不可删除，仅追加）
+model ResourceAttribution {
+  id            Int      @id @default(autoincrement())
+  userId        Int      @map("user_id")
+  resourceType  String   @map("resource_type") @db.VarChar(50)
+  resourceId    String   @map("resource_id") @db.VarChar(255)
+  resourceTitle String?  @map("resource_title")
+  sourceUrl     String   @map("source_url")
+  license       String?  @db.VarChar(100)
+  author        String?  @db.VarChar(255)
+  retrievedAt   DateTime @default(now()) @map("retrieved_at") @db.Timestamptz(3)
+  createdAt     DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([resourceType, resourceId])
+  @@map("resource_attribution")
+}
+
+// 创作者档案
+model CreatorProfile {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @unique @map("user_id")
+  ccTotal   Int      @default(0) @map("cc_total")
+  level     Int      @default(1)
+  badges             Json     @default("[]")
+  publishFrozenUntil DateTime? @map("publish_frozen_until") @db.Timestamptz(3)
+  createdAt          DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("creator_profile")
+}
+
+// 创课分流水
+model CreditLedger {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @map("user_id")
+  action    String   @db.VarChar(50)
+  ccDelta   Int      @map("cc_delta")
+  refType   String   @default("") @map("ref_type") @db.VarChar(50)
+  refId     String   @default("") @map("ref_id") @db.VarChar(255)
+  note      String?
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@index([userId, action])
+  @@unique([userId, action, refType, refId])
+  @@map("credit_ledger")
+}
+
+// 品牌模板
+model BrandTemplate {
+  id            Int      @id @default(autoincrement())
+  userId        Int      @map("user_id")
+  name          String   @default("默认模板") @db.VarChar(100)
+  logoPath      String?  @map("logo_path")
+  watermarkText String?  @map("watermark_text")
+  footer        String?
+  isDefault     Boolean  @default(false) @map("is_default")
+  createdAt     DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt     DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("brand_template")
+}
+
+// 教程 ↔ 知识点挂接
+model ConceptTutorialLink {
+  id              Int      @id @default(autoincrement())
+  userId          Int      @map("user_id")
+  conceptId       Int      @map("concept_id")
+  localTutorialId Int      @map("local_tutorial_id")
+  tutorialTitle   String?  @map("tutorial_title")
+  subject         String?  @db.VarChar(100)
+  createdAt       DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt       DateTime @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  concept Concept @relation(fields: [conceptId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, localTutorialId])
+  @@index([conceptId])
+  @@map("concept_tutorial_link")
+}
+
+// 教学包（课题工作室产出）
+model TutorialPackage {
+  id              Int       @id @default(autoincrement())
+  userId          Int       @map("user_id")
+  topicDraftId    Int?      @map("topic_draft_id")
+  localTutorialId Int?      @map("local_tutorial_id")
+  title           String
+  subject         String?   @db.VarChar(100)
+  gradeLevel      String?   @map("grade_level") @db.VarChar(50)
+  packageJson     Json      @map("package_json")
+  scope           String    @default("private") @db.VarChar(20)
+  status          String    @default("draft") @db.VarChar(30)
+  isFeatured      Boolean   @default(false) @map("is_featured")
+  publishedAt     DateTime? @map("published_at") @db.Timestamptz(3)
+  createdAt       DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt       DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  user             User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  topicDraft       TopicDraft?       @relation(fields: [topicDraftId], references: [id], onDelete: SetNull)
+  publishRequests  PublishRequest[]
+  plagiarismReports PlagiarismReport[]
+
+  @@index([userId])
+  @@index([scope, status])
+  @@index([publishedAt])
+  @@map("tutorial_package")
+}
+
+// 发布审核请求
+model PublishRequest {
+  id                 Int       @id @default(autoincrement())
+  packageId          Int       @map("package_id")
+  userId             Int       @map("user_id")
+  scope              String    @db.VarChar(20)
+  status             String    @default("pending") @db.VarChar(30)
+  copyrightConfirmed Boolean   @default(false) @map("copyright_confirmed")
+  copyrightType      String?   @map("copyright_type") @db.VarChar(30)
+  autoReviewScore    Float?    @map("auto_review_score")
+  autoReviewNotes    Json?     @map("auto_review_notes")
+  reviewerId         Int?      @map("reviewer_id")
+  reviewNote         String?   @map("review_note")
+  reviewedAt         DateTime? @map("reviewed_at") @db.Timestamptz(3)
+  scheduledPayoutAt  DateTime? @map("scheduled_payout_at") @db.Timestamptz(3)
+  payoutStatus       String    @default("none") @map("payout_status") @db.VarChar(20)
+  payoutPaidAt       DateTime? @map("payout_paid_at") @db.Timestamptz(3)
+  createdAt          DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+  updatedAt          DateTime  @updatedAt @map("updated_at") @db.Timestamptz(3)
+
+  package  TutorialPackage @relation(fields: [packageId], references: [id], onDelete: Cascade)
+  user     User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  reviewer User?           @relation("PublishReviewer", fields: [reviewerId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([status])
+  @@index([scope, status])
+  @@index([scheduledPayoutAt, payoutStatus])
+  @@map("publish_request")
+}
+
+// 抄袭举报
+model PlagiarismReport {
+  id           Int       @id @default(autoincrement())
+  packageId    Int?      @map("package_id")
+  reporterId   Int       @map("reporter_id")
+  targetUserId Int       @map("target_user_id")
+  reason       String    @db.Text
+  evidence     String?   @db.Text
+  status       String    @default("pending") @db.VarChar(20)
+  adminId      Int?      @map("admin_id")
+  adminNote    String?   @map("admin_note")
+  resolvedAt   DateTime? @map("resolved_at") @db.Timestamptz(3)
+  createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamptz(3)
+
+  package    TutorialPackage? @relation(fields: [packageId], references: [id], onDelete: SetNull)
+  reporter   User             @relation("PlagiarismReporter", fields: [reporterId], references: [id], onDelete: Cascade)
+  targetUser User             @relation("PlagiarismTarget", fields: [targetUserId], references: [id], onDelete: Cascade)
+  admin      User?            @relation("PlagiarismAdmin", fields: [adminId], references: [id], onDelete: SetNull)
+
+  @@index([status])
+  @@index([targetUserId])
+  @@map("plagiarism_report")
 }

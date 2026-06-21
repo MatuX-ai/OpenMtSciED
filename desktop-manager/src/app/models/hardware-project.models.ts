@@ -165,7 +165,7 @@ export interface CodeTemplate {
 export type CodeLanguage =
   | 'arduino'      // Arduino C++
   | 'python'       // MicroPython
-  | 'blockly'      // Blockly 可视化编程
+  | 'blockly'      // 遗留数据标签（编辑器已移除，v2.1 Out of Scope）
   | 'scratch';     // Scratch
 
 /**

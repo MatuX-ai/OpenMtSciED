@@ -1,5 +1,4 @@
 /* 全局样式 */
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 /* CSS 变量定义 - 浅色模式（默认） */
 :root {
@@ -81,6 +80,42 @@ button[mat-raised-button],
 button[mat-button] {
   border-radius: 8px !important;
   text-transform: none !important;
+}
+
+/* RemixIcon 图标在按钮/卡片中的统一样式 */
+button i[class^="ri-"],
+mat-chip i[class^="ri-"] {
+  font-size: 18px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+button i[class^="ri-"]:only-child,
+button[mat-icon-button] i[class^="ri-"] {
+  margin-right: 0;
+  font-size: 20px;
+}
+
+i.empty-icon {
+  font-size: 64px !important;
+  width: 64px;
+  height: 64px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+}
+
+i.header-icon {
+  font-size: 28px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+i.card-icon {
+  font-size: 22px;
+  vertical-align: middle;
+  margin-right: 6px;
 }
 
 /* 滚动条样式 */

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -9,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { QuestionService, QuestionBank, Question } from '../../services/question.service';
+import { IconMapper } from '../../shared/utils/icon-mapper';
 
 @Component({
   selector: 'app-question-practice',
@@ -16,7 +16,6 @@ import { QuestionService, QuestionBank, Question } from '../../services/question
   imports: [
     CommonModule,
     FormsModule,
-    MatIconModule,
     MatButtonModule,
     MatProgressBarModule,
     MatFormFieldModule,
@@ -37,14 +36,14 @@ import { QuestionService, QuestionBank, Question } from '../../services/question
   template: `
     <div class="practice-container">
       <div class="page-header">
-        <h2><mat-icon class="header-icon">quiz</mat-icon> STEM 题库练习</h2>
+        <h2><i class="ri-question-line header-icon"></i> STEM 题库练习</h2>
         <p class="subtitle">通过系统练习提升你的STEM知识掌握度</p>
       </div>
       
       <!-- 题库选择 -->
       <div class="bank-selector" *ngIf="!currentBank">
         <div class="section-header">
-          <h3><mat-icon>library_books</mat-icon> 选择题库</h3>
+          <h3><i class="ri-book-shelf-line"></i> 选择题库</h3>
           <span class="total-count">共 {{ banks.length }} 个题库</span>
         </div>
         <div class="bank-list">
@@ -57,25 +56,25 @@ import { QuestionService, QuestionBank, Question } from '../../services/question
                (keydown.space)="selectBank(bank)">
             <div class="card-content">
               <div class="card-icon" [style.background]="getBankColor(bank.subject)">
-                <mat-icon>{{ getBankIcon(bank.subject) }}</mat-icon>
+                <i [class]="getBankIcon(bank.subject)"></i>
               </div>
               <div class="card-info">
                 <h4>{{ bank.name }}</h4>
                 <p class="description">{{ bank.description || '暂无描述' }}</p>
                 <div class="meta-info">
                   <span class="badge level-badge" [class]="'level-' + bank.level">{{ getLevelText(bank.level) }}</span>
-                  <span class="count"><mat-icon class="small-icon">format_list_numbered</mat-icon> {{ bank.total_questions }} 题</span>
+                  <span class="count"><i class="ri-list-ordered small-icon"></i> {{ bank.total_questions }} 题</span>
                   <span class="subject-badge" *ngIf="bank.subject">{{ getSubjectText(bank.subject) }}</span>
                 </div>
               </div>
             </div>
             <div class="card-arrow">
-              <mat-icon>arrow_forward</mat-icon>
+              <i class="ri-arrow-right-line"></i>
             </div>
           </div>
         </div>
         <div *ngIf="banks.length === 0" class="empty-state">
-          <mat-icon class="empty-icon">inbox</mat-icon>
+          <i class="ri-inbox-line empty-icon"></i>
           <p>暂无可用题库，请联系管理员添加</p>
         </div>
       </div>
@@ -84,7 +83,7 @@ import { QuestionService, QuestionBank, Question } from '../../services/question
       <div class="question-area" *ngIf="currentBank && currentQuestion">
         <div class="question-header">
           <button (click)="backToBanks()" class="btn-back" mat-stroked-button>
-            <mat-icon>arrow_back</mat-icon>
+            <i class="ri-arrow-left-line"></i>
             <span>返回题库</span>
           </button>
           <div class="header-info">
@@ -94,7 +93,7 @@ import { QuestionService, QuestionBank, Question } from '../../services/question
               <span class="progress-text">{{ currentIndex + 1 }} / {{ questions.length }}</span>
             </div>
             <span *ngIf="isAdaptiveMode" class="difficulty-badge">
-              <mat-icon class="small-icon">trending_up</mat-icon>
+              <i class="ri-line-chart-line small-icon"></i>
               难度: {{ targetDifficulty | number:'1.1-1' }}
             </span>
           </div>
@@ -102,7 +101,7 @@ import { QuestionService, QuestionBank, Question } from '../../services/question
         
         <div class="question-content">
           <div class="question-type-badge">
-            <mat-icon>{{ getQuestionTypeIcon(currentQuestion.question_type) }}</mat-icon>
+            <i [class]="getQuestionTypeIcon(currentQuestion.question_type)"></i>
             <span>{{ getQuestionTypeText(currentQuestion.question_type) }}</span>
           </div>
           <p class="q-text">{{ currentQuestion.content }}</p>
@@ -121,7 +120,7 @@ import { QuestionService, QuestionBank, Question } from '../../services/question
                  (keydown.space)="selectOption(opt)">
               <span class="option-label">{{ getOptionLabel(i) }}</span>
               <span class="option-text">{{ opt }}</span>
-              <mat-icon *ngIf="selectedAnswer === opt" class="check-icon">check_circle</mat-icon>
+              <i class="ri-checkbox-circle-line check-icon" *ngIf="selectedAnswer === opt"></i>
             </div>
           </div>
 
@@ -143,7 +142,7 @@ import { QuestionService, QuestionBank, Question } from '../../services/question
                     class="btn-submit"
                     mat-raised-button
                     color="primary">
-              <mat-icon *ngIf="!isSubmitting">send</mat-icon>
+              <i class="ri-send-plane-line" *ngIf="!isSubmitting"></i>
               <mat-spinner *ngIf="isSubmitting" diameter="20"></mat-spinner>
               <span>{{ isSubmitting ? '提交中...' : '提交答案' }}</span>
             </button>
@@ -153,7 +152,7 @@ import { QuestionService, QuestionBank, Question } from '../../services/question
         <!-- 结果反馈 -->
         <div *ngIf="lastResult" class="result-feedback" [class.correct]="lastResult.is_correct" [@fadeInOut]>
           <div class="result-header">
-            <mat-icon class="result-icon">{{ lastResult.is_correct ? 'check_circle' : 'cancel' }}</mat-icon>
+            <i class="result-icon" [class]="lastResult.is_correct ? 'ri-checkbox-circle-line' : 'ri-close-circle-line'"></i>
             <h4>{{ lastResult.is_correct ? '回答正确！' : '回答错误' }}</h4>
           </div>
           <div class="explanation">
@@ -165,7 +164,7 @@ import { QuestionService, QuestionBank, Question } from '../../services/question
                     class="btn-next"
                     mat-raised-button
                     color="accent">
-              <mat-icon>arrow_forward</mat-icon>
+              <i class="ri-arrow-right-line"></i>
               <span>下一题</span>
             </button>
             <button *ngIf="currentIndex >= questions.length - 1" 
@@ -173,7 +172,7 @@ import { QuestionService, QuestionBank, Question } from '../../services/question
                     class="btn-finish"
                     mat-raised-button
                     color="primary">
-              <mat-icon>library_books</mat-icon>
+              <i class="ri-book-shelf-line"></i>
               <span>完成练习</span>
             </button>
           </div>
@@ -237,7 +236,7 @@ import { QuestionService, QuestionBank, Question } from '../../services/question
           color: var(--text-primary);
           margin: 0;
 
-          mat-icon {
+          i[class^="ri-"] {
             color: var(--primary-color);
           }
         }
@@ -299,10 +298,8 @@ import { QuestionService, QuestionBank, Question } from '../../services/question
         justify-content: center;
         flex-shrink: 0;
 
-        mat-icon {
+        i[class^="ri-"] {
           font-size: 28px;
-          width: 28px;
-          height: 28px;
           color: white;
         }
       }
@@ -346,11 +343,9 @@ import { QuestionService, QuestionBank, Question } from '../../services/question
         transform: translateX(-10px);
         transition: all 0.3s ease;
 
-        mat-icon {
+        i[class^="ri-"] {
           color: var(--primary-color);
           font-size: 20px;
-          width: 20px;
-          height: 20px;
         }
       }
     }
@@ -498,10 +493,8 @@ import { QuestionService, QuestionBank, Question } from '../../services/question
         color: var(--primary-color);
         margin-bottom: 16px;
 
-        mat-icon {
+        i[class^="ri-"] {
           font-size: 16px;
-          width: 16px;
-          height: 16px;
         }
       }
 
@@ -841,15 +834,15 @@ export class QuestionPracticeComponent implements OnInit {
   // 辅助方法：获取题库图标
   getBankIcon(subject?: string): string {
     const icons: { [key: string]: string } = {
-      'physics': 'science',
-      'biology': 'biotech',
-      'chemistry': 'experiment',
-      'mathematics': 'functions',
-      'computer_science': 'code',
-      'engineering': 'build',
-      'general': 'menu_book'
+      'physics': 'ri-flask-line',
+      'biology': 'ri-leaf-line',
+      'chemistry': 'ri-test-tube-line',
+      'mathematics': 'ri-function-line',
+      'computer_science': 'ri-code-s-slash-line',
+      'engineering': 'ri-tools-line',
+      'general': 'ri-book-2-line'
     };
-    return icons[subject || 'general'] || 'menu_book';
+    return icons[subject || 'general'] || 'ri-book-2-line';
   }
 
   // 辅助方法：获取难度级别文本
@@ -880,12 +873,12 @@ export class QuestionPracticeComponent implements OnInit {
   // 辅助方法：获取问题类型图标
   getQuestionTypeIcon(type: string): string {
     const icons: { [key: string]: string } = {
-      'multiple_choice': 'radio_button_checked',
-      'true_false': 'check_circle_outline',
-      'short_answer': 'edit',
-      'essay': 'description'
+      'multiple_choice': 'ri-radio-button-line',
+      'true_false': 'ri-checkbox-line',
+      'short_answer': 'ri-edit-line',
+      'essay': 'ri-file-text-line'
     };
-    return icons[type] || 'help';
+    return icons[type] || 'ri-question-line';
   }
 
   // 辅助方法：获取问题类型文本

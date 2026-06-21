@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -11,14 +12,19 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { HttpClient } from '@angular/common/http';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { firstValueFrom } from 'rxjs';
 
 import { UnifiedCourse, CourseStats } from '@shared/shared-models';
+import { ConfirmDialogComponent } from '../../core/components/confirm-dialog.component';
+import { getSubjectName, getGradeLevelName } from '../../core/utils';
+import { CoursesService } from '../../core/services/courses.service';
+import { SkeletonStatCardComponent, SkeletonTableComponent } from '../../core/components/skeleton.component';
 
 @Component({
   selector: 'app-admin-courses',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
     FormsModule,
@@ -31,6 +37,9 @@ import { UnifiedCourse, CourseStats } from '@shared/shared-models';
     MatChipsModule,
     MatInputModule,
     MatSelectModule,
+    MatTooltipModule,
+    SkeletonStatCardComponent,
+    SkeletonTableComponent,
   ],
   template: `
     <div class="admin-courses">
@@ -45,7 +54,7 @@ import { UnifiedCourse, CourseStats } from '@shared/shared-models';
             <mat-icon>refresh</mat-icon>
             刷新
           </button>
-          <button mat-flat-button color="primary" (click)="createCourse()">
+          <button mat-flat-button color="primary" (click)="createCourse()" disabled matTooltip="功能开发中，即将上线">
             <mat-icon>add</mat-icon>
             新建课程
           </button>
@@ -104,10 +113,17 @@ import { UnifiedCourse, CourseStats } from '@shared/shared-models';
       </div>
 
       <ng-template #loadingTemplate>
-        <div class="loading-container">
-          <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
-          <p>加载课程数据...</p>
+        <div class="stats-grid">
+          <app-skeleton-stat-card *ngFor="let _ of [1,2,3,4]" />
         </div>
+        <mat-card class="courses-card">
+          <mat-card-content>
+            <app-skeleton-table
+              [colWidths]="[3, 2, 1.5, 1.5, 1.5, 1.5, 1.5]"
+              [rows]="6"
+            />
+          </mat-card-content>
+        </mat-card>
       </ng-template>
 
       <!-- 课程列表 -->
@@ -238,10 +254,10 @@ import { UnifiedCourse, CourseStats } from '@shared/shared-models';
                 <th mat-header-cell *matHeaderCellDef>操作</th>
                 <td mat-cell *matCellDef="let course">
                   <div class="action-buttons">
-                    <button mat-icon-button color="primary" (click)="editCourse(course)" matTooltip="编辑课程">
+                    <button mat-icon-button color="primary" (click)="editCourse(course)" disabled matTooltip="编辑课程 — 功能开发中">
                       <mat-icon>edit</mat-icon>
                     </button>
-                    <button mat-icon-button color="accent" (click)="viewCourse(course)" matTooltip="查看详情">
+                    <button mat-icon-button color="accent" (click)="viewCourse(course)" disabled matTooltip="查看详情 — 功能开发中">
                       <mat-icon>visibility</mat-icon>
                     </button>
                     <button mat-icon-button color="warn" (click)="deleteCourse(course)" matTooltip="删除课程">
@@ -252,7 +268,7 @@ import { UnifiedCourse, CourseStats } from '@shared/shared-models';
               </ng-container>
 
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns; trackBy: trackByCourse"></tr>
 
               <!-- 空数据提示 -->
               <tr class="empty-row" *matNoDataRow>
@@ -500,8 +516,9 @@ import { UnifiedCourse, CourseStats } from '@shared/shared-models';
   `],
 })
 export class AdminCoursesComponent implements OnInit {
-  private http = inject(HttpClient);
+  private coursesService = inject(CoursesService);
   private snackBar = inject(MatSnackBar);
+  private dialog = inject(MatDialog);
 
   readonly loading = signal<boolean>(true);
   readonly courses = signal<UnifiedCourse[]>([]);
@@ -524,10 +541,16 @@ export class AdminCoursesComponent implements OnInit {
   async loadCourses(): Promise<void> {
     this.loading.set(true);
     try {
-      // 从API获取课程数据
-      const params: any = {
+      // 构造 Service 查询参数
+      const params: {
+        skip: number;
+        limit: number;
+        level?: string;
+        subject?: string;
+        search?: string;
+      } = {
         skip: 0,
-        limit: 100
+        limit: 100,
       };
 
       if (this.selectedGradeLevel() && this.selectedGradeLevel() !== 'all') {
@@ -540,38 +563,31 @@ export class AdminCoursesComponent implements OnInit {
         params.search = this.searchQuery();
       }
 
-      const response: any = await firstValueFrom(
-        this.http.get('/api/v1/admin/courses', { params })
-      );
+      const response = await firstValueFrom(this.coursesService.getCourses(params));
 
-      if (response.success && response.data) {
-        const courses: UnifiedCourse[] = response.data.map((course: any) => ({
-          ...course,
-          gradeLevel: course.level as any,
-          category: course.subject,
-          duration_hours: 20,
-          enrolled_students: Math.floor(Math.random() * 200),
-          status: 'active',
-        }));
+      const courses: UnifiedCourse[] = response.items.map((course: any) => ({
+        ...course,
+        gradeLevel: course.level as any,
+        category: course.subject,
+        duration_hours: 20,
+        enrolled_students: Math.floor(Math.random() * 200),
+        status: 'active',
+      }));
 
-        this.courses.set(courses);
-        this.filteredCourses.set(courses);
+      this.courses.set(courses);
+      this.filteredCourses.set(courses);
 
-        // 使用后端返回的 total 作为真实总数
-        // 注意：courses 只是当前页的数据，total 才是筛选后的总数
-        const totalFromBackend = response.total || 0;
+      // 使用后端返回的 total 作为真实总数
+      // 注意：courses 只是当前页的数据，total 才是筛选后的总数
+      const totalFromBackend = response.total;
 
-        // 更新统计数据
-        this.stats.set({
-          totalCourses: totalFromBackend,  // 使用后端返回的真实总数
-          activeCourses: totalFromBackend,  // 假设所有课程都是活跃的
-          totalEnrollments: totalFromBackend * 50,  // 估算注册数
-          categories: new Set(response.data.map((c: any) => c.subject || '')).size  // 当前页的分类数
-        });
-      } else {
-        this.courses.set([]);
-        this.filteredCourses.set([]);
-      }
+      // 更新统计数据
+      this.stats.set({
+        totalCourses: totalFromBackend,  // 使用后端返回的真实总数
+        activeCourses: totalFromBackend,  // 假设所有课程都是活跃的
+        totalEnrollments: totalFromBackend * 50,  // 估算注册数
+        categories: new Set(response.items.map((c: any) => c.subject || '')).size  // 当前页的分类数
+      });
     } catch (error) {
       console.error('加载课程失败:', error);
       this.snackBar.open('加载课程数据失败', '关闭', { duration: 3000 });
@@ -641,22 +657,39 @@ export class AdminCoursesComponent implements OnInit {
     this.snackBar.open('数据已刷新', '关闭', { duration: 2000 });
   }
 
+  /**
+   * 表格行 trackBy：按 id 追踪，避免行重建
+   */
+  trackByCourse = (_index: number, course: UnifiedCourse): number => course.id;
+
   createCourse(): void {
-    this.snackBar.open('创建课程功能待实现', '关闭', { duration: 2000 });
+    this.snackBar.open('🚧 创建课程 — 功能开发中，即将上线', '关闭', { duration: 2000 });
   }
 
   editCourse(course: UnifiedCourse): void {
-    this.snackBar.open(`编辑课程: ${course.title}`, '关闭', { duration: 2000 });
+    this.snackBar.open(`🚧 编辑课程: ${course.title} — 功能开发中，即将上线`, '关闭', { duration: 2000 });
   }
 
   viewCourse(course: UnifiedCourse): void {
-    this.snackBar.open(`查看课程详情: ${course.title}`, '关闭', { duration: 2000 });
+    this.snackBar.open(`🚧 查看课程详情: ${course.title} — 功能开发中，即将上线`, '关闭', { duration: 2000 });
   }
 
   deleteCourse(course: UnifiedCourse): void {
-    if (confirm(`确定要删除课程 "${course.title}" 吗？`)) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '400px',
+      data: {
+        title: '删除课程',
+        message: `确定要删除课程 "${course.title}" 吗？`,
+        confirmText: '删除',
+        color: 'warn',
+        icon: 'delete',
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((confirmed) => {
+      if (!confirmed) return;
       this.snackBar.open(`删除课程: ${course.title}`, '关闭', { duration: 2000 });
-    }
+    });
   }
 
   getCategoryName(category: string): string {
@@ -699,24 +732,7 @@ export class AdminCoursesComponent implements OnInit {
     return colorMap[level] || '';
   }
 
-  getGradeLevelName(gradeLevel: string): string {
-    const nameMap: Record<string, string> = {
-      elementary: '小学',
-      middle: '初中',
-      high: '高中'
-    };
-    return nameMap[gradeLevel] || gradeLevel;
-  }
-
-  getSubjectName(subject: string): string {
-    const nameMap: Record<string, string> = {
-      physics: '物理',
-      chemistry: '化学',
-      biology: '生物',
-      earth: '地球科学',
-      engineering: '工程',
-      programming: '编程'
-    };
-    return nameMap[subject] || subject;
-  }
+  // 使用共享工具函数
+  readonly getGradeLevelName = getGradeLevelName;
+  readonly getSubjectName = getSubjectName;
 }

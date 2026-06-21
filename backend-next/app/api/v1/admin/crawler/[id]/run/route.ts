@@ -11,7 +11,7 @@ export async function POST(
 ) {
   try {
     const { id: crawlerId } = await params;
-    const config = getCrawlerConfig(crawlerId);
+    const config = await getCrawlerConfig(crawlerId);
     
     if (!config) {
       return NextResponse.json(

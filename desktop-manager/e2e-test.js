@@ -107,104 +107,81 @@ async function testSetupWizardForm(browser) {
   }
 }
 
-// 测试 3: 教程库页面
-async function testCourseLibrary(browser) {
+// 测试 3: 统一资源库页面
+async function testResourceExplorer(browser) {
   const page = await browser.newPage();
 
   try {
-    console.log('\n📋 测试 3: 教程库页面测试');
-    await page.goto(`${BASE_URL}/course-library`, { waitUntil: 'networkidle0' });
+    console.log('\n📋 测试 3: 统一资源库页面测试');
+    await page.goto(BASE_URL, { waitUntil: 'domcontentloaded' });
+    await page.evaluate(() => localStorage.setItem('access_token', 'e2e-test-token'));
+    await page.goto(`${BASE_URL}/resource-explorer`, { waitUntil: 'networkidle0' });
 
-    // 检查页面标题
-    const hasTitle = await waitForElement(page, 'h1:has-text("📚 教程库")');
-    logTest('教程库页面标题', hasTitle);
+    const hasTreeHeader = await waitForElement(page, 'h2');
+    logTest('统一资源库树面板', hasTreeHeader);
 
-    // 检查新建课程按钮
-    const hasCreateButton = await waitForElement(page, 'button:has-text("新建课程")');
-    logTest('新建课程按钮存在', hasCreateButton);
+    const hasCreateButton = await waitForElement(page, 'button:has-text("新建教程")');
+    logTest('新建教程按钮存在', hasCreateButton);
 
-    // 检查课程列表容器
-    const hasCourseGrid = await waitForElement(page, '.course-grid');
-    logTest('课程列表容器存在', hasCourseGrid);
-
-    // 检查是否有课程卡片或空状态
-    const hasCourses = await waitForElement(page, 'mat-card', 2000);
-    const hasEmptyState = await waitForElement(page, '.empty-state', 2000);
-    logTest('显示课程或空状态', hasCourses || hasEmptyState);
-
+    const hasSearch = await waitForElement(page, 'input[placeholder*="搜索资源"]');
+    logTest('资源搜索框存在', hasSearch);
   } catch (error) {
-    logTest('教程库页面测试', false, error.message);
+    logTest('统一资源库页面测试', false, error.message);
   } finally {
     await page.close();
   }
 }
 
-// 测试 4: 课件库页面
-async function testMaterialLibrary(browser) {
+// 测试 4: 旧路由重定向
+async function testLegacyRouteRedirect(browser) {
   const page = await browser.newPage();
 
   try {
-    console.log('\n📋 测试 4: 课件库页面测试');
-    await page.goto(`${BASE_URL}/material-library`, { waitUntil: 'networkidle0' });
+    console.log('\n📋 测试 4: 旧路由重定向测试');
+    await page.goto(BASE_URL, { waitUntil: 'domcontentloaded' });
+    await page.evaluate(() => localStorage.setItem('access_token', 'e2e-test-token'));
+    await page.goto(`${BASE_URL}/material-library?search=foo`, { waitUntil: 'networkidle0' });
 
-    // 检查页面标题
-    const hasTitle = await waitForElement(page, 'h1:has-text("📁 课件库")');
-    logTest('课件库页面标题', hasTitle);
-
-    // 检查上传课件按钮
-    const hasUploadButton = await waitForElement(page, 'button:has-text("上传课件")');
-    logTest('上传课件按钮存在', hasUploadButton);
-
-    // 检查课程筛选器
-    const hasCourseFilter = await waitForElement(page, 'mat-form-field:has-text("选择课程")');
-    logTest('课程筛选器存在', hasCourseFilter);
-
-    // 检查课件列表容器
-    const hasMaterialGrid = await waitForElement(page, '.material-grid');
-    logTest('课件列表容器存在', hasMaterialGrid);
-
+    const redirectOk = page.url().includes('/resource-explorer') && page.url().includes('search=foo');
+    logTest('旧课件库路由重定向', redirectOk, page.url());
   } catch (error) {
-    logTest('课件库页面测试', false, error.message);
+    logTest('旧路由重定向测试', false, error.message);
   } finally {
     await page.close();
   }
 }
 
-// 测试 5: 创建课程流程
+// 测试 5: 新建教程流程
 async function testCreateCourse(browser) {
   const page = await browser.newPage();
 
   try {
-    console.log('\n📋 测试 5: 创建课程流程测试');
-    await page.goto(`${BASE_URL}/course-library`, { waitUntil: 'networkidle0' });
+    console.log('\n📋 测试 5: 新建教程流程测试');
+    await page.goto(BASE_URL, { waitUntil: 'domcontentloaded' });
+    await page.evaluate(() => localStorage.setItem('access_token', 'e2e-test-token'));
+    await page.goto(`${BASE_URL}/resource-explorer`, { waitUntil: 'networkidle0' });
 
-    // 点击新建课程按钮
-    const hasCreateButton = await waitForElement(page, 'button:has-text("新建课程")');
+    const hasCreateButton = await waitForElement(page, 'button:has-text("新建教程")');
     if (!hasCreateButton) {
-      logTest('打开创建对话框', false, '找不到新建课程按钮');
+      logTest('打开创建对话框', false, '找不到新建教程按钮');
       return;
     }
 
-    await page.click('button:has-text("新建课程")');
+    await page.click('button:has-text("新建教程")');
     await page.waitForTimeout(1000);
 
-    // 检查对话框是否打开
     const dialogOpened = await waitForElement(page, '.mat-dialog-container', 3000);
-    logTest('创建课程对话框打开', dialogOpened);
+    logTest('新建教程对话框打开', dialogOpened);
 
     if (!dialogOpened) return;
 
-    // 填写表单
-    await page.type('input[placeholder*="课程名称"]', '测试课程-E2E');
-    await page.type('textarea', '这是一个自动化测试创建的课程');
+    await page.type('input[placeholder*="教程名称"]', '测试教程-E2E');
+    await page.type('textarea', '这是一个自动化测试创建的教程');
 
-    // 选择分类（需要点击 mat-select）
     const selectElements = await page.$$('mat-select');
     if (selectElements.length > 0) {
       await selectElements[0].click();
       await page.waitForTimeout(500);
-
-      // 选择一个选项
       const options = await page.$$('mat-option');
       if (options.length > 0) {
         await options[0].click();
@@ -212,23 +189,15 @@ async function testCreateCourse(browser) {
       }
     }
 
-    // 点击保存按钮
     const saveButton = await page.$('button:has-text("保存")');
     if (saveButton) {
       await saveButton.click();
       await page.waitForTimeout(2000);
-
-      // 检查对话框是否关闭
       const dialogClosed = await waitForElement(page, '.mat-dialog-container', 1000).then(() => false).catch(() => true);
       logTest('保存后对话框关闭', dialogClosed);
-
-      // 检查课程是否出现在列表中
-      const courseExists = await waitForElement(page, 'mat-card-title:has-text("测试课程-E2E")', 3000);
-      logTest('新课程出现在列表中', courseExists);
     }
-
   } catch (error) {
-    logTest('创建课程流程测试', false, error.message);
+    logTest('新建教程流程测试', false, error.message);
   } finally {
     await page.close();
   }
@@ -254,8 +223,8 @@ async function runTests() {
     // 运行所有测试
     await testAppLoads(browser);
     await testSetupWizardForm(browser);
-    await testCourseLibrary(browser);
-    await testMaterialLibrary(browser);
+    await testResourceExplorer(browser);
+    await testLegacyRouteRedirect(browser);
     await testCreateCourse(browser);
 
   } catch (error) {

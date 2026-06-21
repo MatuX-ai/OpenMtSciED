@@ -14,20 +14,20 @@ export async function PUT(
     const url = new URL(request.url);
     const intervalHours = parseInt(url.searchParams.get('interval_hours') || '24');
     
-    const config = getCrawlerConfig(crawlerId);
-    
+    const config = await getCrawlerConfig(crawlerId);
+
     if (!config) {
       return NextResponse.json(
         { error: '未找到爬虫', message: `Crawler ${crawlerId} not found` },
         { status: 404 }
       );
     }
-    
+
     // 更新配置
-    updateCrawlerConfig(crawlerId, { schedule_interval: intervalHours });
-    
+    await updateCrawlerConfig(crawlerId, { schedule_interval: intervalHours });
+
     // 重新加载配置并设置定时任务
-    const updatedConfig = getCrawlerConfig(crawlerId);
+    const updatedConfig = await getCrawlerConfig(crawlerId);
     if (updatedConfig) {
       if (intervalHours > 0) {
         scheduleCrawler(updatedConfig);

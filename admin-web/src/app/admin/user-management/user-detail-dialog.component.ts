@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -10,9 +10,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { UserService } from '../../core/services/user.service';
 import { User, UserRole } from '../../models/user.models';
+import { formatDateTime, getRoleDisplayName, getRoleClass } from '../../core/utils';
 
 /**
  * 用户详情对话框组件
@@ -20,6 +22,7 @@ import { User, UserRole } from '../../models/user.models';
 @Component({
   selector: 'app-user-detail-dialog',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
     FormsModule,
@@ -31,6 +34,7 @@ import { User, UserRole } from '../../models/user.models';
     MatSelectModule,
     MatChipsModule,
     MatProgressSpinnerModule,
+    MatTooltipModule,
   ],
   template: `
     <div class="user-detail-dialog">
@@ -128,7 +132,8 @@ import { User, UserRole } from '../../models/user.models';
                       mat-flat-button 
                       color="primary"
                       (click)="assignRole()"
-                      [disabled]="!selectedRole"
+                      disabled
+                      matTooltip="功能开发中，即将上线"
                     >
                       <mat-icon>add</mat-icon>
                       分配角色
@@ -141,7 +146,7 @@ import { User, UserRole } from '../../models/user.models';
                     <mat-chip-set>
                       <mat-chip [class]="getRoleClass(user()?.role || 'user')">
                         {{ getRoleDisplayName(user()?.role || 'user') }}
-                        <button matChipRemove (click)="removeRole()">
+                        <button matChipRemove (click)="removeRole()" disabled matTooltip="功能开发中">
                           <mat-icon>cancel</mat-icon>
                         </button>
                       </mat-chip>
@@ -340,7 +345,7 @@ export class UserDetailDialogComponent implements OnInit {
     if (!role) return;
 
     // TODO: 调用后端API分配角色
-    this.snackBar.open(`分配角色 "${this.getRoleDisplayName(role)}" 功能开发中...`, '关闭', {
+    this.snackBar.open(`🚧 分配角色 "${this.getRoleDisplayName(role)}" — 功能开发中，即将上线`, '关闭', {
       duration: 2000,
     });
   }
@@ -350,49 +355,13 @@ export class UserDetailDialogComponent implements OnInit {
    */
   removeRole(): void {
     // TODO: 调用后端API移除角色
-    this.snackBar.open('移除角色功能开发中...', '关闭', { duration: 2000 });
+    this.snackBar.open('🚧 移除角色 — 功能开发中，即将上线', '关闭', { duration: 2000 });
   }
 
-  /**
-   * 获取角色显示名称
-   */
-  getRoleDisplayName(role: UserRole | string): string {
-    const roleMap: Record<string, string> = {
-      user: '普通用户',
-      admin: '系统管理员',
-      org_admin: '机构管理员',
-      premium: '高级用户',
-    };
-    return roleMap[role] || role;
-  }
-
-  /**
-   * 获取角色样式类
-   */
-  getRoleClass(role: UserRole | string): string {
-    const classMap: Record<string, string> = {
-      user: 'role-user',
-      admin: 'role-admin',
-      org_admin: 'role-org-admin',
-      premium: 'role-premium',
-    };
-    return classMap[role] || 'role-default';
-  }
-
-  /**
-   * 格式化日期
-   */
-  formatDate(dateString: string | undefined): string {
-    if (!dateString) return '-';
-    const date = new Date(dateString);
-    return date.toLocaleDateString('zh-CN', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-    });
-  }
+  // 使用共享工具函数
+  readonly formatDate = formatDateTime;
+  readonly getRoleDisplayName = getRoleDisplayName;
+  readonly getRoleClass = getRoleClass;
 
   /**
    * 获取组织名称

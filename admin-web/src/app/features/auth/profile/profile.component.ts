@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { AuthService, UserInfo } from '../../../core/services/auth.service';
 
 @Component({
@@ -21,6 +22,7 @@ import { AuthService, UserInfo } from '../../../core/services/auth.service';
     MatFormFieldModule,
     MatInputModule,
     MatSnackBarModule,
+    MatTooltipModule,
   ],
   template: `
     <div class="profile-container">
@@ -69,7 +71,7 @@ import { AuthService, UserInfo } from '../../../core/services/auth.service';
 
             <div class="form-actions">
               <button mat-button type="button" (click)="resetForm()">重置</button>
-              <button mat-raised-button color="primary" type="submit" [disabled]="!hasChanges()">
+              <button mat-raised-button color="primary" type="submit" disabled matTooltip="功能开发中，即将上线">
                 保存更改
               </button>
             </div>
@@ -272,7 +274,7 @@ export class ProfileComponent implements OnInit {
   updateProfile(): void {
     // TODO: 调用后端API更新用户信息
     // 目前仅显示提示
-    this.snackBar.open('个人资料更新功能开发中...', '关闭', {
+    this.snackBar.open('🚧 个人资料更新 — 功能开发中，即将上线', '关闭', {
       duration: 3000,
     });
 

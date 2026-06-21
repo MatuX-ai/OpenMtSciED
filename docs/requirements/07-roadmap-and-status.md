@@ -6,8 +6,9 @@
 |------|------|------|------|
 | Phase 1 | 基础建设 | ✅ 已完成 | API、Neo4j、Website、文档体系 |
 | Phase 2 | 功能增强 | 🔄 进行中 | 认证、爬虫、Admin、Desktop 完善 |
-| Phase 3 | 高级功能 | ⏳ 计划中 | AI、进度追踪、社区、多语言 |
-| Phase 4 | 生态建设 | ⏳ 未来 | SDK、插件、商业化 |
+| **Phase 2.5** | **智能课件管理（v2.1 主线）** | **📋 已排期** | Topic Studio、搜索闭环、激励体系 |
+| Phase 3 | 高级功能 | ⏳ 计划中 | 社区评论、多语言、移动端 |
+| Phase 4 | 生态建设 | ⏳ 未来 | SDK、插件、商业化分成 |
 
 ---
 
@@ -31,7 +32,8 @@
 |------|------|------|
 | 用户认证系统 | 🔄 | JWT 登录/注册/me 已完成；资料/密码 API 部分待完善 |
 | Admin Web 管理后台 | ✅ | 用户、爬虫、课程、题库等 |
-| Desktop Manager 完整功能 | 🔄 | 核心模块已有，AI 路径/Blockly 待完善 |
+| Desktop Manager UI 统一迁移 | ✅ | 统一资源库、知识图谱三 Tab、Auth/Main Layout 拆分 |
+| Desktop Manager 完整功能 | 🔄 | **v2.1 转向课题工作室**；Blockly 移出范围 |
 | 爬虫系统迁移 | 🔄 | 3/5 完成（Khan、OpenStax、Coursera） |
 | PostgreSQL + Prisma 用户中心 | ✅ | 2026-04-26 迁移完成 |
 | 更多 Tutorial 数据 | ⏳ | 持续增长 |
@@ -39,7 +41,7 @@
 | API 速率限制 | ⏳ | 未开始 |
 | 错误监控 | ⏳ | 未开始 |
 | Website 仪表盘真实数据 | ⏳ | 当前为模拟数据 |
-| 学习路径闭包表迁移（Neo4j → PostgreSQL） | ⏳ | 见 [REQ-LP-001](./08-learning-path-closure-table-migration.md) |
+| 学习路径闭包表迁移（Neo4j → PostgreSQL） | ✅ | 见 [REQ-LP-001](./08-learning-path-closure-table-migration.md) |
 
 ### 3.1 爬虫迁移进度
 
@@ -59,9 +61,28 @@
 |--------|--------|----------|
 | backend-next API | ~85% | 速率限制、缓存、部分 auth 端点 |
 | website | ~80% | 仪表盘真实数据、头像上传 |
-| desktop-manager | ~75% | AI 路径、Blockly、导入导出 |
+| desktop-manager | ~78% | **Topic Studio、搜索纳入、CC 激励**（v2.1） |
 | admin-web | ~85% | 批量导入完善 |
 | 文档 | ~90% | 本需求文档系新增 |
+
+---
+
+## 3.5 Phase 2.5：智能课件管理 📋（v2.1 主线）
+
+> PRD：[09-intelligent-courseware-management-v2.md](./09-intelligent-courseware-management-v2.md)  
+> 计划：[intelligent-courseware-development-plan.md](../../.qoder/plans/intelligent-courseware-development-plan.md)
+
+| 里程碑 | 周期 | 核心交付 | 状态 |
+|--------|------|----------|------|
+| **M1 能用** | 第 1–6 周 | Topic Studio 骨架、AI 大纲、搜索「加入教程」、规则版 auto-link | ⏳ |
+| **M2 可编排** | 第 7–10 周 | 图谱挂接、品牌化导出、CC 积分与创作者中心 | ⏳ |
+| **M3 可生态** | 第 11–16 周 | 发布审核、公开库、创课榜、Admin 审核台 | ⏳ |
+
+**Week 1 立即任务**：
+
+1. 创建 `topic-studio` 模块 + 路由 + 侧边栏入口  
+2. Prisma `TopicDraft` 模型 + 草稿 API  
+3. ~~标记 Blockly 为 deprecated~~ → **M4 已移除编辑器与 npm 依赖**
 
 ---
 
@@ -69,13 +90,13 @@
 
 | 任务 | 优先级 | 说明 |
 |------|--------|------|
-| AI 辅助内容生成 | P2 | ai_learning_tasks.json 已有配置雏形 |
 | 学习进度追踪 | P1 | LearningRecord 模型已有，前端展示待加强 |
-| 社区功能（评论、评分） | P3 | 未开始 |
+| 社区功能（评论、评分） | P2 | 与公开发布库联动 |
 | 多语言支持 (i18n) | P3 | 未开始 |
 | 移动端 App | P3 | 未开始 |
-| Website 成就系统 | P2 | dashboard 待改进项 |
+| Website 成就系统 | P2 | 与 CC 激励打通 |
 | 学习日历与通知 | P3 | 未开始 |
+| ~~完整 AI 课件正文生成~~ | — | **收窄**为 Topic Studio 大纲/元数据助理 |
 
 ---
 
@@ -134,8 +155,12 @@
 
 ### 7.3 Desktop Manager
 
-- [ ] AI 个性化路径深度集成
-- [ ] Blockly 编程环境完善
+- [ ] **Topic Studio 六步向导（M1）**
+- [ ] 搜索「加入教程」与 auto-link（M1）
+- [ ] 图谱教程挂接 + CC 激励（M2）
+- [ ] 发布审核与公开库（M3）
+- [x] 统一资源库 / 知识图谱 UI 迁移
+- [x] ~~Blockly 编程环境~~ → M4 已移除（编辑器、依赖、旧路由 redirect）
 - [ ] 导入/导出服务完善
 
 ### 7.4 Admin Web
@@ -149,10 +174,11 @@
 
 | 里程碑 | 目标日期（建议） | 交付物 |
 |--------|-----------------|--------|
-| M1: Phase 2 收尾 | Q3 2026 | 认证完善、edX 爬虫、Website 真实数据 |
-| M2: Phase 3 启动 | Q4 2026 | 学习进度全链路、AI 路径 Beta |
-| M3: SDK Preview | 2027 H1 | npm 包、示例项目 |
-| M4: 社区 Beta | 2027 H2 | 评论评分、多语言 |
+| **M1: Topic Studio Alpha** | 2026-08 | 课题→教程→搜课件闭环 |
+| **M2: 图谱 + 激励 Beta** | 2026-09 | CC 积分、创作者中心、品牌化 |
+| **M3: 发布生态 RC** | 2026-10 | 审核、公开库、创课榜 |
+| M4: Phase 2 收尾 | Q4 2026 | 认证完善、edX 爬虫、Website 真实数据 |
+| M5: SDK Preview | 2027 H1 | npm 包、示例项目 |
 
 > 日期为建议性规划，以实际迭代为准。
 
@@ -160,7 +186,8 @@
 
 ## 9. 验收检查清单（Phase 2 收尾）
 
-- [ ] 所有 P0 功能需求标记为 ✅
+- [ ] PRD 09 v2.1 MVP 验收清单全部通过
+- [ ] Topic Studio E2E 通过
 - [ ] Website profile 完整对接 auth API
 - [ ] Dashboard 展示 LearningRecord 数据
 - [ ] 生产环境 SECRET_KEY 非默认值
@@ -173,10 +200,12 @@
 ## 相关文档
 
 - [功能需求](./03-functional-requirements.md)
+- [智能课件管理 v2.1](./09-intelligent-courseware-management-v2.md)
+- [开发计划](../../.qoder/plans/intelligent-courseware-development-plan.md)
 - [非功能需求](./04-non-functional-requirements.md)
 - [项目 README](../../README.md)
 - [PROJECT_OVERVIEW.md](../../PROJECT_OVERVIEW.md)
 
 ---
 
-*最后更新：2026-06-18*
+*最后更新：2026-06-21（Phase 2.5 智能课件管理主线）*

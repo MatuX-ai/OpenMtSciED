@@ -3,39 +3,49 @@ import prisma from '@/lib/db';
 
 /**
  * GET /api/v1/admin/courses/stats
- * 获取课程统计信息
+ * 获取课程统计信息（从 PostgreSQL 数据库读取）
  */
 export async function GET() {
   try {
-    // 从数据库获取学习记录和题目统计作为课程相关数据
-    const [totalRecords, totalQuestions] = await Promise.all([
-      prisma.learningRecord.count(),
-      prisma.question.count()
+    const [
+      total,
+      elementary,
+      middle,
+      high,
+      university,
+      otherLevel,
+      questions,
+    ] = await Promise.all([
+      prisma.course.count(),
+      prisma.course.count({ where: { gradeLevel: 'elementary' } }),
+      prisma.course.count({ where: { gradeLevel: 'middle' } }),
+      prisma.course.count({ where: { gradeLevel: 'high' } }),
+      prisma.course.count({ where: { gradeLevel: 'university' } }),
+      prisma.course.count({
+        where: {
+          gradeLevel: { notIn: ['elementary', 'middle', 'high', 'university'] },
+        },
+      }),
+      prisma.question.count(),
     ]);
-    
+
     return NextResponse.json({
       success: true,
       data: {
-        total: totalRecords, // 使用学习记录数作为课程活动统计
-        elementary: 0,
-        middle: 0,
-        high: 0,
-        university: 0,
-        questions: totalQuestions
-      }
+        total,
+        elementary,
+        middle,
+        high,
+        university,
+        other: otherLevel,
+        questions,
+      },
     });
   } catch (error: unknown) {
     console.error('Get course stats error:', error);
-    return NextResponse.json({
-      success: true,
-      data: {
-        total: 0,
-        elementary: 0,
-        middle: 0,
-        high: 0,
-        university: 0,
-        questions: 0
-      }
-    });
+    return NextResponse.json(
+      { success: false, error: '获取课程统计失败', message: error instanceof Error ? error.message : String(error) },
+      { status: 500 }
+    );
   }
 }

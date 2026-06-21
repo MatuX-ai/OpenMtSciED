@@ -3,12 +3,27 @@
 | 属性 | 值 |
 |------|-----|
 | 需求编号 | REQ-LP-001 |
-| 状态 | ⏳ 计划中 |
+| 状态 | ✅ 已完成 |
 | 优先级 | P1 |
 | 影响范围 | `backend-next`、Admin Web、Desktop Manager 学习路径模块 |
-| 最后更新 | 2026-06-18 |
+| 最后更新 | 2026-06-18（实施完成） |
 
 ---
+
+## 实施交付物（2026-06-18）
+
+| 交付物 | 路径 |
+|--------|------|
+| SQL 建表 | `backend-next/sql/schema.sql` |
+| SQL 查询 | `backend-next/sql/queries.sql` |
+| SQL 维护 | `backend-next/sql/maintenance.sql`（含 `rebuild_closure()`） |
+| SQL 迁移模板 | `backend-next/sql/migrate-data.sql` |
+| 应用层服务 | `backend-next/lib/concept-path.ts` |
+| 查询 API | `/api/v1/learning-path/*` |
+| Admin API | `/api/v1/admin/concepts/*` |
+| Desktop 兼容 | `/api/v1/path/generate`, `/api/v1/path/dynamic-adjust/:userId` |
+| 迁移脚本 | `scripts/migrate-knowledge-graph.ts`, `run-migration.ps1` |
+| 验收脚本 | `scripts/verify-closure.ts`, `verify-migration.ts`, `test-closure-maintenance.ts` |
 
 ## 1. 背景与目标
 
@@ -459,4 +474,4 @@ FOR each path_type IN DISTINCT path_types:
 
 ---
 
-*需求提出：2026-06-18 | 状态：⏳ 待开发*
+*需求提出：2026-06-18 | 状态：✅ 已完成*

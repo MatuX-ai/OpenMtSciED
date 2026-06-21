@@ -25,8 +25,20 @@ const API_CONFIG = {
 const config = isProduction ? API_CONFIG.production : API_CONFIG.development;
 
 // 导出配置
-window.API_BASE_URL = config.baseUrl;
+window.API_BASE_URL = config.baseUrl;            // 裸域名（http://localhost:3000 或 ''）
+window.API_PREFIX = config.baseUrl + '/api/v1';   // 完整 API 前缀（含 /api/v1）
 window.API_TIMEOUT = config.timeout;
+
+/**
+ * 拼接 API URL 的辅助函数
+ * @param {string} path - 接口路径（必须以 / 开头）
+ * @returns {string} 完整 URL
+ */
+window.apiUrl = function(path) {
+    const prefix = window.API_PREFIX || (window.API_BASE_URL + '/api/v1');
+    const p = path.startsWith('/') ? path : '/' + path;
+    return prefix + p;
+};
 
 // 调试信息（生产环境隐藏）
 if (!isProduction) {

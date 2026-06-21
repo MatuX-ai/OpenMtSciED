@@ -7,6 +7,30 @@
 
 ---
 
+## [2.1.0] - 2026-06-21
+
+### 智能课件管理（Phase 2.5 · 与 OpenMTSciEd v2.1.0 对齐）
+
+完整说明见 [docs/RELEASE-v2.1.0.md](../docs/RELEASE-v2.1.0.md)。
+
+#### 已添加
+- **课题工作室**（`/topic-studio`）：六步向导、草稿 CRUD、AI 大纲（模板版）、确认教程、资源匹配、品牌化、发布/导出
+- **搜索纳入教程**：全局搜 / 智能搜「加入教程」、上传课件关联建议
+- **创作者中心**（`/creator-center`）：创课分、等级、流水、创课榜
+- **公开资源库**（`/public-library`）：浏览已审核公开教学包
+- 图谱自动挂接、外链 attribution、品牌模板、教学包 JSON 导出
+- E2E 场景 `topic-studio.spec.js`（纳入 35 用例套件）
+
+#### 已移除
+- **Blockly 编辑器**及 `blockly` npm 依赖（v2.1 Out of Scope）
+- 硬件项目「开始编程」→ 改为「加入课题」
+
+#### 已更改
+- `/hardware-projects/:projectId/editor` 重定向至硬件列表
+- 侧边栏 / Dashboard 增加课题工作室、创作者中心、公开资源库入口
+
+---
+
 ## [未发布]
 
 ### 已添加
@@ -168,5 +192,6 @@
 - 日期格式为 YYYY-MM-DD
 - 详细的技术更新请参考 Git 提交历史
 
-[未发布]: ../../compare/v0.1.0...HEAD
+[2.1.0]: ../../compare/v0.1.0...v2.1.0
+[未发布]: ../../compare/v2.1.0...HEAD
 [0.1.0]: ../../releases/tag/v0.1.0

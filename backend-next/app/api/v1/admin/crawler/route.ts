@@ -10,7 +10,7 @@ import {
  */
 export async function GET() {
   try {
-    const configs = loadConfigs();
+    const configs = await loadConfigs();
     return NextResponse.json({
       success: true,
       data: configs,
@@ -32,7 +32,14 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    
+
+    if (!body.name) {
+      return NextResponse.json(
+        { error: '参数错误', message: 'name 字段为必填项' },
+        { status: 400 }
+      );
+    }
+
     // 设置默认值
     const config = {
       id: body.id || `crawler-${Date.now()}`,
@@ -51,8 +58,8 @@ export async function POST(request: Request) {
       ...body,
     };
     
-    addCrawlerConfig(config);
-    
+    await addCrawlerConfig(config as never);
+
     return NextResponse.json({
       success: true,
       message: '爬虫任务创建成功',

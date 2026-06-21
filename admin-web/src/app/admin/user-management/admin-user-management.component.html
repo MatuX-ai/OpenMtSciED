@@ -14,7 +14,7 @@
         <mat-icon>upload</mat-icon>
         批量导入
       </button>
-      <button mat-stroked-button (click)="exportUsers()">
+      <button mat-stroked-button (click)="exportUsers()" disabled matTooltip="功能开发中，即将上线">
         <mat-icon>download</mat-icon>
         导出
       </button>
@@ -111,11 +111,11 @@
   @if (selectedUsers().length > 0) {
     <div class="batch-actions">
       <span>已选择 {{ selectedUsers().length }} 个用户</span>
-      <button mat-button color="warn" (click)="batchAction('删除')">
+      <button mat-button color="warn" (click)="batchAction('删除')" disabled matTooltip="功能开发中，即将上线">
         <mat-icon>delete</mat-icon>
         批量删除
       </button>
-      <button mat-button (click)="batchAction('导出')">
+      <button mat-button (click)="batchAction('导出')" disabled matTooltip="功能开发中，即将上线">
         <mat-icon>download</mat-icon>
         批量导出
       </button>
@@ -225,7 +225,8 @@
               </button>
               <button
                 mat-icon-button
-                matTooltip="编辑"
+                matTooltip="编辑 — 功能开发中"
+                disabled
                 (click)="onEditUser(user)"
               >
                 <mat-icon>edit</mat-icon>

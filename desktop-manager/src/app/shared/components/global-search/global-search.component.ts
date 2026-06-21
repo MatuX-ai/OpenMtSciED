@@ -1,22 +1,27 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 
+import { AddToTutorialDialogService } from '../../../core/services/add-to-tutorial-dialog.service';
+import { LinkableResource } from '../../../core/services/tutorial-resource.service';
 import { TauriService } from '../../../core/services/tauri.service';
 
 interface SearchResult {
-  type: 'tutorial' | 'material' | 'project' | 'hardware';
+  type: 'tutorial' | 'material' | 'project' | 'hardware' | 'external';
   title: string;
   description?: string;
   source?: string;
   id?: number;
+  url?: string;
 }
 
 @Component({
@@ -24,9 +29,10 @@ interface SearchResult {
   standalone: true,
   imports: [
     CommonModule,
+    MatButtonModule,
+    MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule,
     MatListModule,
     FormsModule
   ],
@@ -35,13 +41,13 @@ interface SearchResult {
       <div class="search-header">
         <h2 mat-dialog-title>全局搜索</h2>
         <button mat-icon-button (click)="close()" class="close-btn">
-          <mat-icon>close</mat-icon>
+          <i class="ri-close-line"></i>
         </button>
       </div>
 
       <div class="search-input-wrapper">
         <mat-form-field appearance="outline" class="search-field">
-          <mat-icon matPrefix>search</mat-icon>
+          <i matPrefix class="ri-search-line search-prefix-icon"></i>
           <input
             matInput
             [(ngModel)]="searchQuery"
@@ -57,24 +63,35 @@ interface SearchResult {
           <h3 class="result-group-title">{{ group.typeLabel }}</h3>
           <mat-list>
             <mat-list-item *ngFor="let result of group.items" class="result-item">
-              <mat-icon matListItemIcon>{{ getResultIcon(result.type) }}</mat-icon>
-              <div matListItemTitle>{{ result.title }}</div>
-              <div matListItemLine class="result-description">{{ result.description }}</div>
-              <div matListItemLine class="result-source" *ngIf="result.source">
-                来源: {{ result.source }}
+              <div class="result-main" (click)="openResult(result)">
+                <i matListItemIcon [class]="getResultIcon(result.type)"></i>
+                <div matListItemTitle>{{ result.title }}</div>
+                <div matListItemLine class="result-description">{{ result.description }}</div>
+                <div matListItemLine class="result-source" *ngIf="result.source">
+                  来源: {{ result.source }}
+                </div>
               </div>
+              <button
+                mat-stroked-button
+                color="primary"
+                class="add-btn"
+                type="button"
+                (click)="addToTutorial($event, result)"
+              >
+                加入教程
+              </button>
             </mat-list-item>
           </mat-list>
         </div>
       </div>
 
       <div class="no-results" *ngIf="searchQuery && results.length === 0 && !loading">
-        <mat-icon>search_off</mat-icon>
+        <i class="ri-file-search-line"></i>
         <p>未找到相关结果</p>
       </div>
 
       <div class="loading" *ngIf="loading">
-        <mat-icon class="spin">refresh</mat-icon>
+        <i class="ri-loop-right-line spin"></i>
         <p>搜索中...</p>
       </div>
 
@@ -104,6 +121,10 @@ interface SearchResult {
     .close-btn {
       width: 32px;
       height: 32px;
+
+      i[class^="ri-"] {
+        font-size: 20px;
+      }
     }
 
     .search-input-wrapper {
@@ -112,6 +133,12 @@ interface SearchResult {
 
     .search-field {
       width: 100%;
+    }
+
+    .search-prefix-icon {
+      font-size: 20px;
+      color: var(--text-secondary, #666);
+      margin-right: 8px;
     }
 
     .search-results {
@@ -128,13 +155,33 @@ interface SearchResult {
     }
 
     .result-item {
-      cursor: pointer;
       border-radius: 8px;
       margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      height: auto !important;
+      min-height: 72px;
+
+      i[class^="ri-"] {
+        font-size: 22px;
+        color: var(--primary-color, #1976d2);
+      }
     }
 
-    .result-item:hover {
-      background: var(--hover-bg, rgba(0, 0, 0, 0.04));
+    .result-main {
+      flex: 1;
+      cursor: pointer;
+      min-width: 0;
+    }
+
+    .result-main:hover {
+      opacity: 0.85;
+    }
+
+    .add-btn {
+      flex-shrink: 0;
+      font-size: 12px;
     }
 
     .result-description {
@@ -151,13 +198,12 @@ interface SearchResult {
       text-align: center;
       padding: 32px 0;
       color: var(--text-secondary, #666);
-    }
 
-    .no-results mat-icon, .loading mat-icon {
-      font-size: 48px;
-      width: 48px;
-      height: 48px;
-      margin-bottom: 16px;
+      i[class^="ri-"] {
+        font-size: 48px;
+        margin-bottom: 16px;
+        display: inline-block;
+      }
     }
 
     .loading .spin {
@@ -184,7 +230,9 @@ export class GlobalSearchComponent implements OnInit, OnDestroy {
 
   constructor(
     private dialogRef: MatDialogRef<GlobalSearchComponent>,
-    private tauriService: TauriService
+    private tauriService: TauriService,
+    private router: Router,
+    private addToTutorialDialog: AddToTutorialDialogService
   ) {}
 
   ngOnInit(): void {
@@ -235,11 +283,13 @@ export class GlobalSearchComponent implements OnInit, OnDestroy {
       title: item.title || item.name,
       description: item.description || item.summary,
       source: item.source || '本地',
-      id: item.id
+      id: item.id,
+      url: item.url || item.link,
     }));
   }
 
   determineType(item: any): SearchResult['type'] {
+    if (item.url || item.link) return 'external';
     if (item.type === 'tutorial' || item.course_type) return 'tutorial';
     if (item.type === 'material' || item.material_type) return 'material';
     if (item.type === 'project') return 'project';
@@ -248,11 +298,12 @@ export class GlobalSearchComponent implements OnInit, OnDestroy {
   }
 
   getResultIcon(type: SearchResult['type']): string {
-    const iconMap = {
-      tutorial: 'menu_book',
-      material: 'library_books',
-      project: 'folder_special',
-      hardware: 'memory'
+    const iconMap: Record<SearchResult['type'], string> = {
+      tutorial: 'ri-book-2-line',
+      material: 'ri-book-shelf-line',
+      project: 'ri-folder-shield-2-line',
+      hardware: 'ri-cpu-line',
+      external: 'ri-links-line',
     };
     return iconMap[type];
   }
@@ -262,17 +313,68 @@ export class GlobalSearchComponent implements OnInit, OnDestroy {
       tutorial: { typeLabel: '教程', items: [] },
       material: { typeLabel: '课件', items: [] },
       project: { typeLabel: '项目', items: [] },
-      hardware: { typeLabel: '硬件', items: [] }
+      hardware: { typeLabel: '硬件', items: [] },
+      external: { typeLabel: '全网资源', items: [] },
     };
 
     this.results.forEach(result => {
-      groups[result.type].items.push(result);
+      groups[result.type]?.items.push(result);
     });
 
     return Object.values(groups).filter(g => g.items.length > 0);
   }
 
+  addToTutorial(event: Event, result: SearchResult): void {
+    event.stopPropagation();
+    const resource = this.toLinkableResource(result);
+    this.addToTutorialDialog.open(resource).subscribe();
+  }
+
+  private toLinkableResource(result: SearchResult): LinkableResource {
+    const typeMap: Record<SearchResult['type'], LinkableResource['type']> = {
+      tutorial: 'tutorial',
+      material: 'material',
+      project: 'external',
+      hardware: 'hardware',
+      external: 'external',
+    };
+    return {
+      title: result.title,
+      description: result.description,
+      source: result.source,
+      url: result.url,
+      type: typeMap[result.type],
+      id: result.id,
+    };
+  }
+
   close(): void {
     this.dialogRef.close();
+  }
+
+  openResult(result: SearchResult): void {
+    this.dialogRef.close();
+    switch (result.type) {
+      case 'tutorial':
+        void this.router.navigate(['/resource-explorer'], {
+          queryParams: { search: result.title, type: 'tutorial' },
+        });
+        break;
+      case 'material':
+        void this.router.navigate(['/resource-explorer'], {
+          queryParams: { search: result.title, type: 'material' },
+        });
+        break;
+      case 'hardware':
+        void this.router.navigate(['/hardware-projects'], {
+          queryParams: { search: result.title },
+        });
+        break;
+      case 'project':
+        void this.router.navigate(['/my-projects'], {
+          queryParams: { search: result.title },
+        });
+        break;
+    }
   }
 }

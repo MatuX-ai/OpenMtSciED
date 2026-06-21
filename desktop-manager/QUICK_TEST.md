@@ -22,29 +22,26 @@ cd g:\iMato\desktop-manager
   - [ ] 必填字段验证工作
   - [ ] 可以提交表单
 
-#### ✅ 测试教程库
-- **URL**: `http://localhost:4200/course-library`
+#### ✅ 测试统一资源库
+- **URL**: `http://localhost:4200/resource-explorer`
+- **旧路由兼容**（应自动重定向）:
+  - `/tutorial-library` → `/resource-explorer?type=tutorial`
+  - `/material-library?search=foo` → `/resource-explorer?search=foo&type=material`
+  - `/resource-browser` → `/resource-explorer`
 - **测试点**:
-  - [ ] 页面正常加载
-  - [ ] 显示课程列表或空状态
-  - [ ] "新建课程"按钮可点击
-  - [ ] 创建课程对话框正常打开
-  - [ ] 可以填写并提交表单
-  - [ ] 新课程出现在列表中
-  - [ ] 可以编辑课程
-  - [ ] 可以删除课程
+  - [ ] 左侧资源树与搜索框正常
+  - [ ] 新建教程按钮可点击
+  - [ ] 选中节点后右侧详情面板更新
+  - [ ] 旧书签 URL 重定向后 query 参数保留
 
-#### ✅ 测试课件库
-- **URL**: `http://localhost:4200/material-library`
+#### ✅ 测试知识图谱（三 Tab）
+- **URL**: `http://localhost:4200/knowledge-graph`
+- **旧路由兼容**:
+  - `/path-visualization` → `/knowledge-graph?tab=path`
+  - `/search-map` → `/knowledge-graph?tab=search`
 - **测试点**:
-  - [ ] 页面正常加载
-  - [ ] 显示课件列表或空状态
-  - [ ] 课程筛选器工作
-  - [ ] "上传课件"按钮可点击
-  - [ ] 上传对话框正常打开
-  - [ ] 可以选择文件
-  - [ ] 可以提交上传
-  - [ ] 可以删除课件
+  - [ ] 「学习路径图谱」「个性化路径」「知识点搜索」三个 Tab 可切换
+  - [ ] 节点点击跳转到统一资源库或硬件项目
 
 ---
 
@@ -64,19 +61,16 @@ cd g:\iMato\desktop-manager
    □ 表单验证
    □ 提交按钮
    
-✅ 课程管理
-   □ 查看课程列表
-   □ 创建新课程
-   □ 编辑现有课程
-   □ 删除课程
-   □ 错误处理
-   
-✅ 课件管理
-   □ 查看课件列表
-   □ 按课程筛选
-   □ 上传课件
-   □ 删除课件
-   □ 文件信息显示
+✅ 统一资源库 (/resource-explorer)
+   □ 资源树展开与搜索
+   □ 新建/编辑/删除本地教程
+   □ 旧路由重定向（tutorial-library、material-library、resource-browser）
+
+✅ 知识图谱 (/knowledge-graph)
+   □ 三 Tab 切换
+   □ 个性化路径生成
+   □ 知识点搜索
+   □ 旧路由重定向（path-visualization、search-map）
 ```
 
 ### Tauri 桌面应用测试
@@ -152,15 +146,17 @@ npm install puppeteer --save-dev
 ### 运行自动化测试
 
 ```bash
+node run-tests.js
+# 或
 node e2e-test.js
 ```
 
-这将自动执行以下测试：
-1. 应用加载测试
-2. 初始化向导表单测试
-3. 教程库页面测试
-4. 课件库页面测试
-5. 创建课程流程测试
+自动化测试覆盖：
+1. 应用加载与登录页布局
+2. 初始化向导表单
+3. 统一资源库与旧路由重定向
+4. 知识图谱三 Tab 与可视化旧路由重定向
+5. 新建教程流程
 
 ---
 
@@ -180,14 +176,11 @@ node e2e-test.js
 |------|--------|------|------|
 | Setup Wizard | 页面加载 | □ | |
 | Setup Wizard | 表单验证 | □ | |
-| Course Library | 页面加载 | □ | |
-| Course Library | 创建课程 | □ | |
-| Course Library | 编辑课程 | □ | |
-| Course Library | 删除课程 | □ | |
-| Material Library | 页面加载 | □ | |
-| Material Library | 上传课件 | □ | |
-| Material Library | 删除课件 | □ | |
-| Material Library | 课程筛选 | □ | |
+| Resource Explorer | 页面加载 | □ | `/resource-explorer` |
+| Resource Explorer | 旧路由重定向 | □ | |
+| Resource Explorer | 新建教程 | □ | |
+| Knowledge Graph | 三 Tab | □ | |
+| Knowledge Graph | 旧路由重定向 | □ | |
 
 ### 发现的问题
 

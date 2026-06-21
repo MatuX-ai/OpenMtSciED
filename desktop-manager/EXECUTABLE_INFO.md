@@ -97,8 +97,9 @@ cd G:\iMato\desktop-manager\src-tauri\target\release
 2. **导航栏**: 左侧显示 matu-logo.png
 3. **页面路由**:
    - `/setup-wizard` - 初始化向导
-   - `/course-library` - 教程库
-   - `/material-library` - 课件库
+   - `/resource-explorer` - 统一资源库（教程 + 课件）
+   - `/knowledge-graph` - 知识图谱（含个性化路径与知识点搜索）
+   - 旧路由 `/tutorial-library`、`/material-library`、`/resource-browser` 会自动重定向
 4. **功能测试**:
    - 创建课程
    - 上传课件
